@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
-  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd">
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY predislovie SYSTEM "predislovie.docbook">
+]>
 
 <book id="ladygina-kohts-infant-chimpanzee-and-human-child" lang="ru">
 <title>Дитя шимпанзе и дитя человека</title>
@@ -25,14 +27,7 @@
 <title>Пролог</title>
 </preface>
 
-<preface id="predislovie">
-<title>Предисловие</title>
-<para>
-В основу настоящего исследования положены мои личные наблюдения (произведенные в 1913 &mdash; 1916 гг.)
-над 1,5 &mdash; 4-годовалым самцом шимпанзе (Иони) и над моим собственным сыном (Руди),
-сделанные в 1925&mdash;1929 гг., за период времени от дня его рождения до 4-летнего возраста.
-</para>
-</preface>
+<preface id="predislovie"><title>Предисловие</title>&predislovie;</preface>
 
 <preface id="vvedenie">
 <title>Введение</title>
