@@ -6,6 +6,7 @@
 
   <!ENTITY predislovie SYSTEM "predislovie.docbook">
   <!ENTITY vvedenie SYSTEM "vvedenie.docbook">
+  <!ENTITY c1_1_1 SYSTEM "c1_1_1.docbook">
 ]>
 
 <book id="ladygina-kohts-infant-chimpanzee-and-human-child" lang="ru">
@@ -28,6 +29,18 @@
 
 <preface id="prolog">
 <title>Пролог</title>
+<figure id="ioni">
+  <title>Иони</title>
+  <mediaobject><imageobject>
+    <imagedata fileref="images/ioni.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+<figure id="rudy">
+  <title>Руди</title>
+  <mediaobject><imageobject>
+    <imagedata fileref="images/rudy.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 </preface>
 
 <preface id="predislovie"><title>Предисловие</title>&predislovie;</preface>
@@ -41,7 +54,7 @@
 <part id="p1"><title>Поведение дитяти шимпанзе (описательная часть)</title>
 
 <chapter id="c1_1"><title>Описание внешнего облика шимпанзе</title>
-<sect1 id="c1_1_1" label="а"><title>Лицо шимпанзе в статике</title></sect1>
+<sect1 id="c1_1_1" label="а"><title>Лицо шимпанзе в статике</title>&c1_1_1;</sect1>
 <sect1 id="c1_1_2" label="б"><title>Руки шимпанзе</title></sect1>
 <sect1 id="c1_1_3" label="в"><title>Ноги шимпанзе</title></sect1>
 <sect1 id="c1_1_4" label="г"><title>Тело шимпанзе в статике</title></sect1>
