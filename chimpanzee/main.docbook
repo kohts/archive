@@ -4,6 +4,7 @@
   "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
   <!ENTITY liniya "&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;">
 
+  <!ENTITY prolog SYSTEM "prolog.docbook">
   <!ENTITY predislovie SYSTEM "predislovie.docbook">
   <!ENTITY vvedenie SYSTEM "vvedenie.docbook">
   <!ENTITY c1_1_1 SYSTEM "c1_1_1.docbook">
@@ -27,22 +28,7 @@
 <para>Посвящается Дарвиновскому музею (1905 &mdash; 1935) и коллективу его преданных сотрудников</para>
 </dedication>
 
-<preface id="prolog">
-<title>Пролог</title>
-<figure id="ioni">
-  <title>Иони</title>
-  <mediaobject><imageobject>
-    <imagedata fileref="images/ioni.jpg" /></imageobject>
-  </mediaobject>
-</figure>
-<figure id="rudy">
-  <title>Руди</title>
-  <mediaobject><imageobject>
-    <imagedata fileref="images/rudy.jpg" /></imageobject>
-  </mediaobject>
-</figure>
-</preface>
-
+<preface id="prolog"><title>Пролог</title>&prolog;</preface>
 <preface id="predislovie"><title>Предисловие</title>&predislovie;</preface>
 
 <preface id="vvedenie"><title>Введение</title>
