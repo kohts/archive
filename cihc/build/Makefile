@@ -27,6 +27,7 @@ fo: docbook-fo.xsl
 	cd ${DOCBOOK_BASE} && xsltproc -o ${FO_BASE}/index.fo ${PWD}/docbook-fo.xsl ${MASTER}
 
 pdf:
+	cd ${FONTS_BASE} && ln -s ../images
 	cd ${FONTS_BASE} && fop -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
 
 clean-html:
