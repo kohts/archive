@@ -73,16 +73,16 @@
 &liniya;
 </literallayout></emphasis></para>
 
-<figure id="ioni">
+<figure id="joni">
   <title>Иони</title>
   <mediaobject><imageobject>
-    <imagedata fileref="images/ioni.jpg" /></imageobject>
+    <imagedata fileref="images/joni-display.jpg" /></imageobject>
   </mediaobject>
 </figure>
 
 <figure id="rudy">
   <title>Руди</title>
   <mediaobject><imageobject>
-    <imagedata fileref="images/rudy.jpg" /></imageobject>
+    <imagedata fileref="images/rudy-display.jpg" /></imageobject>
   </mediaobject>
 </figure>
