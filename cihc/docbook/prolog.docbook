@@ -73,16 +73,32 @@
 &liniya;
 </literallayout></emphasis></para>
 
+<?page-break?>
 <figure id="joni">
   <title>Иони</title>
-  <mediaobject><imageobject>
-    <imagedata fileref="images/joni-display.jpg" /></imageobject>
+  <mediaobject>
+    <imageobject role="html"><imagedata fileref="images/html/joni.jpg" /></imageobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/joni.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject>
+    <textobject role="html">
+      <ulink role="html" url="images/hires/joni.jpg">в большем разрешении</ulink>
+    </textobject>
+	<textobject role="fo"></textobject>
   </mediaobject>
 </figure>
 
+<?page-break?>
 <figure id="rudy">
   <title>Руди</title>
-  <mediaobject><imageobject>
-    <imagedata fileref="images/rudy-display.jpg" /></imageobject>
+  <mediaobject>
+    <imageobject role="html"><imagedata fileref="images/html/rudy.jpg" /></imageobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/rudy.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject>
+    <textobject role="html">
+      <ulink role="html" url="images/hires/rudy.jpg">в большем разрешении</ulink>
+    </textobject>
+	<textobject role="fo"></textobject>
   </mediaobject>
 </figure>
