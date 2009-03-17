@@ -8,6 +8,7 @@
   <!ENTITY predislovie SYSTEM "predislovie.docbook">
   <!ENTITY vvedenie SYSTEM "vvedenie.docbook">
   <!ENTITY c1_1_1 SYSTEM "c1_1_1.docbook">
+  <!ENTITY photoplates SYSTEM "photoplates.docbook">
 ]>
 
 <book id="ladygina-kohts-infant-chimpanzee-and-human-child" lang="ru">
@@ -75,6 +76,7 @@
 </chapter>        
 
 <chapter id="c1_5"><title>Предусмотрительное поведение шимпанзе (обман, хитрость)</title>
+текст главы 5
 </chapter>
 
 <chapter id="c1_6"><title>Употребление орудий</title>
@@ -143,28 +145,27 @@
 
 
 <part id="p3"><title>Биопсхихологические черты сходства и различия в поведении дитяти человека и дитяти шимпанзе (синтетическая часть)</title>
-
-<chapter id="c3_1"><title>Черты сходства</title>
-</chapter>
-
-<chapter id="c3_2"><title>Черты различия</title>
-</chapter>
-
+<chapter id="c3_1"><title>Черты сходства</title></chapter>
+<chapter id="c3_2"><title>Черты различия</title></chapter>
 </part>
 
-<appendix id="appendix1"><title>Заключение</title>
-<section id="zaklyuchenie"><title>Заключение</title>
-</section>
-</appendix>
+<part id="zaklyuchenie"><title>Заключение</title>
+текст заключения
+</part>
+<part id="comparison_table"><title>Таблица, суммирующая черты сходства и различия в поведении человека и шимпанзе</title>
+</part>
+<part id="photos_list"><title>Фототаблицы</title>
+<chapter>
+&photoplates;
+</chapter>
+</part>
 
-<appendix id="appendix2"><title>Приложения</title>
-<section id="comparison_table"><title>Таблица, суммирующая черты сходства и различия в поведении человека и шимпанзе</title>
-</section>
-<section id="photos"><title>Перечень фотоиллюстраций и рисунков</title>
-</section>
+<appendix><title>Приложения</title>
 <section id="resume_eng"><title>Resume работы на английском языке</title>
 </section>
-<section id="photos_eng"><title>Перечень иллюстраций на английском языке</title>
+<section id="photos_eng"><title>Photo plates</title>
+</section>
+<section id="rtable_eng"><title>List of hatched drwaings and sketches</title>
 </section>
 </appendix>
 

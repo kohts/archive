@@ -1,0 +1,13 @@
+<example id="table1">
+  <title>Тайтл</title>
+  <mediaobject>
+    <imageobject role="html"><imagedata fileref="images/html/rudy.jpg" /></imageobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/rudy.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject>
+    <textobject role="html">
+      <ulink role="html" url="images/hires/rudy.jpg">в большем разрешении</ulink>
+    </textobject>
+	<textobject role="fo"></textobject>
+  </mediaobject>
+</example>
