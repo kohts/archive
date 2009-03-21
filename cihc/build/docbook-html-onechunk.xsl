@@ -4,8 +4,26 @@
   <xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/html/onechunk.xsl"/>
 
 <xsl:template match="cihc_age">
-<xsl:if test="(@y) and (@y != '0')"><xsl:value-of select="@y"/> г. </xsl:if>
-<xsl:value-of select="@m"/> м.<xsl:if test="(@d) and (@d != '0')"><xsl:text> </xsl:text><xsl:value-of select="@d"/> д.</xsl:if>
+<xsl:if test="(@y) and (@y != '0')">
+  <xsl:value-of select="@y"/><xsl:text> </xsl:text>
+  <xsl:choose>
+    <xsl:when test="(../../@lang = 'en')">y.</xsl:when>
+    <xsl:otherwise>г.</xsl:otherwise>
+  </xsl:choose>
+  <xsl:text> </xsl:text>
+</xsl:if>
+<xsl:value-of select="@m"/><xsl:text> </xsl:text>
+<xsl:choose>
+  <xsl:when test="(../../@lang = 'en')">m.</xsl:when>
+  <xsl:otherwise>м.</xsl:otherwise>
+</xsl:choose>
+<xsl:if test="(@d) and (@d != '0')">
+  <xsl:text> </xsl:text><xsl:value-of select="@d"/><xsl:text> </xsl:text>
+  <xsl:choose>
+    <xsl:when test="(../../@lang = 'en')">d.</xsl:when>
+    <xsl:otherwise>д.</xsl:otherwise>
+  </xsl:choose>
+</xsl:if>
 </xsl:template>
   
   <xsl:param name="chunker.output.encoding" select="'utf-8'"/>

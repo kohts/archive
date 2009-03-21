@@ -211,7 +211,7 @@
 </part>
 
 <appendix><title>Приложения</title>
-<section id="summary_eng"><title>Resume работы на английском языке</title>&summary_eng;</section>
+<section id="summary_eng" lang="en"><title>Resume работы на английском языке</title>&summary_eng;</section>
 <section id="photos_eng"><title>Photo plates</title></section>
 <section id="rtable_eng"><title>List of hatched drwaings and sketches</title></section>
 </appendix>
