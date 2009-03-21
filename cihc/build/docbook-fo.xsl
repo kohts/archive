@@ -5,6 +5,11 @@
   >
 
   <xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/fo/docbook.xsl"/>
+
+<xsl:template match="cihc_age">
+<xsl:if test="(@y) and (@y != '0')"><xsl:value-of select="@y"/> г. </xsl:if>
+<xsl:value-of select="@m"/> м.<xsl:if test="(@d) and (@d != '0')"><xsl:text> </xsl:text><xsl:value-of select="@d"/> д.</xsl:if>
+</xsl:template>
   
   <xsl:param name="chunker.output.encoding" select="'utf-8'"/>
   <xsl:param name="base.dir">fo/</xsl:param>
