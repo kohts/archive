@@ -75,7 +75,7 @@
 
 <?page-break?>
 <figure id="joni">
-  <title>Иони</title>
+  <title>Мой шимпанзе Иони</title>
   <mediaobject>
     <imageobject role="html"><imagedata fileref="images/html/joni.jpg" /></imageobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/joni.jpg" /></imageobject>
@@ -90,7 +90,7 @@
 
 <?page-break?>
 <figure id="rudy">
-  <title>Руди</title>
+  <title>Мой сын Руди</title>
   <mediaobject>
     <imageobject role="html"><imagedata fileref="images/html/rudy.jpg" /></imageobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/rudy.jpg" /></imageobject>

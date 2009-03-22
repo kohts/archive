@@ -71,10 +71,11 @@
   <!ENTITY c3_2 SYSTEM "c3_2.docbook">
   <!ENTITY zaklyuchenie SYSTEM "zakl.docbook">
   <!ENTITY summary_eng SYSTEM "summary.docbook">
- <!ENTITY photoplates SYSTEM "photoplates.docbook">
+  <!ENTITY photoplates SYSTEM "photoplates.docbook">
 ]>
 
 <book id="ladygina-kohts-infant-chimpanzee-and-human-child" lang="ru">
+
 <title>Дитя шимпанзе и дитя человека</title>
 <subtitle>в их инстинктах, эмоциях, играх, привычках и выразительных движениях</subtitle>
 <titleabbrev>Дитя шимпанзе и дитя человека</titleabbrev>

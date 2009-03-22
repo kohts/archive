@@ -1,4 +1,4 @@
-﻿<formalpara>
+<formalpara>
 <emphasis role="bold">1. Ходьба.</emphasis> Стоя в этой позе, шимпанзе иногда пытается итти (<xref linkend="table4" />, рис. 3, 4), но он может переступить всего два-три шага, а потом теряет равновесие, шатается и вынужден опираться на руки, чтобы не упасть.
 </formalpara>
 
@@ -71,3 +71,25 @@
 <para>
 Сангвиничный, живой темперамент шимпанзе отражается не только в его неутомимой подвижности, но и в изменении выражения его лица.
 </para>
+
+<?page-break?>
+<figure id="tabler6">
+  <title>Стоячие позы шимпанзе</title>
+  <mediaobject>
+    <imageobject role="html"><imagedata fileref="images/html/tabler6.jpg" /></imageobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/tabler6.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject>
+    <textobject role="html">
+      <ulink role="html" url="images/hires/tabler6.jpg">в большем разрешении</ulink>
+	  <para><literallayout>Рис. 1. Приостановившийся находу, взволновавшийся шимпанзе.
+Рис. 2. Возбужденный шимпанзе, вставший в вертикальное положение.
+</literallayout></para>
+    </textobject>
+	<textobject role="fo">
+	  <para><literallayout>Рис. 1. Приостановившийся находу, взволновавшийся шимпанзе.
+Рис. 2. Возбужденный шимпанзе, вставший в вертикальное положение.
+</literallayout></para>
+</textobject>
+  </mediaobject>
+</figure>
