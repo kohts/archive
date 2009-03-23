@@ -25,6 +25,8 @@
   </xsl:choose>
 </xsl:if>
 </xsl:template>
+
+<xsl:template match="processing-instruction('br')"><br/></xsl:template>
   
   <xsl:param name="chunker.output.encoding" select="'utf-8'"/>
 

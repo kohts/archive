@@ -5,6 +5,12 @@
 
   <xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/html/chunk.xsl"/>
 
+<xsl:template match="para[@role='details']">
+  <p><font size="-1">
+    <xsl:apply-templates/>
+  </font></p>
+</xsl:template>
+
 <xsl:template match="cihc_age">
 <xsl:if test="(@y) and (@y != '0')">
   <xsl:value-of select="@y"/><xsl:text> </xsl:text>
@@ -27,6 +33,8 @@
   </xsl:choose>
 </xsl:if>
 </xsl:template>
+
+<xsl:template match="processing-instruction('br')"><br/></xsl:template>
 
   <xsl:param name="chunker.output.encoding" select="'utf-8'"/>
 <!--<xsl:param name="generate.toc">

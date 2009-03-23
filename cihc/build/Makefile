@@ -3,6 +3,8 @@ PWD := $(shell pwd)
 DOCBOOK_BASE = ${PWD}/../docbook
 DOCBOOK = ${DOCBOOK_BASE}/*.docbook
 MASTER = main.docbook
+MASTER_PRINT = main_print.docbook
+IMAGES_PRINT = ${DOCBOOK_BASE}/../images/pdf/*.jpg
 
 HTML_BASE = ${PWD}/../html
 HTML_CHUNKED_BASE = ${PWD}/../html-chunked
@@ -25,16 +27,16 @@ html-chunked: docbook-html-chunked.xsl $(DOCBOOK)
 	cd ${DOCBOOK_BASE} && xsltproc --stringparam 'base.dir' ${HTML_CHUNKED_BASE}/ ${PWD}/docbook-html-chunked.xsl ${MASTER}
 	touch html-chunked
 
-fo: docbook-fo.xsl $(DOCBOOK)
+fo: docbook-fo.xsl $(DOCBOOK) $(IMAGES_PRINT)
 	mkdir -p ${FO_BASE}
-	cd ${DOCBOOK_BASE} && xsltproc -o ${FO_BASE}/index.fo ${PWD}/docbook-fo.xsl ${MASTER}
+	cd ${DOCBOOK_BASE} && xsltproc -o ${FO_BASE}/index.fo ${PWD}/docbook-fo.xsl ${MASTER_PRINT}
 	touch fo
 
 pdf: fo ${FOP_BASE}/fop.xconf
 	cd ${FOP_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )
 	cd ${FOP_BASE} && \
-  export FOP_HYPHENATION_PATH=${FOP_BASE}/fop-hyph.jar && \
-  fop -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
+	export FOP_HYPHENATION_PATH=${FOP_BASE}/fop-hyph.jar && \
+	fop -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
 	touch pdf
 
 clean-all-html: clean-html clean-html-chunked

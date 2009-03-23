@@ -6,6 +6,16 @@
 
   <xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/fo/docbook.xsl"/>
 
+<xsl:param name="details_font_size">
+  <xsl:value-of select="$body.font.master * 0.8"/>
+  <xsl:text>pt</xsl:text>
+</xsl:param>
+<xsl:template match="para[@role='details']">
+  <fo:block font-size="{$details_font_size}">
+    <xsl:apply-templates/>
+  </fo:block>
+</xsl:template>
+
 <xsl:template match="cihc_age">
 <xsl:if test="(@y) and (@y != '0')">
   <xsl:value-of select="@y"/><xsl:text> </xsl:text>
@@ -28,6 +38,11 @@
   </xsl:choose>
 </xsl:if>
 </xsl:template>
+
+<xsl:template match="processing-instruction('br')"><fo:block/></xsl:template>
+<xsl:template match="processing-instruction('page-break')">
+  <fo:block break-after="page" />
+</xsl:template>
   
   <xsl:param name="chunker.output.encoding" select="'utf-8'"/>
   <xsl:param name="base.dir">fo/</xsl:param>
@@ -43,10 +58,6 @@
 book      toc,title,figure,table,example,equation
 </xsl:param>
 
-  <xsl:template match="processing-instruction('page-break')">
-    <fo:block break-after="page" />
-  </xsl:template>
-  
   <xsl:param name="use.role.for.mediaobject" select="1"></xsl:param>
 
   <xsl:param name="local.l10n.xml" select="document('')"/>
