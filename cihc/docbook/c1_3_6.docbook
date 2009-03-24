@@ -7,14 +7,14 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler10.jpg">в большем разрешении</ulink>
-	  <para><literallayout>Рис. 1. Валяющийся, играющий шимпанзе.
-Рис. 2, 3. Спящий шимпанзе.
-</literallayout></para>
+	  <para>Рис. 1. Валяющийся, играющий шимпанзе.<?br?>
+Рис. 2, 3. Спящий шимпанзе.<?br?>
+</para>
     </textobject>
 	<textobject role="fo">
-	  <para><literallayout>Рис. 1. Валяющийся, играющий шимпанзе.
-Рис. 2, 3. Спящий шимпанзе.
-</literallayout></para>
+	  <para>Рис. 1. Валяющийся, играющий шимпанзе.<?br?>
+Рис. 2, 3. Спящий шимпанзе.<?br?>
+</para>
 </textobject>
   </mediaobject>
 </figure>

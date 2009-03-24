@@ -2,13 +2,13 @@
 В одном пункте есть огромное различие у шимпанзе и у ребенка человека: в то время как шимпанзе дает нам стереотипные условные рефлексы, которые заранее мы можем учесть и которые построены на его прошлом опыте, дитя человека зачастую удивляет нас новой условно-рефлекторной реакцией, вскрывающей нам, что в канву этих механических связей незаметно и независимо от нас внедряется истинное осмышление явлений, подлинная работа мысли самого ребенка. Это в особенности относится к слухо-двигательным и речевым условным рефлексам. Совершенно неожиданно для нас обнаружилось, что Руди (<cihc_age y="1" m="6" d="1" />—<cihc_age y="1" m="6" d="26" />) запомнил собственные имена и отчества всех своих домашних и правильно мог их замещать — например: 
 </para>
 
-<para><literallayout>
-На вопрос, кто это — Александр Федорович, он отвечает: — <quote>Папа</quote>.
-Надежда Николаевна? — <quote>Мама</quote>.
-Евгения Александровна? — <quote>Бабушка</quote>.
-Филипп Евтихиевич? — <quote>Дядя</quote>.
-Лена? — <quote>Няня</quote>.
-</literallayout></para>
+<para>
+На вопрос, кто это — Александр Федорович, он отвечает: — <quote>Папа</quote>.<?br?>
+Надежда Николаевна? — <quote>Мама</quote>.<?br?>
+Евгения Александровна? — <quote>Бабушка</quote>.<?br?>
+Филипп Евтихиевич? — <quote>Дядя</quote>.<?br?>
+Лена? — <quote>Няня</quote>.<?br?>
+</para>
 
 <para>
 <quote>Einliebes Kind hat viele Namen</quote>, — в отношении нашего мальчика это было реализовано в действительности; и вот оказалось, что дитя (в возрасте <cihc_age y="1" m="8" d="7" />) усвоило, кто и как его зовет. 
@@ -18,12 +18,12 @@
 На вопрос, кто тебя зовет <quote>Альфик</quote>, — он отвечает: <quote>Мама</quote>.
 </para>
 
-<para><literallayout>
-<quote>Рудочек?</quote> — <quote>Дядя, няня</quote>.
-<quote>Апа?</quote> — <quote>Папа</quote>.
-<quote>Люлинька?</quote> — <quote>Бабушка</quote>.
-<quote>Мальтиска (мальчишка)?</quote> — <quote>Гага</quote> (техническая служащая). 
-</literallayout></para>
+<para>
+<quote>Рудочек?</quote> — <quote>Дядя, няня</quote>.<?br?>
+<quote>Апа?</quote> — <quote>Папа</quote>.<?br?>
+<quote>Люлинька?</quote> — <quote>Бабушка</quote>.<?br?>
+<quote>Мальтиска (мальчишка)?</quote> — <quote>Гага</quote> (техническая служащая).<?br?>
+</para>
 
 <para>
 Шимпанзе Иони определенно знал только мое имя, и стоило кому, либо в моем отсутствии произнести его, он издавал радостное похрюкивание; на имена других домашних Иони никак не реагировал. 
@@ -49,68 +49,89 @@
 Дитя все больше и больше стремится к обогащению словами; в возрасте <cihc_age y="1" m="8" d="30" /> Руди, выбирая свои игрушечки из комода, настойчиво повторно говорит: <quote>бу?</quote>, пока не назовешь игрушечку, назовешь — он скажет: <quote>да</quote>, а потом отшвыривает от себя предмет и требует называния вновь и вновь вынимаемых вещей; иногда он спрашивает название даже тех предметов, которые сам заведомо умеет называть; просишь его об этом, и он сам говорит то настоящее, то извращенное, то свое условное название вещи, например: 
 </para>
 
-<para><literallayout>
-Предмет: гусь Руди называет <quote>Гага</quote>
-Предмет: мяч называет <quote>бам</quote>
-Предмет: труба Руди называет <quote>дуду</quote>
-Предмет: колокольчик Руди называет <quote>дэнь</quote>, или <quote>динь</quote>
-Предмет: карандаш Руди называет <quote>будя-будя</quote><footnote><para>
+<table frame='none'>
+<title>Названия предметов ребенком в возрасте <cihc_age y="1" m="8" d="30" /></title>
+<tgroup cols='2' align='left' colsep='1' rowsep='1'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<thead>
+<row><entry>Предмет</entry><entry>Руди называет</entry></row>
+</thead>
+<tbody>
+<row><entry>гусь</entry><entry><quote>Гага</quote></entry></row>
+<row><entry>мяч</entry><entry><quote>бам</quote></entry></row>
+<row><entry>труба</entry><entry><quote>дуду</quote></entry></row>
+<row><entry>колокольчик</entry><entry><quote>дэнь</quote>, или <quote>динь</quote></entry></row>
+<row><entry>карандаш</entry><entry><quote>буд&#1103;&#768;-буд&#1103;&#768;</quote><footnote><para>
 Так же обозначает и процесс чтения.
-</para></footnote>
-Предмет: книги Руди называет <quote>будя-будя</quote>
-Предмет: палка Руди называет <quote>парака</quote>
-Предмет: барабан Руди называет <quote>бабара</quote>
-Предмет: все виды кукол Руди называет <quote>papa</quote> (по имени куклы <quote>Рива</quote>)
-Предмет: белки и зайцы Руди называет <quote>яй-яй</quote>
-Предмет: петух Руди называет <quote>а-а-а</quote> (певучим звуком, произнесенным нараспев — на мотив петушиного пенья)
-Предмет: тюленек Руди называет <quote>тюля</quote>
-Предмет: коровка Руди называет <quote>му</quote>
-Предмет: лошадь Руди называет <quote>но-но</quote>.
-</literallayout></para>
+</para></footnote></entry></row>
+<row><entry>книги</entry><entry><quote>буд&#1103;&#768;-буд&#1103;&#768;</quote></entry></row>
+<row><entry>палка</entry><entry><quote>парака</quote></entry></row>
+<row><entry>барабан</entry><entry><quote>бабара</quote></entry></row>
+<row><entry>все виды кукол</entry><entry><quote>papa</quote> (по имени куклы <quote>Рива</quote>)</entry></row>
+<row><entry>белки и зайцы</entry><entry><quote>яй-яй</quote></entry></row>
+<row><entry>петух</entry><entry><quote>а-а-а</quote> (певучим звуком, произнесенным нараспев — на мотив петушиного пенья)</entry></row>
+<row><entry>тюленек</entry><entry><quote>тюля</quote></entry></row>
+<row><entry>коровка</entry><entry><quote>му</quote></entry></row>
+<row><entry>лошадь</entry><entry><quote>но-но</quote></entry></row>
+</tbody>
+</tgroup>
+</table>
 
 <para>
 Примерно через полгода (в возрасте <cihc_age y="2" m="2" d="8" />) при аналогичном разбирании вещей Руди называет сам вынимаемые вещи, иногда сопровождая свое обозначение кратким дополнительным высказыванием: 
 </para>
 
-<para><literallayout>
-1) <quote>обизяна</quote> — обезьяна
-2) <quote>кижечка</quote> — книга
-3) <quote>апина сётичка</quote> — апина щеточка (зубная щетка)
-4) <quote>нехарошая кижечка</quote> — книга без картин
-5) <quote>коститьки</quote> — косточки
-6) <quote>палитька</quote> — палочка
-7) <quote>путик</quote> — прутик
-8) <quote>это картитька мамы</quote> — моя фотографическая карточка
-9) <quote>это письмо</quote> — конверт (<quote>тетино Наташино</quote>, — добавляет Руди)
-10) <quote>картитьки</quote> — карточки
-11) <quote>мисюк</quote> — мишук (картинка)
-12) <quote>гоздик палязу</quote> — гвоздик положу
-13) <quote>бумаська</quote> — бумажка
-14) <quote>Сикалядина</quote> — шоколадина
-15) <quote>кабортина пустая</quote> — пустая коробка
-16) <quote>пакетик</quote> — конверт
-17) <quote>гоздик малюська</quote> — маленький гвоздик
-18) <quote>это дядя, дядюра</quote>, — карточка отца в возрасте 13 лет
-19) <quote>аляпан</quote> — рогулька
-20) <quote>парима апина</quote>— колесико от его пирамиды
-21) <quote>гуля питирял</quote>— <quote>голубь потерял</quote> — перышко птичье
-22) <quote>киндаль бошой</quote> — календарь большой
-23) <quote>скарупочка</quote> — скорлупочка
-24) <quote>тяпитька</quote> — тряпочка
-25) <quote>вилитька</quote> — вилочка
-26) <quote>кинолитька</quote> — клееночка
-27) <quote>нозитик</quote> — ножичек
-28) <quote>досетька</quote> — дощечка
-29) <quote>сида готов</quote> — коробочка с пионером на крышке, делающим жест приветствия: <quote>всегда, готов!</quote>
-30) <quote>пузиретик</quote> — пузыречек
-31) <quote>лекасто</quote> — пузырек с лекарством
-32) <quote>парашок</quote> — зубной порошок
-33) <quote>обе</quote> — две одинаковые коробки
-34) <quote>боситька</quote> — брошка
-35) <quote>буси</quote> — бусы
-36) <quote>киститька</quote> —кисточка
-37) <quote>басия бусы</quote> — длинные бусы (<quote>супились</quote>, т. е. спускаются длинно, когда берешь в руки). 
-</literallayout></para>
+<table frame='none'>
+<title>Названия предметов ребенком в возрасте <cihc_age y="2" m="2" d="8" /></title>
+<tgroup cols='3' align='left' colsep='1' rowsep='1'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<colspec colname='c3'/>
+<thead>
+<row><entry></entry><entry>Предмет</entry><entry>Руди называет</entry></row>
+</thead>
+<tbody>
+<row><entry>1)</entry><entry><quote>обизяна</quote></entry><entry>обезьяна</entry></row>
+<row><entry>2)</entry><entry><quote>кижечка</quote></entry><entry>книга</entry></row>
+<row><entry>3)</entry><entry><quote>апина сётичка</quote></entry><entry>апина щеточка (зубная щетка)</entry></row>
+<row><entry>4)</entry><entry><quote>нехарошая кижечка</quote></entry><entry>книга без картин</entry></row>
+<row><entry>5)</entry><entry><quote>коститьки</quote></entry><entry>косточки</entry></row>
+<row><entry>6)</entry><entry><quote>палитька</quote></entry><entry>палочка</entry></row>
+<row><entry>7)</entry><entry><quote>путик</quote></entry><entry>прутик</entry></row>
+<row><entry>8)</entry><entry><quote>это картитька мамы</quote></entry><entry>моя фотографическая карточка</entry></row>
+<row><entry>9)</entry><entry><quote>это письмо</quote></entry><entry>конверт (<quote>тетино Наташино</quote>, &mdash; добавляет Руди)</entry></row>
+<row><entry>10)</entry><entry><quote>картитьки</quote></entry><entry>карточки</entry></row>
+<row><entry>11)</entry><entry><quote>мисюк</quote></entry><entry>мишук (картинка)</entry></row>
+<row><entry>12)</entry><entry><quote>гоздик палязу</quote></entry><entry>гвоздик положу</entry></row>
+<row><entry>13)</entry><entry><quote>бумаська</quote></entry><entry>бумажка</entry></row>
+<row><entry>14)</entry><entry><quote>Сикалядина</quote></entry><entry>шоколадина</entry></row>
+<row><entry>15)</entry><entry><quote>кабортина пустая</quote></entry><entry>пустая коробка</entry></row>
+<row><entry>16)</entry><entry><quote>пакетик</quote></entry><entry>конверт</entry></row>
+<row><entry>17)</entry><entry><quote>гоздик малюська</quote></entry><entry>маленький гвоздик</entry></row>
+<row><entry>18)</entry><entry><quote>это дядя, дядюра</quote>,</entry><entry>карточка отца в возрасте 13 лет</entry></row>
+<row><entry>19)</entry><entry><quote>аляпан</quote></entry><entry>рогулька</entry></row>
+<row><entry>20)</entry><entry><quote>парима апина</quote></entry><entry>колесико от его пирамиды</entry></row>
+<row><entry>21)</entry><entry><quote>гуля питирял</quote></entry><entry><quote>голубь потерял</quote> — перышко птичье</entry></row>
+<row><entry>22)</entry><entry><quote>киндаль бошой</quote></entry><entry>календарь большой</entry></row>
+<row><entry>23)</entry><entry><quote>скарупочка</quote></entry><entry>скорлупочка</entry></row>
+<row><entry>24)</entry><entry><quote>тяпитька</quote></entry><entry>тряпочка</entry></row>
+<row><entry>25)</entry><entry><quote>вилитька</quote></entry><entry>вилочка</entry></row>
+<row><entry>26)</entry><entry><quote>кинолитька</quote></entry><entry>клееночка</entry></row>
+<row><entry>27)</entry><entry><quote>нозитик</quote></entry><entry>ножичек</entry></row>
+<row><entry>28)</entry><entry><quote>досетька</quote></entry><entry>дощечка</entry></row>
+<row><entry>29)</entry><entry><quote>сида готов</quote></entry><entry>коробочка с пионером на крышке, делающим жест приветствия: <quote>всегда, готов!</quote></entry></row>
+<row><entry>30)</entry><entry><quote>пузиретик</quote></entry><entry>пузыречек</entry></row>
+<row><entry>31)</entry><entry><quote>лекасто</quote></entry><entry>пузырек с лекарством</entry></row>
+<row><entry>32)</entry><entry><quote>парашок</quote></entry><entry>зубной порошок</entry></row>
+<row><entry>33)</entry><entry><quote>обе</quote></entry><entry>две одинаковые коробки</entry></row>
+<row><entry>34)</entry><entry><quote>боситька</quote></entry><entry>брошка</entry></row>
+<row><entry>35)</entry><entry><quote>буси</quote></entry><entry>бусы</entry></row>
+<row><entry>36)</entry><entry><quote>киститька</quote></entry><entry>кисточка</entry></row>
+<row><entry>37)</entry><entry><quote>басия бусы</quote></entry><entry>длинные бусы (<quote>супились</quote>, т. е. спускаются длинно, когда берешь в руки). </entry></row>
+</tbody>
+</tgroup>
+</table>
 
 <para>
 Через месяц (<cihc_age y="2" m="3" d="0" />) при аналогичном разбирании Руди задает вопросы чуть ли не про каждую вещь. <quote>Как они ходят?</quote> — спрашивает он про кусочки коралла. <quote>А как надеть?</quote> — про брошь. <quote>Сто сделать щеточкой?</quote> — про щетку. <quote>Отчего пахнет?</quote> (слыша запах лекарства в пузырьке). <quote>Как мазять?</quote>, <quote>куда мазать?</quote>—спрашивает про краски. 
@@ -132,36 +153,47 @@
 В возрасте <cihc_age y="1" m="11" d="12" /> Руди обозначает правильно ряд картинок во вновь показанной книжечке (<quote>Моя книга</quote>, рисунки Комарова, изд. Мириманова, 1927). 
 </para>
 
-<para><literallayout>
-Показанная лошадь называется им <quote>ам</quote> (ребенок спутал лошадь с собакой)
-ребенок — <quote>катюра</quote> (генерализованное обозначение детей)
-собака — <quote>амура</quote> (производное ласкательное от <quote>ам</quote> — собака, собачка)
-жеребенок — <quote> гебель</quote>
-кость — <quote>кукуля</quote>
-птица — <quote>гагура</quote> (обозначение птиц <quote>гага</quote>, произведенное от слова гусь)
-кошка — <quote>кьсь</quote>
-мышка — <quote>мика</quote>
-коза — <quote>ту-тук</quote> (по стуку бодающих рогов)
-козленок — <quote>му</quote> (по реву)девочка — <quote>катюра</quote><footnote><para>
+<table frame='none'>
+<title>Названия картинок ребенком в возрасте <cihc_age y="1" m="11" d="12" /></title>
+<tgroup cols='2' align='left' colsep='1' rowsep='1'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<thead>
+<row><entry>Картинка</entry><entry>Руди называет</entry></row>
+</thead>
+<tbody>
+<row><entry>лошадь</entry><entry><quote>ам</quote> (ребенок спутал лошадь с собакой)</entry></row>
+<row><entry>ребенок</entry><entry><quote>катюра</quote> (генерализованное обозначение детей)</entry></row>
+<row><entry>собака</entry><entry><quote>амура</quote> (производное ласкательное от <quote>ам</quote> — собака, собачка)</entry></row>
+<row><entry>жеребенок</entry><entry><quote> гебель</quote></entry></row>
+<row><entry>кость</entry><entry><quote>кукуля</quote></entry></row>
+<row><entry>птица</entry><entry><quote>гагура</quote> (обозначение птиц <quote>гага</quote>, произведенное от слова гусь)</entry></row>
+<row><entry>кошка</entry><entry><quote>кьсь</quote></entry></row>
+<row><entry>мышка</entry><entry><quote>мика</quote></entry></row>
+<row><entry>коза</entry><entry><quote>ту-тук</quote> (по стуку бодающих рогов)</entry></row>
+<row><entry>козленок</entry><entry><quote>му</quote> (по реву)</entry></row>
+<row><entry>девочка</entry><entry><quote>катюра</quote><footnote><para>
 Так же называет ребенка.
-</para></footnote>
-собака — <quote>ам</quote>
-курица — <quote>аряба</quote> (от курочка ряба)
-цыплятки — <quote>ти-ти-ти</quote> (от призыва: цып, цып)
-утка — <quote>гага</quote> (обозначается, как гусь и птицы вообще)
-утята — <quote>ти-ти</quote><footnote><para>
+</para></footnote></entry></row>
+<row><entry>собака</entry><entry><quote>ам</quote></entry></row>
+<row><entry>курица</entry><entry><quote>аряба</quote> (от курочка ряба)</entry></row>
+<row><entry>цыплятки</entry><entry><quote>ти-ти-ти</quote> (от призыва: цып, цып)</entry></row>
+<row><entry>утка</entry><entry><quote>гага</quote> (обозначается, как гусь и птицы вообще)</entry></row>
+<row><entry>утята</entry><entry><quote>ти-ти</quote><footnote><para>
 Так же называет цыплят.
-</para></footnote>
-заяц — <quote>ляй</quote><footnote><para>
+</para></footnote></entry></row>
+<row><entry>заяц</entry><entry><quote>ляй</quote><footnote><para>
 Так же называет кролика, белку.
-</para></footnote>
-еж — <quote>муха</quote>, потом делает колющее движение рукой
-свинья — <quote>му</quote> (спутал с коровой)
-кролик — <quote>ляй</quote>
-морковь — <quote>муроп</quote>
-девушка — <quote>тетя</quote>
-гуси — <quote>гагуры</quote>.
-</literallayout></para>
+</para></footnote></entry></row>
+<row><entry>еж</entry><entry><quote>муха</quote>, потом делает колющее движение рукой</entry></row>
+<row><entry>свинья</entry><entry><quote>му</quote> (спутал с коровой)</entry></row>
+<row><entry>кролик</entry><entry><quote>ляй</quote></entry></row>
+<row><entry>морковь</entry><entry><quote>муроп</quote></entry></row>
+<row><entry>девушка</entry><entry><quote>тетя</quote></entry></row>
+<row><entry>гуси</entry><entry><quote>гагуры</quote></entry></row>
+</tbody>
+</tgroup>
+</table>
 
 <para>
 Через 7 месяцев мы застаем, как Руди (<cihc_age y="2" m="6" d="13" />) узнает по картинкам и называет 45 разных диких животных: 1) <quote>терный медведь</quote>, 2) <quote>лёсь</quote>, 3) <quote>лиситька</quote>, 4) <quote>вольк</quote>, 5) <quote>зальтик</quote>, 6) <quote>кунитя</quote>, 7) <quote>ёзик</quote>, 8) <quote>белька</quote>, 9)] <quote>тапля</quote>, 10) <quote>журафль</quote>, 11) <quote>шовотька</quote>, 12) <quote>тетерев</quote>, 13) <quote>зирафа</quote>, 14) <quote>белий медведь</quote>, 15) <quote>африканский сонь</quote>, 16) <quote>андейский сонь</quote>, 17) <quote>бегемот</quote>, 18) <quote>насарох</quote>, 19) <quote>гариля</quote>, 20) <quote>лёсь</quote>, 21) <quote>зубр</quote>, 22) <quote>бугль</quote>, 23) <quote>верблют</quote>, 24) <quote>морш</quote>, 25) <quote>тигр</quote>, 26) <quote>башая кошка</quote>, 27) <quote>райская птитька</quote>, 28) <quote>летутяя птитька</quote>, 29) <quote>зебра</quote>, 30) <quote>обизянка</quote>, 31) <quote>кеньгуру</quote>, 32) <quote>пупугай-ара</quote>, 33) <quote>муравет</quote>, 34) <quote>леф</quote>, 35) <quote>фажан</quote>, 36) <quote>ляг</quote>, 37) <quote>бижон</quote>, 38) <quote>лиситька-сестритька</quote>, 39) <quote>морские львы</quote>, 40) <quote>тур</quote> 41) <quote>кондор</quote>, 42) <quote>филин</quote>, 43) <quote>антилёпа</quote>, 44) <quote>северный алень</quote>, 45) <quote>белий куропатки</quote>
@@ -261,30 +293,30 @@
 В возрасте <cihc_age y="2" m="8" d="25" />, расставляя игрушечных зверей, Руди говорит непрерывно, не смущаясь многократным повторением сказуемых: 
 </para>
 
-<para><literallayout>
-Вышел тигр на охоту, а вибюд тоже пибижал на охоту
-а слон тоже пибижал на охоту
-а кисюра тоже пибижала на охоту
-а мишук белый тоже пибижал на охоту
-а лев тоже пибижал на охоту
-а тюля тоже пибижала на охоту
-а обизянка тоже пибижала на охоту
-а лошадка тоже пибижала на охоту
-а лисичка тоже пибижала на охоту
-а мишук тоже пибижал на охоту
-а коровушка-буренушка тоже пибижала на охоту
-а гусь тоже пибижал на охоту
-а оленек тоже пибижал на охоту
-</literallayout></para>
-
 <para>
-<quote>А тего это? — задумывается, взяв в руки бивень от игрушечного слоника, и сам себе отвечает: — от бошого сона</quote> (от большего слона). 
+Вышел тигр на охоту, а вибюд тоже пибижал на охоту<?br?>
+а слон тоже пибижал на охоту<?br?>
+а кисюра тоже пибижала на охоту<?br?>
+а мишук белый тоже пибижал на охоту<?br?>
+а лев тоже пибижал на охоту<?br?>
+а тюля тоже пибижала на охоту<?br?>
+а обизянка тоже пибижала на охоту<?br?>
+а лошадка тоже пибижала на охоту<?br?>
+а лисичка тоже пибижала на охоту<?br?>
+а мишук тоже пибижал на охоту<?br?>
+а коровушка-буренушка тоже пибижала на охоту<?br?>
+а гусь тоже пибижал на охоту<?br?>
+а оленек тоже пибижал на охоту<?br?>
 </para>
 
-<para><literallayout>
-а мишук терный тоже пибижал на охоту
-а козленок тоже пибижал на охоту
-</literallayout></para>
+<para>
+<quote>А тего это? — задумывается, взяв в руки бивень от игрушечного слоника, и сам себе отвечает: — от бошого сона</quote> (от большего слона).
+</para>
+
+<para>
+а мишук терный тоже пибижал на охоту<?br?>
+а козленок тоже пибижал на охоту<?br?>
+</para>
 
 <para>
 а совочка сидит и жмурится, смотрит, как пибижали на охоту. А зайчик тоже, а бобик и бобка (собаки) тоже (в это время роняет козленка и говорит: <quote>прости, козленотек</quote>; переставляет иначе зверей, говорит: <quote>и так и так</quote>) <quote>и гусь пибижал на охоту с мамой</quote> (двух гусят ставит рядом). <quote>Это отпилили</quote>, — говорит про одного из гусей, которому отпилили ножку, чтобы стоял; берет белку, говорит: <quote>любу белку</quote>, <quote>пусть тоже пибижит на охоту</quote> (прижимает к себе белку так крепко, что кряхтит от усилия). <quote>Слон (берет слона) на охотку и пибижал опять</quote>.
