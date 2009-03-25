@@ -200,21 +200,18 @@
 <part id="p3"><title>Биопсхихологические черты сходства и различия в поведении дитяти человека и дитяти шимпанзе (синтетическая часть)</title>
 <chapter id="c3_1"><title>Черты сходства</title>&c3_1;</chapter>
 <chapter id="c3_2"><title>Черты различия</title>&c3_2;</chapter>
-</part>
-
-<part id="zaklyuchenie"><title>Заключение</title>&zaklyuchenie;</part>
-<part id="comparison_table"><title>Таблица, суммирующая черты сходства и различия в поведении человека и шимпанзе</title></part>
-
-<part id="photos_list"><title>Фототаблицы</title>
-<chapter>
-&photoplates;
-</chapter>
+<chapter id="zaklyuchenie"><title>Заключение</title>&zaklyuchenie;</chapter>
 </part>
 
 <appendix><title>Приложения</title>
+  <section id="comparison_table"><title>Таблица, суммирующая черты сходства и различия в поведении человека и шимпанзе</title></section>
+  <section id="photos_list"><title>Фототаблицы</title>&photoplates;</section>
+</appendix>
+
+<appendix><title>Приложения на английском языке</title>
 <section id="summary_eng" lang="en"><title>Resume работы на английском языке</title>&summary_eng;</section>
 <section id="photos_eng"><title>Photo plates</title></section>
-<section id="rtable_eng"><title>List of hatched drwaings and sketches</title></section>
+<section id="rtable_eng"><title>List of hatched drawings and sketches</title></section>
 </appendix>
 
 </book>

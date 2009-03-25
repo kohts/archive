@@ -215,16 +215,13 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler14.jpg">в большем разрешении</ulink>
-	  <para>Рис. 1&mdash;9. Девять различных по форме, цвету, величине, материалу
-пуговиц, указываемых ребенком (10 мес.) на вопрос: <quote>где пуговица</quote>.<?br?>
-</para>
     </textobject>
-	<textobject role="fo">
-	  <para>Рис. 1&mdash;9. Девять различных по форме, цвету, величине, материалу
-пуговиц, указываемых ребенком (10 мес.) на вопрос: <quote>где пуговица</quote>.<?br?>
-</para>
-</textobject>
+	<textobject role="fo"></textobject>
   </mediaobject>
+<mediaobject><textobject><para>
+Рис. 1&mdash;9. Девять различных по форме, цвету, величине, материалу<?br?>
+пуговиц, указываемых ребенком (10 мес.) на вопрос: <quote>где пуговица</quote>.<?br?>
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -288,24 +285,17 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler15.jpg">в большем разрешении</ulink>
-	  <para>Рис. 1. Пузырек с рыбьим жиром.<?br?>
-Рис. 2. Кусок медицинской клеенки &mdash; <quote>жирок</quote> по определению Руди (<cihc_age y="2" m="11" d="16" />).<?br?>
-Рис. 3. Морковь.<?br?>
-Рис. 4. Оранжевая кегля &mdash; <quote>муроп</quote> (морковь) (<cihc_age y="1" m="11" d="14" />).<?br?>
-Рис. 5. Гиря от часов.<?br?>
-Рис. 6. Початок кукурузы &mdash; <quote>гиря</quote> (<cihc_age y="2" m="1" d="0" />).<?br?>
-</para>
     </textobject>
-	<textobject role="fo">
-	  <para>Рис. 1. Пузырек с рыбьим жиром.<?br?>
+	<textobject role="fo"></textobject>
+  </mediaobject>
+<mediaobject><textobject><para>
+Рис. 1. Пузырек с рыбьим жиром.<?br?>
 Рис. 2. Кусок медицинской клеенки &mdash; <quote>жирок</quote> по определению Руди (<cihc_age y="2" m="11" d="16" />).<?br?>
 Рис. 3. Морковь.<?br?>
 Рис. 4. Оранжевая кегля &mdash; <quote>муроп</quote> (морковь) (<cihc_age y="1" m="11" d="14" />).<?br?>
 Рис. 5. Гиря от часов.<?br?>
 Рис. 6. Початок кукурузы &mdash; <quote>гиря</quote> (<cihc_age y="2" m="1" d="0" />).<?br?>
-</para>
-</textobject>
-  </mediaobject>
+</para></textobject></mediaobject>
 </figure>
 
 <formalpara>
@@ -384,26 +374,18 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler16.jpg">в большем разрешении</ulink>
-	  <para>Рис. 1. Стружка &mdash; <quote>гх</quote> (аэроплан) по определению Руди (<cihc_age y="1" m="6" d="27" />).<?br?>
-Рис. 2. Пульверизатор &mdash; <quote>гх</quote> (<cihc_age y="1" m="8" d="16" />).<?br?>
-Рис. 3. Докторский молоточек &mdash; <quote>гх</quote> (<cihc_age y="1" m="10" d="15" />).<?br?>
-Рис. 4. Стержень от печатки &mdash; <quote>гх</quote> (<cihc_age y="1" m="11" d="24" />).<?br?>
-Рис. 5. Сломанный прутик &mdash; <quote>гх</quote> (<cihc_age y="1" m="11" d="24" />).<?br?>
-Рис. 6. Рисунок на скатерти (две взаимно перпендикулярные линии) &mdash; <quote>гх</quote> (<cihc_age y="2" m="2" d="1" />).<?br?>
-Рис. 7. Трамвайная дуга &mdash; <quote>гх</quote>, <quote>ляпан</quote> (<cihc_age y="2" m="2" d="1" />).<?br?>
-</para>
     </textobject>
-	<textobject role="fo">
-	  <para>Рис. 1. Стружка &mdash; <quote>гх</quote> (аэроплан) по определению Руди (<cihc_age y="1" m="6" d="27" />).<?br?>
+	<textobject role="fo"></textobject>
+  </mediaobject>
+<mediaobject><textobject><para>
+Рис. 1. Стружка &mdash; <quote>гх</quote> (аэроплан) по определению Руди (<cihc_age y="1" m="6" d="27" />).<?br?>
 Рис. 2. Пульверизатор &mdash; <quote>гх</quote> (<cihc_age y="1" m="8" d="16" />).<?br?>
 Рис. 3. Докторский молоточек &mdash; <quote>гх</quote> (<cihc_age y="1" m="10" d="15" />).<?br?>
 Рис. 4. Стержень от печатки &mdash; <quote>гх</quote> (<cihc_age y="1" m="11" d="24" />).<?br?>
 Рис. 5. Сломанный прутик &mdash; <quote>гх</quote> (<cihc_age y="1" m="11" d="24" />).<?br?>
 Рис. 6. Рисунок на скатерти (две взаимно перпендикулярные линии) &mdash; <quote>гх</quote> (<cihc_age y="2" m="2" d="1" />).<?br?>
 Рис. 7. Трамвайная дуга &mdash; <quote>гх</quote>, <quote>ляпан</quote> (<cihc_age y="2" m="2" d="1" />).<?br?>
-</para>
-</textobject>
-  </mediaobject>
+</para></textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -416,26 +398,18 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler17.jpg">в большем разрешении</ulink>
-	  <para>Рис. 1. Штанген-циркуль &mdash; <quote>гх</quote> по определению Руди (<cihc_age y="1" m="7" d="3" />).<?br?>
-Рис. 2. Веточка, согнутая под углом, &mdash; <quote>гх</quote> (<cihc_age y="1" m="8" d="14" />).<?br?>
-Рис. 3. Кусочек коралла &mdash; <quote>гх</quote> (<cihc_age y="1" m="11" d="24" />).<?br?>
-Рис. 4. Выжженные крестики &mdash; <quote>гх</quote> (<cihc_age y="1" m="8" d="27" />).<?br?>
-Рис. 5. Цифра <quote>4</quote> (метка на наволочке) &mdash; <quote>гх</quote> (<cihc_age y="1" m="8" d="0" />).<?br?>
-Рис. 6. Буравчик &mdash; <quote>гх</quote> (<cihc_age y="2" m="2" d="1" />).<?br?>
-Рис. 7. Летучка клёна &mdash; <quote>ляпан</quote> (<cihc_age y="2" m="2" d="4" />).<?br?>
-</para>
     </textobject>
-	<textobject role="fo">
-	  <para>Рис. 1. Штанген-циркуль &mdash; <quote>гх</quote> по определению Руди (<cihc_age y="1" m="7" d="3" />).<?br?>
+	<textobject role="fo"></textobject>
+  </mediaobject>
+<mediaobject><textobject><para>
+Рис. 1. Штанген-циркуль &mdash; <quote>гх</quote> по определению Руди (<cihc_age y="1" m="7" d="3" />).<?br?>
 Рис. 2. Веточка, согнутая под углом, &mdash; <quote>гх</quote> (<cihc_age y="1" m="8" d="14" />).<?br?>
 Рис. 3. Кусочек коралла &mdash; <quote>гх</quote> (<cihc_age y="1" m="11" d="24" />).<?br?>
 Рис. 4. Выжженные крестики &mdash; <quote>гх</quote> (<cihc_age y="1" m="8" d="27" />).<?br?>
 Рис. 5. Цифра <quote>4</quote> (метка на наволочке) &mdash; <quote>гх</quote> (<cihc_age y="1" m="8" d="0" />).<?br?>
 Рис. 6. Буравчик &mdash; <quote>гх</quote> (<cihc_age y="2" m="2" d="1" />).<?br?>
 Рис. 7. Летучка клёна &mdash; <quote>ляпан</quote> (<cihc_age y="2" m="2" d="4" />).<?br?>
-</para>
-</textobject>
-  </mediaobject>
+</para></textobject></mediaobject>
 </figure>
 
 
@@ -445,7 +419,7 @@
 
 <table frame='none'>
 <title>Ассимиляции ребенком аэроплана</title>
-<tgroup cols='3' align='left' colsep='1' rowsep='1'>
+<tgroup cols='3' align='left' frame='none' pgwide='1'>
 <colspec colname='c1'/>
 <colspec colname='c2'/>
 <colspec colname='c3'/>
@@ -548,28 +522,11 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler18.jpg">в большем разрешении</ulink>
-	  <para>Рис. 1. <quote>Топор</quote> &mdash; по определению Руди (<cihc_age y="2" m="7" d="0" />).<?br?>
-Рис. 2. <quote>Автомобиль</quote> (<cihc_age y="3" m="2" d="0" />).<?br?>
-Рис. 3. <quote>Дятел</quote> (<cihc_age y="2" m="8" d="0" />).<?br?>
-Рис. 4. <quote>Автомобиль</quote> (<cihc_age y="2" m="8" d="0" />).<?br?>
-Рис. 5. <quote>Киска едет в автомобиле</quote> (<cihc_age y="4" m="0" d="18" />).<?br?>
-Рис. 6. <quote>Дядя в автомобиле</quote> (<cihc_age y="3" m="10" d="6" />).<?br?>
-Рис. 7. <quote>Кораблик</quote> (<cihc_age y="2" m="8" d="0" />).<?br?>
-Рис. 8. <quote>Коляска</quote> (<cihc_age y="2" m="9" d="0" />).<?br?>
-Рис. 9. <quote>Петушок</quote> (<cihc_age y="2" m="7" d="0" />).<?br?>
-Рис. 10. <quote>Ворона</quote> (<cihc_age y="2" m="7" d="0" />).<?br?>
-Рис. 11. <quote>Атабиль</quote> (автомобиль) (<cihc_age y="2" m="6" d="0" />).<?br?>
-Рис. 12. <quote>Дом</quote> (<cihc_age y="1" m="11" d="0" />).<?br?>
-Рис. 13. <quote>Автомобиль</quote> (<cihc_age y="3" m="0" d="0" />).<?br?>
-Рис. 14. <quote>Тетя</quote> (<cihc_age y="3" m="8" d="0" />).<?br?>
-Рис. 15. <quote>Бати</quote> &mdash; башмак (<cihc_age y="1" m="11" d="21" />).<?br?>
-Рис. 16. <quote>Люна</quote> &mdash; луна (<cihc_age y="1" m="10" d="13" />).<?br?>
-Рис. 17. <quote>Лодочка</quote> (<cihc_age y="3" m="0" d="0" />).<?br?>
-Рис. 18. <quote>Дядя в санках</quote> (<cihc_age y="3" m="8" d="0" />).<?br?>
-</para>
     </textobject>
-	<textobject role="fo">
-	  <para>Рис. 1. <quote>Топор</quote> &mdash; по определению Руди (<cihc_age y="2" m="7" d="0" />).<?br?>
+	<textobject role="fo"></textobject>
+  </mediaobject>
+<mediaobject><textobject><para>
+Рис. 1. <quote>Топор</quote> &mdash; по определению Руди (<cihc_age y="2" m="7" d="0" />).<?br?>
 Рис. 2. <quote>Автомобиль</quote> (<cihc_age y="3" m="2" d="0" />).<?br?>
 Рис. 3. <quote>Дятел</quote> (<cihc_age y="2" m="8" d="0" />).<?br?>
 Рис. 4. <quote>Автомобиль</quote> (<cihc_age y="2" m="8" d="0" />).<?br?>
@@ -587,9 +544,7 @@
 Рис. 16. <quote>Люна</quote> &mdash; луна (<cihc_age y="1" m="10" d="13" />).<?br?>
 Рис. 17. <quote>Лодочка</quote> (<cihc_age y="3" m="0" d="0" />).<?br?>
 Рис. 18. <quote>Дядя в санках</quote> (<cihc_age y="3" m="8" d="0" />).<?br?>
-</para>
-</textobject>
-  </mediaobject>
+</para></textobject></mediaobject>
 </figure>
 
 <para>В этой склонности к ассимиляции проступают так явственно развитое воображение и фантазия дитяти. </para>
@@ -622,25 +577,19 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler19.jpg">в большем разрешении</ulink>
-	  <para>Рис. 1. <quote>Краб</quote> (молодая веточка ели с шишечками) &mdash; по определению Руди (<cihc_age y="3" m="0" d="9" />).<?br?>
-Рис. 2. <quote>Ступочки</quote> &mdash; цветочки (<cihc_age y="3" m="0" d="9" />).<?br?>
-Рис. 3. <quote>Ежик</quote> &mdash; ветка ели (<cihc_age y="3" m="0" d="9" />).<?br?>
-Рис. 4. <quote>Стрекоза</quote> &mdash; ощипанный цветочек (<cihc_age y="3" m="0" d="9" />).<?br?>
-Рис. 5. <quote>Гх</quote> &mdash; аэроплан, поблекший листочек (<cihc_age y="2" m="0" d="0" />).<?br?>
-Рис. 6. <quote>Улитка высуни рога</quote> &mdash; полусломанный стебелек (<cihc_age y="3" m="0" d="0" />).<?br?>
-</para>
     </textobject>
-	<textobject role="fo">
-	  <para>Рис. 1. <quote>Краб</quote> (молодая веточка ели с шишечками) &mdash; по определению Руди (<cihc_age y="3" m="0" d="9" />).<?br?>
+	<textobject role="fo"></textobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. <quote>Краб</quote> (молодая веточка ели с шишечками) &mdash; по определению Руди (<cihc_age y="3" m="0" d="9" />).<?br?>
 Рис. 2. <quote>Ступочки</quote> &mdash; цветочки (<cihc_age y="3" m="0" d="9" />).<?br?>
 Рис. 3. <quote>Ежик</quote> &mdash; ветка ели (<cihc_age y="3" m="0" d="9" />).<?br?>
 Рис. 4. <quote>Стрекоза</quote> &mdash; ощипанный цветочек (<cihc_age y="3" m="0" d="9" />).<?br?>
 Рис. 5. <quote>Гх</quote> &mdash; аэроплан, поблекший листочек (<cihc_age y="2" m="0" d="0" />).<?br?>
 Рис. 6. <quote>Улитка высуни рога</quote> &mdash; полусломанный стебелек (<cihc_age y="3" m="0" d="0" />).<?br?>
-</para>
-</textobject>
-  </mediaobject>
+</para></textobject></mediaobject>
 </figure>
+
 
 <?page-break?>
 <figure id="tabler20">
@@ -652,24 +601,17 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler20.jpg">в большем разрешении</ulink>
-	  <para>Рис. 1. <quote>Гусеница</quote> &mdash; веточка березы по определению Руди (<cihc_age y="3" m="1" d="0" />).<?br?>
-Рис. 2. <quote>Гусеница</quote> &mdash; веточка сосны (<cihc_age y="3" m="1" d="0" />).<?br?>
-Рис. 3. <quote>Рак</quote> &mdash; ветвистый прутик (<cihc_age y="3" m="1" d="0" />).<?br?>
-Рис. 4. <quote>Олень</quote> &mdash; прутик с дихотомическим ветвлением (<cihc_age y="3" m="1" d="0" />).<?br?>
-Рис. 5. <quote>Гусь</quote> &mdash; сухой прутик (<cihc_age y="3" m="2" d="0" />).<?br?>
-Рис. 6. <quote>Тюля</quote> (тюлень) &mdash; прутик (<cihc_age y="3" m="2" d="9" />).<?br?>
-</para>
     </textobject>
-	<textobject role="fo">
-	  <para>Рис. 1. <quote>Гусеница</quote> &mdash; веточка березы по определению Руди (<cihc_age y="3" m="1" d="0" />).<?br?>
+	<textobject role="fo"></textobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. <quote>Гусеница</quote> &mdash; веточка березы по определению Руди (<cihc_age y="3" m="1" d="0" />).<?br?>
 Рис. 2. <quote>Гусеница</quote> &mdash; веточка сосны (<cihc_age y="3" m="1" d="0" />).<?br?>
 Рис. 3. <quote>Рак</quote> &mdash; ветвистый прутик (<cihc_age y="3" m="1" d="0" />).<?br?>
 Рис. 4. <quote>Олень</quote> &mdash; прутик с дихотомическим ветвлением (<cihc_age y="3" m="1" d="0" />).<?br?>
 Рис. 5. <quote>Гусь</quote> &mdash; сухой прутик (<cihc_age y="3" m="2" d="0" />).<?br?>
 Рис. 6. <quote>Тюля</quote> (тюлень) &mdash; прутик (<cihc_age y="3" m="2" d="9" />).<?br?>
-</para>
-</textobject>
-  </mediaobject>
+</para></textobject></mediaobject>
 </figure>
 
 
@@ -798,18 +740,11 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler21.jpg">в большем разрешении</ulink>
-	  <para>Рис. 1. Оранжевые и бархатистый цветочек.<?br?>
-Рис. 2. Зеленый бархатный цветочек.<?br?>
-Рис. 3. Розовый бумажный цветочек.<?br?>
-Рис. 4. Голубой бумажный цветочек.<?br?>
-Рис. 5. Красная пуговица.<?br?>
-Рис. 6. Сине-зеленая пуговица.<?br?>
-Рис. 7. Желтая шляпа.<?br?>
-Рис. 8. Зеленая шляпа.<?br?>
-</para>
     </textobject>
-	<textobject role="fo">
-	  <para>Рис. 1. Оранжевые и бархатистый цветочек.<?br?>
+	<textobject role="fo"></textobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. Оранжевые и бархатистый цветочек.<?br?>
 Рис. 2. Зеленый бархатный цветочек.<?br?>
 Рис. 3. Розовый бумажный цветочек.<?br?>
 Рис. 4. Голубой бумажный цветочек.<?br?>
@@ -817,9 +752,7 @@
 Рис. 6. Сине-зеленая пуговица.<?br?>
 Рис. 7. Желтая шляпа.<?br?>
 Рис. 8. Зеленая шляпа.<?br?>
-</para>
-</textobject>
-  </mediaobject>
+</para></textobject></mediaobject>
 </figure>
 
 <para>

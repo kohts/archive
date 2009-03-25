@@ -293,16 +293,13 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler1.jpg">в большем разрешении</ulink>
-	  <para>Рис. 1. Лицо <quote>en face</quote>.<?br?>
-Рис. 2. Лицо в профиль.<?br?>
-</para>
     </textobject>
-	<textobject role="fo">
-	<para>Рис. 1. Лицо <quote>en face</quote>.<?br?>
-Рис. 2. Лицо в профиль.<?br?>
-</para>
-</textobject>
+	<textobject role="fo"></textobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. Лицо <quote>en face</quote>.<?br?>
+Рис. 2. Лицо в профиль.<?br?>
+</para></textobject></mediaobject>
 </figure>
 
 <para>

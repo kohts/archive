@@ -6,6 +6,10 @@
 
   <xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/fo/docbook.xsl"/>
 
+<xsl:attribute-set name="formal.object.properties">
+   <xsl:attribute name="keep-together.within-column">auto</xsl:attribute>
+</xsl:attribute-set>
+  
 <xsl:param name="details_font_size">
   <xsl:value-of select="$body.font.master * 0.8"/>
   <xsl:text>pt</xsl:text>
