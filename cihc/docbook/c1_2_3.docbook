@@ -7,20 +7,15 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler9.jpg">в большем разрешении</ulink>
-	  <para>Рис. 1. Шимпанзе в грустном настроении.<?br?>
-Рис. 2. Шимпанзе в подавленном настроении.<?br?>
-Рис. 3. Шимпанзе в состоянии слабой психической депрессии.<?br?>
-Рис. 4. Шимпанзе в состоянии сильной психической депрессии.<?br?>
-</para>
     </textobject>
-	<textobject role="fo">
-	  <para>Рис. 1. Шимпанзе в грустном настроении.<?br?>
+	<textobject role="fo"></textobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. Шимпанзе в грустном настроении.<?br?>
 Рис. 2. Шимпанзе в подавленном настроении.<?br?>
 Рис. 3. Шимпанзе в состоянии слабой психической депрессии.<?br?>
 Рис. 4. Шимпанзе в состоянии сильной психической депрессии.<?br?>
-</para>
-</textobject>
-  </mediaobject>
+</para></textobject></mediaobject>
 </figure>
 
 <para>

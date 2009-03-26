@@ -82,14 +82,11 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler6.jpg">в большем разрешении</ulink>
-	  <para>Рис. 1. Приостановившийся находу, взволновавшийся шимпанзе.<?br?>
-Рис. 2. Возбужденный шимпанзе, вставший в вертикальное положение.<?br?>
-</para>
     </textobject>
-	<textobject role="fo">
-	  <para>Рис. 1. Приостановившийся находу, взволновавшийся шимпанзе.<?br?>
-Рис. 2. Возбужденный шимпанзе, вставший в вертикальное положение.<?br?>
-</para>
-</textobject>
+	<textobject role="fo"></textobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. Приостановившийся находу, взволновавшийся шимпанзе.<?br?>
+Рис. 2. Возбужденный шимпанзе, вставший в вертикальное положение.<?br?>
+</para></textobject></mediaobject>
 </figure>

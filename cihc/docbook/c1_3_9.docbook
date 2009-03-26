@@ -339,18 +339,14 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler12.jpg">в большем разрешении</ulink>
-	  <para>Рис. 1. Обследование одним пальцем выпуклого шитья.<?br?>
-Рис. 2. Обследование пальцами обеих рук.<?br?>
-Рис. 3. Шимпанзе <quote>весь ушел</quote> в созерцание интригующего объекта.<?br?>
-</para>
     </textobject>
-	<textobject role="fo">
-	  <para>Рис. 1. Обследование одним пальцем выпуклого шитья.<?br?>
+	<textobject role="fo"></textobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. Обследование одним пальцем выпуклого шитья.<?br?>
 Рис. 2. Обследование пальцами обеих рук.<?br?>
 Рис. 3. Шимпанзе <quote>весь ушел</quote> в созерцание интригующего объекта.<?br?>
-</para>
-</textobject>
-  </mediaobject>
+</para></textobject></mediaobject>
 </figure>
 
 
@@ -608,18 +604,13 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler13.jpg">в большем разрешении</ulink>
-	  <para>Рис. 1. Развлечение смыканием и размыканием челюстей.<?br?>
-Рис. 2, 3. Развлечение вращением языка.<?br?>
-Рис. 4. Развлечение движением конечностей.<?br?>
-Рис. 5. Поза скучающего шимпанзе.<?br?>
-</para>
     </textobject>
-	<textobject role="fo">
-	  <para>Рис. 1. Развлечение смыканием и размыканием челюстей.<?br?>
+	<textobject role="fo"></textobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. Развлечение смыканием и размыканием челюстей.<?br?>
 Рис. 2, 3. Развлечение вращением языка.<?br?>
 Рис. 4. Развлечение движением конечностей.<?br?>
 Рис. 5. Поза скучающего шимпанзе.<?br?>
-</para>
-</textobject>
-  </mediaobject>
+</para></textobject></mediaobject>
 </figure>

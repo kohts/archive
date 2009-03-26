@@ -596,18 +596,14 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler11.jpg">в большем разрешении</ulink>
-	  <para>Рис. 1. Поза угрозы.<?br?>
-Рис. 2. Намахивание рукой на свое отражение.<?br?>
-Рис. 3. Наскок на раздражающий стимул.<?br?>
-</para>
     </textobject>
-	<textobject role="fo">
-	  <para>Рис. 1. Поза угрозы.<?br?>
+	<textobject role="fo"></textobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. Поза угрозы.<?br?>
 Рис. 2. Намахивание рукой на свое отражение.<?br?>
 Рис. 3. Наскок на раздражающий стимул.<?br?>
-</para>
-</textobject>
-  </mediaobject>
+</para></textobject></mediaobject>
 </figure>
 
 <para>

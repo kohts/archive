@@ -6,8 +6,8 @@ MASTER = main.docbook
 MASTER_PRINT = main_print.docbook
 IMAGES_PRINT = ${DOCBOOK_BASE}/../images/pdf/*.jpg
 
-HTML_BASE = ${PWD}/../html
-HTML_CHUNKED_BASE = ${PWD}/../html-chunked
+HTML_BASE = ${PWD}/../html-onechunk
+HTML_CHUNKED_BASE = ${PWD}/../html
 FO_BASE = ${PWD}/../fo
 PDF = "${PWD}/../ladygina-kohts - cihc.pdf"
 FOP_BASE = ${PWD}/../fop

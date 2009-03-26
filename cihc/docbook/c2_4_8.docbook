@@ -317,18 +317,13 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler23.jpg">в большем разрешении</ulink>
-	  <para>Рис. 1. Рисование Иони &mdash; 1-я стадия черчения.<?br?>
-Рис. 2. Рисование Руди (<cihc_age y="1" m="7" d="1" />) &mdash; 1-я стадия черчения.<?br?>
-Рис. 3. Рисование Иони &mdash; 2-я стадия черчения.<?br?>
-Рис. 4. Рисунок человека &mdash; <quote>мамы</quote>, сделанный Руди (<cihc_age y="3" m="0" d="8" />).<?br?>
-</para>
     </textobject>
-	<textobject role="fo">
-	  <para>Рис. 1. Рисование Иони &mdash; 1-я стадия черчения.<?br?>
+	<textobject role="fo"></textobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. Рисование Иони &mdash; 1-я стадия черчения.<?br?>
 Рис. 2. Рисование Руди (<cihc_age y="1" m="7" d="1" />) &mdash; 1-я стадия черчения.<?br?>
 Рис. 3. Рисование Иони &mdash; 2-я стадия черчения.<?br?>
 Рис. 4. Рисунок человека &mdash; <quote>мамы</quote>, сделанный Руди (<cihc_age y="3" m="0" d="8" />).<?br?>
-</para>
-</textobject>
-  </mediaobject>
+</para></textobject></mediaobject>
 </figure>

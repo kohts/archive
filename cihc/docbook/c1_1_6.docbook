@@ -263,24 +263,17 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler7.jpg">в большем разрешении</ulink>
-	  <para>Рис. 1. Мимика внимания.<?br?>
-Рис. 2. Мимика волнения.<?br?>
-Рис. 3. Узкая улыбка.<?br?>
-Рис. 4. Широкая задорная улыбка.<?br?>
-Рис. 5. Смех шимпанзе.<?br?>
-Рис. 6. Плач шимпанзе.<?br?>
-</para>
     </textobject>
-	<textobject role="fo">
-	  <para>Рис. 1. Мимика внимания.<?br?>
+	<textobject role="fo"></textobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. Мимика внимания.<?br?>
 Рис. 2. Мимика волнения.<?br?>
 Рис. 3. Узкая улыбка.<?br?>
 Рис. 4. Широкая задорная улыбка.<?br?>
 Рис. 5. Смех шимпанзе.<?br?>
 Рис. 6. Плач шимпанзе.<?br?>
-</para>
-</textobject>
-  </mediaobject>
+</para></textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -293,24 +286,17 @@
   <mediaobject>
     <textobject role="html">
       <ulink role="html" url="images/hires/tabler8.jpg">в большем разрешении</ulink>
-	  <para>Рис. 1. Выражение робости.<?br?>
-Рис. 2. Выражение страха, ужаса.<?br?>
-Рис. 3. Выражение злобы.<?br?>
-Рис. 4. Выражение ярости.<?br?>
-Рис. 5. Выражение отвращения.<?br?>
-Рис. 6. Выражение удивления.<?br?>
-</para>
     </textobject>
-	<textobject role="fo">
-	  <para>Рис. 1. Выражение робости.<?br?>
+	<textobject role="fo"></textobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. Выражение робости.<?br?>
 Рис. 2. Выражение страха, ужаса.<?br?>
 Рис. 3. Выражение злобы.<?br?>
 Рис. 4. Выражение ярости.<?br?>
 Рис. 5. Выражение отвращения.<?br?>
 Рис. 6. Выражение удивления.<?br?>
-</para>
-</textobject>
-  </mediaobject>
+</para></textobject></mediaobject>
 </figure>
 
 
