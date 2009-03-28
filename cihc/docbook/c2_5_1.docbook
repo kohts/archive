@@ -49,8 +49,7 @@
 Дитя все больше и больше стремится к обогащению словами; в возрасте <cihc_age y="1" m="8" d="30" /> Руди, выбирая свои игрушечки из комода, настойчиво повторно говорит: <quote>бу?</quote>, пока не назовешь игрушечку, назовешь — он скажет: <quote>да</quote>, а потом отшвыривает от себя предмет и требует называния вновь и вновь вынимаемых вещей; иногда он спрашивает название даже тех предметов, которые сам заведомо умеет называть; просишь его об этом, и он сам говорит то настоящее, то извращенное, то свое условное название вещи, например: 
 </para>
 
-<table frame='none'>
-<title>Названия предметов ребенком в возрасте <cihc_age y="1" m="8" d="30" /></title>
+<informaltable frame='none'>
 <tgroup cols='2' align='left' colsep='1' rowsep='1'>
 <colspec colname='c1'/>
 <colspec colname='c2'/>
@@ -76,14 +75,13 @@
 <row><entry>лошадь</entry><entry><quote>но-но</quote></entry></row>
 </tbody>
 </tgroup>
-</table>
+</informaltable>
 
 <para>
 Примерно через полгода (в возрасте <cihc_age y="2" m="2" d="8" />) при аналогичном разбирании вещей Руди называет сам вынимаемые вещи, иногда сопровождая свое обозначение кратким дополнительным высказыванием: 
 </para>
 
-<table frame='none'>
-<title>Названия предметов ребенком в возрасте <cihc_age y="2" m="2" d="8" /></title>
+<informaltable frame='none'>
 <tgroup cols='3' align='left' colsep='1' rowsep='1'>
 <colspec colname='c1'/>
 <colspec colname='c2'/>
@@ -131,7 +129,7 @@
 <row><entry>37)</entry><entry><quote>басия бусы</quote></entry><entry>длинные бусы (<quote>супились</quote>, т. е. спускаются длинно, когда берешь в руки). </entry></row>
 </tbody>
 </tgroup>
-</table>
+</informaltable>
 
 <para>
 Через месяц (<cihc_age y="2" m="3" d="0" />) при аналогичном разбирании Руди задает вопросы чуть ли не про каждую вещь. <quote>Как они ходят?</quote> — спрашивает он про кусочки коралла. <quote>А как надеть?</quote> — про брошь. <quote>Сто сделать щеточкой?</quote> — про щетку. <quote>Отчего пахнет?</quote> (слыша запах лекарства в пузырьке). <quote>Как мазять?</quote>, <quote>куда мазать?</quote>—спрашивает про краски. 
@@ -153,8 +151,7 @@
 В возрасте <cihc_age y="1" m="11" d="12" /> Руди обозначает правильно ряд картинок во вновь показанной книжечке (<quote>Моя книга</quote>, рисунки Комарова, изд. Мириманова, 1927). 
 </para>
 
-<table frame='none'>
-<title>Названия картинок ребенком в возрасте <cihc_age y="1" m="11" d="12" /></title>
+<informaltable frame='none'>
 <tgroup cols='2' align='left' colsep='1' rowsep='1'>
 <colspec colname='c1'/>
 <colspec colname='c2'/>
@@ -193,7 +190,7 @@
 <row><entry>гуси</entry><entry><quote>гагуры</quote></entry></row>
 </tbody>
 </tgroup>
-</table>
+</informaltable>
 
 <para>
 Через 7 месяцев мы застаем, как Руди (<cihc_age y="2" m="6" d="13" />) узнает по картинкам и называет 45 разных диких животных: 1) <quote>терный медведь</quote>, 2) <quote>лёсь</quote>, 3) <quote>лиситька</quote>, 4) <quote>вольк</quote>, 5) <quote>зальтик</quote>, 6) <quote>кунитя</quote>, 7) <quote>ёзик</quote>, 8) <quote>белька</quote>, 9)] <quote>тапля</quote>, 10) <quote>журафль</quote>, 11) <quote>шовотька</quote>, 12) <quote>тетерев</quote>, 13) <quote>зирафа</quote>, 14) <quote>белий медведь</quote>, 15) <quote>африканский сонь</quote>, 16) <quote>андейский сонь</quote>, 17) <quote>бегемот</quote>, 18) <quote>насарох</quote>, 19) <quote>гариля</quote>, 20) <quote>лёсь</quote>, 21) <quote>зубр</quote>, 22) <quote>бугль</quote>, 23) <quote>верблют</quote>, 24) <quote>морш</quote>, 25) <quote>тигр</quote>, 26) <quote>башая кошка</quote>, 27) <quote>райская птитька</quote>, 28) <quote>летутяя птитька</quote>, 29) <quote>зебра</quote>, 30) <quote>обизянка</quote>, 31) <quote>кеньгуру</quote>, 32) <quote>пупугай-ара</quote>, 33) <quote>муравет</quote>, 34) <quote>леф</quote>, 35) <quote>фажан</quote>, 36) <quote>ляг</quote>, 37) <quote>бижон</quote>, 38) <quote>лиситька-сестритька</quote>, 39) <quote>морские львы</quote>, 40) <quote>тур</quote> 41) <quote>кондор</quote>, 42) <quote>филин</quote>, 43) <quote>антилёпа</quote>, 44) <quote>северный алень</quote>, 45) <quote>белий куропатки</quote>

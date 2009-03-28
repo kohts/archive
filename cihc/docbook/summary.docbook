@@ -1095,8 +1095,7 @@ The tendency of the child towards drawing analogies speaks on behalf of the <emp
 Below are to be found some analogies belonging to the two and three year old child. 
 </para>
 
-<table frame='none'>
-<title>Analogies belonging to the tow and three year old child</title>
+<informaltable frame='none'>
 <tgroup cols='2' align='left' colsep='1' rowsep='1'>
 <colspec colname='c1'/>
 <colspec colname='c2'/>
@@ -1114,7 +1113,7 @@ Below are to be found some analogies belonging to the two and three year old chi
 <row><entry>Twig</entry><entry><quote>reindeer</quote></entry></row>
 </tbody>
 </tgroup>
-</table>
+</informaltable>
 
 <para>It seems certain that in course of drawing analogies the child actually compares the stimulus and the respective image in his mind. </para>
 

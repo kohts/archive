@@ -72,6 +72,7 @@
   <!ENTITY zaklyuchenie SYSTEM "zakl.docbook">
   <!ENTITY summary_eng SYSTEM "summary.docbook">
   <!ENTITY photoplates SYSTEM "photoplates.docbook">
+  <!ENTITY comparison_table SYSTEM "comparison_table.docbook">
 ]>
 
 <book id="ladygina-kohts-infant-chimpanzee-and-human-child" lang="ru">
@@ -204,7 +205,7 @@
 </part>
 
 <appendix><title>Приложения</title>
-  <section id="comparison_table"><title>Таблица, суммирующая черты сходства и различия в поведении человека и шимпанзе</title></section>
+  <section id="comparison_table"><title>Таблица, суммирующая черты сходства и различия в поведении человека и шимпанзе</title>&comparison_table;</section>
   <section id="photos_list"><title>Фототаблицы</title>&photoplates;</section>
 </appendix>
 
