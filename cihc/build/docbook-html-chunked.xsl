@@ -58,7 +58,7 @@ part      toc,title
 	    <l:template name="figure" text="Таблица %n"/>
 	  </l:context>
 	  <l:context name="xref-number-and-title">
-        <l:template name="figure" text="Табл. %n, «%t»"/>
+        <l:template name="figure" text="Табл. %n"/>
 	  </l:context>
 
 	  <l:gentext key="Example" text="Фотоиллюстрация"/>
@@ -72,7 +72,7 @@ part      toc,title
 	    <l:template name="example" text="Табл. %n"/>
 	  </l:context>
 	  <l:context name="xref-number-and-title">
-	    <l:template name="example" text="Табл. %n, «%t»"/>
+	    <l:template name="example" text="Табл. %n"/>
 	  </l:context>
 
 	</l:l10n>
