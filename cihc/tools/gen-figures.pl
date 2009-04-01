@@ -14,8 +14,14 @@ my $c;
 sub dump_c {
   my ($c) = @_;
 
+  if ($c_counter eq 0 ||
+    $c_counter % 10 eq 0) {
+    my $p = $c_counter / 10;
+    print "<sect1 id='photoplates_" . $p . "'><title>" . ($p * 10 + 1) . " &mdash; " . ($p*10 + 10) . "</title>\n";
+  }
+
   $c_counter++;
- 
+  
   my $t = "table" . $c_counter;
 
 print '<example id="' . $t . '">
@@ -37,6 +43,26 @@ print '<example id="' . $t . '">
 
 ';
 
+  if ($c_counter ne 0 && $c_counter % 10 eq 0) {
+    print "</sect1>\n\n";
+  }
+}
+
+sub preprocess {
+  my ($s) = @_;
+
+  my $v;
+
+  while ($s =~ /\G(.*?)((\d+?)\.(\d+?)\.(\d+?))([^\d].*)/sgi) {
+    $v .= $1;
+    if ($2) {
+      $v .= "<cihc_age y=\"$3\" m=\"$4\" d=\"$5\" />";
+    }
+    $s = $6;
+  }
+  $v .= $s;
+
+  return $v;
 }
 
 my $f;
@@ -53,7 +79,7 @@ while (<$f>) {
       next;
     }
 
-    push(@{$c->{'para'}}, $l);
+    push(@{$c->{'para'}}, preprocess($l));
   }
   else {
     if ($c) {

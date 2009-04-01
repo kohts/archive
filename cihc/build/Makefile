@@ -5,6 +5,7 @@ DOCBOOK = ${DOCBOOK_BASE}/*.docbook
 MASTER = main.docbook
 MASTER_PRINT = main_print.docbook
 IMAGES_PRINT = ${DOCBOOK_BASE}/../images/pdf/*.jpg
+TOOLS = ${PWD}/../tools
 
 HTML_BASE = ${PWD}/../html-onechunk
 HTML_CHUNKED_BASE = ${PWD}/../html
@@ -12,10 +13,13 @@ FO_BASE = ${PWD}/../fo
 PDF = "${PWD}/../ladygina-kohts - cihc.pdf"
 FOP_BASE = ${PWD}/../fop
 
-all: html html-chunked fo
+all: html html-chunked fop
 all-html: html html-chunked
 
-html: docbook-html-onechunk.xsl $(DOCBOOK)
+${DOCBOOK_BASE}/photoplates.docbook: ${DOCBOOK_BASE}/photoplates.raw ${TOOLS}/gen-figures.pl
+	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates.raw > ${DOCBOOK_BASE}/photoplates.docbook
+
+html: docbook-html-onechunk.xsl $(DOCBOOK) ${DOCBOOK_BASE}/photoplates.docbook
 	mkdir -p ${HTML_BASE}
 	cd ${HTML_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )
 	cd ${DOCBOOK_BASE} && xsltproc -o ${HTML_BASE}/index.html ${PWD}/docbook-html-onechunk.xsl ${MASTER}

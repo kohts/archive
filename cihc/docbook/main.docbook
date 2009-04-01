@@ -88,7 +88,7 @@
 <surname>Ладыгина-Котс</surname>
 </author>
 </bookinfo>
-<date>Москва, 1935</date>
+<date>Москва, 2009</date>
 
 <dedication id="dedication1">
 <para>Посвящается Дарвиновскому музею (1905 &mdash; 1935) и коллективу его преданных сотрудников</para>
@@ -204,15 +204,21 @@
 <chapter id="zaklyuchenie"><title>Заключение</title>&zaklyuchenie;</chapter>
 </part>
 
-<appendix><title>Приложения</title>
-  <section id="comparison_table"><title>Таблица, суммирующая черты сходства и различия в поведении человека и шимпанзе</title>&comparison_table;</section>
-  <section id="photos_list"><title>Фототаблицы</title>&photoplates;</section>
-</appendix>
+<appendix><title>Таблица, суммирующая черты сходства и различия в поведении человека и шимпанзе</title>
+<sect1 id="comparison_table">&comparison_table;</sect1></appendix>
+
+<appendix><title>Фототаблицы</title>&photoplates;</appendix>
 
 <appendix><title>Приложения на английском языке</title>
 <section id="summary_eng" lang="en"><title>Resume работы на английском языке</title>&summary_eng;</section>
 <section id="photos_eng"><title>Photo plates</title></section>
 <section id="rtable_eng"><title>List of hatched drawings and sketches</title></section>
+</appendix>
+
+<appendix><title>Приложения к электронному изданию</title>
+  <sect1><title>Вступление к английскому изданию</title></sect1>
+  <sect1><title>Выходные данные издания 1935 года</title></sect1>
+  <sect1><title>Подготовка электронного издания</title></sect1>
 </appendix>
 
 </book>
