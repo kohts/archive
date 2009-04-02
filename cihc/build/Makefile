@@ -13,23 +13,23 @@ FO_BASE = ${PWD}/../fo
 PDF = "${PWD}/../ladygina-kohts - cihc.pdf"
 FOP_BASE = ${PWD}/../fop
 
-all: html html-chunked fop
-all-html: html html-chunked
+all: html fop
+all-html: html html-onechunk
 
 ${DOCBOOK_BASE}/photoplates.docbook: ${DOCBOOK_BASE}/photoplates.raw ${TOOLS}/gen-figures.pl
 	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates.raw > ${DOCBOOK_BASE}/photoplates.docbook
 
-html: docbook-html-onechunk.xsl $(DOCBOOK) ${DOCBOOK_BASE}/photoplates.docbook
+html-onechunk: docbook-html-onechunk.xsl $(DOCBOOK) ${DOCBOOK_BASE}/photoplates.docbook
 	mkdir -p ${HTML_BASE}
 	cd ${HTML_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )
 	cd ${DOCBOOK_BASE} && xsltproc -o ${HTML_BASE}/index.html ${PWD}/docbook-html-onechunk.xsl ${MASTER}
-	touch html
+	touch html-onechunk
 
-html-chunked: docbook-html-chunked.xsl $(DOCBOOK)
+html: docbook-html-chunked.xsl $(DOCBOOK) ${DOCBOOK_BASE}/photoplates.docbook
 	mkdir -p ${HTML_CHUNKED_BASE}
 	cd ${HTML_CHUNKED_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )
 	cd ${DOCBOOK_BASE} && xsltproc --stringparam 'base.dir' ${HTML_CHUNKED_BASE}/ ${PWD}/docbook-html-chunked.xsl ${MASTER}
-	touch html-chunked
+	touch html
 
 fo: docbook-fo.xsl $(DOCBOOK) $(IMAGES_PRINT)
 	mkdir -p ${FO_BASE}
@@ -43,13 +43,13 @@ pdf: fo ${FOP_BASE}/fop.xconf
 	fop -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
 	touch pdf
 
-clean-all-html: clean-html clean-html-chunked
+clean-all-html: clean-html clean-html-onechunke
 clean-html:
 	rm -rf ${HTML_BASE}
 	rm -r html
-clean-html-chunked:
+clean-html-onechunk:
 	rm -rf ${HTML_CHUNKED_BASE}
-	rm -r html-chunked
+	rm -r html-onechunk
 
 clean-all-pdf: clean-fo clean-pdf
 clean-fo:
@@ -61,7 +61,7 @@ clean-pdf:
 
 clean-status:
 	rm -f html
-	rm -f html-chunked
+	rm -f html-onechunk
 	rm -f fo
 	rm -f pdf
 
