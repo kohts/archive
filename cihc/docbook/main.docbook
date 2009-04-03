@@ -73,6 +73,8 @@
   <!ENTITY summary_eng SYSTEM "summary.docbook">
   <!ENTITY photoplates SYSTEM "photoplates.docbook">
   <!ENTITY comparison_table SYSTEM "comparison_table.docbook">
+  <!ENTITY vyhodnye_dannye_1935 SYSTEM "vyhodnye_dannye_1935.docbook">
+  <!ENTITY vyhodnye_dannye_2002 SYSTEM "vyhodnye_dannye_2002.docbook">
 ]>
 
 <book id="ladygina-kohts-infant-chimpanzee-and-human-child" lang="ru">
@@ -216,8 +218,9 @@
 </appendix>
 
 <appendix><title>Приложения к электронному изданию</title>
-  <sect1><title>Вступление к английскому изданию</title></sect1>
-  <sect1><title>Выходные данные издания 1935 года</title></sect1>
+  <sect1><title>Выходные данные русского издания 1935 года</title>&vyhodnye_dannye_1935;</sect1>
+  <sect1><title>Выходные данные английского издания 2002 года</title>&vyhodnye_dannye_2002;</sect1>
+  <sect1><title>Вступление к английскому изданию 2002 года (перевод)</title></sect1>
   <sect1><title>Подготовка электронного издания</title></sect1>
 </appendix>
 

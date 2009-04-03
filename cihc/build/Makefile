@@ -43,7 +43,7 @@ pdf: fo ${FOP_BASE}/fop.xconf
 	fop -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
 	touch pdf
 
-clean-all-html: clean-html clean-html-onechunke
+clean-all-html: clean-html clean-html-onechunk
 clean-html:
 	rm -rf ${HTML_BASE}
 	rm -r html
