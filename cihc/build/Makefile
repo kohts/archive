@@ -19,13 +19,19 @@ all-html: html html-onechunk
 ${DOCBOOK_BASE}/photoplates.docbook: ${DOCBOOK_BASE}/photoplates.raw ${TOOLS}/gen-figures.pl
 	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates.raw > ${DOCBOOK_BASE}/photoplates.docbook
 
-html-onechunk: docbook-html-onechunk.xsl $(DOCBOOK) ${DOCBOOK_BASE}/photoplates.docbook
+${DOCBOOK_BASE}/photoplates_eng.docbook: ${DOCBOOK_BASE}/photoplates_eng.raw ${TOOLS}/gen-figures.pl
+	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng table > ${DOCBOOK_BASE}/photoplates_eng.docbook
+
+${DOCBOOK_BASE}/drawings_eng.docbook: ${DOCBOOK_BASE}/drawings_eng.raw ${TOOLS}/gen-figures.pl
+	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/drawings_eng.raw eng tabler figure > ${DOCBOOK_BASE}/drawings_eng.docbook
+	
+html-onechunk: docbook-html-onechunk.xsl $(DOCBOOK)
 	mkdir -p ${HTML_BASE}
 	cd ${HTML_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )
 	cd ${DOCBOOK_BASE} && xsltproc -o ${HTML_BASE}/index.html ${PWD}/docbook-html-onechunk.xsl ${MASTER}
 	touch html-onechunk
 
-html: docbook-html-chunked.xsl $(DOCBOOK) ${DOCBOOK_BASE}/photoplates.docbook
+html: docbook-html-chunked.xsl $(DOCBOOK)
 	mkdir -p ${HTML_CHUNKED_BASE}
 	cd ${HTML_CHUNKED_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )
 	cd ${DOCBOOK_BASE} && xsltproc --stringparam 'base.dir' ${HTML_CHUNKED_BASE}/ ${PWD}/docbook-html-chunked.xsl ${MASTER}

@@ -5,8 +5,12 @@ use utf8;
 use Encode;
 
 if (!$ARGV[0]) {
-  die "usage: $0 filename\n";
+  die "usage: $0 filename [rus|eng] [table_pfx] [figure|example]\n";
 }
+
+my $language = $ARGV[1] ? $ARGV[1] : "rus";
+my $table_pfx = $ARGV[2] ? $ARGV[2] : "table";
+my $tag = $ARGV[3] ? $ARGV[3] : "example";
 
 my $c_counter = 0;
 my $c;
@@ -17,14 +21,30 @@ sub dump_c {
   if ($c_counter eq 0 ||
     $c_counter % 10 eq 0) {
     my $p = $c_counter / 10;
-    print "<sect1 id='photoplates_" . $p . "'><title>" . ($p * 10 + 1) . " &mdash; " . ($p*10 + 10) . "</title>\n";
+	
+	my $pfx;
+	if ($language ne "rus") {
+	  $pfx = $language . "_";
+	}
+	
+    print "<sect1 id='${pfx}photoplates_" . $p . "'><title>" . ($p * 10 + 1) . " &mdash; " . ($p*10 + 10) . "</title>\n";
   }
 
   $c_counter++;
   
-  my $t = "table" . $c_counter;
+  my $higher_res_label = "в большем разрешении";
+  if ($language eq "eng") {
+    $higher_res_label = "higher resolution";
+  }
+  
+  my $t = $table_pfx . $c_counter;
 
-print '<example id="' . $t . '">
+  my $t_id = $t;
+  if ($language ne "rus") {
+	$t_id = $language . "_" . $t_id;
+  }
+
+print '<' . $tag . ' id="' . $t_id . '">
   <title>' . $c->{'title'} . '</title>
   <mediaobject>
     <imageobject role="html"><imagedata fileref="images/html/' . $t . '.jpg" /></imageobject>
@@ -32,14 +52,14 @@ print '<example id="' . $t . '">
   </mediaobject>
   <mediaobject>
     <textobject role="html">
-      <ulink role="html" url="images/hires/' . $t . '.jpg">в большем разрешении</ulink>
+      <ulink role="html" url="images/hires/' . $t . '.jpg">' . $higher_res_label . '</ulink>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para>
 ' . join("<?br?>\n", @{$c->{'para'}}) . "<?br?>\n"  .
 '  </para></textobject></mediaobject>
-</example>
+</' . $tag . '>
 
 ';
 
@@ -92,4 +112,8 @@ close($f);
 
 if ($c) {
   dump_c($c);
+}
+
+if ($c_counter % 10 ne 0) {
+  print "</sect1>\n";
 }

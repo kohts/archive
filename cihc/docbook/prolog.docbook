@@ -38,7 +38,7 @@
 Кто вопрошает, значит может сам и ответ тот отыскать,
 Кого ж загадка не тревожит, тот неспособен отгадать.
 Смотря на небо, зверь не спросит про солнце, звезды, облака,
-И ветерз вздоха не приносит и от прекрасного цветка.
+И ветер вздоха не приносит и от прекрасного цветка.
 Цветок и зверь, вода и камень живут без разума, без дум,
 Лишь у тебя исканья пламень и ненасытный жадный ум,
 Но мыслью не блуждай напрасно, ища где предок погребен,
@@ -57,7 +57,7 @@
 Пройдут года, побег завянет, бесславно так в земле сгниет,
 С веками кто его помянет?! Разгадка вместе с ним умрет...
 Его сравни с твоим дитятей и вместе их пронаблюдай,
-И в чем они родны братья &mdash; ты усмотри и разгадай.
+И в чем они родные братья &mdash; ты усмотри и разгадай.
 Со мною связь всегда живую они так тесно сохраня,
 Нить путеводную двойную тебе вручают от меня.
 И, в этом радостном исканьи и как ученый, и как мать
@@ -74,7 +74,7 @@
 
 <?page-break?>
 <figure id="joni">
-  <title>Мой шимпанзе Иони</title>
+  <title>Дитя шимпанзе</title>
   <mediaobject>
     <imageobject role="html"><imagedata fileref="images/html/joni.jpg" /></imageobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/joni.jpg" /></imageobject>
@@ -85,11 +85,12 @@
     </textobject>
 	<textobject role="fo"></textobject>
   </mediaobject>
+  <mediaobject><textobject><para>Мой шимпанзе Иони (4 года)</para></textobject></mediaobject>
 </figure>
 
 <?page-break?>
 <figure id="rudy">
-  <title>Мой сын Руди</title>
+  <title>Дитя человека</title>
   <mediaobject>
     <imageobject role="html"><imagedata fileref="images/html/rudy.jpg" /></imageobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/rudy.jpg" /></imageobject>
@@ -100,4 +101,5 @@
     </textobject>
 	<textobject role="fo"></textobject>
   </mediaobject>
+  <mediaobject><textobject><para>Мой сын Руди (4 года)</para></textobject></mediaobject>
 </figure>
