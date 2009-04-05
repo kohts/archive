@@ -1,0 +1,50 @@
+<sect2><title>Инициалы, ФИО</title>
+ФИО нужно записывать следующим образом, с точностью до пробела:
+<?pre_b
+А. Ф. Котс
+?>
+</sect2>
+
+<sect2><title>XML кодирование некоторых символов</title>
+<para>
+
+<informaltable frame='all'>
+<tgroup cols='2' align='center' colsep='1' rowsep='1'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<thead>
+<row><entry>Вид в тексте</entry><entry>Кодирование в DocBook</entry></row>
+</thead>
+<tbody>
+<row>
+  <entry><imageobject role="html"><imagedata fileref="http://www.oasis-open.org/docbook/xmlcharent/glyphs/100dpi/U2640.png" /></imageobject></entry>
+  <entry>&amp;female;</entry>
+</row>
+<row>
+  <entry><imageobject role="html"><imagedata fileref="http://www.oasis-open.org/docbook/xmlcharent/glyphs/100dpi/U2642.png" /></imageobject></entry>
+  <entry>&amp;male;</entry>
+</row>
+<row>
+  <entry><imageobject role="html"><imagedata fileref="http://www.oasis-open.org/docbook/xmlcharent/glyphs/100dpi/U00BD.png" /></imageobject></entry>
+  <entry>&amp;frac12;</entry>
+</row>
+<row>
+  <entry><imageobject role="html"><imagedata fileref="http://www.oasis-open.org/docbook/xmlcharent/glyphs/100dpi/U2153.png" /></imageobject></entry>
+  <entry>&amp;frac13;</entry>
+</row>
+<row><entry>&#1072;&#768;</entry><entry>&amp;#1072;&amp;#768;</entry></row>
+<row><entry>&#1077;&#768;</entry><entry>&amp;#1077;&amp;#768;</entry></row>
+<row><entry>&#1080;&#768;</entry><entry>&amp;#1080;&amp;#768;</entry></row>
+<row><entry>&#1086;&#768;</entry><entry>&amp;#1086;&amp;#768;</entry></row>
+<row><entry>&#1091;&#768;</entry><entry>&amp;#1091;&amp;#768;</entry></row>
+<row><entry>&#1101;&#768;</entry><entry>&amp;#1101;&amp;#768;</entry></row>
+<row><entry>&#1103;&#768;</entry><entry>&amp;#1103;&amp;#768;</entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+<ulink url="http://www.oasis-open.org/docbook/specs/wd-docbook-xmlcharent-0.3.html">См. также</ulink>
+
+</para>
+
+</sect2>

@@ -10,21 +10,12 @@ TOOLS = ${PWD}/../tools
 HTML_BASE = ${PWD}/../html-onechunk
 HTML_CHUNKED_BASE = ${PWD}/../html
 FO_BASE = ${PWD}/../fo
-PDF = "${PWD}/../ladygina-kohts - cihc.pdf"
+PDF = "${PWD}/../docbook-makingup.pdf"
 FOP_BASE = ${PWD}/../fop
 
-all: html pdf
+all: html fop
 all-html: html html-onechunk
 
-${DOCBOOK_BASE}/photoplates.docbook: ${DOCBOOK_BASE}/photoplates.raw ${TOOLS}/gen-figures.pl
-	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates.raw > ${DOCBOOK_BASE}/photoplates.docbook
-
-${DOCBOOK_BASE}/photoplates_eng.docbook: ${DOCBOOK_BASE}/photoplates_eng.raw ${TOOLS}/gen-figures.pl
-	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng table > ${DOCBOOK_BASE}/photoplates_eng.docbook
-
-${DOCBOOK_BASE}/drawings_eng.docbook: ${DOCBOOK_BASE}/drawings_eng.raw ${TOOLS}/gen-figures.pl
-	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/drawings_eng.raw eng tabler figure > ${DOCBOOK_BASE}/drawings_eng.docbook
-	
 html-onechunk: docbook-html-onechunk.xsl $(DOCBOOK)
 	mkdir -p ${HTML_BASE}
 	cd ${HTML_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )

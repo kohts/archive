@@ -1,0 +1,73 @@
+<sect2><title>Другие элементы разметки текста</title>
+
+<sect3><title>Сноски</title>
+Сноски оформляются прямо внутри текста следующим образом:
+<?pre_b
+<para>Здесь
+<footnote><para>
+Имеется в виду площадь будущего Санкт-Петербурга
+</para></footnote>,
+будет город заложён.
+?>
+
+Внутри тега &lt;para&gt; тег &lt;footnote&gt; может начинаться на следующей строке,
+внутри тега &lt;literallayout&gt; тег &lt;footnote&gt; должен начинаться на той же строке,
+что и слово, после которого даётся ссылка.
+</sect3>
+
+<sect3><title>Смысловой акцент</title>
+<para>
+Слово или фраза, на которой делается смысловой акцент (например,
+разреженный текст внутри предложения) оформляется в виде:
+<?pre_b
+<emphasis>Разреженный текст</emphasis>
+?>
+
+К смысловым акцентам не относятся подзаголовки <link linkend="c2">структурных частей</link>.
+</para>
+</sect3>
+
+<sect3><title>Тире, дефис</title>
+<para>
+Тире должно быть оформлено либо в виде символа тире &mdash; (если программа
+распознавания умеет такой символ распознавать), либо в виде шаблона &amp;mdash;
+</para>
+
+<para>
+Дефис должен оформляться в виде символа <quote>минус</quote>.
+</para>
+</sect3>
+
+<sect3><title>Кавычки, цитаты</title>
+Закавыченный текст нужно оформлять в тег &lt;quote&gt; (вне зависимости от того,
+закавычено одно или несколько слов).
+<?pre_b
+См. его статью <quote>Das Heranwachsen des Schimpansen</quote>
+в журнале <quote>Der Zoologische Garten</quote>, № 1, В. 4, 3/V 1931.
+?>
+</sect3>
+
+<sect3><title>Цитаты отдельным блоком</title>
+Цитаты, выделенные в отдельный блок/параграф, оформляются в тег &lt;blockquote&gt;&lt;/blockquote&gt;,
+ссылка на источник цитаты заключается в тег &lt;attribution&gt;&lt;/attribution&gt;. Стихотворные цитаты
+помимо прочего должны помещаться в тег &lt;literallayout&gt;
+<?pre_b
+<blockquote>
+attribution>Полонский, Кузнечик-музыкант</attribution>
+<para><literallayout>
+Ах! &mdash; она сказала, &mdash; я вас не узнала,
+Я вас за другого приняла сначала.
+</literallayout></para>
+</blockquote>
+?>
+</sect3>
+
+<sect3><title>Индексы</title>
+Для оформления индексов нужно использовать теги subscript (нижний индекс) и superscript (верхний индекс).
+Например, перечисление i<subscript>1</subscript>, i<subscript>2</subscript>, i<subscript>3</subscript> нужно оформить так:
+<?pre_b
+i<subscript>1</subscript>, i<subscript>2</subscript>, i<subscript>3</subscript>
+?>
+</sect3>
+
+</sect2>

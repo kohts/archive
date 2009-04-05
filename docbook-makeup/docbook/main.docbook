@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY steps SYSTEM "steps.docbook">
+  <!ENTITY structure SYSTEM "structure.docbook">
+  <!ENTITY syntax-para SYSTEM "syntax-para.docbook">
+  <!ENTITY syntax-xref SYSTEM "syntax-xref.docbook">
+  <!ENTITY syntax-other SYSTEM "syntax-other.docbook">
+  <!ENTITY syntax-docbook-other SYSTEM "syntax-docbook-other.docbook">
+]>
+
+<book id="docbook-makingup" lang="ru">
+
+<title>Использование DocBook для перевода книг в электронный вид</title>
+
+<bookinfo>
+<author>
+<firstname>Петя</firstname>
+<surname>Котс</surname>
+</author>
+</bookinfo>
+
+<chapter id="c1"><title>Этапы процесса</title>&steps;</chapter>
+<chapter id="c2"><title>Структура книги</title>&structure;</chapter>
+<chapter id="c3"><title>Правила оформления отсканированного текста</title>
+  <sect1><title>Соответствие элементов книги элементам xml-схемы</title>
+    <sect2><title>Параграфы</title>&syntax-para;</sect2>
+    <sect2><title>Ссылки</title>&syntax-xref;</sect2>
+    &syntax-docbook-other;
+  </sect1>
+  <sect1><title>Другие правила оформления</title>
+    &syntax-other;
+  </sect1>
+  <sect1><title>Редакторская правка</title>
+  <para>
+  На этапе OCR <emphasis>никакая редакторская правка в текст вноситься не должна</emphasis>.
+  Электронный текст должен быть идентичен бумажному.
+  </para>
+  </sect1>
+</chapter>
+
+</book>

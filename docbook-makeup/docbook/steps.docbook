@@ -1,0 +1,15 @@
+<sect1 id="1_1"><title></title>
+<para>
+Процесс перевода книги из бумажного вида в электронный состоит из следующих этапов:
+
+<orderedlist numeration="arabic">
+<listitem><para>Ознакомление с книгой, анализ структуры</para></listitem>
+<listitem><para>Установление соответствия элементов книги элементам используемого языка описания (docbook)</para></listitem>
+<listitem><para>Сканирование и распознавание (OCR)</para></listitem>
+<listitem><para>Оформление полученного сырого текста в виде xml-файла, соответствующего выбранной схеме (docbook)</para></listitem>
+<listitem><para>Генерация выходного документа (html, pdf)</para></listitem>
+<listitem><para>Сверка с бумажной версией</para></listitem>
+</orderedlist>
+
+</para>
+</sect1>
