@@ -79,6 +79,7 @@
   <!ENTITY vyhodnye_dannye_2002 SYSTEM "vyhodnye_dannye_2002.docbook">
   <!ENTITY vstuplenie_2002_translation SYSTEM "vstuplenie_2002_translation.docbook">
   <!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
+  <!ENTITY darstevennaya_nn_af SYSTEM "darstevennaya_nn_af.docbook">
 ]>
 
 <book id="ladygina-kohts-infant-chimpanzee-and-human-child" lang="ru">
@@ -218,7 +219,6 @@
 
 <appendix><title>Resume работы на английском языке</title><sect1 id="summary_eng" lang="en">&summary_eng;</sect1></appendix>
 <appendix><title>Hatched Drawings and Sketches</title>
-<?page-break?>
 <figure id="eng_joni">
   <title>The Face of the Infant Chimpanzee</title>
   <mediaobject>
@@ -234,7 +234,6 @@
   <mediaobject><textobject><para>My chimpanzee Joni (age 4)</para></textobject></mediaobject>
 </figure>
 
-<?page-break?>
 <figure id="eng_rudy">
   <title>The Face of the Human Child</title>
   <mediaobject>
@@ -257,6 +256,7 @@
 
 <appendix><title>Приложения к электронному изданию</title>
   <sect1><title>Выходные данные русского издания 1935 года</title>&vyhodnye_dannye_1935;</sect1>
+  <sect1><title>Дарственная надпись Н. Н. Ладыгиной-Котс А. Ф. Котс</title>&darstevennaya_nn_af;</sect1>
   <sect1><title>Выходные данные английского издания 2002 года</title>&vyhodnye_dannye_2002;</sect1>
   <sect1><title>Вступление к английскому изданию 2002 года (перевод)</title>&vstuplenie_2002_translation;</sect1>
   <sect1><title>Подготовка электронного издания</title>&electronic_edition;</sect1>
