@@ -217,8 +217,8 @@
 
 <appendix><title>Фототаблицы</title>&photoplates;</appendix>
 
-<appendix><title>Resume работы на английском языке</title><sect1 id="summary_eng" lang="en">&summary_eng;</sect1></appendix>
-<appendix><title>Hatched Drawings and Sketches</title>
+<appendix lang="en"><title>Resume работы на английском языке</title><sect1 id="summary_eng">&summary_eng;</sect1></appendix>
+<appendix lang="en"><title>Hatched Drawings and Sketches</title>
 <figure id="eng_joni">
   <title>The Face of the Infant Chimpanzee</title>
   <mediaobject>
@@ -252,7 +252,7 @@
 &drawings_eng;
 </appendix>
 
-<appendix><title>Photo plates</title>&photoplates_eng;</appendix>
+<appendix lang="en"><title>Photo plates</title>&photoplates_eng;</appendix>
 
 <appendix><title>Приложения к электронному изданию</title>
   <sect1><title>Выходные данные русского издания 1935 года</title>&vyhodnye_dannye_1935;</sect1>

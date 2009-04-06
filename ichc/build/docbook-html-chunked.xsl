@@ -15,20 +15,20 @@
 <xsl:if test="(@y) and (@y != '0')">
   <xsl:value-of select="@y"/><xsl:text> </xsl:text>
   <xsl:choose>
-    <xsl:when test="(../../@lang = 'en')">y.</xsl:when>
+    <xsl:when test="(ancestor::*/@lang = 'en')">y.</xsl:when>
     <xsl:otherwise>г.</xsl:otherwise>
   </xsl:choose>
   <xsl:text> </xsl:text>
 </xsl:if>
 <xsl:value-of select="@m"/><xsl:text> </xsl:text>
 <xsl:choose>
-  <xsl:when test="(../../@lang = 'en')">m.</xsl:when>
+  <xsl:when test="(ancestor::*/@lang = 'en')">m.</xsl:when>
   <xsl:otherwise>м.</xsl:otherwise>
 </xsl:choose>
 <xsl:if test="(@d) and (@d != '0')">
   <xsl:text> </xsl:text><xsl:value-of select="@d"/><xsl:text> </xsl:text>
   <xsl:choose>
-    <xsl:when test="(../../@lang = 'en')">d.</xsl:when>
+    <xsl:when test="(ancestor::*/@lang = 'en')">d.</xsl:when>
     <xsl:otherwise>д.</xsl:otherwise>
   </xsl:choose>
 </xsl:if>
@@ -68,7 +68,6 @@ part      toc,title
   <xsl:param name="local.l10n.xml" select="document('')"/>
   <l:i18n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0">
     <l:l10n language="ru">
-
 	  <l:gentext key="Figure" text="Таблица"/>
 	  <l:gentext key="figure" text="Таблица"/>
       <l:gentext key="ListofFigures" text="Список рисунков"/>
@@ -96,7 +95,6 @@ part      toc,title
 	  <l:context name="xref-number-and-title">
 	    <l:template name="example" text="Табл. %n"/>
 	  </l:context>
-
 	</l:l10n>
   </l:i18n>
   
