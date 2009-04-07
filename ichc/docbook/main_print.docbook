@@ -118,11 +118,45 @@
 <chapter id="c1_2"><title>Эмоции шимпанзе, их внешние выражения и вызывающие их стимулы</title>
 <sect1 id="c1_2_1" label="а"><title>Эмоция общей возбудимости</title>&c1_2_1;</sect1>
 <sect1 id="c1_2_2" label="б"><title>Эмоция радости</title>&c1_2_2;</sect1>
+<sect1 id="c1_2_3" label="в"><title>Эмоция печали</title>&c1_2_3;</sect1>
+</chapter>        
+
+<chapter id="c1_3"><title>Инстинкты шимпанзе</title>
+<sect1 id="c1_3_1" label="а"><title>Инстинкт самоподдержания (у здорового и больного шимпанзе)</title>&c1_3_1;</sect1>
+<sect1 id="c1_3_2" label="б"><title>Инстинкт питания</title>&c1_3_2;</sect1>
+<sect1 id="c1_3_3" label="в"><title>Инстинкт собственности</title>&c1_3_3;</sect1>
+<sect1 id="c1_3_4" label="г"><title>Инстинкт гнездостроения</title>&c1_3_4;</sect1>
+<sect1 id="c1_3_5" label="д"><title>Половой инстинкт</title>&c1_3_5;</sect1>
+<sect1 id="c1_3_6" label="е"><title>Сон шимпанзе</title>&c1_3_6;</sect1>
+<sect1 id="c1_3_7" label="ж"><title>Свободолюбие и борьба за свободу</title>&c1_3_7;</sect1>
+<sect1 id="c1_3_8" label="з"><title>Инстинкт самосохранения (защиты и нападения)</title>&c1_3_8;</sect1>
+<sect1 id="c1_3_9" label="и"><title>Инстинкт общения</title>&c1_3_9;</sect1>
 </chapter>
+
+<chapter id="c1_4"><title>Игры шимпанзе</title>
+<sect1 id="c1_4_1" label="а"><title>Подвижные игры</title>&c1_4_1;</sect1>
+<sect1 id="c1_4_2" label="б"><title>Психическая активность шимпанзе</title>&c1_4_2;</sect1>
+<sect1 id="c1_4_3" label="в"><title>Развлечение звуками</title>&c1_4_3;</sect1>
+<sect1 id="c1_4_4" label="г"><title>Игры экспериментирования</title>&c1_4_4;</sect1>
+<sect1 id="c1_4_5" label="д"><title>Разрушительные игры</title>&c1_4_5;</sect1>
+</chapter>        
+
+<chapter id="c1_5"><title>Предусмотрительное поведение шимпанзе (обман, хитрость)</title>&c1_5;</chapter>
+<chapter id="c1_6"><title>Употребление орудий</title>&c1_6;</chapter>
+<chapter id="c1_7"><title>Подражание</title>&c1_7;</chapter>
+<chapter id="c1_8"><title>Память шимпанзе (привычки, условно-рефлекторные акты)</title>&c1_8;</chapter>
+<chapter id="c1_9"><title>Условный язык (жестов и звуков)</title>&c1_9;</chapter>
+<chapter id="c1_10"><title>Природные звуки шимпанзе</title>&c1_10;</chapter>
 
 </part>
 
+<part id="p2"><title>Поведение дитяти человека (в сравнительно-психологическом аспекте) (аналитическая часть)</title>
+<chapter id="c2_1" label="1"><title>Сравнение внешнего облика человека и шимпанзе</title>&c2_1;
+<sect1 id="c2_1_1" label="а"><title>Лицо и конечности в статике</title>&c2_1_1;</sect1>
+<sect1 id="c2_1_2" label="б"><title>Статические позы: сидение, стояние, лежание</title>&c2_1_2;</sect1>
+<sect1 id="c2_1_3" label="в"><title>Динамические позы: ходьба, бег, лазание</title>&c2_1_3;</sect1>
+</chapter>        
 
-
+</part>
 
 </book>

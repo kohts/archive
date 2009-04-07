@@ -4,7 +4,24 @@
   xmlns:fo="http://www.w3.org/1999/XSL/Format"
   >
 
-  <xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/fo/docbook.xsl"/>
+<!-- effectively defines the output produced by this xsl;
+this is for FO output, used to produce PDF with Apache FOP. -->
+<xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/fo/docbook.xsl"/>
+
+<xsl:param name="fop1.extensions" select="1"></xsl:param>
+
+<!-- body width; valid only for FOP -->
+<xsl:param name="body.start.indent">0pt</xsl:param>
+<xsl:param name="title.margin.left">-4pt</xsl:param>
+
+<!-- page header
+http://docbook.sourceforge.net/release/xsl/current/doc/fo/header.column.widths.html -->
+<xsl:param name="header.column.widths">1 3 1</xsl:param>
+
+<xsl:param name="toc.section.depth">1</xsl:param>
+<xsl:param name="generate.toc">
+book      toc,title,figure,table,example,equation
+</xsl:param>
 
 <xsl:attribute-set name="formal.object.properties">
    <xsl:attribute name="keep-together.within-column">auto</xsl:attribute>
@@ -56,11 +73,6 @@
   <xsl:param name="paper.type" select="'A4'"/>
   
   <xsl:param name="draft.mode">no</xsl:param>
-<!--  <xsl:param name="draft.watermark.image">images/draft.png</xsl:param> -->
-
-<xsl:param name="generate.toc">
-book      toc,title,figure,table,example,equation
-</xsl:param>
 
   <xsl:param name="use.role.for.mediaobject" select="1"></xsl:param>
 
