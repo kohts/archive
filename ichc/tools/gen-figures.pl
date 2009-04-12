@@ -5,7 +5,7 @@ use utf8;
 use Encode;
 
 if (!$ARGV[0]) {
-  die "usage: $0 filename [rus|eng] [table_pfx] [figure|example]\n";
+  die "usage: $0 filename [rus|eng] [table_pfx] [figure|example|formalpara]\n";
 }
 
 my $language = $ARGV[1] ? $ARGV[1] : "rus";
@@ -18,16 +18,23 @@ my $c;
 sub dump_c {
   my ($c) = @_;
 
-  if ($c_counter eq 0 ||
-    $c_counter % 10 eq 0) {
-    my $p = $c_counter / 10;
-	
-	my $pfx;
-	if ($language ne "rus") {
-	  $pfx = $language . "_";
-	}
-	
-    print "<sect1 id='${pfx}photoplates_" . $p . "'><title>" . ($p * 10 + 1) . " &mdash; " . ($p*10 + 10) . "</title>\n";
+  if ($tag ne "formalpara") {
+    if ($c_counter ne 0) {
+      print "<?page-break?>\n";
+    }
+
+    if ($c_counter eq 0 ||
+      $c_counter % 10 eq 0) {
+
+      my $p = $c_counter / 10;
+    
+      my $pfx = "";
+      if ($language ne "rus") {
+        $pfx = $language . "_";
+      }
+    
+      print "<sect1 id='${pfx}photoplates_" . $p . "'><title>" . ($p * 10 + 1) . " &mdash; " . ($p*10 + 10) . "</title>\n";
+    }
   }
 
   $c_counter++;
@@ -41,10 +48,12 @@ sub dump_c {
 
   my $t_id = $t;
   if ($language ne "rus") {
-	$t_id = $language . "_" . $t_id;
+    $t_id = $language . "_" . $t_id;
   }
 
-print '<' . $tag . ' id="' . $t_id . '">
+  if ($tag ne "formalpara") {
+
+    print '<' . $tag . ' id="' . $t_id . '">
   <title>' . $c->{'title'} . '</title>
   <mediaobject>
     <imageobject role="html"><imagedata fileref="images/html/' . $t . '.jpg" /></imageobject>
@@ -63,8 +72,19 @@ print '<' . $tag . ' id="' . $t_id . '">
 
 ';
 
-  if ($c_counter ne 0 && $c_counter % 10 eq 0) {
-    print "</sect1>\n\n";
+    if ($c_counter ne 0 && $c_counter % 10 eq 0) {
+      print "</sect1>\n\n";
+    }
+  }
+  else {
+    print '<' . $tag . ' id="' . $t_id . '">
+  <title>Table <quote>' . $c->{'title'} . '</quote></title>
+  <xref linkend="' . $t . '" /><?br?>
+' . join("<?br?>\n", @{$c->{'para'}}) . "<?br?>\n"  .
+'</' . $tag . '>
+
+';
+
   }
 }
 
@@ -114,6 +134,6 @@ if ($c) {
   dump_c($c);
 }
 
-if ($c_counter % 10 ne 0) {
+if ($tag ne "formalpara" && $c_counter % 10 ne 0) {
   print "</sect1>\n";
 }

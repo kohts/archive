@@ -1,5 +1,4 @@
-<figure id="darstevennaya">
-  <title>Дарственная надпись Н. Н. Ладыгиной-Котс А. Ф. Котс</title>
+<informalfigure id="darstevennaya">
   <mediaobject>
     <imageobject role="html"><imagedata fileref="images/html/darstvennaya-nn-af.jpg" /></imageobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/darstvennaya-nn-af.jpg" /></imageobject>
@@ -41,4 +40,4 @@
 21/VI. 1936. твоя Надежда.
 
 </literallayout></para></textobject></mediaobject>
-</figure>
+</informalfigure>

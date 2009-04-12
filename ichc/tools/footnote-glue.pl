@@ -14,7 +14,7 @@ while (<$f>) {
   my $l = $_;
 
   if ($l =~ /^<footnote>(.*)/) {
-    $l = $1;
+    $l = $1 . "\n";
     chop($previous_line);
     $previous_line .= "<footnote>\n";
   } 

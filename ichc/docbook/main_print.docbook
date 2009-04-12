@@ -73,6 +73,13 @@
   <!ENTITY summary_eng SYSTEM "summary.docbook">
   <!ENTITY photoplates SYSTEM "photoplates.docbook">
   <!ENTITY comparison_table SYSTEM "comparison_table.docbook">
+  <!ENTITY vyhodnye_dannye_1935 SYSTEM "vyhodnye_dannye_1935.docbook">
+  <!ENTITY vyhodnye_dannye_2002 SYSTEM "vyhodnye_dannye_2002.docbook">
+  <!ENTITY vstuplenie_2002_translation SYSTEM "vstuplenie_2002_translation.docbook">
+  <!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
+  <!ENTITY darstevennaya_nn_af SYSTEM "darstevennaya_nn_af.docbook">
+  <!ENTITY drawings_eng_print SYSTEM "drawings_eng_print.docbook">
+  <!ENTITY photoplates_eng_print SYSTEM "photoplates_eng_print.docbook">
 ]>
 
 <book id="ladygina-kohts-infant-chimpanzee-and-human-child" lang="ru">
@@ -88,7 +95,7 @@
 <surname>Ладыгина-Котс</surname>
 </author>
 </bookinfo>
-<date>Москва, 2009</date>
+<date>Москва, 1935</date>
 
 <dedication id="dedication1">
 <para>Посвящается Дарвиновскому музею (1905 &mdash; 1935) и коллективу его преданных сотрудников</para>
@@ -97,11 +104,9 @@
 <preface id="prolog"><title>Пролог</title>&prolog;</preface>
 <preface id="predislovie"><title>Предисловие</title>&predislovie;</preface>
 
-<preface id="vvedenie"><title>Введение</title>
-<subtitle>Предмет и метод исследования</subtitle>
+<preface id="vvedenie"><title>Введение. Предмет и метод исследования.</title>
 &vvedenie;
 </preface>
-
 
 <part id="p1"><title>Поведение дитяти шимпанзе (описательная часть)</title>
 
@@ -150,6 +155,7 @@
 
 </part>
 
+
 <part id="p2"><title>Поведение дитяти человека (в сравнительно-психологическом аспекте) (аналитическая часть)</title>
 <chapter id="c2_1" label="1"><title>Сравнение внешнего облика человека и шимпанзе</title>&c2_1;
 <sect1 id="c2_1_1" label="а"><title>Лицо и конечности в статике</title>&c2_1_1;</sect1>
@@ -157,6 +163,94 @@
 <sect1 id="c2_1_3" label="в"><title>Динамические позы: ходьба, бег, лазание</title>&c2_1_3;</sect1>
 </chapter>        
 
+<chapter id="c2_2" label="2"><title>Сравнение эмоций человека и шимпанзе</title>&c2_2;
+<sect1 id="c2_2_1" label="а"><title>Эмоция общей возбудимости</title>&c2_2_1;</sect1>
+<sect1 id="c2_2_2" label="б"><title>Эмоция печали</title>&c2_2_2;</sect1>
+<sect1 id="c2_2_3" label="в"><title>Эмоция радости</title>&c2_2_3;</sect1>
+</chapter>        
+
+<chapter id="c2_3" label="3"><title>Сравнение инстинктов человека и шимпанзе</title>
+<sect1 id="c2_3_1" label="а"><title>Инстинкт самоподдержания (лечение, самообслуживание, уход за собой, питание)</title>&c2_3_1;</sect1>
+<sect1 id="c2_3_2" label="б"><title>Собственнический инстинкт</title>&c2_3_2;</sect1>
+<sect1 id="c2_3_3" label="в"><title>Семейный инстинкт</title>&c2_3_3;</sect1>
+<sect1 id="c2_3_4" label="г"><title>Инстинкт свободы (свободолюбие)</title>&c2_3_4;</sect1>
+<sect1 id="c2_3_5" label="д"><title>Инстинкт самосохранения (защиты и нападения)</title>&c2_3_5;</sect1>
+<sect1 id="c2_3_6" label="е"><title>Инстинкт общения (социальный инстинкт)</title>&c2_3_6;</sect1>
+</chapter>
+
+<chapter id="c2_4" label="4"><title>Игры человека и шимпанзе</title>
+<sect1 id="c2_4_1" label="а"><title>Подвижные игры</title>&c2_4_1;</sect1>
+<sect1 id="c2_4_2" label="б"><title>Психическая активность ребенка</title>&c2_4_2;</sect1>
+<sect1 id="c2_4_3" label="в"><title>Развлечение звуками</title>&c2_4_3;</sect1>
+<sect1 id="c2_4_4" label="г"><title>Игры экспериментирования<footnote><para>Термин К. Грооса</para></footnote></title>&c2_4_4;</sect1>
+<sect1 id="c2_4_5" label="д"><title>Игры ознакомительные</title>&c2_4_5;</sect1>
+<sect1 id="c2_4_6" label="е"><title>Разрушительные игры</title>&c2_4_6;</sect1>
+<sect1 id="c2_4_7" label="ж"><title>Игры, построенные на принципе противодействия: 1) проявление воли, 2) своеволия, 3) хитрости и обмана</title>&c2_4_7;</sect1>
+<sect1 id="c2_4_8" label="з"><title>Подражательные развлечения</title>&c2_4_8;</sect1>
+<sect1 id="c2_4_9" label="и"><title>Употребление орудий</title>&c2_4_9;</sect1>
+<sect1 id="c2_4_10" label="к"><title>Конструктивные игры ребенка</title>&c2_4_10;</sect1>
+<sect1 id="c2_4_11" label="л"><title>Звукоподражание</title>&c2_4_11;
+<sect2 id="c2_4_11_1"><title>Эволюция звукового языка Руди от рождения до 1-го года жизни</title>&c2_4_11_1;</sect2>
+</sect1>
+<sect1 id="c2_4_12" label="м"><title>Условный язык жестов и звуков</title>&c2_4_12;</sect1>
+</chapter>
+
+<chapter id="c2_5" label="5"><title>Память и привычки дитяти (Условно-рефлекторные акты)</title>&c2_5;
+<sect1 id="c2_5_1" label="а"><title>Эволюция речи ребенка</title>&c2_5_1;</sect1>
+<sect1 id="c2_5_2" label="б"><title>Характерные интеллектуальные черты дитяти, обнаруживаемые на основании его словесных высказываний</title>&c2_5_2;</sect1>
+</chapter>
+
 </part>
+
+
+<part id="p3"><title>Биопсихологические черты сходства и различия в поведении дитяти человека и дитяти шимпанзе (синтетическая часть)</title>
+<chapter id="c3_1"><title>Черты сходства</title>&c3_1;</chapter>
+<chapter id="c3_2"><title>Черты различия</title>&c3_2;</chapter>
+<chapter id="zaklyuchenie"><title>Заключение</title>&zaklyuchenie;</chapter>
+</part>
+
+<appendix id="comparison_table"><title>Таблица, суммирующая черты сходства и различия в поведении человека и шимпанзе</title>
+&comparison_table;
+</appendix>
+
+<appendix><title>Фототаблицы</title>&photoplates;</appendix>
+<appendix id="summary_eng"><title>Resum&#0101;&#768; работы на английском языке</title><sect3 lang="en">&summary_eng;</sect3></appendix>
+
+<appendix><title>List of Hatched Drawings and Sketches</title>
+<sect2 lang="en">
+<formalpara id="eng_joni">
+  <title>The Face of the Infant Chimpanzee</title>
+  <xref linkend="joni" /><?br?>
+  My chimpanzee Joni (age 4)
+</formalpara>
+
+<formalpara id="eng_rudy">
+  <title>The Face of the Human Child</title>
+  <xref linkend="rudy" /><?br?>
+  My son Rudy (age 4)
+</formalpara>
+
+&drawings_eng_print;
+</sect2>
+</appendix>
+
+<appendix><title>List of Photo plates</title><sect2 lang="en">&photoplates_eng_print;</sect2></appendix>
+
+<appendix><title>Приложения к электронному изданию</title>
+  <sect1><title>Выходные данные русского издания 1935 года</title>&vyhodnye_dannye_1935;</sect1>
+
+  <?page-break?>
+  <sect1><title>Дарственная надпись Н. Н. Ладыгиной-Котс А. Ф. Котс</title>&darstevennaya_nn_af;</sect1>
+
+  <?page-break?>
+  <sect1><title>Выходные данные английского издания 2002 года</title>&vyhodnye_dannye_2002;</sect1>
+
+  <?page-break?>
+  <sect1><title>Вступление к английскому изданию 2002 года (перевод)</title>&vstuplenie_2002_translation;</sect1>
+
+  <?page-break?>
+  <sect1><title>Подготовка электронного издания</title>&electronic_edition;</sect1>
+</appendix>
+
 
 </book>

@@ -10,7 +10,7 @@ TOOLS = ${PWD}/../tools
 HTML_BASE = ${PWD}/../html-onechunk
 HTML_CHUNKED_BASE = ${PWD}/../html
 FO_BASE = ${PWD}/../fo
-PDF = "${PWD}/../ladygina-kohts - cihc.pdf"
+PDF = "${PWD}/../ladygina-kohts - ichc - 1935.pdf"
 FOP_BASE = ${PWD}/../fop
 
 all: html pdf
@@ -22,9 +22,15 @@ ${DOCBOOK_BASE}/photoplates.docbook: ${DOCBOOK_BASE}/photoplates.raw ${TOOLS}/ge
 ${DOCBOOK_BASE}/photoplates_eng.docbook: ${DOCBOOK_BASE}/photoplates_eng.raw ${TOOLS}/gen-figures.pl
 	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng table > ${DOCBOOK_BASE}/photoplates_eng.docbook
 
+${DOCBOOK_BASE}/photoplates_eng_print.docbook: ${DOCBOOK_BASE}/photoplates_eng.raw ${TOOLS}/gen-figures.pl
+	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng table formalpala > ${DOCBOOK_BASE}/photoplates_eng_print.docbook
+
 ${DOCBOOK_BASE}/drawings_eng.docbook: ${DOCBOOK_BASE}/drawings_eng.raw ${TOOLS}/gen-figures.pl
 	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/drawings_eng.raw eng tabler figure > ${DOCBOOK_BASE}/drawings_eng.docbook
 	
+${DOCBOOK_BASE}/drawings_eng_print.docbook: ${DOCBOOK_BASE}/drawings_eng.raw ${TOOLS}/gen-figures.pl
+	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/drawings_eng.raw eng tabler formalpara > ${DOCBOOK_BASE}/drawings_eng_print.docbook
+
 html-onechunk: docbook-html-onechunk.xsl $(DOCBOOK)
 	mkdir -p ${HTML_BASE}
 	cd ${HTML_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )
@@ -46,7 +52,7 @@ pdf: fo ${FOP_BASE}/fop.xconf
 	cd ${FOP_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )
 	cd ${FOP_BASE} && \
 	export FOP_HYPHENATION_PATH=${FOP_BASE}/fop-hyph.jar && \
-	fop -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
+	/root/fop-0.95/fop --execdebug -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
 	touch pdf
 
 clean-all-html: clean-html clean-html-onechunk
@@ -57,12 +63,11 @@ clean-html-onechunk:
 	rm -rf ${HTML_CHUNKED_BASE}
 	rm -r html-onechunk
 
-clean-all-pdf: clean-fo clean-pdf
 clean-fo:
 	rm -rf ${FO_BASE}
 	rm -r fo
-clean-pdf:
-	rm -rf ${PDF}
+clean-pdf: clean-fo
+#	rm -rf ${PDF}
 	rm -r pdf
 
 clean-status:
@@ -71,5 +76,5 @@ clean-status:
 	rm -f fo
 	rm -f pdf
 
-.PHONY : clean
-clean: clean-all-html clean-all-pdf
+.PHONY : clean pdf
+clean: clean-all-html clean-pdf

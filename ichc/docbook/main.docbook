@@ -72,14 +72,15 @@
   <!ENTITY zaklyuchenie SYSTEM "zakl.docbook">
   <!ENTITY summary_eng SYSTEM "summary.docbook">
   <!ENTITY photoplates SYSTEM "photoplates.docbook">
-  <!ENTITY drawings_eng SYSTEM "drawings_eng.docbook">
-  <!ENTITY photoplates_eng SYSTEM "photoplates_eng.docbook">
   <!ENTITY comparison_table SYSTEM "comparison_table.docbook">
   <!ENTITY vyhodnye_dannye_1935 SYSTEM "vyhodnye_dannye_1935.docbook">
   <!ENTITY vyhodnye_dannye_2002 SYSTEM "vyhodnye_dannye_2002.docbook">
   <!ENTITY vstuplenie_2002_translation SYSTEM "vstuplenie_2002_translation.docbook">
   <!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
   <!ENTITY darstevennaya_nn_af SYSTEM "darstevennaya_nn_af.docbook">
+
+  <!ENTITY drawings_eng SYSTEM "drawings_eng.docbook">
+  <!ENTITY photoplates_eng SYSTEM "photoplates_eng.docbook">
 ]>
 
 <book id="ladygina-kohts-infant-chimpanzee-and-human-child" lang="ru">
@@ -95,7 +96,7 @@
 <surname>Ладыгина-Котс</surname>
 </author>
 </bookinfo>
-<date>Москва, 2009</date>
+<date>Москва, 1935</date>
 
 <dedication id="dedication1">
 <para>Посвящается Дарвиновскому музею (1905 &mdash; 1935) и коллективу его преданных сотрудников</para>
@@ -104,8 +105,7 @@
 <preface id="prolog"><title>Пролог</title>&prolog;</preface>
 <preface id="predislovie"><title>Предисловие</title>&predislovie;</preface>
 
-<preface id="vvedenie"><title>Введение</title>
-<subtitle>Предмет и метод исследования</subtitle>
+<preface id="vvedenie"><title>Введение. Предмет и метод исследования.</title>
 &vvedenie;
 </preface>
 
@@ -205,19 +205,20 @@
 </part>
 
 
-<part id="p3"><title>Биопсхихологические черты сходства и различия в поведении дитяти человека и дитяти шимпанзе (синтетическая часть)</title>
+<part id="p3"><title>Биопсихологические черты сходства и различия в поведении дитяти человека и дитяти шимпанзе (синтетическая часть)</title>
 <chapter id="c3_1"><title>Черты сходства</title>&c3_1;</chapter>
 <chapter id="c3_2"><title>Черты различия</title>&c3_2;</chapter>
 <chapter id="zaklyuchenie"><title>Заключение</title>&zaklyuchenie;</chapter>
 </part>
 
-<appendix><title>Таблица, суммирующая черты сходства и различия в поведении человека и шимпанзе</title>
-<sect1 id="comparison_table">&comparison_table;</sect1>
+<appendix id="comparison_table"><title>Таблица, суммирующая черты сходства и различия в поведении человека и шимпанзе</title>
+&comparison_table;
 </appendix>
 
 <appendix><title>Фототаблицы</title>&photoplates;</appendix>
 
-<appendix lang="en"><title>Resume работы на английском языке</title><sect1 id="summary_eng">&summary_eng;</sect1></appendix>
+<appendix id="summary_eng"><title>Resum&#0101;&#768; работы на английском языке</title><sect3 lang="en">&summary_eng;</sect3></appendix>
+
 <appendix lang="en"><title>Hatched Drawings and Sketches</title>
 <figure id="eng_joni">
   <title>The Face of the Infant Chimpanzee</title>
@@ -252,13 +253,21 @@
 &drawings_eng;
 </appendix>
 
-<appendix lang="en"><title>Photo plates</title>&photoplates_eng;</appendix>
+<appendix><title>Photo plates</title><sect2 lang="en">&photoplates_eng;</sect2></appendix>
 
 <appendix><title>Приложения к электронному изданию</title>
   <sect1><title>Выходные данные русского издания 1935 года</title>&vyhodnye_dannye_1935;</sect1>
+
+  <?page-break?>
   <sect1><title>Дарственная надпись Н. Н. Ладыгиной-Котс А. Ф. Котс</title>&darstevennaya_nn_af;</sect1>
+
+  <?page-break?>
   <sect1><title>Выходные данные английского издания 2002 года</title>&vyhodnye_dannye_2002;</sect1>
+  
+  <?page-break?>
   <sect1><title>Вступление к английскому изданию 2002 года (перевод)</title>&vstuplenie_2002_translation;</sect1>
+  
+  <?page-break?>
   <sect1><title>Подготовка электронного издания</title>&electronic_edition;</sect1>
 </appendix>
 
