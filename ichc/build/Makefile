@@ -23,7 +23,7 @@ ${DOCBOOK_BASE}/photoplates_eng.docbook: ${DOCBOOK_BASE}/photoplates_eng.raw ${T
 	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng table > ${DOCBOOK_BASE}/photoplates_eng.docbook
 
 ${DOCBOOK_BASE}/photoplates_eng_print.docbook: ${DOCBOOK_BASE}/photoplates_eng.raw ${TOOLS}/gen-figures.pl
-	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng table formalpala > ${DOCBOOK_BASE}/photoplates_eng_print.docbook
+	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng table formalpara > ${DOCBOOK_BASE}/photoplates_eng_print.docbook
 
 ${DOCBOOK_BASE}/drawings_eng.docbook: ${DOCBOOK_BASE}/drawings_eng.raw ${TOOLS}/gen-figures.pl
 	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/drawings_eng.raw eng tabler figure > ${DOCBOOK_BASE}/drawings_eng.docbook
@@ -76,5 +76,6 @@ clean-status:
 	rm -f fo
 	rm -f pdf
 
-.PHONY : clean pdf
+.PHONY : clean pdf gen-plates
 clean: clean-all-html clean-pdf
+gen-plates: $(DOCBOOK_BASE)/photoplates*.docbook $(DOCBOOK_BASE)/drawings*.docbook

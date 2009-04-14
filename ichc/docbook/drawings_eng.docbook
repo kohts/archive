@@ -11,10 +11,9 @@
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1. En face<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1. En face<?br?>
 Fig. 2. Profile<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -30,12 +29,24 @@ Fig. 2. Profile<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Hand lines of the chimpanzee Joni <?br?>
 Fig. 2. Hand lines of the human infant<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Sole lines of the chimpanzee Joni<?br?>
 Fig. 4. Sole lines of tne human infant<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -51,17 +62,29 @@ Fig. 4. Sole lines of tne human infant<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Left hand lines (chimpanzee <quote>Peter</quote> 8 y.)<?br?>
 Fig. 2. Right hand lines of the same ape<?br?>
 Fig. 3. Right hand lines (chimpanzee &female; <quote>Mimosa</quote> 8 y.)<?br?>
 Fig. 4. Lines of sole of left foot (<quote>Mimosa</quote>)<?br?>
 Fig. 5. Lines of palm of left hand of the same ape<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 6. Lines of sole of right foot of the same ape<?br?>
 Fig. 7. Lines of sole of left foot (&female; chimpanzee 3 y.)<?br?>
 Fig. 8. Lines of palm of left hand of the same ape<?br?>
 Fig. 9. Lines of sole of right foot (chimpanzee Peter)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -77,10 +100,9 @@ Fig. 9. Lines of sole of right foot (chimpanzee Peter)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1—5. Static postures of the sitting chimpanzee<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1—5. Static postures of the sitting chimpanzee<?br?>
 Fig. 6. Potentially dynamic posture of the sitting chimpanzee<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -96,12 +118,24 @@ Fig. 6. Potentially dynamic posture of the sitting chimpanzee<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. The chimpanzee climbing to bar with his hands<?br?>
 Fig. 2. The chimpanzee ready to swing<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Leg mobility of sitting chimpanzee<?br?>
 Fig. 4. Leg mobility of standing chimpanzee<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -117,10 +151,9 @@ Fig. 4. Leg mobility of standing chimpanzee<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1. The Chimpanzee, excited, stops his walk<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1. The Chimpanzee, excited, stops his walk<?br?>
 Fig. 2. The excited chimpanzee after arising erect<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -136,14 +169,26 @@ Fig. 2. The excited chimpanzee after arising erect<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. The mimics of attention<?br?>
 Fig. 2. The mimics of excitement<?br?>
 Fig. 3. The narrow smile<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. The broad inviting grin<?br?>
 Fig. 5. The chimpanzee laughing<?br?>
 Fig. 6. The chimpanzee crying<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -159,14 +204,26 @@ Fig. 6. The chimpanzee crying<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Expression of timidness<?br?>
 Fig. 2. Expression of fear or terror<?br?>
 Fig. 3. Expression of anger<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Expression of frenzy<?br?>
 Fig. 5. Expression of disguest<?br?>
 Fig. 6. Expression of astonishment<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -182,12 +239,24 @@ Fig. 6. Expression of astonishment<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. The chimpanzee sad<?br?>
 Eig. 2. The chimpanzee in low spirit<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. The chimpanzee slightly depressed<?br?>
 Fig. 4. The chimpanzee strongly depressed<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -203,10 +272,9 @@ Fig. 4. The chimpanzee strongly depressed<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1. The chimpanzee merrily rolling about on his back<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1. The chimpanzee merrily rolling about on his back<?br?>
 Fig. 2—3. The chimpanzee asleep<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </figure>
 
 </sect1>
@@ -225,11 +293,10 @@ Fig. 2—3. The chimpanzee asleep<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1. Threatening gestures<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Threatening gestures<?br?>
 Fig. 2. Liffing arm, ready to hit image<?br?>
 Fig. 3. On his way to attack<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -245,9 +312,8 @@ Fig. 3. On his way to attack<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1—3. Exploration of a tissue sown in relief<?br?>
-  </para></textobject></mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1—3. Exploration of a tissue sown in relief<?br?>
+</para></textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -263,12 +329,24 @@ Fig. 1—3. Exploration of a tissue sown in relief<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Amusing himself by opening and shutting jaws<?br?>
 Fig. 2—3. Amusing himself by rotation of tongue<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Amusing himself by moving limbs<?br?>
 Fig. 5. The chimpanzee bored<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -284,10 +362,9 @@ Fig. 5. The chimpanzee bored<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1—9. Recognition of 9 buttons widely differing with respect to colour, size and material.<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1—9. Recognition of 9 buttons widely differing with respect to colour, size and material.<?br?>
 The child (10 months) has mastered the generalized notion of "button"<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -303,14 +380,26 @@ The child (10 months) has mastered the generalized notion of "button"<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. A bottle with cod liver oil<?br?>
 Fig. 2. A piece of oil-cloth — <quote>fat</quote> as defined by Roody at 2.11.16<?br?>
 Fig. 3. A carrot<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. An orange nine-pin, defined as "carrot" by Roody (<cihc_age y="1" m="11" d="14" />)<?br?>
 Fig. 5. A weight from a clock<?br?>
 Fig. 6. A corn-cob, defined as "weight" by Roody (<cihc_age y="2" m="1" d="0" />)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -326,15 +415,27 @@ Fig. 6. A corn-cob, defined as "weight" by Roody (<cihc_age y="2" m="1" d="0" />
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. A splint — "gh" (Roody's reaction, meaning airplaine; age: <cihc_age y="1" m="6" d="27" />)<?br?>
 Fig. 2. A pulverizer: Roody's reaction at 1.8.16<?br?>
 Fig. 3. A doctor's hammer for auscultation Roody's reaction at 1.10.15<?br?>
 Fig. 4. A stamp-handle 1.11.24<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 5. V-shaped twig 1.11.24<?br?>
 Fig. 6. Pattern on tablecloth 2.2.1<?br?>
 Fig. 7. Tramway wires crossing 2.2.1<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -350,15 +451,27 @@ Fig. 7. Tramway wires crossing 2.2.1<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Callipers—<quote>gh</quote>, Roody's reaction meaning airplane, age: 1.7.3<?br?>
 Fig. 2. A bent twig — <quote>gh</quote>, Roody's reaction meaning airplane, age 1.8.14<?br?>
 Fig. 3. A piece of coral — <quote>gh</quote>, Roody's reaction meaning airplane, age 1. 11. 24<?br?>
 Fig. 4. Charred — out decorative pattern — <quote>gh</quote> Roody's reaction meaning airplane, age 1.8.27<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 5. Figure "4" sown out on pillow-case— <quote>gh</quote>, Roody's reaction meaning airplane, age 1.8.0<?br?>
 Fig. 6. A hauser — <quote>gh</quote>, Roody's reaction meaning airplane, age 1.2.2<?br?>
 Fig. 7. Flying seed from maple-tree — <quote>oh</quote>, Roody's reaction meaning airplane, age 2.2.4<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -374,7 +487,13 @@ Fig. 7. Flying seed from maple-tree — <quote>oh</quote>, Roody's reaction mean
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. <quote>Axe</quote> as defined by Roody, age 2.7.0<?br?>
 Fig. 2.	<quote>Motor-car</quote> 3.2.0<?br?>
 Fig. 3.	<quote>Wood-pecker</quote> 2.8.0<?br?>
@@ -384,6 +503,8 @@ Fig. 6.	<quote>Uncle in motor-car</quote> 3.10.6<?br?>
 Fig. 7.	<quote>Ship</quote> 2.8.0<?br?>
 Fig. 8.	<quote>Carriage</quote> 2.9.0<?br?>
 Fig. 9.	<quote>Rooster</quote> 2.7.0<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 10. <quote>Crow</quote> 2.7.0<?br?>
 Fig. 11. <quote>Motor-car</quote> 2.6.0<?br?>
 Fig. 12. <quote>House</quote> 1.11.24<?br?>
@@ -393,7 +514,11 @@ Fig. 15. <quote>Shoe</quote> 1.11.21<?br?>
 Fig. 16. <quote>Moon</quote> 1.10.13<?br?>
 Fig. 17. <quote>Boat</quote> 3.0.0<?br?>
 Fig. 18. <quote>Uncle in sledge</quote> 3.8 0<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -409,14 +534,26 @@ Fig. 18. <quote>Uncle in sledge</quote> 3.8 0<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. <quote>A crab</quote> — a spruce bough with cones, (age: <cihc_age y="3" m="0" d="9" />)<?br?>
 Fig. 2. <quote>Mortar</quote> — flowers (age: <cihc_age y="3" m="0" d="9" />)<?br?>
 Fig. 3. <quote>Hedge-hog</quote> — flowers (age: <cihc_age y="3" m="0" d="9" />)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. <quote>Dragon-fly</quote> — a dairy with most petals torn off (age: <cihc_age y="3" m="0" d="9" />)<?br?>
 Fig. 5. <quote>Airplane</quote> (<quote>gh</quote>) — a faded leaf (age: <cihc_age y="2" m="0" d="0" />)<?br?>
 Fig. 6. <quote>Snail</quote> — a half broken stem (age: <cihc_age y="3" m="0" d="0" />)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -432,14 +569,26 @@ Fig. 6. <quote>Snail</quote> — a half broken stem (age: <cihc_age y="3" m="0" 
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fie. 1. <quote>Catterpiller</quote> — a birch-tree branch (age <cihc_age y="3" m="1" d="0" />)<?br?>
 Fig. 2. <quote>Catterpiller</quote> —a pine-tree branch (age <cihc_age y="3" m="1" d="0" />)<?br?>
 Fig. 3. <quote>Crabfish</quote> — a ramified branch (age <cihc_age y="3" m="0" d="28" />)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. <quote>Stag</quote> — a dychotomic branch (age <cihc_age y="3" m="1" d="0" />)<?br?>
 Fig. 5. <quote>Goose</quote> —a dry twig (age <cihc_age y="3" m="2" d="0" />)<?br?>
 Fig. 6. <quote>Seal</quote> — a dry twig (age <cihc_age y="3" m="2" d="0" />)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </figure>
 
 </sect1>
@@ -458,16 +607,28 @@ Fig. 6. <quote>Seal</quote> — a dry twig (age <cihc_age y="3" m="2" d="0" />)<
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. An orange flower made of velvet<?br?>
 Fig. 2. A green flower made of velvet<?br?>
 Fig. 3. A pink flower made of paper<?br?>
 Fig. 4. A pale blue flower made of paper<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 5. A red button<?br?>
 Fig. 6. A greenish-blue button<?br?>
 Fig. 7. A yellow hat<?br?>
 Fig. 8. A green hat<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -483,17 +644,29 @@ Fig. 8. A green hat<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody in (<cihc_age y="1" m="8" d="14" />) having put one hrick on another says <quote>gh</quote> (airplane)<?br?>
 Fig. 2. Roody (age <cihc_age y="1" m="9" d="5" />) on having put one bisquit on top of another said <quote>gh</quote> (airplane)<?br?>
 Fig. 3. A bent wire found by the boy<?br?>
 Fig. 4. The same wire bent by the boy termed <quote>airplane</quote> (age <cihc_age y="2" m="2" d="9" />)<?br?>
 Fig. 5. Twigs found by the boy (age <cihc_age y="1" m="11" d="0" />)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 6. The same twig bent by the boy termed <quote>gh</quote> (airplane)<?br?>
 Fig. 7. Wheel pierced by pencil called <quote>gh</quote> (airplane) (age <cihc_age y="1" m="7" d="10" />)<?br?>
 Fjg. 8. Feather placed on lop of stick colled <quote>gh</quote> (airplane) (age <cihc_age y="1" m="8" d="6" />)<?br?>
 Fig. 9. Wooden chick perched on pencil called <quote>gh</quote> (airplane) (age <cihc_age y="1" m="10" d="11" />)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </figure>
 
 <?page-break?>
@@ -509,12 +682,24 @@ Fig. 9. Wooden chick perched on pencil called <quote>gh</quote> (airplane) (age 
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Scribbling of Jony — first stage of drawing<?br?>
 Fig. 2. Scribbling of Roody. First stage of drawing<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Scribbling cf Jony, — second stage<?br?>
 Fig. 4. Drawing of <quote>Mother</quote> by Roody at the age of <cihc_age y="3" m="0" d="8" />.<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </figure>
 
 </sect1>

@@ -31,8 +31,17 @@ book      toc,title,figure,table,example,equation
   <xsl:value-of select="$body.font.master * 0.8"/>
   <xsl:text>pt</xsl:text>
 </xsl:param>
+<xsl:param name="figure_font_size">
+  <xsl:value-of select="$body.font.master * 0.8"/>
+  <xsl:text>pt</xsl:text>
+</xsl:param>
 <xsl:template match="para[@role='details']">
   <fo:block font-size="{$details_font_size}">
+    <xsl:apply-templates/>
+  </fo:block>
+</xsl:template>
+<xsl:template match="para[@role='figure']">
+  <fo:block font-size="{$figure_font_size}">
     <xsl:apply-templates/>
   </fo:block>
 </xsl:template>

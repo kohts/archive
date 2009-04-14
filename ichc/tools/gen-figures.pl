@@ -53,6 +53,43 @@ sub dump_c {
 
   if ($tag ne "formalpara") {
 
+    my $textobject;
+    my $nrows = scalar (@{$c->{'para'}});
+    
+    if ($nrows < 4) {
+      $textobject = '<para role=\'figure\'>' . join("<?br?>\n", @{$c->{'para'}}) . "<?br?>\n" . '</para>';
+    }
+    else {
+      $textobject = "
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+";
+
+      $textobject .= "<row><entry><para role='figure'>\n";
+      for (my $k=1; $k <= int($nrows / 2 + .5) ; $k++) {
+        $textobject .= ${$c->{'para'}}[$k - 1] . "<?br?>\n";
+      }
+      $textobject .= "</para></entry>\n";
+
+      $textobject .= "<entry><para role='figure'>\n";
+      for (my $k = int($nrows / 2 + .5) + 1 ; $k <= $nrows ; $k++) {
+        $textobject .= ${$c->{'para'}}[$k - 1] . "<?br?>\n";
+      }
+      $textobject .= "</para></entry></row>\n";
+
+      $textobject .= "</tbody>
+</tgroup>
+</informaltable>
+";
+
+#print $textobject . "\n";
+#exit;
+
+    }
+
     print '<' . $tag . ' id="' . $t_id . '">
   <title>' . $c->{'title'} . '</title>
   <mediaobject>
@@ -65,9 +102,7 @@ sub dump_c {
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-' . join("<?br?>\n", @{$c->{'para'}}) . "<?br?>\n"  .
-'  </para></textobject></mediaobject>
+  <mediaobject><textobject>' . $textobject . '</textobject></mediaobject>
 </' . $tag . '>
 
 ';

@@ -11,10 +11,9 @@
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1. Joni asleep<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Joni asleep<?br?>
 Fig. 2. Roody (age <cihc_age y="0" m="3" d="21" />) lying down<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -30,10 +29,9 @@ Fig. 2. Roody (age <cihc_age y="0" m="3" d="21" />) lying down<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1—4. Chimpanzee sitting on flat ground<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1—4. Chimpanzee sitting on flat ground<?br?>
 Fig. 5. Chimpanzee sitting on knees<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -49,9 +47,8 @@ Fig. 5. Chimpanzee sitting on knees<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1—4. Typical standing posture; supported by arms<?br?>
-  </para></textobject></mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1—4. Typical standing posture; supported by arms<?br?>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -67,9 +64,8 @@ Fig. 1—4. Typical standing posture; supported by arms<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1—4. Unusual way of standing, unsupported by arms<?br?>
-  </para></textobject></mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1—4. Unusual way of standing, unsupported by arms<?br?>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -85,11 +81,10 @@ Fig. 1—4. Unusual way of standing, unsupported by arms<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1—2. Slow locomotion<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1—2. Slow locomotion<?br?>
 Fig. 3—4. Running (profile view)<?br?>
 Fig. 5—6. Running (en face view)<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -105,10 +100,9 @@ Fig. 5—6. Running (en face view)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1. Catching hold of tree<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Catching hold of tree<?br?>
 Fig. 2—3. Climbing up tree<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -124,16 +118,28 @@ Fig. 2—3. Climbing up tree<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. The mimics of excitement<?br?>
 Fig. 2. The mimics of attention<?br?>
 Fig. 3. The mimics of astonishment<?br?>
 Fig. 4. The mimics of disgust<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 5. The mimics of anger<?br?>
 Fig. 6. The mimics of fear<?br?>
 Fig. 7. The mimics of sadness (crying)<?br?>
 Fig. 8. The mimics of joy (laughter)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -149,14 +155,26 @@ Fig. 8. The mimics of joy (laughter)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. The mimics of fear and anger<?br?>
 Fig. 2. The mimics of curious attention and fear<?br?>
 Fig. 3. The mimics of intense attention<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. The mimics of boisterous laughter<?br?>
 Fig. 5. The mimics of crying with anger<?br?>
 Fig. 6. The mimics of astonishment and strife<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -172,14 +190,26 @@ Fig. 6. The mimics of astonishment and strife<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Slight bristling, straining of muscles and protrusion of lips<?br?>
 Fig. 2. Strong bristling, protrusion of lips lifting hand<?br?>
 Fig. 3. Partly rising to vertical posture.<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Bending of body, previous to making it erect<?br?>
 Fig. 5. Making body erect and stretching out arms.<?br?>
 Fig. 6. Maximum stretching of body, lifting up arms<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -195,12 +225,24 @@ Fig. 6. Maximum stretching of body, lifting up arms<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Protruding of lips<?br?>
 Fig. 2. Humping of lips<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3—4. Trumpeting of lips<?br?>
 Fig. 5—6. Trumpet-like unfolding of lips<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 </sect1>
@@ -219,12 +261,24 @@ Fig. 5—6. Trumpet-like unfolding of lips<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Excitement mingled with sorrow<?br?>
 Fig. 2. Excitement mingled with anger<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Excitement mingled with joy<?br?>
 Fig. 4. Excitement mingled with fear<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -240,13 +294,25 @@ Fig. 4. Excitement mingled with fear<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1—2. The Chimpanzee in high spirits<?br?>
 Fig. 3—4. The narrow grin of the Chimpanzee<?br?>
 Fig. 5—6. The broad grin of the Chimpanzee<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 7. The boisterous laugh of the Chimpanzee<?br?>
 Fig. 8. The Chimpanzee's laughter<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -262,12 +328,24 @@ Fig. 8. The Chimpanzee's laughter<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. The Chimpanzee in high spirits<?br?>
 Fig. 2. The Chimpanzee is tickled<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. The Chimpanzee is tickled and he laughs<?br?>
 Fig. 4. The Chimpanzee in boisterous and in merry mood<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -283,12 +361,24 @@ Fig. 4. The Chimpanzee in boisterous and in merry mood<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. The Chinpanzee in quiet<?br?>
 Fig. 2. The Chimpanzee depressed<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3—4. The Chimpanzee sad (groaning)<?br?>
 Fig. 5—6. The Chimpanzee crying<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -304,11 +394,10 @@ Fig. 5—6. The Chimpanzee crying<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1 — 2. Initial stages of outcry<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1 — 2. Initial stages of outcry<?br?>
 Fig. 3—4. Roaring outcry<?br?>
 Fig. 5—6. The Chimpanzee completely woebegone<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -324,13 +413,25 @@ Fig. 5—6. The Chimpanzee completely woebegone<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Postures of the crying Chimpanzee (overpowering sorrow)<?br?>
 Fig. 2. Protrusion of arms<?br?>
 Fig. 3. Hitting of hand<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Throwing up arms in despair<?br?>
 Fig. 5. Raising arms<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -346,10 +447,9 @@ Fig. 5. Raising arms<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1. Wringing arms.<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Wringing arms.<?br?>
 Fig. 2—3. Raising arms.<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -365,10 +465,9 @@ Fig. 2—3. Raising arms.<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1—3. Crossing hands above head in sign of full despair<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1—3. Crossing hands above head in sign of full despair<?br?>
 Fig. 4—5. Tickling the Chimpanzee<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -384,14 +483,26 @@ Fig. 4—5. Tickling the Chimpanzee<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. The Chimpanzee in good mood<?br?>
 Fig. 2. The Chimpanzee in bad mood (half-ill)<?br?>
 Fig. 3. The Chimpanzee depressed<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. The Chimpanzee deject<?br?>
 Fig. 5. The Chimpanzee feeling despondent but excited<?br?>
 Fig. 6. The Chimpanzee completely depressed<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -407,14 +518,26 @@ Fig. 6. The Chimpanzee completely depressed<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Cleaning feet<?br?>
 Fig. 2. Gnawing finger-nails on hands<?br?>
 Fig. 3. Examination of lips<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Examination of feet<?br?>
 Fig. 5. Gnawing finger-nails on feet<?br?>
 Fig. 6. Cleaning interstices between teeth<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 </sect1>
@@ -433,13 +556,25 @@ Fig. 6. Cleaning interstices between teeth<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Drinking from cup (final stage)<?br?>
 Fig. 2. Drinking from cup (initial stage)<?br?>
 Fig. 3. Drinking from saucer with help of man<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Drinking from saucer unhelped<?br?>
 Fig. 5—6. Drinking from saucer <quote>animal-like</quote><?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -455,11 +590,10 @@ Fig. 5—6. Drinking from saucer <quote>animal-like</quote><?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1—3. The Chimpanzee frightened and excited (hair bristling) during a walk<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1—3. The Chimpanzee frightened and excited (hair bristling) during a walk<?br?>
 Fig. 2. Meeting the intimidating stimulus<?br?>
 Fig. 4. General excitation (slightly frightened)<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -475,13 +609,25 @@ Fig. 4. General excitation (slightly frightened)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1-2. Protecting his face<?br?>
 Fig. 3. Aggressive gestures with clenched fist<?br?>
 Fig. 4. Self-defence with foot. Attack with hand<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 5. Torturing his victim<?br?>
 Fig. 6. Pinching his victim<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -497,11 +643,10 @@ Fig. 6. Pinching his victim<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1. Standing up erect<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Standing up erect<?br?>
 Fig. 2. Banging with right foot and showing teeth<?br?>
 Fig. 3. Throwing upper lip back — ready to attack<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -517,14 +662,26 @@ Fig. 3. Throwing upper lip back — ready to attack<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. First moment; frightened; squatting<?br?>
 Fig. 2. Standing up erect, waving clenched finger joints<?br?>
 Fig. 3. Lifting up fist; pressed lips slightly curved sidewise<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Threatening postures; ready to jump from feet to hands and vice versa<?br?>
 Fig. 5. Waving right hand, shaking lower jaw<?br?>
 Fig. 6. Attack of the offending stimulus<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -540,12 +697,24 @@ Fig. 6. Attack of the offending stimulus<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Carefully touching face of weeping human<?br?>
 Fig. 2. Putting hand on head, protrusion of tightly closed lips<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Ready to touch the face of the weeping human with his lips<?br?>
 Fig. 4. Ready to touch the face of the weeping human with his tongue<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -561,12 +730,24 @@ Fig. 4. Ready to touch the face of the weeping human with his tongue<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Expression of sympathy; putting hands on head of weeping human, whimpering<?br?>
 Fig. 2. General excitation on seeing a human cry<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. General excitation on seeing a human cry<?br?>
 Fig. 4. Invitation extended to weeping human to play<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -582,12 +763,24 @@ Fig. 4. Invitation extended to weeping human to play<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Induced sorrow<?br?>
 Fig. 2. Induced angry excitation<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. The Chimpanzee's joy<?br?>
 Fig. 4. Anxiety, excitation mingled with sadness<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -603,11 +796,10 @@ Fig. 4. Anxiety, excitation mingled with sadness<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1. Moving a crumb ot bread in mouth<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Moving a crumb ot bread in mouth<?br?>
 Fig. 2. Passing head through a rubber ring<?br?>
 Fig. 3. Setting a "mouth-extender" between teeth<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -623,10 +815,9 @@ Fig. 3. Setting a "mouth-extender" between teeth<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1—2. Winding and unwinding a thread<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1—2. Winding and unwinding a thread<?br?>
 Fig. 3—4. Climbing through an improvized loop<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 </sect1>
@@ -645,12 +836,24 @@ Fig. 3—4. Climbing through an improvized loop<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Swinging on a rope-ladder<?br?>
 Fig. 2. Catching up objects with free hand in course of swinging<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Sitting motionless on rope ladder<?br?>
 Fig. 4. Playful mood during swinging<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -666,11 +869,10 @@ Fig. 4. Playful mood during swinging<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1—2. Careful examination of intriguing-object<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1—2. Careful examination of intriguing-object<?br?>
 Fig. 3. Resistance to returning taken object<?br?>
 Fig. 4. Taking it away from observer<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -686,12 +888,24 @@ Fig. 4. Taking it away from observer<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Astonishment at seeing own image<?br?>
 Fig. 2. Seeking for something beyond mirror<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Threatening gesture directed against image; banging with fist<?br?>
 Fig. 4. Grimaces in front of mirror (cracking of lips)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -707,10 +921,9 @@ Fig. 4. Grimaces in front of mirror (cracking of lips)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1. Roody (at 4) sitting (en face view)<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Roody (at 4) sitting (en face view)<?br?>
 Fig. 2. Joni's (at 4) typical sitting posture (en face view)<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -726,10 +939,9 @@ Fig. 2. Joni's (at 4) typical sitting posture (en face view)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1. Roody sitting (profile)<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Roody sitting (profile)<?br?>
 Fig. 2. Joni sitting (profile)<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -745,12 +957,24 @@ Fig. 2. Joni sitting (profile)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Joni's wrist (seen from above, wax cast from dead animal)<?br?>
 Fig. 2. Roody's (at 7) wrist (seen from above)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Joni's wrist (seen from below)<?br?>
 Fig. 4. Roody's (at 7) wrist (seen from below)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -766,12 +990,24 @@ Fig. 4. Roody's (at 7) wrist (seen from below)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Joni's sole of foot (seen from above, wax cast from dead animal)<?br?>
 Fig. 2. Roody's sole of foot (seen from above)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Joni's sole of foot (seen from below)<?br?>
 Fig. 4. Roody's sole of foot (seen from below)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -787,14 +1023,26 @@ Fig. 4. Roody's sole of foot (seen from below)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. First attempts at sitting (Roody, at 5 months)<?br?>
 Fig. 2. Roody (at 3&half; years) sitting on heels<?br?>
 Fig. 3. Joni squatting<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody (at 1 year 2 months) sitting on heels<?br?>
 Fig. 5. Joni sitting on bench<?br?>
 Fig. 6. Roody (at 3 years) sitting on bench<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -810,12 +1058,24 @@ Fig. 6. Roody (at 3 years) sitting on bench<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (at 5 years) standing<?br?>
 Fig. 3. Joni (at 4 years) standing<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Sitting with legs freely hanging down (Roody, at 5 years)<?br?>
 Fig. 4. Sitting with legs freely hanging down (Joni, at 4 years)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -831,14 +1091,26 @@ Fig. 4. Sitting with legs freely hanging down (Joni, at 4 years)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody's (at 5 months) first attempts to stand up<?br?>
 Fig. 2. Roody's (at 6 months) standing posture strongly leaning upon arms<?br?>
 Fig. 3. Roody's (at 9 months) standing posture, slightly leaning upon arms<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody (at 1 year) standing erect, but with poor stability<?br?>
 Fig. 5. Joni's typical erect standing<?br?>
 Fig. 6. Roody (at 4 years) standing with full equilibrium<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 </sect1>
@@ -857,13 +1129,25 @@ Fig. 6. Roody (at 4 years) standing with full equilibrium<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (age <cihc_age y="0" m="3" d="21" />) sleeping on his back (symmetrical sidewise extension of arms)<?br?>
 Fig 2. Roody (age <cihc_age y="2" m="1" d="0" />) sleeping. Putting arms behind head<?br?>
 Fig. 3. Roody (age <cihc_age y="2" m="4" d="0" />) sleeping on his side<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody (age <cihc_age y="2" m="3" d="0" />) sleeping on his side<?br?>
 Fig. 5. Most typical posture of sleeping child<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -879,14 +1163,26 @@ Fig. 5. Most typical posture of sleeping child<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. The Chimpanzee's typical running posture<?br?>
 Fig. 2. The human infant (at 9 m.) crawling<?br?>
 Fig. 3. Roody's (at 1 year 1 m.) first attempts at walking (profile)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody's (at 1 year 1 m.) first attempts at walking (en face view)<?br?>
 Fig. 5. The slow gait of Joni<?br?>
 Fig. 6. Roody (at 3) running<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -902,12 +1198,24 @@ Fig. 6. Roody (at 3) running<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Joni standing with support of man<?br?>
 Fig. 2. Roody (at <cihc_age y="0" m="9" d="26" />) standing with support of man<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Joni (at 3&half; y.) led by hand<?br?>
 Fig. 4. Roody (at 3) led by hand<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -923,14 +1231,26 @@ Fig. 4. Roody (at 3) led by hand<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Joni (at 3&half; years) running<?br?>
 Fig. 2. Roody (at 2 years) running<?br?>
 Fig. 3. Roody (1 year 1 m.) carrying ball<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody (2 years 1 m.) carrying chair<?br?>
 Fig. 5. Roody (2 years 5 m.) carrying armchair<?br?>
 Fig. 6. Roody (2 years 2 m.) carrying ninepins<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -946,14 +1266,26 @@ Fig. 6. Roody (2 years 2 m.) carrying ninepins<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (1 y. 1 m.) pushing basket car<?br?>
 Fig. 2. Roody (1 y. 4 m.) pushing wheelbarrow with sand<?br?>
 Fig. 3. Roody (1 y. 4 m.) pushing cart<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody (2 y. 11 m.) pushing sledge up hill<?br?>
 Fig. 5. Roody (4 y.) pushing toy-hare<?br?>
 Fig. 6. Roody (2 y. 1 m.) dragging toyhorse<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -969,11 +1301,10 @@ Fig. 6. Roody (2 y. 1 m.) dragging toyhorse<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1. Roody's (3 y.) train for the locomotion of his toy playmates<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Roody's (3 y.) train for the locomotion of his toy playmates<?br?>
 Fig. 2. Roody's (2 y. 4 m.) train passes over a selfmade bridge<?br?>
 Fig. 3. An improvised accident of the train<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -989,13 +1320,25 @@ Fig. 3. An improvised accident of the train<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (2 y. 4 m.) walking over improvised bridge<?br?>
 Fig. 2. Roody (2 y. 5 m.) walking on plank<?br?>
 Fig. 3. Roody (2 y. 7 m.) walking through snow<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody (3 y. 6 m.) jumping over barrier<?br?>
 Fig. 5. Roody (3 y. 6 m.) jumping over teddy bear<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1011,13 +1354,25 @@ Fig. 5. Roody (3 y. 6 m.) jumping over teddy bear<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (2 y. 11 m.) running down a snow hill<?br?>
 Fig. 2. Roody (2 y. 11 m.) sliding down hill<?br?>
 Fig. 3. Roody climbing up steps of snow ill<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody sliding down hill without sleigh<?br?>
 Fig. 5. Dragging sleigh up hill<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1033,12 +1388,24 @@ Fig. 5. Dragging sleigh up hill<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (1 y. 1 m.) climbing up stairs on all fours<?br?>
 Fig. 2. Roody (2 y. 1 m.) negotiating stairs on all fours<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Roody (2 y. 1 m.) has recourse to help in descending stairs<?br?>
 Fig. 4. Roody (1 y. 1 m.) has recourse to help in ascending stairs<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1054,12 +1421,24 @@ Fig. 4. Roody (1 y. 1 m.) has recourse to help in ascending stairs<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (2 y. 1 m.) negotiating stairs in vertical posture for the first time<?br?>
 Fig. 2. Roody (2 y. 7 m.) ascending stairs unaided in vertical posture<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Roody (2 y. 1 m.) carefuly descending stairs in vertical posture for the first time<?br?>
 Fig. 4. Roody (2 y. 7 m.) descending stairs in vertical posture<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 </sect1>
@@ -1078,14 +1457,26 @@ Fig. 4. Roody (2 y. 7 m.) descending stairs in vertical posture<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (1 y. 4 m.) climbing into armchair<?br?>
 Fig. 2. Roody (1 y. 4 m.) climbing down from armchair<?br?>
 Fig. 3. Roody (1 y. 11 m.) climbing into seat of sleigh<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody (1 y. 11 m.) climbing down from seat of sleigh<?br?>
 Fig. 5. Roody (2 y. 4 m.) climbing onto steps of car<?br?>
 Fig. 6. Roody (2 y. 4 m.) climbing down from steps of car<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1101,15 +1492,27 @@ Fig. 6. Roody (2 y. 4 m.) climbing down from steps of car<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Joni on roof of house<?br?>
 Fig. 2. Joni descending from roof of house<?br?>
 Fig. 3. Roody (age 4&half; years) climbing up ladder<?br?>
 Fig. 4. Roody (age 5 years) on a trapeze<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 5. Roody (age 2 y. 4 m.) climbing to the seat of a sleigh<?br?>
 Fig. 6. Roody (age 3&half; years) climbing over chairs<?br?>
 Fig. 7. Roody (age 4&half; years) ascending fence<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1125,14 +1528,26 @@ Fig. 7. Roody (age 4&half; years) ascending fence<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Joni's mimics of excitement<?br?>
 Fig. 2. Roody's (age <cihc_age y="3" m="4" d="0" />) mimics of excitement<?br?>
 Fig. 3. Joni crying<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. The human child crying (with tears)<?br?>
 Fig. 5. Joni laughing<?br?>
 Fig. 6. The human child laughing<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1148,14 +1563,26 @@ Fig. 6. The human child laughing<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Joni's mimics of fear<?br?>
 Fig. 2. Roody's (age 4 months) mimics of fear<?br?>
 Fig. 3. Joni's mimics of disgust<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody's (age 7 years) mimics of disgust<?br?>
 Fig. 5. Joni's mimics of astonishment<?br?>
 Fig. 6. The human child astonished<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1171,10 +1598,9 @@ Fig. 6. The human child astonished<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1. Mimics expressing displeasure: <quote>Porridge is without sugar</quote> (Roody 4 y. 1 m.)<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Mimics expressing displeasure: <quote>Porridge is without sugar</quote> (Roody 4 y. 1 m.)<?br?>
 Fig. 2. Mimics expressing pleasure: <quote>There is sugar in the Porridge</quote> (Roody 4 y. 1 m.)<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1190,14 +1616,26 @@ Fig. 2. Mimics expressing pleasure: <quote>There is sugar in the Porridge</quote
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. The initial or first stage of Roody's (1 years) crying<?br?>
 Fig. 2. The subsequent or second stage of Roody's crying<?br?>
 Fig. 3. Restrained crying from physical pain<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Wiping eyes<?br?>
 Fig. 5. Joni crying<?br?>
 Fig. 6. Roody crying (third stage)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1213,12 +1651,24 @@ Fig. 6. Roody crying (third stage)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Crying (fourth stage) because of being morally hurt (Roody 1 y. 2 m.)<?br?>
 Fig. 2. Crying (fifth stage) because of physical pain (Roody 1 y. 2 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Finding amusement in structural activity. Roody's (age 6 years) attempts at making "cave man"<?br?>
 Fig. 4. Roody (age 6 years) restrained crying because of being psychically hurt (<quote>cave-man</quote> has all gone to pieces)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1234,14 +1684,26 @@ Fig. 4. Roody (age 6 years) restrained crying because of being psychically hurt 
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (6 m.) crying (3 stage)<?br?>
 Fig. 2. Roody (6 m.) smiling (1 stage)<?br?>
 Fig. 3. Roody (1 y. 2 m.) crying (4 stage)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody (1 y. 2 m.) smiling (1 stage)<?br?>
 Fig. 5. The posture of Roody (1 y. 2 m.) crying (5 stage)<?br?>
 Fig. 6. The posture of Roody (1 y. 2 m.) smiling (1 stage)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1257,14 +1719,26 @@ Fig. 6. The posture of Roody (1 y. 2 m.) smiling (1 stage)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody's (age 6 years) narrow smile (2 stage)<?br?>
 Fig. 2. Roody's (age 6 years) broad smile (3 stage)<?br?>
 Fig. 3. Roody's broad smile (4 stage)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody's laughter (5 stage)<?br?>
 Fig. 5. Joni's (age 4 years) broad smile<?br?>
 Fig. 6. Roody's (age 5 years) broad smile (3 stage)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1280,14 +1754,26 @@ Fig. 6. Roody's (age 5 years) broad smile (3 stage)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Joni frolicsome<?br?>
 Fig. 2. Roody frolicsome<?br?>
 Fig. 3. Joni's reaction to tickling<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody's reaction to tickling<?br?>
 Fig. 5. Motions of Joni in playful mood<?br?>
 Fig. 6. Motions of Roody (3 y. 1 m.) in playful mood<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 </sect1>
@@ -1306,12 +1792,24 @@ Fig. 6. Motions of Roody (3 y. 1 m.) in playful mood<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (age 5 years) removes splint from finger<?br?>
 Fig. 2. Roody (2 y. 4 m.) examining his toes<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Joni examining the hair on his feet<?br?>
 Fig. 4. Joni examining the hair on his hand<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1327,14 +1825,26 @@ Fig. 4. Joni examining the hair on his hand<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (2 y. 4 m.) washing face<?br?>
 Fig. 2. Roody (3 y. 2 m.) washing hands<?br?>
 Fig. 3. Roody (2 y. 2 m.) putting on cap<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody (2 y. 2 m.) attempt at putting on shoes<?br?>
 Fig. 5. Roody (2 y. 6 m.) preparing to blow his nose<?br?>
 Fig. 6. Roody (2 y. 6 m.) using handkerchief<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1350,12 +1860,24 @@ Fig. 6. Roody (2 y. 6 m.) using handkerchief<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (1 y. 5 m.) dons a boa of yellow feathers<?br?>
 Fig. 2. Roody adorning himself<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Joni puts a piece of tulle round his neck<?br?>
 Fig. 4. Roody (3 y. 4 m.) dons a peculiar kind of headgear<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1371,12 +1893,24 @@ Fig. 4. Roody (3 y. 4 m.) dons a peculiar kind of headgear<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (2 y. 2 m.) uses cup<?br?>
 Fig. 2. Roody (2 y. 5 m.) drinking from cup<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Use of cup with Joni<?br?>
 Fig. 4. Joni drinking from cup<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1392,13 +1926,25 @@ Fig. 4. Joni drinking from cup<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (2 y. 1 m.) using spoon<?br?>
 Fig. 2. Roody (4 y. 1 m.) taking food with a spoon; tasting bread with finger<?br?>
 Fig. 3—4. Roody (2 y. 7 m.) using fork<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 5. Roody (2 y. 3 m.) drinking from cup<?br?>
 Fig. 6. Roody (2 y. 11 m.) using knife<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1414,13 +1960,25 @@ Fig. 6. Roody (2 y. 11 m.) using knife<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (1 y. 6 m.) afraid of a piece of dark fabric<?br?>
 Fig. 2. Roody (1 y. 6 m.) afraid of a piece of dark fabric<?br?>
 Fig. 3. The gesticulation of frightened Joni<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. The gesticulation of frightened Roody (age 5 years); self-proteching gesture with revolver<?br?>
 Fig. 5. Roody (3 y. 3 m.) [frightened of a live fluttering bird<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1436,12 +1994,24 @@ Fig. 5. Roody (3 y. 3 m.) [frightened of a live fluttering bird<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody's (age 5 years) mimics of pseudo-anger<?br?>
 Fig. 2. Joni's mimics of anger<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Joni's aggressive gesticulation (stamping foot)<?br?>
 Fig. 4. Roody's (2 y. 2 m.) aggressive gesticulation (stamping foot)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1457,13 +2027,25 @@ Fig. 4. Roody's (2 y. 2 m.) aggressive gesticulation (stamping foot)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Shooting, from gun<?br?>
 Fig. 2. Shooting from rifle<?br?>
 Fig. 3. <quote>Gas attack</quote><?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Shooting from revolver; attack of enemy<?br?>
 Fig. 5. Two adversaries<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1479,14 +2061,26 @@ Fig. 5. Two adversaries<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Tenderness with Joni — pressing a close to observer<?br?>
 Fig. 2. Tenderness with Roody (2 y. 8 m.) -pressing close to his mother<?br?>
 Fig. 3. Tenderness with Joni — hugging<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Tenderness with Roody (1 y. 9 m.) — pressing himself against his mother's breast<?br?>
 Fig. 5. Joni kissing<?br?>
 Fig. 6. Roody (2 y. 4 m.) kissing<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1502,14 +2096,26 @@ Fig. 6. Roody (2 y. 4 m.) kissing<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (1 y. 2 m.) tries to make friends with cat<?br?>
 Fig. 2. Roody (2&half; years) expresses tender feelings towards cat<?br?>
 Fig. 3. Feeding dog (Roody, 2 y. 7 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Hugging a toy elephant<?br?>
 Fig. 5. Roody's reaction to Joni's stuffed representation (examining chimpanzee's face)<?br?>
 Fig. 6. Roody's (2 y. 5 m.) tenderness toward Joni (<quote>hugging the little ape</quote>)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 </sect1>
@@ -1528,14 +2134,26 @@ Fig. 6. Roody's (2 y. 5 m.) tenderness toward Joni (<quote>hugging the little ap
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Weighing<?br?>
 Fig. 2. Playing horses<?br?>
 Fig. 3. Joint watering of flowers<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Demonstration of Museum<?br?>
 Fig. 5. Driving<?br?>
 Fig. 6. Cycling<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1551,14 +2169,26 @@ Fig. 6. Cycling<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (2 y. 9 m. years) showing pictures to horse<?br?>
 Fig. 2. Roody (2&half; years) feeding toy horse<?br?>
 Fig. 3. Roody (2 y. 9 m. years) reading for horse<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody (1 y. 4 m.) tries to feed doll<?br?>
 Fig. 5. Roody (4 years) playing the piana for cat<?br?>
 Fig. 6. Roody (2 y. 9 m.) auscultation of teddy bear<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1574,14 +2204,26 @@ Fig. 6. Roody (2 y. 9 m.) auscultation of teddy bear<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Swinging together with teddy bear and pushing off teddy bear; catching up bear on swing (Roody at age of four)<?br?>
 Fig. 2. Has caught up teddy bear. Now swing together<?br?>
 Fig. 3. Collision with bear — an improvised accident<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Climbing up ladder with bear<?br?>
 Fig. 5. Teddy-bear driven in sled<?br?>
 Fig. 6. Teddy-bear toboganning<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1597,14 +2239,26 @@ Fig. 6. Teddy-bear toboganning<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (4&half; years) setting the bait<?br?>
 Fig. 2. Roody preparing sling-knot<?br?>
 Fig. 3. Roody awaiting prey<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody catching bear<?br?>
 Fig. 5. Roody carrying bear away<?br?>
 Fig. 6. Roody tying bear to tree<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1620,11 +2274,10 @@ Fig. 6. Roody tying bear to tree<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1. Roody (3 y. 3 m.) <quote>travels</quote><?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Roody (3 y. 3 m.) <quote>travels</quote><?br?>
 Fig. 2. Roody (3 y. 4 m.) makes an airplane flight<?br?>
 Fig. 3. Roody (3 y. 4 m.) goes to demonstration<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1640,12 +2293,24 @@ Fig. 3. Roody (3 y. 4 m.) goes to demonstration<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (2 y. 2 m.) has hidden<?br?>
 Fig. 2. Roody (2 y. 5 m.) has hidden behind his chair<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Roody (2 y. 4 m.) hiding in the knees of his mother<?br?>
 Fig. 4. Roody (2 y. 2 m.) <quote>invisible</quote> (has covered head with cap)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1661,14 +2326,26 @@ Fig. 4. Roody (2 y. 2 m.) <quote>invisible</quote> (has covered head with cap)<?
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. <quote>Car does not go</quote>: Roody (2 y. 2 m.) feels depressed<?br?>
 Fig. 2. Attired as chauffeur: Roody (3 y. 11 m.) in big chauffeur's gloves<?br?>
 Fig. 3. Tinkering with the steering gear (Roody 2 y. 2 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. <quote>I'll take the car!</quote> (Roody 3 y. 2 m.)<?br?>
 Fig. 5. <quote>I'll repair the wheel!</quote> (Roody 3 y. 6 m.)<?br?>
 Fig. 6. <quote>I'll repair the wheel!</quote> (Roody 3 years)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1684,13 +2361,25 @@ Fig. 6. <quote>I'll repair the wheel!</quote> (Roody 3 years)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Swinging on wooden horse (Roody 3 y. 4 m.)<?br?>
 Fig. 2. On the rocking chair (Roody 3 y.)<?br?>
 Fig. 3. On wooden horse (Roody 4 y. 4 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Purposeful falling down (Roody 4 y. 4 m.)<?br?>
 Fig. 5. Little girl friend in tow (Roody 4 y. 7 m.)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1706,14 +2395,26 @@ Fig. 5. Little girl friend in tow (Roody 4 y. 7 m.)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. <quote>Auto-go-cart</quote> (Roody 3 y. 3 m.)<?br?>
 Fig. 2. <quote>Auto-go-cart</quote> (Roody 4 y. 3 m.)<?br?>
 Fig. 3. Cycling with improvised obstacles (Roody 4 y. 5 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Demonstrating boldness in cycling (without holding to steering gear) (Roody 4 y. 7 m.)<?br?>
 Fig. 5. Cycling without foothold on pedals<?br?>
 Fig. 6. Purposeful falling down from bicycle<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1729,12 +2430,24 @@ Fig. 6. Purposeful falling down from bicycle<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Pseudo-skis (Roody 3 y. Il m.)<?br?>
 Fig. 2. Pseudo-skates (Roody 3 y. 11 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Skiing on real big skis (Roody 2 y. 11 m.)<?br?>
 Fig. 4. Skiing on children's skis (Roody 4 years)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 </sect1>
@@ -1753,12 +2466,24 @@ Fig. 4. Skiing on children's skis (Roody 4 years)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Joni on a rope ladder<?br?>
 Fig. 2. Roody (at 6) on a rope ladder<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Joni on a tree<?br?>
 Fig. 4. Roody (4 y. 7 m.) on a tree<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1774,14 +2499,26 @@ Fig. 4. Roody (4 y. 7 m.) on a tree<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Carrying ball (Roody 1 y. 2 m.)<?br?>
 Fig. 2. Pushing ball with foot (Roody 2 y. 3 m.)<?br?>
 Fig. 3. Catching up ball (Roody 2 y. 4 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Throwing ball with hand (Roody 2 y. 1 m.)<?br?>
 Fig. 5. Throwing down nine-pins (Roody 2 y. 1 m.)<?br?>
 Fig. 6. Playing with ball (Roody 2 y. 4 m.)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1797,14 +2534,26 @@ Fig. 6. Playing with ball (Roody 2 y. 4 m.)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Turning a pianoforte-stool (Roody 2 y. 2 m.)<?br?>
 Fig. 2. Turning the wheel of a sowing machine (Roody 2 y. 9 m.)<?br?>
 Fig. 3. Driving a hoop (Roody 3 y. 3 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Driving a small wheel (Roody 4 y. 1 m.)<?br?>
 Fig. 5. Rolling eggs (Roody 3 years)<?br?>
 Fig. 6. Spinning a humming top (Roody 4 y. 4 m.)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1820,14 +2569,26 @@ Fig. 6. Spinning a humming top (Roody 4 y. 4 m.)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (2 y. 2 m.) blowing the trumpet<?br?>
 Fig. 2. Roody (2 y. 3 m.) inflating a squeaking <quote>devil</quote><?br?>
 Fig. 3. Roody (2 y. 9 m.) beating the drum<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody (2 y. 6 m.) playing the cymbals<?br?>
 Fig. 5. Roody (3 years) playing an accordion<?br?>
 Fig. 6. Roody (4 y. 1 m.) playing a tey-piano<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1843,14 +2604,26 @@ Fig. 6. Roody (4 y. 1 m.) playing a tey-piano<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Splashing water (Roody 1 y. 1 m.)<?br?>
 Fig. 2. Spreading water about (Roody 1 y. 4 m.)<?br?>
 Fig. 3. Pouring water (Roody 2 y. 1 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Playing with water — launching a steamer (Roody 2 y. 4 m.)<?br?>
 Fig. 5. Playing with water — washing linen (Roody 2&half; y.)<?br?>
 Fig. 6. Making a water fountain (Roody 2 y. 6 m. )<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1866,14 +2639,26 @@ Fig. 6. Making a water fountain (Roody 2 y. 6 m. )<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (1 y. 4 m.) playing with a hair<?br?>
 Fig. 2. Joni playing with a hair<?br?>
 Fig. 3. Gets acquainted with brush (Roody 9 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Making sand-cakes (Roody 2 y. 1 m.)<?br?>
 Fig. 5. The sand-cakes ready (Roody 2 y. 1 m.)<?br?>
 Fig. 6. Flattening out sand-cakes (Roody 2 y. 1 m.)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1889,12 +2674,24 @@ Fig. 6. Flattening out sand-cakes (Roody 2 y. 1 m.)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (2 y. 4 m.) looking through transparent objects<?br?>
 Fig. 2. Looidng into stereoscope (Roody 4 y.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Examining objects through magnifying glass<?br?>
 Fig. 4. Looking into self-made <quote>field-glass</quote><?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1910,14 +2707,26 @@ Fig. 4. Looking into self-made <quote>field-glass</quote><?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Blowing out soap bubbles (Roody 3 y.)<?br?>
 Fig. 2. Admiring a bubble<?br?>
 Fig. 3. Looking at the play of colours of a toy-balloon.<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Striking a match (Roody 1 y. 2 m.)<?br?>
 Fig. 5. Looking at the flame of a candle<?br?>
 Fig. 6. Extinguishing flame(Roody 3 y.)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1933,13 +2742,25 @@ Fig. 6. Extinguishing flame(Roody 3 y.)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Touching intriguing object with stick (Roody 2 y. 10 m.)<?br?>
 Fig. 2. Drawing lilies with stick (Roody 2 y. 2 m.)<?br?>
 Fig. 3. Waving stick (Roody 2 y. 1 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Beating off leaves with stick (Roody 1 y. I m.) (Characteristic protrusion of tongue)<?br?>
 Fig. 5. Riding a stick (Roody 4 y. 5 m.)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -1955,14 +2776,26 @@ Fig. 5. Riding a stick (Roody 4 y. 5 m.)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Astonishment; opening of mouth by child on seeing novel object (Roody 9 m.)<?br?>
 Fig. 2. Astonishment; Joni opens mouth while looking into mirror<?br?>
 Fig. 3. Typical posture of fixed attention — Roody (4 years) examining hedge-hog<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Typical posture of fixed attention Joni looks at box<?br?>
 Fig. 5. Roody's (1 y. 5 m.) mimics of attention<?br?>
 Fig. 6. Roody (3 y. 4 m.) mimics of attention<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 </sect1>
@@ -1981,12 +2814,24 @@ Fig. 6. Roody (3 y. 4 m.) mimics of attention<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (1 y. 2 m.) opens mouth in course of contemplating intriguing object<?br?>
 Fig. 2. Tightly compressed lips and eager movement of hands (Roody 1 y. 2 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Drawing arms aside while astonished (Roody 1 y. 1 m.)<?br?>
 Fig. 4. Feeling intriguing object with mouth (Roody 1 y. 1 m.)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2002,14 +2847,26 @@ Fig. 4. Feeling intriguing object with mouth (Roody 1 y. 1 m.)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (4 m.) in the act of sucking<?br?>
 Fig. 2. Roody (5 m.) sucking his hand<?br?>
 Fig. 3. Roody (9 m.) touching metallic object with mouth<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody (9 m.) touching "metallic basin with mouth<?br?>
 Fig. 5. Roody (9 m.) touching metallic rattle with mouth<?br?>
 Fig. 6. Roody (3 years) sucking his thumb while listening to reading<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2025,11 +2882,10 @@ Fig. 6. Roody (3 years) sucking his thumb while listening to reading<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Figs. 1—2. Self-examination with Roody (1 y. 2 m.)<?br?>
+  <mediaobject><textobject><para role='figure'>Figs. 1—2. Self-examination with Roody (1 y. 2 m.)<?br?>
 Figs. 3—4. Roody (1 y. 4 m.) feeling and picking a pimple<?br?>
 Figs. 5—6. Self-examination with Joni<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2045,14 +2901,26 @@ Figs. 5—6. Self-examination with Joni<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (1 y. 2 m.) examines and touches anthor's eyes<?br?>
 Fig. 2. Joni examines and touches human hair<?br?>
 Fig. 3. Roody (1 y. 4 m.) examines and touches human ears<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody (1 y. 4 m.) examines and touches face of doll<?br?>
 Fig. 5. Joni examines and touches a scratch on human hand<?br?>
 Fig. 6. Roody (1 y. 2 m.) examines and touches human face<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2068,14 +2936,26 @@ Fig. 6. Roody (1 y. 2 m.) examines and touches human face<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (2 y. 5 m.) looks into mirror; touching miror-image with face<?br?>
 Fig. 2. Joni looks into mirror, examines his image<?br?>
 Fig. 3. Roody touches mirror-image<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Joni draws mirror to himself<?br?>
 Fig. 5. Roody's grimaces before mirror<?br?>
 Fig. 6. Joni's grimaces before mirror<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2091,14 +2971,26 @@ Fig. 6. Joni's grimaces before mirror<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (1 year) puts index finger into hole<?br?>
 Fig. 2. Roody (1 year) sucking finger<?br?>
 Fig. 3. Roody (9 m.) tearing hole open<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody (9 m.) opening table-lid with index-finger<?br?>
 Fig. 5. Roody (<cihc_age y="2" m="2" d="8" />) takes out different things<?br?>
 Fig. 6. Roody's (9 m.) exploration of the depth of boxes<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2114,14 +3006,26 @@ Fig. 6. Roody's (9 m.) exploration of the depth of boxes<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (1 y.) points to intriguing object<?br?>
 Fig. 2. Roody (2 y. 1 m.) points to intriguing object with index-finger<?br?>
 Fig. 3. Roody (1 y. 2 m.) points to direction in which he wants to go<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody (1 y. 3 m.) points to object which he wants to acquire<?br?>
 Fig. 5. Joni touches intriguing object with index-finger<?br?>
 Fig. 6. Roody (1 y. 5 m.) touches intriguing object with index-finger<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2137,14 +3041,26 @@ Fig. 6. Roody (1 y. 5 m.) touches intriguing object with index-finger<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Gathering bread-crumbs (Roody 9 m.)<?br?>
 Fig. 2. Gathering bread-crumbs (Roody 9 m.)<?br?>
 Fig. 3. <quote>I like all that's very small!</quote> (Roody 2 y. 3 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Gathering little stones (Roody 1 y. 5 m.)<?br?>
 Fig. 5. Examining minute snails<?br?>
 Fig. 6. It's the smallest hair who gets the gun (as a special distinction).<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2160,14 +3076,26 @@ Fig. 6. It's the smallest hair who gets the gun (as a special distinction).<?br?
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Demolishing part of a brick house (Roody 1 y. 5 m.)<?br?>
 Fig. 2. Demolishing almost all the brick house (Roody 1 y. 5 m.)<?br?>
 Fig. 3. Destroying a self-made pillar (Roody 4 y. 1 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Throwing pebbles into a pool of water (Roody 1 y. 7 m.)<?br?>
 Fig. 5. Kicking up a twig with stick (Roody 3 y. 3 m.)<?br?>
 Fig. 6. Directionalized throwing of stick<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2183,11 +3111,10 @@ Fig. 6. Directionalized throwing of stick<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1. Ready to hit at target (Roody 2 y. 2 m.)<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Ready to hit at target (Roody 2 y. 2 m.)<?br?>
 Fig. 2. Preparing to throw stick<?br?>
 Fig. 3. <quote>Off the stick goes</quote><?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 </sect1>
@@ -2206,13 +3133,25 @@ Fig. 3. <quote>Off the stick goes</quote><?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. First attempts at using watering can — unsuccessful (Roody 1 y. 5 m.)<?br?>
 Fig. 2. Roody's (1 y. 10 m.) first, but vain attempts at making use of spade<?br?>
 Fig. 3. First attempts at using schylhe (Roody 4 years)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Effective use of watering can (Roody 2 y. I m.)<?br?>
 Fig. 5. Effective use of spade (Roody 1 y. 10 m.)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2228,13 +3167,25 @@ Fig. 5. Effective use of spade (Roody 1 y. 10 m.)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Listening in to watch (Roody 1 y. 2 m.)<?br?>
 Fig. 2. Pretending to find the time of the day (Roody 3 y. 4 m.)<?br?>
 Fig. 3. Imitating conversation by self-made telephone (Roody 3 y. 4 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Mimicking a talk over the telephone<?br?>
 Fig. 5. Imitating a telephone conversation (Roody 2&half; y.)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2250,14 +3201,26 @@ Fig. 5. Imitating a telephone conversation (Roody 2&half; y.)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Shaking straw (Roody 2 y. 2 m.)<?br?>
 Fig. 2. Tacking in nails (Roody 2 y. 2 m.)<?br?>
 Fig. 3. Cleaning snow (Roody 2 y. 6 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Carrying hay (Roody 4 years)<?br?>
 Fig. 5. Hauling snow (Roody 2 y. 6 m.)<?br?>
 Fig. 6. Shovelling sand (Roody 3 years)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2273,14 +3236,26 @@ Fig. 6. Shovelling sand (Roody 3 years)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Draws on blackboard with piece of chalk (Roody 2 y. 11 m.)<?br?>
 Fig. 2. Pasting on an advertisement: <quote>Who will get me back my lost cat?</quote> (Roody 3 y. 3 m.)<?br?>
 Fig. 3. <quote>Sewing</quote> (Roody 3 y. 4 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. <quote>Reading</quote> (Roody 2 y. 7 m.)<?br?>
 Fig. 5. <quote>Stamping</quote> (Roody 3 years)<?br?>
 Fig. 6. <quote>Typing</quote> (Roody 3 y. 4 m.)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2296,14 +3271,26 @@ Fig. 6. <quote>Typing</quote> (Roody 3 y. 4 m.)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Ready to take a snap-shot (Roody 2 y. 2 m.)<?br?>
 Fig. 2. <quote>Photograph ready</quote> (Roody 2 y. 2 m.)<?br?>
 Fig. 3. Ready to take snap-shot (Rood 3 y. 6 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Photographing—focusing objective (Roody 4 y. 1 m.)<?br?>
 Fig. 5. Photographing—snapshotting (Roody 2 y. 1 m.)<?br?>
 Fig. 6. Photographing — setting the camera (Roody 4 years)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2319,14 +3306,26 @@ Fig. 6. Photographing — setting the camera (Roody 4 years)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Road-building; <quote>paves a path</quote> (Roody 4 y. 7 m.)<?br?>
 Fig. 2. Posing as <quote>fireman</quote> (Roody 4 y. 4 m.)<?br?>
 Fig. 3. Posing as <quote>newspaper-vendor</quote> (Roody 3 y. 10 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Posing as <quote>second hand-dealer</quote> (Roody—3 y. 10 m.)<?br?>
 Fig. 5. Posing as <quote>shepherd</quote>, playing the horn (Roody 4 y. 1 m.)<?br?>
 Fig. 6. Posingas <quote>doctor</quote>; examining patient-teddy-bear (Roody 2y. 9 m.)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2342,13 +3341,25 @@ Fig. 6. Posingas <quote>doctor</quote>; examining patient-teddy-bear (Roody 2y. 
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Navigating ships in a puddle (R. 4 y.)<?br?>
 Fig. 2. Pushes raft<?br?>
 Fig. 3. Fishing in puddle<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. <quote>A real fisherman</quote><?br?>
 Fig. 5. Shipbuilding (Roody 3 y. 10 m.)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2364,12 +3375,24 @@ Fig. 5. Shipbuilding (Roody 3 y. 10 m.)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Imitating house painters (Roody 2 y. 3 m.)<?br?>
 Fig. 2. Imitates greasers with help of brush (Roody 3 y. 11 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. <quote>Smoking</quote> (Roody 1 y. 5 m.)<?br?>
 Fig. 4. Pretending to smoke. <quote>Lighting cigarette</quote> (Roody 2 y. 3 m.)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2385,12 +3408,24 @@ Fig. 4. Pretending to smoke. <quote>Lighting cigarette</quote> (Roody 2 y. 3 m.)
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody's (1 y. 4 m.) first attempts at using pencil<?br?>
 Figs. 2—3. Joni <quote>draws</quote> lines with pencil<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody (1 y. 9 m.) <quote>draws</quote><?br?>
 Fig. 5. Roody's (7 years) regular pencilwork<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2406,14 +3441,26 @@ Fig. 5. Roody's (7 years) regular pencilwork<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. <quote>Sewing</quote> (Roody 2 y. 1 m.)<?br?>
 Fig. 2. Cutling with scissors (Roody 4 years)<?br?>
 Fig. 3. Sawing (Roody 4 years)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Hay-lifting with fork (Roody 4 years)<?br?>
 Fig. 5. Raking (Roody 3 years)<?br?>
 Fig. 6. Turning hay (Roody 4 years)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 </sect1>
@@ -2432,14 +3479,26 @@ Fig. 6. Turning hay (Roody 4 years)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. First unsuccessful attempts to use hammer (Roody 1 y. 4 m.)<?br?>
 Fig. 2. Ineffective use of hammer in Joni's hands<?br?>
 Fig. 3. Attempts at tacking in nails (Roody 2 y. 1 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Hammering-in defective wheel (Roody 2 y. 5 m.)<?br?>
 Fig. 5. Roody turns hammer to good account (4 y. 7 m.)<?br?>
 Fig. 6. Proper use of hammer (Roody 5 years)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2455,11 +3514,10 @@ Fig. 6. Proper use of hammer (Roody 5 years)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1. First attempt to put object in right position (Roody 1 y. 2 m.)<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1. First attempt to put object in right position (Roody 1 y. 2 m.)<?br?>
 Fig. 2. Ready!<?br?>
 Fig. 3. The joy of achievement<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2475,12 +3533,24 @@ Fig. 3. The joy of achievement<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (9 m.) removing ring from pyramid<?br?>
 Figs. 2—3. Roody (1 y. 9 m.) putting ring onto pyramid<?br?>
+</para></entry>
+<entry><para role='figure'>
 Figs. 4—5. Roody (2 y. 6 m.) putting rings of pyramid into place (no vertical spindle available)<?br?>
 Fig. 6. Roody (1 y. 4 m.) assembling ninepins after having disjoined them<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2496,13 +3566,25 @@ Fig. 6. Roody (1 y. 4 m.) assembling ninepins after having disjoined them<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Collecting material for proposed structure (Roody 1 y. 11 m.)<?br?>
 Fig. 2. First reproduction of airplane (made of twigs; Roody; 1 y. 11 m.)<?br?>
 Fig. 3. Two-dimensional reproduction of airplane (Roody 2 y. 3 m.)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Ballooning (Roody 3 y. 3 m.)<?br?>
 Fig. 5. Flying in selfmade airplane (Roody 3 y. 6 m.)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2518,11 +3600,10 @@ Fig. 5. Flying in selfmade airplane (Roody 3 y. 6 m.)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1. Making airplane (Roody 3 y. 6 m.)<?br?>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Making airplane (Roody 3 y. 6 m.)<?br?>
 Fig. 2. Flying in airplane (Roody 3 y. 6 m.)<?br?>
 Fig. 3. Deliberate wreck of airplane (Roody 3 y. 6 m.)<?br?>
-  </para></textobject></mediaobject>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2538,9 +3619,8 @@ Fig. 3. Deliberate wreck of airplane (Roody 3 y. 6 m.)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Fig. 1—3. Making a <quote>worm</quote> three successive stages (Roody 2 y. 1 m.)<?br?>
-  </para></textobject></mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1—3. Making a <quote>worm</quote> three successive stages (Roody 2 y. 1 m.)<?br?>
+</para></textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2556,13 +3636,25 @@ Fig. 1—3. Making a <quote>worm</quote> three successive stages (Roody 2 y. 1 m
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. <quote>Making boat</quote> (Roody 2 y. 3 m.)<?br?>
 Fig. 2. <quote>Boating</quote> (Roody 2 y. 3 m.)<?br?>
 Fig. 3. <quote>Boating</quote> holding <quote>oars</quote> (Roody <cihc_age y="2" m="3" d="25" />)<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. <quote>Uses oars</quote> (Roody <cihc_age y="2" m="3" d="21" />)<?br?>
 Fig. 5. <quote>Travels by steame</quote> (Roody <cihc_age y="2" m="4" d="0" />)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2578,12 +3670,24 @@ Fig. 5. <quote>Travels by steame</quote> (Roody <cihc_age y="2" m="4" d="0" />)<
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Distributing toy-animals by groups (Roody 2 y. 9 m.)<?br?>
 Fig. 2. Making the fence of an improvised Zoo<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 3. Bringing animals into the Zoo.<?br?>
 Fig. 4. Making enclosures for animals (Roody 3 y. 7 m.)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2599,14 +3703,26 @@ Fig. 4. Making enclosures for animals (Roody 3 y. 7 m.)<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. Roody (2 y. 1 m.) builds house; putting-in a number of blocks one beside another<?br?>
 Fig. 2. Roody (2 y. 6 m.) placing bars one upon the other<?br?>
 Fig. 3. Roody (3. y. 3 m.) combines horizontal and vertical brick laying<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. Roody (3 y. 4 m.) making a kind of tower<?br?>
 Fig. 5. Roody (3 y. 4 m.) making a gate out of round bars<?br?>
 Fig. 6. Roody (6 y. 1 m.) building a many storeyed fortress<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 <?page-break?>
@@ -2622,13 +3738,25 @@ Fig. 6. Roody (6 y. 1 m.) building a many storeyed fortress<?br?>
     </textobject>
   <textobject role="fo"></textobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
 Fig. 1. <quote>Will it stand or tumble down?</quote> (Roody 2 y. 4 m.)<?br?>
 Fig. 2. <quote>One, two, three!</quote> — finger-counting (Roody 4 years)<?br?>
 Fig. 3. <quote>Now I see that the earth turns round!</quote> Roody (4 y. 7 m.) relates his impressions after turning round a post<?br?>
+</para></entry>
+<entry><para role='figure'>
 Fig. 4. <quote>What is this?</quote> (Roody 2 y. 3 m.)<?br?>
 Fig. 5. Identification of representation with object (Roody playing loto at 2 y. 4 m.)<?br?>
-  </para></textobject></mediaobject>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
 </example>
 
 </sect1>
