@@ -6,8 +6,6 @@
 </sect2>
 
 <sect2><title>XML кодирование некоторых символов</title>
-<para>
-
 <informaltable frame='all'>
 <tgroup cols='2' align='center' colsep='1' rowsep='1'>
 <colspec colname='c1'/>
@@ -32,6 +30,14 @@
   <entry><imageobject role="html"><imagedata fileref="http://www.oasis-open.org/docbook/xmlcharent/glyphs/100dpi/U2153.png" /></imageobject></entry>
   <entry>&amp;frac13;</entry>
 </row>
+<row>
+  <entry>&#8212;</entry>
+  <entry>&amp;8212;</entry>
+</row>
+
+<row>
+  <entry namest="c1" nameend="c2" align='center'><emphasis role="bold">Русские буквы с акцентом</emphasis></entry>
+</row>
 <row><entry>&#1072;&#768;</entry><entry>&amp;#1072;&amp;#768;</entry></row>
 <row><entry>&#1077;&#768;</entry><entry>&amp;#1077;&amp;#768;</entry></row>
 <row><entry>&#1080;&#768;</entry><entry>&amp;#1080;&amp;#768;</entry></row>
@@ -39,12 +45,31 @@
 <row><entry>&#1091;&#768;</entry><entry>&amp;#1091;&amp;#768;</entry></row>
 <row><entry>&#1101;&#768;</entry><entry>&amp;#1101;&amp;#768;</entry></row>
 <row><entry>&#1103;&#768;</entry><entry>&amp;#1103;&amp;#768;</entry></row>
+
+<row>
+  <entry namest="c1" nameend="c2" align='center'><emphasis role="bold">Латинские буквы с акцентом</emphasis></entry>
+</row>
+<row><entry>&#0101;&#768;</entry><entry>&amp;#0101;&amp;#768;</entry></row>
+
+<row>
+  <entry namest="c1" nameend="c2" align='center'><emphasis role="bold">Кириллица до реформы 1917 года</emphasis></entry>
+</row>
+<row><entry>&#1030;</entry><entry>&amp;#1030; І (U+0406)</entry></row>
+<row><entry>&#1110;</entry><entry>&amp;#1110; і (U+0456)</entry></row>
+<row><entry>&#1138;</entry><entry>&amp;#1138; Ѳ (U+0472)</entry></row>
+<row><entry>&#1139;</entry><entry>&amp;#1139; ѳ (U+0473)</entry></row>
+<row><entry>&#1122;</entry><entry>&amp;#1122; Ѣ (U+0462)</entry></row>
+<row><entry>&#1123;</entry><entry>&amp;#1123; ѣ (U+0463)</entry></row>
 </tbody>
 </tgroup>
 </informaltable>
 
-<ulink url="http://www.oasis-open.org/docbook/specs/wd-docbook-xmlcharent-0.3.html">См. также</ulink>
-
-</para>
+<orderedlist numeration="arabic"><title>См. также</title>
+<listitem><ulink url="http://www.oasis-open.org/docbook/specs/wd-docbook-xmlcharent-0.3.html">В спецификации docbook</ulink></listitem>
+<listitem><ulink url="http://www.unicode.org/charts/PDF/U0400.pdf">Кириллическая таблица, unicode.org</ulink></listitem>
+<listitem><ulink url="http://www.unicode.org/charts/PDF/U0500.pdf">Дополнительная кириллическая таблица, unicode.org</ulink></listitem>
+<listitem><ulink url="http://www.unicode.org/charts/PDF/U2DE0.pdf">Расширенная кириллическая таблица A, unicode.org</ulink></listitem>
+<listitem><ulink url="http://www.unicode.org/charts/PDF/UA640.pdf">Расширенная кириллическая таблица B, unicode.org</ulink></listitem>
+</orderedlist>
 
 </sect2>

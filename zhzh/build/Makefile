@@ -7,25 +7,18 @@ MASTER_PRINT = main_print.docbook
 IMAGES_PRINT = ${DOCBOOK_BASE}/../images/pdf/*.jpg
 TOOLS = ${PWD}/../tools
 
-HTML_BASE = ${PWD}/../html-onechunk
-HTML_CHUNKED_BASE = ${PWD}/../html
+HTML_BASE = ${PWD}/../html
 FO_BASE = ${PWD}/../fo
-PDF = "${PWD}/../docbook-makingup.pdf"
+PDF = "${PWD}/../kohts - zhzh.pdf"
 FOP_BASE = ${PWD}/../fop
 
 all: html fop
-all-html: html html-onechunk
-
-html-onechunk: docbook-html-onechunk.xsl $(DOCBOOK)
-	mkdir -p ${HTML_BASE}
-	cd ${HTML_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )
-	cd ${DOCBOOK_BASE} && xsltproc -o ${HTML_BASE}/index.html ${PWD}/docbook-html-onechunk.xsl ${MASTER}
-	touch html-onechunk
+all-html: html
 
 html: docbook-html-chunked.xsl $(DOCBOOK)
-	mkdir -p ${HTML_CHUNKED_BASE}
-	cd ${HTML_CHUNKED_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )
-	cd ${DOCBOOK_BASE} && xsltproc --stringparam 'base.dir' ${HTML_CHUNKED_BASE}/ ${PWD}/docbook-html-chunked.xsl ${MASTER}
+	mkdir -p ${HTML_BASE}
+	cd ${HTML_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )
+	cd ${DOCBOOK_BASE} && xsltproc --stringparam 'base.dir' ${HTML_BASE}/ ${PWD}/docbook-html-chunked.xsl ${MASTER}
 	touch html
 
 fo: docbook-fo.xsl $(DOCBOOK)
@@ -40,13 +33,10 @@ pdf: fo ${FOP_BASE}/fop.xconf
 	fop -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
 	touch pdf
 
-clean-all-html: clean-html clean-html-onechunk
+clean-all-html: clean-html
 clean-html:
 	rm -rf ${HTML_BASE}
 	rm -r html
-clean-html-onechunk:
-	rm -rf ${HTML_CHUNKED_BASE}
-	rm -r html-onechunk
 
 clean-all-pdf: clean-fo clean-pdf
 clean-fo:

@@ -58,7 +58,6 @@
 между знаком меньше и вопросом и знаком больше и вопросом):
 
 <?pre_b
-
 < ? xml version="1.0" encoding="UTF-8" ? >
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"

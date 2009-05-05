@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+]>
+
+<book id="kohts-zhizn-zhivotnyh" lang="ru">
+
+<title>Жизнь Животныхъ</title>
+<subtitle>въ фотографиіяхъ, рисункахъ и бiологическихъ наброскахъ изъ московскаго зоологического сада</subtitle>
+<titleabbrev>Жизнь Животныхъ</titleabbrev>
+
+<bookinfo>
+<author>
+<firstname>А.</firstname>
+<othername>&#1138;.</othername>
+<surname>Котс</surname>
+</author>
+</bookinfo>
+<date>Москва, 1917</date>
+
+
+
+</book>

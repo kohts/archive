@@ -1,0 +1,60 @@
+<sect1><title>Используемое программное обеспечение</title>
+<sect2><title>Операционная система</title>
+<para>
+На момент написания этого документа наиболее удобной
+для генерации итоговых форматов (html, pdf) является
+операционная система Ubuntu (Linux), она является бесплатной
+и при этом достаточно простой. Её можно скачать
+с сайта http://www.ubuntu.com (имеет смысл
+использовать Desktop Edition).
+</para>
+</sect2>
+
+<sect2><title>Пакеты, которые нужно установить</title>
+<para>
+После установки операционной системы нужно установить
+программное обеспечение для работы с docbook. В Ubuntu
+это делается с помощью команды <code>sudo apt-get install имя_пакета</code> в терминале.
+</para>
+
+<para>
+Нужно установить следующие пакеты: docbook-xml, docbook-xsl, sun-java6-jre, xsltproc.
+Установка пакетов должна производиться либо с помощью sudo,
+как в примере выше, либо из-под пользователя root.
+</para>
+
+<para>
+После установки пакетов нужно убедиться, что по умолчанию
+в системе используется именно Sun Java, для этого
+нужно вывести список установленных java-машин:
+<literallayout>
+root@petya-desktop:~# /usr/sbin/update-java-alternatives -l
+java-6-sun 63 /usr/lib/jvm/java-6-sun
+java-gcj 1042 /usr/lib/jvm/java-gcj
+</literallayout>
+
+И установить нужную java-машину по умолнчаию с помощью команды
+<code>/usr/sbin/update-java-alternatives -s java-6-sun</code>
+</para>
+</sect2>
+</sect1>
+
+<sect1><title>Получение html-вывода</title>
+
+<para>
+Для получения html-варианта книги, нужно использовать команду xsltproc:
+<emphasis>
+xsltproc имя_xsl_файла имя_docbook_файла
+</emphasis>
+В качестве имени xsl-файла нужно задать /usr/share/xml/docbook/stylesheet/nwalsh/html/chunk.xsl,
+а в качестве имени docbook файла &mdash; имя мастер файла.
+</para>
+
+<para>
+Обычно может понадобиться настройка стандартного chunk.xsl,
+она делается путем создания собственного xsl файла,
+импортирующего chunk.xsl и определяющего нужные параметры.
+<ulink url="http://www.kohts.ru/ladygina-kohts/ichc/build/docbook-html-chunked.xsl">Пример для книги Дитя шимпанзе и дитя человека</ulink>
+</para>
+
+</sect1>
