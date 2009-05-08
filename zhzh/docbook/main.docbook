@@ -4,6 +4,7 @@
   "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
 
    <!ENTITY vnimanie SYSTEM "vnimanie.docbook">
+   <!ENTITY predislovie SYSTEM "predislovie.docbook">
  ]>
 
 <book id="kohts-zhizn-zhivotnyh" lang="ru">
@@ -25,6 +26,7 @@
 <date>Москва &#8212; 1917</date>
 
 <preface id="vnimanie"><title>Вниман&#1110;ю пользующихся путеводителемъ въ Саду</title>&vnimanie;</preface>
+<preface id="predislovie"><title>Предислов&#1110;е</title>&predislovie;</preface>
 
 
 </book>
