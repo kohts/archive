@@ -93,14 +93,10 @@ sub dump_c {
     print '<' . $tag . ' id="' . $t_id . '">
   <title>' . $c->{'title'} . '</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/' . $t . '.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/' . $t . '.jpg">
+      <imageobject><imagedata fileref="images/html/' . $t . '.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/' . $t . '.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/' . $t . '.jpg">' . $higher_res_label . '</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>' . $textobject . '</textobject></mediaobject>
 </' . $tag . '>

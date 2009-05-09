@@ -2,7 +2,7 @@
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
-  <!ENTITY liniya "&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;">
+  <!ENTITY liniya "&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;">
 
   <!ENTITY prolog SYSTEM "prolog.docbook">
   <!ENTITY predislovie SYSTEM "predislovie.docbook">
@@ -222,30 +222,19 @@
 <appendix lang="en"><title>Hatched Drawings and Sketches</title>
 <figure id="eng_joni">
   <title>The Face of the Infant Chimpanzee</title>
-  <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/joni.jpg" /></imageobject>
-    <imageobject role="fo"><imagedata fileref="images/pdf/joni.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/joni.jpg">higher resolution</ulink>
-    </textobject>
-	<textobject role="fo"></textobject>
-  </mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/joni.jpg">
+    <imageobject><imagedata fileref="images/html/joni.jpg" /></imageobject>
+  </ulink></textobject>
   <mediaobject><textobject><para>My chimpanzee Joni (age 4)</para></textobject></mediaobject>
 </figure>
 
 <figure id="eng_rudy">
   <title>The Face of the Human Child</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/rudy.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/rudy.jpg">
+      <imageobject><imagedata fileref="images/html/rudy.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/rudy.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/rudy.jpg">higher resolution</ulink>
-    </textobject>
-	<textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para>My son Roody (age 4)</para></textobject></mediaobject>
 </figure>

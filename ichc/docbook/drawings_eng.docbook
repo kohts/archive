@@ -2,14 +2,10 @@
 <figure id="eng_tabler1">
   <title>The face of the chimpanzee in quiet state</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler1.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler1.jpg">
+      <imageobject><imagedata fileref="images/html/tabler1.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler1.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler1.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1. En face<?br?>
 Fig. 2. Profile<?br?>
@@ -20,14 +16,10 @@ Fig. 2. Profile<?br?>
 <figure id="eng_tabler2">
   <title>Hand and sole lines of chimpanzee and man</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler2.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler2.jpg">
+      <imageobject><imagedata fileref="images/html/tabler2.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler2.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler2.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -53,14 +45,10 @@ Fig. 4. Sole lines of tne human infant<?br?>
 <figure id="eng_tabler3">
   <title>Difference in pattern of hand and sole lines with chimpanzees of different sex and age</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler3.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler3.jpg">
+      <imageobject><imagedata fileref="images/html/tabler3.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler3.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler3.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -91,14 +79,10 @@ Fig. 9. Lines of sole of right foot (chimpanzee Peter)<?br?>
 <figure id="eng_tabler4">
   <title>Sitting postures of the chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler4.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler4.jpg">
+      <imageobject><imagedata fileref="images/html/tabler4.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler4.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler4.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1—5. Static postures of the sitting chimpanzee<?br?>
 Fig. 6. Potentially dynamic posture of the sitting chimpanzee<?br?>
@@ -109,14 +93,10 @@ Fig. 6. Potentially dynamic posture of the sitting chimpanzee<?br?>
 <figure id="eng_tabler5">
   <title>The chimpanzee's tenacity of arms and mobility of legs</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler5.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler5.jpg">
+      <imageobject><imagedata fileref="images/html/tabler5.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler5.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler5.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -142,14 +122,10 @@ Fig. 4. Leg mobility of standing chimpanzee<?br?>
 <figure id="eng_tabler6">
   <title>Standing postures of the chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler6.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler6.jpg">
+      <imageobject><imagedata fileref="images/html/tabler6.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler6.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler6.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1. The Chimpanzee, excited, stops his walk<?br?>
 Fig. 2. The excited chimpanzee after arising erect<?br?>
@@ -160,14 +136,10 @@ Fig. 2. The excited chimpanzee after arising erect<?br?>
 <figure id="eng_tabler7">
   <title>Typical location of wrinkle furrows with different facial expressions</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler7.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler7.jpg">
+      <imageobject><imagedata fileref="images/html/tabler7.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler7.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler7.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -195,14 +167,10 @@ Fig. 6. The chimpanzee crying<?br?>
 <figure id="eng_tabler8">
   <title>Typical changes in the location of face furrows with different facial expressions of the chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler8.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler8.jpg">
+      <imageobject><imagedata fileref="images/html/tabler8.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler8.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler8.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -230,14 +198,10 @@ Fig. 6. Expression of astonishment<?br?>
 <figure id="eng_tabler9">
   <title>Postures connected with the depression of the chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler9.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler9.jpg">
+      <imageobject><imagedata fileref="images/html/tabler9.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler9.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler9.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -263,14 +227,10 @@ Fig. 4. The chimpanzee strongly depressed<?br?>
 <figure id="eng_tabler10">
   <title>The lying postures of the chimpanzee awake and asleep</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler10.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler10.jpg">
+      <imageobject><imagedata fileref="images/html/tabler10.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler10.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler10.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1. The chimpanzee merrily rolling about on his back<?br?>
 Fig. 2—3. The chimpanzee asleep<?br?>
@@ -284,14 +244,10 @@ Fig. 2—3. The chimpanzee asleep<?br?>
 <figure id="eng_tabler11">
   <title>The postures of the aggressively-disposed chimpanzee (Reaction to mirrcr)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler11.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler11.jpg">
+      <imageobject><imagedata fileref="images/html/tabler11.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler11.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler11.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1. Threatening gestures<?br?>
 Fig. 2. Liffing arm, ready to hit image<?br?>
@@ -303,14 +259,10 @@ Fig. 3. On his way to attack<?br?>
 <figure id="eng_tabler12">
   <title>Manual exploration of intriguing objectes</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler12.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler12.jpg">
+      <imageobject><imagedata fileref="images/html/tabler12.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler12.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler12.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1—3. Exploration of a tissue sown in relief<?br?>
 </para></textobject></mediaobject>
@@ -320,14 +272,10 @@ Fig. 3. On his way to attack<?br?>
 <figure id="eng_tabler13">
   <title>The chimpanzee frying to find amusement and bored</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler13.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler13.jpg">
+      <imageobject><imagedata fileref="images/html/tabler13.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler13.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler13.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -353,14 +301,10 @@ Fig. 5. The chimpanzee bored<?br?>
 <figure id="eng_tabler14">
   <title>The generalization of the child</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler14.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler14.jpg">
+      <imageobject><imagedata fileref="images/html/tabler14.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler14.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler14.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1—9. Recognition of 9 buttons widely differing with respect to colour, size and material.<?br?>
 The child (10 months) has mastered the generalized notion of "button"<?br?>
@@ -371,14 +315,10 @@ The child (10 months) has mastered the generalized notion of "button"<?br?>
 <figure id="eng_tabler15">
   <title>Analogization by colour</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler15.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler15.jpg">
+      <imageobject><imagedata fileref="images/html/tabler15.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler15.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler15.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -406,14 +346,10 @@ Fig. 6. A corn-cob, defined as "weight" by Roody (<cihc_age y="2" m="1" d="0" />
 <figure id="eng_tabler16">
   <title>Analogization by form. Identification with <quote>airplane</quote></title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler16.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler16.jpg">
+      <imageobject><imagedata fileref="images/html/tabler16.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler16.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler16.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -442,14 +378,10 @@ Fig. 7. Tramway wires crossing 2.2.1<?br?>
 <figure id="eng_tabler17">
   <title>Analogization by form. — Identification with airplane</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler17.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler17.jpg">
+      <imageobject><imagedata fileref="images/html/tabler17.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler17.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler17.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -478,14 +410,10 @@ Fig. 7. Flying seed from maple-tree — <quote>oh</quote>, Roody's reaction mean
 <figure id="eng_tabler18">
   <title>Analogization by form. Bitten out pieces of cheese and biscuits identified with different objects</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler18.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler18.jpg">
+      <imageobject><imagedata fileref="images/html/tabler18.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler18.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler18.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -525,14 +453,10 @@ Fig. 18. <quote>Uncle in sledge</quote> 3.8 0<?br?>
 <figure id="eng_tabler19">
   <title>Identification of plants with different objects</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler19.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler19.jpg">
+      <imageobject><imagedata fileref="images/html/tabler19.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler19.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler19.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -560,14 +484,10 @@ Fig. 6. <quote>Snail</quote> — a half broken stem (age: <cihc_age y="3" m="0" 
 <figure id="eng_tabler20">
   <title>Identification of twigs and branches with different objects</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler20.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler20.jpg">
+      <imageobject><imagedata fileref="images/html/tabler20.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler20.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler20.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -598,14 +518,10 @@ Fig. 6. <quote>Seal</quote> — a dry twig (age <cihc_age y="3" m="2" d="0" />)<
 <figure id="eng_tabler21">
   <title>The child's colour preferences. Preferred (fig. 1, 3, 5, 7) and refuted (fig. 2, 4, 6, 8)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler21.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler21.jpg">
+      <imageobject><imagedata fileref="images/html/tabler21.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler21.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler21.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -635,14 +551,10 @@ Fig. 8. A green hat<?br?>
 <figure id="eng_tabler22">
   <title>Independent structures made by the child in imitation of an airplane</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler22.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler22.jpg">
+      <imageobject><imagedata fileref="images/html/tabler22.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler22.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler22.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -673,14 +585,10 @@ Fig. 9. Wooden chick perched on pencil called <quote>gh</quote> (airplane) (age 
 <figure id="eng_tabler23">
   <title>Samples of scribblings of chimpanzee and human child</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler23.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler23.jpg">
+      <imageobject><imagedata fileref="images/html/tabler23.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler23.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler23.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>

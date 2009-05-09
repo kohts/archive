@@ -275,14 +275,10 @@
 <figure id="tabler7">
   <title>Схемы расположения лицевых борозд при различной мимике шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler7.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler7.jpg">
+      <imageobject><imagedata fileref="images/html/tabler7.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler7.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler7.jpg">в большем разрешении</ulink>
-    </textobject>
-	<textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para>
 Рис. 1. Мимика внимания.<?br?>
@@ -298,14 +294,10 @@
 <figure id="tabler8">
   <title>Характерные изменения расположения лицевых борозд при различной мимике шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler8.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler8.jpg">
+      <imageobject><imagedata fileref="images/html/tabler8.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler8.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler8.jpg">в большем разрешении</ulink>
-    </textobject>
-	<textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para>
 Рис. 1. Выражение робости.<?br?>

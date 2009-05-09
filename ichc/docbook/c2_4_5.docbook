@@ -218,14 +218,10 @@
 <figure id="tabler14">
   <title>Пуговицы &mdash; объекты генерализации 10-месячного ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler14.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler14.jpg">
+      <imageobject><imagedata fileref="images/html/tabler14.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler14.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler14.jpg">в большем разрешении</ulink>
-    </textobject>
-	<textobject role="fo"></textobject>
   </mediaobject>
 <mediaobject><textobject><para>
 Рис. 1&mdash;9. Девять различных по форме, цвету, величине, материалу<?br?>
@@ -290,14 +286,10 @@
 <figure id="tabler15">
   <title>Объекты ассимиляции по цвету</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler15.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler15.jpg">
+      <imageobject><imagedata fileref="images/html/tabler15.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler15.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler15.jpg">в большем разрешении</ulink>
-    </textobject>
-	<textobject role="fo"></textobject>
   </mediaobject>
 <mediaobject><textobject><para>
 Рис. 1. Пузырек с рыбьим жиром.<?br?>
@@ -381,14 +373,10 @@
 <figure id="tabler16">
   <title>Различные предметы, уподобляемые ребенком (1&half; &mdash; 2&half; лет) аэроплану</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler16.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler16.jpg">
+      <imageobject><imagedata fileref="images/html/tabler16.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler16.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler16.jpg">в большем разрешении</ulink>
-    </textobject>
-	<textobject role="fo"></textobject>
   </mediaobject>
 <mediaobject><textobject><para>
 Рис. 1. Стружка &mdash; <quote>гх</quote> (аэроплан) по определению Руди (<cihc_age y="1" m="6" d="27" />).<?br?>
@@ -405,7 +393,9 @@
 <figure id="tabler17">
   <title>Различные предметы, уподобляемые ребенком (1&half; &mdash; 2&half; лет) аэроплану</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler17.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler17.jpg">
+      <imageobject><imagedata fileref="images/html/tabler17.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler17.jpg" /></imageobject>
   </mediaobject>
   <mediaobject>
@@ -528,7 +518,9 @@
 <figure id="tabler18">
   <title>Куски сыра, печенья, сухарей, по форме уподобляемые ребенком (1&mdash;3 лет) различным предметам</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler18.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler18.jpg">
+      <imageobject><imagedata fileref="images/html/tabler18.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler18.jpg" /></imageobject>
   </mediaobject>
   <mediaobject>
@@ -583,14 +575,10 @@
 <figure id="tabler19">
   <title>Растения, уподобляемые ребенком (2&mdash;3 лет) различным предметам</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler19.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler19.jpg">
+      <imageobject><imagedata fileref="images/html/tabler19.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler19.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler19.jpg">в большем разрешении</ulink>
-    </textobject>
-	<textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para>
 Рис. 1. <quote>Краб</quote> (молодая веточка ели с шишечками) &mdash; по определению Руди (<cihc_age y="3" m="0" d="9" />).<?br?>
@@ -607,14 +595,10 @@
 <figure id="tabler20">
   <title>Прутья и ветви, по форме уподобляемые ребенком (3 лет) различным животным</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler20.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler20.jpg">
+      <imageobject><imagedata fileref="images/html/tabler20.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler20.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler20.jpg">в большем разрешении</ulink>
-    </textobject>
-	<textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para>
 Рис. 1. <quote>Гусеница</quote> &mdash; веточка березы по определению Руди (<cihc_age y="3" m="1" d="0" />).<?br?>
@@ -750,14 +734,10 @@
 <figure id="tabler21">
   <title>Цвета, предпочитаемые (нечетн.) и отвергаемые (четн.) ребенком</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler21.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler21.jpg">
+      <imageobject><imagedata fileref="images/html/tabler21.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler21.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler21.jpg">в большем разрешении</ulink>
-    </textobject>
-	<textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para>
 Рис. 1. Оранжевые и бархатистый цветочек.<?br?>

@@ -1,14 +1,10 @@
 <figure id="tabler22">
   <title>Образцы конструкции ребенком (1&half; &mdash; 2 лет) подобия аэроплана</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler22.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler22.jpg">
+      <imageobject><imagedata fileref="images/html/tabler22.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler22.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler22.jpg">в большем разрешении</ulink>
-    </textobject>
-	<textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para>
 Рис. 1. Руди (<cihc_age y="1" m="8" d="14" />), положив кирпичик горизонтальный

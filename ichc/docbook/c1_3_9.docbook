@@ -341,14 +341,10 @@
 <figure id="tabler12">
   <title>Шимпанзе обследует руками интригующие предметы</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler12.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler12.jpg">
+      <imageobject><imagedata fileref="images/html/tabler12.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler12.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler12.jpg">в большем разрешении</ulink>
-    </textobject>
-	<textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para>
 Рис. 1. Обследование одним пальцем выпуклого шитья.<?br?>
@@ -613,14 +609,10 @@
 <figure id="tabler13">
   <title>Развлекающийся и скучающий шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/tabler13.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler13.jpg">
+      <imageobject><imagedata fileref="images/html/tabler13.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/tabler13.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/tabler13.jpg">в большем разрешении</ulink>
-    </textobject>
-	<textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para>
 Рис. 1. Развлечение смыканием и размыканием челюстей.<?br?>

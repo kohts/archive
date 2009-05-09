@@ -2,14 +2,10 @@
 <example id="eng_table1">
   <title>Lying Postures of Man and Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table1.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table1.jpg">
+      <imageobject><imagedata fileref="images/html/table1.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table1.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table1.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1. Joni asleep<?br?>
 Fig. 2. Roody (age <cihc_age y="0" m="3" d="21" />) lying down<?br?>
@@ -20,14 +16,10 @@ Fig. 2. Roody (age <cihc_age y="0" m="3" d="21" />) lying down<?br?>
 <example id="eng_table2">
   <title>The Chimpanzee's Sitting Postures</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table2.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table2.jpg">
+      <imageobject><imagedata fileref="images/html/table2.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table2.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table2.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1—4. Chimpanzee sitting on flat ground<?br?>
 Fig. 5. Chimpanzee sitting on knees<?br?>
@@ -38,14 +30,10 @@ Fig. 5. Chimpanzee sitting on knees<?br?>
 <example id="eng_table3">
   <title>The Chimpanzee's Typical Standing Postures</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table3.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table3.jpg">
+      <imageobject><imagedata fileref="images/html/table3.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table3.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table3.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1—4. Typical standing posture; supported by arms<?br?>
 </para></textobject></mediaobject>
@@ -55,14 +43,10 @@ Fig. 5. Chimpanzee sitting on knees<?br?>
 <example id="eng_table4">
   <title>The Chimpanzee's Unusual Standing Postures</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table4.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table4.jpg">
+      <imageobject><imagedata fileref="images/html/table4.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table4.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table4.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1—4. Unusual way of standing, unsupported by arms<?br?>
 </para></textobject></mediaobject>
@@ -72,14 +56,10 @@ Fig. 5. Chimpanzee sitting on knees<?br?>
 <example id="eng_table5">
   <title>The Chimpanzee Walking and Running</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table5.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table5.jpg">
+      <imageobject><imagedata fileref="images/html/table5.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table5.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table5.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1—2. Slow locomotion<?br?>
 Fig. 3—4. Running (profile view)<?br?>
@@ -91,14 +71,10 @@ Fig. 5—6. Running (en face view)<?br?>
 <example id="eng_table6">
   <title>The Chimpanzee's Climbing</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table6.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table6.jpg">
+      <imageobject><imagedata fileref="images/html/table6.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table6.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table6.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1. Catching hold of tree<?br?>
 Fig. 2—3. Climbing up tree<?br?>
@@ -109,14 +85,10 @@ Fig. 2—3. Climbing up tree<?br?>
 <example id="eng_table7">
   <title>The Eight Typical Facial Expression of the Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table7.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table7.jpg">
+      <imageobject><imagedata fileref="images/html/table7.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table7.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table7.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -146,14 +118,10 @@ Fig. 8. The mimics of joy (laughter)<?br?>
 <example id="eng_table8">
   <title>Combined or Ambiguous Facial Expressions of the Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table8.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table8.jpg">
+      <imageobject><imagedata fileref="images/html/table8.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table8.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table8.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -181,14 +149,10 @@ Fig. 6. The mimics of astonishment and strife<?br?>
 <example id="eng_table9">
   <title>The Six Consecutive Stages of General Excitement of the Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table9.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table9.jpg">
+      <imageobject><imagedata fileref="images/html/table9.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table9.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table9.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -216,14 +180,10 @@ Fig. 6. Maximum stretching of body, lifting up arms<?br?>
 <example id="eng_table10">
   <title>The Mimics of Excitement of the Chimpanzee (six consecutive stages)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table10.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table10.jpg">
+      <imageobject><imagedata fileref="images/html/table10.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table10.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table10.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -252,14 +212,10 @@ Fig. 5—6. Trumpet-like unfolding of lips<?br?>
 <example id="eng_table11">
   <title>The Chimpanzee Specifically Excited Preliminary to the Onset of Various Emotions</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table11.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table11.jpg">
+      <imageobject><imagedata fileref="images/html/table11.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table11.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table11.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -285,14 +241,10 @@ Fig. 4. Excitement mingled with fear<?br?>
 <example id="eng_table12">
   <title>The Mimics of Joy of the Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table12.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table12.jpg">
+      <imageobject><imagedata fileref="images/html/table12.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table12.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table12.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -319,14 +271,10 @@ Fig. 8. The Chimpanzee's laughter<?br?>
 <example id="eng_table13">
   <title>Postures and Gestures of the Frolicsome, Merry Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table13.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table13.jpg">
+      <imageobject><imagedata fileref="images/html/table13.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table13.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table13.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -352,14 +300,10 @@ Fig. 4. The Chimpanzee in boisterous and in merry mood<?br?>
 <example id="eng_table14">
   <title>The Mimics of Sadness of the Chimpanzee (initial stages preparatory to crying)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table14.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table14.jpg">
+      <imageobject><imagedata fileref="images/html/table14.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table14.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table14.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -385,14 +329,10 @@ Fig. 5—6. The Chimpanzee crying<?br?>
 <example id="eng_table15">
   <title>The Mimics of Sadness of the Chimpanzee (final expressions of the crying Chimpanzee varying in expressivity)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table15.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table15.jpg">
+      <imageobject><imagedata fileref="images/html/table15.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table15.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table15.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1 — 2. Initial stages of outcry<?br?>
 Fig. 3—4. Roaring outcry<?br?>
@@ -404,14 +344,10 @@ Fig. 5—6. The Chimpanzee completely woebegone<?br?>
 <example id="eng_table16">
   <title>Gesticulation and Postures of the Crying Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table16.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table16.jpg">
+      <imageobject><imagedata fileref="images/html/table16.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table16.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table16.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -438,14 +374,10 @@ Fig. 5. Raising arms<?br?>
 <example id="eng_table17">
   <title>Gesticulation and Postures of the Crying Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table17.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table17.jpg">
+      <imageobject><imagedata fileref="images/html/table17.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table17.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table17.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1. Wringing arms.<?br?>
 Fig. 2—3. Raising arms.<?br?>
@@ -456,14 +388,10 @@ Fig. 2—3. Raising arms.<?br?>
 <example id="eng_table18">
   <title>Postures and Gestures of the Chimpanzee in Despair and in Play</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table18.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table18.jpg">
+      <imageobject><imagedata fileref="images/html/table18.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table18.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table18.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1—3. Crossing hands above head in sign of full despair<?br?>
 Fig. 4—5. Tickling the Chimpanzee<?br?>
@@ -474,14 +402,10 @@ Fig. 4—5. Tickling the Chimpanzee<?br?>
 <example id="eng_table19">
   <title>Postures and Gestures of the Chimpanzee in Different Moods</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table19.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table19.jpg">
+      <imageobject><imagedata fileref="images/html/table19.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table19.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table19.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -509,14 +433,10 @@ Fig. 6. The Chimpanzee completely depressed<?br?>
 <example id="eng_table20">
   <title>Grooming of the Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table20.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table20.jpg">
+      <imageobject><imagedata fileref="images/html/table20.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table20.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table20.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -547,14 +467,10 @@ Fig. 6. Cleaning interstices between teeth<?br?>
 <example id="eng_table21">
   <title>Ways of Drinking of the Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table21.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table21.jpg">
+      <imageobject><imagedata fileref="images/html/table21.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table21.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table21.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -581,14 +497,10 @@ Fig. 5—6. Drinking from saucer <quote>animal-like</quote><?br?>
 <example id="eng_table22">
   <title>Expression of fear of the Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table22.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table22.jpg">
+      <imageobject><imagedata fileref="images/html/table22.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table22.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table22.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1—3. The Chimpanzee frightened and excited (hair bristling) during a walk<?br?>
 Fig. 2. Meeting the intimidating stimulus<?br?>
@@ -600,14 +512,10 @@ Fig. 4. General excitation (slightly frightened)<?br?>
 <example id="eng_table23">
   <title>Postures of Self-defence and Attack (Expression of Anger of the Chimpanzee)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table23.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table23.jpg">
+      <imageobject><imagedata fileref="images/html/table23.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table23.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table23.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -634,14 +542,10 @@ Fig. 6. Pinching his victim<?br?>
 <example id="eng_table24">
   <title>Aggressive Reaction of the Chimpanzee Jony to a Stuffed Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table24.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table24.jpg">
+      <imageobject><imagedata fileref="images/html/table24.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table24.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table24.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1. Standing up erect<?br?>
 Fig. 2. Banging with right foot and showing teeth<?br?>
@@ -653,14 +557,10 @@ Fig. 3. Throwing upper lip back — ready to attack<?br?>
 <example id="eng_table25">
   <title>Reaction of The Chimpanzee to a Dead Hair</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table25.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table25.jpg">
+      <imageobject><imagedata fileref="images/html/table25.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table25.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table25.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -688,14 +588,10 @@ Fig. 6. Attack of the offending stimulus<?br?>
 <example id="eng_table26">
   <title>Expression of Tender Feelings — Caresses and Sympathy of the Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table26.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table26.jpg">
+      <imageobject><imagedata fileref="images/html/table26.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table26.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table26.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -721,14 +617,10 @@ Fig. 4. Ready to touch the face of the weeping human with his tongue<?br?>
 <example id="eng_table27">
   <title>The Emotional Solidarity of Ape and Man (Catching-up the emotions of his human friend)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table27.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table27.jpg">
+      <imageobject><imagedata fileref="images/html/table27.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table27.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table27.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -754,14 +646,10 @@ Fig. 4. Invitation extended to weeping human to play<?br?>
 <example id="eng_table28">
   <title>The Emotional Solidarity of Ape and Man (Catching up-the emotions of his human friend)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table28.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table28.jpg">
+      <imageobject><imagedata fileref="images/html/table28.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table28.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table28.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -787,14 +675,10 @@ Fig. 4. Anxiety, excitation mingled with sadness<?br?>
 <example id="eng_table29">
   <title>The Chimpanzee's Specific Kinds of Play</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table29.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table29.jpg">
+      <imageobject><imagedata fileref="images/html/table29.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table29.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table29.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1. Moving a crumb ot bread in mouth<?br?>
 Fig. 2. Passing head through a rubber ring<?br?>
@@ -806,14 +690,10 @@ Fig. 3. Setting a "mouth-extender" between teeth<?br?>
 <example id="eng_table30">
   <title>The Chimpanzee Playing with Elastic Objects (with tape and thread)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table30.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table30.jpg">
+      <imageobject><imagedata fileref="images/html/table30.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table30.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table30.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1—2. Winding and unwinding a thread<?br?>
 Fig. 3—4. Climbing through an improvized loop<?br?>
@@ -827,14 +707,10 @@ Fig. 3—4. Climbing through an improvized loop<?br?>
 <example id="eng_table31">
   <title>The Mobile Play of the Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table31.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table31.jpg">
+      <imageobject><imagedata fileref="images/html/table31.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table31.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table31.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -860,14 +736,10 @@ Fig. 4. Playful mood during swinging<?br?>
 <example id="eng_table32">
   <title>The Chimpanzee Curious</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table32.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table32.jpg">
+      <imageobject><imagedata fileref="images/html/table32.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table32.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table32.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1—2. Careful examination of intriguing-object<?br?>
 Fig. 3. Resistance to returning taken object<?br?>
@@ -879,14 +751,10 @@ Fig. 4. Taking it away from observer<?br?>
 <example id="eng_table33">
   <title>The Mirror Reactions of the Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table33.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table33.jpg">
+      <imageobject><imagedata fileref="images/html/table33.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table33.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table33.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -912,14 +780,10 @@ Fig. 4. Grimaces in front of mirror (cracking of lips)<?br?>
 <example id="eng_table34">
   <title>Sitting Postures of Man and Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table34.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table34.jpg">
+      <imageobject><imagedata fileref="images/html/table34.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table34.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table34.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1. Roody (at 4) sitting (en face view)<?br?>
 Fig. 2. Joni's (at 4) typical sitting posture (en face view)<?br?>
@@ -930,14 +794,10 @@ Fig. 2. Joni's (at 4) typical sitting posture (en face view)<?br?>
 <example id="eng_table35">
   <title>Sitting Postures of Man (at 4) and Chimpanzee (at 4)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table35.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table35.jpg">
+      <imageobject><imagedata fileref="images/html/table35.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table35.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table35.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1. Roody sitting (profile)<?br?>
 Fig. 2. Joni sitting (profile)<?br?>
@@ -948,14 +808,10 @@ Fig. 2. Joni sitting (profile)<?br?>
 <example id="eng_table36">
   <title>Wrist of Man and Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table36.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table36.jpg">
+      <imageobject><imagedata fileref="images/html/table36.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table36.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table36.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -981,14 +837,10 @@ Fig. 4. Roody's (at 7) wrist (seen from below)<?br?>
 <example id="eng_table37">
   <title>Sole of Man and Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table37.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table37.jpg">
+      <imageobject><imagedata fileref="images/html/table37.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table37.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table37.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1014,14 +866,10 @@ Fig. 4. Roody's sole of foot (seen from below)<?br?>
 <example id="eng_table38">
   <title>Sitting Postures of Man and Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table38.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table38.jpg">
+      <imageobject><imagedata fileref="images/html/table38.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table38.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table38.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1049,14 +897,10 @@ Fig. 6. Roody (at 3 years) sitting on bench<?br?>
 <example id="eng_table39">
   <title>Sitting and Standing Postures of Man and Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table39.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table39.jpg">
+      <imageobject><imagedata fileref="images/html/table39.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table39.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table39.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1082,14 +926,10 @@ Fig. 4. Sitting with legs freely hanging down (Joni, at 4 years)<?br?>
 <example id="eng_table40">
   <title>The Evolution of Erect Standing with Man</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table40.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table40.jpg">
+      <imageobject><imagedata fileref="images/html/table40.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table40.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table40.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1120,14 +960,10 @@ Fig. 6. Roody (at 4 years) standing with full equilibrium<?br?>
 <example id="eng_table41">
   <title>The Human Child Asleep</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table41.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table41.jpg">
+      <imageobject><imagedata fileref="images/html/table41.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table41.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table41.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1154,14 +990,10 @@ Fig. 5. Most typical posture of sleeping child<?br?>
 <example id="eng_table42">
   <title>The Evolution of Walking with Man and Ape</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table42.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table42.jpg">
+      <imageobject><imagedata fileref="images/html/table42.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table42.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table42.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1189,14 +1021,10 @@ Fig. 6. Roody (at 3) running<?br?>
 <example id="eng_table43">
   <title>Assisted Standing and Walking of Man Versus Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table43.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table43.jpg">
+      <imageobject><imagedata fileref="images/html/table43.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table43.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table43.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1222,14 +1050,10 @@ Fig. 4. Roody (at 3) led by hand<?br?>
 <example id="eng_table44">
   <title>Walking, Running and Using Hands for Carrying Objects; Man Versus Ape</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table44.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table44.jpg">
+      <imageobject><imagedata fileref="images/html/table44.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table44.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table44.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1257,14 +1081,10 @@ Fig. 6. Roody (2 years 2 m.) carrying ninepins<?br?>
 <example id="eng_table45">
   <title>Hauling Sliding Objects (by Child)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table45.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table45.jpg">
+      <imageobject><imagedata fileref="images/html/table45.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table45.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table45.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1292,14 +1112,10 @@ Fig. 6. Roody (2 y. 1 m.) dragging toyhorse<?br?>
 <example id="eng_table46">
   <title>The Human Child Drawing Diverse Objects</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table46.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table46.jpg">
+      <imageobject><imagedata fileref="images/html/table46.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table46.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table46.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1. Roody's (3 y.) train for the locomotion of his toy playmates<?br?>
 Fig. 2. Roody's (2 y. 4 m.) train passes over a selfmade bridge<?br?>
@@ -1311,14 +1127,10 @@ Fig. 3. An improvised accident of the train<?br?>
 <example id="eng_table47">
   <title>Obstructed Walking, Running and Jumping (impeded and self-complicated motion of the child)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table47.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table47.jpg">
+      <imageobject><imagedata fileref="images/html/table47.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table47.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table47.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1345,14 +1157,10 @@ Fig. 5. Roody (3 y. 6 m.) jumping over teddy bear<?br?>
 <example id="eng_table48">
   <title>Running, Sliding, Climbing and Drawing Various Objects (by the child)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table48.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table48.jpg">
+      <imageobject><imagedata fileref="images/html/table48.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table48.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table48.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1379,14 +1187,10 @@ Fig. 5. Dragging sleigh up hill<?br?>
 <example id="eng_table49">
   <title>The Evolution of Climbing with the Human Child</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table49.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table49.jpg">
+      <imageobject><imagedata fileref="images/html/table49.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table49.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table49.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1412,14 +1216,10 @@ Fig. 4. Roody (1 y. 1 m.) has recourse to help in ascending stairs<?br?>
 <example id="eng_table50">
   <title>The Evolution of Climbing with the Human Child</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table50.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table50.jpg">
+      <imageobject><imagedata fileref="images/html/table50.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table50.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table50.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1448,14 +1248,10 @@ Fig. 4. Roody (2 y. 7 m.) descending stairs in vertical posture<?br?>
 <example id="eng_table51">
   <title>The Evolution of Climbing with the Human Child</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table51.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table51.jpg">
+      <imageobject><imagedata fileref="images/html/table51.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table51.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table51.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1483,14 +1279,10 @@ Fig. 6. Roody (2 y. 4 m.) climbing down from steps of car<?br?>
 <example id="eng_table52">
   <title>Negotiating Altitudes, Man Versus Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table52.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table52.jpg">
+      <imageobject><imagedata fileref="images/html/table52.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table52.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table52.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1519,14 +1311,10 @@ Fig. 7. Roody (age 4&half; years) ascending fence<?br?>
 <example id="eng_table53">
   <title>Typical Facial Expressions of Man and Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table53.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table53.jpg">
+      <imageobject><imagedata fileref="images/html/table53.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table53.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table53.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1554,14 +1342,10 @@ Fig. 6. The human child laughing<?br?>
 <example id="eng_table54">
   <title>Typical Facial Expressions of- Man and Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table54.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table54.jpg">
+      <imageobject><imagedata fileref="images/html/table54.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table54.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table54.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1589,14 +1373,10 @@ Fig. 6. The human child astonished<?br?>
 <example id="eng_table55">
   <title>Child's Reaction to Palatable and Non-Palatable Food</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table55.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table55.jpg">
+      <imageobject><imagedata fileref="images/html/table55.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table55.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table55.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1. Mimics expressing displeasure: <quote>Porridge is without sugar</quote> (Roody 4 y. 1 m.)<?br?>
 Fig. 2. Mimics expressing pleasure: <quote>There is sugar in the Porridge</quote> (Roody 4 y. 1 m.)<?br?>
@@ -1607,14 +1387,10 @@ Fig. 2. Mimics expressing pleasure: <quote>There is sugar in the Porridge</quote
 <example id="eng_table56">
   <title>The Mimics of Crying with Man and Ape</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table56.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table56.jpg">
+      <imageobject><imagedata fileref="images/html/table56.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table56.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table56.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1642,14 +1418,10 @@ Fig. 6. Roody crying (third stage)<?br?>
 <example id="eng_table57">
   <title>The Child's Mimics of Weeping (caused by different stimuli)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table57.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table57.jpg">
+      <imageobject><imagedata fileref="images/html/table57.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table57.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table57.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1675,14 +1447,10 @@ Fig. 4. Roody (age 6 years) restrained crying because of being psychically hurt 
 <example id="eng_table58">
   <title>The Human Child's Laughter and Crying Mimics at Different Ages</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table58.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table58.jpg">
+      <imageobject><imagedata fileref="images/html/table58.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table58.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table58.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1710,14 +1478,10 @@ Fig. 6. The posture of Roody (1 y. 2 m.) smiling (1 stage)<?br?>
 <example id="eng_table59">
   <title>The Mimics of Laughter of the Human Child Vs. That of the Chimpanzee</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table59.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table59.jpg">
+      <imageobject><imagedata fileref="images/html/table59.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table59.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table59.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1745,14 +1509,10 @@ Fig. 6. Roody's (age 5 years) broad smile (3 stage)<?br?>
 <example id="eng_table60">
   <title>Mimics and Postures of Man and Ape in Cheerful Disposition</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table60.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table60.jpg">
+      <imageobject><imagedata fileref="images/html/table60.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table60.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table60.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1783,14 +1543,10 @@ Fig. 6. Motions of Roody (3 y. 1 m.) in playful mood<?br?>
 <example id="eng_table61">
   <title>Self-Care with Human Child and Ape</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table61.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table61.jpg">
+      <imageobject><imagedata fileref="images/html/table61.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table61.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table61.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1816,14 +1572,10 @@ Fig. 4. Joni examining the hair on his hand<?br?>
 <example id="eng_table62">
   <title>Washing and Toilet of Human Child</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table62.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table62.jpg">
+      <imageobject><imagedata fileref="images/html/table62.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table62.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table62.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1851,14 +1603,10 @@ Fig. 6. Roody (2 y. 6 m.) using handkerchief<?br?>
 <example id="eng_table63">
   <title>Self-Adornment with Ape and Child</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table63.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table63.jpg">
+      <imageobject><imagedata fileref="images/html/table63.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table63.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table63.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1884,14 +1632,10 @@ Fig. 4. Roody (3 y. 4 m.) dons a peculiar kind of headgear<?br?>
 <example id="eng_table64">
   <title>Mastering the Use of Domestic Utensils Such as Cups etc.</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table64.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table64.jpg">
+      <imageobject><imagedata fileref="images/html/table64.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table64.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table64.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1917,14 +1661,10 @@ Fig. 4. Joni drinking from cup<?br?>
 <example id="eng_table65">
   <title>Mastering the Use of Domestic Utensils Such as Cup, Spoon, Fork, etc.</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table65.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table65.jpg">
+      <imageobject><imagedata fileref="images/html/table65.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table65.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table65.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1951,14 +1691,10 @@ Fig. 6. Roody (2 y. 11 m.) using knife<?br?>
 <example id="eng_table66">
   <title>Expression of Fear with. Ape and Child</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table66.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table66.jpg">
+      <imageobject><imagedata fileref="images/html/table66.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table66.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table66.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1985,14 +1721,10 @@ Fig. 5. Roody (3 y. 3 m.) [frightened of a live fluttering bird<?br?>
 <example id="eng_table67">
   <title>Expression of Anger with Ape and Child</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table67.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table67.jpg">
+      <imageobject><imagedata fileref="images/html/table67.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table67.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table67.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2018,14 +1750,10 @@ Fig. 4. Roody's (2 y. 2 m.) aggressive gesticulation (stamping foot)<?br?>
 <example id="eng_table68">
   <title>Military Games of the Child</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table68.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table68.jpg">
+      <imageobject><imagedata fileref="images/html/table68.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table68.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table68.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2052,14 +1780,10 @@ Fig. 5. Two adversaries<?br?>
 <example id="eng_table69">
   <title>Expression of Affection with the Ape and Child</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table69.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table69.jpg">
+      <imageobject><imagedata fileref="images/html/table69.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table69.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table69.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2087,14 +1811,10 @@ Fig. 6. Roody (2 y. 4 m.) kissing<?br?>
 <example id="eng_table70">
   <title>Expression of Social Instinct; Intercourse, and Friendly Attitude of Child Towards Animals</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table70.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table70.jpg">
+      <imageobject><imagedata fileref="images/html/table70.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table70.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table70.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2125,14 +1845,10 @@ Fig. 6. Roody's (2 y. 5 m.) tenderness toward Joni (<quote>hugging the little ap
 <example id="eng_table71">
   <title>Roody's (age 3) Intercourse with Other Children</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table71.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table71.jpg">
+      <imageobject><imagedata fileref="images/html/table71.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table71.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table71.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2160,14 +1876,10 @@ Fig. 6. Cycling<?br?>
 <example id="eng_table72">
   <title>Child's Games with Inanimate Playmates (Personification of Toy-Animals)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table72.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table72.jpg">
+      <imageobject><imagedata fileref="images/html/table72.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table72.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table72.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2195,14 +1907,10 @@ Fig. 6. Roody (2 y. 9 m.) auscultation of teddy bear<?br?>
 <example id="eng_table73">
   <title>Child's Organised Play with Teddy Bear</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table73.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table73.jpg">
+      <imageobject><imagedata fileref="images/html/table73.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table73.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table73.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2230,14 +1938,10 @@ Fig. 6. Teddy-bear toboganning<?br?>
 <example id="eng_table74">
   <title>Roody's Organized Play with Teddy-Bear</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table74.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table74.jpg">
+      <imageobject><imagedata fileref="images/html/table74.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table74.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table74.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2265,14 +1969,10 @@ Fig. 6. Roody tying bear to tree<?br?>
 <example id="eng_table75">
   <title>Roody's Organized Play with Inanimate Playmates</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table75.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table75.jpg">
+      <imageobject><imagedata fileref="images/html/table75.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table75.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table75.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1. Roody (3 y. 3 m.) <quote>travels</quote><?br?>
 Fig. 2. Roody (3 y. 4 m.) makes an airplane flight<?br?>
@@ -2284,14 +1984,10 @@ Fig. 3. Roody (3 y. 4 m.) goes to demonstration<?br?>
 <example id="eng_table76">
   <title>Roody Playing at Hide-and-Seek</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table76.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table76.jpg">
+      <imageobject><imagedata fileref="images/html/table76.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table76.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table76.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2317,14 +2013,10 @@ Fig. 4. Roody (2 y. 2 m.) <quote>invisible</quote> (has covered head with cap)<?
 <example id="eng_table77">
   <title>Roody's Mobile Play</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table77.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table77.jpg">
+      <imageobject><imagedata fileref="images/html/table77.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table77.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table77.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2352,14 +2044,10 @@ Fig. 6. <quote>I'll repair the wheel!</quote> (Roody 3 years)<?br?>
 <example id="eng_table78">
   <title>Child's Mobile Play &mdash; Swinging</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table78.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table78.jpg">
+      <imageobject><imagedata fileref="images/html/table78.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table78.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table78.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2386,14 +2074,10 @@ Fig. 5. Little girl friend in tow (Roody 4 y. 7 m.)<?br?>
 <example id="eng_table79">
   <title>Child's Mobile Play</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table79.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table79.jpg">
+      <imageobject><imagedata fileref="images/html/table79.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table79.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table79.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2421,14 +2105,10 @@ Fig. 6. Purposeful falling down from bicycle<?br?>
 <example id="eng_table80">
   <title>Winter-sport—Genuine and Imitated</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table80.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table80.jpg">
+      <imageobject><imagedata fileref="images/html/table80.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table80.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table80.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2457,14 +2137,10 @@ Fig. 4. Skiing on children's skis (Roody 4 years)<?br?>
 <example id="eng_table81">
   <title>Mobile Games of Man and Ape {Climbing, Swinging)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table81.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table81.jpg">
+      <imageobject><imagedata fileref="images/html/table81.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table81.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table81.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2490,14 +2166,10 @@ Fig. 4. Roody (4 y. 7 m.) on a tree<?br?>
 <example id="eng_table82">
   <title>Playing with Ball</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table82.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table82.jpg">
+      <imageobject><imagedata fileref="images/html/table82.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table82.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table82.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2525,14 +2197,10 @@ Fig. 6. Playing with ball (Roody 2 y. 4 m.)<?br?>
 <example id="eng_table83">
   <title>Roody Playing with Easily Movable Objects</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table83.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table83.jpg">
+      <imageobject><imagedata fileref="images/html/table83.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table83.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table83.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2560,14 +2228,10 @@ Fig. 6. Spinning a humming top (Roody 4 y. 4 m.)<?br?>
 <example id="eng_table84">
   <title>Roody Playing with Sound-Emitting objects</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table84.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table84.jpg">
+      <imageobject><imagedata fileref="images/html/table84.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table84.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table84.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2595,14 +2259,10 @@ Fig. 6. Roody (4 y. 1 m.) playing a tey-piano<?br?>
 <example id="eng_table85">
   <title>Roody's Experimenting Play</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table85.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table85.jpg">
+      <imageobject><imagedata fileref="images/html/table85.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table85.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table85.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2630,14 +2290,10 @@ Fig. 6. Making a water fountain (Roody 2 y. 6 m. )<?br?>
 <example id="eng_table86">
   <title>Roody's and Joni's Experimenting Play</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table86.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table86.jpg">
+      <imageobject><imagedata fileref="images/html/table86.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table86.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table86.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2665,14 +2321,10 @@ Fig. 6. Flattening out sand-cakes (Roody 2 y. 1 m.)<?br?>
 <example id="eng_table87">
   <title>Roody's and Joni's Experimenting Play with Transparent Objects</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table87.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table87.jpg">
+      <imageobject><imagedata fileref="images/html/table87.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table87.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table87.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2698,14 +2350,10 @@ Fig. 4. Looking into self-made <quote>field-glass</quote><?br?>
 <example id="eng_table88">
   <title>The Human Child Playing with Water, Fire and Lustrous Objects</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table88.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table88.jpg">
+      <imageobject><imagedata fileref="images/html/table88.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table88.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table88.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2733,14 +2381,10 @@ Fig. 6. Extinguishing flame(Roody 3 y.)<?br?>
 <example id="eng_table89">
   <title>Child Using a Stick</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table89.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table89.jpg">
+      <imageobject><imagedata fileref="images/html/table89.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table89.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table89.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2767,14 +2411,10 @@ Fig. 5. Riding a stick (Roody 4 y. 5 m.)<?br?>
 <example id="eng_table90">
   <title>Expression of Astonishment and Attention with Man and Ape</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table90.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table90.jpg">
+      <imageobject><imagedata fileref="images/html/table90.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table90.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table90.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2805,14 +2445,10 @@ Fig. 6. Roody (3 y. 4 m.) mimics of attention<?br?>
 <example id="eng_table91">
   <title>Roody's Expression of Astonishment</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table91.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table91.jpg">
+      <imageobject><imagedata fileref="images/html/table91.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table91.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table91.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2838,14 +2474,10 @@ Fig. 4. Feeling intriguing object with mouth (Roody 1 y. 1 m.)<?br?>
 <example id="eng_table92">
   <title>Child Sucking and Touching Various Objects with Mouth</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table92.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table92.jpg">
+      <imageobject><imagedata fileref="images/html/table92.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table92.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table92.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2873,14 +2505,10 @@ Fig. 6. Roody (3 years) sucking his thumb while listening to reading<?br?>
 <example id="eng_table93">
   <title>Self-Centered Attention with Man and Ape</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table93.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table93.jpg">
+      <imageobject><imagedata fileref="images/html/table93.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table93.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table93.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Figs. 1—2. Self-examination with Roody (1 y. 2 m.)<?br?>
 Figs. 3—4. Roody (1 y. 4 m.) feeling and picking a pimple<?br?>
@@ -2892,14 +2520,10 @@ Figs. 5—6. Self-examination with Joni<?br?>
 <example id="eng_table94">
   <title>Roody and Joni Examining and Touching Various Intriguing Objects</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table94.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table94.jpg">
+      <imageobject><imagedata fileref="images/html/table94.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table94.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table94.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2927,14 +2551,10 @@ Fig. 6. Roody (1 y. 2 m.) examines and touches human face<?br?>
 <example id="eng_table95">
   <title>Mirror-Reactions with Child and Ape</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table95.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table95.jpg">
+      <imageobject><imagedata fileref="images/html/table95.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table95.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table95.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2962,14 +2582,10 @@ Fig. 6. Joni's grimaces before mirror<?br?>
 <example id="eng_table96">
   <title>Investigation of Holes and Cavities</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table96.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table96.jpg">
+      <imageobject><imagedata fileref="images/html/table96.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table96.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table96.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2997,14 +2613,10 @@ Fig. 6. Roody's (9 m.) exploration of the depth of boxes<?br?>
 <example id="eng_table97">
   <title>The Role of Index-Finger with Ape and Child</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table97.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table97.jpg">
+      <imageobject><imagedata fileref="images/html/table97.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table97.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table97.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3032,14 +2644,10 @@ Fig. 6. Roody (1 y. 5 m.) touches intriguing object with index-finger<?br?>
 <example id="eng_table98">
   <title>The Child Likes Miniature Objects</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table98.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table98.jpg">
+      <imageobject><imagedata fileref="images/html/table98.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table98.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table98.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3067,14 +2675,10 @@ Fig. 6. It's the smallest hair who gets the gun (as a special distinction).<?br?
 <example id="eng_table99">
   <title>Destructive Play of the Child</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table99.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table99.jpg">
+      <imageobject><imagedata fileref="images/html/table99.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table99.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table99.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3102,14 +2706,10 @@ Fig. 6. Directionalized throwing of stick<?br?>
 <example id="eng_table100">
   <title>Child's Directional Throwing</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table100.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table100.jpg">
+      <imageobject><imagedata fileref="images/html/table100.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table100.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table100.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1. Ready to hit at target (Roody 2 y. 2 m.)<?br?>
 Fig. 2. Preparing to throw stick<?br?>
@@ -3124,14 +2724,10 @@ Fig. 3. <quote>Off the stick goes</quote><?br?>
 <example id="eng_table101">
   <title>Child's Imitatory Games</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table101.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table101.jpg">
+      <imageobject><imagedata fileref="images/html/table101.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table101.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table101.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3158,14 +2754,10 @@ Fig. 5. Effective use of spade (Roody 1 y. 10 m.)<?br?>
 <example id="eng_table102">
   <title>Child's Imitatory Games</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table102.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table102.jpg">
+      <imageobject><imagedata fileref="images/html/table102.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table102.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table102.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3192,14 +2784,10 @@ Fig. 5. Imitating a telephone conversation (Roody 2&half; y.)<?br?>
 <example id="eng_table103">
   <title>Roody's Imitatory Actions (Immediately following performance of action by adult)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table103.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table103.jpg">
+      <imageobject><imagedata fileref="images/html/table103.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table103.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table103.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3227,14 +2815,10 @@ Fig. 6. Shovelling sand (Roody 3 years)<?br?>
 <example id="eng_table104">
   <title>Roody's Imitatory Actions</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table104.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table104.jpg">
+      <imageobject><imagedata fileref="images/html/table104.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table104.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table104.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3262,14 +2846,10 @@ Fig. 6. <quote>Typing</quote> (Roody 3 y. 4 m.)<?br?>
 <example id="eng_table105">
   <title>The Child Imitating a Photographer</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table105.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table105.jpg">
+      <imageobject><imagedata fileref="images/html/table105.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table105.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table105.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3297,14 +2877,10 @@ Fig. 6. Photographing — setting the camera (Roody 4 years)<?br?>
 <example id="eng_table106">
   <title>The Child Imitating Various Trades and Professions</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table106.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table106.jpg">
+      <imageobject><imagedata fileref="images/html/table106.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table106.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table106.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3332,14 +2908,10 @@ Fig. 6. Posingas <quote>doctor</quote>; examining patient-teddy-bear (Roody 2y. 
 <example id="eng_table107">
   <title>Child's Imitative Play with Water</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table107.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table107.jpg">
+      <imageobject><imagedata fileref="images/html/table107.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table107.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table107.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3366,14 +2938,10 @@ Fig. 5. Shipbuilding (Roody 3 y. 10 m.)<?br?>
 <example id="eng_table108">
   <title>Imitatory Games of the Child</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table108.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table108.jpg">
+      <imageobject><imagedata fileref="images/html/table108.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table108.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table108.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3399,14 +2967,10 @@ Fig. 4. Pretending to smoke. <quote>Lighting cigarette</quote> (Roody 2 y. 3 m.)
 <example id="eng_table109">
   <title>Use of Pencil with Man and Ape</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table109.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table109.jpg">
+      <imageobject><imagedata fileref="images/html/table109.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table109.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table109.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3432,14 +2996,10 @@ Fig. 5. Roody's (7 years) regular pencilwork<?br?>
 <example id="eng_table110">
   <title>The Human Child Using Tools</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table110.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table110.jpg">
+      <imageobject><imagedata fileref="images/html/table110.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table110.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table110.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3470,14 +3030,10 @@ Fig. 6. Turning hay (Roody 4 years)<?br?>
 <example id="eng_table111">
   <title>The Hammer in the hands of Child and Ape</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table111.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table111.jpg">
+      <imageobject><imagedata fileref="images/html/table111.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table111.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table111.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3505,14 +3061,10 @@ Fig. 6. Proper use of hammer (Roody 5 years)<?br?>
 <example id="eng_table112">
   <title>Child's First Attempts at Construction</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table112.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table112.jpg">
+      <imageobject><imagedata fileref="images/html/table112.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table112.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table112.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1. First attempt to put object in right position (Roody 1 y. 2 m.)<?br?>
 Fig. 2. Ready!<?br?>
@@ -3524,14 +3076,10 @@ Fig. 3. The joy of achievement<?br?>
 <example id="eng_table113">
   <title>Deconstruction and Reconstruction in The Child's Play</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table113.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table113.jpg">
+      <imageobject><imagedata fileref="images/html/table113.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table113.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table113.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3557,14 +3105,10 @@ Fig. 6. Roody (1 y. 4 m.) assembling ninepins after having disjoined them<?br?>
 <example id="eng_table114">
   <title>Child's Constructional Play</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table114.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table114.jpg">
+      <imageobject><imagedata fileref="images/html/table114.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table114.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table114.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3591,14 +3135,10 @@ Fig. 5. Flying in selfmade airplane (Roody 3 y. 6 m.)<?br?>
 <example id="eng_table115">
   <title>Child's Constructional Play</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table115.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table115.jpg">
+      <imageobject><imagedata fileref="images/html/table115.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table115.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table115.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1. Making airplane (Roody 3 y. 6 m.)<?br?>
 Fig. 2. Flying in airplane (Roody 3 y. 6 m.)<?br?>
@@ -3610,14 +3150,10 @@ Fig. 3. Deliberate wreck of airplane (Roody 3 y. 6 m.)<?br?>
 <example id="eng_table116">
   <title>Child's Structural Activity</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table116.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table116.jpg">
+      <imageobject><imagedata fileref="images/html/table116.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table116.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table116.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Fig. 1—3. Making a <quote>worm</quote> three successive stages (Roody 2 y. 1 m.)<?br?>
 </para></textobject></mediaobject>
@@ -3627,14 +3163,10 @@ Fig. 3. Deliberate wreck of airplane (Roody 3 y. 6 m.)<?br?>
 <example id="eng_table117">
   <title>Child's Constructional Play</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table117.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table117.jpg">
+      <imageobject><imagedata fileref="images/html/table117.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table117.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table117.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3661,14 +3193,10 @@ Fig. 5. <quote>Travels by steame</quote> (Roody <cihc_age y="2" m="4" d="0" />)<
 <example id="eng_table118">
   <title>Roody's Constructional Play</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table118.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table118.jpg">
+      <imageobject><imagedata fileref="images/html/table118.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table118.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table118.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3694,14 +3222,10 @@ Fig. 4. Making enclosures for animals (Roody 3 y. 7 m.)<?br?>
 <example id="eng_table119">
   <title>Child's Constructional Play</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table119.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table119.jpg">
+      <imageobject><imagedata fileref="images/html/table119.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table119.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table119.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3729,14 +3253,10 @@ Fig. 6. Roody (6 y. 1 m.) building a many storeyed fortress<?br?>
 <example id="eng_table120">
   <title>The Work of the Child's Mind</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table120.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table120.jpg">
+      <imageobject><imagedata fileref="images/html/table120.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table120.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table120.jpg">higher resolution</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>

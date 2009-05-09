@@ -2,14 +2,10 @@
 <example id="table1">
   <title>Полулежачие позы дитяти человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table1.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table1.jpg">
+      <imageobject><imagedata fileref="images/html/table1.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table1.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table1.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1. Спящий на коленях Иони.<?br?>
 Рис. 2. Лежащий на коленях Руди (<cihc_age y="0" m="3" d="21" />).<?br?>
@@ -20,14 +16,10 @@
 <example id="table2">
   <title>Сидячие позы шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table2.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table2.jpg">
+      <imageobject><imagedata fileref="images/html/table2.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table2.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table2.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1&mdash;4. Сидение на ровном месте.<?br?>
 Рис. 5. Сидение на коленях человека.<?br?>
@@ -38,14 +30,10 @@
 <example id="table3">
   <title>Типичные стоячие позы шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table3.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table3.jpg">
+      <imageobject><imagedata fileref="images/html/table3.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table3.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table3.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1&mdash;4. Типичное стояние с опорой на руки.<?br?>
 </para></textobject></mediaobject>
@@ -55,14 +43,10 @@
 <example id="table4">
   <title>Необычные эпизодические стоячие позы  шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table4.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table4.jpg">
+      <imageobject><imagedata fileref="images/html/table4.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table4.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table4.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1—4. Необычное стояние без опоры на руки.<?br?>
 </para></textobject></mediaobject>
@@ -72,14 +56,10 @@
 <example id="table5">
   <title>Ходьба и бег шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table5.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table5.jpg">
+      <imageobject><imagedata fileref="images/html/table5.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table5.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table5.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1—2. Медленное передвижение шимпанзе.<?br?>
 Рис. 3—4. Бег шимпанзе (вид в профиль).<?br?>
@@ -91,14 +71,10 @@
 <example id="table6">
   <title>Лазание шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table6.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table6.jpg">
+      <imageobject><imagedata fileref="images/html/table6.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table6.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table6.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1. Цепляние за дерево.<?br?>
 Рис. 2—3. Лазание по дереву.<?br?>
@@ -109,14 +85,10 @@
 <example id="table7">
   <title>Восемь типических выражений лица шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table7.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table7.jpg">
+      <imageobject><imagedata fileref="images/html/table7.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table7.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table7.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -146,14 +118,10 @@
 <example id="table8">
   <title>Комбинированные двойственные выражения лица шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table8.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table8.jpg">
+      <imageobject><imagedata fileref="images/html/table8.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table8.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table8.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -181,14 +149,10 @@
 <example id="table9">
   <title>Внешнее проявление общей возбудимости (шесть последовательных стадий)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table9.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table9.jpg">
+      <imageobject><imagedata fileref="images/html/table9.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table9.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table9.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -216,14 +180,10 @@
 <example id="table10">
   <title>Мимика волнения (шесть последовательных стадий)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table10.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table10.jpg">
+      <imageobject><imagedata fileref="images/html/table10.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table10.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table10.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -252,14 +212,10 @@
 <example id="table11">
   <title>Специфицированное волнение: печальное, злобное, радостное, трусливое</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table11.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table11.jpg">
+      <imageobject><imagedata fileref="images/html/table11.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table11.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table11.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -285,14 +241,10 @@
 <example id="table12">
   <title>Мимика радости — улыбка и смех</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table12.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table12.jpg">
+      <imageobject><imagedata fileref="images/html/table12.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table12.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table12.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -319,14 +271,10 @@
 <example id="table13">
   <title>Позы и жесты весело настроенного шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table13.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table13.jpg">
+      <imageobject><imagedata fileref="images/html/table13.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table13.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table13.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -335,7 +283,7 @@
 <colspec colname='c2'/>
 <tbody>
 <row><entry><para role='figure'>
-Рис. 1. Шимпанзе в хорошем настроен<?br?>
+Рис. 1. Шимпанзе в хорошем настроении.<?br?>
 Рис. 2. Шимпанзе щекочут.<?br?>
 </para></entry>
 <entry><para role='figure'>
@@ -352,14 +300,10 @@
 <example id="table14">
   <title>Мимика печали (6 последовательных начальных стадий подготовки к плачу)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table14.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table14.jpg">
+      <imageobject><imagedata fileref="images/html/table14.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table14.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table14.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -385,14 +329,10 @@
 <example id="table15">
   <title>Мимика печали (плач), 6 последовательных конечных стадий плача</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table15.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table15.jpg">
+      <imageobject><imagedata fileref="images/html/table15.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table15.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table15.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1—2. Начальные стадии кричащего плача.<?br?>
 Рис. 3—4. Ревущий плач.<?br?>
@@ -404,14 +344,10 @@
 <example id="table16">
   <title>Жестикуляция и позы плачущего шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table16.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table16.jpg">
+      <imageobject><imagedata fileref="images/html/table16.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table16.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table16.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -438,14 +374,10 @@
 <example id="table17">
   <title>Жестикуляция и позы плачущего шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table17.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table17.jpg">
+      <imageobject><imagedata fileref="images/html/table17.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table17.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table17.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1. Ломание рук.<?br?>
 Рис. 2—3. Взметывание рук кверху.<?br?>
@@ -456,14 +388,10 @@
 <example id="table18">
   <title>Позы и жесты отчаявшегося и играющего шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table18.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table18.jpg">
+      <imageobject><imagedata fileref="images/html/table18.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table18.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table18.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1—3. Скрещивание рук над головой, выражение полного отчаяния.<?br?>
 Рис. 4—5. Щекотка шимпанзе — игривые телодвижения.<?br?>
@@ -474,14 +402,10 @@
 <example id="table19">
   <title>Позы и жесты шимпанзе при разных его настроениях</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table19.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table19.jpg">
+      <imageobject><imagedata fileref="images/html/table19.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table19.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table19.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -509,14 +433,10 @@
 <example id="table20">
   <title>Уход за собой у шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table20.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table20.jpg">
+      <imageobject><imagedata fileref="images/html/table20.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table20.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table20.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -547,14 +467,10 @@
 <example id="table21">
   <title>Способы питья у шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table21.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table21.jpg">
+      <imageobject><imagedata fileref="images/html/table21.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table21.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table21.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -581,14 +497,10 @@
 <example id="table22">
   <title>Внешнее выражение страха у шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table22.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table22.jpg">
+      <imageobject><imagedata fileref="images/html/table22.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table22.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table22.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1 и 3. Боязливо-взволнованный шимпанзе при прогулках на голе (распушение волос на всем теле).<?br?>
 Рис. 2. Встреча с пугающим объектом.<?br?>
@@ -600,14 +512,10 @@
 <example id="table23">
   <title>Внешнее выражение злобы шимпанзе (оборонительные и наступательные жесты и телодвижения шимпанзе)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table23.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table23.jpg">
+      <imageobject><imagedata fileref="images/html/table23.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table23.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table23.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -634,14 +542,10 @@
 <example id="table24">
   <title>Агрессивная реакция Иони на чучело шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table24.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table24.jpg">
+      <imageobject><imagedata fileref="images/html/table24.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table24.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table24.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1. Привставание в вертикальное положение.<?br?>
 Рис. 2. Топание правой ногой — оскаливание зубов.<?br?>
@@ -653,14 +557,10 @@
 <example id="table25">
   <title>Агрессивная реакция шимпанзе на мертвого зайца</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table25.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table25.jpg">
+      <imageobject><imagedata fileref="images/html/table25.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table25.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table25.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -688,14 +588,10 @@
 <example id="table26">
   <title>Выражение у шимпанзе нежных чувств — ласки и участия</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table26.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table26.jpg">
+      <imageobject><imagedata fileref="images/html/table26.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table26.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table26.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -721,14 +617,10 @@
 <example id="table27">
   <title>Эмоциональная солидаризация шимпанзе с человеком</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table27.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table27.jpg">
+      <imageobject><imagedata fileref="images/html/table27.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table27.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table27.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -754,14 +646,10 @@
 <example id="table28">
   <title>Эмоциональная солидаризации шимпанзе с человеком</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table28.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table28.jpg">
+      <imageobject><imagedata fileref="images/html/table28.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table28.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table28.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -787,14 +675,10 @@
 <example id="table29">
   <title>Специфичные игры шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table29.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table29.jpg">
+      <imageobject><imagedata fileref="images/html/table29.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table29.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table29.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1. Перебирание в губах твердой крошки.<?br?>
 Рис. 2. Пролезание головой в резиновое кольцо.<?br?>
@@ -806,14 +690,10 @@
 <example id="table30">
   <title>Игра шимпанзе с эластичными предметами (со шнурком и тесьмой)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table30.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table30.jpg">
+      <imageobject><imagedata fileref="images/html/table30.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table30.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table30.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1—2. Запутывание и распяливание шнурка<?br?>
 Рис. 3—4. Пролезание в петли.<?br?>
@@ -827,14 +707,10 @@
 <example id="table31">
   <title>Подвижные игры шимпанзе (лазание и качание)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table31.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table31.jpg">
+      <imageobject><imagedata fileref="images/html/table31.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table31.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table31.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -860,14 +736,10 @@
 <example id="table32">
   <title>Любопытство шимпанзе (реакция на новую вещь)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table32.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table32.jpg">
+      <imageobject><imagedata fileref="images/html/table32.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table32.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table32.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1—2. Внимательное рассматривание интригующего объекта.<?br?>
 Рис. 3. Злобное сопротивление отдаванию вещи назад (кусание).<?br?>
@@ -879,14 +751,10 @@
 <example id="table33">
   <title>Реакция шимпанзе на зеркало</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table33.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table33.jpg">
+      <imageobject><imagedata fileref="images/html/table33.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table33.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table33.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -912,14 +780,10 @@
 <example id="table34">
   <title>Сидячие позы человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table34.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table34.jpg">
+      <imageobject><imagedata fileref="images/html/table34.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table34.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table34.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1. Сидящий Руди (вид en face) 4 лет.<?br?>
 Рис. 2. Типичная сидячая поза шимпанзе Иони 4 лет.<?br?>
@@ -930,14 +794,10 @@
 <example id="table35">
   <title>Сидячие позы человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table35.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table35.jpg">
+      <imageobject><imagedata fileref="images/html/table35.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table35.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table35.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1. Сидящий  Руди (в профиль) 4 лет.<?br?>
 Рис. 2. Сидящий Иони (в профиль) 4 лет.<?br?>
@@ -948,14 +808,10 @@
 <example id="table36">
   <title>Сравнение кисти человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table36.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table36.jpg">
+      <imageobject><imagedata fileref="images/html/table36.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table36.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table36.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -981,14 +837,10 @@
 <example id="table37">
   <title>Сравнение стопы человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table37.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table37.jpg">
+      <imageobject><imagedata fileref="images/html/table37.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table37.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table37.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1014,14 +866,10 @@
 <example id="table38">
   <title>Сидячие позы человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table38.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table38.jpg">
+      <imageobject><imagedata fileref="images/html/table38.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table38.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table38.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1049,14 +897,10 @@
 <example id="table39">
   <title>Стоячие и сидячие позы человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table39.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table39.jpg">
+      <imageobject><imagedata fileref="images/html/table39.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table39.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table39.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1082,14 +926,10 @@
 <example id="table40">
   <title>Эволюция стояния у человека</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table40.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table40.jpg">
+      <imageobject><imagedata fileref="images/html/table40.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table40.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table40.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1120,14 +960,10 @@
 <example id="table41">
   <title>Позы спящего ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table41.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table41.jpg">
+      <imageobject><imagedata fileref="images/html/table41.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table41.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table41.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1154,14 +990,10 @@
 <example id="table42">
   <title>Эволюция ходьбы у  человека</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table42.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table42.jpg">
+      <imageobject><imagedata fileref="images/html/table42.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table42.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table42.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1189,14 +1021,10 @@
 <example id="table43">
   <title>Стояние и ходьба с посторонней помощью у человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table43.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table43.jpg">
+      <imageobject><imagedata fileref="images/html/table43.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table43.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table43.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1222,14 +1050,10 @@
 <example id="table44">
   <title>Ходьба и бег шимпанзе и человека, ношение в руках</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table44.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table44.jpg">
+      <imageobject><imagedata fileref="images/html/table44.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table44.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table44.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1257,14 +1081,10 @@
 <example id="table45">
   <title>Катание ребенком предметов</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table45.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table45.jpg">
+      <imageobject><imagedata fileref="images/html/table45.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table45.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table45.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1292,14 +1112,10 @@
 <example id="table46">
   <title>Упражнение ребенка в вожений предметов</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table46.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table46.jpg">
+      <imageobject><imagedata fileref="images/html/table46.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table46.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table46.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1. Руди (3 лет) соорудил целый поезд для вожения игрушечных сотоварищей.<?br?>
 Рис. 2. Руди (2 г. 5 м.) везет поезд по самодельному мосту.<?br?>
@@ -1311,14 +1127,10 @@
 <example id="table47">
   <title>Упражнение ребенка в ходьбе, беге и прыганий</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table47.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table47.jpg">
+      <imageobject><imagedata fileref="images/html/table47.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table47.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table47.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1345,14 +1157,10 @@
 <example id="table48">
   <title>Бег, катание, лазание, вожение предметов у ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table48.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table48.jpg">
+      <imageobject><imagedata fileref="images/html/table48.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table48.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table48.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1379,14 +1187,10 @@
 <example id="table49">
   <title>Эволюция лазания у ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table49.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table49.jpg">
+      <imageobject><imagedata fileref="images/html/table49.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table49.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table49.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1412,14 +1216,10 @@
 <example id="table50">
   <title>Эволюция лазания у ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table50.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table50.jpg">
+      <imageobject><imagedata fileref="images/html/table50.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table50.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table50.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1448,14 +1248,10 @@
 <example id="table51">
   <title>Эволюция лазания у ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table51.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table51.jpg">
+      <imageobject><imagedata fileref="images/html/table51.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table51.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table51.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1483,14 +1279,10 @@
 <example id="table52">
   <title>Лазание по высотам человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table52.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table52.jpg">
+      <imageobject><imagedata fileref="images/html/table52.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table52.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table52.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1519,14 +1311,10 @@
 <example id="table53">
   <title>Сравнение типических выражений лица человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table53.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table53.jpg">
+      <imageobject><imagedata fileref="images/html/table53.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table53.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table53.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1554,14 +1342,10 @@
 <example id="table54">
   <title>Сравнение типических выражений лица человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table54.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table54.jpg">
+      <imageobject><imagedata fileref="images/html/table54.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table54.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table54.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1589,14 +1373,10 @@
 <example id="table55">
   <title>Реакция на вкусную и невкусную пищу у ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table55.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table55.jpg">
+      <imageobject><imagedata fileref="images/html/table55.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table55.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table55.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1. Мимика вкусового неудовольствия: Руди (4 г. 1 м.) отведал несладкой каши.<?br?>
 Рис. 2. Мимика вкусового удовольствия: Руди (4 г. 1 м.) отведал сладкой каши.<?br?>
@@ -1607,14 +1387,10 @@
 <example id="table56">
   <title>Мимика плача у человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table56.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table56.jpg">
+      <imageobject><imagedata fileref="images/html/table56.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table56.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table56.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1642,14 +1418,10 @@
 <example id="table57">
   <title>Мимика плача у ребенка, вызванная разными стимулами</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table57.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table57.jpg">
+      <imageobject><imagedata fileref="images/html/table57.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table57.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table57.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1675,14 +1447,10 @@
 <example id="table58">
   <title>Параллельное сопоставление мимики плача и смеха ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table58.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table58.jpg">
+      <imageobject><imagedata fileref="images/html/table58.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table58.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table58.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1710,14 +1478,10 @@
 <example id="table59">
   <title>Мимика смеха дитяти человека и дитяти шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table59.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table59.jpg">
+      <imageobject><imagedata fileref="images/html/table59.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table59.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table59.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1745,14 +1509,10 @@
 <example id="table60">
   <title>Мимика и позы, весело настроенных шимпанзе и человека</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table60.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table60.jpg">
+      <imageobject><imagedata fileref="images/html/table60.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table60.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table60.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1783,14 +1543,10 @@
 <example id="table61">
   <title>Уход за собой у человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table61.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table61.jpg">
+      <imageobject><imagedata fileref="images/html/table61.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table61.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table61.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1816,14 +1572,10 @@
 <example id="table62">
   <title>Туалет у ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table62.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table62.jpg">
+      <imageobject><imagedata fileref="images/html/table62.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table62.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table62.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1851,14 +1603,10 @@
 <example id="table63">
   <title>Самоукрашение у дитяти человека и у шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table63.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table63.jpg">
+      <imageobject><imagedata fileref="images/html/table63.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table63.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table63.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1884,14 +1632,10 @@
 <example id="table64">
   <title>Употребление посуды при питье у шимпанзе и у человека</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table64.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table64.jpg">
+      <imageobject><imagedata fileref="images/html/table64.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table64.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table64.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1917,14 +1661,10 @@
 <example id="table65">
   <title>Употребление ребенком посуды и приборов при еде и питье</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table65.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table65.jpg">
+      <imageobject><imagedata fileref="images/html/table65.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table65.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table65.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1951,14 +1691,10 @@
 <example id="table66">
   <title>Внешнее выражение страха у человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table66.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table66.jpg">
+      <imageobject><imagedata fileref="images/html/table66.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table66.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table66.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -1985,14 +1721,10 @@
 <example id="table67">
   <title>Внешнее выражение злобы, у человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table67.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table67.jpg">
+      <imageobject><imagedata fileref="images/html/table67.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table67.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table67.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2018,14 +1750,10 @@
 <example id="table68">
   <title>Военные игры ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table68.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table68.jpg">
+      <imageobject><imagedata fileref="images/html/table68.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table68.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table68.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2052,14 +1780,10 @@
 <example id="table69">
   <title>Внешнее выражение ласки у человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table69.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table69.jpg">
+      <imageobject><imagedata fileref="images/html/table69.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table69.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table69.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2087,14 +1811,10 @@
 <example id="table70">
   <title>Благожелательное общение ребенка с животными</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table70.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table70.jpg">
+      <imageobject><imagedata fileref="images/html/table70.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table70.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table70.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2125,14 +1845,10 @@
 <example id="table71">
   <title>Общение и совместные игры детей</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table71.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table71.jpg">
+      <imageobject><imagedata fileref="images/html/table71.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table71.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table71.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2160,14 +1876,10 @@
 <example id="table72">
   <title>Игры ребенка с неживыми товарищами</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table72.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table72.jpg">
+      <imageobject><imagedata fileref="images/html/table72.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table72.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table72.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2195,14 +1907,10 @@
 <example id="table73">
   <title>Игра ребенка с мишуком</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table73.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table73.jpg">
+      <imageobject><imagedata fileref="images/html/table73.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table73.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table73.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2230,14 +1938,10 @@
 <example id="table74">
   <title>Организованная  игра ребенка с мишуком</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table74.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table74.jpg">
+      <imageobject><imagedata fileref="images/html/table74.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table74.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table74.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2265,14 +1969,10 @@
 <example id="table75">
   <title>Организованная игра ребенка с неживыми товарищами</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table75.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table75.jpg">
+      <imageobject><imagedata fileref="images/html/table75.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table75.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table75.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1. Руди (3 г. 3 м.) <quote>путешествует</quote>.<?br?>
 Рис. 2. Руди (3 г. 4 м.) <quote>летит на аэроплане</quote>.<?br?>
@@ -2284,14 +1984,10 @@
 <example id="table76">
   <title>Игра в прятки</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table76.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table76.jpg">
+      <imageobject><imagedata fileref="images/html/table76.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table76.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table76.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2317,14 +2013,10 @@
 <example id="table77">
   <title>Подвижные игры ребенка (мниммое катание)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table77.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table77.jpg">
+      <imageobject><imagedata fileref="images/html/table77.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table77.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table77.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2352,14 +2044,10 @@
 <example id="table78">
   <title>Подвижные игры, ребенка (катание и качание)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table78.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table78.jpg">
+      <imageobject><imagedata fileref="images/html/table78.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table78.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table78.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2386,14 +2074,10 @@
 <example id="table79">
   <title>Подвижные игры ребенка (езда на машинах)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table79.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table79.jpg">
+      <imageobject><imagedata fileref="images/html/table79.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table79.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table79.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2421,14 +2105,10 @@
 <example id="table80">
   <title>Подвижные игры ребенка (катание на мнимых и настоящих лыжах)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table80.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table80.jpg">
+      <imageobject><imagedata fileref="images/html/table80.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table80.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table80.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2457,14 +2137,10 @@
 <example id="table81">
   <title>Подвижные игры человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table81.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table81.jpg">
+      <imageobject><imagedata fileref="images/html/table81.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table81.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table81.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2490,14 +2166,10 @@
 <example id="table82">
   <title>Игра ребенка с мячом и шаром</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table82.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table82.jpg">
+      <imageobject><imagedata fileref="images/html/table82.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table82.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table82.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2525,14 +2197,10 @@
 <example id="table83">
   <title>Игра ребенка легко подвижными предметами</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table83.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table83.jpg">
+      <imageobject><imagedata fileref="images/html/table83.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table83.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table83.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2560,14 +2228,10 @@
 <example id="table84">
   <title>Развлечение ребенка звучащими предметами</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table84.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table84.jpg">
+      <imageobject><imagedata fileref="images/html/table84.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table84.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table84.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2595,14 +2259,10 @@
 <example id="table85">
   <title>Игры экспериментирования ребенка с водой</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table85.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table85.jpg">
+      <imageobject><imagedata fileref="images/html/table85.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table85.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table85.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2630,14 +2290,10 @@
 <example id="table86">
   <title>Игры экспериментирования человека и шимпанзе с различным материалом</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table86.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table86.jpg">
+      <imageobject><imagedata fileref="images/html/table86.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table86.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table86.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2665,14 +2321,10 @@
 <example id="table87">
   <title>Игры экспериментирования ребенка с прозрачными предметами</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table87.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table87.jpg">
+      <imageobject><imagedata fileref="images/html/table87.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table87.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table87.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2698,14 +2350,10 @@
 <example id="table88">
   <title>Игра ребенка с огнем и с блестящими предметами</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table88.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table88.jpg">
+      <imageobject><imagedata fileref="images/html/table88.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table88.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table88.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2733,14 +2381,10 @@
 <example id="table89">
   <title>Употребление ребенком палки</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table89.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table89.jpg">
+      <imageobject><imagedata fileref="images/html/table89.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table89.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table89.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2767,14 +2411,10 @@
 <example id="table90">
   <title>Внешнее выражение удивления и внимания у человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table90.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table90.jpg">
+      <imageobject><imagedata fileref="images/html/table90.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table90.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table90.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2805,14 +2445,10 @@
 <example id="table91">
   <title>Внешнее выражение удивления у ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table91.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table91.jpg">
+      <imageobject><imagedata fileref="images/html/table91.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table91.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table91.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2838,14 +2474,10 @@
 <example id="table92">
   <title>Сосание и ощупывание губами предметов у ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table92.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table92.jpg">
+      <imageobject><imagedata fileref="images/html/table92.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table92.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table92.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2873,14 +2505,10 @@
 <example id="table93">
   <title>Самовнимание человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table93.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table93.jpg">
+      <imageobject><imagedata fileref="images/html/table93.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table93.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table93.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1—2. Саморассматривание и самообследование у Руди (1 г. 2 м.).<?br?>
 Рис. 3—4. Ощупывание и расковыривание пальчиком прыщика на ноге у Руди (1 г. 4 м.).<?br?>
@@ -2892,14 +2520,10 @@
 <example id="table94">
   <title>Созерцание и ощупывание интересующих вещей у человека и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table94.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table94.jpg">
+      <imageobject><imagedata fileref="images/html/table94.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table94.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table94.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2927,14 +2551,10 @@
 <example id="table95">
   <title>Реакция ребенка и шимпанзе на зеркало</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table95.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table95.jpg">
+      <imageobject><imagedata fileref="images/html/table95.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table95.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table95.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2962,14 +2582,10 @@
 <example id="table96">
   <title>Обследование ребенком дырок, глубин и полостей</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table96.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table96.jpg">
+      <imageobject><imagedata fileref="images/html/table96.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table96.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table96.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -2997,14 +2613,10 @@
 <example id="table97">
   <title>Выявление роли указательного пальца у человека и у шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table97.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table97.jpg">
+      <imageobject><imagedata fileref="images/html/table97.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table97.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table97.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3032,14 +2644,10 @@
 <example id="table98">
   <title>Миниатюризм ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table98.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table98.jpg">
+      <imageobject><imagedata fileref="images/html/table98.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table98.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table98.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3067,14 +2675,10 @@
 <example id="table99">
   <title>Разрушительные игры ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table99.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table99.jpg">
+      <imageobject><imagedata fileref="images/html/table99.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table99.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table99.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3102,14 +2706,10 @@
 <example id="table100">
   <title>Целенаправленное бросание предметов ребенком</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table100.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table100.jpg">
+      <imageobject><imagedata fileref="images/html/table100.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table100.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table100.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1. Руди (2 г. 2 м.) метится палкой в кегли.<?br?>
 Рис. 2. Руди собирается бросить палку.<?br?>
@@ -3124,14 +2724,10 @@
 <example id="table101">
   <title>Подражательные действия ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table101.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table101.jpg">
+      <imageobject><imagedata fileref="images/html/table101.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table101.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table101.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3158,14 +2754,10 @@
 <example id="table102">
   <title>Подражательные игры ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table102.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table102.jpg">
+      <imageobject><imagedata fileref="images/html/table102.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table102.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table102.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3192,14 +2784,10 @@
 <example id="table103">
   <title>Подражательные действия ребенка, осуществляемые непосредственно вслед за взрослыми</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table103.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table103.jpg">
+      <imageobject><imagedata fileref="images/html/table103.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table103.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table103.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3227,14 +2815,10 @@
 <example id="table104">
   <title>Подражательные действия ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table104.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table104.jpg">
+      <imageobject><imagedata fileref="images/html/table104.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table104.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table104.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3262,14 +2846,10 @@
 <example id="table105">
   <title>Имитация ребенком процесса фотографирования</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table105.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table105.jpg">
+      <imageobject><imagedata fileref="images/html/table105.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table105.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table105.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3297,14 +2877,10 @@
 <example id="table106">
   <title>Подражание ребенка профессиям взрослых</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table106.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table106.jpg">
+      <imageobject><imagedata fileref="images/html/table106.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table106.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table106.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3332,14 +2908,10 @@
 <example id="table107">
   <title>Подражательные игры ребенка у воды</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table107.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table107.jpg">
+      <imageobject><imagedata fileref="images/html/table107.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table107.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table107.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3366,14 +2938,10 @@
 <example id="table108">
   <title>Подражательные действия ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table108.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table108.jpg">
+      <imageobject><imagedata fileref="images/html/table108.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table108.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table108.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3399,14 +2967,10 @@
 <example id="table109">
   <title>Употребление карандаша у ребенка и шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table109.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table109.jpg">
+      <imageobject><imagedata fileref="images/html/table109.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table109.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table109.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3432,14 +2996,10 @@
 <example id="table110">
   <title>Употребление различных орудий у ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table110.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table110.jpg">
+      <imageobject><imagedata fileref="images/html/table110.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table110.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table110.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3470,14 +3030,10 @@
 <example id="table111">
   <title>Употребление молотка у человека и у шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table111.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table111.jpg">
+      <imageobject><imagedata fileref="images/html/table111.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table111.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table111.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3505,14 +3061,10 @@
 <example id="table112">
   <title>Первые попытки восстановительной деятельности ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table112.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table112.jpg">
+      <imageobject><imagedata fileref="images/html/table112.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table112.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table112.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1. Первая проба Руди (1 г. 2 м.) поставить вещь из горизонтального положения в вертикальное.<?br?>
 Рис. 2. Руди поставил вещь.<?br?>
@@ -3524,14 +3076,10 @@
 <example id="table113">
   <title>Деконструктивные и реконструктивные игры ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table113.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table113.jpg">
+      <imageobject><imagedata fileref="images/html/table113.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table113.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table113.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3558,14 +3106,10 @@
 <example id="table114">
   <title>Конструктивные игры ребенка (репродукция аэроплана)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table114.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table114.jpg">
+      <imageobject><imagedata fileref="images/html/table114.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table114.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table114.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3592,14 +3136,10 @@
 <example id="table115">
   <title>Конструктивные игры ребенка (репродукция аэроплана)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table115.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table115.jpg">
+      <imageobject><imagedata fileref="images/html/table115.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table115.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table115.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1. Руди (3 г. 6 м.) делает аэроплан.<?br?>
 Рис. 2. Руди (3 г. 6 м.) <quote>летит на аэроплане</quote>.<?br?>
@@ -3611,14 +3151,10 @@
 <example id="table116">
   <title>Конструктивные игры ребенка (репродукция червяка)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table116.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table116.jpg">
+      <imageobject><imagedata fileref="images/html/table116.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table116.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table116.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para role='figure'>Рис. 1—3. Руди (2 г. 1 м.) делает на дорожке сада <quote>червяка</quote> из деревянных кирпичиков (несколько последовательных стадий работы).<?br?>
 </para></textobject></mediaobject>
@@ -3628,14 +3164,10 @@
 <example id="table117">
   <title>Конструктивные игры ребенка (репродукция лодок)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table117.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table117.jpg">
+      <imageobject><imagedata fileref="images/html/table117.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table117.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table117.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3662,14 +3194,10 @@
 <example id="table118">
   <title>Конструктивные игры ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table118.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table118.jpg">
+      <imageobject><imagedata fileref="images/html/table118.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table118.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table118.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3695,14 +3223,10 @@
 <example id="table119">
   <title>Конструктивные игры ребенка (эволюция процесса постройки дома)</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table119.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table119.jpg">
+      <imageobject><imagedata fileref="images/html/table119.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table119.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table119.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>
@@ -3730,14 +3254,10 @@
 <example id="table120">
   <title>Выявление интеллектуальных способностей ребенка</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/table120.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/table120.jpg">
+      <imageobject><imagedata fileref="images/html/table120.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/table120.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/table120.jpg">в большем разрешении</ulink>
-    </textobject>
-  <textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject>
 <informaltable frame='none'>

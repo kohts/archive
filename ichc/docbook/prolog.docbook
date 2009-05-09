@@ -74,14 +74,10 @@
 <figure id="joni">
   <title>Дитя шимпанзе</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/joni.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/joni.jpg">
+      <imageobject><imagedata fileref="images/html/joni.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/joni.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/joni.jpg">в большем разрешении</ulink>
-    </textobject>
-	<textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para>Мой шимпанзе Иони (4 года)</para></textobject></mediaobject>
 </figure>
@@ -90,14 +86,10 @@
 <figure id="rudy">
   <title>Дитя человека</title>
   <mediaobject>
-    <imageobject role="html"><imagedata fileref="images/html/rudy.jpg" /></imageobject>
+    <textobject role="html"><ulink role="html" url="images/hires/rudy.jpg">
+      <imageobject><imagedata fileref="images/html/rudy.jpg" /></imageobject>
+    </ulink></textobject>
     <imageobject role="fo"><imagedata fileref="images/pdf/rudy.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject>
-    <textobject role="html">
-      <ulink role="html" url="images/hires/rudy.jpg">в большем разрешении</ulink>
-    </textobject>
-	<textobject role="fo"></textobject>
   </mediaobject>
   <mediaobject><textobject><para>Мой сын Руди (4 года)</para></textobject></mediaobject>
 </figure>
