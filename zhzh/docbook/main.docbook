@@ -2,6 +2,7 @@
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY liniya "&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;">
 
    <!ENTITY vnimanie SYSTEM "vnimanie.docbook">
    <!ENTITY predislovie SYSTEM "predislovie.docbook">

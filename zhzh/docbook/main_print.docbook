@@ -2,7 +2,15 @@
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
-]>
+  <!ENTITY liniya "
+<informaltable frame='none'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry><para>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
+</tgroup></informaltable>
+ ">
+
+   <!ENTITY vnimanie SYSTEM "vnimanie.docbook">
+   <!ENTITY predislovie SYSTEM "predislovie.docbook">
+ ]>
 
 <book id="kohts-zhizn-zhivotnyh" lang="ru">
 
@@ -16,9 +24,14 @@
 <othername>&#1138;.</othername>
 <surname>Котс</surname>
 </author>
+<publisher>
+  <publishername>ИЗДАН&#1030;Е Русскаго Общ. Акклиматизац&#1110;и Животныхъ и Растен&#1110;й.</publishername>
+</publisher>
 </bookinfo>
-<date>Москва, 1917</date>
+<date>Москва &#8212; 1917</date>
 
+<preface id="vnimanie"><title>Вниман&#1110;ю пользующихся путеводителемъ въ Саду</title>&vnimanie;</preface>
+<preface id="predislovie"><title>Предислов&#1110;е</title>&predislovie;</preface>
 
 
 </book>
