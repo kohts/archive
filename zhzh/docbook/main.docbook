@@ -6,12 +6,126 @@
 
    <!ENTITY vnimanie SYSTEM "vnimanie.docbook">
    <!ENTITY predislovie SYSTEM "predislovie.docbook">
- ]>
+
+   <!ENTITY c01 SYSTEM "c01.docbook">
+   <!ENTITY c02 SYSTEM "c02.docbook">
+   <!ENTITY c03 SYSTEM "c03.docbook">
+   <!ENTITY c04 SYSTEM "c04.docbook">
+   <!ENTITY c05 SYSTEM "c05.docbook">
+   <!ENTITY c06 SYSTEM "c06.docbook">
+   <!ENTITY c07 SYSTEM "c07.docbook">
+   <!ENTITY c08 SYSTEM "c08.docbook">
+   <!ENTITY c09 SYSTEM "c09.docbook">
+   <!ENTITY c10 SYSTEM "c10.docbook">
+   <!ENTITY c11 SYSTEM "c11.docbook">
+   <!ENTITY c12 SYSTEM "c12.docbook">
+   <!ENTITY c13 SYSTEM "c13.docbook">
+   <!ENTITY c14 SYSTEM "c14.docbook">
+   <!ENTITY c15 SYSTEM "c15.docbook">
+   <!ENTITY c16 SYSTEM "c16.docbook">
+   <!ENTITY c17 SYSTEM "c17.docbook">
+   <!ENTITY c18 SYSTEM "c18.docbook">
+   <!ENTITY c19 SYSTEM "c19.docbook">
+   <!ENTITY c20 SYSTEM "c20.docbook">
+   <!ENTITY c21 SYSTEM "c21.docbook">
+   <!ENTITY c22 SYSTEM "c22.docbook">
+   <!ENTITY c23 SYSTEM "c23.docbook">
+   <!ENTITY c24 SYSTEM "c24.docbook">
+   <!ENTITY c25 SYSTEM "c25.docbook">
+   <!ENTITY c26 SYSTEM "c26.docbook">
+   <!ENTITY c27 SYSTEM "c27.docbook">
+   <!ENTITY c28 SYSTEM "c28.docbook">
+   <!ENTITY c29 SYSTEM "c29.docbook">
+   <!ENTITY c30 SYSTEM "c30.docbook">
+   <!ENTITY c31 SYSTEM "c31.docbook">
+   <!ENTITY c32 SYSTEM "c32.docbook">
+   <!ENTITY c33 SYSTEM "c33.docbook">
+   <!ENTITY c34 SYSTEM "c34.docbook">
+   <!ENTITY c35 SYSTEM "c35.docbook">
+   <!ENTITY c36 SYSTEM "c36.docbook">
+   <!ENTITY c37 SYSTEM "c37.docbook">
+   <!ENTITY c38 SYSTEM "c38.docbook">
+   <!ENTITY c39 SYSTEM "c39.docbook">
+   <!ENTITY c40 SYSTEM "c40.docbook">
+   <!ENTITY c41 SYSTEM "c41.docbook">
+   <!ENTITY c42 SYSTEM "c42.docbook">
+   <!ENTITY c43 SYSTEM "c43.docbook">
+   <!ENTITY c44 SYSTEM "c44.docbook">
+   <!ENTITY c45 SYSTEM "c45.docbook">
+   <!ENTITY c46 SYSTEM "c46.docbook">
+   <!ENTITY c47 SYSTEM "c47.docbook">
+   <!ENTITY c48 SYSTEM "c48.docbook">
+   <!ENTITY c49 SYSTEM "c49.docbook">
+   <!ENTITY c50 SYSTEM "c50.docbook">
+   <!ENTITY c51 SYSTEM "c51.docbook">
+   <!ENTITY c52 SYSTEM "c52.docbook">
+   <!ENTITY c53 SYSTEM "c53.docbook">
+   <!ENTITY c54 SYSTEM "c54.docbook">
+   <!ENTITY c55 SYSTEM "c55.docbook">
+   <!ENTITY c56 SYSTEM "c56.docbook">
+   <!ENTITY c57 SYSTEM "c57.docbook">
+   <!ENTITY c58 SYSTEM "c58.docbook">
+   <!ENTITY c59 SYSTEM "c59.docbook">
+   <!ENTITY c60 SYSTEM "c60.docbook">
+   <!ENTITY c61 SYSTEM "c61.docbook">
+   <!ENTITY c62 SYSTEM "c62.docbook">
+   <!ENTITY c63 SYSTEM "c63.docbook">
+   <!ENTITY c64 SYSTEM "c64.docbook">
+   <!ENTITY c65 SYSTEM "c65.docbook">
+   <!ENTITY c66 SYSTEM "c66.docbook">
+   <!ENTITY c67 SYSTEM "c67.docbook">
+   <!ENTITY c68 SYSTEM "c68.docbook">
+   <!ENTITY c69 SYSTEM "c69.docbook">
+   <!ENTITY c70 SYSTEM "c70.docbook">
+   <!ENTITY c71 SYSTEM "c71.docbook">
+   <!ENTITY c72 SYSTEM "c72.docbook">
+   <!ENTITY c73 SYSTEM "c73.docbook">
+   <!ENTITY c74 SYSTEM "c74.docbook">
+   <!ENTITY c75 SYSTEM "c75.docbook">
+   <!ENTITY c76 SYSTEM "c76.docbook">
+   <!ENTITY c77 SYSTEM "c77.docbook">
+   <!ENTITY c78 SYSTEM "c78.docbook">
+   <!ENTITY c79 SYSTEM "c79.docbook">
+   <!ENTITY c80 SYSTEM "c80.docbook">
+   <!ENTITY c81 SYSTEM "c81.docbook">
+   <!ENTITY c82 SYSTEM "c82.docbook">
+   <!ENTITY c83 SYSTEM "c83.docbook">
+   <!ENTITY c84 SYSTEM "c84.docbook">
+   <!ENTITY c85 SYSTEM "c85.docbook">
+   <!ENTITY c86 SYSTEM "c86.docbook">
+   <!ENTITY c87 SYSTEM "c87.docbook">
+   <!ENTITY c88 SYSTEM "c88.docbook">
+   <!ENTITY c89 SYSTEM "c89.docbook">
+   <!ENTITY c90 SYSTEM "c90.docbook">
+   <!ENTITY c91 SYSTEM "c91.docbook">
+   <!ENTITY c92 SYSTEM "c92.docbook">
+   <!ENTITY c93 SYSTEM "c93.docbook">
+   <!ENTITY c94 SYSTEM "c94.docbook">
+   <!ENTITY c95 SYSTEM "c95.docbook">
+   <!ENTITY c96 SYSTEM "c96.docbook">
+   <!ENTITY c97 SYSTEM "c97.docbook">
+   <!ENTITY c98 SYSTEM "c98.docbook">
+   <!ENTITY c99 SYSTEM "c99.docbook">
+   <!ENTITY c100 SYSTEM "c100.docbook">
+   <!ENTITY c101 SYSTEM "c101.docbook">
+   <!ENTITY c102 SYSTEM "c102.docbook">
+   <!ENTITY c103 SYSTEM "c103.docbook">
+   <!ENTITY c104 SYSTEM "c104.docbook">
+   <!ENTITY c105 SYSTEM "c105.docbook">
+   <!ENTITY c106 SYSTEM "c106.docbook">
+   <!ENTITY c107 SYSTEM "c107.docbook">
+   <!ENTITY c108 SYSTEM "c108.docbook">
+   <!ENTITY c109 SYSTEM "c109.docbook">
+   <!ENTITY c110 SYSTEM "c110.docbook">
+   <!ENTITY c111 SYSTEM "c111.docbook">
+   <!ENTITY au SYSTEM "au.docbook">
+   <!ENTITY opechatki SYSTEM "opechatki.docbook">
+]>
 
 <book id="kohts-zhizn-zhivotnyh" lang="ru">
 
 <title>Жизнь Животныхъ</title>
-<subtitle>въ фотографиіяхъ, рисункахъ и бiологическихъ наброскахъ изъ московскаго зоологического сада</subtitle>
+<subtitle>въ фотографиіяхъ, рисункахъ и бiологическихъ наброскахъ изъ московскаго зоологическаго сада</subtitle>
 <titleabbrev>Жизнь Животныхъ</titleabbrev>
 
 <bookinfo>
@@ -26,8 +140,162 @@
 </bookinfo>
 <date>Москва &#8212; 1917</date>
 
-<preface id="vnimanie"><title>Вниман&#1110;ю пользующихся путеводителемъ въ Саду</title>&vnimanie;</preface>
-<preface id="predislovie"><title>Предислов&#1110;е</title>&predislovie;</preface>
+<preface id="cover_pictures">
+<title>Обложка</title>
+<informalfigure id="zhzh_cover">
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/cover.jpg">
+    <imageobject><imagedata fileref="images/html/cover.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/cover.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>А. &#1138;. Котсъ. Жизнь Животныхъ.</para></textobject></mediaobject>
+</informalfigure>
 
+<figure id="young_lions">
+  <title>Молодые львы изъ Московскаго Зоологическаго Сада</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/cover2.jpg">
+    <imageobject><imagedata fileref="images/html/cover2.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/cover2.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>Двухнед&#1123;льные львята.<?br?>
+  Двухм&#1123;сячный львенокъ.</para></textobject></mediaobject>
+</figure>
+</preface>
+
+<preface id="vnimanie"><title>Вниман&#1110;ю пользующихся путеводителемъ въ Саду</title>&vnimanie;</preface>
+<preface id="predislovie"><title>Предислов&#1110;е</title>
+<figure id="excursion">
+  <title>Школьная экскурс&#1110;я въ Зоологическомъ Саду</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/predislovie1.jpg">
+    <imageobject><imagedata fileref="images/html/predislovie1.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/predislovie1.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
+&predislovie;
+</preface>
+
+<chapter><title>Обыкновенный воронъ</title><subtitle>Corvus corax</subtitle>&c01;</chapter>
+<chapter><title>Сорока</title><subtitle>Pica caudata</subtitle>&c02;</chapter>
+<chapter><title>Орелъ беркутъ (халзанъ)</title><subtitle>Aquila chrysaetos</subtitle>&c03;</chapter>
+<chapter><title>Орелъ могильникъ</title><subtitle>Aquila imperialis</subtitle>&c04;</chapter>
+<chapter><title>Орелъ степной</title><subtitle>Aquila orientalis</subtitle>&c05;</chapter>
+<chapter><title>Большой подорлик</title><subtitle>Aquila clanga</subtitle>&c06;</chapter>
+<chapter><title>Сокола</title><subtitle></subtitle>&c07;</chapter>
+<chapter><title>Ястребъ-тетеревятникъ</title><subtitle>Astur palumbarius</subtitle>&c08;</chapter>
+<chapter><title>Канюкъ или сарычъ</title><subtitle>Buteo vulpinus</subtitle>&c09;</chapter>
+<chapter><title>Канюкъ мохноног&#1110;й</title><subtitle>Archibuteo lagopus</subtitle>&c10;</chapter>
+<chapter><title>Коршунъ черный</title><subtitle>Milvus ater</subtitle>&c11;</chapter>
+<chapter><title>Стервятникъ</title><subtitle>Neophron percnopterus</subtitle>&c12;</chapter>
+<chapter><title>Луни (камышевый и луговой)</title><subtitle>Circus (C. aeruginosus, cineraceus)</subtitle>&c13;</chapter>
+<chapter><title>С&#1123;рая сова</title><subtitle>Syrnium aluco</subtitle>&c14;</chapter>
+<chapter><title>Сова ушастая</title><subtitle>Asio otus</subtitle>&c15;</chapter>
+<chapter><title>Болотная сова</title><subtitle>Asio accipiritrinus</subtitle>&c16;</chapter>
+<chapter><title>Б&#1123;лая сова</title><subtitle>Nyctea nivea</subtitle>&c17;</chapter>
+<chapter><title>Гуси</title><subtitle></subtitle>&c18;</chapter>
+<chapter><title>Лебеди</title><subtitle>Лебедь шипун (Cygnus olor) и Л. кликунъ (C. musicus)</subtitle>&c19;</chapter>
+<chapter><title>Утки</title><subtitle></subtitle>&c20;</chapter>
+<chapter><title>Пеликанъ</title><subtitle>Pelecanus onocrotalus</subtitle>&c21;</chapter>
+<chapter><title>Фламинго (*)</title><subtitle>Phoenicopterus roseus</subtitle>&c22;</chapter>
+<chapter><title>Лебедь черный</title><subtitle>Cygnus atratus</subtitle>&c23;</chapter>
+<chapter><title>Коипу &#8212; южно-американск&#1110;й бобръ</title><subtitle>Myopotamus coipu</subtitle>&c24;</chapter>
+<chapter><title>Тюлень (*)</title><subtitle>Phoca vitulina</subtitle>&c25;</chapter>
+<chapter><title>Кондоръ</title><subtitle>Sarcorhamphus gryphus</subtitle>&c26;</chapter>
+<chapter><title>Грифъ бурый</title><subtitle>Vultur monachus</subtitle>&c27;</chapter>
+<chapter><title>Сипъ</title><subtitle>Gyps fulvus</subtitle>&c28;</chapter>
+<chapter><title>Ягнятникъ или бородачъ</title><subtitle>Gypaetos barbatus</subtitle>&c29;</chapter>
+<chapter><title>Орелъ беркутъ</title><subtitle>Aquila chrysaetos</subtitle>&c30;</chapter>
+<chapter><title>Орланъ-б&#1123;лохвост</title><subtitle>Haliaetos albiculla</subtitle>&c31;</chapter>
+<chapter><title>Каранхо и орланъ-агуйя</title><subtitle></subtitle>&c32;</chapter>
+<chapter><title>Филинъ</title><subtitle>Bubo maximus</subtitle>&c33;</chapter>
+<chapter><title>Обыкновенный аистъ</title><subtitle>Ciconia alba</subtitle>&c34;</chapter>
+<chapter><title>Марабу</title><subtitle>Leptoptilus crumenifer</subtitle>&c35;</chapter>
+<chapter><title>Цапля с&#1123;рая</title><subtitle>Ardea cinerea</subtitle>&c36;</chapter>
+<chapter><title>Б&#1123;лая цапля (*)</title><subtitle>Ardea alba</subtitle>&c37;</chapter>
+<chapter><title>Журавль с&#1123;рый</title><subtitle>Grus cinerea</subtitle>&c38;</chapter>
+<chapter><title>Журавль малый</title><subtitle>Grus virgo</subtitle>&c39;</chapter>
+<chapter><title>Чайки</title><subtitle>Larus argentatus</subtitle>&c40;</chapter>
+<chapter><title>Утки и нырки</title><subtitle></subtitle>&c41;</chapter>
+<chapter><title>Дик&#1110;е гуси</title><subtitle></subtitle>&c42;</chapter>
+<chapter><title>Голуби домашн&#1110;е</title><subtitle></subtitle>&c43;</chapter>
+<chapter><title>Голуби дик&#1110;е</title><subtitle></subtitle>&c44;</chapter>
+<chapter><title>Голуби почтовые</title><subtitle></subtitle>&c45;</chapter>
+<chapter><title>Слонъ (*)</title><subtitle>Elephas indicus</subtitle>&c46;</chapter>
+<chapter><title>Страусы</title><subtitle>С. африканский (Struthio camelus), С. американск&#1110;й (Rhea americana),
+С. австрал&#1110;йск&#1110;й (Dromaeus Novae Hollandiae)</subtitle>&c47;</chapter>
+<chapter><title>Казуаръ</title><subtitle>Casuarius westermannii</subtitle>&c48;</chapter>
+<chapter><title>Попугаи</title><subtitle></subtitle>&c49;</chapter>
+<chapter><title>Тропическ&#1110;е вьюрки, ткачики и мелк&#1110;я породы попугаевъ</title><subtitle></subtitle>&c50;</chapter>
+<chapter><title>Лани</title><subtitle>Dama vulgaris</subtitle>&c51;</chapter>
+<chapter><title>Косуля</title><subtitle>Capreolus caprea</subtitle>&c52;</chapter>
+<chapter><title>Лось</title><subtitle>Alces machlis</subtitle>&c53;</chapter>
+<chapter><title>С&#1123;верный олень</title><subtitle>Rangifer tarandus</subtitle>&c54;</chapter>
+<chapter><title>Манчжурск&#1110;й олень</title><subtitle>Cervus dybowskii</subtitle>&c55;</chapter>
+<chapter><title>Олень маралъ</title><subtitle>Cervus canadensis</subtitle>&c56;</chapter>
+<chapter><title>Кавказск&#1110;й олень</title><subtitle>Cervus maral</subtitle>&c57;</chapter>
+<chapter><title>Муфлонъ</title><subtitle>Ovis musimon</subtitle>&c58;</chapter>
+<chapter><title>Безоаровый козелъ</title><subtitle>Capra aegagrus</subtitle>&c59;</chapter>
+<chapter><title>Козерогъ</title><subtitle>Capra sibirica</subtitle>&c60;</chapter>
+<chapter><title>Кавказск&#1110;й туръ</title><subtitle>Capra caucasica</subtitle>&c61;</chapter>
+<chapter><title>Гривистый баранъ</title><subtitle>Ovis tragelaphus</subtitle>&c62;</chapter>
+<chapter><title>Украинск&#1110;й рогатый скотъ</title><subtitle></subtitle>&c63;</chapter>
+<chapter><title>Зебу</title><subtitle>Bos indicus</subtitle>&c64;</chapter>
+<chapter><title>Якъ</title><subtitle>Poephagus grunniens</subtitle>&c65;</chapter>
+<chapter><title>Буйволъ</title><subtitle>Bos bubalus</subtitle>&c66;</chapter>
+<chapter><title>Верблюдъ одногорбый и двугорбый</title><subtitle>Camelus dromedarius, C. bactrianus</subtitle>&c67;</chapter>
+<chapter><title>Обезъяны</title><subtitle>Н. Н. Ладыгиной-Котсъ</subtitle>&c68;</chapter>
+<chapter><title>Лемуры или полу-обезъяны</title><subtitle></subtitle>&c69;</chapter>
+<chapter><title>Броненосецъ</title><subtitle>Dasypus</subtitle>&c70;</chapter>
+<chapter><title>Кабанъ</title><subtitle>Sus scropha</subtitle>&c71;</chapter>
+<chapter><title>Дикая монгольская лошадь</title><subtitle>Equus Przevalskii</subtitle>&c72;</chapter>
+<chapter><title>Голая лошадь</title><subtitle></subtitle>&c73;</chapter>
+<chapter><title>Оселъ домашн&#1110;й</title><subtitle>Equus asinus</subtitle>&c74;</chapter>
+<chapter><title>Дик&#1110;е ослы</title><subtitle></subtitle>&c75;</chapter>
+<chapter><title>Помеси осла и лошади</title><subtitle>Лошакъ и мулъ</subtitle>&c76;</chapter>
+<chapter><title>Волкъ</title><subtitle>Canis lupus</subtitle>&c77;</chapter>
+<chapter><title>Пом&#1123;си собаки и волка</title><subtitle></subtitle>&c78;</chapter>
+<chapter><title>Рысь</title><subtitle>Felis lynx</subtitle>&c79;</chapter>
+<chapter><title>Б&#1123;лый медв&#1123;дь</title><subtitle>Ursus maritimos</subtitle>&c80;</chapter>
+<chapter><title>Бурый медв&#1123;дь</title><subtitle>Ursus arctos</subtitle>&c81;</chapter>
+<chapter><title>Енотъ</title><subtitle>Procyon lotor</subtitle>&c82;</chapter>
+<chapter><title>Барсукъ</title><subtitle>Meles taxus</subtitle>&c82;</chapter>
+<chapter><title>Лиса</title><subtitle>Canis vulpes</subtitle>&c83;</chapter>
+<chapter><title>Россомаха</title><subtitle>Gulo luscus</subtitle>&c84;</chapter>
+<chapter><title>Куница, соболь и хорекъ</title><subtitle></subtitle>&c85;</chapter>
+<chapter><title>Павлины</title><subtitle>П. обыкновенный (Pavo cristatus) и черноплеч&#1110;й (P. nigripennis)</subtitle>&c86;</chapter>
+<chapter><title>Фазаны</title><subtitle>Кавказск&#1110;й, Золотистый, Алмазный, королевск&#1110;й, серебристый</subtitle>&c87;</chapter>
+<chapter><title>Куры</title><subtitle></subtitle>&c88;</chapter>
+<chapter><title>Цесарки и инд&#1123;йки</title><subtitle></subtitle>&c89;</chapter>
+<chapter><title>Домашн&#1110;е кролики</title><subtitle>Lepus cuniculus</subtitle>&c90;</chapter>
+<chapter><title>Морская свинка</title><subtitle>Cavia cobaya</subtitle>&c91;</chapter>
+<chapter><title>Ламы</title><subtitle></subtitle>&c92;</chapter>
+<chapter><title>Антилопы</title><subtitle></subtitle>&c93;</chapter>
+<chapter><title>Зебры</title><subtitle></subtitle>&c94;</chapter>
+<chapter><title>Овцы</title><subtitle></subtitle>&c95;</chapter>
+<chapter><title>Козы</title><subtitle></subtitle>&c96;</chapter>
+<chapter><title>Левъ</title><subtitle>Felis leo</subtitle>&c97;</chapter>
+<chapter><title>Г&#1110;ена</title><subtitle>Hyaena crocuta</subtitle>&c98;</chapter>
+<chapter><title>Пума</title><subtitle>Felis concolor</subtitle>&c99;</chapter>
+<chapter><title>Тигръ</title><subtitle>Filis tigris</subtitle>&c100;</chapter>
+<chapter><title>Пантера</title><subtitle>Felis pardus</subtitle>&c101;</chapter>
+<chapter><title>Ежъ</title><subtitle>Erinacaeus europeus</subtitle>&c102;</chapter>
+<chapter><title>Дикобразъ</title><subtitle>Hystrix cristat</subtitle>&c103;</chapter>
+<chapter><title>Агути или золотой заяцъ</title><subtitle>Dasyprocta aguti</subtitle>&c104;</chapter>
+<chapter><title>Заяцъ б&#1123;лякъ</title><subtitle>Lepus variabilis</subtitle>&c105;</chapter>
+<chapter><title>Тушканчикъ</title><subtitle>Alactaga acontion</subtitle>&c106;</chapter>
+<chapter><title>Б&#1123;лка</title><subtitle>Sciurus vulgaris</subtitle>&c106;</chapter>
+<chapter><title>Сусликъ</title><subtitle>Spermophlus spec...</subtitle>&c107;</chapter>
+<chapter><title>Кенгуру и вомбатъ</title><subtitle></subtitle>&c108;</chapter>
+<chapter><title>Зубръ</title><subtitle>Bison europeus</subtitle>&c109;</chapter>
+<chapter><title>Бизонъ</title><subtitle>Bison americanus</subtitle>&c110;</chapter>
+<chapter><title>Заключен&#1110;е</title><subtitle></subtitle>&c111;</chapter>
+
+<appendix><title>Алфавитный указатель</title>&au;</appendix>
+<appendix><title>Опечатки</title>&opechatki;</appendix>
 
 </book>

@@ -18,7 +18,7 @@ all-html: html
 html: docbook-html-chunked.xsl $(DOCBOOK)
 	mkdir -p ${HTML_BASE}
 	cd ${HTML_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )
-	cd ${DOCBOOK_BASE} && xsltproc --stringparam 'base.dir' ${HTML_BASE}/ ${PWD}/docbook-html-chunked.xsl ${MASTER}
+	cd ${DOCBOOK_BASE} && xsltproc --xinclude --stringparam 'base.dir' ${HTML_BASE}/ ${PWD}/docbook-html-chunked.xsl ${MASTER}
 	touch html
 
 fo: docbook-fo.xsl $(DOCBOOK)
