@@ -4,7 +4,10 @@
   xmlns:fo="http://www.w3.org/1999/XSL/Format"
   >
 
-  <xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/fo/docbook.xsl"/>
+<xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/fo/docbook.xsl"/>
+
+<xsl:param name="body.font.family" select="'Palatino Linotype'"/>
+<xsl:param name="title.font.family" select="'Palatino Linotype'"/>
 
 <xsl:attribute-set name="formal.object.properties">
    <xsl:attribute name="keep-together.within-column">auto</xsl:attribute>

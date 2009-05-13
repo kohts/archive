@@ -40,7 +40,6 @@ java-gcj 1042 /usr/lib/jvm/java-gcj
 </sect1>
 
 <sect1><title>Получение html-вывода</title>
-
 <para>
 Для получения html-варианта книги, нужно использовать команду xsltproc:
 <emphasis>
@@ -56,5 +55,34 @@ xsltproc имя_xsl_файла имя_docbook_файла
 импортирующего chunk.xsl и определяющего нужные параметры.
 <ulink url="http://www.kohts.ru/ladygina-kohts/ichc/build/docbook-html-chunked.xsl">Пример для книги Дитя шимпанзе и дитя человека</ulink>
 </para>
+</sect1>
 
+<sect1><title>Подготовка шрифта для вывода в pdf</title>
+<para>
+Для вывода в pdf нужно подобрать шрифт, содержащий все необходимые символы,
+используемые в книге. Для современных книг на русском языке подходит шрифт
+Arial Unicode MS, который можно взять из установленной Windows (c:\windows\fonts\arialuni.ttf),
+для книг в орфографии до 1918 года (ять, и с точкой) подходит Palatino Linotype
+(c:\windows\fonts\pala.ttf).
+</para>
+
+<para>
+Кроме файлов с основным шрифтом скорее всего потребуются файлы
+с наклонным, полужирным и наклонным полужирным шрифтами.
+</para>
+
+<para>
+Для Arial Unicode MS таких файлов нет, поэтому можно использовать
+аналогичные модификации шрифта от Arial: arialbd.ttf, arialbi.ttf, ariali.ttf.
+</para>
+
+<para>
+Для Palatino Linotype это: palab.ttf, palai.ttf, palabi.ttf.
+</para>
+
+<para>
+Для использования указанных файлов при выводе в pdf
+нужно создать для них xml-файлы с описанием, что делается
+с помощью команды fop-ttfreader имя_файла.ttf имя_файла.xml
+</para>
 </sect1>
