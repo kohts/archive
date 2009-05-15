@@ -1,0 +1,21 @@
+<informalfigure id="zhzh_cover">
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/cover.jpg">
+    <imageobject><imagedata fileref="images/html/cover.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/cover.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>А. &#1138;. Котсъ. Жизнь Животныхъ.</para></textobject></mediaobject>
+</informalfigure>
+
+<figure id="young_lions">
+  <title>Молодые львы изъ Московскаго Зоологическаго Сада</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/cover2.jpg">
+    <imageobject><imagedata fileref="images/html/cover2.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/cover2.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>Двухнед&#1123;льные львята.<?br?>
+  Двухм&#1123;сячный львенокъ.</para></textobject></mediaobject>
+</figure>

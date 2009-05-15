@@ -1,3 +1,13 @@
+<figure id="picture1">
+  <title>Обыкновенный воронъ</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture1.jpg">
+    <imageobject><imagedata fileref="images/html/picture1.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture1.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Мы начиначемъ нашъ осмотръ съ ряда кл&#1123;токъ, расположенныхъ
 направо отъ входной калитки, прямо противъ пруда. Кл&#1123;тки эти заняты
@@ -28,3 +38,5 @@
 всеядной птицы, въ совершенств&#1123; прим&#1123;нившейся къ разнообразн&#1123;йшимъ
 услов&#1110;ямъ существован&#1110;я.
 </para>
+
+&liniya;

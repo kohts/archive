@@ -76,10 +76,10 @@ book      toc,title,figure,table,example,equation
       <l:gentext key="ListofFigures" text="Список рисунков"/>
       <l:gentext key="listoffigures" text="Список рисунков"/>
       <l:context name="title">
-	    <l:template name="figure" text="Таблица %n. %t"/>
+	    <l:template name="figure" text="Рисунок %n. %t"/>
 	  </l:context>
 	  <l:context name="xref-number">
-	    <l:template name="figure" text="Таблица %n"/>
+	    <l:template name="figure" text="Рисунок%n"/>
 	  </l:context>
 	  <l:context name="xref-number-and-title">
         <l:template name="figure" text="Табл. %n"/>

@@ -10,6 +10,7 @@
 
    <!ENTITY vnimanie SYSTEM "vnimanie.docbook">
    <!ENTITY predislovie SYSTEM "predislovie.docbook">
+   <!ENTITY cover SYSTEM "cover.docbook">
 
    <!ENTITY c01 SYSTEM "c01.docbook">
    <!ENTITY c02 SYSTEM "c02.docbook">
@@ -136,7 +137,7 @@
 <author>
 <firstname>А.</firstname>
 <othername>&#1138;.</othername>
-<surname>Котс</surname>
+<surname>Котсъ</surname>
 </author>
 <publisher>
   <publishername>ИЗДАН&#1030;Е Русскаго Общ. Акклиматизац&#1110;и Животныхъ и Растен&#1110;й.</publishername>
@@ -144,45 +145,9 @@
 </bookinfo>
 <date>Москва &#8212; 1917</date>
 
-<preface id="cover_pictures">
-<title>Обложка</title>
-<informalfigure id="zhzh_cover">
-  <mediaobject>
-  <textobject role="html"><ulink role="html" url="images/hires/cover.jpg">
-    <imageobject><imagedata fileref="images/html/cover.jpg" /></imageobject>
-  </ulink></textobject>
-  <imageobject role="fo"><imagedata fileref="images/pdf/cover.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject><textobject><para>А. &#1138;. Котсъ. Жизнь Животныхъ.</para></textobject></mediaobject>
-</informalfigure>
-
-<figure id="young_lions">
-  <title>Молодые львы изъ Московскаго Зоологическаго Сада</title>
-  <mediaobject>
-  <textobject role="html"><ulink role="html" url="images/hires/cover2.jpg">
-    <imageobject><imagedata fileref="images/html/cover2.jpg" /></imageobject>
-  </ulink></textobject>
-  <imageobject role="fo"><imagedata fileref="images/pdf/cover2.jpg" /></imageobject>
-  </mediaobject>
-  <mediaobject><textobject><para>Двухнед&#1123;льные львята.<?br?>
-  Двухм&#1123;сячный львенокъ.</para></textobject></mediaobject>
-</figure>
-</preface>
-
+<preface id="cover_pictures"><title>Обложка</title>&cover;</preface>
 <preface id="vnimanie"><title>Вниман&#1110;ю пользующихся путеводителемъ въ Саду</title>&vnimanie;</preface>
-<preface id="predislovie"><title>Предислов&#1110;е</title>
-<figure id="excursion">
-  <title>Школьная экскурс&#1110;я въ Зоологическомъ Саду</title>
-  <mediaobject>
-  <textobject role="html"><ulink role="html" url="images/hires/predislovie1.jpg">
-    <imageobject><imagedata fileref="images/html/predislovie1.jpg" /></imageobject>
-  </ulink></textobject>
-  <imageobject role="fo"><imagedata fileref="images/pdf/predislovie1.jpg" /></imageobject>
-  </mediaobject>
-</figure>
-
-&predislovie;
-</preface>
+<preface id="predislovie"><title>Предислов&#1110;е</title>&predislovie;</preface>
 
 <chapter><title>Обыкновенный воронъ</title><subtitle>Corvus corax</subtitle>&c01;</chapter>
 <chapter><title>Сорока</title><subtitle>Pica caudata</subtitle>&c02;</chapter>
