@@ -1,7 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?> 
 <xsl:stylesheet version="1.0"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:fo="http://www.w3.org/1999/XSL/Format"
+  >
 
-  <xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/html/onechunk.xsl"/>
+<xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/fo/docbook.xsl"/>
+
+<xsl:param name="body.font.family" select="'Palatino Linotype'"/>
+<xsl:param name="title.font.family" select="'Palatino Linotype'"/>
+
+<xsl:attribute-set name="formal.object.properties">
+   <xsl:attribute name="keep-together.within-column">auto</xsl:attribute>
+</xsl:attribute-set>
+  
+<xsl:param name="details_font_size">
+  <xsl:value-of select="$body.font.master * 0.8"/>
+  <xsl:text>pt</xsl:text>
+</xsl:param>
+<xsl:template match="para[@role='details']">
+  <fo:block font-size="{$details_font_size}">
+    <xsl:apply-templates/>
+  </fo:block>
+</xsl:template>
 
 <xsl:template match="cihc_age">
 <xsl:if test="(@y) and (@y != '0')">
@@ -26,35 +46,27 @@
 </xsl:if>
 </xsl:template>
 
-<xsl:template match="processing-instruction('br')"><br/></xsl:template>
+<xsl:template match="processing-instruction('br')"><fo:block/></xsl:template>
+<xsl:template match="processing-instruction('page-break')">
+  <fo:block break-after="page" />
+</xsl:template>
   
   <xsl:param name="chunker.output.encoding" select="'utf-8'"/>
+  <xsl:param name="base.dir">fo/</xsl:param>
+  <xsl:param name="body.font.family" select="'Arial'"/>
+  <xsl:param name="title.font.family" select="'Arial'"/>
+  <xsl:param name="monospace.font.family" select="'Courier New'"/>
+  <xsl:param name="paper.type" select="'A4'"/>
+  
+  <xsl:param name="draft.mode">no</xsl:param>
+<!--  <xsl:param name="draft.watermark.image">images/draft.png</xsl:param> -->
 
 <xsl:param name="generate.toc">
 book      toc,title,figure,table,example,equation
 </xsl:param>
-<!--
-<xsl:param name="generate.toc">
-appendix  toc,title
-article/appendix  nop
-article   toc,title
-book      toc,title,figure,table,example,equation
-chapter   toc,title
-part      toc,title
-preface   toc,title
-qandadiv  toc
-qandaset  toc
-reference toc,title
-sect1     toc
-sect2     toc
-sect3     toc
-sect4     toc
-sect5     toc
-section   toc
-set       toc,title
-</xsl:param>
--->
-  
+
+  <xsl:param name="use.role.for.mediaobject" select="1"></xsl:param>
+
   <xsl:param name="local.l10n.xml" select="document('')"/>
   <l:i18n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0">
     <l:l10n language="ru">
@@ -64,10 +76,10 @@ set       toc,title
       <l:gentext key="ListofFigures" text="Список рисунков"/>
       <l:gentext key="listoffigures" text="Список рисунков"/>
       <l:context name="title">
-	    <l:template name="figure" text="Таблица %n. %t"/>
+	    <l:template name="figure" text="Рисунок %n. %t"/>
 	  </l:context>
 	  <l:context name="xref-number">
-	    <l:template name="figure" text="Таблица %n"/>
+	    <l:template name="figure" text="Рисунок%n"/>
 	  </l:context>
 	  <l:context name="xref-number-and-title">
         <l:template name="figure" text="Табл. %n"/>
@@ -89,5 +101,5 @@ set       toc,title
 
 	</l:l10n>
   </l:i18n>
-
+  
 </xsl:stylesheet>

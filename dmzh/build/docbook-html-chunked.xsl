@@ -1,57 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <xsl:stylesheet version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/html/onechunk.xsl"/>
+  <xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/html/chunk.xsl"/>
+
+<xsl:template match="para[@role='details']">
+  <p><font size="-1">
+    <xsl:apply-templates/>
+  </font></p>
+</xsl:template>
 
 <xsl:template match="cihc_age">
 <xsl:if test="(@y) and (@y != '0')">
   <xsl:value-of select="@y"/><xsl:text> </xsl:text>
   <xsl:choose>
-    <xsl:when test="(ancestor::*/@lang = 'en')">y.</xsl:when>
+    <xsl:when test="(../../@lang = 'en')">y.</xsl:when>
     <xsl:otherwise>г.</xsl:otherwise>
   </xsl:choose>
   <xsl:text> </xsl:text>
 </xsl:if>
 <xsl:value-of select="@m"/><xsl:text> </xsl:text>
 <xsl:choose>
-  <xsl:when test="(ancestor::*/@lang = 'en')">m.</xsl:when>
+  <xsl:when test="(../../@lang = 'en')">m.</xsl:when>
   <xsl:otherwise>м.</xsl:otherwise>
 </xsl:choose>
 <xsl:if test="(@d) and (@d != '0')">
   <xsl:text> </xsl:text><xsl:value-of select="@d"/><xsl:text> </xsl:text>
   <xsl:choose>
-    <xsl:when test="(ancestor::*/@lang = 'en')">d.</xsl:when>
+    <xsl:when test="(../../@lang = 'en')">d.</xsl:when>
     <xsl:otherwise>д.</xsl:otherwise>
   </xsl:choose>
 </xsl:if>
 </xsl:template>
 
 <xsl:template match="processing-instruction('br')"><br/></xsl:template>
-  
-  <xsl:param name="chunker.output.encoding" select="'utf-8'"/>
 
+<xsl:template match="processing-instruction('pre_b')">
+  <pre style="background: #DADADA;"><xsl:value-of select="." /></pre>
+</xsl:template>
+
+
+<xsl:param name="chunker.output.encoding" select="'utf-8'"/>
+
+<xsl:param name="toc.section.depth">2</xsl:param>
 <xsl:param name="generate.toc">
-book      toc,title,figure,table,example,equation
-</xsl:param>
-<!--
-<xsl:param name="generate.toc">
-appendix  toc,title
+appendix  title
 article/appendix  nop
 article   toc,title
-book      toc,title,figure,table,example,equation
+book      toc,title,figure,table,example
 chapter   toc,title
 part      toc,title
 preface   toc,title
 qandadiv  toc
 qandaset  toc
 reference toc,title
-sect1     toc
+sect1     title
 sect2     toc
 sect3     toc
 sect4     toc
 sect5     toc
 section   toc
 set       toc,title
+</xsl:param>
+
+<!--<xsl:param name="generate.toc">
+book      toc,title,figure,table,example,equation
+part      toc,title
 </xsl:param>
 -->
   
@@ -64,13 +79,13 @@ set       toc,title
       <l:gentext key="ListofFigures" text="Список рисунков"/>
       <l:gentext key="listoffigures" text="Список рисунков"/>
       <l:context name="title">
-	    <l:template name="figure" text="Таблица %n. %t"/>
+	    <l:template name="figure" text="Рисунок %n. %t"/>
 	  </l:context>
 	  <l:context name="xref-number">
-	    <l:template name="figure" text="Таблица %n"/>
+	    <l:template name="figure" text="Рисунок %n"/>
 	  </l:context>
 	  <l:context name="xref-number-and-title">
-        <l:template name="figure" text="Табл. %n"/>
+        <l:template name="figure" text="Рис. %n"/>
 	  </l:context>
 
 	  <l:gentext key="Example" text="Фотоиллюстрация"/>
@@ -89,5 +104,6 @@ set       toc,title
 
 	</l:l10n>
   </l:i18n>
-
+  
 </xsl:stylesheet>
+

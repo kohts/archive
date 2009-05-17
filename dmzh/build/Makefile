@@ -1,7 +1,7 @@
 PWD := $(shell pwd)
 
 # pdf name customization
-PDF = "${PWD}/../docbook-makingup.pdf"
+PDF = "${PWD}/../ziegler - zoopsychologie - 1925 [rus].pdf"
 
 # everything else should work by default
 DOCBOOK_BASE = ${PWD}/../docbook
@@ -18,15 +18,15 @@ FOP_BASE = ${PWD}/../fop
 STAMPS = ${PWD}/../stamps
 
 # make html and pdf output by default
-all: html
+all: html pdf
 
 .PHONY : html fo pdf clean all-clean
 
 html: ${STAMPS}/html
 ${STAMPS}/html: docbook-html-chunked.xsl $(DOCBOOK)
 	mkdir -p ${HTML_BASE}
-	cd ${HTML_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )
-	cd ${DOCBOOK_BASE} && xsltproc --stringparam 'base.dir' ${HTML_BASE}/ ${PWD}/docbook-html-chunked.xsl ${MASTER}
+	cd ${HTML_BASE} && ( if [ ! -h images ] && [ -d ../images ] ; then ln -s ../images ; fi )
+	cd ${DOCBOOK_BASE} && xsltproc --xinclude --stringparam 'base.dir' ${HTML_BASE}/ ${PWD}/docbook-html-chunked.xsl ${MASTER}
 	mkdir -p ${STAMPS}
 	touch ${STAMPS}/html
 
@@ -38,8 +38,8 @@ ${STAMPS}/fo: docbook-fo.xsl $(DOCBOOK)
 	touch ${STAMPS}/fo
 
 pdf: ${STAMPS}/fo ${STAMPS}/pdf
-${STAMPS}/pdf: fo ${FOP_BASE}/fop.xconf
-	cd ${FOP_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )
+${STAMPS}/pdf: ${FOP_BASE}/fop.xconf
+	cd ${FOP_BASE} && ( if [ ! -h images ] && [ -d ../images ] ; then ln -s ../images ; fi )
 	cd ${FOP_BASE} && \
 	export FOP_HYPHENATION_PATH=${FOP_BASE}/fop-hyph.jar && \
 	fop -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}

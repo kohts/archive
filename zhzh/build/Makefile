@@ -1,5 +1,9 @@
 PWD := $(shell pwd)
 
+# pdf name customization
+PDF = "${PWD}/../kohts - zhzh - 1917.pdf"
+
+# everything else should work by default
 DOCBOOK_BASE = ${PWD}/../docbook
 DOCBOOK = ${DOCBOOK_BASE}/*.docbook
 MASTER = main.docbook
@@ -9,48 +13,51 @@ TOOLS = ${PWD}/../tools
 
 HTML_BASE = ${PWD}/../html
 FO_BASE = ${PWD}/../fo
-PDF = "${PWD}/../kohts - zhzh.pdf"
 FOP_BASE = ${PWD}/../fop
 
-all: html fop
-all-html: html
+STAMPS = ${PWD}/../stamps
 
-html: docbook-html-chunked.xsl $(DOCBOOK)
+# make html and pdf output by default
+all: html pdf
+
+.PHONY : html fo pdf clean all-clean
+
+html: ${STAMPS}/html
+${STAMPS}/html: docbook-html-chunked.xsl $(DOCBOOK)
 	mkdir -p ${HTML_BASE}
-	cd ${HTML_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )
+	cd ${HTML_BASE} && ( if [ ! -h images ] && [ -d ../images ] ; then ln -s ../images ; fi )
 	cd ${DOCBOOK_BASE} && xsltproc --xinclude --stringparam 'base.dir' ${HTML_BASE}/ ${PWD}/docbook-html-chunked.xsl ${MASTER}
-	touch html
+	mkdir -p ${STAMPS}
+	touch ${STAMPS}/html
 
-fo: docbook-fo.xsl $(DOCBOOK)
+fo: ${STAMPS}/fo
+${STAMPS}/fo: docbook-fo.xsl $(DOCBOOK) $(IMAGES_PRINT)
 	mkdir -p ${FO_BASE}
 	cd ${DOCBOOK_BASE} && xsltproc -o ${FO_BASE}/index.fo ${PWD}/docbook-fo.xsl ${MASTER_PRINT}
-	touch fo
+	mkdir -p ${STAMPS}
+	touch ${STAMPS}/fo
 
-pdf: fo ${FOP_BASE}/fop.xconf
-	cd ${FOP_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )
+pdf: ${STAMPS}/fo ${STAMPS}/pdf
+${STAMPS}/pdf: ${FOP_BASE}/fop.xconf
+	cd ${FOP_BASE} && ( if [ ! -h images ] && [ -d ../images ] ; then ln -s ../images ; fi )
 	cd ${FOP_BASE} && \
 	export FOP_HYPHENATION_PATH=${FOP_BASE}/fop-hyph.jar && \
 	fop -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
-	touch pdf
+	mkdir -p ${STAMPS}
+	touch ${STAMPS}/pdf
 
-clean-all-html: clean-html
+clean:
+	mkdir -p ${STAMPS}
+	rm -f ${STAMPS}/*
+
 clean-html:
 	rm -rf ${HTML_BASE}
-	rm -r html
+	rm -f ${STAMPS}/html
 
-clean-all-pdf: clean-fo clean-pdf
-clean-fo:
-	rm -rf ${FO_BASE}
-	rm -r fo
 clean-pdf:
+	rm -rf ${FO_BASE}
 	rm -rf ${PDF}
-	rm -r pdf
+	rm -f ${STAMPS}/fo
+	rm -f ${STAMPS}/pdf
 
-clean-status:
-	rm -f html
-	rm -f html-onechunk
-	rm -f fo
-	rm -f pdf
-
-.PHONY : clean
-clean: clean-all-html clean-all-pdf
+all-clean: clean-html clean-pdf clean
