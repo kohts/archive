@@ -10,6 +10,8 @@
   <!ENTITY syntax-other SYSTEM "syntax-other.docbook">
   <!ENTITY syntax-docbook-other SYSTEM "syntax-docbook-other.docbook">
   <!ENTITY software SYSTEM "software.docbook">
+  <!ENTITY ichc-specific SYSTEM "ichc-specific.docbook">
+  <!ENTITY zhzh-specific SYSTEM "zhzh-specific.docbook">
 ]>
 
 <book id="docbook-makingup" lang="ru">
@@ -29,7 +31,6 @@
   <sect1><title>Соответствие элементов книги элементам xml-схемы</title>
     <sect2><title>Параграфы</title>&syntax-para;</sect2>
     <sect2><title>Ссылки</title>&syntax-xref;</sect2>
-	<sect2><title>Таблицы</title>&syntax-tables;</sect2>
     &syntax-docbook-other;
   </sect1>
   <sect1><title>Другие правила оформления</title>
@@ -42,6 +43,10 @@
   </para>
   </sect1>
 </chapter>
-<chapter id="c4"><title>Программное обеспечение</title>&software;</chapter>
+<chapter id="c4"><title>Особенности оформления книг</title>
+    <sect1><title>Дитя шимпанзе и дитя человека</title>&ichc-specific;</sect1>
+    <sect1><title>Жизнь животных</title>&zhzh-specific;</sect1>
+</chapter>
+<chapter id="c5"><title>Программное обеспечение</title>&software;</chapter>
 
 </book>
