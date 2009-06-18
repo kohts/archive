@@ -8,6 +8,31 @@
 this is for FO output, used to produce PDF with Apache FOP. -->
 <xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/fo/docbook.xsl"/>
 
+<xsl:param name="body.font.family" select="'Literaturnaya'"/>
+<xsl:param name="title.font.family" select="'Literaturnaya'"/>
+
+
+<xsl:param name="arial_font_size">
+  <xsl:value-of select="$body.font.master * 0.8"/>
+  <xsl:text>pt</xsl:text>
+</xsl:param>
+<xsl:template match="para[@role='Arial']">
+  <fo:block font-family="Arial" font-weight="normal" font-size="{$arial_font_size}">
+    <xsl:apply-templates/>
+  </fo:block>
+</xsl:template>
+<xsl:template match="quote[@role='Arial']">
+  <fo:inline font-family="Arial" font-weight="normal" font-style="italic" font-size="{$arial_font_size}">
+    <xsl:apply-templates/>
+  </fo:inline>
+</xsl:template>
+<xsl:template match="inline[@role='Arial']">
+  <fo:inline font-family="Arial" font-weight="normal" font-style="normal" font-size="{$arial_font_size}">
+    <xsl:apply-templates/>
+  </fo:inline>
+</xsl:template>
+
+
 <xsl:param name="fop1.extensions" select="1"></xsl:param>
 
 <!-- body width; valid only for FOP -->
@@ -45,6 +70,7 @@ book      toc,title,figure,table,example,equation
     <xsl:apply-templates/>
   </fo:block>
 </xsl:template>
+
 
 <xsl:template match="cihc_age">
 <xsl:if test="(@y) and (@y != '0')">
@@ -89,35 +115,35 @@ book      toc,title,figure,table,example,equation
   <l:i18n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0">
     <l:l10n language="ru">
 
-	  <l:gentext key="Figure" text="Таблица"/>
-	  <l:gentext key="figure" text="Таблица"/>
+    <l:gentext key="Figure" text="Таблица"/>
+    <l:gentext key="figure" text="Таблица"/>
       <l:gentext key="ListofFigures" text="Список рисунков"/>
       <l:gentext key="listoffigures" text="Список рисунков"/>
       <l:context name="title">
-	    <l:template name="figure" text="Таблица %n. %t"/>
-	  </l:context>
-	  <l:context name="xref-number">
-	    <l:template name="figure" text="Таблица %n"/>
-	  </l:context>
-	  <l:context name="xref-number-and-title">
+      <l:template name="figure" text="Таблица %n. %t"/>
+    </l:context>
+    <l:context name="xref-number">
+      <l:template name="figure" text="Таблица %n"/>
+    </l:context>
+    <l:context name="xref-number-and-title">
         <l:template name="figure" text="Табл. %n"/>
-	  </l:context>
+    </l:context>
 
-	  <l:gentext key="Example" text="Фотоиллюстрация"/>
-	  <l:gentext key="example" text="Фотоиллюстрация"/>
+    <l:gentext key="Example" text="Фотоиллюстрация"/>
+    <l:gentext key="example" text="Фотоиллюстрация"/>
       <l:gentext key="ListofExamples" text="Список фотоиллюстраций"/>
       <l:gentext key="listofexamples" text="Список фотоиллюстраций"/>
-	  <l:context name="title">
+    <l:context name="title">
         <l:template name="example" text="Табл. %n. %t"/>
-	  </l:context>
-	  <l:context name="xref-number">
-	    <l:template name="example" text="Табл. %n"/>
-	  </l:context>
-	  <l:context name="xref-number-and-title">
-	    <l:template name="example" text="Табл. %n"/>
-	  </l:context>
+    </l:context>
+    <l:context name="xref-number">
+      <l:template name="example" text="Табл. %n"/>
+    </l:context>
+    <l:context name="xref-number-and-title">
+      <l:template name="example" text="Табл. %n"/>
+    </l:context>
 
-	</l:l10n>
+  </l:l10n>
   </l:i18n>
   
 </xsl:stylesheet>

@@ -102,16 +102,41 @@ the location of this file.
           <font-triplet name="ArialMT" style="italic" weight="normal"/>
         </font>
 
-        <!--
-        <font metrics-url="arial.xml" kerning="yes" embed-url="arial.ttf">
-          <font-triplet name="Arial" style="normal" weight="normal"/>
-          <font-triplet name="ArialMT" style="normal" weight="normal"/>
+        <font metrics-url="OldStandard-Regular.xml" kerning="yes" embed-url="OldStandard-Regular.ttf">
+          <font-triplet name="OldStandard" style="normal" weight="normal"/>
         </font>
-        <font metrics-url="arialb.xml" kerning="yes" embed-url="arialb.ttf">
-          <font-triplet name="Arial" style="normal" weight="bold"/>
-          <font-triplet name="ArialMT" style="normal" weight="bold"/>
+        <font metrics-url="OldStandard-Bold.xml" kerning="yes" embed-url="OldStandard-Bold.ttf">
+          <font-triplet name="OldStandard" style="normal" weight="bold"/>
         </font>
-        -->
+        <font metrics-url="OldStandard-Italic.xml" kerning="yes" embed-url="OldStandard-Italic.ttf">
+          <font-triplet name="OldStandard" style="italic" weight="normal"/>
+        </font>
+
+        <font metrics-url="SchoolBook Regular.xml" kerning="yes" embed-url="SchoolBook Regular.ttf">
+          <font-triplet name="SchoolBook" style="normal" weight="normal"/>
+        </font>
+        <font metrics-url="SchoolBook Bold.xml" kerning="yes" embed-url="SchoolBook Bold.ttf">
+          <font-triplet name="SchoolBook" style="normal" weight="bold"/>
+        </font>
+        <font metrics-url="SchoolBook Bold Italic.xml" kerning="yes" embed-url="SchoolBook Bold Italic.ttf">
+          <font-triplet name="SchoolBook" style="italic" weight="bold"/>
+        </font>
+        <font metrics-url="SchoolBook Italic.xml" kerning="yes" embed-url="SchoolBook Italic.ttf">
+          <font-triplet name="SchoolBook" style="italic" weight="normal"/>
+        </font>
+
+        <font metrics-url="LIT55__U.xml" kerning="yes" embed-url="LIT55__U.ttf">
+          <font-triplet name="Literaturnaya" style="normal" weight="normal"/>
+        </font>
+        <font metrics-url="LIT56__U.xml" kerning="yes" embed-url="LIT56__U.ttf">
+          <font-triplet name="Literaturnaya" style="italic" weight="normal"/>
+        </font>
+        <font metrics-url="LIT75__U.xml" kerning="yes" embed-url="LIT75__U.ttf">
+          <font-triplet name="Literaturnaya" style="normal" weight="bold"/>
+        </font>
+        <font metrics-url="LIT76__U.xml" kerning="yes" embed-url="LIT76__U.ttf">
+          <font-triplet name="Literaturnaya" style="italic" weight="bold"/>
+        </font>
       </fonts>
 
       <!-- This option lets you specify additional options on an XML handler -->
