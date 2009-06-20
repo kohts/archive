@@ -119,6 +119,8 @@
    <!ENTITY c109 SYSTEM "c109.docbook">
    <!ENTITY c110 SYSTEM "c110.docbook">
    <!ENTITY c111 SYSTEM "c111.docbook">
+   <!ENTITY c112 SYSTEM "c112.docbook">
+   <!ENTITY c113 SYSTEM "c113.docbook">
    <!ENTITY au SYSTEM "au.docbook">
    <!ENTITY opechatki SYSTEM "opechatki.docbook">
 ]>
@@ -228,37 +230,37 @@
 <chapter><title>Б&#1123;лый медв&#1123;дь</title><subtitle>Ursus maritimos</subtitle>&c80;</chapter>
 <chapter><title>Бурый медв&#1123;дь</title><subtitle>Ursus arctos</subtitle>&c81;</chapter>
 <chapter><title>Енотъ</title><subtitle>Procyon lotor</subtitle>&c82;</chapter>
-<chapter><title>Барсукъ</title><subtitle>Meles taxus</subtitle>&c82;</chapter>
-<chapter><title>Лиса</title><subtitle>Canis vulpes</subtitle>&c83;</chapter>
-<chapter><title>Россомаха</title><subtitle>Gulo luscus</subtitle>&c84;</chapter>
-<chapter><title>Куница, соболь и хорекъ</title><subtitle></subtitle>&c85;</chapter>
-<chapter><title>Павлины</title><subtitle>П. обыкновенный (Pavo cristatus) и черноплеч&#1110;й (P. nigripennis)</subtitle>&c86;</chapter>
-<chapter><title>Фазаны</title><subtitle>Кавказск&#1110;й, Золотистый, Алмазный, королевск&#1110;й, серебристый</subtitle>&c87;</chapter>
-<chapter><title>Куры</title><subtitle></subtitle>&c88;</chapter>
-<chapter><title>Цесарки и инд&#1123;йки</title><subtitle></subtitle>&c89;</chapter>
-<chapter><title>Домашн&#1110;е кролики</title><subtitle>Lepus cuniculus</subtitle>&c90;</chapter>
-<chapter><title>Морская свинка</title><subtitle>Cavia cobaya</subtitle>&c91;</chapter>
-<chapter><title>Ламы</title><subtitle></subtitle>&c92;</chapter>
-<chapter><title>Антилопы</title><subtitle></subtitle>&c93;</chapter>
-<chapter><title>Зебры</title><subtitle></subtitle>&c94;</chapter>
-<chapter><title>Овцы</title><subtitle></subtitle>&c95;</chapter>
-<chapter><title>Козы</title><subtitle></subtitle>&c96;</chapter>
-<chapter><title>Левъ</title><subtitle>Felis leo</subtitle>&c97;</chapter>
-<chapter><title>Г&#1110;ена</title><subtitle>Hyaena crocuta</subtitle>&c98;</chapter>
-<chapter><title>Пума</title><subtitle>Felis concolor</subtitle>&c99;</chapter>
-<chapter><title>Тигръ</title><subtitle>Filis tigris</subtitle>&c100;</chapter>
-<chapter><title>Пантера</title><subtitle>Felis pardus</subtitle>&c101;</chapter>
-<chapter><title>Ежъ</title><subtitle>Erinacaeus europeus</subtitle>&c102;</chapter>
-<chapter><title>Дикобразъ</title><subtitle>Hystrix cristat</subtitle>&c103;</chapter>
-<chapter><title>Агути или золотой заяцъ</title><subtitle>Dasyprocta aguti</subtitle>&c104;</chapter>
-<chapter><title>Заяцъ б&#1123;лякъ</title><subtitle>Lepus variabilis</subtitle>&c105;</chapter>
-<chapter><title>Тушканчикъ</title><subtitle>Alactaga acontion</subtitle>&c106;</chapter>
-<chapter><title>Б&#1123;лка</title><subtitle>Sciurus vulgaris</subtitle>&c106;</chapter>
-<chapter><title>Сусликъ</title><subtitle>Spermophlus spec...</subtitle>&c107;</chapter>
-<chapter><title>Кенгуру и вомбатъ</title><subtitle></subtitle>&c108;</chapter>
-<chapter><title>Зубръ</title><subtitle>Bison europeus</subtitle>&c109;</chapter>
-<chapter><title>Бизонъ</title><subtitle>Bison americanus</subtitle>&c110;</chapter>
-<chapter><title>Заключен&#1110;е</title><subtitle></subtitle>&c111;</chapter>
+<chapter><title>Барсукъ</title><subtitle>Meles taxus</subtitle>&c83;</chapter>
+<chapter><title>Лиса</title><subtitle>Canis vulpes</subtitle>&c84;</chapter>
+<chapter><title>Россомаха</title><subtitle>Gulo luscus</subtitle>&c85;</chapter>
+<chapter><title>Куница, соболь и хорекъ</title><subtitle></subtitle>&c86;</chapter>
+<chapter><title>Павлины</title><subtitle>П. обыкновенный (Pavo cristatus) и черноплеч&#1110;й (P. nigripennis)</subtitle>&c87;</chapter>
+<chapter><title>Фазаны</title><subtitle>Кавказск&#1110;й, Золотистый, Алмазный, королевск&#1110;й, серебристый</subtitle>&c88;</chapter>
+<chapter><title>Куры</title><subtitle></subtitle>&c89;</chapter>
+<chapter><title>Цесарки и инд&#1123;йки</title><subtitle></subtitle>&c90;</chapter>
+<chapter><title>Домашн&#1110;е кролики</title><subtitle>Lepus cuniculus</subtitle>&c91;</chapter>
+<chapter><title>Морская свинка</title><subtitle>Cavia cobaya</subtitle>&c92;</chapter>
+<chapter><title>Ламы</title><subtitle></subtitle>&c93;</chapter>
+<chapter><title>Антилопы</title><subtitle></subtitle>&c94;</chapter>
+<chapter><title>Зебры</title><subtitle></subtitle>&c95;</chapter>
+<chapter><title>Овцы</title><subtitle></subtitle>&c96;</chapter>
+<chapter><title>Козы</title><subtitle></subtitle>&c97;</chapter>
+<chapter><title>Левъ</title><subtitle>Felis leo</subtitle>&c98;</chapter>
+<chapter><title>Г&#1110;ена</title><subtitle>Hyaena crocuta</subtitle>&c99;</chapter>
+<chapter><title>Пума</title><subtitle>Felis concolor</subtitle>&c100;</chapter>
+<chapter><title>Тигръ</title><subtitle>Filis tigris</subtitle>&c101;</chapter>
+<chapter><title>Пантера</title><subtitle>Felis pardus</subtitle>&c102;</chapter>
+<chapter><title>Ежъ</title><subtitle>Erinacaeus europeus</subtitle>&c103;</chapter>
+<chapter><title>Дикобразъ</title><subtitle>Hystrix cristat</subtitle>&c104;</chapter>
+<chapter><title>Агути или золотой заяцъ</title><subtitle>Dasyprocta aguti</subtitle>&c105;</chapter>
+<chapter><title>Заяцъ б&#1123;лякъ</title><subtitle>Lepus variabilis</subtitle>&c106;</chapter>
+<chapter><title>Тушканчикъ</title><subtitle>Alactaga acontion</subtitle>&c107;</chapter>
+<chapter><title>Б&#1123;лка</title><subtitle>Sciurus vulgaris</subtitle>&c108;</chapter>
+<chapter><title>Сусликъ</title><subtitle>Spermophlus spec...</subtitle>&c109;</chapter>
+<chapter><title>Кенгуру и вомбатъ</title><subtitle></subtitle>&c110;</chapter>
+<chapter><title>Зубръ</title><subtitle>Bison europeus</subtitle>&c111;</chapter>
+<chapter><title>Бизонъ</title><subtitle>Bison americanus</subtitle>&c112;</chapter>
+<chapter><title>Заключен&#1110;е</title><subtitle></subtitle>&c113;</chapter>
 
 <appendix><title>Алфавитный указатель</title>&au;</appendix>
 <appendix><title>Опечатки</title>&opechatki;</appendix>
