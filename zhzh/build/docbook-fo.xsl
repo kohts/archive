@@ -6,8 +6,38 @@
 
 <xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/fo/docbook.xsl"/>
 
-<xsl:param name="body.font.family" select="'Palatino Linotype'"/>
-<xsl:param name="title.font.family" select="'Palatino Linotype'"/>
+<xsl:param name="body.font.family" select="'Literaturnaya'"/>
+<xsl:param name="title.font.family" select="'Literaturnaya'"/>
+
+<xsl:param name="arial_font_size">
+  <xsl:value-of select="$body.font.master * 0.8"/>
+  <xsl:text>pt</xsl:text>
+</xsl:param>
+<xsl:template match="para[@role='Arial']">
+  <fo:block font-family="Arial" font-weight="normal" font-size="{$arial_font_size}">
+    <xsl:apply-templates/>
+  </fo:block>
+</xsl:template>
+<xsl:template match="quote[@role='Arial']">
+  <fo:inline font-family="Arial" font-weight="normal" font-style="italic" font-size="{$arial_font_size}">
+    <xsl:apply-templates/>
+  </fo:inline>
+</xsl:template>
+<xsl:template match="inline[@role='Arial']">
+  <fo:inline font-family="Arial" font-weight="normal" font-style="normal" font-size="{$arial_font_size}">
+    <xsl:apply-templates/>
+  </fo:inline>
+</xsl:template>
+
+<xsl:param name="fop1.extensions" select="1"></xsl:param>
+
+<!-- body width; valid only for FOP -->
+<xsl:param name="body.start.indent">0pt</xsl:param>
+<xsl:param name="title.margin.left">-4pt</xsl:param>
+
+<!-- page header
+http://docbook.sourceforge.net/release/xsl/current/doc/fo/header.column.widths.html -->
+<xsl:param name="header.column.widths">1 3 1</xsl:param>
 
 <xsl:attribute-set name="formal.object.properties">
    <xsl:attribute name="keep-together.within-column">auto</xsl:attribute>
@@ -21,29 +51,6 @@
   <fo:block font-size="{$details_font_size}">
     <xsl:apply-templates/>
   </fo:block>
-</xsl:template>
-
-<xsl:template match="cihc_age">
-<xsl:if test="(@y) and (@y != '0')">
-  <xsl:value-of select="@y"/><xsl:text> </xsl:text>
-  <xsl:choose>
-    <xsl:when test="(../../@lang = 'en')">y.</xsl:when>
-    <xsl:otherwise>г.</xsl:otherwise>
-  </xsl:choose>
-  <xsl:text> </xsl:text>
-</xsl:if>
-<xsl:value-of select="@m"/><xsl:text> </xsl:text>
-<xsl:choose>
-  <xsl:when test="(../../@lang = 'en')">m.</xsl:when>
-  <xsl:otherwise>м.</xsl:otherwise>
-</xsl:choose>
-<xsl:if test="(@d) and (@d != '0')">
-  <xsl:text> </xsl:text><xsl:value-of select="@d"/><xsl:text> </xsl:text>
-  <xsl:choose>
-    <xsl:when test="(../../@lang = 'en')">d.</xsl:when>
-    <xsl:otherwise>д.</xsl:otherwise>
-  </xsl:choose>
-</xsl:if>
 </xsl:template>
 
 <xsl:template match="processing-instruction('br')"><fo:block/></xsl:template>
@@ -82,7 +89,7 @@ book      toc,title,figure,table,example,equation
 	    <l:template name="figure" text="Рисунок%n"/>
 	  </l:context>
 	  <l:context name="xref-number-and-title">
-        <l:template name="figure" text="Табл. %n"/>
+        <l:template name="figure" text="Рис. %n"/>
 	  </l:context>
 
 	  <l:gentext key="Example" text="Фотоиллюстрация"/>

@@ -1,0 +1,37 @@
+<sect2><title>Титульная страница</title>
+<para><literallayout>
+А. &#1138;. Котсъ
+Зав&#1123;дующ&#1110;й
+МУЗЕЕМЪ ЭВОЛЮЦ&#1030;ОННОЙ ИСТОР&#1030;И
+Московскихъ Высшихъ Женскихъ Курсовъ
+
+
+
+
+ЖИЗНЬ ЖИВОТНЫХЪ
+
+ВЪ ФОТОГРАФ&#1030;ЯХЪ,
+РИСУНКАХЪ,
+И Б&#1030;ОЛОГИЧЕСКИХЪ
+НАБРОСКАХЪ
+
+ИЗЪ
+
+МОСКОВСКАГО ЗООЛОГИЧЕСКАГО САДА
+</literallayout></para>
+
+<informalfigure id="cover3">
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/cover3.jpg">
+    <imageobject><imagedata fileref="images/html/cover3.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/cover3.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
+<para><literallayout>
+ИЗДАН&#1030;Е
+Русскаго Общ. Акклиматизац&#1110;и Животныхъ и Растен&#1110;й.
+МОСКВА &#8212; 1917.
+</literallayout></para>
+</sect2>

@@ -1,3 +1,11 @@
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+
+<entry>
 <figure id="picture165">
   <title>Морская свинка</title>
   <mediaobject>
@@ -7,7 +15,9 @@
   <imageobject role="fo"><imagedata fileref="images/pdf/picture165.jpg" /></imageobject>
   </mediaobject>
 </figure>
+</entry>
 
+<entry>
 <figure id="picture165bis">
   <title>Морская свинка</title>
   <mediaobject>
@@ -17,6 +27,12 @@
   <imageobject role="fo"><imagedata fileref="images/pdf/picture165bis.jpg" /></imageobject>
   </mediaobject>
 </figure>
+</entry>
+
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para id='str117' xreflabel='стр. 117'>
 Этотъ небольшой грызунъ, по виду нѣчто промежуточное между кроликомъ и мышью, въ дѣйствительности представляетъ мало общаго съ послѣдними. Коническая мордочка съ короткими ушами, низкое, приземистое тѣло съ куцымъ задомъ, тонкія коротенькія ножки съ явственными пальцами и коготками наподобіе копытецъ, неправильная пестрая окраска, жесткій плотно прилегающій и рѣдкій волосъ, хрюкающій голосъ и трусящій бѣгъ &#8212; все это приближаетъ внѣшность нашего звѣрка къ наружности миніатюрной свинки.
