@@ -20,7 +20,8 @@
 
 <bookinfo>
 <author>
-<firstname>Петя</firstname>
+<firstname>П.</firstname>
+<othername>Р.</othername>
 <surname>Котс</surname>
 </author>
 </bookinfo>
@@ -47,6 +48,7 @@
     <sect1><title>Дитя шимпанзе и дитя человека</title>&ichc-specific;</sect1>
     <sect1><title>Жизнь животных</title>&zhzh-specific;</sect1>
 </chapter>
-<chapter id="c5"><title>Программное обеспечение</title>&software;</chapter>
+<chapter id="c5"><title>Подготовка иллюстраций</title></chapter>
+<chapter id="c6"><title>Программное обеспечение</title>&software;</chapter>
 
 </book>
