@@ -43,7 +43,7 @@
 
 <xsl:param name="chunker.output.encoding" select="'utf-8'"/>
 
-<xsl:param name="toc.section.depth">2</xsl:param>
+<xsl:param name="toc.section.depth">1</xsl:param>
 <xsl:param name="generate.toc">
 appendix  title
 article/appendix  nop

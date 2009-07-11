@@ -1,7 +1,7 @@
 PWD := $(shell pwd)
 
 # pdf name customization
-PDF = "${PWD}/../docbook-makingup.pdf"
+PDF = "${PWD}/../docbook-makeup.pdf"
 
 # everything else should work by default
 DOCBOOK_BASE = ${PWD}/../docbook
