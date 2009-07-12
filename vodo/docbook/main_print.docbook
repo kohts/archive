@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY liniya "
+<informaltable frame='none'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry><para role='Arial'>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
+</tgroup></informaltable>
+ ">
+  
+   <!ENTITY vodo SYSTEM "vodo.docbook">
+   <!ENTITY vyhodnye_dannye SYSTEM "vyhodnye_dannye.docbook">
+   <!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
+]>
+
+<book id="ladygina-kohts-vodo" lang="ru">
+
+<title>Въ отчизн&#1123; даунскаго отшельника</title>
+
+<bookinfo>
+<author>
+<firstname>Н.</firstname>
+<othername>Н.</othername>
+<surname>Ладыгина-Котсъ</surname>
+</author>
+</bookinfo>
+<date>Москва, 1914.</date>
+
+<dedication><para>Н&#1123;жно посвящается тому, кто свято чтитъ велик&#1110;я т&#1123;ни.</para></dedication>
+
+<article><title>Въ отчизн&#1123; даунскаго отшельника</title>
+&vodo;
+</article>
+
+<appendix><title>Приложения к электронному изданию</title>
+  <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1>
+  <?page-break?>
+  <sect1><title>Подготовка электронного издания</title>&electronic_edition;</sect1>
+</appendix>
+
+</book>
