@@ -77,3 +77,8 @@
 i<subscript>1</subscript>, i<subscript>2</subscript>, i<subscript>3</subscript>
 ?>
 </sect2>
+
+<sect2><title>Посвящение</title>
+Посвящение оформляется тегом dedication, который помещается внутри тега book (на том же уровне,
+что chapter или article).
+</sect2>

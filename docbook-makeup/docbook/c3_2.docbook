@@ -47,9 +47,10 @@
 <row><entry>&#1103;&#768;</entry><entry>&amp;#1103;&amp;#768;</entry></row>
 
 <row>
-  <entry namest="c1" nameend="c2" align='center'><emphasis role="bold">Латинские буквы с акцентом</emphasis></entry>
+  <entry namest="c1" nameend="c2" align='center'><emphasis role="bold">Латинские буквы (акцент, умляут)</emphasis></entry>
 </row>
 <row><entry>&#0101;&#768;</entry><entry>&amp;#0101;&amp;#768;</entry></row>
+<row><entry>&#0252;</entry><entry>&amp;#0252;</entry></row>
 
 <row>
   <entry namest="c1" nameend="c2" align='center'><emphasis role="bold">Кириллица до реформы 1917 года</emphasis></entry>

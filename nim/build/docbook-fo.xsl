@@ -37,7 +37,7 @@
 
 <!-- page header
 http://docbook.sourceforge.net/release/xsl/current/doc/fo/header.column.widths.html -->
-<xsl:param name="header.column.widths">1 3 1</xsl:param>
+<xsl:param name="header.column.widths">1 5 1</xsl:param>
 
 <xsl:attribute-set name="formal.object.properties">
    <xsl:attribute name="keep-together.within-column">auto</xsl:attribute>
@@ -60,8 +60,8 @@ http://docbook.sourceforge.net/release/xsl/current/doc/fo/header.column.widths.h
   
   <xsl:param name="chunker.output.encoding" select="'utf-8'"/>
   <xsl:param name="base.dir">fo/</xsl:param>
-  <xsl:param name="body.font.family" select="'Arial'"/>
-  <xsl:param name="title.font.family" select="'Arial'"/>
+<!--  <xsl:param name="body.font.family" select="'Arial'"/>
+  <xsl:param name="title.font.family" select="'Arial'"/> -->
   <xsl:param name="monospace.font.family" select="'Courier New'"/>
   <xsl:param name="paper.type" select="'A4'"/>
   
