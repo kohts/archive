@@ -82,3 +82,68 @@ i<subscript>1</subscript>, i<subscript>2</subscript>, i<subscript>3</subscript>
 Посвящение оформляется тегом dedication, который помещается внутри тега book (на том же уровне,
 что chapter или article).
 </sect2>
+
+<sect2><title>Списки</title>
+<sect3><title>Простые списки</title>
+<para>
+Для описания простых списков (т.е. списков без нумерации или иной декорации)
+следует использовать тег simplelist. По умолчанию simplelist форматируется
+как таблица из одной колонки по одному элементу в строке. Это поведение
+может настраиваться с помощью атрибутов type (вертикально, горизонтально
+по колонкам, горизонтально через запятую) и columns (задает кол-во колонок).
+</para>
+
+<?pre_b
+<simplelist type='vert' columns='1'>
+<member>6 оттенков красного цвета,</member>
+<member>4 оранжевого,</member>
+<member>3 желтого,</member>
+<member>3 зеленого,</member>
+<member>2 голубого,</member>
+<member>3 синего,</member>
+<member>6 фиолетового,</member>
+<member>3 пурпурного.</member>
+</simplelist>
+?>
+
+<para>См. также: <ulink url="http://www.docbook.org/tdg/en/html/simplelist.html">документация по тегу simplelist</ulink></para>
+</sect3>
+
+<sect3><title>Ненумированные списки с декорацией</title>
+<?pre_b
+<itemizedlist mark='opencircle'>
+<listitem><para>в области цветовых восприятий (яркие, блестящие цвета по преимуществу первой половины спектра)</para></listitem>
+<listitem><para>в отношении различных величин (предпочитание миниатюрного)</para></listitem>
+<listitem><para>в отношении разных форм (шарообразность, круглого)</para></listitem>
+<listitem><para>в отношении осязательных восприятий (мягкого, гладкого, сетчатого, эластичного)</para></listitem>
+<listitem><para>в отношении температнурных (теплого)</para></listitem>
+<listitem><para>в отношении обонятельных (запахов душистых фруктов)</para></listitem>
+<listitem><para>в отношении вкусовых (сладкого, кислого)</para></listitem>
+</itemizedlist>
+?>
+<para>Обычно в книге перед каждым элементом такого списка бывает звездочка, дефис, центрированная точка.</para>
+<para>См. также: <ulink url="http://www.docbook.org/tdg/en/html/itemizedlist.html">документация по тегу itemizedlist</ulink></para>
+</sect3>
+
+<sect3><title>Нумированные списки</title>
+<?pre_b
+<orderedlist>
+<listitem><para>Ознакомление с книгой, анализ структуры</para></listitem>
+<listitem><para>Установление соответствия элементов книги элементам используемого языка описания (docbook)</para></listitem>
+<listitem><para>Сканирование и распознавание (OCR)</para></listitem>
+<listitem><para>Оформление полученного сырого текста в виде xml-файла, соответствующего выбранной схеме (docbook)</para></listitem>
+<listitem><para>Выбор шрифта (только при генерации pdf)</para></listitem>
+<listitem><para>Создание выходного документа (html, pdf)</para></listitem>
+<listitem><para>Сверка с бумажной версией</para></listitem>
+</orderedlist>
+?>
+<para>
+Переключение типа нумерации производится с помощью атрибута numeration.
+Нужно стараться сохранять нумерацию в том виде, в котором она дана в книге,
+если это невозможно, то следует использовать арабскую нумерацию
+(используется по умолчанию, если атрибут numeration не задан).
+</para>
+<para>См. также: <ulink url="http://www.docbook.org/tdg/en/html/orderedlist.html">документация по тегу orderedlist</ulink></para>
+
+</sect3>
+</sect2>
