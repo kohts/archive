@@ -2,11 +2,14 @@
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
-  <!ENTITY liniya "&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;">
+  <!ENTITY liniya "
+<informaltable frame='none' pgwide='1'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry><para role='Arial'>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
+</tgroup></informaltable>
+ ">
 
  <!ENTITY male_arial "&male;">
  <!ENTITY female_arial "&female;">
-
   
   <!ENTITY prolog SYSTEM "prolog.docbook">
   <!ENTITY predislovie SYSTEM "predislovie.docbook">
@@ -113,7 +116,6 @@
 &vvedenie;
 </preface>
 
-
 <part id="p1"><title>Поведение дитяти шимпанзе (описательная часть)</title>
 
 <chapter id="c1_1"><title>Описание внешнего облика шимпанзе</title>
@@ -158,9 +160,7 @@
 <chapter id="c1_8"><title>Память шимпанзе (привычки, условно-рефлекторные акты)</title>&c1_8;</chapter>
 <chapter id="c1_9"><title>Условный язык (жестов и звуков)</title>&c1_9;</chapter>
 <chapter id="c1_10"><title>Природные звуки шимпанзе</title>&c1_10;</chapter>
-
 </part>
-
 
 <part id="p2"><title>Поведение дитяти человека (в сравнительно-психологическом аспекте) (аналитическая часть)</title>
 <chapter id="c2_1" label="1"><title>Сравнение внешнего облика человека и шимпанзе</title>&c2_1;
@@ -220,7 +220,6 @@
 </appendix>
 
 <appendix><title>Фототаблицы</title>&photoplates;</appendix>
-
 <appendix id="summary_eng"><title>Resum&#0101;&#768; работы на английском языке</title><sect3 lang="en">&summary_eng;</sect3></appendix>
 
 <appendix lang="en"><title>Hatched Drawings and Sketches</title>

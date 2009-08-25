@@ -5,15 +5,21 @@
 ВЪ ОТЧИЗН&#1122;
 
 ДАУНСКАГО ОТШЕЛЬНИКА
+</literallayout>
 
-
-
+<informalfigure>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/cover1.jpg">
+    <imageobject><imagedata fileref="images/html/cover1.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/cover1.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+<literallayout>
 
 Чистый сборъ съ издан&#1110;я предназначается на расширен&#1110;е
 Музея Эволюц&#1110;онной Истор&#1110;и
 Московскихъ Высшихъ Женскихъ Курсовъ
-
-
 
 
 МОСКВА
@@ -27,18 +33,7 @@
 
 
 
-
-
-
-
-
-
 <superscript>1578</superscript>/<subscript>3888</subscript>
-
-
-
-
-
 
 
 
