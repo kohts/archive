@@ -49,9 +49,17 @@
 <chapter><title>Позвоночные: рыбы, амфибии, птицы, млекопитающие</title>&c06;</chapter>
 <chapter><title>Заключение</title>&zaklyuchenie;</chapter>
 
-<appendix><title>Паула Мекель. Наша собака Рольф</title>&app1;</appendix>
-<appendix><title>Г. Э. Циглер. Письма собаки</title>&app2;</appendix>
-<appendix><title>Г. Э. Циглер. Сообщение о публичном демонстрировании собаки</title>&app3;</appendix>
-<appendix><title>Г. Э. Циглер. Руководство к самостоятельным опытам</title>&app4;</appendix>
+<appendix><title>Приложение</title>
+<para>Предлагая вниманию читателя книжку Г. Э. Циглера: Душевный мир животных,
+Редакция издательства сочла не бесполезным приложить к ней четыре небольших статейки
+о <quote>говорящей собаке</quote> Рольф, заимствованные из книги
+того же автора: <quote>Душа животного</quote>, (Н. Е. Zigler: <quote>Die Seele des Tieres</quote>. W. Junk, Berlin, 1916)
+</para>
+
+<sect1><title>Паула Мекель. Наша собака Рольф</title>&app1;</sect1>
+<sect1><title>Г. Э. Циглер. Письма собаки</title>&app2;</sect1>
+<sect1><title>Г. Э. Циглер. Сообщение о публичном демонстрировании собаки</title>&app3;</sect1>
+<sect1><title>Г. Э. Циглер. Руководство к самостоятельным опытам</title>&app4;</sect1>
+</appendix>
 
 </book>
