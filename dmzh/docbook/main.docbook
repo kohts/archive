@@ -14,9 +14,9 @@
    <!ENTITY c01 SYSTEM "c01.docbook">
    <!ENTITY c02 SYSTEM "c02.docbook">
    <!ENTITY c03 SYSTEM "c03.docbook">
-   <!ENTITY c04 SYSTEM "c03.docbook">
-   <!ENTITY c05 SYSTEM "c03.docbook">
-   <!ENTITY c06 SYSTEM "c03.docbook">
+   <!ENTITY c04 SYSTEM "c04.docbook">
+   <!ENTITY c05 SYSTEM "c05.docbook">
+   <!ENTITY c06 SYSTEM "c06.docbook">
    <!ENTITY zaklyuchenie SYSTEM "zakluychenie.docbook">
 
    <!ENTITY app1 SYSTEM "app1.docbook">
@@ -56,7 +56,7 @@
 того же автора: <quote>Душа животного</quote>, (Н. Е. Zigler: <quote>Die Seele des Tieres</quote>. W. Junk, Berlin) 1916
 </para>
 
-<sect1><title>Паула Мекель. Наша собака Рольф</title>&app1;</sect1>
+<sect1><title>Паула Мёкель. Наша собака Рольф</title>&app1;</sect1>
 <sect1><title>Г. Э. Циглер. Письма собаки</title>&app2;</sect1>
 <sect1><title>Г. Э. Циглер. Сообщение о публичном демонстрировании собаки</title>&app3;</sect1>
 <sect1><title>Г. Э. Циглер. Руководство к самостоятельным опытам</title>&app4;</sect1>
