@@ -23,6 +23,9 @@
    <!ENTITY app2 SYSTEM "app2.docbook">
    <!ENTITY app3 SYSTEM "app3.docbook">
    <!ENTITY app4 SYSTEM "app4.docbook">
+
+   <!ENTITY vyhodnye_dannye SYSTEM "vyhodnye_dannye.docbook">
+   <!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
 ]>
 
 <book id="ziegler-zoopsychologie" lang="ru">
@@ -60,6 +63,12 @@
 <sect1><title>Г. Э. Циглер. Письма собаки</title>&app2;</sect1>
 <sect1><title>Г. Э. Циглер. Сообщение о публичном демонстрировании собаки</title>&app3;</sect1>
 <sect1><title>Г. Э. Циглер. Руководство к самостоятельным опытам</title>&app4;</sect1>
+</appendix>
+
+<appendix><title>Приложения к электронному изданию</title>
+  <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1>
+  <?page-break?>
+  <sect1><title>Подготовка электронного издания</title>&electronic_edition;</sect1>
 </appendix>
 
 </book>
