@@ -40,6 +40,12 @@
   <pre style="background: #DADADA;"><xsl:value-of select="." /></pre>
 </xsl:template>
 
+<!-- make para rendered with smaller font -->
+<xsl:template match="para[@role='details']">
+  <p><font size="-1">
+    <xsl:apply-templates/>
+  </font></p>
+</xsl:template>
 
 <xsl:param name="chunker.output.encoding" select="'utf-8'"/>
 

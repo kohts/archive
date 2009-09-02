@@ -1,11 +1,12 @@
-<sect2><title>Инициалы, ФИО</title>
-ФИО нужно записывать следующим образом, с точностью до пробела:
-<?pre_b
-А. Ф. Котс
-?>
-</sect2>
+<para>
+Если редактор, используемый для ручной правки текста, не поддерживает
+ввод всех символов unicode (большинство редакторов на данный момент
+не поддерживают удобный ввод), то можно воспользоваться нижеприведенной
+таблицей замены. По мере использования разных символов в цифруемых
+в рамках одного проекта книгах полезно составлять свою таблицу,
+не смотря на то, что полные таблицы опубликованы на сайте unicode.org
+</para>
 
-<sect2><title>XML кодирование некоторых символов</title>
 <informaltable frame='all'>
 <tgroup cols='2' align='center' colsep='1' rowsep='1'>
 <colspec colname='c1'/>
@@ -46,10 +47,11 @@
 <row><entry>&#1101;&#768;</entry><entry>&amp;#1101;&amp;#768;</entry></row>
 <row><entry>&#1103;&#768;</entry><entry>&amp;#1103;&amp;#768;</entry></row>
 
-<row>
+<row id="xml_encoding_latin_ext" xreflabel='Латинские буквы'>
   <entry namest="c1" nameend="c2" align='center'><emphasis role="bold">Латинские буквы (акцент, умляут)</emphasis></entry>
 </row>
 <row><entry>&#0101;&#768;</entry><entry>&amp;#0101;&amp;#768;</entry></row>
+<row><entry>&#0220;</entry><entry>&amp;#0220;</entry></row>
 <row><entry>&#0252;</entry><entry>&amp;#0252;</entry></row>
 
 <row>
@@ -72,5 +74,3 @@
 <listitem><ulink url="http://www.unicode.org/charts/PDF/U2DE0.pdf">Расширенная кириллическая таблица A, unicode.org</ulink></listitem>
 <listitem><ulink url="http://www.unicode.org/charts/PDF/UA640.pdf">Расширенная кириллическая таблица B, unicode.org</ulink></listitem>
 </orderedlist>
-
-</sect2>

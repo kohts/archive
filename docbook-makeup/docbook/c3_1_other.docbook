@@ -13,7 +13,7 @@
 что и слово, после которого даётся ссылка.
 </sect2>
 
-<sect2><title>Смысловой акцент</title>
+<sect2 id="general_emphasis"><title>Смысловой акцент</title>
 <para>
 Слово или фраза, на которой делается смысловой акцент
 в виде разреженного шрифта, оформляется в виде:
@@ -70,7 +70,7 @@
 ?>
 </sect2>
 
-<sect2><title>Индексы</title>
+<sect2 id='subscripts'><title>Индексы</title>
 Для оформления индексов нужно использовать теги subscript (нижний индекс) и superscript (верхний индекс).
 Например, перечисление i<subscript>1</subscript>, i<subscript>2</subscript>, i<subscript>3</subscript> нужно оформить так:
 <?pre_b
@@ -144,6 +144,29 @@ i<subscript>1</subscript>, i<subscript>2</subscript>, i<subscript>3</subscript>
 (используется по умолчанию, если атрибут numeration не задан).
 </para>
 <para>См. также: <ulink url="http://www.docbook.org/tdg/en/html/orderedlist.html">документация по тегу orderedlist</ulink></para>
-
 </sect3>
+</sect2>
+
+<sect2><title>Горизонтальная центрированная линия</title>
+<para>
+Горизонтальная центрированная линия применяется при издании книг
+для отделения частей текста без внесения изменений в структуру книги.
+</para>
+&liniya;
+<para>
+Такое отделение нужно оформлять макросом liniya, который должен быть определен в мастер-файле:
+<?pre_b
+&liniya;
+?>
+В процессе работы было выработано следующее определение,
+которое позволяет передавать линию адекватно как в html, так и в pdf выводе:
+<?pre_b
+<!ENTITY liniya "
+<informaltable frame='none' pgwide='1'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry>
+<para role='Arial'>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para>
+</entry></row></tbody></tgroup></informaltable>
+ ">
+?>
+</para>
 </sect2>

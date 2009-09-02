@@ -2,8 +2,15 @@
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY liniya "
+<informaltable frame='none' pgwide='1'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry><para role='Arial'>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
+</tgroup></informaltable>
+ ">
+
   <!ENTITY c1 SYSTEM "c1.docbook">
   <!ENTITY c2 SYSTEM "c2.docbook">
+  <!ENTITY c3_1_0 SYSTEM "c3_1_0.docbook">
   <!ENTITY c3_1_1 SYSTEM "c3_1_1.docbook">
   <!ENTITY c3_1_2 SYSTEM "c3_1_2.docbook">
   <!ENTITY c3_1_other SYSTEM "c3_1_other.docbook">
@@ -11,6 +18,7 @@
   <!ENTITY c4_1_ichc-specific SYSTEM "c4_1_ichc-specific.docbook">
   <!ENTITY c4_2_zhzh-specific SYSTEM "c4_2_zhzh-specific.docbook">
   <!ENTITY c4_3_otchet-specific SYSTEM "c4_3_otchet-specific.docbook">
+  <!ENTITY c4_4_mnm-specific SYSTEM "c4_4_mnm-specific.docbook">
   <!ENTITY c6_software SYSTEM "c6_software.docbook">
 ]>
 
@@ -29,25 +37,22 @@
 <chapter id="c1"><title>Обзор процесса</title>&c1;</chapter>
 <chapter id="c2"><title>Структура книги</title>&c2;</chapter>
 <chapter id="c3"><title>Правила оформления отсканированного текста</title>
+  <sect1><title>Общие прафила оформления текстов</title>&c3_1_0;</sect1>
   <sect1><title>Соответствие элементов книги элементам xml-схемы</title>
     <sect2><title>Параграфы</title>&c3_1_1;</sect2>
     <sect2><title>Ссылки</title>&c3_1_2;</sect2>
     &c3_1_other;
   </sect1>
-  <sect1><title>Другие правила оформления</title>
-    &c3_2;
-  </sect1>
+  <sect1><title>XML-кодирование специальных и редко употребляемых символов</title>&c3_2;</sect1>
   <sect1><title>Редакторская правка</title>
-  <para>
-  На этапе OCR <emphasis>никакая редакторская правка в текст вноситься не должна</emphasis>.
-  Электронный текст должен быть идентичен бумажному.
-  </para>
+    <para>На этапе OCR <emphasis>никакая редакторская правка в текст вноситься не должна</emphasis>. Электронный текст должен быть идентичен бумажному.</para>
   </sect1>
 </chapter>
 <chapter id="c4"><title>Особенности оформления книг</title>
     <sect1><title>Дитя шимпанзе и дитя человека</title>&c4_1_ichc-specific;</sect1>
     <sect1><title>Жизнь животных</title>&c4_2_zhzh-specific;</sect1>
     <sect1><title>Отчет зоопсихологической лаборатории при Дарвиновском Музее</title>&c4_3_otchet-specific;</sect1>
+    <sect1><title>Моторные навыки макака</title>&c4_4_mnm-specific;</sect1>
 </chapter>
 <chapter id="c5"><title>Подготовка иллюстраций</title></chapter>
 <chapter id="c6"><title>Программное обеспечение</title>&c6_software;</chapter>
