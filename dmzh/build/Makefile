@@ -37,8 +37,8 @@ ${STAMPS}/fo: docbook-fo.xsl $(DOCBOOK)
 	mkdir -p ${STAMPS}
 	touch ${STAMPS}/fo
 
-pdf: ${STAMPS}/fo ${STAMPS}/pdf
-${STAMPS}/pdf: ${FOP_BASE}/fop.xconf
+pdf: ${STAMPS}/pdf
+${STAMPS}/pdf: ${STAMPS}/fo ${FOP_BASE}/fop.xconf
 	cd ${FOP_BASE} && ( if [ ! -h images ] && [ -d ../images ] ; then ln -s ../images ; fi )
 	cd ${FOP_BASE} && \
 	export FOP_HYPHENATION_PATH=${FOP_BASE}/fop-hyph.jar && \

@@ -8,10 +8,6 @@
 this is for FO output, used to produce PDF with Apache FOP. -->
 <xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/fo/docbook.xsl"/>
 
-<xsl:param name="body.font.family" select="'Literaturnaya'"/>
-<xsl:param name="title.font.family" select="'Literaturnaya'"/>
-
-
 <xsl:param name="arial_font_size">
   <xsl:value-of select="$body.font.master * 0.8"/>
   <xsl:text>pt</xsl:text>
@@ -102,8 +98,8 @@ book      toc,title,figure,table,example,equation
   
   <xsl:param name="chunker.output.encoding" select="'utf-8'"/>
   <xsl:param name="base.dir">fo/</xsl:param>
-  <xsl:param name="body.font.family" select="'Arial'"/>
-  <xsl:param name="title.font.family" select="'Arial'"/>
+  <xsl:param name="body.font.family" select="'Literaturnaya'"/>
+  <xsl:param name="title.font.family" select="'Literaturnaya'"/>
   <xsl:param name="monospace.font.family" select="'Courier New'"/>
   <xsl:param name="paper.type" select="'A4'"/>
   
