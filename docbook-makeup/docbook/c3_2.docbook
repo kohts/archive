@@ -8,11 +8,12 @@
 </para>
 
 <informaltable frame='all'>
-<tgroup cols='2' align='center' colsep='1' rowsep='1'>
+<tgroup cols='3' align='center' colsep='1' rowsep='1'>
 <colspec colname='c1'/>
 <colspec colname='c2'/>
+<colspec colname='c3'/>
 <thead>
-<row><entry>Вид в тексте</entry><entry>Кодирование в DocBook</entry></row>
+<row><entry>Вид в тексте</entry><entry>Кодирование в DocBook</entry><entry>Примечания</entry></row>
 </thead>
 <tbody>
 <row>
@@ -37,7 +38,7 @@
 </row>
 
 <row>
-  <entry namest="c1" nameend="c2" align='center'><emphasis role="bold">Русские буквы с акцентом</emphasis></entry>
+  <entry namest="c1" nameend="c3" align='center'><emphasis role="bold">Русские буквы с акцентом</emphasis></entry>
 </row>
 <row><entry>&#1072;&#768;</entry><entry>&amp;#1072;&amp;#768;</entry></row>
 <row><entry>&#1077;&#768;</entry><entry>&amp;#1077;&amp;#768;</entry></row>
@@ -48,21 +49,28 @@
 <row><entry>&#1103;&#768;</entry><entry>&amp;#1103;&amp;#768;</entry></row>
 
 <row id="xml_encoding_latin_ext" xreflabel='Латинские буквы'>
-  <entry namest="c1" nameend="c2" align='center'><emphasis role="bold">Латинские буквы (акцент, умляут)</emphasis></entry>
+  <entry namest="c1" nameend="c3" align='center'><emphasis role="bold">Латинские буквы (акцент, умляут)</emphasis></entry>
 </row>
 <row><entry>&#0101;&#768;</entry><entry>&amp;#0101;&amp;#768;</entry></row>
 <row><entry>&#0220;</entry><entry>&amp;#0220;</entry></row>
 <row><entry>&#0252;</entry><entry>&amp;#0252;</entry></row>
 
 <row>
-  <entry namest="c1" nameend="c2" align='center'><emphasis role="bold">Кириллица до реформы 1917 года</emphasis></entry>
+  <entry namest="c1" nameend="c3" align='center'><emphasis role="bold">Кириллица до реформы 1917 года</emphasis></entry>
 </row>
-<row><entry>&#1030;</entry><entry>&amp;#1030; І (U+0406)</entry></row>
-<row><entry>&#1110;</entry><entry>&amp;#1110; і (U+0456)</entry></row>
-<row><entry>&#1138;</entry><entry>&amp;#1138; Ѳ (U+0472)</entry></row>
-<row><entry>&#1139;</entry><entry>&amp;#1139; ѳ (U+0473)</entry></row>
-<row><entry>&#1122;</entry><entry>&amp;#1122; Ѣ (U+0462)</entry></row>
-<row><entry>&#1123;</entry><entry>&amp;#1123; ѣ (U+0463)</entry></row>
+<row><entry>&#1030;</entry><entry>&amp;#1030;</entry><entry>І (U+0406)</entry></row>
+<row><entry>&#1110;</entry><entry>&amp;#1110;</entry><entry>і (U+0456)</entry></row>
+<row><entry>&#1138;</entry><entry>&amp;#1138;</entry><entry>Ѳ (U+0472)</entry></row>
+<row><entry>&#1139;</entry><entry>&amp;#1139;</entry><entry>ѳ (U+0473)</entry></row>
+<row><entry>&#1122;</entry><entry>&amp;#1122;</entry><entry>Ѣ (U+0462)</entry></row>
+<row><entry>&#1123;</entry><entry>&amp;#1123;</entry><entry>ѣ (U+0463)</entry></row>
+
+<row id="xml_encoding_greek_ext" xreflabel='Греческие буквы'>
+  <entry namest="c1" nameend="c3" align='center'><emphasis role="bold">Греческие буквы</emphasis></entry>
+</row>
+<row><entry>&#916;</entry><entry>&amp;#916;</entry><entry>(U+0394)</entry></row>
+<row><entry>&#931;</entry><entry>&amp;#931;</entry><entry>(U+03A3)</entry></row>
+
 </tbody>
 </tgroup>
 </informaltable>
