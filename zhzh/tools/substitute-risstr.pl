@@ -1,4 +1,8 @@
 #!/usr/bin/perl -w
+#
+# automatically replaces "ris. X" and "str. X"
+# to corresponding xref linkends
+#
 
 use strict;
 
@@ -10,8 +14,6 @@ binmode STDOUT, ':encoding(UTF-8)';
 if (!$ARGV[0]) {
   die "usage: $0 filename\n";
 }
-
-my $previous_line;
 
 my $f;
 open($f, $ARGV[0]);
