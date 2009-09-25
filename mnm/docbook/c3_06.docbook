@@ -1,0 +1,312 @@
+﻿<para>
+Общие выводы, сделанные на основании предыдущего анализа, могут быть еще углублены, оттенены и скорректированы при учете <emphasis role="bold">темпа усовершенствования</emphasis>.
+</para>
+
+<para role="details">
+<para>
+С этой целью аналогично предыдущему
+<footnote><para>
+При анализе темпа работы с единичными механизмами.
+</para></footnote> 
+мы разбиваем числовые данные на тэтрады и определяем среднюю продолжительность опыта в каждой тэтраде и в ряде последовательных тэтрад.
+</para>
+<para>
+Во-первых, обращает на себя внимание, что у большей половины комбинаций механизмов (66,6%) <emphasis>нет систематического</emphasis> улучшения работы
+<footnote><para>
+На протяжении всего опытного периода работы ухудшение появляется от 2 и до 6 раз (в особо неблагоприятных случаях).
+</para></footnote>, 
+и только у 33% общего количества комбинаций наблюдается непрерывное ниспадание длительности отмыкания.
+</para>
+<para>
+У комбинаций первой группы (включающей подъемы) есть даже <emphasis>непрерывный подъем</emphasis> (у 8%).
+</para>
+</para>
+
+<para>
+Таким образом выявляется, что кривая усовершенствования у подавляющего большинства комбинаций механизмов (58%) зигзагообразна, у меньшей половины (33%) &mdash; ниспадающа и у минимального количества (8%) &mdash; восходяща.
+</para>
+
+<para role="details">
+<para>
+Чем объяснить такое распределение и какие типы комбинаций включает каждая из этих рубрик?
+</para>
+<para>
+Оказывается, что к 3-й &mdash; последней &mdash; рубрике относятся 2 комбинации (<emphasis role="bold">АБee</emphasis> и <emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis><emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>) с малым опытным периодом (не более 8 опытов).
+</para>
+<para>
+Ко 2-й рубрике принадлежат 8 следующих комбинаций [<emphasis role="bold">CD</emphasis><subscript>(1)</subscript>, 6 кр., 8 кр., <emphasis role="bold">KM</emphasis>, <emphasis role="bold">FG</emphasis>, <emphasis role="bold">ROI</emphasis>, <emphasis role="bold">ST</emphasis>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>] со столь же малым опытным периодом (в виде исключения более 8 опытов).
+</para>
+<para>
+К 1-й рубрике отходят остальные 14 комбинациий [<emphasis role="bold">CD</emphasis><subscript>(2)</subscript>, <emphasis role="bold">АБe</emphasis>, <emphasis role="bold">АБee</emphasis> (при 6), <emphasis role="bold">KLMN</emphasis>, <emphasis role="bold">OP</emphasis>, <emphasis role="bold">YI</emphasis>, <emphasis role="bold">OIP</emphasis>, <emphasis role="bold">FGH</emphasis>, <emphasis role="bold">VWXY</emphasis>, <emphasis role="bold">U&#0220;</emphasis>, <emphasis role="bold">Z</emphasis><subscript>1</subscript><emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">KM</emphasis>] в подавляющем большинстве случаев с длительным опытным периодом (минимум 8, максимум 53 опыта).
+</para>
+</para>
+
+<para>
+Таким образом явственно, что кривая усовершенствования зигзагообразна в связи с <emphasis>длительностью</emphasis> опытного периода: не случайно комбинация механизмов (<emphasis role="bold">OIP</emphasis>) с максимальным опытным периодом (в 53 опыта) имеет 6-кратный (максимальный по количеству подъемов) прерывчатый подъем кривой на протяжении всего периода работы.
+</para>
+
+<para>
+При анализе того, к какой по счету тэтраде приурочены спуски и подъемы, улучшения и ухудшения работы,&mdash; мы должны воспользоваться нижеследующей таблицей:
+<simplelist>
+<member>2-я тэтрада &mdash; подъемы у 34% комбинаций &mdash; спуски y 66%</member>
+<member>3-я тэтрада &mdash; подъемы у 35% комбинаций &mdash; спуски y 65%</member>
+<member>4-я тэтрада &mdash; подъемы у 33% комбинаций &mdash; спуски y 66%</member>
+<member>5-я тэтрада &mdash; подъемы у 37% комбинаций &mdash; спуски y 63%</member>
+<member>6-я тэтрада &mdash; подъемы у &mdash; комбинаций &mdash; спуски y 100%</member>
+<member>7-я тэтрада &mdash; подъемы у 50% комбинаций &mdash; спуски y 50%</member>
+<member>8-я тэтрада &mdash; подъемы у 33% комбинаций &mdash; спуски y 66%</member>
+<member>9-я тэтрада &mdash; подъемы у 50% комбинаций &mdash; спуски y 50%</member>
+<member>10-я тэтрада &mdash; подъемы у 100 % комбинаций &mdash; спуски y &mdash;</member>
+<member>11-я тэтрада &mdash; подъемы у &mdash; комбинаций &mdash; спуски y 100%</member>
+<member>12-я тэтрада &mdash; подъемы у 100% комбинаций &mdash; спуски y &mdash;</member>
+<member>13-я тэтрада &mdash; подъемы у &mdash; комбинаций &mdash; спуски y 100%</member>
+</simplelist>
+</para>
+
+<para>
+Эта таблица вскрывает нам совершенно определенно, что в <emphasis>начале</emphasis> опытного периода <emphasis>спуски</emphasis> явно преобладают над <emphasis>подъемами</emphasis> (см. первые 6 тэтрад); начиная со средины опытного периода (примерно после 24 опытов), спуски чередуются с <emphasis>подъемами</emphasis>, кривая усовершенствования начинает скакать. Это подводит нас к предположению, что подъемы объясняются привходящими причинами, связанными с утомляемостью обезьяны.
+</para>
+
+<para role="details">
+<para>
+Является не менее характерным то обстоятельство, что величина этих подъемов, выражающая ухудшение работы, в ряде последовательных тэтрад сравнительно невелика.
+<simplelist>
+<member>85% подъемов представляют увеличение длительности работы не более чем в 5 раз</member>
+<member>10% подъемов представляют увеличение длительности работы не более чем в 10 раз</member>
+<member>4% подъемов представляют увеличение длительности работы не выше чем в 10 раз</member>
+</simplelist>
+</para>
+<para>
+Также незначительна у подавляющего большинства механизмов и величина спусков, выражающих величину улучшения работы в каждой из последующих тэтрад по сравнению с каждой из предыдущих:
+<simplelist>
+<member>у 88% спуски &mdash; уменьшение длительности работы от 1 до 5 раз</member>
+<member>у 11% спуски &mdash; уменьшение длительности работы в 5 до 10 раз</member>
+<member>у 0% спуски &mdash; уменьшение длительности работы выше 10 раз</member>
+</simplelist>
+</para>
+<para>
+И это опять-таки достаточно подчеркивает тот факт, что эта вариация работы, отражающаяся в зигзагообразном ходе кривой усовершенствования и ухудшения, связана с привходящими обстоятельствами, не имеющими отношения к сущности совершаемой работы отмыкания.
+</para>
+<para>
+Чтобы выявить, как изменяется ход работы с разными комбинациями механизмов в ряде последовательных тэтрад по аналогии с предыдущим, рассмотрим <xref linkend="table244" />.
+</para>
+<para>
+Согласно этой таблице выявляется, что работа обезьяны наиболее разнотипна <emphasis>вначале</emphasis> (по среднему сроку отмыкания комбинации распределяются по 4 рубрикам), причем наибольший процент (83) комбинаций механизмов относится ко II и III рубрикам
+<footnote><para>
+Причем в III рубрике представленных комбинации механизмов на 3% больше, нежели во II.
+</para></footnote>
+&mdash; отмыкается в срок от 10 сек. до 5 мин.; меньшее количество (13%) легких комбинаций отмыкается в срок 1&mdash;10 сек. (относится к 1 рубрике) и наименьшее количество (3%) принадлежит к IV рубрике (сюда относится одна единственная комбинация из 4 задвижек <emphasis role="bold">V</emphasis><subscript>1</subscript><emphasis role="bold">W</emphasis><subscript>1</subscript><emphasis role="bold">X</emphasis><subscript>2</subscript><emphasis role="bold">Y</emphasis><subscript>1</subscript>).
+</para>
+<para>
+Уже во 2-й тэтраде наблюдается резкое улучшение работы: в <emphasis>IV рубрике</emphasis> нет <emphasis>ни одной</emphasis> комбинации; процентный состав первой рубрики почти тот же, но в соседних рубриках произошло значительное перемещение: наибольший процент комбинаций механизмов отошел во II рубрику, и вдвое меньшее количество комбинаций осталось в III.
+</para>
+<para>
+В третьей тэтраде работа все совершенствуется &mdash; преобладающее количество комбинаций (82%) принадлежит ко II рубрике (со сроком отмыкания 10&mdash;60 сек.) и минимальный процент (5) комбинаций остается в III рубрике; содержание I рубрики почти без перемены.
+</para>
+<para>
+В 4-й тэтраде наблюдается некоторое снижение успешности работы; правда, в группе наиболее легко отмыкаемых (I рубрика) количество комбинаций оказывается несколько повышенным (33,3% вместо 11%), но и в III рубрике трудно отмыкаемых комбинаций наблюдается повышение количества комбинаций (16% вместо прежних 5%), а в средней (II рубрике) &mdash; снижение количества комбинаций на 32%.
+</para>
+<para>
+Уже в 5-й тэтраде успешность опять восстанавливается, и процент комбинаций, входящих в I и II рубрики, повышается (до 87%), а входящих в III рубрику &mdash; понижается (до 12%).
+</para>
+<para>
+Начиная с 6-й тэтрады, III рубрика навсегда ликвидируется, и комбинации, бывшие в ней до последнего времени (как <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">FGH</emphasis>, <emphasis role="bold">OIP</emphasis>), в последующем входят в состав первых двух рубрик, причем во II их больше, чем в I.
+</para>
+<para>
+В 7-й и 8-й тэтрадах оставшиеся немногие комбинации (4) более или менее равномерно распределяются по 2-м рубрикам; начиная с 9-й тэтрады, единственная оставшаяся комбинация <emphasis role="bold">OIP</emphasis> чаще всего пребывает в этой II рубрике, иногда заходя в I.
+</para>
+<para>
+Анализ этой таблицы приводит нас к заключению, что работа обезьяны с комбинацией механизмов в общем отличается <emphasis>поступательным характером</emphasis>; в частностях наблюдается, однако, эпизодическое снижение успешности работы.
+</para>
+<para>
+В начале опытного периода наибольший процент комбинаций механизмов принадлежит к III рубрике (со сроком отмыкания от 1 до 3 мин.); во все последующее время наибольший процент комбинаций механизмов относится ко II рубрике (со сроком отмыкания от 10 сек. до 1 мин.); IV рубрика (со сроком отмыкания свыше 5 мин.) включает в себя единственную комбинацию механизмов и то только в 1-й тэтраде).
+</para>
+<para>
+<emphasis>I рубрика</emphasis> содержит в себе б&#1086;&#768;льший процент комбинаций в <emphasis>конце</emphasis> опытного периода, а <emphasis>не в начале</emphasis>.
+</para>
+<para>
+Просмотр вышеприведенной таблицы и ее реконструирование в измененном виде дает нам возможность учесть продолжительность работы с каждой комбинацией на протяжении ряда тэтрад и в течение всего опытного периода, т. е. проследить судьбу работы с каждой комбинацией.
+</para>
+<para>
+<emphasis>Размещение комбинаций по 4-м рубрикам в ряде последовательных тэтрад.</emphasis>
+</para>
+<para>
+<emphasis>I рубрика</emphasis>
+</para>
+<para>
+<simplelist>
+<member>Комбинации, включен. в I рубрику, начиная с 1-й тэтрады, &mdash; 4 (<emphasis role="bold">eee</emphasis>, <emphasis role="bold">KL</emphasis>, <emphasis role="bold">KM</emphasis>, <emphasis role="bold">CD</emphasis><subscript>(2)</subscript>)</member>
+<member>Комбинации, включен. в I рубрику, начиная с 2-й тэтрады, &mdash; 1 (<emphasis role="bold">ST</emphasis>)</member>
+<member>Комбинации, включен. в I рубрику, начиная с 3-й тэтрады, &mdash; 1 (<emphasis role="bold">CD</emphasis><subscript>(1)</subscript>)</member>
+<member>Комбинации, включен. в I рубрику, начиная с 4-й тэтрады, &mdash; 2 (<emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>, 6 крюков)</member>
+<member>Комбинации, включен. в I рубрику, начиная с 5-й тэтрады, &mdash; 1 (<emphasis role="bold">U&#0220;</emphasis>)</member>
+<member>Комбинации, включен. в I рубрику, начиная с 7-й тэтрады, &mdash; 1 (<emphasis role="bold">IY</emphasis>)</member>
+<member>Комбинации, включен. в I рубрику, начиная с 11-й тэтрады, &mdash; 1 (<emphasis role="bold">OIP</emphasis>)</member>
+</simplelist>
+</para>
+<para>
+<emphasis>II рубрика</emphasis>
+</para>
+<para>
+<simplelist>
+<member>Комбинации, включен. во II рубрику начиная с 1-й тэтрады, &mdash; 12 (6 кр., <emphasis role="bold">YI</emphasis>, <emphasis role="bold">U&#0220;</emphasis>, <emphasis role="bold">OP</emphasis>, <emphasis role="bold">АБee</emphasis>, <emphasis role="bold">АБe</emphasis>, <emphasis role="bold">Z</emphasis><subscript>1</subscript><emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">ROI</emphasis>, <emphasis role="bold">ST</emphasis>, <emphasis role="bold">KNM</emphasis>, <emphasis role="bold">OI</emphasis>, <emphasis role="bold">ee</emphasis> (из 3).</member>
+<member>Комбинации, включен. во II рубрику начиная c 2-й тэтрады, &mdash; 8 (<emphasis role="bold">V</emphasis><subscript>1</subscript><emphasis role="bold">W</emphasis><subscript>1</subscript><emphasis role="bold">X</emphasis><subscript>2</subscript><emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">CD</emphasis><subscript>(1)</subscript>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">АБee</emphasis> (из 6), <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">KM</emphasis>, <emphasis role="bold">FG</emphasis>, <emphasis role="bold">KLNM</emphasis>)</member>
+<member>Комбинации, включен. во II рубрику начиная c 3-й тэтрады, &mdash; 2 (<emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">FGH</emphasis>)</member>
+<member>Комбинации, включен. во II рубрику начиная c 4-й тэтрады, &mdash; 1 (<emphasis role="bold">OIP</emphasis>)</member>
+</simplelist>
+</para>
+<para>
+<emphasis>III рубрика</emphasis>
+</para>
+<para>
+<simplelist>
+<member>Комбинации, включен. в III рубрику, начиная с 1-й тэтрады, &mdash; 13 (<emphasis role="bold">OIP</emphasis>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">FGH</emphasis>, <emphasis role="bold">CD</emphasis><subscript>(1)</subscript>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">АБee</emphasis> (из 6), <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">FG</emphasis>, 8кр., <emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">d</emphasis><subscript>4</subscript>, <emphasis role="bold">KM</emphasis><emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>,
+<emphasis role="bold">KLNM</emphasis>, <emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis><emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript></member>
+<member>Комбинации, включен, в III рубрику, начиная с 2-й тэтрады, &mdash; 2 (<emphasis role="bold">OP</emphasis>, <emphasis role="bold">Z</emphasis><subscript>1</subscript><emphasis role="bold">Z</emphasis><subscript>2</subscript>)</member>
+</simplelist>
+</para>
+<para>
+<emphasis>IV рубрика</emphasis>
+</para>
+<para>
+<simplelist>
+<member>Комбинации, включен, в IV рубрику в 1-й тэтраде &mdash; 1 (<emphasis role="bold">V</emphasis><subscript>1</subscript><emphasis role="bold">W</emphasis><subscript>1</subscript><emphasis role="bold">X</emphasis><subscript>2</subscript><emphasis role="bold">Y</emphasis><subscript>1</subscript>).</member>
+ </simplelist>
+</para>
+<para>
+Из этой таблицы явствует, что в то время как простейшие комбинации &mdash; крюки, щеколды, знакомые по составу механизмов [<emphasis role="bold">eee</emphasis>, <emphasis role="bold">KL</emphasis>, <emphasis role="bold">KM</emphasis>, <emphasis role="bold">CD</emphasis><subscript>(2)</subscript>], попадают в I рубрику уже с первой же тэтрады (и остаются в ней на все последующее время), другие комбинации, как новые крюки [<emphasis role="bold">CD</emphasis><subscript>(1)</subscript>], рычажки (<emphasis role="bold">ST</emphasis>), попадают сюда лишь начиная с 2&mdash;3-й тэтрады; еще более сложные, количественно многочисленные комбинации (6 кр., <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>) или более трудные по способу отмыкания (завертки, задвижки) включаются в эту рубрику в 5-й, 7-й и даже 11-й тэтраде.
+</para>
+<para>
+Все комбинации, входящие в состав I рубрики, начиная со 2&mdash;7-й тэтрады, находились до того, как правило, в более ранних тэтрадах (1&mdash;2-й) во II рубрике и не заходили в III рубрику, и только комбинация <emphasis role="bold">OIP</emphasis>, входящая в I рубрику в 11-й тэтраде, оказывается, находилась еще до 4-й тэтрады во II, а в 1-й тэтраде в III рубрике.
+</para>
+<para>
+То же соотношение остается и для следующих комбинаций, не доходящих до I рубрики: в то время как одни из них все время не выходят из пределов II рубрики и вмещаются в нее уже с 1-й тэтрады (<emphasis role="bold">АБee</emphasis>, <emphasis role="bold">АБe</emphasis>, <emphasis role="bold">ROI</emphasis>, <emphasis role="bold">KNM</emphasis>, <emphasis role="bold">OI</emphasis> &mdash; комбинации средней сложности с малым опытным периодом), другие попадают в эту II рубрику лишь с 2&mdash;4-й тэтрады, а до того (в 1-й тэтраде) пребывают еще в III или IV рубрике [<emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">FGH</emphasis>, <emphasis role="bold">KLNM</emphasis>, <emphasis role="bold">FG</emphasis>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">KM</emphasis>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">АБee</emphasis> (из 6), <emphasis role="bold">V</emphasis><subscript>1</subscript><emphasis role="bold">W</emphasis><subscript>1</subscript><emphasis role="bold">X</emphasis><subscript>2</subscript><emphasis role="bold">Y</emphasis><subscript>1</subscript>]; как то совершенно очевидно, это или наиболее сложные комбинации [<emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">FGH</emphasis>, <emphasis role="bold">KLNM</emphasis>), или комбинации со сравнительно небольшим опытным периодом (<emphasis role="bold">FG</emphasis>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">KM</emphasis>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>), &mdash; и таких наибольшее количество.
+</para>
+<para>
+И наконец есть комбинации, которые не выходят за пределы III рубрики, &mdash; это комбинации с весьма малым опытным периодом (8 кр., <emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">d</emphasis><subscript>4</subscript>).
+</para>
+<para>
+Только в виде исключения мы имеем тот факт, что комбинации пребывают в более поздних тэтрадах в более высокой рубрике, нежели в более ранних тэтрадах (<emphasis role="bold">OP</emphasis>, <emphasis role="bold">Z</emphasis><subscript>1</subscript><emphasis role="bold">Z</emphasis><subscript>2</subscript>), но они заскакивают в эту более высокую рубрику <emphasis>на время</emphasis> &mdash; в середине работы (во 2-й тэтраде), в конце (в более поздних 3&mdash;4-й тэтрадах) они опять возвращаются в более низкую по цифровому обозначению рубрику.
+</para>
+</para>
+
+<para>
+Предыдущий анализ наглядно выявляет, как <emphasis>совершенство</emphasis> оперирования с подавляющим большинством комбинаций
+<footnote><para>
+За исключенном простейших, попадающих в I рубрику в 1-й же тэтраде (<emphasis role="bold">CD</emphasis><subscript>(2)</subscript>, <emphasis role="bold">eee</emphasis>, <emphasis role="bold">KL</emphasis>, <emphasis role="bold">KM</emphasis>). 
+</para></footnote>
+механизмов зависит не столько от сложности и трудности предъявляемой комбинации, сколько от <emphasis>упражнения</emphasis> в оперировании с ними.
+</para>
+
+<para>
+Более чем вероятно, что при наличности б&#1086;&#768;льшего опытного периода все комбинации, не дошедшие до I рубрики, рано или поздно &mdash; по мере упражнения &mdash; включились бы в нее.
+</para>
+
+<para>
+Не случайно так часто большая часть комбинаций передвигается с каждой тэтрадой во все более и более низкую по цифровому обозначению рубрику (см. след. комбинации <emphasis role="bold">V</emphasis><subscript>1</subscript><emphasis role="bold">W</emphasis><subscript>1</subscript><emphasis role="bold">X</emphasis><subscript>2</subscript><emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">KLNM</emphasis>, <emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis><emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">FG</emphasis>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">KM</emphasis>, <emphasis role="bold">АБee</emphasis> (из 6), <emphasis role="bold">CD</emphasis><subscript>(1)</subscript>, <emphasis role="bold">FGH</emphasis>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">OIP</emphasis>, <emphasis role="bold">ST</emphasis>, <emphasis role="bold">U&#0220;</emphasis>, <emphasis role="bold">YI</emphasis>, 6 кр.).
+</para>
+
+<para>
+Из этих примеров следует, что, за исключением комбинаций из <emphasis>простейших</emphasis> механизмов, легкость и совершенство действия со <emphasis>всеми остальными</emphasis> предопределяется <emphasis>наличием упражнения</emphasis> в отмыкании.
+</para>
+
+<para>
+Пословица <quote>&#0220;bung macht den Meister</quote> приложима к макаку не в меньшей мере, чем к человеку, но здесь роль упражнения не столь явственна, как при оперировании с единичными механизмами. Здесь мы имеем, например, комбинацию (как <emphasis role="bold">KLNM</emphasis>), которая от 1-й и до 10-й тэтрады находится все в II рубрике, и другую комбинацию <emphasis role="bold">OIP</emphasis> &mdash; которая с 4 и по 13 тэтрады также находится во II рубрике, хотя эпизодически может отмыкаться значительно скорее (помещается, например, в 3 тэтраде в I рубрике). Средний срок отмыкания этих, как и других, комбинаций весьма неустойчиво колеблется в ряде последовательных тэтрад то в сторону понижения (в более ранних), то повышения в более поздних по счету тэтрадах.
+</para>
+
+<para>
+Продолжим наш анализ и по аналогии с предыдущим (при проработке данных, относящихся к единичным механизмам) рассмотрим, как варьирует средняя продолжительность отмыкания в начале работы (в 1-й тэтраде). Положим в основу этого рассмотрения нижеследующую таблицу:
+<simplelist>
+<member>срок отмыкания 1&mdash;10 сек. у 4 комб. <emphasis role="bold">CD</emphasis><subscript>(2)</subscript>, <emphasis role="bold">KM</emphasis>, <emphasis role="bold">KL</emphasis>, <emphasis role="bold">eee</emphasis></member>
+<member>срок отмыкания 10&mdash;20 сек. у 5 комб. <emphasis role="bold">YI</emphasis>, <emphasis role="bold">OP</emphasis>, <emphasis role="bold">ST</emphasis>, <emphasis role="bold">АБe</emphasis>, <emphasis role="bold">KNM</emphasis></member>
+<member>срок отмыкания 20&mdash;30 сек. у 2 комб. <emphasis role="bold">Z</emphasis><subscript>1</subscript><emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">АБee</emphasis></member>
+<member>срок отмыкания 30&mdash;40 сек. у 4 комб. <emphasis role="bold">ROI</emphasis>, <emphasis role="bold">OI</emphasis>, <emphasis role="bold">U&#0220;</emphasis>, <emphasis role="bold">ee</emphasis> (из 3)</member>
+<member>срок отмыкания 40&mdash; 50 сек. у 1 комб. 6 крюков</member>
+<member>срок отмыкания 60&mdash; 70 сек. у 1 комб. <emphasis role="bold">CD</emphasis><subscript>(1)</subscript></member>
+<member>срок отмыкания 70&mdash; 80 сек. у 3 комб. <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">АБee</emphasis>, <emphasis role="bold">FGH</emphasis></member>
+<member>срок отмыкания 80&mdash; 90 сек. у 3 комб. <emphasis role="bold">KLNM</emphasis>, <emphasis role="bold">d</emphasis><subscript>4</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">KM</emphasis></member>
+<member>срок отмыкания 100&mdash;150 сек. у 3 комб. <emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis><emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">OIP</emphasis></member>
+<member>срок отмыкания 150&mdash;300 сек. у 3 комб. 8 крюков, <emphasis role="bold">FG</emphasis>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript></member>
+<member>срок отмыкания 300&mdash;325 сек. у 1 комб. <emphasis role="bold">V</emphasis><subscript>1</subscript><emphasis role="bold">W</emphasis><subscript>1</subscript><emphasis role="bold">X</emphasis><subscript>2</subscript><emphasis role="bold">Y</emphasis><subscript>1</subscript></member>
+</simplelist>
+</para>
+
+<para>
+Эта таблица достаточно наглядно обнаруживает, что разные комбинации механизмов представляют для обезьяны чрезвычайно различные трудности. Это различие фактически (при оперировании не с округленными
+<footnote><para>
+Где но приняты в расчет десятые доли секунд.
+</para></footnote>, 
+а с абсолютными числами) еще более значительно.
+</para>
+
+<para>
+И если бы, учтя эти уточненные цифры, мы расположили бы все комбинации в последовательный ряд, соответственно восходящей величине чисел средней продолжительности опыта в 1-й тэтраде, &mdash; мы должны были бы их перечислить в следующем порядке:
+</para>
+
+<para>
+<orderedlist>
+<listitem><emphasis role="bold">CD</emphasis><subscript>(2)</subscript>,</listitem> <listitem><emphasis role="bold">KM</emphasis>,</listitem> <listitem><emphasis role="bold">KL</emphasis>,</listitem> <listitem><emphasis role="bold">eee</emphasis>,</listitem> <listitem><emphasis role="bold">YI</emphasis>,</listitem> <listitem><emphasis role="bold">OP</emphasis>,</listitem> <listitem><emphasis role="bold">ST</emphasis>,</listitem> <listitem><emphasis role="bold">АБe</emphasis>,</listitem> <listitem><emphasis role="bold">KNM</emphasis>,</listitem> <listitem><emphasis role="bold">Z</emphasis><subscript>1</subscript><emphasis role="bold">Z</emphasis><subscript>2</subscript>,</listitem> <listitem><emphasis role="bold">АБee</emphasis>,</listitem> <listitem><emphasis role="bold">ROI</emphasis>,</listitem> <listitem><emphasis role="bold">OI</emphasis>,</listitem> <listitem><emphasis role="bold">U&#0220;</emphasis>,</listitem> <listitem><emphasis role="bold">ee</emphasis> (из 3),</listitem> <listitem>6 крюков, </listitem> <listitem><emphasis role="bold">CD</emphasis><subscript>(1)</subscript>,</listitem> <listitem><emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>,</listitem> <listitem><emphasis role="bold">АБee</emphasis> (из 6), </listitem> <listitem><emphasis role="bold">FGH</emphasis>,</listitem> <listitem><emphasis role="bold">KLNM</emphasis>,</listitem> <listitem><emphasis role="bold">d</emphasis><subscript>4</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>,</listitem> <listitem><emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">KM</emphasis>,</listitem> <listitem><emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis><emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>,</listitem> <listitem><emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>,</listitem> <listitem><emphasis role="bold">OIP</emphasis>,</listitem> <listitem>8 кр., </listitem> <listitem><emphasis role="bold">FG</emphasis>,</listitem> <listitem><emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>,</listitem> <listitem><emphasis role="bold">V</emphasis><subscript>1</subscript><emphasis role="bold">W</emphasis><subscript>1</subscript><emphasis role="bold">X</emphasis><subscript>2</subscript><emphasis role="bold">Y</emphasis><subscript>1</subscript>.</listitem>
+</orderedlist>
+</para>
+
+<para>
+Учет в этом ряде местонахождения разных комбинаций приводит нас к тому выводу, что: 
+<orderedlist>
+<listitem>наиболее легки для преодоления комбинации из известных по способу отмыкания простейших механизмов, представленных в малом количестве
+<footnote><para>
+Срок отмыкания не выше 10 сек.
+</para></footnote> 
+(<emphasis role="bold">CD</emphasis><subscript>(2)</subscript>, <emphasis role="bold">KM</emphasis>, <emphasis role="bold">KL</emphasis>, <emphasis role="bold">eee</emphasis>),</listitem> <listitem>наиболее трудны для преодоления комбинации <emphasis>количественно</emphasis> сложные (8 крюков), комбинации с <emphasis>неподатливыми</emphasis> механизмами (<emphasis role="bold">FG</emphasis>, <emphasis role="bold">V</emphasis><subscript>1</subscript><emphasis role="bold">W</emphasis><subscript>1</subscript><emphasis role="bold">X</emphasis><subscript>2</subscript><emphasis role="bold">Y</emphasis><subscript>1</subscript>), комбинации, имеющие <emphasis>новые</emphasis> или <emphasis>разные</emphasis> по направлению передвижения механизмы (<emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">OIP</emphasis>), комбинации из <emphasis>разнотипных</emphasis> механизмов (<emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis><emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>
+<footnote><para>
+Срок отмыкания не ниже 128 сек.
+</para></footnote>.</listitem>
+</orderedlist>
+</para>
+
+<para>
+Из числа оставшихся комбинаций механизмов (отмыкаемых в срок от 10 сек. до 1<superscript>1</superscript>/<subscript>2</subscript> мин.) одни по большей части количественно менее сложные, но с более трудным типом механизмов [<emphasis role="bold">Z</emphasis><subscript>1</subscript><emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">OI</emphasis>, <emphasis role="bold">U&#0220;</emphasis>, <emphasis role="bold">ee</emphasis> (из 3), <emphasis role="bold">CD</emphasis><subscript>(1)</subscript>], другие количественно более сложные, но с более легкими по типу механизмами [<emphasis role="bold">АБe</emphasis>, <emphasis role="bold">KNM</emphasis>, <emphasis role="bold">АБee</emphasis>, <emphasis role="bold">ROI</emphasis>, 6 крюков, <emphasis role="bold">АБee</emphasis> (из 6), <emphasis role="bold">KLNM</emphasis>], третьи сложные и по типу и по количеству входящих в них механизмов (<emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">FGH</emphasis>, <emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">d</emphasis><subscript>4</subscript>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">KM</emphasis>).
+</para>
+
+<para>
+Общие выводы, сделанные на основании анализа темпа усовершенствования в работе, следующие:
+</para>
+
+<para>
+Работа обезьяны с комбинацией механизмов наиболее разнотипна в начале опытного периода (в 1-й тэтраде), хотя наибольшее количество комбинаций отмыкается в <emphasis>средний срок</emphasis> времени (от 60 сек. до 5 мин.).
+</para>
+
+<para>
+В <emphasis>первых</emphasis> по счету тэтрадах (2&mdash;3-й) наблюдается явное <emphasis>улучшение</emphasis> работы, позднее (после 12-го опыта), в <emphasis>середине</emphasis> работы, наступает эпизодическое <emphasis>снижение успешности, восстанавливающееся к концу</emphasis> опытного периода.
+</para>
+
+<para>
+В общем работа обезьяны явно <emphasis>прогрессивна</emphasis>.
+</para>
+
+<para>
+Но этот прогресс не столь <emphasis>значителен, не столь рельефен, как при работе с единичными механизмами</emphasis> (в начале работы наибольший процент комбинаций принадлежит к III рубрике, в конце &mdash; наибольший процент комбинаций принадлежит к рубрике II), и это происходит столько же потому, что обезьяна не слишком плохо начинает работу, сколько и потому, что она не слишком хорошо ее кончает.
+</para>
+
+<para>
+Работа с комбинациями механизмов по большей части <emphasis>среднего</emphasis> качества.
+</para>
+
+<para>
+Большее или меньшее совершенствование оперирования с комбинациями средней сложности зависит прежде всего от упражнения в оперировании с ними, и только простейшие качественно и количественно комбинации (<emphasis role="bold">CD</emphasis><subscript>(2)</subscript>, <emphasis role="bold">eee</emphasis>, <emphasis role="bold">KL</emphasis>, <emphasis role="bold">KM</emphasis>) из известных по способу отмыкания механизмов не требуют такого упражнения.
+</para>
+
+<para>
+Аналогично предыдущему, наиболее <emphasis>легки</emphasis> для преодоления
+<footnote><para>
+По отношению к ним устанавливается ранее всего наименьший средний срок отмыкания.
+</para></footnote> 
+комбинации <emphasis>количественно малые</emphasis>, составленные из известных и легко податливых механизмов; наиболее <emphasis>трудны</emphasis> или <emphasis>количественно сложные</emphasis> комбинации (8 крюков), или комбинации из <emphasis>неподатливых и новых</emphasis> по типу и по направлению передвижения механизмов.
+</para>
+
+<para>
+В общем степень совершенства работы с комбинациями предопределяется и <emphasis>наличием упражнения, и качественным и количественным составом комбинаций</emphasis>.
+</para>
+
+<para>
+Благодетельная роль упражнения не столь явственна, как при работе с единичными механизмами.
+</para>

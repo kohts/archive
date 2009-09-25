@@ -51,6 +51,7 @@
    <!ENTITY c3_06 SYSTEM "c3_06.docbook">
    <!ENTITY c3_07 SYSTEM "c3_07.docbook">
 
+   <!ENTITY c4 SYSTEM "c4.docbook">
    <!ENTITY c4_01 SYSTEM "c4_01.docbook">
    <!ENTITY c4_02 SYSTEM "c4_02.docbook">
    <!ENTITY c4_03 SYSTEM "c4_03.docbook">
@@ -144,7 +145,7 @@
     <sect2><title>Первый опыт отмыкания</title>&c3_04_01;</sect2>
     <sect2><title>Последний опыт отмыкания</title>&c3_04_02;</sect2>
     <sect2><title>Максимально длительный опыт</title>&c3_04_03;</sect2>
-    <sect2><title>Максимально короткий опыт</title>&c3_04_04;</sect2>
+    <sect2><title>Минимально длительный опыт</title>&c3_04_04;</sect2>
   </sect1>
   <sect1><title>Усовершенствование в скорости выполнения работы</title>&c3_05;</sect1>
   <sect1><title>Темп усовершенствования</title>&c3_06;</sect1>
@@ -152,6 +153,7 @@
 </chapter>
 
 <chapter><title>Специфические отрицательные особенности работы обезьяны</title>
+  &c4;
   <sect1><title>Излишние операции</title>&c4_01;</sect1>
   <sect1><title>Неупорядоченность отмыкания</title>&c4_02;</sect1>
   <sect1><title>Неучитывание отомкнутости механизмов</title>&c4_03;</sect1>

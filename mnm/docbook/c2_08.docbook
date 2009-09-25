@@ -1,0 +1,259 @@
+﻿<para>
+Произведем теперь исследование <emphasis role="bold">темпа усовершенствования</emphasis> в работе с каждым механизмом на протяжении всей серии опытов и сопоставим этот темп усовершенствования у различных типов механизмов, чтобы выяснить ряд основных общих вопросов:
+<orderedlist>
+<listitem><para>Как изменяется величина скорости отмыкания <emphasis>одного и того же</emphasis> механизма на протяжении <emphasis>всей серии опытов</emphasis> с этим механизмом
+<footnote><para>
+Исключая, конечно, первые опыты, полученные после перерыва в работе.
+</para></footnote>.</para></listitem>
+<listitem><para>Как изменяется величина скорости отмыкания <emphasis>разных механизмов</emphasis> на протяжении <emphasis>одной и той же</emphasis> серии опытов (в определенный период) и в пределах <emphasis>разных</emphasis> серий опытов (в разные периоды) в течение всего времени работы?</para></listitem>
+</orderedlist>
+</para>
+
+<para>
+Чтобы выявить эти весьма запутанные и сложные соотношения, мы прибегаем, во-первых, к следующему приему. Мы разбиваем всю серию опытов с каждым механизмом на группы в 4 опыта каждая (на тэтрады) и вычисляем среднюю продолжительность опыта в каждой такой тэтраде для каждого механизма.
+</para>
+
+<para>
+Для решения второго вопроса мы сопоставляем между собой величины средней продолжительности опыта у различных механизмов в один и тот же период работы (в 1-й, или 2-й, или 3-й, или 4-й тэтраде), и в разные периоды работы (в 1-й, 2-й, 3-й и 4-й тэтрадах и т. д.). 
+</para>
+
+<para role="details">
+<para>
+При анализе первого вопроса, при рассмотрении продолжительности работы в последовательном ряде тэтрад, обращает на себя внимание, что у половины общего количества механизмов (у 53,1%)
+<footnote><para>
+Приняты во внимание лишь те механизмы, на которых не cказался перерыв в работе.
+</para></footnote> 
+нет систематического уменьшения скорости работы, есть <emphasis>скачкообразные</emphasis> подъемы кривой в течение 1, 2, 3 и даже 6 раз на протяжении всего периода работы. Это имеет место у самых разнотипных механизмов: <emphasis role="bold">C</emphasis>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">L</emphasis>, <emphasis role="bold">V</emphasis>, <emphasis role="bold">W</emphasis>, <emphasis role="bold">Y</emphasis>, <emphasis role="bold">X</emphasis><subscript>1</subscript>, <emphasis role="bold">S</emphasis>, <emphasis role="bold">U</emphasis>, <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">f</emphasis><subscript>2</subscript>, <emphasis role="bold">f</emphasis><subscript>3</subscript>, <emphasis role="bold">f</emphasis><subscript>4</subscript>, <emphasis role="bold">a</emphasis>, <emphasis role="bold">C</emphasis><subscript>3</subscript>, <emphasis role="bold">З</emphasis><subscript>2</subscript> (17 механизмов).
+</para>
+<para>
+У двух из перечисленных механизмов <emphasis role="bold">W</emphasis>, <emphasis role="bold">f</emphasis><subscript>4</subscript> есть <emphasis>только подъем</emphasis>, нет спуска по причине неустановленности приема отмыкания и в силу слишком легкого оперирования с механизмами.
+</para>
+<para>
+<emphasis>Подъема кривой нет &mdash; есть систематическое улучшение работы</emphasis> у 47% также самых разнотипных по конструкции и по сопротивлению механизмов: <emphasis role="bold">А</emphasis><subscript>1</subscript>, <emphasis role="bold">D</emphasis>, <emphasis role="bold">E</emphasis><subscript>1</subscript>, <emphasis role="bold">M</emphasis>, <emphasis role="bold">P</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">R</emphasis>, <emphasis role="bold">Y</emphasis><subscript>4</subscript>, <emphasis role="bold">X</emphasis><subscript>2</subscript>, <emphasis role="bold">T</emphasis>, <emphasis role="bold">b</emphasis>, <emphasis role="bold">d</emphasis><subscript>1</subscript>, <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>3</subscript>, <emphasis role="bold">C</emphasis><subscript>2</subscript> (15 механизмов). Замечается одна закономерность в этом распределении.
+</para>
+<para>
+Подъема кривой нет главным образом в начале работы и у механизмов с малым по количеству опытов периодом упражнения; подъем есть главным образом у механизмов с длительным опытным периодом и в середине работы.
+</para>
+<para>
+<simplelist>
+<member>Первые 4 тэтрады.&mdash; Подъема нет у 64% мех. Подъем есть у 36% механиз.</member>
+<member>Вторые тэтрады.&mdash; Подъема нет у 30% мех. Подъем есть 70% механиз.</member>
+<member>Последние тэтрады.&mdash; Подъема нет у 42% мех. Подъем есть 58% механиз.</member>
+</simplelist>
+</para>
+<para>
+Это подводит нас к объяснению причины подъема: она кроется в утомляемости обезьяны, в ее уставании.
+</para>
+<para>
+И если мы проанализируем, на какую по счету тэтраду падает увеличение продолжительности работы, то мы найдем подтверждение той же мысли. От 50 до 100% случаев подъема имеют главным образом более поздние по порядку тэтрады (8, 10, 12, 13, 15).
+</para>
+</para>
+
+<para>
+При последовательном просмотре всего ряда тэтрад и соответственных кривых обращает на себя внимание еще одна закономерность &mdash; скачкообразный, зигзагообразный характер подъема, т. е. если в одной тэтраде наблюдается большая величина подъема, то в следующей тэтраде эта величина снова уменьшается, а в последующей, более поздней, опять увеличивается.
+</para>
+
+<para id='str177' xreflabel='стр. 177'>Приведенная таблица вскрывает это достаточно наглядно:
+<simplelist>
+<member>2-я тэтрада &mdash; подъем у 11,7% спуск у 85,2% механизмов</member>
+<member>3 тэтрада &mdash; подъем у 36,0% спуск у 60,0% механизмов</member>
+<member>4 тэтрада &mdash; подъем у 14,2% спуск у 85,9% механизмов</member>
+<member>5 тэтрада &mdash; подъем у 25,0% спуск у 75,0% механизмов</member>
+<member>6 тэтрада &mdash; подъем у 11,0% спуск у 88,8% механизмов</member>
+<member>7 тэтрада &mdash; подъем у 20,0% спуск у 80,0% механизмов</member>
+<member>8-я тэтрада &mdash; подъем у 75% спуск у 25% механизмов</member>
+<member>9 тэтрада &mdash; подъем у 25% спуск у 75% механизмов</member>
+<member>10 тэтрада &mdash; подъем у 75% спуск у 25% механизмов</member>
+<member>11 тэтрада &mdash; подъем у 0% спуск у 100% механизмов</member>
+<member>12 тэтрада &mdash; подъем у 66% спуск у 33% механизмов</member>
+<member>13 тэтрада &mdash; подъем у 50% спуск у 50% механизмов</member>
+<member>14 тэтрада &mdash; подъем у 0% спуск у 100% механизмов</member>
+<member>15 тэтрада &mdash; подъем у 100% спуск у 0% механизмов</member>
+</simplelist>
+</para>
+
+<para>
+Эта бессистемность в ухудшении работы наводит и на другое предположение. Предположение о том, что работа обезьяны тормозится зачастую чисто <emphasis>внешними</emphasis> факторами (отвлекаемостью, уставанием, неустойчивостью в действиях), а не в силу существенных причин, связанных с недостаточным умением в оперировании с механизмом.
+</para>
+
+<para role="details">
+<para>
+И в частности тот факт, что в подавляющем большинстве случаев это увеличение <emphasis>продолжительности</emphasis> работы в каждой последующей тэтраде, по сравнению с каждой предыдущей, весьма незначительно, подтверждает ту же самую мысль.
+</para>
+<para>
+Именно обнаруживается, что в наибольшем количестве случаев это увеличение не более, чем в 1&mdash;2 раза; увеличение же в 3&mdash;7 раз замечается лишь в единичных случаях, что и показано ясно на следующей таблице:
+<simplelist>
+<member>увеличение длительн. работы от 1 до 2 раз &mdash; у 19 механизмов.</member>
+<member>увеличение длительн. работы от 2 до 3 раз &mdash; у 5 механизмов.</member>
+<member>увеличение длительн. работы от 3 до 4 раз &mdash; у 1 механизма.<emphasis role="bold">U</emphasis><subscript>3</subscript> (в 6-й тэтраде)</member>
+<member>увеличение длительн. работы от 4 до 5 раз &mdash; у 2 механизмов <emphasis role="bold">C</emphasis> и <emphasis role="bold">S</emphasis></member>
+<member>увеличение длительн. работы от 6 до 7 раз &mdash; у 1 механизма <emphasis role="bold">f</emphasis><subscript>3</subscript></member>
+<member>увеличение длительн. работы от 7 до 8 раз &mdash; у 1 механизма <emphasis role="bold">f</emphasis><subscript>3</subscript></member>
+<member>увеличение длительн. работы от в 27 раз 1 механизма <emphasis role="bold">f</emphasis><subscript>3</subscript></member>
+</simplelist>
+</para>
+<para>
+Если принять во внимание, что механизм <emphasis role="bold">f</emphasis><subscript>3</subscript> (в силу своей своеобразной конструкции) является исключительным, а в отношении механизма <emphasis role="bold">C</emphasis> и <emphasis role="bold">S</emphasis> было явно отмечено явление отвлекаемости (совпадающее с периодом подъема), то станет ясно, что, как правило, увеличение длительности весьма незначительно, не превышает 4 раз; из этого следует, что имеющиеся подъемы кривой, соответствующие увеличению продолжительности работы, связаны с привходящими причинами, тормозящими завершение работы.
+</para>
+<para>
+При рассмотрении частоты спуска и подъема на кривых работы, выражающих уменьшение и увеличение продолжительности работы у <emphasis>каждого</emphasis> механизма, обращает на себя внимание, что количество спусков как правило превосходит количество подъемов
+<footnote><para>
+За двумя исключениями, выше отмеченными у механизмов <emphasis role="bold">W</emphasis> и <emphasis role="bold">f</emphasis><subscript>4</subscript> где наблюдается лишь подъем кривой.
+</para></footnote>.
+</para>
+<para>
+Учтя частоту подъемов &mdash; увеличений средней продолжительности работы, время их наступания, их величину на протяжении всего периода работы с механизмами, указав причины их возникновения и определив их характер, проанализируем с этих же точек зрения <emphasis>ниспадание</emphasis> кривой, уменьшение средней длительности опыта от тэтрады к тэтраде; этим самым мы определим темп и характер усовершенствования обезьяны при работе с механизмами.
+</para>
+<para>
+При рассмотрении продолжительности работы с каждым механизмом в ряде тэтрад, во-первых, явствует, что <emphasis>как правило</emphasis> количество спусков на кривых работы больше количества подъемов, что указывает на <emphasis>преобладание усовершенствования</emphasis> в работе на протяжении всего опытного периода.
+</para>
+<para>
+Во-вторых, обнаруживается, что в подавляющем большинстве случаев для разных механизмов эти <emphasis>спуски</emphasis> приурочены <emphasis>к первым 7 тэтрадам</emphasis>
+<footnote><para>
+См. табличку <xref linkend="str177" />.
+</para></footnote> 
+и в виде исключения (у единичных механизмов) &mdash; к последним (9, 11, 14) тэтрадам.
+</para>
+<para>
+Начиная с 8-й тэтрады (после 40 опытов), наблюдаются, как то было указано, скачки средней длительности работы, вероятно вызванные утомляемостью обезьяны.
+</para>
+<para>
+Замечается, что относительная максимальная величина спусков в сотни раз превосходит относительные величины подъемов и что наибольшее падение приурочено ко 2-й и отчасти 3-й тэтраде (максимум падения средней длительности опыта исчисляется десятками и сотнями раз); начиная с 4-й тэтрады, максимум падения не превышает 4&mdash;5 раз.
+</para>
+<para>
+Это особенно ясно из <xref linkend="table179" />, показывающей, что падение скорости в 5 раз и более (до 100 раз) имеет место лишь во 2-й тэтраде.
+</para>
+</para>
+
+<para>
+И это подводит нас к обобщению, что максимальные успехи связаны с <emphasis>первым</emphasis> преодолением способа отмыкания нового механизма; в последующем, преоборов главное, обезьяна очень мало <emphasis>прогрессирует</emphasis> в своей работе.
+</para>
+
+<para>
+Естественно, что разные механизмы представляют разные трудности, и это особенно явственно сказывается при просмотре величин средней продолжительности отмыкания каждого механизма в ряде последовательных тэтрад.
+</para>
+
+<para>
+Приводимая <xref linkend="table181" /> вскрывает это достаточно выразительно.
+</para>
+
+<para role="details">
+<para>
+В означенной таблице по примеру прошлого, разбиваем механизмы на ряд групп (соотносительно с величиной средней длительности опыта в каждой тэтраде) и устанавливаем прежние 4 рубрики со сроком отмыкания 1&mdash;10 сек., 10&mdash;60 сек., 60&mdash;300 сек. и свыше 300 сек. Проследив в ряде последовательных тэтрад распределение механизмов по этим рубрикам, мы должны будем притти к следующим выводам.
+</para>
+<para>
+Работа обезьяны наиболее <emphasis>разнотипна</emphasis> при <emphasis>первых</emphasis> пробах отмыкания механизмов, так как только в 1-й тэтраде механизмы размещаются по всем 4 рубрикам.
+</para>
+<para>
+Наибольшее количество механизмов (63%) имеет срок отмыкания в пределах от 1 сек. до 1 мин., причем половина этого количества механизмов (более легко податливых) отмыкается в срок 1&mdash;10 сек., вторая половина (менее податливые, осложненные или новые по типу) отмыкается в срок уже от 10 сек. до 1 мин.
+</para>
+<para>
+Небольшой процент механизмов (25 %&mdash; по своему характеру еще более сложные, чем предыдущие) отмыкается обезьяной в срок от 1 до 5 мин. и наименьшее количество запоров (10% &mdash; то наиболее своеобразных, то первых по предъявлению) отмыкается в срок свыше 5 мин.
+</para>
+<para>
+Уже во второй тэтраде наблюдается резкое улучшение работы: бывшие на испытании 35 механизмов имеют срок отмыкания не больший, чем одна минута, причем большее их количество &mdash; именно 51,4% &mdash; принадлежит к 1-й рубрике (отмыкаются в пределах от 1 до 10 сек.), меньшая половина (48,5%) &mdash; в срок от 10 сек. до 1 мин.; таким образом 3-я и 4-я рубрика остаются пустыми.
+</para>
+<para>
+В третьей тэтраде мы наблюдаем некоторое снижение успешности работы; именно, б&#1086;&#768;льшая часть механизмов (57,1 %) отходит во 2-ю рубрику, меньшая часть (39,2%) &mdash; в 1-ю; один своеобразный по отмыканию механизм (<emphasis role="bold">f</emphasis><subscript>3</subscript>) относится даже под 3-ю рубрику с длительным сроком отмыкания, большим 1 мин. Можно думать, что после 8 опытов отмыкания у обезьяны как бы наблюдается временное ослабление энергии отмыкания. В последующих 2 тэтрадах (4 и 5) мы опять наблюдаем подъем энергии, отражающейся на краткости завершения работы, возрастание количества механизмов в 1-й рубрике (до 68 и 80%) за счет второй; в этой второй остаются наиболее сложные механизмы из 2 частей (<emphasis role="bold">d</emphasis><subscript>3</subscript>, <emphasis role="bold">d</emphasis><subscript>2</subscript>), самозамыкающийся (<emphasis role="bold">L</emphasis>), обмотка (<emphasis role="bold">&#931;</emphasis><subscript>1</subscript>), пружинящая завертка и ключ с поворотом в 270<superscript>о</superscript> (<emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">f</emphasis><subscript>3</subscript>). После 8 опытов снова наблюдается временное, ухудшение, совпадающее с 6-й тэтрадой (периодом с 20-го по 24-й опыт), вслед за чем наблюдается опять подъем успешности работы, доходящей до предельного совершенства в 11 тэтраде, где 100% оставшихся на испытании механизмов, повидимому механизмов наиболее затруднительных по способу отмыкания (именно заверток <emphasis role="bold">U</emphasis>, <emphasis role="bold">Z</emphasis><subscript>2</subscript> и ключа <emphasis role="bold">f</emphasis><subscript>3</subscript>), целиком относятся к 1-й рубрике. Из них только работа с одним единственным механизмом (<emphasis role="bold">f</emphasis><subscript>3</subscript>) до самого конца неустойчива по времени отмыкания.
+</para>
+</para>
+
+<para>
+Таким образом и при учете средней скорости работы в ряде последовательных тэтрад наблюдается <emphasis>зигзагообразный</emphasis> характер успешности работы &mdash; периоды энергичной работы (охватывающие не более 8 опытов) сменяются периодами пониженной энергии, длящимися вдвое меньший срок (на протяжении 4 опытов, в течение которых обезьяна как бы отдыхает).
+</para>
+
+<para>
+Небезынтересно будет проследить и судьбы работы с каждым механизмом на протяжении ряда тэтрад.
+</para>
+
+<para role="details">
+<para>
+<simplelist>
+<member><emphasis>Механизмы, заключенные в 1-й рубрике</emphasis>, начиная с 1-й тэтрады рубрики . . . <emphasis role="bold">f</emphasis><subscript>4</subscript>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">E</emphasis><subscript>1</subscript>, <emphasis role="bold">a</emphasis>, <emphasis role="bold">W</emphasis>, <emphasis role="bold">M</emphasis>, <emphasis role="bold">F</emphasis>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">b</emphasis>, <emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">d</emphasis><subscript>1</subscript>, <emphasis role="bold">C</emphasis>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">S</emphasis>, <emphasis role="bold">V</emphasis></member>
+<member>начиная со 2 тэтрады рубрики . . . <emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">C</emphasis><subscript>2</subscript>, <emphasis role="bold">R</emphasis>, <emphasis role="bold">Y</emphasis>, <emphasis role="bold">P</emphasis>, <emphasis role="bold">X</emphasis><subscript>2</subscript>, <emphasis role="bold">X</emphasis><subscript>1</subscript></member>
+<member>начиная с 3 тэтрады рубрики . . . <emphasis role="bold">C</emphasis><subscript>3</subscript>, <emphasis role="bold">D</emphasis>, <emphasis role="bold">U</emphasis></member>
+<member>начиная с 4 тэтрады рубрики . . . <emphasis role="bold">Y</emphasis><subscript>4</subscript>, <emphasis role="bold">T</emphasis>, <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">O</emphasis></member>
+<member>начиная с 5 тэтрады рубрики . . . <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">L</emphasis>, <emphasis role="bold">d</emphasis><subscript>3</subscript></member>
+<member>начиная с 7 тэтрады рубрики . . . <emphasis role="bold">Z</emphasis><subscript>2</subscript></member>
+<member>начиная с 11 тэтрады рубрики . . . <emphasis role="bold">f</emphasis><subscript>3</subscript></member>
+</simplelist>
+</para>
+<para>
+<simplelist>
+<member><emphasis>Механизмы, заключенные во 2-й рубрике</emphasis>, начиная с 1-й тэтрады рубрики . . . <emphasis role="bold">Y</emphasis><subscript>3</subscript>, <emphasis role="bold">A</emphasis><subscript>3</subscript>, <emphasis role="bold">Б</emphasis>, <emphasis role="bold">Y</emphasis><subscript>2</subscript>, <emphasis role="bold">f</emphasis><subscript>2</subscript>, <emphasis role="bold">А</emphasis><subscript>2</subscript>, <emphasis role="bold">X</emphasis><subscript>2</subscript>, <emphasis role="bold">X</emphasis><subscript>1</subscript>, <emphasis role="bold">C</emphasis><subscript>3</subscript>, <emphasis role="bold">T</emphasis>, <emphasis role="bold">U</emphasis>, <emphasis role="bold">L</emphasis>, <emphasis role="bold">d</emphasis><subscript>3</subscript>, <emphasis role="bold">C</emphasis><subscript>2</subscript>, <emphasis role="bold">З</emphasis><subscript>2</subscript></member>
+<member>начиная со 2 тэтрады рубрики . . . <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">V</emphasis>, <emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">D</emphasis>, <emphasis role="bold">f</emphasis><subscript>3</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>1</subscript></member>
+<member>начиная с 3 тэтрады рубрики . . . <emphasis role="bold">C</emphasis>, <emphasis role="bold">S</emphasis></member>
+</simplelist>
+</para>
+<para>
+<simplelist>
+<member><emphasis>Механизмы, заключенные в 3-й рубрике</emphasis>, начиная с 1-й тэтрады . . . . <emphasis role="bold">R</emphasis>, <emphasis role="bold">H</emphasis>, <emphasis role="bold">Q</emphasis>, <emphasis role="bold">C</emphasis>, <emphasis role="bold">G</emphasis>, <emphasis role="bold">f</emphasis><subscript>3</subscript>
+<footnote><para>
+<emphasis role="bold">f</emphasis><subscript>3</subscript> включен в эту рубрику в 3, 4, 8, 11, 14 тэтрадах.
+</para></footnote>, 
+<emphasis role="bold">D</emphasis>, <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">Y</emphasis><subscript>4</subscript>, <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>1</subscript></member>
+</simplelist>
+</para>
+<para>
+<simplelist>
+<member><emphasis>Механизмы, заключ. только в 1-й тэтраде в 4-й рубрике</emphasis> . . . <emphasis role="bold">Y</emphasis>, <emphasis role="bold">P</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">А</emphasis><subscript>1</subscript>.</member>
+</simplelist>
+</para>
+</para>
+
+<para role="details">
+<para>
+В то время как одни, повидимому простейшие для преодоления механизмы (<emphasis role="bold">f</emphasis><subscript>4</subscript>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">E</emphasis>, <emphasis role="bold">W</emphasis>, <emphasis role="bold">M</emphasis>, <emphasis role="bold">F</emphasis>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">b</emphasis>, <emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">d</emphasis><subscript>1</subscript>, <emphasis role="bold">C</emphasis>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">S</emphasis>, <emphasis role="bold">V</emphasis>, <emphasis role="bold">a</emphasis>), попадают в первую рубрику уже в 1-й же тэтраде, другие, явно более сложные для отмыкания (см. предыдущую таблицу), попадают в ту же рубрику лишь во 2-й, 3-й, 5-й и даже 7-й и 11-й тэтрадах.
+</para>
+<para>
+Как правило, все эти механизмы в более ранних тэтрадах находились и в более высоких по порядку рубриках (4-й, 3-й, 2-й).
+</para>
+<para>
+Только в виде исключения, объяснимого влиянием привходящих обстоятельств, наблюдаются случаи, когда механизмы принадлежат к более высокой по счету рубрике в более поздних тэтрадах и к более низкой по счету рубрике &mdash; в более ранних (как <emphasis role="bold">S</emphasis>, <emphasis role="bold">C</emphasis>).
+</para>
+<para>
+Только механизмы с малым опытным периодом средней сложности не получили продвижения в 1-ю рубрику (<emphasis role="bold">Y</emphasis><subscript>3</subscript>, <emphasis role="bold">А</emphasis><subscript>1</subscript>, <emphasis role="bold">Б</emphasis>, <emphasis role="bold">Y</emphasis><subscript>2</subscript>, <emphasis role="bold">f</emphasis><subscript>2</subscript>, <emphasis role="bold">А</emphasis><subscript>2</subscript>) и застряли во 2-й (менее сложные) и в 3-й (<emphasis role="bold">H</emphasis>, <emphasis role="bold">Q</emphasis>, <emphasis role="bold">C</emphasis>, <emphasis role="bold">G</emphasis>, <emphasis role="bold">f</emphasis><subscript>3</subscript> &mdash; более сложные), вследствие недостаточного упражнения
+<footnote><para>
+Из них некоторое исключение составляет механизм <emphasis role="bold">f</emphasis><subscript>3</subscript> (в течение 4 тэтрад находящийся во 2-й рубрике).
+</para></footnote> 
+в их отмыкании.
+</para>
+<para>
+Обезьяна точно так же не продвинулась в отмыкании своеобразных механизмов с неустойчивым способом отмыкания, как <emphasis role="bold">f</emphasis><subscript>1</subscript>, обмотки проволоки <emphasis role="bold">&#931;</emphasis><subscript>1</subscript> и механизма <emphasis role="bold">f</emphasis><subscript>2</subscript> (впервые предъявленного ключа).
+</para>
+<para>
+4-я рубрика является первым и временным местопребыванием всех находящихся в ней механизмов, продвигающихся позднее в более низкие рубрики.
+</para>
+</para>
+
+<para>
+Означенный анализ подводит нас к определенному обобщению: в то время, как <emphasis>степень</emphasis> совершенства <emphasis>начальных</emphasis> операций с механизмом зависит от <emphasis>самого механизма</emphasis> (его типа, конструкции), <emphasis>конечное совершенство</emphasis> оперирования с механизмом зависит по преимуществу от <emphasis>величины упражнения</emphasis> в отмыкании, и только в отношении механизмов с неустойчивым способом отмыкания благодетельная роль упражнения не сказывается.
+</para>
+
+<para>
+Итак, учет темпа работы обезьяны с разными установками на протяжении всего опытного периода позволяет нам притти к заключению, что обычно при более длительной работе периоды успешной работы чередуются с периодами неуспешной &mdash; скорый темп работы сменяется медленным темпом, вслед за энергичной работой наступает более вялая, медленная работа.
+</para>
+
+<para>
+Это означает, что <emphasis>психо-физиологическая установка</emphasis> обезьяны на протяжении опытного периода меняется: обезьяна то развивает энергичную работу (на протяжении 2 тэтрад &mdash; 8 опытов), то отдыхает (в течение 4 опытов). <emphasis>Энергичная</emphasis>, совершенная, максимально успешная работа развивается обезьяной в <emphasis>начале</emphasis> опытного периода, когда животное еще имеет свежие силы; <emphasis>перемежающаяся</emphasis> по успешности работа начинается в <emphasis>среднем периоде</emphasis> (после 40 опытов) и захватывает <emphasis>конечный</emphasis> период.
+</para>
+
+<para>
+Как то уже было не раз отмечено, чаще и больше работа обезьяны имеет поступательный, прогрессивный характер &mdash; реже и менее значителен регрессивный ее уклон.
+</para>
+
+<para>
+В начальном периоде действия работа обезьяны и наиболее разнотипна по качеству, &mdash; причем <emphasis>единичные</emphasis> установки, представляющие разнообразные качественные трудности, относятся чаще то к группе особенно <emphasis>легких, то средне трудных</emphasis>
+<footnote><para>
+Отмыкаются в срок от 1&mdash;10 и от 10&mdash;60 сек.
+</para></footnote>. 
+Из единичных установок <emphasis>наиболее трудны</emphasis> для преодоления <emphasis>первые новые</emphasis> механизмы и механизмы, требующие значительного <emphasis>мышечного</emphasis> усилия при отмыкании, с неограниченной подвижностью второстепенных частей. (Они отмыкаются в срок свыше 300 сек.)
+</para>
+
+<para>
+По мере упражнения обезьяна явно совершенствуется в скорости выполнения работы, причем при работе с единичными установками <emphasis>темп усовершенствования чрезвычайно скорый</emphasis>, степень совершенства <emphasis> значительна</emphasis>.
+</para>
+
+<para>
+В общем же <emphasis>максимальная степень совершенства</emphasis> работы зависит от степени <emphasis>упражнения, а быстрота усовершенствования</emphasis> до определенной степени &mdash; от сложности установки.
+</para>

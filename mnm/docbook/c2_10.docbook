@@ -1,0 +1,195 @@
+﻿<para>
+Насколько <emphasis>прочно</emphasis> сохраняются у обезьяны приобретенные ею двигательные навыки?
+</para>
+
+<para>
+Ответ на этот вопрос можно получить, проанализировав ряд главных числовых данных
+<footnote><para>
+Относящихся к первому, к последнему, к максимально-продолжительному и максимально-короткому но времени опытам.
+</para></footnote>, 
+полученных при работе с механизмами до перерыва и после перерыва в оперировании с ними, взяв соотношение этих данных.
+</para>
+
+<para role="details">
+<para>
+Принимая во внимание, что настоящему вопросу не было посвящено систематически определенной, обширной серии опытов, что данные, легшие в основу нашего анализа, являлись лишь весьма малочисленными и как бы попутно полученными, мы сможем воспользоваться ими только эклективно. Это же последнее обстоятельство обязывает нас быть весьма осторожными в общих заключениях, полученных на основании выборок конкретных данных.
+</para>
+<para>
+Для удобства рассмотрения сконструируем таблицу, выражающую, во сколько раз меняется длительность завершения работы с <emphasis>разными</emphasis> механизмами после <emphasis>одного и того же</emphasis> срока перерыва в работе (перерыва то в <superscript>1</superscript>/<subscript>2</subscript> суток, то в 7, то в 45, то в 180 дней), и как меняется длительность завершения работы с <emphasis>одним и тем же</emphasis> механизмом после разного срока перерыва в работе?
+</para>
+<para>
+Для б&#1086;&#768;льшей полноты рассмотрения взято соотношение <emphasis>шести</emphasis> различных временных данных:
+<orderedlist>
+<listitem><para>Отношение между сроком завершения работы в <emphasis>последнем</emphasis> опыте <emphasis>до</emphasis> перерыва и 1-м опыте <emphasis>после</emphasis> перерыва.</para></listitem>
+<listitem><para>Отношение между сроком завершения работы в 1-м опыте до перерыва и 1-м опыте <emphasis>после</emphasis> перерыва.</para></listitem>
+<listitem><para>Отношение между сроком завершения работы в <emphasis>последнем</emphasis> опыте <emphasis>до</emphasis> перерыва и <emphasis>последнем</emphasis> опыте <emphasis>после</emphasis> перерыва.</para></listitem>
+<listitem><para>Отношение между сроком завершения работы в <emphasis>максимальном</emphasis> по сроку отмыкания опыте <emphasis>до</emphasis> перерыва и <emphasis>максимальном</emphasis> по сроку отмыкания опыте <emphasis>после</emphasis> перерыва.</para></listitem>
+<listitem><para>Отношение между сроком завершения работы в <emphasis>минимальном</emphasis> по сроку отмыкания опыте <emphasis>до</emphasis> перерыва и <emphasis>минимальном</emphasis> по сроку отмыкания опыте <emphasis>после</emphasis> перерыва.</para></listitem>
+<listitem><para>Отношение между величинами <emphasis>средней скорости</emphasis> завершения работы с данным механизмом <emphasis>до и после</emphasis> перерыва.</para></listitem>
+</orderedlist>
+</para>
+<para>
+Из рассмотрения <xref linkend="table202" />, <xref linkend="table203" /> ясно обнаруживается, что один и тот же перерыв в работе (например, перерыв в <superscript>1</superscript>/<subscript>2</subscript> суток) неодинаково влияет на разные стороны работы обезьяны с одним и тем же механизмом; один и тот же перерыв в работе различно отражается на однотипных данных (слагаемых работы), но принадлежащих разным механизмам.
+</para>
+<para>
+Так, например, при рассмотрении соотношения между 6 группами числовых данных (полученных до перерыва и после <superscript>1</superscript>/<subscript>2</subscript>-суточного перерыва в работе) при оперировании с механизмом <emphasis role="bold">L</emphasis> выясняются следующие характерные особенности. <emphasis>Вопреки</emphasis> перерыву в работе, наблюдается почти
+<footnote><para>
+Если не считать слабого (на 1 сек.) повышения длительности последнего опыта после перерыва по сравнению с таковым до перерыва.
+</para></footnote> 
+по всем главным пунктам <emphasis>улучшение</emphasis> хода работы, уменьшение длительности завершения работы не только в частных случаях, но и в среднем сроке работы. Аналогичное улучшение всех сторон работы наблюдается и в отношении механизма <emphasis role="bold">V</emphasis>.
+</para>
+<para>
+В отношении всех других механизмов (<emphasis role="bold">P</emphasis>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>1</subscript> после 1-го перерыва) наблюдаются следующие закономерности.
+</para>
+<para>
+<emphasis>Первый опыт после перерыва</emphasis> неизменно <emphasis>длительнее последнего опыта до перерыва</emphasis>, что указывает на явное призабывание обезьяной точного, совершенного приема отмыкания; однако полного забывания безусловно нет, так как <emphasis>первый опыт после перерыва</emphasis>, почти
+<footnote><para>
+Только у механизма <emphasis role="bold">Z</emphasis><subscript>1</subscript>, вращаемого вправо, предложенного непосредственно за обратным по направлению <emphasis role="bold">Z</emphasis><subscript>2</subscript>, вращаемого влево, обнаруживается естественное увеличение длительности 1-го опыта после перерыва, в силу тормозящего влияния предшествующих навыков.
+</para></footnote> 
+как правило, во много раз (иногда в сотни раз, как у <emphasis role="bold">P</emphasis>) <emphasis>короче первого же опыта до перерыва</emphasis>. Соответственно этому, как правило, значительно уменьшается величина максимальной длительности отмыкания
+<footnote><para>
+Опять-таки за единичным исключением, относящимся к механизму <emphasis role="bold">Z</emphasis><subscript>1</subscript>, согласно вышеуказанным причинам.
+</para></footnote>; 
+менее значительно, но все же достаточно очевидно и уменьшение последнего опыта после перерыва по сравнению с таковым до перерыва, а также уменьшение величины минимального срока работы (только единичные случаи составляют исключение из этого положения).
+</para>
+<para>
+Соответственно уменьшению главных числовых данных уменьшается, как правило, и средняя длительность завершения работы в сеансе после перерыва (опять-таки по вышеуказанным причинам этого уменьшения не наблюдается лишь в отношении механизма <emphasis role="bold">Z</emphasis><subscript>1</subscript>).
+</para>
+<para>
+При рассмотрении числовых данных (распределенных в тех же 6 рубриках), но полученных после более значительного перерыва в работе (от 2 до 7 суток) прежде всего обращает на себя внимание одно обстоятельство.
+</para>
+<para>
+<emphasis>Небольшое увеличение</emphasis> срока <emphasis>перерыва</emphasis> в работе не только не ухудшает этой работы при оперировании с одним и тем же механизмом (напр., обмоткой <emphasis role="bold">&#931;</emphasis><subscript>1</subscript>), но даже <emphasis>улучшает</emphasis> все стороны работы (сравните цифровые данные, относящиеся к механизму <emphasis role="bold">&#931;</emphasis><subscript>1</subscript> по всем 6 рубрикам, при перерыве в <superscript>1</superscript>/<subscript>2</subscript> суток и в 3 суток), и это улучшение наблюдается не только в отношении частных данных (касающихся уменьшения длительности 1-го опыта по сравнению с последним предыдущего сеанса, 1-го опыта после перерыва по сравнению с первым до перерыва, последнего опыта, максимально продолжительного и максимально короткого опыта до и после перерыва), но и средней продолжительности опыта.
+</para>
+<para>
+Аналогично тому, что наблюдалось раньше, в подавляющем большинстве случаев <emphasis>первый опыт после перерыва длительнее последнего опыта до перерыва</emphasis>, и только в виде исключения (у задвижки <emphasis role="bold">O</emphasis>) наблюдается обратное соотношение.
+</para>
+<para>
+Обращает на себя внимание, что за исключением числовых данных 1-й рубрики (выражающих отношение последнего опыта до перерыва к 1-му опыту после перерыва), ни в одном случае эти данные не являются отрицательной величиной (т. е. меньше единицы), и это вопреки б&#1086;&#768льшему перерыву в оперировании с механизмами 2-й группы. Следует оговорить, что хотя механизмы 2-й группы по большей части иные по конструкции, а часто и по сложности,&mdash;  они родственны механизмам I группы, а именно:
+<simplelist>
+<member>задвижка <emphasis role="bold">O</emphasis> соответствует задвижке <emphasis role="bold">P</emphasis></member>
+<member>обм. тл. <emphasis role="bold">&#931;</emphasis><subscript>1(2)</subscript>
+<footnote><para>
+После 2-го перерыва в работе от 2 до 7 суток.
+</para></footnote> 
+соответствует обм. тл. <emphasis role="bold">&#931;</emphasis><subscript>1(1)</subscript>
+<footnote><para>
+После 1-го перерыва в работе в <superscript>1</superscript>/<subscript>2</subscript> суток.
+</para></footnote></member>
+<member>щеколда <emphasis role="bold">K</emphasis> соответствует щеколде <emphasis role="bold">L</emphasis></member>
+<member>задвижка <emphasis role="bold">X</emphasis><subscript>1</subscript>, <emphasis role="bold">Y</emphasis><subscript>1</subscript> соответствует задвижке <emphasis role="bold">V</emphasis></member>
+</simplelist>
+</para>
+<para>
+Даже перерыв в 17&mdash; 30 дней не дает отрицательной величины числовых данных (см. <xref linkend="table203" />).
+</para>
+<para>
+Если же мы сравним числовые данные, относящиеся к одному и тому же механизму (например, <emphasis role="bold">Y</emphasis><subscript>1</subscript>), но полученные после двух разных сроков перерыва в работе (в 3 дня и в 45 дней), то мы увидим, что более длительный срок перерыва в работе (именно 45 дней) влияет явно неблагоприятно на выполнение работы. Отношение между длительностью первого опыта 2-го и 3-го сеансов, отношение между максимальными по длительности опытами 2-го и 3-го сеансов, отношение между средней скоростью работы в первом и во втором случаях, &mdash;  все они выражаются <emphasis>отрицательной величиной</emphasis>.
+</para>
+<para>
+Те же самые отношения данных 1-го и 2-го сеансов, разделенных сроком в 3 дня, выражаются величиной <emphasis>положительной</emphasis>.
+</para>
+<para>
+Аналогичный случай мы имеем и в отношении другого механизма &mdash;  цепи <emphasis role="bold">C</emphasis><subscript>3</subscript>, совершенство оперирования с которым было проверено после 30 и 180 дней перерыва в работе. И здесь (как то явствует из таблицы) во 2-м <emphasis>сеансе</emphasis> после 1-го перерыва (в 30 <emphasis>дней</emphasis>), как правило, наблюдалось <emphasis>усовершенствование</emphasis> всех главных сторон работы, в <emphasis>3-м же сеансе</emphasis> (после перерыва в <emphasis>180 дней</emphasis>) наблюдается в 4 главных пунктах <emphasis>ухудшение</emphasis> работы; соответственно этому резко уменьшена и средняя скорость работы (см. <xref linkend="table203" />).
+</para>
+<para>
+Почти то же соотношение наблюдается и в отношении механизма <emphasis role="bold">U</emphasis>, испытанного после 2 разных сроков перерыва в работе (в 45 и 180 дней).
+</para>
+<para>
+И в этом случае в <emphasis>пяти</emphasis> пунктах намечается ухудшение работы в 3-м сеансе по сравнению со 2-м; и только в первом пункте
+<footnote><para>
+Соотношение времени в последнем опыте до перерыва и первом опыте после перерыва в работе.
+</para></footnote> 
+работа одинакова.
+</para>
+<para>
+Если же мы вообще бросим беглый взгляд на числовые данные, полученные после 45-и 180-дневного перерыва в работе, то мы сможем усмотреть следующие закономерности.
+</para>
+<para>
+Как и ранее (при более коротком перерыве), 1-й опыт отмыкания длительнее последнего опыта до перерыва; если же он меньше последнего, как то наблюдается в отношении особенно легко податливых механизмов: <emphasis role="bold">S</emphasis>, <emphasis role="bold">a</emphasis>, <emphasis role="bold">b</emphasis>, <emphasis role="bold">&#0220;</emphasis>, то обычно на весьма малую величину.
+</para>
+<para>
+При рассмотрении числовых данных других рубрик наблюдается, что величина первого опыта после перерыва по сравнению с первым опытом до перерыва, как и величина максимально длительного опыта, как правило, резко уменьшается, &mdash;  она увеличивается лишь в виде исключения (у механизма цепи <emphasis role="bold">C</emphasis><subscript>3</subscript> и задвижки <emphasis role="bold">Y</emphasis><subscript>1</subscript>); точно так же, как правило, уменьшается, но не столь значительно, и величина последнего опыта и максимально короткого опыта более позднего сеанса (в виде исключения эта величина больше у накладки со втулкой <emphasis role="bold">d</emphasis><subscript>2</subscript> и завертки <emphasis role="bold">&#0220;</emphasis>).
+</para>
+<para>
+Как правило, <emphasis>средняя продолжительность</emphasis> отмыкания, вопреки перерыву в работе, в более поздних сеансах по сравнению с более ранними уменьшена. Как уже было упомянуто, она увеличена лишь для двух механизмов (<emphasis role="bold">C</emphasis><subscript>3</subscript> и <emphasis role="bold">Y</emphasis><subscript>1</subscript>).
+</para>
+<para>
+Подводя общий итог анализа нашей таблицы, мы должны сказать, что перерыв в работе существенно <emphasis>ухудшает</emphasis> лишь длительность <emphasis>1-го опыта</emphasis> после перерыва по сравнению с <emphasis>последним</emphasis> опытом до перерыва &mdash;  все же другие соотношения данных, полученных <emphasis>до и после</emphasis> перерыва, как правило, выражаются <emphasis>положительной</emphasis> величиной. Это будет особенно очевидно, если мы в каждой рубрике подытожим количество положительных и отрицательных данных из общего числа тех 23, которые приведены в таблице, и вычислим в процентах отношения первых к последним, тогда обнаружится:
+<simplelist>
+<member>по 1-й рубрике процент положительных данных &mdash;  34,7, отрицательных &mdash;  65,2</member>
+<member>по 2-й рубрике процент положительных данных &mdash;  86,9 отрицательных &mdash;  13,0</member>
+<member>по 3-й рубрике процент положительных данных &mdash;  82,6 отрицательных &mdash;  17,3</member>
+<member>по 4-й рубрике процент положительных данных &mdash;  86,9 отрицательных &mdash;  13,0</member>
+<member>по 5-й рубрике процент положительных данных &mdash;  91,3 отрицательных &mdash;  8,6</member>
+<member>по 6-й рубрике процент положительных данных &mdash;  96,9 отрицательных &mdash;  13,0</member>
+</simplelist>
+</para>
+<para>
+Переводя эти данные на более конкретную почву, т. е. рассмотрев: величину чисел, выражающих отношение между разными сторонами работы до и после перерыва в оперировании с механизмами, мы (на основании рассмотрения новой, ниже прилагаемой подытоженной таблицы) должны будем сделать следующие выводы (см. <xref linkend="table207" />):
+<orderedlist>
+<listitem><para><emphasis>Длительность первого опыта</emphasis> отмыкания после перерыва, по сравнению с <emphasis>последним</emphasis> опытом до перерыва, как правило, <emphasis>увеличивается</emphasis>
+<footnote><para>
+Почему отношение между последним опытом до перерыва и 1-м опытом после перерыва выражается отрицательной величиной.
+</para></footnote> 
+[что наблюдается у 14 механизмов <emphasis role="bold">P</emphasis>, <emphasis role="bold">T</emphasis>, <emphasis role="bold">U</emphasis>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">Y</emphasis><subscript>1(1)</subscript>, <emphasis role="bold">X</emphasis><subscript>(1)</subscript>, <emphasis role="bold">Y</emphasis><subscript>1(2)</subscript>, <emphasis role="bold">C</emphasis><subscript>3(2)</subscript>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">U</emphasis><subscript>2</subscript>, <emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>1(1)</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>1(2)</subscript>]. Она уменьшается (весьма незначительно в. 1&mdash; 2 раза, или единично несколько более значительно, как у <emphasis role="bold">O</emphasis>, &mdash;  в 8 раз) лишь у механизмов <emphasis role="bold">O</emphasis>, <emphasis role="bold">L</emphasis>, <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">А</emphasis><subscript>1</subscript>, <emphasis role="bold">b</emphasis>, <emphasis role="bold">C</emphasis><subscript>3(1)</subscript>, <emphasis role="bold">a</emphasis>, <emphasis role="bold">V</emphasis>, <emphasis role="bold">S</emphasis>.</para></listitem>
+<listitem><para>Длительность <emphasis>1-го опыта</emphasis> после перерыва по сравнению с 1-м до перерыва, как правило, <emphasis>уменьшается</emphasis>; у большинства (13) механизмов это уменьшение не превышает 10 раз [<emphasis role="bold">T</emphasis>, <emphasis role="bold">b</emphasis>, <emphasis role="bold">V</emphasis>, <emphasis role="bold">X</emphasis><subscript>1</subscript>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">a</emphasis>, <emphasis role="bold">C</emphasis><subscript>3(1)</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>(2)</subscript>, <emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">S</emphasis><subscript>1</subscript>, <emphasis role="bold">Y</emphasis><subscript>1(1)</subscript>, <emphasis role="bold">U</emphasis><subscript>(2)</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>(1)</subscript>] и у небольшого количества (5) механизмов оно свыше 10 до 100 раз [emphasis role="bold">А</emphasis><subscript>1</subscript>, <emphasis role="bold">L</emphasis>, <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">U</emphasis><subscript>(1)</subscript>] и у некоторых механизмов (у двух) это уменьшение свыше 100 до 500 раз (<emphasis role="bold">O</emphasis>, <emphasis role="bold">P</emphasis>); длительность 1-го опыта увеличивается лишь в виде исключения у трех механизмов [<emphasis role="bold">Y</emphasis><subscript>1(2)</subscript>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">C</emphasis><subscript>3(2)</subscript>].</para></listitem>
+<listitem><para>Длительность <emphasis>последнего</emphasis> опыта после перерыва по сравнению с <emphasis>последним</emphasis> до перерыва, как правило, у 19 механизмов <emphasis>уменьшается</emphasis>
+<footnote><para>
+Почему в таблице отношение между последним опытом до перерыва и последним после перерыва выражается положительной величиной.
+</para></footnote>, 
+но это уменьшение не превышает 10 раз у механизмов emphasis role="bold">А</emphasis><subscript>1</subscript>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">V</emphasis>, <emphasis role="bold">&#931;</emphasis><subscript>(2)</subscript>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">P</emphasis>, <emphasis role="bold">U</emphasis>, <emphasis role="bold">C</emphasis><subscript>3</subscript>, <emphasis role="bold">Y</emphasis><subscript>1(1)</subscript>, <emphasis role="bold">X</emphasis><subscript>1</subscript>, <emphasis role="bold">U</emphasis><subscript>(2)</subscript>, <emphasis role="bold">S</emphasis>, <emphasis role="bold">C</emphasis><subscript>3(1)</subscript>, <emphasis role="bold">a</emphasis>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">T</emphasis>, <emphasis role="bold">b</emphasis>, <emphasis role="bold">Y</emphasis><subscript>1(2)</subscript>]; она увеличивается лишь в виде исключения
+<footnote><para>
+Почему в таблице выражается отрицательной величиной.
+</para></footnote> 
+у 4 механизмов [<emphasis role="bold">L</emphasis>, <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>(1)</subscript>].</para></listitem>
+<listitem><para>Длительность <emphasis>максимально продолжительного опыта</emphasis> после перерыва по сравнению с таковым до перерыва, как правило, <emphasis>уменьшается</emphasis>, причем это уменьшение у большинства (13) механизмов не превышает 10 раз [<emphasis role="bold">b</emphasis>, <emphasis role="bold">X</emphasis><subscript>1</subscript>, <emphasis role="bold">a</emphasis>, <emphasis role="bold">U</emphasis><subscript>1</subscript>, <emphasis role="bold">S</emphasis>, <emphasis role="bold">L</emphasis>, <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">U</emphasis><subscript>(2)</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>(2)</subscript>, <emphasis role="bold">Y</emphasis><subscript>1(1)</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>(1)</subscript>], у меньшего количества (6) &mdash;  свыше 10 до 100 (emphasis role="bold">А</emphasis><subscript>1</subscript>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">T</emphasis>, <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">C</emphasis><subscript>3(1)</subscript>, <emphasis role="bold">V</emphasis>); у одного механизма <emphasis role="bold">P</emphasis> &mdash;  свыше 100; у трех механизмов [<emphasis role="bold">Y</emphasis><subscript>1(2)</subscript>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">C</emphasis><subscript>3(2)</subscript>] уменьшения, вовсе нет.</para></listitem>
+<listitem><para>Длительность <emphasis>кратчайшего опыта</emphasis> после перерыва по сравнению с таковым до перерыва, как правило, <emphasis>уменьшается</emphasis> не более чем в 10 раз, что имеет место у 21 механизма [emphasis role="bold">А</emphasis><subscript>1</subscript>, <emphasis role="bold">Y</emphasis><subscript>1(1)</subscript>, <emphasis role="bold">Y</emphasis><subscript>1(2)</subscript>, <emphasis role="bold">V</emphasis>, <emphasis role="bold">U</emphasis>, <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>(2)</subscript>, <emphasis role="bold">L</emphasis>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>(1)</subscript>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">U</emphasis><subscript>(2)</subscript>, <emphasis role="bold">X</emphasis><subscript>1</subscript>, <emphasis role="bold">S</emphasis>, <emphasis role="bold">T</emphasis>, <emphasis role="bold">b</emphasis>, <emphasis role="bold">C</emphasis><subscript>3(1)</subscript>, <emphasis role="bold">C</emphasis><subscript>3(2)</subscript>, <emphasis role="bold">a</emphasis>], увеличиваясь лишь в виде исключения у двух (<emphasis role="bold">P</emphasis> и <emphasis role="bold">d</emphasis><subscript>2</subscript>).</para></listitem>
+<listitem><para><emphasis>Средняя продолжительность</emphasis> работы в сеансе после перерыва по сравнению с таковым до перерыва, как правило, <emphasis>уменьшается</emphasis>, причем это уменьшение у подавляющего большинства &mdash;  17 механизмов &mdash;  колеблется в пределах от 1 до 10 раз [<emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">T</emphasis>, <emphasis role="bold">C</emphasis><subscript>3(1)</subscript>, <emphasis role="bold">L</emphasis>, <emphasis role="bold">b</emphasis>, <emphasis role="bold">U</emphasis><subscript>1</subscript>, <emphasis role="bold">X</emphasis><subscript>1</subscript>, <emphasis role="bold">S</emphasis>, <emphasis role="bold">Y</emphasis><subscript>1(1)</subscript>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">U</emphasis><subscript>(2)</subscript>, <emphasis role="bold">V</emphasis>, <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">a</emphasis>, <emphasis role="bold">&#931;</emphasis><subscript>(1 и 2)</subscript>], у 3 механизмов (<emphasis role="bold">P</emphasis>, emphasis role="bold">А</emphasis><subscript>1</subscript>, <emphasis role="bold">O</emphasis>) оно превышает 10 раз, но не более 67, и у 3 механизмов [<emphasis role="bold">Y</emphasis><subscript>1(2)</subscript>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">C</emphasis><subscript>3(2)</subscript>] эта продолжительность больше
+<footnote><para>
+Что в нашей таблице (на <xref linkend="table207" />), отражающей отношение между средней скоростью <emphasis>до</emphasis> перерыва и средней скоростью <emphasis>после</emphasis> перерыва, выражается отрицательной величиной.
+</para></footnote>.</para></listitem>
+</orderedlist>
+</para>
+</para>
+
+<para>
+Намечаются следующие главные выводы на основании анализа работы обезьяны с разными механизмами после перерыва в работе:
+<orderedlist>
+<listitem><para><emphasis>Один и тот же</emphasis> перерыв в работе <emphasis>различно</emphasis> сказывается на <emphasis>различных</emphasis> сторонах работы с одним и тем же механизмом.</para></listitem>
+<listitem><para><emphasis>Один и тот же перерыв</emphasis> в работе <emphasis>различно</emphasis> влияет <emphasis>на одну и ту же сторону</emphasis> работы, но <emphasis>разных</emphasis> механизмов.</para></listitem>
+<listitem><para><emphasis>Небольшой</emphasis> перерыв в работе с <emphasis>одним и тем же</emphasis> механизмом (от <superscript>1</superscript>/<subscript>2</subscript> суток до 7&mdash; 30 суток), как правило, <emphasis>улучшает</emphasis> все стороны работы (<emphasis>за исключением 1-го опыта после перерыва</emphasis>) (см. <xref linkend="table202" />, <xref linkend="table203" />).</para></listitem>
+<listitem><para><emphasis>Большой</emphasis> перерыв в работе с <emphasis>одним и тем нее механизмом</emphasis> (до 45&mdash; 180 дней), как правило, отражается <emphasis>неблагоприятно</emphasis> на <emphasis>главных</emphasis> сторонах работы, замедляя скорость ее завершения.</para></listitem>
+<listitem><para>В общем <emphasis>всякий перерыв</emphasis> в работе с разными механизмами, как правило, отражается весьма <emphasis>различно на разных сторонах работы</emphasis> (см. <xref linkend="table207" />).</para></listitem>
+<listitem><para>Всякий перерыв в работе <emphasis>неблагоприятно</emphasis> отражается главным образом <emphasis>на первом опыте</emphasis> отмыкания при сравнении этого опыта с <emphasis>последним</emphasis> предыдущего сеанса.</para></listitem>
+<listitem><para>При <emphasis>суммарном подытоживании</emphasis> данных, полученных <emphasis>до и после перерыва</emphasis>, оказывается, что перерыв в работе по большей части не ухудшает, но улучшает главные стороны работы (за исключением отмеченного в 6-м пункте), причем это улучшение особенно значительно в отношении <emphasis>1-го опыта</emphasis> после перерыва по сравнению с таковым до перерыва и в отношении <emphasis>максимально длительного опыта</emphasis> [у части механизмов (13+13) улучшение в пределах от 1 до 10 раз; у части (5+6) оно в пределах от 10 до 100: у единичных механизмов (2+l) оно свыше 100 до 500].</para></listitem>
+</orderedlist>
+</para>
+
+<para>
+Улучшение менее значительно при сравнении <emphasis>последнего</emphasis> опыта и <emphasis>минимально длительного</emphasis> опыта до и после перерыва [у подавляющего большинства (19+21) механизмов &mdash;  улучшение в пределах от 1 до 10 раз и не более того].
+</para>
+
+<para>
+<emphasis>Средняя продолжительность</emphasis> работы в сеансах после перерыва, как правило, <emphasis>уменьшена</emphasis> (у подавляющего большинства механизмов (17) это уменьшение в пределах от 1 до 10 раз и у 3 наиболее трудных для первого преодоления оно превышает 10 раз).
+</para>
+
+<para>
+Наблюдающееся в виде исключения ухудшение работы
+<footnote><para>
+Не считая опять-таки случаев, затронутых в 6-м пункте.
+</para></footnote> 
+после перерыва относится главным образом к оперированию с некоторыми осложненными механизмами после длительного перерыва (45 и 180 дней), как, например, с <emphasis role="bold">C</emphasis><subscript>3(2)</subscript>, <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">Y</emphasis><subscript>1(2)</subscript>, или с механизмами (по сравнению с другими представленными) более своеобразного типа (как самозамыкающаяся щеколда <emphasis role="bold">L</emphasis>, обмотка <emphasis role="bold">&#931;</emphasis>), или с механизмами, предложенными вслед за обратными по направлению движения механизмами (как <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">&#0220;</emphasis>).
+</para>
+
+<para>
+У большинства механизмов ухудшение касается лишь частных, менее важных сторон работы (увеличение длительности последнего и минимально короткого опыта, как, например, у <emphasis role="bold">L</emphasis>, <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">d</emphasis><subscript>2</subscript>,
+<footnote><para>
+Выражается весьма незначительной абсолютной величиной.
+</para></footnote> 
+<emphasis role="bold">&#931;</emphasis>, <emphasis role="bold">P</emphasis>) и не отражается на средней продолжительности оперирования, которая является даже укороченной в сеансе после перерыва.
+</para>
+
+<para>
+Ухудшение средней продолжительности работы в сеансе после перерыва наблюдается в виде исключения лишь у трех выше охарактеризованных более сложных механизмов (<emphasis role="bold">Y</emphasis><subscript>1(2)</subscript>, <emphasis role="bold">C</emphasis><subscript>3(2)</subscript>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>).
+</para>
