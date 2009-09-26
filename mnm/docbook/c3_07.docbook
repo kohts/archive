@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 Рассмотрение величин <emphasis>средней скорости</emphasis> отмыкания различных комбинаций механизмов заставляет подчеркнуть следующие особенности.
 </para>
 
@@ -113,7 +113,7 @@ III рубрика.</member>
 <member>Комбин. из 4 механ. Срок отмыкания от 5&mdash; 10 сек. &mdash; 0 комб. &mdash;</member>
 <member>Комбин. из 4 механ. Срок отмыкания от 10&mdash;60 сек. &mdash; 4 комб. <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">АБee</emphasis>, <emphasis role="bold">KLMN</emphasis>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">KM</emphasis></member>
 <member>Комбин. из 4 механ. Срок отмыкания от 60&mdash;300 сек. &mdash; 5 комб. <emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">d</emphasis><subscript>4</subscript>, 4 кр. (из 6), <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">V</emphasis><subscript>1</subscript><emphasis role="bold">W</emphasis><subscript>1</subscript><emphasis role="bold">X</emphasis><subscript>2</subscript><emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis><emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript></member>
-<simplelist>
+</simplelist>
 </para>
 
 <para>

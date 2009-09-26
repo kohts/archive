@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 Начиная наш просмотр с ряда числовых данных, относящихся к скорости выполнения работы, именно к <emphasis>первому опыту отмыкания</emphasis>, мы опять-таки
 <footnote><para>
 Как и при анализе 1-го опыта отмыкания единичных механизмов.
@@ -90,7 +90,9 @@
 <simplelist>
 <member>длительность 1-го опыта отмыкания с 2 крюками (<emphasis role="bold">CD</emphasis>) 1-й день = 150 сек.</member>
 <member>длительность 1-го опыта отмыкания с 2 крюками (<emphasis role="bold">CD</emphasis>) 2-й день = 5 сек.</member>
-<simplelist>
+</simplelist>
+</para>
+
 <para role="details">
 <para>
 Такие же выводы напрашиваются и при анализе других типов механизмов (см. нижеприведенную табличку  
@@ -113,7 +115,7 @@
 <member>3 щеколды <emphasis role="bold">KMN</emphasis> отмыкаются 9,5 сек.</member>
 <member>2 щеколды <emphasis role="bold">KM</emphasis> отмыкаются 10 сек.</member>
 <member>2 щеколды <emphasis role="bold">KL</emphasis> отмыкаются 5 сек.</member>
-<simplelist>
+</simplelist>
 </para>
 <para>
 Как правило, в подавляющем большинстве случаев и здесь вышеприведенные положения находят себе подтверждение фактами.
