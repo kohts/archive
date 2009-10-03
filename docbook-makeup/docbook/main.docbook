@@ -19,6 +19,7 @@
   <!ENTITY c4_2_zhzh-specific SYSTEM "c4_2_zhzh-specific.docbook">
   <!ENTITY c4_3_otchet-specific SYSTEM "c4_3_otchet-specific.docbook">
   <!ENTITY c4_4_mnm-specific SYSTEM "c4_4_mnm-specific.docbook">
+  <!ENTITY c5_illustrations SYSTEM "c5_illustrations.docbook">
   <!ENTITY c6_software SYSTEM "c6_software.docbook">
 ]>
 
@@ -54,7 +55,7 @@
     <sect1><title>Отчет зоопсихологической лаборатории при Дарвиновском Музее</title>&c4_3_otchet-specific;</sect1>
     <sect1><title>Моторные навыки макака</title>&c4_4_mnm-specific;</sect1>
 </chapter>
-<chapter id="c5"><title>Подготовка иллюстраций</title></chapter>
+<chapter id="c5"><title>Подготовка иллюстраций</title>&c5_illustrations;</chapter>
 <chapter id="c6"><title>Программное обеспечение</title>&c6_software;</chapter>
 
 </book>
