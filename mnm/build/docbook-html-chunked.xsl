@@ -48,7 +48,7 @@
 appendix  title
 article/appendix  nop
 article   toc,title
-book      toc,title,figure,table,example
+book      toc,title,figure,table,example,equation
 chapter   toc,title
 part      toc,title
 preface   toc,title
@@ -74,8 +74,8 @@ part      toc,title
   <l:i18n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0">
     <l:l10n language="ru">
 
-	  <l:gentext key="Figure" text="Таблица"/>
-	  <l:gentext key="figure" text="Таблица"/>
+	  <l:gentext key="Figure" text="Рисунок"/>
+	  <l:gentext key="figure" text="Рисунок"/>
       <l:gentext key="ListofFigures" text="Список рисунков"/>
       <l:gentext key="listoffigures" text="Список рисунков"/>
       <l:context name="title">
@@ -93,13 +93,27 @@ part      toc,title
       <l:gentext key="ListofExamples" text="Список фотоиллюстраций"/>
       <l:gentext key="listofexamples" text="Список фотоиллюстраций"/>
 	  <l:context name="title">
-        <l:template name="example" text="Табл. %n. %t"/>
+        <l:template name="example" text="Фототаблица %n. %t"/>
 	  </l:context>
 	  <l:context name="xref-number">
-	    <l:template name="example" text="Табл. %n"/>
+	    <l:template name="example" text="Фото %n"/>
 	  </l:context>
 	  <l:context name="xref-number-and-title">
-	    <l:template name="example" text="Табл. %n"/>
+	    <l:template name="example" text="Фото %n"/>
+	  </l:context>
+
+	  <l:gentext key="Equation" text="Кривая"/>
+	  <l:gentext key="equation" text="Кривая"/>
+      <l:gentext key="ListofEquations" text="Список кривых"/>
+      <l:gentext key="listofequations" text="Список кривых"/>
+	  <l:context name="title">
+        <l:template name="equation" text="Кривая %n. %t"/>
+	  </l:context>
+	  <l:context name="xref-number">
+	    <l:template name="equation" text="Кривая %n"/>
+	  </l:context>
+	  <l:context name="xref-number-and-title">
+	    <l:template name="equation" text="Кривая %n"/>
 	  </l:context>
 
 	</l:l10n>

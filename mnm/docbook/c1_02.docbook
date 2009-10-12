@@ -1,6 +1,5 @@
-<formalpara>
+<sect2>
 <title>Оперирование с единичными крюками.</title>
-</formalpara>
 
 <para>
 В последующем осложнение еще более значительно. Дверца экспериментальной клетки замыкается <emphasis role="bold">большим черным крюком (А<subscript>1</subscript>)</emphasis>, прикрепленным для простоты манипуляций в <emphasis role="bold">наклонном</emphasis> положении (<xref linkend="picture2" />). Для отмыкания крюка требуется прикосновение к его палочковидному стержню и легкое движение откидывания его вправо.
@@ -11,6 +10,17 @@
 Обезьяна производит привычное движение толкания руками в переднюю дверцу клетки; не преуспевая в открывании, она начинает кусать дверь у краев, потом вдруг обращается к крюку, касается его, сразу (в 2 сек.) снимает его с петли, но не учитывает отмыкания, ибо только позднее, через некоторое время, толкает дверцу клетки и выходит наружу.
 </para>
 <para>Производится второе замыкание того же самого механизма.</para>
+
+<figure id="picture2">
+  <title>Крюк А<subscript>1</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture2.jpg">
+    <imageobject><imagedata fileref="images/html/picture2.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture2.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Обезьяна толкает, толкает, толкает дверь, кусает зубами у дверной скважины, пробует зубами и губами крюк у неподвижной точки; не преуспевая в отмыкании, бросает механизм, отходит к задней двери клетки, упирается в нее руками, толкает, опять обращается к передней дверце, сотрясает ее, пристально приглядывается к крюку, зубами и руками прикладывается к неподвижному концу, трогает подвижный конец крюка, но скоро отвлекается, отходит, толкает съемный потолок клетки, на секунду совсем успокаивается; в следующую секунду она опять обращается к глухой двери, потом, возвращаясь к крюку, схватывает сверху верным движением палочку крюка, но не доводит до конца этого движения, опять отрывается, опять манипулирует у неподвижной части крюка &mdash; и потому безрезультатно; тогда обезьяна начинает бегать по клетке, потом, остановившись, пристально присматривается к крюку, но не работает с ним, обращается ко второй глухой дверце клетки, грызет сетку клетки, снова больше занята исследованием глухой, чем подвижной дверцы; крюк она совершенно игнорирует, а вскоре и совсем перестает интересоваться и механизмом и работой.
 </para>
@@ -113,6 +123,16 @@
 </para>
 </para>
 
+<figure id="picture3">
+  <title>Крюк Б</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture3.jpg">
+    <imageobject><imagedata fileref="images/html/picture3.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture3.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 При перемене замыкающего механизма (при предъявлении крюка <emphasis>аналогичного по конструкции</emphasis>, но несколько иного <emphasis>по виду</emphasis> &mdash; <emphasis role="bold">Б</emphasis>), при изменении <emphasis>местоположения</emphasis> его на дверце (крюк <emphasis role="bold">Б</emphasis> помещается не вверху, а <emphasis>внизу</emphasis> дверцы, &mdash; <xref linkend="picture3" />), при изменении <emphasis>направления</emphasis> его снимания по сравнению с предыдущим (последний крюк отмыкается движением <emphasis>в левую</emphasis> сторону, а не <emphasis>в правую</emphasis> &mdash; <xref linkend="photo8" />, <xref linkend="photo9" />), &mdash; наблюдается такая картина работы:
 </para>
@@ -133,6 +153,16 @@
 С целью проверки способности обезьяны к преодолению механизма аналогичной конструкции (крюка <emphasis role="bold">E</emphasis><subscript>1</subscript>), но совершенно <emphasis role="bold">иного по виду и по податливости,</emphasis> требующего большего усилия при отмыкании (ввиду меньшей податливости центра приложения силы), ставятся горизонтальный <emphasis>плоский</emphasis>, плотно <emphasis>прилегающий</emphasis> крюк, замыкающийся на гвоздике то более, то менее плотно &mdash; отмыкается крюк в левую сторону (<xref linkend="picture4" />; <xref linkend="photo8" />, <xref linkend="photo9" />).
 </para>
 
+<figure id="picture4">
+  <title>Крюк E<subscript>1</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture4.jpg">
+    <imageobject><imagedata fileref="images/html/picture4.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture4.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para role="details">
 <para>
 Обезьяна явно учитывает механизм как <emphasis>новый</emphasis>, пристально вглядывается в него, осторожно трогает его пальцем.
@@ -148,9 +178,36 @@
 </para>
 </para>
 
+<equation id="curve1-5">
+  <title>Кривые 1 &#8212; 5</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve1-5.jpg">
+    <imageobject><imagedata fileref="images/html/curve1-5.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve1-5.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Кривая 1. Крюк А<subscript>1</subscript><?br?>
+Кривая 2. Крюк А<subscript>2</subscript><?br?>
+Кривая 3. Крюк А<subscript>3</subscript><?br?>
+Кривая 4. Крюк Б<?br?>
+Кривая 5. Крюк Е<subscript>1</subscript><?br?>
+</para></textobject></mediaobject>
+</equation>
+
 <para>
 Ставится проверка постижения механизма аналогичной конструкции, прикрепленного также в горизонтальном положении, но <emphasis role="bold">иного по виду: величине, цвету, форме и с более легко податливым</emphasis> центром приложения силы. Навинчивается палочкообразный, светлый, блестящий, короткий <emphasis role="bold">крюк C</emphasis> (см. <xref linkend="picture5" />).
 </para>
+
+<figure id="picture5">
+  <title>Крюк C</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture5.jpg">
+    <imageobject><imagedata fileref="images/html/picture5.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture5.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para role="details">
 <para>
@@ -164,12 +221,24 @@
 Таким образом и теперь узнавание крюка, как <emphasis>первого и центрального</emphasis> препятствия, осуществляется и при резком изменении его вида.
 </para>
 </para>
+</sect2>
 
+<sect2>
 <title>Оперирование с комбинацией крюков.</title>
 
 <para>
 Предъявляется проверка постижения механизма почти аналогичного по конструкции и по виду с предыдущим (крюком <emphasis role="bold">C</emphasis>), но прикрепленного в прямо противоположном, по сравнению с первым, положении.
 </para>
+
+<figure id="picture6">
+  <title>Крюк D</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture6.jpg">
+    <imageobject><imagedata fileref="images/html/picture6.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture6.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 Навинчивается крюк <emphasis role="bold">такой же величины, цвета и формы,</emphasis> но его <emphasis role="bold">палочка в месте загиба слегка изогнута, </emphasis> что несколько затрудняет его отмыкание [новый крюк <emphasis role="bold">D</emphasis> отмыкается движением отведения слева направо (<xref linkend="picture6" />), прежний крюк <emphasis role="bold">C</emphasis>, наоборот, справа налево].
@@ -178,6 +247,20 @@
 <para>
 <emphasis role="bold">Оба</emphasis> механизма прикрепляются <emphasis role="bold">одновременно</emphasis> и почти рядом (один под другим): крюк прежний <emphasis role="bold">C</emphasis> &mdash; верхний, прямой, левый; крюк <emphasis role="bold">D</emphasis> &mdash; новый, нижний, изогнутый, правый.
 </para>
+
+<example id="photo4">
+  <title>Проведение опытов</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/photo4.jpg">
+    <imageobject><imagedata fileref="images/html/photo4.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/photo4.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Фиг. 1. Работа обезьяны над отмыканием механизма<?br?>
+Фиг. 2. Вхождение обезьяны в отпертую дверь<?br?>
+</para></textobject></mediaobject>
+</example>
 
 <para role="details">
 <para>
@@ -253,6 +336,16 @@
  сеансов при работе с крюками <emphasis role="bold">C</emphasis> и <emphasis role="bold">D</emphasis>).
 </para>
 </para>
+
+<equation id="6">
+  <title>2 крюка C и D</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve6.jpg">
+    <imageobject><imagedata fileref="images/html/curve6.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve6.jpg" /></imageobject>
+  </mediaobject>
+</equation>
 
 <para>
 Установка осложняется (см. <xref linkend="photo8" />, фиг. 1, 2, 3). Прибиваются <emphasis role="bold">три одинаковых по форме плоских крюка</emphasis>, один под другим; из них один <emphasis role="bold">e</emphasis><subscript>3</subscript>, два других несколько меньше его <emphasis role="bold">e</emphasis><subscript>2</subscript>, <emphasis role="bold">e</emphasis><subscript>4</subscript> расположены один вверху, другой внизу от большего; все крюки прибиты на одной и той же стороне и требуют одного и того же движения приподнимания и откидывания влево при отмыкании.
@@ -560,3 +653,5 @@
 Приблизительный учет отношения времени завершения работы к количеству зарегистрированных обращений к механизмам позволяет сделать следующий вывод: в среднем на каждую операцию с механизмом крюка обезьяна тратит от 8,2 до 8,6 сек., но это время удлиняется до <superscript>1</superscript>/<subscript>2</subscript> минуты в исключительных случаях (при наличии большого количества посторонних движений и отвлечения) и уменьшается до 2,3&mdash;3,3 сек. в случае оперирования обезьяны лишь с одними крюками.
 </para>
 </para>
+
+</sect2>

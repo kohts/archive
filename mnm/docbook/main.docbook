@@ -8,6 +8,7 @@
 </tgroup></informaltable>
  ">
 
+   <!ENTITY cover SYSTEM "cover.docbook">
    <!ENTITY predislovie SYSTEM "predislovie.docbook">
    <!ENTITY vvedenie SYSTEM "vvedenie.docbook">
 
@@ -101,6 +102,7 @@
 <para>To Professor Robert M. Yerkes in admiration of his works this book is respectfully dedicated by the author</para>
 </dedication>
 
+<preface id="cover"><title>Обложка</title>&cover;</preface>
 <preface id="predislovie"><title>Предисловие</title>&predislovie;</preface>
 <preface id="vvedenie"><title>Введение. Цели и методика исследования.</title>&vvedenie;</preface>
 

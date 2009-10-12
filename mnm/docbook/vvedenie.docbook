@@ -162,6 +162,16 @@
 Четырехугольная деревянная клетка, с выдвижным полом <emphasis role="bold">(1)</emphasis> и съемным прозрачным (обтянутым металлической сеткой) потолком <emphasis role="bold">(2)</emphasis>, имела одну боковую, сетчатую, глухую стенку <emphasis role="bold">(3)</emphasis> и три стены с дверьми.
 </para>
 
+<figure id="picture1">
+  <title>Экспериментальная клетка</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture1.jpg">
+    <imageobject><imagedata fileref="images/html/picture1.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture1.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Передняя стенка клетки <emphasis role="bold">(4)</emphasis> представляла собою раму с пазами <emphasis role="bold">(5)</emphasis> для вставления переносных глухих или прозрачных, меньших по величине и точно пригнанных рамок <emphasis role="bold">(6)</emphasis> с дверьми <emphasis role="bold">(7)</emphasis>, замыкающимися снаружи или изнутри различными механизмами.
 </para>
@@ -311,3 +321,31 @@
 </para>
 
 &liniya;
+
+<example id="photo2">
+  <title>Макак в позе угрозы и насторожившийся</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/photo2.jpg">
+    <imageobject><imagedata fileref="images/html/photo2.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/photo2.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Фиг. 1. Макак в позе угрозы<?br?>
+Фиг. 2. Макак насторожившийся<?br?>
+</para></textobject></mediaobject>
+</example>
+
+<example id="photo3">
+  <title>Подготовка опытов</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/photo3.jpg">
+    <imageobject><imagedata fileref="images/html/photo3.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/photo3.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Фиг. 1. Вставление рамки в клетку<?br?>
+Фиг. 2. Вкладывание прикорма<?br?>
+</para></textobject></mediaobject>
+</example>
