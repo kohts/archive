@@ -79,21 +79,21 @@
 В ответ на это следует сделать сравнительное сопоставление, выраженное в следующей таблице:
 <simplelist>
 <member><emphasis>Комбинации из 2 механизмов &mdash; максимальный срок отмыкания.</emphasis></member>
-<member>1) <emphasis role="bold">ST</emphasis>, 2) <emphasis role="bold">KL</emphasis>, 3) <emphasis role="bold">CD</emphasis><subscript>(2)</subscript>, 4) <emphasis role="bold">KM</emphasis>. . . . . . . . . . . . . . . . . .15&mdash;30 сек.</member>
-<member>5) <emphasis role="bold">U&#0220;</emphasis> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30&mdash; 60 сек.</member>
-<member> 6) <emphasis role="bold">OI</emphasis>, 7) <emphasis role="bold">CD</emphasis><subscript>(1)</subscript>, 8) 2 крюка (при 3-х), 9) <emphasis role="bold">YI</emphasis>. . . . . . . 60&mdash; 80 сек.</member>
-<member>10) <emphasis role="bold">OP</emphasis>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 180 &mdash; 300 сек.</member>
-<member>11) <emphasis role="bold">FG</emphasis>, 12) <emphasis role="bold">IP</emphasis> и 13) <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>. . . . . . . . . . . . . . . . . . . . 300 и выше сек.</member>
+<member>1) <emphasis role="bold">ST</emphasis>, 2) <emphasis role="bold">KL</emphasis>, 3) <emphasis role="bold">CD</emphasis><subscript>(2)</subscript>, 4) <emphasis role="bold">KM</emphasis> &mdash; 15&mdash;30 сек.</member>
+<member>5) <emphasis role="bold">U&#0220;</emphasis> &mdash; 30 &mdash; 60 сек.</member>
+<member> 6) <emphasis role="bold">OI</emphasis>, 7) <emphasis role="bold">CD</emphasis><subscript>(1)</subscript>, 8) 2 крюка (при 3-х), 9) <emphasis role="bold">YI</emphasis> &mdash; 60 &mdash; 80 сек.</member>
+<member>10) <emphasis role="bold">OP</emphasis> &mdash; 180 &mdash; 300 сек.</member>
+<member>11) <emphasis role="bold">FG</emphasis>, 12) <emphasis role="bold">IP</emphasis> и 13) <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript> &mdash; 300 и выше сек.</member>
 <member><emphasis>Комбинации из 3 механизмов &mdash; максимальный срок отмыкания.</emphasis></member>
-<member>14) <emphasis role="bold">eee</emphasis> и 15) <emphasis role="bold">АБe</emphasis>. . . . . . . . . . . . . . . . . . . . . . . . . . . . 10&mdash;30 сек.</member>
-<member>16) <emphasis role="bold">KNM</emphasis>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 30 &mdash; 60 сек.</member>
-<member>17) <emphasis role="bold">ROI</emphasis>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 60 &mdash;300 сек.</member>
-<member>18) <emphasis role="bold">FGH</emphasis> и 19) <emphasis role="bold">OIP</emphasis>. . . . . . . . . . . . . . . . . . . . . . . . . . . 300 и выше сек.</member>
+<member>14) <emphasis role="bold">eee</emphasis> и 15) <emphasis role="bold">АБe</emphasis> &mdash; 10&mdash;30 сек.</member>
+<member>16) <emphasis role="bold">KNM</emphasis> &mdash; 30 &mdash; 60 сек.</member>
+<member>17) <emphasis role="bold">ROI</emphasis> &mdash; 60 &mdash;300 сек.</member>
+<member>18) <emphasis role="bold">FGH</emphasis> и 19) <emphasis role="bold">OIP</emphasis> &mdash; 300 и выше сек.</member>
 <member><emphasis>Комбинации из 4 механизмов &mdash; максимальный срок отмыкания.</emphasis></member>
-<member>20) <emphasis role="bold">АБee</emphasis>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 40 &mdash; 60 сек.</member>
-<member>21) <emphasis role="bold">KLMN</emphasis>, 22) 4 кр. (из 6) . . . . . . . . . . . . . . . . . . . . . 60 &mdash; 180 сек.</member>
-<member>23) <emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">d</emphasis><subscript>4</subscript>, 24) <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>, 25) <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">KM</emphasis>, 26) <emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript>. . . . 180 &mdash; 300 сек.</member>
-<member>27) <emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis><emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, 28) <emphasis role="bold">V</emphasis><subscript>1</subscript><emphasis role="bold">W</emphasis><subscript>1</subscript><emphasis role="bold">X</emphasis><subscript>2</subscript><emphasis role="bold">Y</emphasis><subscript>1</subscript>. . . . . . . . . . . . . . . . . . . . .300 и выше сек.</member>
+<member>20) <emphasis role="bold">АБee</emphasis>. 40 &mdash; 60 сек.</member>
+<member>21) <emphasis role="bold">KLMN</emphasis>, 22) 4 кр. (из 6) &mdash; 60 &mdash; 180 сек.</member>
+<member>23) <emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">d</emphasis><subscript>4</subscript>, 24) <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>, 25) <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">KM</emphasis>, 26) <emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript> &mdash; 180 &mdash; 300 сек.</member>
+<member>27) <emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis><emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, 28) <emphasis role="bold">V</emphasis><subscript>1</subscript><emphasis role="bold">W</emphasis><subscript>1</subscript><emphasis role="bold">X</emphasis><subscript>2</subscript><emphasis role="bold">Y</emphasis><subscript>1</subscript> &mdash; 300 и выше сек.</member>
 </simplelist>
 </para>
 
@@ -135,23 +135,23 @@
 
 <para role="details">
 <orderedlist>
-<listitem><para>Комбин. из 2 крюков <emphasis role="bold">CD</emphasis><subscript>(2)</subscript> имеет максимум от . . . . . . . . . . 10&mdash; 30 сек.</para></listitem>
-<listitem><para>Комбин. из 3 крюков <emphasis role="bold">eee</emphasis>, <emphasis role="bold">АБe</emphasis> имеет максимум от. . . . . . . . 10&mdash; 30 сек.</para></listitem>
-<listitem><para>Комбин. из 4 крюков <emphasis role="bold">АБee</emphasis>. . . . . . . . . . . . . . . . . . . . . . . . . . . 40 сек.</para></listitem>
+<listitem><para>Комбин. из 2 крюков <emphasis role="bold">CD</emphasis><subscript>(2)</subscript> имеет максимум от 10&mdash; 30 сек.</para></listitem>
+<listitem><para>Комбин. из 3 крюков <emphasis role="bold">eee</emphasis>, <emphasis role="bold">АБe</emphasis> имеет максимум от. 10&mdash; 30 сек.</para></listitem>
+<listitem><para>Комбин. из 4 крюков <emphasis role="bold">АБee</emphasis>. 40 сек.</para></listitem>
 <listitem><para>Комбин. из 6-7 крюков <emphasis role="bold">АБeeee</emphasis>, <emphasis role="bold">АБeeeee</emphasis> имеет макс, свыше. 60&mdash; 90 сек.</para></listitem>
-<listitem><para>Комбин. а) из 2 крюков (при 3) и b) 2 новых <emphasis role="bold">CD</emphasis><subscript>(1)</subscript> . . . . . . . . . 90-170 сек.</para></listitem>
-<listitem><para>Комбин. а) из 8-9 крюков b) 4 кр. (из 6) имеет максимум . . . . . 170&mdash;420 сек.</para></listitem>
-<listitem><para>Комбин. из 1 задв. <emphasis role="bold">FG</emphasis> имеет максимум . . . . . . . . . . . . . . 375 сек.</para></listitem>
-<listitem><para>Комбин. из 3 задв. <emphasis role="bold">FGH</emphasis>имеет максимум. . . . . . . . . . . . 364 сек.</para></listitem>
-<listitem><para>Комбин. из 1 щек. <emphasis role="bold">KLNM</emphasis> имеет максимум . . . . . . . . . 170 сек.</para></listitem>
-<listitem><para>Комбин. из 3 щек. <emphasis role="bold">KNM</emphasis> имеет максимум. . . . . . . . . 31 сек.</para></listitem>
-<listitem><para>Комбин. из 2 щек. <emphasis role="bold">KM</emphasis>, <emphasis role="bold">KL</emphasis> имеет максимум. . . . . . . . . 15&mdash; 24 сек.</para></listitem>
-<listitem><para>Комбин. из 2 задв. <emphasis role="bold">OI</emphasis> имеет максимум . . . . . . . 61 сек.</para></listitem>
-<listitem><para>Комбин. из 3 задв. <emphasis role="bold">ROI</emphasis>, <emphasis role="bold">OIP</emphasis> имеет максимум. . . . . . . 271&mdash;900 сек.</para></listitem>
-<listitem><para>Комбин. из 2 задв. <emphasis role="bold">OP</emphasis>, <emphasis role="bold">IP</emphasis> имеет максимум. . . . . . . 254&mdash;330 сек.</para></listitem>
-<listitem><para>Комбин. из 3 задв. <emphasis role="bold">OPI</emphasis> имеет максимум. . . . . . . 900 сек.</para></listitem>
-<listitem><para>Комбин. из 2 мех. 2 зав. (<emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>) имеет максимум . . . . 720 сек.</para></listitem>
-<listitem><para>Комбин. из 1 мех. 2 зав. (<emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>1</subscript>) ключа, обмотки (<emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis>) . . . 360 сек.</para></listitem>
+<listitem><para>Комбин. а) из 2 крюков (при 3) и b) 2 новых <emphasis role="bold">CD</emphasis><subscript>(1)</subscript> 90-170 сек.</para></listitem>
+<listitem><para>Комбин. а) из 8-9 крюков b) 4 кр. (из 6) имеет максимум 170&mdash;420 сек.</para></listitem>
+<listitem><para>Комбин. из 1 задв. <emphasis role="bold">FG</emphasis> имеет максимум 375 сек.</para></listitem>
+<listitem><para>Комбин. из 3 задв. <emphasis role="bold">FGH</emphasis>имеет максимум. 364 сек.</para></listitem>
+<listitem><para>Комбин. из 1 щек. <emphasis role="bold">KLNM</emphasis> имеет максимум 170 сек.</para></listitem>
+<listitem><para>Комбин. из 3 щек. <emphasis role="bold">KNM</emphasis> имеет максимум. 31 сек.</para></listitem>
+<listitem><para>Комбин. из 2 щек. <emphasis role="bold">KM</emphasis>, <emphasis role="bold">KL</emphasis> имеет максимум. 15&mdash; 24 сек.</para></listitem>
+<listitem><para>Комбин. из 2 задв. <emphasis role="bold">OI</emphasis> имеет максимум 61 сек.</para></listitem>
+<listitem><para>Комбин. из 3 задв. <emphasis role="bold">ROI</emphasis>, <emphasis role="bold">OIP</emphasis> имеет максимум. 271&mdash;900 сек.</para></listitem>
+<listitem><para>Комбин. из 2 задв. <emphasis role="bold">OP</emphasis>, <emphasis role="bold">IP</emphasis> имеет максимум. 254&mdash;330 сек.</para></listitem>
+<listitem><para>Комбин. из 3 задв. <emphasis role="bold">OPI</emphasis> имеет максимум. 900 сек.</para></listitem>
+<listitem><para>Комбин. из 2 мех. 2 зав. (<emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>) имеет максимум 720 сек.</para></listitem>
+<listitem><para>Комбин. из 1 мех. 2 зав. (<emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>1</subscript>) ключа, обмотки (<emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis>) 360 сек.</para></listitem>
 <listitem><para>Комбин. из 4 мех. 2 зав. (<emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>1</subscript>) 2 щек. (<emphasis role="bold">KM</emphasis>) имеет максимум 229 сек.</para></listitem>
 </orderedlist>
 </para>

@@ -9,11 +9,11 @@
 <para>
 Правда, и здесь одинаковые по величине минимумы встречаются главным образом при меньших величинах (не превосходящих срока 6 сек.), но эти минимумы разделяют между собой большое количество механизмов. Так, например:
 <simplelist>
-<member>минимум в 1 сек. имеют  21  механизм</member>
-<member>минимум в 2 сек. имеют  14 механизмов</member>
-<member>минимум в 3 сек. имеют  7 механизмов</member>
-<member>минимум в 5 сек. имеют  2 механизма</member>
-<member>минимум в 6 сек. имеют  2 механизма</member>
+<member>минимум в 1 сек. имеют 21 механизм</member>
+<member>минимум в 2 сек. имеют 14 механизмов</member>
+<member>минимум в 3 сек. имеют 7 механизмов</member>
+<member>минимум в 5 сек. имеют 2 механизма</member>
+<member>минимум в 6 сек. имеют 2 механизма</member>
 </simplelist>
 </para>
 <para>
@@ -61,7 +61,7 @@
 <member>со сроком отмыкания в 1 сек. времени &mdash; 21 механизм (<emphasis role="bold">C</emphasis>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">M</emphasis>, <emphasis role="bold">Q</emphasis>, <emphasis role="bold">G</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">V</emphasis>, <emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">Y</emphasis><subscript>4</subscript>, <emphasis role="bold">S</emphasis>, <emphasis role="bold">U</emphasis>, <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">a</emphasis>, <emphasis role="bold">b</emphasis>, <emphasis role="bold">C</emphasis><subscript>2</subscript>, <emphasis role="bold">C</emphasis><subscript>3</subscript>, <emphasis role="bold">d</emphasis><subscript>1</subscript>, <emphasis role="bold">f</emphasis><subscript>4</subscript>, <emphasis role="bold">З</emphasis><subscript>2</subscript>);</member>
 <member>со сроком отмыкания в 2 сек. &mdash; 14 механизмов (<emphasis role="bold">А</emphasis><subscript>3</subscript>, <emphasis role="bold">D</emphasis>, <emphasis role="bold">E</emphasis><subscript>1</subscript>, <emphasis role="bold">L</emphasis>, <emphasis role="bold">P</emphasis>, <emphasis role="bold">R</emphasis>, <emphasis role="bold">F</emphasis>, <emphasis role="bold">H</emphasis>, <emphasis role="bold">X</emphasis><subscript>1</subscript>, <emphasis role="bold">X</emphasis><subscript>2</subscript>, <emphasis role="bold">T</emphasis>, <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">f</emphasis><subscript>1</subscript>, <emphasis role="bold">f</emphasis><subscript>3</subscript>);</member>
 <member>со сроком отмыкания в 3 сек. – 7 механизмов (<emphasis role="bold">А</emphasis><subscript>1</subscript>, <emphasis role="bold">Б</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">Y</emphasis>, <emphasis role="bold">W</emphasis>, <emphasis role="bold">d</emphasis><subscript>3</subscript>, <emphasis role="bold">Y</emphasis><subscript>3</subscript>);</member>
-<member>со сроком отмыкания в 4 сек. – 1 механизм    (<emphasis role="bold">C</emphasis><subscript>1</subscript>);</member>
+<member>со сроком отмыкания в 4 сек. – 1 механизм (<emphasis role="bold">C</emphasis><subscript>1</subscript>);</member>
 <member>со сроком отмыкания в 5 сек. – 2 механизма (<emphasis role="bold">А</emphasis><subscript>2</subscript>, <emphasis role="bold">&#916;</emphasis><subscript>1</subscript>);</member>
 <member>со сроком отмыкания в 6 сек. – 2 механизма (<emphasis role="bold">f</emphasis><subscript>2</subscript>, <emphasis role="bold">&#931;</emphasis>);</member>
 </simplelist>

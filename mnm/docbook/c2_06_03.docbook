@@ -55,17 +55,17 @@
 <footnote><para>
 <emphasis role="bold">I</emphasis>, <emphasis role="bold">E</emphasis><subscript>1</subscript>, <emphasis role="bold">f</emphasis><subscript>1</subscript>, <emphasis role="bold">M</emphasis>, <emphasis role="bold">a</emphasis>, <emphasis role="bold">f</emphasis><subscript>4</subscript>, <emphasis role="bold">W</emphasis>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">b</emphasis>, <emphasis role="bold">F</emphasis>, <emphasis role="bold">Y</emphasis>, <emphasis role="bold">C</emphasis>, <emphasis role="bold">C</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>1</subscript>, <emphasis role="bold">V</emphasis>, <emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">Y</emphasis><subscript>3</subscript>, <emphasis role="bold">U</emphasis>, <emphasis role="bold">&#916;</emphasis>, <emphasis role="bold">X</emphasis><subscript>1</subscript>, <emphasis role="bold">f</emphasis><subscript>2</subscript>, <emphasis role="bold">А</emphasis><subscript>3</subscript>, <emphasis role="bold">L</emphasis>, <emphasis role="bold">S</emphasis>, <emphasis role="bold">d</emphasis><subscript>3</subscript>, <emphasis role="bold">Б</emphasis>, <emphasis role="bold">Y</emphasis><subscript>2</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>5</subscript>, <emphasis role="bold">C</emphasis><subscript>3</subscript>, <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">X</emphasis><subscript>2</subscript>, <emphasis role="bold">А</emphasis><subscript>2</subscript>, <emphasis role="bold">T</emphasis>, <emphasis role="bold">D</emphasis>, <emphasis role="bold">&#931;</emphasis><subscript>n</subscript>, <emphasis role="bold">&#916;</emphasis><subscript>2</subscript>, <emphasis role="bold">Q</emphasis>, <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">&#916;</emphasis><subscript>3</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>1</subscript>, <emphasis role="bold">Y</emphasis><subscript>4</subscript>, <emphasis role="bold">R</emphasis>, <emphasis role="bold">H</emphasis>.
 </para></footnote></member>
-<member>от 5&mdash;10 мин. имеют 3 механизма . . . <emphasis role="bold">C</emphasis><subscript>1</subscript>, <emphasis role="bold">E</emphasis><subscript>1</subscript>,</member>
-<member>от 10&mdash;15 мин. имеет 1 механизм . . . <emphasis role="bold">Z</emphasis><subscript>2</subscript></member>
-<member>от 15&mdash;20 мин. имеет 1 механизм . . . <emphasis role="bold">G</emphasis></member>
-<member>от 20&mdash;25 мин. имеет 1 механизм . . . <emphasis role="bold">Y</emphasis></member>
-<member>от 25&mdash;30 мин. имеет 1 механизм . . . <emphasis role="bold">O</emphasis></member>
-<member>от 30&mdash;35 мин. имеют 0 механизмов . . . &mdash;</member>
-<member>от 35&mdash;40 мин. имеют 0 механизмов . . . &mdash;</member>
-<member>от 40&mdash;45 мин. имеют 0 механизмов . . . &mdash;</member>
-<member>от 45&mdash;50 мин. имеет 1 механизм . . . <emphasis role="bold">А</emphasis><subscript>1</subscript></member>
-<member>от 50&mdash;65 мин. имеет 1 механизм. . . <emphasis role="bold">P</emphasis></member>
-<member>свыше 50 мин. имеет 1 механизм . . . <emphasis role="bold">З</emphasis><subscript>2</subscript></member>
+<member>от 5&mdash;10 мин. имеют 3 механизма &mdash; <emphasis role="bold">C</emphasis><subscript>1</subscript>, <emphasis role="bold">E</emphasis><subscript>1</subscript>,</member>
+<member>от 10&mdash;15 мин. имеет 1 механизм &mdash; <emphasis role="bold">Z</emphasis><subscript>2</subscript></member>
+<member>от 15&mdash;20 мин. имеет 1 механизм &mdash; <emphasis role="bold">G</emphasis></member>
+<member>от 20&mdash;25 мин. имеет 1 механизм &mdash; <emphasis role="bold">Y</emphasis></member>
+<member>от 25&mdash;30 мин. имеет 1 механизм &mdash; <emphasis role="bold">O</emphasis></member>
+<member>от 30&mdash;35 мин. имеют 0 механизмов</member>
+<member>от 35&mdash;40 мин. имеют 0 механизмов</member>
+<member>от 40&mdash;45 мин. имеют 0 механизмов</member>
+<member>от 45&mdash;50 мин. имеет 1 механизм &mdash; <emphasis role="bold">А</emphasis><subscript>1</subscript></member>
+<member>от 50&mdash;65 мин. имеет 1 механизм &mdash; <emphasis role="bold">P</emphasis></member>
+<member>свыше 50 мин. имеет 1 механизм &mdash; <emphasis role="bold">З</emphasis><subscript>2</subscript></member>
 </simplelist>
 </para>
 <para>
@@ -109,7 +109,7 @@
 <member>в срок от 1 до 10 сек. отмыкаются 12% механизмов</member>
 <member>в срок от 10 до 60 сек. отмыкаются 27% механизмов</member>
 <member>в срок от 60 до 300 сек. отмыкаются 38% механизмов</member>
-<member>в срок свыше  300 сек. отмыкаются 18% механизмов</member>
+<member>в срок свыше 300 сек. отмыкаются 18% механизмов</member>
 </simplelist>
 </para>
 
@@ -141,21 +141,21 @@
 <para>
 В состав III
 <footnote><para>
-Прежней IV со сроком отмыкания . . . . . . . . . . . от 1&mdash;5 мин.
+Прежней IV со сроком отмыкания от 1&mdash;5 мин.
 </para></footnote> 
 рубрики механизмов (со сроком отмыкания от 1 до 5 мин.) в серии видоизмененных и осложненных по сравнению с ранее предъявленными, кроме прежних <emphasis role="bold">Б</emphasis>, <emphasis role="bold">А</emphasis><subscript>2</subscript>, <emphasis role="bold">D</emphasis>, <emphasis role="bold">d</emphasis><subscript>1</subscript>, <emphasis role="bold">Q</emphasis>, <emphasis role="bold">X</emphasis><subscript>2</subscript>, <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>3</subscript>, <emphasis role="bold">R</emphasis>, <emphasis role="bold">H</emphasis>, обмотки <emphasis role="bold">&#916;</emphasis><subscript>2</subscript>, <emphasis role="bold">&#916;</emphasis><subscript>3</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>1</subscript> &mdash; <emphasis role="bold">&#931;</emphasis><subscript>5</subscript>, войдут еще <emphasis role="bold">T</emphasis>, <emphasis role="bold">Y</emphasis><subscript>2</subscript>, <emphasis role="bold">C</emphasis><subscript>3</subscript>, <emphasis role="bold">Y</emphasis><subscript>4</subscript>, срок отмыкания которых увеличен более чем в 4 и до 9<superscript>1</superscript>/<subscript>2</subscript> раз. В серии новых остается по-прежнему один механизм <emphasis role="bold">C</emphasis><subscript>1</subscript>: механизм <emphasis role="bold">f</emphasis><subscript>3</subscript> отойдет в IV рубрику.
 </para>
 <para>
 В IV рубрике
 <footnote><para>
-Прежней V со сроком отмыкания. . . . . . . . . . . от 5&mdash;25 сек.
+Прежней V со сроком отмыкания от 5&mdash;25 сек.
 </para></footnote> 
 (со сроком отмыкания свыше 5 до 25 мин.) среди трудно податливых механизмов <emphasis role="bold">E</emphasis><subscript>2</subscript>, <emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">G</emphasis>, <emphasis role="bold">Y</emphasis>, <emphasis role="bold">O</emphasis> окажется также и механизм <emphasis role="bold">f</emphasis><subscript>3</subscript>, не учитываемый по своей податливости ввиду возможности его передвижения во второстепенном направлении и потому отмыкаемый в максимально неудачном опыте в срок 2&mdash;3 раза больший, нежели в 1-м опыте.
 </para>
 <para>
 V рубрика
 <footnote><para>
-Прежняя VI + VII со сроком отмыкания . . . . . . . . . . . свыше 25 сек.
+Прежняя VI + VII со сроком отмыкания свыше 25 сек.
 </para></footnote> 
 (со сроком отмыкания свыше 25 мин.), как уже было сказано, осталась без изменения.
 </para>
@@ -165,10 +165,10 @@ V рубрика
 <para>
 Как правило, в опытах с тем же самым механизмом максимальная цифра работы <emphasis>не повторяется</emphasis>, и только в виде исключения (в 7% случаев) это повторение наблюдается, однако в отношении сравнительно низких цифр максимума, а именно:
 <simplelist>
-<member>у механизма <emphasis role="bold">K</emphasis> максимум равен 10 сек., повторяется  в 1-м и 2-м опыте</member>
-<member>у механизма <emphasis role="bold">M</emphasis> максимум равен 5 сек., повторяется  в 1, 2, 3, 5 опыте</member>
-<member>у механизма <emphasis role="bold">З</emphasis><subscript>2</subscript> максимум равен 29 сек., повторяется  в 3, 4 опыте</member>
-<member>у механизма <emphasis role="bold">f</emphasis><subscript>4</subscript> максимум равен 5 сек., повторяется  в 5, 7 опыте</member>
+<member>у механизма <emphasis role="bold">K</emphasis> максимум равен 10 сек., повторяется в 1-м и 2-м опыте</member>
+<member>у механизма <emphasis role="bold">M</emphasis> максимум равен 5 сек., повторяется в 1, 2, 3, 5 опыте</member>
+<member>у механизма <emphasis role="bold">З</emphasis><subscript>2</subscript> максимум равен 29 сек., повторяется в 3, 4 опыте</member>
+<member>у механизма <emphasis role="bold">f</emphasis><subscript>4</subscript> максимум равен 5 сек., повторяется в 5, 7 опыте</member>
 </simplelist>
 </para>
 <para>

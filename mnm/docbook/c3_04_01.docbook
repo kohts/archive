@@ -64,16 +64,16 @@
 В общем замечается, что <emphasis>увеличение</emphasis> на дверце <emphasis>количества</emphasis> механизмов не только замкнутых, но даже и незамкнутых, <emphasis>увеличивает продолжительность</emphasis> работы; увеличение несколько более значительно, если механизмы располагаются более удаленно друг от друга. Следующая таблица иллюстрирует эти положения достаточно наглядно:
 <simplelist>
 <member>2 крюка <emphasis role="bold">CD</emphasis> (сближенные в одной плоскости) отмыкаются в срок 5 сек.</member>
-<member>2 крюка <emphasis role="bold">e</emphasis><subscript>1</subscript><emphasis role="bold">e</emphasis><subscript>2</subscript> при одном незамкнутом . . . . . . . . . . . . . . . . . . . . в срок 93 сек.</member>
-<member>3 крюка <emphasis role="bold">e</emphasis><subscript>1</subscript><emphasis role="bold">e</emphasis><subscript>2</subscript><emphasis role="bold">e</emphasis><subscript>3</subscript> все замкнуты . . . . . . . . . . . . . . . . . . . . . . . . . . . . . в срок 5 сек.</member>
-<member>3 крюка <emphasis role="bold">АБe</emphasis><subscript>1</subscript> удаленные в разных плоскостях . . . . . . . . . . . . . в срок 20 сек.</member>
-<member>4 крюка <emphasis role="bold">e</emphasis><subscript>1</subscript><emphasis role="bold">e</emphasis><subscript>2</subscript><emphasis role="bold">e</emphasis><subscript>3</subscript><emphasis role="bold">e</emphasis><subscript>4</subscript> Сближенные в одной плоскости . . . . . . . . . . . . . в срок 20 сек.</member>
+<member>2 крюка <emphasis role="bold">e</emphasis><subscript>1</subscript><emphasis role="bold">e</emphasis><subscript>2</subscript> при одном незамкнутом в срок 93 сек.</member>
+<member>3 крюка <emphasis role="bold">e</emphasis><subscript>1</subscript><emphasis role="bold">e</emphasis><subscript>2</subscript><emphasis role="bold">e</emphasis><subscript>3</subscript> все замкнуты в срок 5 сек.</member>
+<member>3 крюка <emphasis role="bold">АБe</emphasis><subscript>1</subscript> удаленные в разных плоскостях в срок 20 сек.</member>
+<member>4 крюка <emphasis role="bold">e</emphasis><subscript>1</subscript><emphasis role="bold">e</emphasis><subscript>2</subscript><emphasis role="bold">e</emphasis><subscript>3</subscript><emphasis role="bold">e</emphasis><subscript>4</subscript> Сближенные в одной плоскости в срок 20 сек.</member>
 <member>4 крюка <emphasis role="bold">e</emphasis><subscript>1</subscript><emphasis role="bold">e</emphasis><subscript>2</subscript><emphasis role="bold">АБ</emphasis> удаленные в разных плоскостях (при 2 незамкнутых) отмыкаются в срок 124 сек.</member>
-<member>6 крюков <emphasis role="bold">e</emphasis><subscript>1</subscript><emphasis role="bold">e</emphasis><subscript>2</subscript><emphasis role="bold">e</emphasis><subscript>3</subscript><emphasis role="bold">e</emphasis><subscript>4</subscript><emphasis role="bold">АБ</emphasis> удаленные все замкнуты . . . . . . . . . . . . . . . в срок 85 сек.</member>
-<member>7 крюков <emphasis role="bold">e</emphasis><subscript>1</subscript><emphasis role="bold">e</emphasis><subscript>2</subscript><emphasis role="bold">e</emphasis><subscript>3</subscript><emphasis role="bold">e</emphasis><subscript>4</subscript><emphasis role="bold">АБВ</emphasis> удаленные все замкнуты . . . . . . . . . . . . . . . в срок (42) сек.</member>
-<member>8 крюков <emphasis role="bold">e</emphasis><subscript>1</subscript><emphasis role="bold">e</emphasis><subscript>2</subscript><emphasis role="bold">e</emphasis><subscript>3</subscript><emphasis role="bold">e</emphasis><subscript>4</subscript><emphasis role="bold">АБГВ</emphasis> удаленные все замкнуты . . . . . . . . . . . . . . . в срок 420 сек.</member>
-<member>9 крюков <emphasis role="bold">e</emphasis><subscript>1</subscript><emphasis role="bold">e</emphasis><subscript>2</subscript><emphasis role="bold">e</emphasis><subscript>3</subscript><emphasis role="bold">e</emphasis><subscript>4</subscript><emphasis role="bold">e</emphasis><subscript>5</subscript><emphasis role="bold">АБГВ</emphasis> удаленные все замкнуты . . . . . . . . . . . . . . . в срок (170) сек.</member>
-<member>10 крюков <emphasis role="bold">e</emphasis><subscript>1</subscript><emphasis role="bold">e</emphasis><subscript>2</subscript><emphasis role="bold">e</emphasis><subscript>3</subscript><emphasis role="bold">e</emphasis><subscript>4</subscript><emphasis role="bold">e</emphasis><subscript>5</subscript><emphasis role="bold">e</emphasis><subscript>6</subscript><emphasis role="bold">АБГВ</emphasis> удаленные все замкнуты . . . . . . . . . . . . . . . в срок (96) сек.</member>
+<member>6 крюков <emphasis role="bold">e</emphasis><subscript>1</subscript><emphasis role="bold">e</emphasis><subscript>2</subscript><emphasis role="bold">e</emphasis><subscript>3</subscript><emphasis role="bold">e</emphasis><subscript>4</subscript><emphasis role="bold">АБ</emphasis> удаленные все замкнуты в срок 85 сек.</member>
+<member>7 крюков <emphasis role="bold">e</emphasis><subscript>1</subscript><emphasis role="bold">e</emphasis><subscript>2</subscript><emphasis role="bold">e</emphasis><subscript>3</subscript><emphasis role="bold">e</emphasis><subscript>4</subscript><emphasis role="bold">АБВ</emphasis> удаленные все замкнуты в срок (42) сек.</member>
+<member>8 крюков <emphasis role="bold">e</emphasis><subscript>1</subscript><emphasis role="bold">e</emphasis><subscript>2</subscript><emphasis role="bold">e</emphasis><subscript>3</subscript><emphasis role="bold">e</emphasis><subscript>4</subscript><emphasis role="bold">АБГВ</emphasis> удаленные все замкнуты в срок 420 сек.</member>
+<member>9 крюков <emphasis role="bold">e</emphasis><subscript>1</subscript><emphasis role="bold">e</emphasis><subscript>2</subscript><emphasis role="bold">e</emphasis><subscript>3</subscript><emphasis role="bold">e</emphasis><subscript>4</subscript><emphasis role="bold">e</emphasis><subscript>5</subscript><emphasis role="bold">АБГВ</emphasis> удаленные все замкнуты в срок (170) сек.</member>
+<member>10 крюков <emphasis role="bold">e</emphasis><subscript>1</subscript><emphasis role="bold">e</emphasis><subscript>2</subscript><emphasis role="bold">e</emphasis><subscript>3</subscript><emphasis role="bold">e</emphasis><subscript>4</subscript><emphasis role="bold">e</emphasis><subscript>5</subscript><emphasis role="bold">e</emphasis><subscript>6</subscript><emphasis role="bold">АБГВ</emphasis> удаленные все замкнуты в срок (96) сек.</member>
 </simplelist>
 </para>
 
@@ -95,7 +95,7 @@
 
 <para role="details">
 <para>
-Такие же выводы напрашиваются и при анализе других типов механизмов (см. нижеприведенную табличку  
+Такие же выводы напрашиваются и при анализе других типов механизмов (см. нижеприведенную табличку 
 <footnote><para>
 В эту таблицу не вошли два данные, нарушающие ее стройность и могущие быть признанными исключением:
 <simplelist>
