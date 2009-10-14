@@ -1,6 +1,4 @@
-﻿<formalpara>
-<title>Оперирование с единичными щеколдами. </title>
-</formalpara>
+<sect2><title>Оперирование с единичными щеколдами</title>
 
 <para>
 Навинчивается механизм иного типа &mdash; <emphasis role="bold">щеколда К</emphasis> (<xref linkend="photo9" />, фиг. 3), приделанная в <emphasis role="bold">горизонтальном</emphasis> положении, отмыкающаяся движением приподнимания вверх и движением отведения справа налево. Способ отмыкания почти такой же, какой требовался для крюка <emphasis role="bold">А</emphasis><subscript>2</subscript>, прибитого в горизонтальной плоскости.
@@ -9,6 +7,16 @@
 <para>
 В силу тяжести и массивности замыкающей части механизма (рычажка щеколды) по сравнению с крюком требуется несколько более активное усилие при поднимании и более далекое отведение во избежание вторичного замыкания щеколды (<xref linkend="picture8" />).
 </para>
+
+<figure id="picture8">
+  <title>Щеколда K</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture8.jpg">
+    <imageobject><imagedata fileref="images/html/picture8.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture8.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para role="details">
 <para>
@@ -31,7 +39,7 @@
 </para>
 <para>Работа завершается быстро уже в 1-м опыте (10 сек.).</para>
 <para>
-Медленно, но прогрессивно возрастающее совершенство оперирования со щеколдой <emphasis role="bold"> К</emphasis> по истечении 13 опытов доходит до кратчайшего срока (отмыкание осуществляется в 1 секунду времени). В последующем обнаруживается полное сохранение удачного приема отмыкания и по истечении недельного перерыва в работе (см. <xref linkend="curve12" />). В первом опыте после перерыва срок отмыкания равен 2 сек. Совершенство оперирования остается и на все последующее время работы во 2-м сеансе; среднее время завершения работы в этом случае еще короче: оно равно 1,6 сек.
+Медленно, но прогрессивно возрастающее совершенство оперирования со щеколдой <emphasis role="bold"> К</emphasis> по истечении 13 опытов доходит до кратчайшего срока (отмыкание осуществляется в 1 секунду времени). В последующем обнаруживается полное сохранение удачного приема отмыкания и по истечении недельного перерыва в работе (см. <xref linkend=""curve12-14"" />). В первом опыте после перерыва срок отмыкания равен 2 сек. Совершенство оперирования остается и на все последующее время работы во 2-м сеансе; среднее время завершения работы в этом случае еще короче: оно равно 1,6 сек.
 </para>
 <para>
 Кривая длительности работы после перерыва является настолько низкой, что явственно иллюстрирует усовершенствование обезьяны в способе отмыкания данного механизма, вопреки отсутствию упражнения в его отмыкании за срок перерыва.
@@ -52,6 +60,16 @@
 <para>
 Центр приложения силы легко податлив, но, в силу самозамыкания, механизм представляет осложнение тем, что дает освобождение лишь при условии одновременного с отмыканием толкания двери, что требует точной координации движений обеих рук (<xref linkend="picture9" />).
 </para>
+
+<figure id="picture9">
+  <title>Щеколда L</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture9.jpg">
+    <imageobject><imagedata fileref="images/html/picture9.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture9.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para role="details">
 <para>
@@ -80,7 +98,7 @@
 Расслабление укрепившегося <emphasis>двигательного навыка</emphasis> совершается постепенно, но довольно быстро; в полном соответствии с длительностью упражнения (в результате 13 опытов) идет последующее установление новой двигательной реакции с новым механизмом.
 </para>
 <para>
-От случайно удачного применения приема (в 1-м опыте) к определенно установившемуся приему (начиная с 11-го опыта) идет ряд постепенных, легко уловимых на кривой времени, по трудно конкретно определимых этапов овладевания способом отмыкания механизма (см. <xref linkend="curve13" />).
+От случайно удачного применения приема (в 1-м опыте) к определенно установившемуся приему (начиная с 11-го опыта) идет ряд постепенных, легко уловимых на кривой времени, по трудно конкретно определимых этапов овладевания способом отмыкания механизма (см. <xref linkend=""curve12-14"" />).
 </para>
 <para>
 <emphasis>Главный</emphasis> сдвиг в направлении усовершенствования дает прием контролирования двери: установление координации действий обеих рук, совершающих два движения, &mdash; движение активного отмыкания механизма и движение толкания двери.
@@ -104,20 +122,44 @@
 <footnote><para>
 При работе со щеколдой <emphasis role="bold">K</emphasis>.
 </para></footnote>
- (см. <xref linkend="curve13" />).
+ (см. <xref linkend=""curve12-14"" />).
 </para>
 <para>
 Общее среднее время завершения работы (равное 15,5 сек.) во много раз больше, нежели таковое при оперировании с предыдущим механизмом (<emphasis role="bold">K</emphasis>).
 </para>
 </para>
 
+<example id="photo6">
+  <title>Поощрение обезьяны качанием</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/photo6.jpg">
+    <imageobject><imagedata fileref="images/html/photo6.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/photo6.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Фиг. 1. Подготовка к качанию<?br?>
+Фиг. 2. Качание<?br?>
+</para></textobject></mediaobject>
+</example>
+
 <para>
 Предлагается для отмыкания новый механизм того же типа &mdash; <emphasis role="bold">светлая тяжелая щеколда M,</emphasis> прикрепленная к верхней половине дверцы в <emphasis>вертикальном</emphasis> положении, требующая сильного движения отведения слева направо, &mdash; движения несколько затрудненного в силу массивности механизма (<xref linkend="photo9" />, фиг. 3; <xref linkend="picture10" />).
 </para>
 
+<figure id="picture10">
+  <title>Щеколда M</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture10.jpg">
+    <imageobject><imagedata fileref="images/html/picture10.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture10.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para role="details">
 <para>
-Центр приложения силы в механизме &mdash; заметно выступающий диск на высокой ножке &mdash; усматривается обезьяной сразу быстро (в 1-м же опыте), осуществляется и нужное движение отведения; работа завершается в короткий срок (5 сек.), этот срок не увеличивается, а все более укорачивается и в 9-м опыте доходит до 1 сек. (см. <xref linkend="curve14" />). Средняя продолжительность опыта весьма мала &mdash; 3,4 сек.
+Центр приложения силы в механизме &mdash; заметно выступающий диск на высокой ножке &mdash; усматривается обезьяной сразу быстро (в 1-м же опыте), осуществляется и нужное движение отведения; работа завершается в короткий срок (5 сек.), этот срок не увеличивается, а все более укорачивается и в 9-м опыте доходит до 1 сек. (см. <xref linkend=""curve12-14"" />). Средняя продолжительность опыта весьма мала &mdash; 3,4 сек.
 </para>
 <para>
 Лучше и скорее, по сравнению с другими механизмами, учитывается обезьяной <emphasis>замкнутость</emphasis> этого последнего механизма, но этот учет осуществляется, как и ранее, лишь в результате значительного упражнения обезьяны в деле открывания, после ряда ошибочных проб отмыкания незамкнутой щеколды.
@@ -126,11 +168,9 @@
 Обращает на себя внимание, что в первоначальных опытах обезьяна, прежде чем начать работу отмыкания, раньше всего толкает, контролирует дверь и таким образом непромедлительно получает скорое освобождение в случае незамкнутости механизмов, а в случае замкнутости одного из них она при прогибании двери явственно узнает место задержки (<xref linkend="photo9" />, фиг. 3). В конечных опытах она и при отсутствии контроля двери обращается к оперированию только с замкнутыми механизмами, учитывая по виду их замкнутость.
 </para>
 </para>
+</sect2>
 
-<formalpara>
-<title>Оперирование с комбинацией щеколд.</title>
-</formalpara>
-
+<sect2><title>Оперирование с комбинацией щеколд</title>
 <para>
 Наблюдение работы обезьяны при отмыкании ею <emphasis role="bold">комбинации из 2 щеколд К и L</emphasis> приводит к следующим обобщениям:
 </para>
@@ -148,6 +188,17 @@
 <para>
 В некоторых контрольных опытах при незамкнутости обеих щеколд обезьяна производит сразу непосредственное толкание и открывание двери; в других случаях, когда экспериментатор нарочно дотрагивается до обоих механизмов, как бы замыкает их, обезьяна тем не менее не поддается на обман, а оперирует только с замкнутым механизмом.
 </para>
+
+<figure id="picture11">
+  <title>Комбинация щеколд KLMN</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture11.jpg">
+    <imageobject><imagedata fileref="images/html/picture11.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture11.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Среднее время отмыкания комбинации 2 щеколд (<emphasis role="bold">K</emphasis> и <emphasis role="bold">L</emphasis>), как и двух других (<emphasis role="bold">K</emphasis> и <emphasis role="bold">M</emphasis>), почти одинаково (7,5 сек. &mdash; для первых, 8,5 сек. &mdash; для вторых). Во втором случае вариация длительности окончания работы в единичных опытах более значительна (от 3 до 24 сек.), а 1-й опыт более длителен (10 сек.). Порядок отмыкания обычен: именно, обезьяна неизменно отмыкает первой центральную щеколду (<emphasis role="bold">K</emphasis>), потом контролирует дверь, после чего она обращается к отмыканию верхнего механизма (<emphasis role="bold">M</emphasis>).
 </para>
@@ -169,6 +220,16 @@
 Предъявляется для отмыкания комбинация из <emphasis role="bold">4 щеколд</emphasis> (<xref linkend="picture11" />), из которых 3 только что упомянутые <emphasis role="bold">щеколды К, L, М,</emphasis> 4-я &mdash; <emphasis role="bold">новая щеколда N</emphasis>, <emphasis>горизонтальная</emphasis> (<xref linkend="picture12" />), меньшего размера, черная, податливая, отмыкающаяся движением отведения слева направо (<xref linkend="photo9" />, фиг. 3).
 </para>
 
+<figure id="picture12">
+  <title>Щеколда N</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture12.jpg">
+    <imageobject><imagedata fileref="images/html/picture12.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture12.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para role="details">
 <para>Обнаруживаются следующие особенности работы обезьяны с этой комбинацией.</para>
 <para>
@@ -189,6 +250,16 @@
 <para>
 Резкое улучшение в завершении работы наступает тогда, когда обезьяна перестает забывать об отмыкании более удаленной верхней щеколды (<emphasis role="bold">M</emphasis>), что имеет место лишь в 19-м опыте, и когда она несколько упорядочивает оперирование, т. е. начинает по очереди оперировать сначала со средними механизмами (<emphasis role="bold">K</emphasis> и <emphasis role="bold">N</emphasis>), потом с нижним (<emphasis role="bold">L</emphasis>) и, наконец, с верхним (<emphasis role="bold">M</emphasis>) (см. <xref linkend="table44" /> и <xref linkend="curve15" />).
 </para>
+
+<informalfigure id="table44" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table44.jpg">
+    <imageobject><imagedata fileref="images/html/table44.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table44.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para>
 Как то явствует из прилагаемой таблицы, максимальное количество лишних движений в единичных опытах, как и процент лишних операций сравнительно невелики (ниже средней нормы, т. е. 50%), процент идеальных опытов довольно значителен; эти опыты встречаются и в начале, и в середине, и в конце опытного периода.
 </para>
@@ -198,10 +269,39 @@
 <para>
 Как то и следует ожидать, максимальное количество излишних касаний падает на срединные механизмы (<emphasis role="bold">K</emphasis> и <emphasis role="bold">N</emphasis>), наименьшее &mdash; на самый удаленный (<emphasis role="bold">M</emphasis>), среднее &mdash; на нижний (<emphasis role="bold">L</emphasis>).
 </para>
+
+<equation id=""curve12-14"-14">
+  <title>Щеколды K, L, M</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/"curve12-14"-14.jpg">
+    <imageobject><imagedata fileref="images/html/"curve12-14"-14.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/"curve12-14"-14.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Кривая 1. Щеколда K<?br?>
+Кривая 2. Щеколда L<?br?>
+Кривая 3. Щеколда M<?br?>
+</para></textobject></mediaobject>
+</equation>
+
 <para>
 Устанавливается в общем следующий порядок отмыкания: обезьяна наичаще начинает отмыкание со срединных механизмов (с верхнего срединного <emphasis role="bold">N</emphasis> чаще, чем с нижнего срединного <emphasis role="bold">K</emphasis>), затем обращается к нижнему механизму <emphasis role="bold">L</emphasis> и в последнюю очередь отмыкает самый удаленный от нее верхний механизм (<emphasis role="bold">M</emphasis>).
 </para>
+
+<equation id="curve15">
+  <title>4 щеколды K, L, M, N</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve15.jpg">
+    <imageobject><imagedata fileref="images/html/curve15.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve15.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
 <para>
 При уменьшении количества замыкающих механизмов за счет изъятия самозамыкающейся щеколды <emphasis role="bold">L</emphasis> время завершения работы сокращается чуть ли не вполовину (равно 16,5 сек.), причем пределы колебания длительности единичных опытов включаются в период лишь 9&mdash;31 сек. Аналогично предыдущему кривая не обнаруживает ниспаданья. 1-й опыт &mdash; не самый длительный. Обезьяна чаще всего начинает с отмыкания средних, центрально расположенных механизмов и в последнюю очередь обращается к эксцентрично расположенному (<emphasis role="bold">M</emphasis>), причем часто забывает об отмыкании этого последнего.
 </para>
 </para>
+
+</sect2>
