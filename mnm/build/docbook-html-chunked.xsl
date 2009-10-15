@@ -11,29 +11,6 @@
   </font></p>
 </xsl:template>
 
-<xsl:template match="cihc_age">
-<xsl:if test="(@y) and (@y != '0')">
-  <xsl:value-of select="@y"/><xsl:text> </xsl:text>
-  <xsl:choose>
-    <xsl:when test="(../../@lang = 'en')">y.</xsl:when>
-    <xsl:otherwise>г.</xsl:otherwise>
-  </xsl:choose>
-  <xsl:text> </xsl:text>
-</xsl:if>
-<xsl:value-of select="@m"/><xsl:text> </xsl:text>
-<xsl:choose>
-  <xsl:when test="(../../@lang = 'en')">m.</xsl:when>
-  <xsl:otherwise>м.</xsl:otherwise>
-</xsl:choose>
-<xsl:if test="(@d) and (@d != '0')">
-  <xsl:text> </xsl:text><xsl:value-of select="@d"/><xsl:text> </xsl:text>
-  <xsl:choose>
-    <xsl:when test="(../../@lang = 'en')">d.</xsl:when>
-    <xsl:otherwise>д.</xsl:otherwise>
-  </xsl:choose>
-</xsl:if>
-</xsl:template>
-
 <xsl:template match="processing-instruction('br')"><br/></xsl:template>
 
 <xsl:template match="processing-instruction('pre_b')">
@@ -43,7 +20,7 @@
 
 <xsl:param name="chunker.output.encoding" select="'utf-8'"/>
 
-<xsl:param name="toc.section.depth">2</xsl:param>
+<xsl:param name="toc.section.depth">1</xsl:param>
 <xsl:param name="generate.toc">
 appendix  title
 article/appendix  nop

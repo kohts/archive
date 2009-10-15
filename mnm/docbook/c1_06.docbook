@@ -1,7 +1,4 @@
-<formalpara>
-<title> Оперирование с единичными простыми завертками.</title>
-</formalpara>
-
+<sect2><title>Оперирование с единичными простыми завертками.</title>
 <para>
 Предлагаются для преодоления запоры более осложненного, по сравнению с предыдущими, типа: завертки <emphasis role="bold">U</emphasis> и <emphasis role="bold">&#0220;</emphasis>, требующие при отмыкании их более сложного движения &mdash; вращения (то слева направо &mdash; по часовой стрелке на 90<superscript>o</superscript>, то справа налево &mdash; против часовой стрелки) (<xref linkend="photo13" />, фиг. 3, 4; <xref linkend="picture33" />, <xref linkend="picture34" />).
 </para>
@@ -14,6 +11,17 @@
 <para>
 В первом опыте отмыкания <emphasis>механизма</emphasis> <emphasis role="bold">U</emphasis> (<xref linkend="picture33" />), отмыкающегося движением <emphasis>направо</emphasis>, обезьяна схватывается за палочку сначала с правой, потом с левой стороны; не ощущая податливости, отходит, потом опять берется, тянет к себе за срединную часть, шатает из стороны в сторону у центра приложения силы, но не нажимает на свободные концы этой палочки, а потому не чувствует подвижной точки; наконец после 35 сек. работы она улавливает направление передвижения, вращает &mdash; отмыкает механизм.
 </para>
+
+<figure id="picture33">
+  <title>Завертка U</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture33.jpg">
+    <imageobject><imagedata fileref="images/html/picture33.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture33.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 В первых 11 опытах прием работы сильно осложнен &mdash; обезьяна только с большим трудом производит вращательное движение: ухватившись обеими руками за свободные концы рычага (центр приложения силы), она тянет к себе правое крыло рычага правой рукой, левой же она подталкивает свободный левый край рычага снизу вверх, затем только она берется сверху обеими руками за рычаг и сильно нажимает на одно правое его крыло; она вращает на 135 &mdash;180<superscript>o</superscript> вместо того, чтобы остановиться на отведении на 90<superscript>o</superscript>.
 </para>
@@ -37,20 +45,30 @@
 </para>
 <para>
 <simplelist>
-<member>В 1 серии 11 опытов (от 1 до 11) средн. длительн. работы = 26,9 сек. 17,3 сек. </member>
-<member>Во 2 серии 11 опытов (12 &mdash; 22) средн. длительн. работы = 9,6 сек. 17,3 сек. </member>
-<member>В 3 серии 11 опытов (24 &mdash; 33) средн. длительн. работы = 7,7 сек. 1,9 сек. </member>
-<member>В 4 серии 11 опытов (34 &mdash; 44) средн. длительн. работы = 4,6 сек. 3,1 сек. </member>
-<member>В 5 серии 11 опытов (45 &mdash; 55) средн. длительн. работы = 2,8 сек. 1,8 сек. </member>
+<member>В 1 серии 11 опытов (от 1 до 11) средн. длительн. работы = 26,9 сек.</member>
+<member>Во 2 серии 11 опытов (12 &mdash; 22) средн. длительн. работы = 9,6 сек. (разница с пред. серией &#8212; 17,3 сек.)</member>
+<member>В 3 серии 11 опытов (24 &mdash; 33) средн. длительн. работы = 7,7 сек. (разница с пред. серией &#8212; 1,9 сек.)</member>
+<member>В 4 серии 11 опытов (34 &mdash; 44) средн. длительн. работы = 4,6 сек. (разница с пред. серией &#8212; 3,1 сек.)</member>
+<member>В 5 серии 11 опытов (45 &mdash; 55) средн. длительн. работы = 2,8 сек. (разница с пред. серией &#8212; 1,8 сек.)</member>
 </simplelist>
 </para>
 <para>
 Эта табличка явно показывает, что особенно резкое усовершенствование наблюдается во 2 серии из 11 опытов (падение времени работы на 17,3 сек.), в последующих сериях прогресс в отношении сокращения времени в каждой новой серии не превышает 3 или даже 2 секунд.
 </para>
 <para>
-Средняя длительность работы в 55 опытах равна 10,5 сек., т. е. является типичной для средних по трудности отмыкания механизмов (несколько больше 10 сек.) (см. <xref linkend="curve41" />).
+Средняя длительность работы в 55 опытах равна 10,5 сек., т. е. является типичной для средних по трудности отмыкания механизмов (несколько больше 10 сек.) (см. <xref linkend="curve41-42" />).
 </para>
 </para>
+
+<figure id="picture34">
+  <title>Завертка &#0220;</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture34.jpg">
+    <imageobject><imagedata fileref="images/html/picture34.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture34.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 При замыкании дверцы экспериментальной клетки <emphasis role="bold">механизмом &#0220;</emphasis> (<xref linkend="picture41" />), совершенно аналогичной конструкции, но прикрепленным в прямо противоположном положении, требующим движения вращения <emphasis>влево</emphasis> (против часовой стрелки), обезьяна плохо ориентируется в новой ситуации.
@@ -76,13 +94,28 @@
 <member>Во вторых 11 опытах <emphasis role="bold">&#0220;</emphasis> отмыкается в срок 4,1 сек.</member>
 </simplelist>
 </para></footnote>. 
-Зато в последующих 11 опытах (с 12 по 24) для механизма <emphasis role="bold">&#0220;</emphasis> оно уже короче, чем для <emphasis role="bold">U</emphasis> (см. <xref linkend="curve42" />).
+Зато в последующих 11 опытах (с 12 по 24) для механизма <emphasis role="bold">&#0220;</emphasis> оно уже короче, чем для <emphasis role="bold">U</emphasis> (см. <xref linkend="curve41-42" />).
+</para>
+
+<equation id="curve41-42">
+  <title>Завертки U, &#0220;</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve41-42.jpg">
+    <imageobject><imagedata fileref="images/html/curve41-42.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve41-42.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Кривая 41. Завертка U<?br?>
+Кривая 42. Завертка &#0220;<?br?>
+</para></textobject></mediaobject>
+</equation>
+
+<para>
+После 1<superscript>1</superscript>/<subscript>2</subscript> и 6-месячного перерыва в работе с механизмом <emphasis role="bold">U</emphasis> наблюдается увеличение 1-го опыта по сравнению с последним опытом предыдущего сеанса (работа заканчивается в срок 1,5 сек.). Пределы вариации длительности единичных опытов также весьма узки (1&mdash;2 сек.). Средняя продолжительность опыта в сеансе после 2-го перерыва еще более мала&mdash; 1,4 сек. (см. <xref linkend="curve41-42" />).
 </para>
 <para>
-После 1<superscript>1</superscript>/<subscript>2</subscript> и 6-месячного перерыва в работе с механизмом <emphasis role="bold">U</emphasis> наблюдается увеличение 1-го опыта по сравнению с последним опытом предыдущего сеанса (работа заканчивается в срок 1,5 сек.). Пределы вариации длительности единичных опытов также весьма узки (1&mdash;2 сек.). Средняя продолжительность опыта в сеансе после 2-го перерыва еще более мала&mdash; 1,4 сек. (см. <xref linkend="curve41" />).
-</para>
-<para>
-При предложении после 6-месячного перерыва и второго механизма (<emphasis role="bold">&#0220;</emphasis>) обнаруживается лишь слабое увеличение (на 0,3 сек.) продолжительности 1 -го опыта, по сравнению с последним опытом предшествующего сеанса. Пределы вариации длительности единичных опытов от 1 до 7 сек.; средняя продолжительность опыта &mdash; 2,9 сек. (см. <xref linkend="curve42" />).
+При предложении после 6-месячного перерыва и второго механизма (<emphasis role="bold">&#0220;</emphasis>) обнаруживается лишь слабое увеличение (на 0,3 сек.) продолжительности 1 -го опыта, по сравнению с последним опытом предшествующего сеанса. Пределы вариации длительности единичных опытов от 1 до 7 сек.; средняя продолжительность опыта &mdash; 2,9 сек. (см. <xref linkend="curve41-42" />).
 </para>
 <para>
 Таким образом мы видим, что перерыв в работе или не нарушает совершенства двигательных навыков, или же, если это нарушение есть, оно весьма незначительно и касается только удлинения 1-го опыта отмыкания по сравнению с последним опытом предыдущего сеанса. И величина максимума (а иногда и минимума), и в особенности средняя продолжительность опыта в сеансе после перерыва явственно уменьшаются.
@@ -95,14 +128,23 @@
 </simplelist>
 </para>
 </para>
+</sect2>
 
-<formalpara>
-<title>Оперирование с комбинацией из простых заверток <emphasis role="bold">U</emphasis> и <emphasis role="bold">&#0220;</emphasis>.</title>
-</formalpara>
+<sect2><title>Оперирование с комбинацией из простых заверток U и &#0220;.</title>
 
 <para>
 Предлагается для отмыкания комбинация из <emphasis role="bold">двух механизмов U</emphasis> и <emphasis role="bold">&#0220;</emphasis>, навинченных в прежнем положении: механизм <emphasis role="bold">U</emphasis> (нижний) отмыкается движением <emphasis>слева направо</emphasis>, а механизм <emphasis role="bold">&#0220;</emphasis> (верхний) &mdash; движением <emphasis>справа налево</emphasis> (<xref linkend="photo13" />, фиг. 3, 4; <xref linkend="picture35" />).
 </para>
+
+<figure id="picture35">
+  <title>Комбинация из двух заверток U и &#0220;</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture35.jpg">
+    <imageobject><imagedata fileref="images/html/picture35.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture35.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para role="details">
 <para>
@@ -127,6 +169,16 @@
 <para>
 Иногда обезьяна лишь полуоткрывает верхний механизм, но она не учитывает причину задержки, а контролирует дверь, обращается к отмыканию уже отомкнутого нижнего механизма.
 </para>
+
+<informalfigure id="table92" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table92.jpg">
+    <imageobject><imagedata fileref="images/html/table92.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table92.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para>
 Иногда обезьяна отводит замыкающий рычажок за пределы нужного и отводит так далеко (на 360<superscript>o</superscript> вместо 90<superscript>o</superscript>), что производит вторичное замыкание двери с другого конца, но и в данном случае она не видит пункта замыкания, так как опять-таки контролирует дверь, пытаясь ее открыть; если же она не получает освобождения, то обращается к отпиранию отомкнутого верхнего механизма, замыкает и вторично отмыкает его и тогда уже опять старается отпереть нижний ею же замкнутый запор.
 </para>
@@ -136,6 +188,17 @@
 <para>
 Среднее время завершения работы с обоими механизмами равно 14,4 сек.; оно несколько меньше суммы среднего времени работы с теми же механизмами при их единичной представленности (22,2 сек.), и это указывает на продолжающееся усовершенствование обезьяны в деле отмыкания (см. <xref linkend="curve43" />).
 </para>
+
+<equation id="curve43">
+  <title>Комбинация заверток U&#0220;</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve43.jpg">
+    <imageobject><imagedata fileref="images/html/curve43.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve43.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
 <para>
 Порядок отмыкания меняется &mdash; обезьяна чаще отмыкает первым нижний (<emphasis role="bold">U</emphasis>) и вторым &mdash; верхний механизм (<emphasis role="bold">&#0220;</emphasis>).
 </para>
@@ -170,17 +233,25 @@
 <para>
 Лучшее опознавание замкнутого нижнего механизма может быть объяснено тем, что он находится ближе в поле зрения обезьяны, и ей легче учесть положение замыкающего стержня.
 </para>
+</sect2>
 
-<formalpara>
-<title>Отмыкание единичных пружинящих заверток.</title>
-</formalpara>
-
+<sect2><title>Отмыкание единичных пружинящих заверток.</title>
 <para>
 Предъявляются механизмы аналогичной конструкции <emphasis role="bold">(завертки)</emphasis>, но несколько осложненные в деталях, резко измененные по внешнему виду. Центр приложения силы, еще более субтилен (тонкая палочка на короткой ножке) и еще менее податлив, чем у предыдущих заверток (так как эти завертки <emphasis>пружинящие</emphasis>); требуется аналогичное с предыдущим, лишь более энергичное и большее по радиусу, движение вращения (на 180<superscript>o</superscript>). Предъявляется механизм <emphasis role="bold">Z</emphasis><subscript>1</subscript> требующий вращения <emphasis>вправо</emphasis> (<xref linkend="photo14" />, фиг. 1, 2; <xref linkend="picture36" />).
 </para>
 
+<figure id="picture36">
+  <title>Завертка Z<subscript>1</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture36.jpg">
+    <imageobject><imagedata fileref="images/html/picture36.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture36.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para role="details">
-Обезьяна мгновенно и в краткий срок (4 сек.) производит нужное движение &mdash; вращение вправо: взявшись обеими руками за свободные края рычага, она сначала тянет к себе, потом от себя в сторону, потом нажимает на правое крыло; предшествующие упражнения подготовили ее к этим манипуляциям; легкость оперирования с этим механизмом сохраняется и на все последующее время; пределы вариации срока работы 2&mdash;4 сек.; среднее время завершения работы равно 3,2 сек. (см. <xref linkend="curve44" />).
+Обезьяна мгновенно и в краткий срок (4 сек.) производит нужное движение &mdash; вращение вправо: взявшись обеими руками за свободные края рычага, она сначала тянет к себе, потом от себя в сторону, потом нажимает на правое крыло; предшествующие упражнения подготовили ее к этим манипуляциям; легкость оперирования с этим механизмом сохраняется и на все последующее время; пределы вариации срока работы 2&mdash;4 сек.; среднее время завершения работы равно 3,2 сек. (см. <xref linkend="curve44-45" />).
 </para>
 
 <para>
@@ -229,12 +300,38 @@
 <para>
 После 5 неудачных проб отмыкания делается облегчение: механизм <emphasis>полузамыкается</emphasis>, чем достигается то, что одно короткое и слабое усилие при вращении дает его отмыкание. На этот раз обезьяна быстро (в 5 сек.) справляется с отмыканием, осуществив 2-е самостоятельное отмыкание после 748 сек. работы, а в следующем опыте, даже когда механизм уже <emphasis>совершенно замыкается</emphasis>, обезьяна тем не менее начинает стремительно, энергично, настойчиво работать вопреки оказываемому им сопротивлению; многократно она отрывается, отходит, дергает, сотрясает механизм, вдруг полуотмыкает его, смотрит пристально на выдвинувшийся замыкающий стержень, трогает его пальцем &mdash; вдруг делает еще нажим и отмыкает совершенно, потратив на работу 210 сек.
 </para>
+
+<figure id="picture37">
+  <title>Завертка Z<subscript>2</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture37.jpg">
+    <imageobject><imagedata fileref="images/html/picture37.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture37.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 В последующем, после 3-го удачного опыта самостоятельного отмыкания, обезьяна, уже не отрываясь, оперирует с механизмом до тех пор, пока не отомкнет его, усвоив прием преобладающего нажима на левое крыло, тратя с каждым новым опытом все меньше и меньше времени; уже в 6-м опыте она отмыкает в 70 раз скорее, нежели в 1-м удачном, хотя прием отмыкания осложнен: обезьяна осуществляет вращение, делая несколько мелких движений взамен одного сильного. Только в 8-м опыте прием работы упрощен: обезьяна берет за концы рычага, нажимает по преимуществу на левый конец левой рукой, правой рукой приподнимает правый конец вверх.
 </para>
 <para>
 Время завершения работы эпизодически несколько увеличивается лишь к концу сеанса, повидимому в виду приуставания пальцев обезьяны, когда она, не будучи в силах произвести сразу энергичного движения вращения, производит его опять в два приема, что сильно удлиняет отмыкание. Среднее время окончания работы 145,1 сек. Пределы колебания длительности опыта 3&mdash;743 сек., 8-й опыт самый короткий, 2-й &mdash; самый длинный, последний &mdash; 11-й опыт &mdash; длится 5 сек.
 </para>
+
+<example id="photo10">
+  <title>Операции с задвижками</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/photo10.jpg">
+    <imageobject><imagedata fileref="images/html/photo10.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/photo10.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Фиг. 1. Отмыкание штифтовой задвижки I<?br?>
+Фиг. 2. Предъявление комбинации задвижек ROIP<?br?>
+</para></textobject></mediaobject>
+</example>
+
 <para>
 После ночного <emphasis>перерыва</emphasis> в работе обезьяна опять забывает точный способ отмыкания, хотя у нее нет недостатка в энергии, терпении и сосредоточенности при отмыкании; причина затруднения та, что она все не прилагает достаточного усилия при нажиме на левое крыло конца рычага и опять лишь полуотмыкает завертку, не доведя вращения до конца. Замечается, что и при этом положении механизма обезьяна более работает правой рукой, нежели левой: ухватив сверху за свободные концы рычага, «на больше оттягивает правой рукой правый конец влево, вверх, нежели давит на левый конец вниз и вправо своей левой рукой; она не отводит обеих рук до конца вращения.
 </para>
@@ -242,8 +339,23 @@
 Макак уловил связь между высовыванием замыкающегося стержня металлического язычка механизма и освобождением: он больше не толкает дверь, прежде чем не высунется этот язычок, &mdash; более того, в случае, если обезьяна производит полуотмыкание, когда язычок выдается лишь своим краешком, она пытается вытянуть его совсем руками, зубами, трогает его своим языком, забывая о необходимом приеме вращения руками палочки (центра приложения силы), что опять-таки чрезвычайно удлиняет время отмыкания.
 </para>
 <para>
-1-й опыт после перерыва длится 120 сек.; пределы вариации длительности отмыкания от 2 до 233 сек.; 3-й опыт после перерыва &mdash; самый длительный; минимально короткий срок наступает в 29-м опыте и многократно повторяется в последующих (в 30, 33, 34, 35, 39, 40, 41, 42, 43, 44, 45,46, 47-м опытах). Среднее время окончания работы 18,8 сек. (см. <xref linkend="curve45" />).
+1-й опыт после перерыва длится 120 сек.; пределы вариации длительности отмыкания от 2 до 233 сек.; 3-й опыт после перерыва &mdash; самый длительный; минимально короткий срок наступает в 29-м опыте и многократно повторяется в последующих (в 30, 33, 34, 35, 39, 40, 41, 42, 43, 44, 45,46, 47-м опытах). Среднее время окончания работы 18,8 сек. (см. <xref linkend="curve44-45" />).
 </para>
+
+<equation id="curve44-45">
+  <title>Завертки Z<subscript>1</subscript>, Z<subscript>2</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve44-45.jpg">
+    <imageobject><imagedata fileref="images/html/curve44-45.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve44-45.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Кривая 41. Завертка Z<subscript>1</subscript><?br?>
+Кривая 42. Завертка Z<subscript>2</subscript><?br?>
+</para></textobject></mediaobject>
+</equation>
+
 <para>
 Таким образом по мере упражнения наблюдается разительное усовершенствование обезьяны в скорости отмыкания: если в первых 10 опытах 2-го сеанса среднее время завершения работы равно 63,3 сек. &mdash; значительно ниже, чем в предшествующем сеансе (где оно равно 145,1 сек.), то в следующих 20 опытах среднее время завершения работы сокращается еще более (равно 9,4 сек.), а в последующих 15 опытах оно в 21 раз меньше, нежели в первом десятке 2-го сеанса (равно всего 3,8 сек.); в последних 7 опытах определенно фиксируется краткое время отмыкания (2 сек.), т. е. начиная с 50-го опыта обезьяна тратит времени в 237 раз меньше, нежели в 1-м опыте самостоятельного отмыкания, и в 60 раз меньше, нежели в 1-м опыте 2-го сеанса.
 </para>
@@ -261,14 +373,22 @@
 <para>
 После перерыва в работе обезьяне предлагаются для отмыкания <emphasis role="bold">оба механизма</emphasis>, прикрепленные один под другим в середине дверцы с правой и левой ее стороны. Для отмыкания верхнего <emphasis role="bold">Z</emphasis><subscript>1</subscript> требуется, как и ранее, движение вращения <emphasis>вправо</emphasis>; для отмыкания нижнего <emphasis role="bold">Z</emphasis><subscript>2</subscript> необходимо прямо противоположное движение &mdash; <emphasis>влево</emphasis>.
 </para>
+</sect2>
 
-<formalpara>
-<title>Отмыкание комбинации из пружинящих заверток <emphasis role="bold">Z</emphasis>Z<subscript>1</subscript> и <emphasis role="bold">Z</emphasis>Z<subscript>2</subscript>.</title>
-</formalpara>
-
+<sect2><title>Отмыкание комбинации из пружинящих заверток Z<subscript>1</subscript> и Z<subscript>2</subscript>.</title>
 <para>
-При одновременном замыкании 2 заверток (<emphasis role="bold">Z</emphasis><subscript>1</subscript> и (<emphasis role="bold">Z</emphasis><subscript>2</subscript>) обезьяна развертывает следующую картину работы (<xref linkend="photo14" />, фиг. 2; <xref linkend="picture38" />).
+При одновременном замыкании 2 заверток (<emphasis role="bold">Z</emphasis><subscript>1</subscript> и <emphasis role="bold">Z</emphasis><subscript>2</subscript>) обезьяна развертывает следующую картину работы (<xref linkend="photo14" />, фиг. 2; <xref linkend="picture38" />).
 </para>
+
+<figure id="picture38">
+  <title>Комбинация из двух заверток Z<subscript>1</subscript> и Z<subscript>2</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture38.jpg">
+    <imageobject><imagedata fileref="images/html/picture38.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture38.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para role="details">
 <para>
@@ -277,6 +397,17 @@
 <para>
 1-й опыт является не особенно длительным (32 сек.), но в 5-м опыте обезьяна работает весьма плохо: она начинает с отмыкания нижней завертки ((<emphasis role="bold">Z</emphasis><subscript>2</subscript>), трогает ее руками, потом зубами, после того контролирует дверь, потом обращается к верхней завертке ((<emphasis role="bold">Z</emphasis><subscript>1</subscript>), опять к нижней ((<emphasis role="bold">Z</emphasis><subscript>2</subscript>), с шумом полуотмыкая последнюю через 45 сек. от начала опыта; далее обезьяна опять контролирует дверь, потом трогает полуотомкнутую завертку (<emphasis role="bold">Z</emphasis><subscript>2</subscript> зубами, отмыкает ее окончательно, опять трогает зубами, потом обращается на секунду к верхней завертке, затем опять к нижней, которую то замыкает, то отмыкает; к верхнему механизму слегка прикоснется и опять оставляет его, потом обращается опять и к той и к другой завертке, оперируя с каждой из них только короткий срок. После 9 минут от начала опыта обезьяна все еще возится с отомкнутой нижней заверткой (<emphasis role="bold">Z</emphasis><subscript>2</subscript>, не прилагая достаточного усилия для отмыкания верхней (<emphasis role="bold">Z</emphasis><subscript>1</subscript>. Только после моего указания на верхнюю завертку она обращается к ней более определенно и энергично и мгновенно отмыкает ее, потратив 9 мин. 2 сек. (542 сек.) времени на работу (см. <xref linkend="curve46" />).
 </para>
+
+<equation id="curve46">
+  <title>2 завертки Z<subscript>1</subscript> и Z<subscript>2</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve46.jpg">
+    <imageobject><imagedata fileref="images/html/curve46.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve46.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
 <para>
 Следующий опыт отмыкания уже резко укорочен по времени: в 18<superscript>1</superscript>/<subscript>2</subscript> сек. обезьяна разрешает задачу, ухватившись за нижнюю завертку (<emphasis role="bold">Z</emphasis><subscript>2</subscript> перекинувшись (не открыв первой) кверху к (<emphasis role="bold">Z</emphasis><subscript>1</subscript> резким энергичным движением открывает ее и опять возвращается к отмыканию нижнего запора ((<emphasis role="bold">Z</emphasis><subscript>2</subscript>).
 </para>
@@ -286,6 +417,16 @@
 <para>
 Вопреки резкому сокращению срока завершения работы в конечных опытах по сравнению с первым, средний срок окончания работы равен 43,5 сек.
 </para>
+
+<informalfigure id="table99" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table99.jpg">
+    <imageobject><imagedata fileref="images/html/table99.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table99.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para>
 Среднее время окончания работы несколько меньше суммы средних сроков работы с единичными механизмами (там оно равно 47,9 сек.).
 </para>
@@ -299,14 +440,22 @@
 В порядке отмыкания обезьяна опять-таки придерживается прежней привычки: она <emphasis>начинает</emphasis> работу с механизма нижнего, более близкого, находящегося в поле ее зрения.
 </para>
 </para>
+</sect2>
 
-<formalpara>
-<title>Отмыкание комбинации из простых заверток <emphasis role="bold">Z</emphasis><subscript>3</subscript> и <emphasis role="bold">Z</emphasis><subscript>4</subscript>. </title>
-</formalpara>
-
+<sect2><title>Отмыкание комбинации из простых заверток Z<subscript>3</subscript> и Z<subscript>4</subscript>.</title>
 <para>
 При замыкании дверцы экспериментальной клетки <emphasis>двумя простыми завертками</emphasis> <emphasis role="bold">Z</emphasis><subscript>3</subscript> и <emphasis role="bold">Z</emphasis><subscript>4</subscript>, из которых одна, приделанная вверху дверцы клетки, отмыкается движением поворота на 90<superscript>o</superscript> по часовой стрелке (<emphasis>направо</emphasis> &mdash; <xref linkend="picture39" />), вторая, нижняя &mdash; движением поворота на 90<superscript>o</superscript> против часовой стрелки (<emphasis>налево</emphasis> &mdash; <xref linkend="photo15" />, фиг. 1, 2, 3, 4), &mdash; наблюдается следующая картина работы обезьяны.
 </para>
+
+<figure id="picture49">
+  <title>Завертка Z<subscript>3</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture49.jpg">
+    <imageobject><imagedata fileref="images/html/picture49.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture49.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para role="details">
 <para>
@@ -321,6 +470,16 @@
 <para>
 Все вместе взятое объясняет как обилие излишних операций с механизмами (57% &mdash; см. <xref linkend="table101" />), так и необычайную длительность среднего времени окончания работы (114 сек.), и чрезмерную долговременность единичных особенно неудачных опытов (720 сек.). Даже в идеальных опытах среднее время завершения работы (18,8 сек.) более чем в 3 раза превосходит время окончания работы в особо удачных опытах (5 сек.) &mdash; это время удлиняется иногда ввиду забывания обезьяной о своевременном толкании двери, вследствие <emphasis>полного неучитывания</emphasis> ею по виду отомкнутости и замкнутости механизмов.
 </para>
+
+<informalfigure id="table101" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table101.jpg">
+    <imageobject><imagedata fileref="images/html/table101.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table101.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para>
 Несмотря на то, что первый из идеальных опытов, заканчиваемый в срок 7 сек., осуществляется уже в 10-м опыте, тем не менее позднее надолго (до 26-го опыта) остаются излишние движения, что иногда резко увеличивает (до 240 сек.) длительность отмыкания. Только в последнем (26-м) опыте время отмыкания снижается до минимума (5 сек.) (см. <xref linkend="curve47" />).
 </para>
@@ -330,6 +489,17 @@
 Как то показывает <xref linkend="photo15" />, фиг. 3, при отмыкании нижнего механизма обезьяна может сидеть, при отмыкании же верхнего &mdash; она вынуждена встать в вертикальное положение (фиг. 1, 2), что иногда она медлит делать.
 </para></footnote>.
 </para>
+
+<equation id="curve47">
+  <title>2 завертки Z<subscript>3</subscript> и Z<subscript>4</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve47.jpg">
+    <imageobject><imagedata fileref="images/html/curve47.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve47.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
 <para>
 По порядку отмыкания на первом месте стоит нижний (<emphasis role="bold">Z</emphasis><subscript>4</subscript>) запор, его чаще всего обезьяна отпирает первым; верхний механизм (<emphasis role="bold">Z</emphasis><subscript>3</subscript>) обезьяна отпирает вторым и в преобладающем большинстве случаев &mdash; последним.
 </para>
@@ -340,11 +510,9 @@
 Как и обычно, при оперировании с комбинацией механизмов наблюдается <emphasis>слабое снижение</emphasis> кривой времени завершения работы вопреки длительности упражнения в отмыкании (26 опытов).
 </para>
 </para>
+</sect2>
 
-<formalpara>
-<title>Оперирование с комбинацией из разнотипных механизмов: щеколд и заверток. </title>
-</formalpara>
-
+<sect2><title>Оперирование с комбинацией из разнотипных механизмов: щеколд и заверток.</title>
 <para>
 Дверца экспериментальной клетки замыкается комбинацией из <emphasis>разнообразных механизмов</emphasis>: верх дверцы замыкается <emphasis role="bold">щеколдой М</emphasis>, отмыкающейся движением отведения <emphasis>направо</emphasis>, и <emphasis role="bold">заверткой Z</emphasis><subscript>3</subscript>, требующей движения отвертывания <emphasis>направо</emphasis>; средина дверцы замкнута <emphasis role="bold">щеколдой K</emphasis>, открывающейся движением отведения <emphasis>налево</emphasis>; низ дверцы замкнут <emphasis role="bold">заверткой Z</emphasis><subscript>4</subscript> отпирающейся движением отвертывания <emphasis>налево</emphasis> (<xref linkend="photo15" />, фиг. 1, 2, 3, 4; <xref linkend="picture40" />).
 </para>
@@ -353,18 +521,50 @@
 <para>
 Обнаруживаются следующие особенности работы обезьяны. Процент излишних операций очень велик (см. <xref linkend="table103" />). Громадна и цифра максимума излишних движений в единичных опытах; соответственно этому процент идеальных опытов весьма незначителен. Конечно, наибольшее количество излишних операций падает на первые опыты отмыкания и главным образом на срединный механизм (<emphasis role="bold">K</emphasis>), который, как находящийся в центре поля зрения обезьяны, наичаще попадается ей на глаза и который повторно (иногда до 14 раз в течение одного и того же опыта) то отмыкается, то (бесцельно) замыкается, то отмыкается, то замыкается.
 </para>
+
+<informalfigure id="table103" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table103.jpg">
+    <imageobject><imagedata fileref="images/html/table103.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table103.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para>
 Как показывает таблица, второй по очереди по частоте излишних манипуляций является верхняя завертка (<emphasis role="bold">Z</emphasis><subscript>3</subscript>, которую обезьяна зачастую не может открыть с одного раза и отмыкание которой она производит в несколько приемов.
 </para>
 <para>
 Значительно реже, чем к двум первым, обезьяна обращается к нижнему механизму (<emphasis role="bold">Z</emphasis><subscript>4</subscript>, и еще реже к верхнему левому <emphasis role="bold">M</emphasis>, к которому вообще в громадном большинстве случаев обращается всего один лишний раз.
 </para>
+
+<figure id="picture40">
+  <title>Комбинация из двух щеколд K и M и двух заверток Z<subscript>3</subscript> и Z<subscript>4</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture40.jpg">
+    <imageobject><imagedata fileref="images/html/picture40.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture40.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 При рассмотрении порядка отмыкания механизмов обнаруживается, что обезьяна наичаще ведет обследование, начиная с нижнего механизма (<emphasis role="bold">Z</emphasis><subscript>4</subscript>), перекидывается кверху, к правому верхнему (<emphasis role="bold">Z</emphasis><subscript>3</subscript>), откуда к средине (<emphasis role="bold">K</emphasis>) и заканчивает отмыкание левым верхним механизмом (<emphasis role="bold">M</emphasis>); значительно реже обезьяна начинает отмыкание сверху, с правого верхнего механизма (<emphasis role="bold">Z</emphasis><subscript>3</subscript>), идет к средине (<emphasis role="bold">K</emphasis>) или книзу (<emphasis role="bold">Z</emphasis><subscript>4</subscript>), после этого к первому левому верхнему (<emphasis role="bold">M</emphasis>); еще реже она начинает отмыкание со среднего механизма (<emphasis role="bold">K</emphasis>), оттуда перекидывается кверху налево (<emphasis role="bold">M</emphasis>), затем вниз (к (<emphasis role="bold">Z</emphasis><subscript>4</subscript>) или наверх (к (<emphasis role="bold">Z</emphasis><subscript>3</subscript>); обезьяна никогда не начинает отмыкания с левого верхнего запора (<emphasis role="bold">M</emphasis>).
 </para>
 <para>
 Таким образом механизм <emphasis role="bold">M</emphasis> (верхний левый) наичаще отмыкается последним, механизм <emphasis role="bold">K</emphasis> (средний) наичаще отмыкается в средине работы, механизм (<emphasis role="bold">Z</emphasis><subscript>3</subscript> (верхний правый) одинаково часто отмыкается то в начале, то в средине работы и, наконец, механизм (<emphasis role="bold">Z</emphasis><subscript>4</subscript> (нижний) чаще всего отмыкается первым.
 </para>
+
+<equation id="curve48">
+  <title>2 щеколды K и M; 2 завертки Z<subscript>3</subscript> и Z<subscript>4</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve48.jpg">
+    <imageobject><imagedata fileref="images/html/curve48.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve48.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
 <para>
 По среднему времени отмыкания комбинация из 4 механизмов занимает среди других комбинаций срединное место; следует отметить только, что среднее время завершения работы в идеальных опытах весьма близко к таковому в особо удачных опытах (см. <xref linkend="curve48" />).
 </para>
@@ -372,14 +572,22 @@
 При оперировании с данной комбинацией из 4 механизмов наблюдается весьма мало излишних движений контроля двери и отвлечения в сторону, что часто бывало при работе с предыдущей комбинацией механизмов (двумя завертками <emphasis role="bold">Z</emphasis><subscript>3</subscript> и <emphasis role="bold">Z</emphasis><subscript>4</subscript>). Причина этого кроется, быть может, в том что там ввиду разъединенности, удаленности механизмов обезьяна вначале часто не учитывала истинной причины задержки &mdash; второго, удаленного препятствия &mdash; и то отвлекалась, то бессмысленно рвалась из запертой двери вон; здесь ее неудачные попытки обескураживают меньше, так как в поле ее зрения все время „маячит" средний механизм (<emphasis role="bold">K</emphasis>), на который она и направляет свои бесцельные обследования и пробы, что отчасти и поддерживает ее инициативу в длительном продолжении работы, а с другой стороны, помогает ей скорее, чем раньше, переносить свое активное внимание и к удаленным механизмам.
 </para>
 </para>
+</sect2>
 
-<formalpara>
-<title>Отмыкание слабопружинящей завертки. </title>
-</formalpara>
-
+<sect2><title>Отмыкание слабопружинящей завертки.</title>
 <para>
 Предлагается для преодоления механизм <emphasis role="bold">а</emphasis>, совершенно иной по виду и по форме центра приложения силы, но аналогичный с предыдущими по способу отмыкания, &mdash; именно завертка со слабо пружинящим, легко податливым центром приложения силы, требующая легкого-движения <emphasis>вращения вправо на</emphasis> 180<superscript>o</superscript> (<xref linkend="photo16" />, фиг. 2; <xref linkend="picture41" />).
 </para>
+
+<figure id="picture41">
+  <title>Завертка пружинящая а</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture41.jpg">
+    <imageobject><imagedata fileref="images/html/picture41.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture41.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para role="details">
 <para>
@@ -394,6 +602,17 @@
 <para>
 Правильное оперирование с этим замком и кратчайший срок его отмыкания сохраняются вопреки громадному шестимесячному перерыву в работе с этим механизмом (см. <xref linkend="curve49" />). Даже 1-й опыт отмыкания не увеличивается по своей длительности; пределы вариации срока отмыкания те же (1 &mdash; 5 сек.). 
 </para>
+
+<equation id="curve49">
+  <title>Завертка а</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve49.jpg">
+    <imageobject><imagedata fileref="images/html/curve49.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve49.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
 <para>Эпизодические подъемы кривой весьма слабы.</para>
 <para>
 При учете среднего времени окончания работы после перерыва обнаруживается уменьшение срока отмыкания до минимума (до 1,6 сек.), следовательно имеет место сокращение против прежнего срока на <superscript>6</superscript>/<subscript>10</subscript> сек. В громадном большинстве случаев работа завершается в 1 сек. времени.
@@ -408,3 +627,4 @@
 Движение вращения по кривой на 180<superscript>o</superscript> при легкой податливости центра приложения силы является для обезьяны наиболее легким из видов движений.
 </para>
 </para>
+</sect2>
