@@ -130,6 +130,15 @@
 Положив в основу анализа соответствующую таблицу (<xref linkend="table217" />), можно дать на это исчерпывающий ответ.
 </para>
 
+<informalfigure id="table217" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table217.jpg">
+    <imageobject><imagedata fileref="images/html/table217.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table217.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para role="details">
 <para id='str217' xreflabel='стр. 217'>
 При рассмотрении этой таблицы обнаруживается, что наибольшее количество комбинаций из 2 механизмов отмыкается в кратчайший срок времени (именно от 5 до 10 сек.) и в состав этих комбинаций входят как раз механизмы с <emphasis>известным способом отмыкания</emphasis> разных типов (крюки, щеколды, задвижки).

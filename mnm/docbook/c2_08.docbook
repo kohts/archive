@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 Произведем теперь исследование <emphasis role="bold">темпа усовершенствования</emphasis> в работе с каждым механизмом на протяжении всей серии опытов и сопоставим этот темп усовершенствования у различных типов механизмов, чтобы выяснить ряд основных общих вопросов:
 <orderedlist>
 <listitem><para>Как изменяется величина скорости отмыкания <emphasis>одного и того же</emphasis> механизма на протяжении <emphasis>всей серии опытов</emphasis> с этим механизмом
@@ -16,6 +16,22 @@
 <para>
 Для решения второго вопроса мы сопоставляем между собой величины средней продолжительности опыта у различных механизмов в один и тот же период работы (в 1-й, или 2-й, или 3-й, или 4-й тэтраде), и в разные периоды работы (в 1-й, 2-й, 3-й и 4-й тэтрадах и т. д.). 
 </para>
+
+<example id="photo15">
+  <title>Отмыкание комбинаций из разнородных механизмов</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/photo15.jpg">
+    <imageobject><imagedata fileref="images/html/photo15.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/photo15.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Фиг. 1. Отмыкание завертки Z<subscript>3</subscript> (из комбинации Z<subscript>3</subscript>Z<subscript>4</subscript>KM)<?br?>
+Фиг. 2. Отмыкание щеколды M (из комбинации Z<subscript>3</subscript>Z<subscript>4</subscript>KM)<?br?>
+Фиг. 3. Разматывание обмотки (из комбинации Z<subscript>3</subscript>Z<subscript>4</subscript>f<subscript>2</subscript>&#931;)<?br?>
+Фиг. 4. Отмыкание завертки Z<subscript>4</subscript> (из комбинации KMZ<subscript>3</subscript>Z<subscript>4</subscript>)<?br?>
+</para></textobject></mediaobject>
+</example>
 
 <para role="details">
 <para>
@@ -37,8 +53,8 @@
 <para>
 <simplelist>
 <member>Первые 4 тэтрады.&mdash; Подъема нет у 64% мех. Подъем есть у 36% механиз.</member>
-<member>Вторые тэтрады.&mdash; Подъема нет у 30% мех. Подъем есть 70% механиз.</member>
-<member>Последние тэтрады.&mdash; Подъема нет у 42% мех. Подъем есть 58% механиз.</member>
+<member>Вторые 4 тэтрады.&mdash; Подъема нет у 30% мех. Подъем есть 70% механиз.</member>
+<member>Последние 4 тэтрады.&mdash; Подъема нет у 42% мех. Подъем есть 58% механиз.</member>
 </simplelist>
 </para>
 <para>
@@ -125,6 +141,15 @@
 </para>
 </para>
 
+<informalfigure id="table179" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table179.jpg">
+    <imageobject><imagedata fileref="images/html/table179.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table179.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para>
 И это подводит нас к обобщению, что максимальные успехи связаны с <emphasis>первым</emphasis> преодолением способа отмыкания нового механизма; в последующем, преоборов главное, обезьяна очень мало <emphasis>прогрессирует</emphasis> в своей работе.
 </para>
@@ -157,6 +182,15 @@
 В третьей тэтраде мы наблюдаем некоторое снижение успешности работы; именно, б&#1086;&#768;льшая часть механизмов (57,1 %) отходит во 2-ю рубрику, меньшая часть (39,2%) &mdash; в 1-ю; один своеобразный по отмыканию механизм (<emphasis role="bold">f</emphasis><subscript>3</subscript>) относится даже под 3-ю рубрику с длительным сроком отмыкания, большим 1 мин. Можно думать, что после 8 опытов отмыкания у обезьяны как бы наблюдается временное ослабление энергии отмыкания. В последующих 2 тэтрадах (4 и 5) мы опять наблюдаем подъем энергии, отражающейся на краткости завершения работы, возрастание количества механизмов в 1-й рубрике (до 68 и 80%) за счет второй; в этой второй остаются наиболее сложные механизмы из 2 частей (<emphasis role="bold">d</emphasis><subscript>3</subscript>, <emphasis role="bold">d</emphasis><subscript>2</subscript>), самозамыкающийся (<emphasis role="bold">L</emphasis>), обмотка (<emphasis role="bold">&#931;</emphasis><subscript>1</subscript>), пружинящая завертка и ключ с поворотом в 270<superscript>о</superscript> (<emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">f</emphasis><subscript>3</subscript>). После 8 опытов снова наблюдается временное, ухудшение, совпадающее с 6-й тэтрадой (периодом с 20-го по 24-й опыт), вслед за чем наблюдается опять подъем успешности работы, доходящей до предельного совершенства в 11 тэтраде, где 100% оставшихся на испытании механизмов, повидимому механизмов наиболее затруднительных по способу отмыкания (именно заверток <emphasis role="bold">U</emphasis>, <emphasis role="bold">Z</emphasis><subscript>2</subscript> и ключа <emphasis role="bold">f</emphasis><subscript>3</subscript>), целиком относятся к 1-й рубрике. Из них только работа с одним единственным механизмом (<emphasis role="bold">f</emphasis><subscript>3</subscript>) до самого конца неустойчива по времени отмыкания.
 </para>
 </para>
+
+<informalfigure id="table181" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table181.jpg">
+    <imageobject><imagedata fileref="images/html/table181.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table181.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
 
 <para>
 Таким образом и при учете средней скорости работы в ряде последовательных тэтрад наблюдается <emphasis>зигзагообразный</emphasis> характер успешности работы &mdash; периоды энергичной работы (охватывающие не более 8 опытов) сменяются периодами пониженной энергии, длящимися вдвое меньший срок (на протяжении 4 опытов, в течение которых обезьяна как бы отдыхает).

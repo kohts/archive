@@ -1,6 +1,16 @@
-﻿<para>
+<para>
 Дверка экспериментальной клетки замыкается <emphasis>тонкой эластичной</emphasis> <emphasis role="bold">проволочкой</emphasis>, неподвижно укрепленной с одной стороны дверной скважины и обматывающейся <emphasis>одним</emphasis> заворотом своего свободного конца за гвоздик, укрепленный с другой стороны дверной скважины (см. <xref linkend="photo20" />, фиг. 2; <xref linkend="picture48" />).
 </para>
+
+<figure id="picture48">
+  <title>Обмотка &#931;<subscript>1</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture48.jpg">
+    <imageobject><imagedata fileref="images/html/picture48.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture48.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para role="details">
 <para>
@@ -68,6 +78,17 @@
 <para>
 Тогда вторично обезьяна обращается к свободному концу проволоки, разматывает его более определенным движением влево, отводит проволоку и тянет дверь, получая освобождение в 144 сек. (срок более чем в 10 раз превосходящий таковой последнего опыта предыдущего сеанса и в 1<superscript>1</superscript>/<subscript>2</subscript> раза более короткий, нежели срок отмыкания в 1-м опыте 1-го сеанса).
 </para>
+
+<equation id="curve63">
+  <title>Обмотка проволоки &#931;<subscript>1</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve63.jpg">
+    <imageobject><imagedata fileref="images/html/curve63.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve63.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
 <para>
 Правильное оперирование быстро упрочивается: первый опыт является и самым длительным по времени; в последующем наблюдается резкое сокращение времени работы: обезьяна сразу обращается к свободному концу проволоки и делает нужное разматывание &mdash; она не дергает дверь, прежде чем не снимет последний оборот проволоки. Прием разматывания меняется: то обезьяна пускает в ход обе руки, перехватывая проволоку из одной руки в другую в соответствии с удобством вращения, то она развертывает одной левой рукой весь оборот сначала и до конца, меняя свое местонахождение, стоя по <emphasis>левую</emphasis> сторону при разматывании оборота <emphasis>влево</emphasis> и переходя в <emphasis>правую</emphasis> сторону <emphasis>при</emphasis> разматывании <emphasis>вправо</emphasis>.
 </para>
@@ -107,13 +128,20 @@
 </para>
 </para>
 
-<formalpara>
-<title>Оперирование с комбинацией из разнотипных механизмов: заверток, ключа и обмотки.</title>
-</formalpara>
-
+<sect2><title>Оперирование с комбинацией из разнотипных механизмов: заверток, ключа и обмотки.</title>
 <para>
 При замыкании дверцы экспериментальной клетки комбинацией из разнотипных механизмов: ключа внутреннего замка <emphasis role="bold">f</emphasis><subscript>2</subscript>, средней по толщине проволоки, замотанной тремя оборотами за гвоздик &mdash; <emphasis role="bold">&#931;</emphasis><subscript>3</subscript>, двух заверток <emphasis role="bold">Z</emphasis><subscript>3</subscript>, <emphasis role="bold">Z</emphasis><subscript>4</subscript>, прикрепленных вверху и внизу дверцы (см. <xref linkend="picture49" />), обнаруживаются следующие особенности работы обезьяны.
 </para>
+
+<figure id="picture49">
+  <title>Комбинация заверток Z<subscript>3</subscript>Z<subscript>4</subscript>, ключа f<subscript>2</subscript> и обмотки &#931;<subscript>3</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture49.jpg">
+    <imageobject><imagedata fileref="images/html/picture49.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture49.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para role="details">
 <para>
@@ -121,13 +149,23 @@
 <footnote><para>
 Эта сумма равна 212,3 сек., она составлена из следующих цифр:
 <simplelist>
-<member>Среднего времени завершения работы с <emphasis role="bold">Z</emphasis><subscript>3</subscript> и <emphasis role="bold">Z</emphasis><subscript>4</subscript> = 114 сек.</member>
-<member>Среднего времени завершения работы с 3 обмотками проволоки = 80 сек.</member>
-<member>Среднего времени завершения работы с ключом внутреннего замка = 18,3 сек.</member>
+<member>среднего времени завершения работы с <emphasis role="bold">Z</emphasis><subscript>3</subscript> и <emphasis role="bold">Z</emphasis><subscript>4</subscript> = 114 сек.</member>
+<member>среднего времени завершения работы с 3 обмотками проволоки = 80 сек.</member>
+<member>среднего времени завершения работы с ключом внутреннего замка = 18,3 сек.</member>
 </simplelist>
 </para></footnote>
  количеств среднего времени работы, относящихся к единичным установкам, то обнаруживается явственное усовершенствование обезьяны в деле отмыкания предложенных механизмов (см. <xref linkend="table125" /> и <xref linkend="curve64" />).
 </para>
+
+<informalfigure id="table125" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table125.jpg">
+    <imageobject><imagedata fileref="images/html/table125.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table125.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para>
 Как и обычно, при работе с комбинацией механизмов кривая продолжительности работы не обнаруживает систематического ниспадания, и явственный уклон вниз обнаруживается лишь в последних опытах.
 </para>
@@ -156,6 +194,17 @@
 <para>
 В ее действиях не замечается только одного &mdash; настойчивого, повторного, многократного, непрерывного старания в отмыкании <emphasis>того</emphasis> же <emphasis>самого</emphasis> запора.
 </para>
+
+<equation id="curve64">
+  <title>2 завертки Z<subscript>3</subscript>Z<subscript>4</subscript>, ключ f<subscript>2</subscript>, обмотка &#931;<subscript>3</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve64.jpg">
+    <imageobject><imagedata fileref="images/html/curve64.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve64.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
 <para>
 Это последнее имеет место лишь в отношении дерганья &mdash; контроля &mdash; двери, когда обезьяна подряд иногда до 8 раз тянет дверь к себе, желая ее открыть.
 </para>
@@ -163,3 +212,4 @@
 Целеустремленность обезьяны к освобождению из клетки явственна, но пути и способы достижения цели ищутся ею наугад, беспорядочно, бессистемно, находятся случайно; и только в результате многих конкретных опытов достижение цели осуществляется более соответствующим образом: скоро, экономно, упорядоченно.
 </para>
 </para>
+</sect2>

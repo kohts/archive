@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 Как велика <emphasis role="bold">величина усовершенствования</emphasis> при работе обезьяны с комбинацией механизмов?
 </para>
 
@@ -109,6 +109,15 @@
 <para>
 При анализе вопроса о том, к <emphasis>какому моменту</emphasis>, к какому по порядку отмыкания опыту серии приурочен максимальный <emphasis>спуск</emphasis> и максимальный <emphasis>подъем</emphasis> кривой (т. е. где наблюдается максимальное и минимальное улучшение работы), мы опять должны воспользоваться сравнительной таблицей (см. <xref linkend="table237" />).
 </para>
+
+<informalfigure id="table237" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table237.jpg">
+    <imageobject><imagedata fileref="images/html/table237.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table237.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
 
 <para role="details">
 <para>
@@ -241,6 +250,20 @@
 <emphasis>Наименьшую величину отклонения</emphasis> (выраженную <emphasis>однозначным</emphasis> числом) имеют по преимуществу <emphasis>простейшие</emphasis> комбинации механизмов, у которых по большей части подъем предваряет спуск (<emphasis role="bold">АБe</emphasis>, <emphasis role="bold">YI</emphasis>, <emphasis role="bold">U&#0220;</emphasis>, <emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis><emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">CD</emphasis><subscript>(2)</subscript>, <emphasis role="bold">eee</emphasis>, <emphasis role="bold">АБee</emphasis>, <emphasis role="bold">KM</emphasis>, <emphasis role="bold">KNM</emphasis>, <emphasis role="bold">ST</emphasis>, <emphasis role="bold">Z</emphasis><subscript>1</subscript><emphasis role="bold">Z</emphasis><subscript>2</subscript>), <emphasis>среднюю</emphasis> величину отклонения (выраженную <emphasis>двухзначным</emphasis> числом) имеют более сложные комбинации механизмов [<emphasis role="bold">CD</emphasis><subscript>(1)</subscript>, 2 кр. (из 3), 6 кр., 9 кр. <emphasis role="bold">OI</emphasis>, <emphasis role="bold">FGH</emphasis>, <emphasis role="bold">V</emphasis><subscript>1</subscript><emphasis role="bold">W</emphasis><subscript>1</subscript><emphasis role="bold">X</emphasis><subscript>2</subscript><emphasis role="bold">Y</emphasis><subscript>1</subscript>, 4 кр. (из 6), <emphasis role="bold">KLNM</emphasis>, <emphasis role="bold">OP</emphasis>, <emphasis role="bold">FG</emphasis>], у которых по большей части спуск предваряет подъем. <emphasis>Максимальную</emphasis> величину отклонения (выраженную <emphasis>трехзначным</emphasis> числом) имеет ряд комбинаций (8 кр., <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">KM</emphasis>, <emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">d</emphasis><subscript>4</subscript>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">OIP</emphasis>), наиболее сложных по количественной и качественной конструкции, у преобладающего большинства которых спуск предваряет подъем.
 </para>
 </para>
+
+<example id="photo19">
+  <title>Отмыкание накладок, заложенных втулками, из комбинации d<subscript>2</subscript>d<subscript>4</subscript>d<subscript>1</subscript>d<subscript>0</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/photo19.jpg">
+    <imageobject><imagedata fileref="images/html/photo19.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/photo19.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Фиг. 1. Вытягивание горизонтальной втулки d<subscript>4</subscript><?br?>
+Фиг. 2. Вытягивание горизонтальной втулки d<subscript>4</subscript> после выема вертикальной втулки d<subscript>2</subscript> и откладывания нижней горизонтальной накладки d<subscript>1</subscript><?br?>
+</para></textobject></mediaobject>
+</example>
 
 <para>
 Общие выводы на основании анализа максимальных сдвигов на кривых работы.

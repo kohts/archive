@@ -17,8 +17,8 @@
 При б&#1086;&#768;льших числовых значениях скорости одинаковая величина скорости у разных механизмов наблюдается лишь в виде исключения; при числовых значениях скорости б&#1086;&#768;льших 15 повторяемости совершенно не наблюдается. Так, напр.:
 <simplelist>
 <member>скорость 2 сек. имеют 3 механизма <emphasis role="bold">I</emphasis>, <emphasis role="bold">b</emphasis>, <emphasis role="bold">f</emphasis><subscript>4</subscript></member>
-<member>скорость 3 сек. имеют 5 механизма <emphasis role="bold">C</emphasis>, <emphasis role="bold">E</emphasis><subscript>1</subscript>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">M</emphasis>, <emphasis role="bold">f</emphasis><subscript>1</subscript></member>
-<member>скорость 4 сек. имеют 5 механизма <emphasis role="bold">F</emphasis>, <emphasis role="bold">W</emphasis>, <emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">C</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>1</subscript></member>
+<member>скорость 3 сек. имеют 5 механизмов <emphasis role="bold">C</emphasis>, <emphasis role="bold">E</emphasis><subscript>1</subscript>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">M</emphasis>, <emphasis role="bold">f</emphasis><subscript>1</subscript></member>
+<member>скорость 4 сек. имеют 5 механизмов <emphasis role="bold">F</emphasis>, <emphasis role="bold">W</emphasis>, <emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">C</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>1</subscript></member>
 <member>скорость 7 сек. имеют 2 механизма <emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">S</emphasis></member>
 <member>скорость 13 сек. имеют 2 механизма <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">T</emphasis></member>
 <member>скорость 15 сек. имеют 2 механизма <emphasis role="bold">I</emphasis>, <emphasis role="bold">А</emphasis><subscript>3</subscript></member>
@@ -60,6 +60,24 @@
 <para>
 Анализ числовых значений, выражающих величину средней скорости отмыкания различных механизмов, произведенный на основании рассмотрения соответствующей таблицы (<xref linkend="table186" />), позволяет нам установить ряд закономерностей.
 </para>
+
+<informalfigure id="table186" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table186.jpg">
+    <imageobject><imagedata fileref="images/html/table186.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table186.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+<informalfigure id="table187" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table187.jpg">
+    <imageobject><imagedata fileref="images/html/table187.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table187.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <orderedlist>
 <listitem><para>Как то легко видно из таблицы, в подавляющем большинстве случаев в пределах каждой серии механизмов <emphasis>порядок предъявления механизмов не оказывал влияния на среднюю скорость работы</emphasis> (это имело место для серии механизмов II, IV, V, VII, VIII, IX); там же, где это влияние сказывалось (как в X, I
 <footnote><para>
@@ -73,7 +91,7 @@ III, VI серии механизмов), оно касалось только <
 
 <listitem><para>Скорость отмыкания <emphasis>разных первых</emphasis> по предъявлению механизмов в каждой <emphasis>серии механизмов</emphasis> весьма различна.
 </para>
-<para>
+<para id='str188' xreflabel='стр. 188'>
 Сопоставим скорости отмыкания всех <emphasis>первых</emphasis> по предъявлению разнородных механизмов, расположим все главные механизмы по степени убывающей величины их скорости; тогда мы получим следующий ряд:
 <simplelist>
 <member>1-е место занимает замок <emphasis role="bold">З</emphasis><subscript>0</subscript>, скорость отмыкания &mdash; 3531,0 сек.</member>
@@ -118,7 +136,7 @@ III, VI серии механизмов), оно касалось только <
 </orderedlist>
 </para>
 <para>
-Распределим ряд однородных механизмов (всех имеющихся у нас типов) в порядке убывающей величины их скорости (см. <xref linkend="table186" />.)
+Распределим ряд однородных механизмов (всех имеющихся у нас типов) в порядке убывающей величины их скорости (см. <xref linkend="table186" />)
 </para>
 <para>
 При рассмотрении длительности отмыкания различных <emphasis>крюков</emphasis> мы замечаем, что <emphasis>наиболее медлительно</emphasis> завершение работы с <emphasis>тугим</emphasis> <emphasis role="bold">E</emphasis><subscript>2</subscript> и 1-м <emphasis>по предъявлению</emphasis> <emphasis role="bold">А</emphasis><subscript>1</subscript> крюками (скорость исчисляется сотнями секунд), значительно <emphasis>скорее</emphasis> производится отмыкание последующих <emphasis>средней податливости</emphasis> горизонтальных и вертикальных крюков (скорость определяется десятками секунд) и, наконец, всего быстрее (менее чем в 5 сек.) отмыкаются <emphasis>легко податливые</emphasis> горизонтальные крюки. Как то совершенно очевидно, порядок последующего предъявления (кроме 1-го) не играет решающей роли, не уменьшает цифры длительности работы.
@@ -182,6 +200,15 @@ III, VI серии механизмов), оно касалось только <
 Чтобы наглядно выявить эти различные соотношения между вариацией скорости работы в соответствии с вариацией замыкающих приборов, мы сконструируем применительно к каждому затронутому вопросу свою <xref linkend="table191" />, подобрав из каждой серии механизмов наиболее сравнимые по порядку предъявления, по положению и по податливости.
 </para>
 
+<informalfigure id="table191" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table191.jpg">
+    <imageobject><imagedata fileref="images/html/table191.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table191.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para>
 Эта таблица наглядно показывает нам, что при изменении типа механизмов &mdash; наиболее резкое изменение скорости работы (коэффициент осложнения или упрощения исчисляется сотнями) осуществляется при переходе от первого типа механизма (<emphasis role="bold">А</emphasis><subscript>1</subscript> ко второму типу (<emphasis role="bold">K</emphasis>), при предложении типа механизма более подвижного во второстепенных частях, нежели в главной части (<emphasis role="bold">З</emphasis><subscript>0</subscript>); изменение скорости работы
 <footnote><para>
@@ -191,16 +218,39 @@ III, VI серии механизмов), оно касалось только <
 </para>
 
 <para>
-Если мы проследим величину средней продолжительности опыта всех представленных в таблице типов механизмов и распределим их в порядке убывающей величины их скорости (как это сделано в <xref linkend="table188" />), то обнаружится, что
+Если мы проследим величину средней продолжительности опыта всех представленных в таблице типов механизмов и распределим их в порядке убывающей величины их скорости (как это сделано в таблице <xref linkend="str188" />), то обнаружится, что
 <footnote><para>
 За исключением 1-го представленного механизма-крюка <emphasis role="bold">А</emphasis><subscript>1</subscript> и других осложненных (на фоне основных типов) механизмов, как обмотка веревки <emphasis role="bold">&#931;</emphasis><subscript>n</subscript>, <emphasis role="bold">d</emphasis><subscript>3</subscript>, <emphasis role="bold">d</emphasis><subscript>2</subscript>.
 </para></footnote> 
 особенно труден для 1-го преодоления свободно висящий замок, более подвижный во второстепенных частях по сравнению с главной частью; затем в нисходящем порядке идут задвижка, цепь, обмотка, ключ, завертка, рычаг, накладка, щеколда, вытяжная зацепка.
 </para>
 
+<informalfigure id="table192" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table192.jpg">
+    <imageobject><imagedata fileref="images/html/table192.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table192.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para>
 Это означает, что обезьяна всего труднее производит вращательные движения при условии сопротивления центра приложения силы, при наличии легко подвижных второстепенных частей, что отодвигание дается ей более трудно, нежели разматывание, отведение и выдергивание и вращение; вращение &mdash; труднее, чем поворот и спускание; спускание &mdash; труднее, чем притягивание; притягивание &mdash; труднее, чем отведение; отведение &mdash; труднее, чем вытягивание.
 </para>
+
+<example id="photo16">
+  <title>Отмыкание единичных механизмов</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/photo16.jpg">
+    <imageobject><imagedata fileref="images/html/photo16.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/photo16.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Фиг. 1. Отмыкание задвижки со втулкой Y<subscript>2</subscript><?br?>
+Фиг. 2. Отмыкание слабо пружинящей завертки a<?br?>
+</para></textobject></mediaobject>
+</example>
 
 <para>
 На основании сопоставления <emphasis>однотипных</emphasis> механизмов, <emphasis>одинаковых по положению</emphasis>, но видоизмененных в деталях конструкции (<xref linkend="table192" />), &mdash; явствует, что всякое, даже <emphasis>незначительное</emphasis> видоизменение конструкции механизмов в сторону осложнения неизменно увеличивает длительность среднего срока работы; упрощение конструкции уменьшает скорость завершения работы.
@@ -218,6 +268,15 @@ III, VI серии механизмов), оно касалось только <
 Последующая <xref linkend="table193" /> вскрывает нам это совершенно недвусмысленно.
 </para>
 
+<informalfigure id="table193" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table193.jpg">
+    <imageobject><imagedata fileref="images/html/table193.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table193.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para>
 За единичным исключением (случай 8) <emphasis>увеличение сопротивляемости</emphasis> центра приложения силы влечет неминуемо <emphasis>увеличение длительности</emphasis> завершения работы; коэфициент осложнения особенно значителен при затруднении движения приподнимания, отодвигания при оперировании с неподатливыми крюками и задвижками; он менее высок при затрудненном вращении, разматывании. Коэфициент осложнения равен отрицательной величине в одном единственном случае при замене тугим пружинящим механизмом <emphasis role="bold">X</emphasis><subscript>2</subscript> самозамыкающегося <emphasis role="bold">Q</emphasis>, представляющего для обезьяны большие трудности при отмыкании, нежели первый
 <footnote><para>
@@ -228,6 +287,15 @@ III, VI серии механизмов), оно касалось только <
 <para>
 Изменение <emphasis>положения</emphasis> механизмов одной и той же или сходной конструкции также не остается без влияния на среднюю скорость работы, в чем нас убеждает <xref linkend="table194" />.
 </para>
+
+<informalfigure id="table194" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table194.jpg">
+    <imageobject><imagedata fileref="images/html/table194.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table194.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
 
 <para>
 Как то совершенно очевидно, механизмы, отмыкающиеся <emphasis>вправо</emphasis>, в среднем, как правило, имеют длительность завершения работы более <emphasis>кратковременную</emphasis>, нежели те же механизмы или родственные им по конструкции, но отмыкающиеся <emphasis>влево</emphasis>, &mdash; и это наблюдается в отношении всех главных видов запоров, и в особенности заверток и задвижек
@@ -268,6 +336,15 @@ III, VI серии механизмов), оно касалось только <
 <para>
 В противоположность тому, что было оговорено при анализе предыдущей таблицы, в данном случае влияние предшествующих навыков не приходится брать в расчет по следующим основаниям.
 </para>
+
+<informalfigure id="table196" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table196.jpg">
+    <imageobject><imagedata fileref="images/html/table196.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table196.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
 
 <para>
 Как правило, более кратковременно отмыкаемые вертикальные механизмы (<emphasis role="bold">C</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>0</subscript>, <emphasis role="bold">А</emphasis><subscript>3</subscript>, <emphasis role="bold">Q</emphasis>) в подавляющем большинстве случаев
@@ -313,6 +390,15 @@ III, VI серии механизмов), оно касалось только <
 Приводимая здесь <xref linkend="table197" /> выявляет нам это довольно хорошо.
 </para>
 
+<informalfigure id="table197" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table197.jpg">
+    <imageobject><imagedata fileref="images/html/table197.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table197.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para>
 Из рассмотрения этой таблицы явствует, что при прочих более или менее равных условиях механизмы с <emphasis>новым</emphasis> для обезьяны направлением передвижения центра приложения силы отмыкаются значительно дольше, нежели одинаковые с ними по конструкции механизмы, предложенные вслед за первыми (во 2-ю, 3-ю, 4-ю очередь). И это вопреки тому, что работа с некоторыми из этих <quote>вторичных</quote> механизмов (как с мех. <emphasis role="bold">a</emphasis>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">W</emphasis>, <emphasis role="bold">Y</emphasis><subscript>1</subscript>) не следовала непосредственно вслед за отмыканием <quote>привычных</quote>, а прерывалась оперированием с другими по конструкции механизмами, имевшими зачастую иное направление передвижения; тем не менее предшествующие навыки удачного отмыкания оказывали свое плодотворное влияние на воспроизведение последующих аналогичных действий.
 </para>
@@ -324,25 +410,35 @@ III, VI серии механизмов), оно касалось только <
 <para id='str198' xreflabel='стр. 198'>
 Мы можем сделать это на основании рассмотрения всех 6 вышеприведенных таблиц, для удобства расположив максимумы коэфициента изменения (осложнения или упрощения) в нисходящем порядке:
 </para>
-<para>
-Макс. коэф. изменения
-<orderedlist>
-<listitem><para>Изменение сложности конструкции однотипных механизмов &mdash; 490,0</para></listitem>
-<listitem><para>Изменение податливости родственных однотипных механизмов &mdash; 150,0</para></listitem>
-<listitem><para>Изменение типа механизмов &mdash; 109,0</para></listitem>
-<listitem><para>Различие в порядке предъявления однотипных механизмов &mdash; 99,0 
+
+<informaltable frame='all' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<thead>
+<row>
+  <entry></entry>
+  <entry>Макс. коэф. изменения</entry>
+  </row>
+</thead>
+<tbody>
+<row><entry><para>Изменение сложности конструкции однотипных механизмов</para></entry><entry>490,0</entry></row>
+<row><entry><para>Изменение податливости родственных однотипных механизмов</para></entry><entry>150,0</entry></row>
+<row><entry><para>Изменение типа механизмов</para></entry><entry>109,0</entry></row>
+<row><entry><para>Различие в порядке предъявления однотипных механизмов</para></entry><entry><para>99,0 
 <footnote><para>
-Цифра получена на основании учета данных <xref linkend="table188" /> из I серии механизмов, где влияние порядка предъявления оказалось наиболее радикальным &mdash; именно:
+Цифра получена на основании учета данных таблицы <xref linkend="str188" /> из I серии механизмов, где влияние порядка предъявления оказалось наиболее радикальным &mdash; именно:
 <simplelist>
 <member>1-й по предъявлению крюк отмыкается в срок 327,7 сек.</member>
 <member>2-й по предъявлению крюк отмыкается в срок 33 сек.</member>
 </simplelist>
-</para></footnote></para></listitem>
-<listitem><para>Различие в привычности движения &mdash; 10,0</para></listitem>
-<listitem><para>Изменение положения справа налево &mdash; 8,2</para></listitem>
-<listitem><para>Изменение положения из вертикального в горизонтальное &mdash; 2,5</para></listitem>
-</orderedlist>
-</para>
+</para></footnote></para></entry></row>
+<row><entry><para>Различие в привычности движения</para></entry><entry>10,0</entry></row>
+<row><entry><para>Изменение положения справа налево</para></entry><entry>8,2</entry></row>
+<row><entry><para>Изменение положения из вертикального в горизонтальное</para></entry><entry>2,5</entry></row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>
 Итак, подведение общих итогов работы обезьяны с различными установками приводит опять-таки к заключению, что эта работа разнится не только в отдельных характерных моментах

@@ -34,8 +34,8 @@
 <para>
 В противоположность цифрам максимума цифра минимума зачастую <emphasis>повторяется</emphasis> при оперировании с <emphasis>одним и тем же механизмом</emphasis>, и в особенности велика повторяемость низких по величине минимумов:
 <simplelist>
-<member>Минимум <emphasis>1 сек.</emphasis> повтор, по 2 раза у 3 мех., 3 раза &mdash; 1 мех., 4 раза &mdash; 5 мех., 5 раз &mdash; 4 мех., 11 раз &mdash; 1 мех. (т. е. <emphasis>всего повторяется 60 раз</emphasis>).</member>
-<member>Минимум <emphasis>2 сек.</emphasis> повтор, по 2 раза у 1 мех., 3 раза &mdash; 4 мех., 4 раза &mdash; 1 мех., 12 раз &mdash; 1 мех. (т. е. <emphasis>всего повторяется 30 раз</emphasis>).</member>
+<member>Минимум <emphasis>1 сек.</emphasis> повтор. по 2 раза у 3 мех., 3 раза &mdash; 1 мех., 4 раза &mdash; 5 мех., 5 раз &mdash; 4 мех., 11 раз &mdash; 1 мех. (т. е. <emphasis>всего повторяется 60 раз</emphasis>).</member>
+<member>Минимум <emphasis>2 сек.</emphasis> повтор. по 2 раза у 1 мех., 3 раза &mdash; 4 мех., 4 раза &mdash; 1 мех., 12 раз &mdash; 1 мех. (т. е. <emphasis>всего повторяется 30 раз</emphasis>).</member>
 <member>Минимум <emphasis>3 сек.</emphasis> повтор. по 3 раза у 3 мех., 4 раза &mdash; 1 мех. (т. е. <emphasis>всего повторяется 13 раз</emphasis>).</member>
 <member>Минимум <emphasis>5 сек.</emphasis> повтор. по 2 раза у 1 мех. (т. е. <emphasis>всего повторяется 2 раза</emphasis>).</member>
 <member>Минимум <emphasis>6 сек.</emphasis> повтор. по 3 раза у 1 мех. (т. е. <emphasis>всего повторяется 3 раза</emphasis>).</member>

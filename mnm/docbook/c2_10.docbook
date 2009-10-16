@@ -29,7 +29,7 @@
 </orderedlist>
 </para>
 <para>
-Из рассмотрения <xref linkend="table202" />, <xref linkend="table203" /> ясно обнаруживается, что один и тот же перерыв в работе (например, перерыв в <superscript>1</superscript>/<subscript>2</subscript> суток) неодинаково влияет на разные стороны работы обезьяны с одним и тем же механизмом; один и тот же перерыв в работе различно отражается на однотипных данных (слагаемых работы), но принадлежащих разным механизмам.
+Из рассмотрения <xref linkend="table202" /> ясно обнаруживается, что один и тот же перерыв в работе (например, перерыв в <superscript>1</superscript>/<subscript>2</subscript> суток) неодинаково влияет на разные стороны работы обезьяны с одним и тем же механизмом; один и тот же перерыв в работе различно отражается на однотипных данных (слагаемых работы), но принадлежащих разным механизмам.
 </para>
 <para>
 Так, например, при рассмотрении соотношения между 6 группами числовых данных (полученных до перерыва и после <superscript>1</superscript>/<subscript>2</subscript>-суточного перерыва в работе) при оперировании с механизмом <emphasis role="bold">L</emphasis> выясняются следующие характерные особенности. <emphasis>Вопреки</emphasis> перерыву в работе, наблюдается почти
@@ -58,6 +58,24 @@
 <para>
 При рассмотрении числовых данных (распределенных в тех же 6 рубриках), но полученных после более значительного перерыва в работе (от 2 до 7 суток) прежде всего обращает на себя внимание одно обстоятельство.
 </para>
+
+<informalfigure id="table202" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table202.jpg">
+    <imageobject><imagedata fileref="images/html/table202.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table202.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+<informalfigure id="table203" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table203.jpg">
+    <imageobject><imagedata fileref="images/html/table203.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table203.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para>
 <emphasis>Небольшое увеличение</emphasis> срока <emphasis>перерыва</emphasis> в работе не только не ухудшает этой работы при оперировании с одним и тем же механизмом (напр., обмоткой <emphasis role="bold">&#931;</emphasis><subscript>1</subscript>), но даже <emphasis>улучшает</emphasis> все стороны работы (сравните цифровые данные, относящиеся к механизму <emphasis role="bold">&#931;</emphasis><subscript>1</subscript> по всем 6 рубрикам, при перерыве в <superscript>1</superscript>/<subscript>2</subscript> суток и в 3 суток), и это улучшение наблюдается не только в отношении частных данных (касающихся уменьшения длительности 1-го опыта по сравнению с последним предыдущего сеанса, 1-го опыта после перерыва по сравнению с первым до перерыва, последнего опыта, максимально продолжительного и максимально короткого опыта до и после перерыва), но и средней продолжительности опыта.
 </para>
@@ -153,12 +171,21 @@
 </para>
 </para>
 
+<informalfigure id="table207" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table207.jpg">
+    <imageobject><imagedata fileref="images/html/table207.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table207.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para>
 Намечаются следующие главные выводы на основании анализа работы обезьяны с разными механизмами после перерыва в работе:
 <orderedlist>
 <listitem><para><emphasis>Один и тот же</emphasis> перерыв в работе <emphasis>различно</emphasis> сказывается на <emphasis>различных</emphasis> сторонах работы с одним и тем же механизмом.</para></listitem>
 <listitem><para><emphasis>Один и тот же перерыв</emphasis> в работе <emphasis>различно</emphasis> влияет <emphasis>на одну и ту же сторону</emphasis> работы, но <emphasis>разных</emphasis> механизмов.</para></listitem>
-<listitem><para><emphasis>Небольшой</emphasis> перерыв в работе с <emphasis>одним и тем же</emphasis> механизмом (от <superscript>1</superscript>/<subscript>2</subscript> суток до 7&mdash; 30 суток), как правило, <emphasis>улучшает</emphasis> все стороны работы (<emphasis>за исключением 1-го опыта после перерыва</emphasis>) (см. <xref linkend="table202" />, <xref linkend="table203" />).</para></listitem>
+<listitem><para><emphasis>Небольшой</emphasis> перерыв в работе с <emphasis>одним и тем же</emphasis> механизмом (от <superscript>1</superscript>/<subscript>2</subscript> суток до 7&mdash; 30 суток), как правило, <emphasis>улучшает</emphasis> все стороны работы (<emphasis>за исключением 1-го опыта после перерыва</emphasis>) (см. <xref linkend="table202" />).</para></listitem>
 <listitem><para><emphasis>Большой</emphasis> перерыв в работе с <emphasis>одним и тем нее механизмом</emphasis> (до 45&mdash; 180 дней), как правило, отражается <emphasis>неблагоприятно</emphasis> на <emphasis>главных</emphasis> сторонах работы, замедляя скорость ее завершения.</para></listitem>
 <listitem><para>В общем <emphasis>всякий перерыв</emphasis> в работе с разными механизмами, как правило, отражается весьма <emphasis>различно на разных сторонах работы</emphasis> (см. <xref linkend="table207" />).</para></listitem>
 <listitem><para>Всякий перерыв в работе <emphasis>неблагоприятно</emphasis> отражается главным образом <emphasis>на первом опыте</emphasis> отмыкания при сравнении этого опыта с <emphasis>последним</emphasis> предыдущего сеанса.</para></listitem>
@@ -173,6 +200,22 @@
 <para>
 <emphasis>Средняя продолжительность</emphasis> работы в сеансах после перерыва, как правило, <emphasis>уменьшена</emphasis> (у подавляющего большинства механизмов (17) это уменьшение в пределах от 1 до 10 раз и у 3 наиболее трудных для первого преодоления оно превышает 10 раз).
 </para>
+
+<example id="photo17">
+  <title>Отмыкание единичных механизмов</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/photo17.jpg">
+    <imageobject><imagedata fileref="images/html/photo17.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/photo17.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Фиг. 1. Оперирование с цепью C<subscript>3</subscript><?br?>
+Фиг. 2. Открывание двери после отмыкания цепи C<subscript>3</subscript><?br?>
+Фиг. 3. Оперирование с вытяжной зацепкой b<?br?>
+Фиг. 4. Отмыкание вытяжной зацепки b и открывание двери<?br?>
+</para></textobject></mediaobject>
+</example>
 
 <para>
 Наблюдающееся в виде исключения ухудшение работы
@@ -193,3 +236,5 @@
 <para>
 Ухудшение средней продолжительности работы в сеансе после перерыва наблюдается в виде исключения лишь у трех выше охарактеризованных более сложных механизмов (<emphasis role="bold">Y</emphasis><subscript>1(2)</subscript>, <emphasis role="bold">C</emphasis><subscript>3(2)</subscript>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>).
 </para>
+
+&liniya;

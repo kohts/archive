@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 Переходя к анализу числовых значений <emphasis role="bold">максимума</emphasis> работы с комбинацией механизмов, мы должны в первую же очередь подчеркнуть большое схождение данных и выводов с таковыми же, отмеченными при рассмотрении 1-го опыта отмыкания.
 </para>
 
@@ -45,9 +45,9 @@
 При разверстке числовых данных, выражающих максимальную длительность опыта по обычным рубрикам, выявляются следующие соотношения (в процентах):
 <simplelist>
 <member>I рубрика &mdash; срок отмыкания от 1&mdash; 10 сек. &mdash; 0 комб.</member>
-<member>II рубрика &mdash; срок отмыкания от 10 &mdash; 60 сек. &mdash; 27 сек.</member>
-<member>III рубрика &mdash; срок отмыкания от 60 &mdash; 300 сек. &mdash; 45 сек.</member>
-<member>IV рубрика &mdash; срок отмыкания от свыше 300 сек. &mdash; 27 сек.</member>
+<member>II рубрика &mdash; срок отмыкания от 10 &mdash; 60 сек. &mdash; 27 комб.</member>
+<member>III рубрика &mdash; срок отмыкания от 60 &mdash; 300 сек. &mdash; 45 комб.</member>
+<member>IV рубрика &mdash; срок отмыкания от свыше 300 сек. &mdash; 27 комб.</member>
 </simplelist>
 </para>
 <para>
@@ -136,10 +136,10 @@
 <para role="details">
 <orderedlist>
 <listitem><para>Комбин. из 2 крюков <emphasis role="bold">CD</emphasis><subscript>(2)</subscript> имеет максимум от 10&mdash; 30 сек.</para></listitem>
-<listitem><para>Комбин. из 3 крюков <emphasis role="bold">eee</emphasis>, <emphasis role="bold">АБe</emphasis> имеет максимум от. 10&mdash; 30 сек.</para></listitem>
-<listitem><para>Комбин. из 4 крюков <emphasis role="bold">АБee</emphasis>. 40 сек.</para></listitem>
-<listitem><para>Комбин. из 6-7 крюков <emphasis role="bold">АБeeee</emphasis>, <emphasis role="bold">АБeeeee</emphasis> имеет макс, свыше. 60&mdash; 90 сек.</para></listitem>
-<listitem><para>Комбин. а) из 2 крюков (при 3) и b) 2 новых <emphasis role="bold">CD</emphasis><subscript>(1)</subscript> 90-170 сек.</para></listitem>
+<listitem><para>Комбин. из 3 крюков <emphasis role="bold">eee</emphasis>, <emphasis role="bold">АБe</emphasis> имеет максимум от 10&mdash; 30 сек.</para></listitem>
+<listitem><para>Комбин. из 4 крюков <emphasis role="bold">АБee</emphasis> имеет максимум от 40 сек.</para></listitem>
+<listitem><para>Комбин. из 6-7 крюков <emphasis role="bold">АБeeee</emphasis>, <emphasis role="bold">АБeeeee</emphasis> имеет макс. свыше 60&mdash; 90 сек.</para></listitem>
+<listitem><para>Комбин. а) из 2 крюков (при 3) и b) 2 новых <emphasis role="bold">CD</emphasis><subscript>(1)</subscript> имеет макс. свыше 90-170 сек.</para></listitem>
 <listitem><para>Комбин. а) из 8-9 крюков b) 4 кр. (из 6) имеет максимум 170&mdash;420 сек.</para></listitem>
 <listitem><para>Комбин. из 1 задв. <emphasis role="bold">FG</emphasis> имеет максимум 375 сек.</para></listitem>
 <listitem><para>Комбин. из 3 задв. <emphasis role="bold">FGH</emphasis>имеет максимум. 364 сек.</para></listitem>
@@ -151,15 +151,30 @@
 <listitem><para>Комбин. из 2 задв. <emphasis role="bold">OP</emphasis>, <emphasis role="bold">IP</emphasis> имеет максимум. 254&mdash;330 сек.</para></listitem>
 <listitem><para>Комбин. из 3 задв. <emphasis role="bold">OPI</emphasis> имеет максимум. 900 сек.</para></listitem>
 <listitem><para>Комбин. из 2 мех. 2 зав. (<emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>) имеет максимум 720 сек.</para></listitem>
-<listitem><para>Комбин. из 1 мех. 2 зав. (<emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>1</subscript>) ключа, обмотки (<emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis>) 360 сек.</para></listitem>
+<listitem><para>Комбин. из 1 мех. 2 зав. (<emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>1</subscript>) ключа, обмотки (<emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis>) имеет максимум 360 сек.</para></listitem>
 <listitem><para>Комбин. из 4 мех. 2 зав. (<emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>1</subscript>) 2 щек. (<emphasis role="bold">KM</emphasis>) имеет максимум 229 сек.</para></listitem>
 </orderedlist>
 </para>
 
-
 <para>
 Таким образом оказывается, что наравне с увеличением количества знакомых механизмов на величину максимума радикально влияет и наличие <emphasis>незамкнутых</emphasis> запоров в комбинации и <emphasis>новизна</emphasis> запора (о последнем подробнее мы имели случай говорить ранее).
 </para>
+
+<example id="photo17">
+  <title>Отмыкание накладок и втулок</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/photo17.jpg">
+    <imageobject><imagedata fileref="images/html/photo17.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/photo17.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Фиг. 1. Выем втулки ртом<?br?>
+Фиг. 2. Оттягивание накладки d<subscript>1</subscript><?br?>
+Фиг. 3. Оттягивание накладки и контроль двери<?br?>
+Фиг. 4. Открывание двери<?br?>
+</para></textobject></mediaobject>
+</example>
 
 <para>
 Общие выводы, намечающиеся на основании анализа числовых значений максимума, следующие:

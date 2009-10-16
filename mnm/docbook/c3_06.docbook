@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 Общие выводы, сделанные на основании предыдущего анализа, могут быть еще углублены, оттенены и скорректированы при учете <emphasis role="bold">темпа усовершенствования</emphasis>.
 </para>
 
@@ -106,6 +106,16 @@
 <para>
 В 4-й тэтраде наблюдается некоторое снижение успешности работы; правда, в группе наиболее легко отмыкаемых (I рубрика) количество комбинаций оказывается несколько повышенным (33,3% вместо 11%), но и в III рубрике трудно отмыкаемых комбинаций наблюдается повышение количества комбинаций (16% вместо прежних 5%), а в средней (II рубрике) &mdash; снижение количества комбинаций на 32%.
 </para>
+
+<informalfigure id="table244" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table244.jpg">
+    <imageobject><imagedata fileref="images/html/table244.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table244.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para>
 Уже в 5-й тэтраде успешность опять восстанавливается, и процент комбинаций, входящих в I и II рубрики, повышается (до 87%), а входящих в III рубрику &mdash; понижается (до 12%).
 </para>

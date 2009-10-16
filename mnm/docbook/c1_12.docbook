@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 Наиболее сложным и последним из предъявлявшихся для отмыкания механизмов был <emphasis role="bold">висячий, замкнутый ключом замок</emphasis> (установка <emphasis role="bold">З</emphasis><subscript>0</subscript>), привешенный к горизонтальной накладке (<xref linkend="photo22" />, <xref linkend="photo23" /> фиг. 1, 2).
 </para>
 
@@ -63,6 +63,21 @@
 По мере промедления с выходом обезьяна явно начинает озлобляться: она делает резкие порывистые движения, манипулируя с замком, быстро-быстро бегает по клетке, яростно грызет то замок, то сетку, грубо толкает съемный потолок и перестает обращать внимание на замок после 10 мин. работы.
 </para>
 <para>В 7-й раз (после перерыва) предлагается тот же механизм.</para>
+
+<example id="photo12">
+  <title>Операции со сложными задвижками</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/photo12.jpg">
+    <imageobject><imagedata fileref="images/html/photo12.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/photo12.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Фиг. 1. Отмыкание задвижки Y<subscript>1</subscript> из комбинации X<subscript>2</subscript>Y<subscript>1</subscript>V<subscript>1</subscript>W<subscript>1</subscript><?br?>
+Фиг. 2. Отмыкание задвижки W<subscript>1</subscript> из комбинации V<subscript>1</subscript>W<subscript>1</subscript>X<subscript>2</subscript>Y<subscript>1</subscript><?br?>
+</para></textobject></mediaobject>
+</example>
+
 <para>
 На этот раз ключ стал главным и почти единственным центром внимания обезьяны, но &mdash; увы! &mdash; она применяет в обращении с ним только один прием вытягивания, настойчивого, упорного, энергичного вынимания его из скважины зубами; в целях увеличения силы при оттягивании обезьяна, как и ранее, упирается ногами в дверь и на этот раз добивается вытягивания ключа &mdash; после 14 мин. работы.
 </para>
@@ -211,8 +226,21 @@
 </para>
 
 <para>
-Учитывая то обстоятельство, что главным препятствием при отмыкании ключом замка является <emphasis>подвижность самого замка</emphasis>, в 28-м опыте замок так <emphasis>плотно</emphasis> прикрепляется проволокой к накладке, что <emphasis>совершенно не может быть</emphasis> сдвинут с места, он может отводиться после отмыкания его лишь одновременно с отведением накладки; <emphasis>ключ</emphasis> также <emphasis>прикреплен к замку</emphasis> и не может быть вынут наружу. Таким образом оставляется <emphasis>один подвижной</emphasis> центр приложения силы &mdash; это <emphasis>ключ и одно направление движения</emphasis> (на 180<superscript>o</superscript> вправо) при вращении ключа.
+Учитывая то обстоятельство, что главным препятствием при отмыкании ключом замка является <emphasis>подвижность самого замка</emphasis>, в 28-м опыте замок так <emphasis>плотно</emphasis> прикрепляется проволокой к накладке, что <emphasis>совершенно не может быть</emphasis> сдвинут с места, он может отводиться после отмыкания его лишь одновременно с отведением накладки; <emphasis>ключ</emphasis> также <emphasis>прикреплен к замку</emphasis> и не может быть вынут наружу. Таким образом оставляется <emphasis>один подвижной</emphasis> центр приложения силы &mdash; это <emphasis>ключ и одно направление движения</emphasis> (на 180º вправо) при вращении ключа.
 </para>
+
+<equation id="curve65">
+  <title>Замок, запертый ключом</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve65.jpg">
+    <imageobject><imagedata fileref="images/html/curve65.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve65.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Замок, запертый ключом: 1&#8212;26 опыты &#8212; З<subscript>0</subscript> подвижный; 26&#8212;42 опыты &#8212; З<subscript>2</subscript>, неподвижный
+</para></textobject></mediaobject>
+</equation>
 
 <para>
 Вверху у этой же дверцы клетки прикреплена маленькая, не замкнутая вертикальная накладка <emphasis role="bold">d</emphasis><subscript>0</subscript> (<xref linkend="photo23" />, фиг. 2, 4).
@@ -268,6 +296,16 @@
 <para>
 Обезьяна сразу обращается к верхнему замку и производит многократные движения вывертывания, пытаясь высвободить его из петли; не преуспев в этом, она берется за ключ, пытаясь его повернуть, но неудачно тогда, потеребив некоторое время ключ зубами, она обращается к нижней накладке и обычным движением отмыкает ее мгновенно.
 </para>
+
+<informalfigure id="table135" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table135.jpg">
+    <imageobject><imagedata fileref="images/html/table135.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table135.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para>
 После того обезьяна опять обращается к оперированию с верхней накладкой, но опять-таки прежде всего производит движение вывертывания замка, затем она делает попытки вращения ключа и после <emphasis>многих</emphasis> неудач <emphasis>вдруг осуществляет полное вращение</emphasis> ключа; замок щелкает, дужка замка выскакивает из ямки, и обычным маневром обезьяна высвобождает замок из петли накладки; она долго пристально смотрит на замок, когда он остается у нее в руках, а потом бросает его и оттягивает петлю накладки, получив освобождение в 201 сек. (3 мин. 21 сек.).
 </para>
@@ -277,6 +315,17 @@
 <para>
 В последующих 12 опытах время завершения работы колеблется в пределах от 12 до 30 сек. При этом время отмыкания нижнего механизма значительно меньше (в 3 раза), нежели верхнего. И это несмотря на то, что в отношении первого обезьяна усваивает новый и очень удачный способ отмыкания: она берется за кольцо ключа обеими руками снизу, причем правой рукой она ухватывает левую сторону кольца, левой рукой &mdash; правую; таким образом она сама <emphasis>умеряет подвижность замка</emphasis> при вращении ключа и потому мгновенно производит правильное вращение; иногда она несколько задерживается лишь с оттягиванием петли накладки, но все же кончает работу удачно.
 </para>
+
+<equation id="curve66">
+  <title>2 накладки d<subscript>0</subscript>, d<subscript>1</subscript>, замкнутые 2 замками З<subscript>1</subscript>, З<subscript>2</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve66.jpg">
+    <imageobject><imagedata fileref="images/html/curve66.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve66.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
 <para>
 Но этот прием вращения ключа не всегда удерживается. Обезьяна иногда опять берет кольцо ключа сверху и правой рукой держит правый конец, левой &mdash; левый. В этом случае она не сразу производит вращение, и тогда время завершения работы увеличивается до 29 сек. (4-й опыт).
 </para>
@@ -308,6 +357,16 @@
 </para>
 </para>
 
+<figure id="picture50">
+  <title>Комбинация из накладок (d<subscript>0</subscript>, d<subscript>1</subscript>), замка (З<subscript>1</subscript>) и втулки (d<subscript>2</subscript>)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture50.jpg">
+    <imageobject><imagedata fileref="images/html/picture50.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture50.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Когда свободный замок опять прикрепляется к нижней накладке, обезьяна, не будучи в состоянии умерить его подвижность, опять не справляется с вращением ключа и после 5<superscript>1</superscript>/<subscript>2</subscript> мин. работы. Она употребляет прежние никчемные манипуляции: сотрясение, вывертывание, грызение, оттягивание замкнутого замка, совершенно не учитывая главного центра приложения силы, ключа, вопреки знакомству с его видом на основании предыдущих конкретных операций с ним.
 </para>
@@ -324,6 +383,16 @@
 <para>
 Обезьяна в первую очередь старается вытянуть зубами втулку из накладки, вынимает втулку, кладет ее на пол, оттягивает нижнюю накладку, затем обращается к замку, но не надолго; после этого она контролирует дверь, опять обращается на секунду к ключу замка, опять толкает дверь, опять прежним мало энергичным движением берется за ключ; затем отвлекается, грызет втулку некоторое время, потом опять обращается к замку, но пытается его вывернуть замкнутым, опять на секунду отвлекается, беря в руки втулку, но потом схватывается за ключ, отмыкает замок, вывертывает его из петли в три приема, оттягивает накладку, потратив на отмыкание 252 сек. (4 мин. 12 сек.). Первый опыт &mdash; самый длительный (см. <xref linkend="table138" />).
 </para>
+
+<informalfigure id="table138" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table138.jpg">
+    <imageobject><imagedata fileref="images/html/table138.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table138.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para>В последующем &mdash; уже 7-м &mdash; опыте картина работы совершенно иная.</para>
 <para>
 Обезьяна отмыкает ключ, касается нижней втулки, вынимает верхний замок, отмыкает верхнюю накладку, вынимает нижнюю втулку, отмыкает нижнюю накладку, оканчивая работу в 52 сек.
@@ -341,5 +410,18 @@
 <para>
 Все же, вследствие общего большого количества излишних операций, связанных главным образом с никчемными движениями грызения втулки, замка, верхней накладки, вследствие беспорядочного перекидывания в работе от механизма к механизму, чрезвычайной торопливости обезьяны, побуждающей ее беспрестанно (после каждой пробы отмыкания) контролировать дверь и кое-как и на кратчайший срок прилагать свои активные манипуляции в деле отмыкания, &mdash; среднее время окончания работы чрезвычайно повышено (до 73,3 сек.); оно значительно больше такового при работе обезьяны с теми же накладками, но замкнутыми 2 замками (где оно равно 29 сек.) и несколько (на 10 сек.) больше, чем при замыкании тех же накладок, заложенных деревянными втулками.
 </para>
+
+<equation id="curve67">
+  <title>2 накладки &#8212; со втулкой и запертым замком</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve67.jpg">
+    <imageobject><imagedata fileref="images/html/curve67.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve67.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
 <para>Кривая работы обнаруживает ниспадание и в первой, и во второй половине.</para>
 </para>
+
+&liniya;

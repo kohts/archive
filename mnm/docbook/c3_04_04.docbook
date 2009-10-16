@@ -108,11 +108,14 @@
 </para>
 
 <para role="details">
+<para>
 В этом случае окажется, что комбинации из 2 замыкающих механизмов, отмыкаемых в срок 2&mdash;10 сек.
 <footnote><para>
 Фактически от 2 до 5 сек.
 </para></footnote>, 
 расположенные согласно скорости наступания минимума, разместятся в следующий ряд:
+</para>
+<para>
 <emphasis>Комбинации из 2 механизмов</emphasis>:
 <simplelist>
 <member>1 место <emphasis role="bold">KL</emphasis> минимум от 2 до 10 сек. наступает в 1-м опыте</member>
@@ -127,6 +130,7 @@
 <member>10 место <emphasis role="bold">OI</emphasis>, <emphasis role="bold">ee</emphasis> (при 1 незам.) от 10 сек и выше наступает в 2&mdash;5-м опыте</member>
 <member>11 место <emphasis role="bold">IP</emphasis> 33 сек и выше наступает в 1-м опыте</member>
 </simplelist>
+</para>
 </para>
 
 <para>

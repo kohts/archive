@@ -19,7 +19,7 @@
 <member>срок отмыкания 60 сек. имеют 3 механизма <emphasis role="bold">А</emphasis><subscript>3</subscript>, <emphasis role="bold">L</emphasis>, <emphasis role="bold">&#931;</emphasis><subscript>2</subscript></member>
 <member>срок отмыкания 85 сек. имеют 2 механизма <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>3</subscript></member>
 <member>срок отмыкания 180 сек. имеют 2 механизма <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">&#916;</emphasis><subscript>2</subscript></member>
-<member>срок отмыкания свыше 180 не повторяется у разных механизмов</member>
+<member>срок отмыкания свыше 180 сек. не повторяется у разных механизмов</member>
 </simplelist>
 </para>
 <para id='str157' xreflabel='стр. 157'>
