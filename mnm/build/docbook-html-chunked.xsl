@@ -68,8 +68,8 @@ part      toc,title
 
 	  <l:gentext key="Example" text="Фотоиллюстрация"/>
 	  <l:gentext key="example" text="Фотоиллюстрация"/>
-      <l:gentext key="ListofExamples" text="Список фотоиллюстраций"/>
-      <l:gentext key="listofexamples" text="Список фотоиллюстраций"/>
+      <l:gentext key="ListofExamples" text="Перечень фототаблиц"/>
+      <l:gentext key="listofexamples" text="Перечень фототаблиц"/>
 	  <l:context name="title">
         <l:template name="example" text="Фототаблица %n. %t"/>
 	  </l:context>
