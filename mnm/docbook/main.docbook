@@ -65,9 +65,6 @@
    <!ENTITY c5 SYSTEM "c5.docbook">
    <!ENTITY zaklyuchenie SYSTEM "zaklyuchenie.docbook">
 
-   <!ENTITY a1 SYSTEM "a1.docbook">
-   <!ENTITY a2 SYSTEM "a2.docbook">
-   <!ENTITY a3 SYSTEM "a3.docbook">
    <!ENTITY a4 SYSTEM "a4.docbook">
    <!ENTITY a4_1 SYSTEM "a4_1.docbook">
    <!ENTITY a4_2 SYSTEM "a4_2.docbook">
@@ -172,16 +169,13 @@
 <chapter><title>Заключение</title><subtitle>Прогнозы применительно к вопросу о способности обезьяны к трудовым процессам.
 Проблема о генетическом положении низших обезьян</subtitle>&zaklyuchenie;</chapter>
 
-<appendix><title>Перечень и объяснение фотографических таблиц</title><sect3>&a1;</sect3></appendix>
-<appendix><title>Перечень рисунков</title><sect3>&a2;</sect3></appendix>
-<appendix><title>Перечень кривых</title><sect3>&a3;</sect3></appendix>
 <appendix><title>Перечень единичных и сериальных установок, предлагаемых для отмыкания</title>&a4;<sect3>&a4_1;</sect3><sect3>&a4_2;</sect3></appendix>
 <appendix><title>Литература</title><sect3>&a5;</sect3></appendix>
 <appendix lang="en"><title>Resum&#0101;&#768; (Summary)</title><sect2>&ae1;</sect2></appendix>
 <appendix lang="en"><title>List of Illustrations (photo-plates)</title>&photoplates_eng;</appendix>
-<appendix><title>Text Figures</title><sect3 lang="en">&ae3;</sect3></appendix>
-<appendix><title>Time Curves</title><sect3 lang="en">&ae4;</sect3></appendix>
-<appendix><title>Contents</title><sect3 lang="en">&ae5;</sect3></appendix>
+<appendix lang="en"><title>Text Figures</title><sect3 lang="en">&ae3;</sect3></appendix>
+<appendix lang="en"><title>Time Curves</title><sect3 lang="en">&ae4;</sect3></appendix>
+<appendix lang="en"><title>Contents</title><sect3 lang="en">&ae5;</sect3></appendix>
 
 <appendix><title>Приложения к электронному изданию</title>
   <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1>

@@ -20,6 +20,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture33.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Завертка U, направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -68,6 +71,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture34.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Завертка &#0220;, налево.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -106,8 +112,8 @@
   <imageobject role="fo"><imagedata fileref="images/pdf/curve41-42.jpg" /></imageobject>
   </mediaobject>
   <mediaobject><textobject><para>
-Кривая 41. Завертка U<?br?>
-Кривая 42. Завертка &#0220;<?br?>
+Кривая 41. Завертка U, направо<?br?>
+Кривая 42. Завертка &#0220;, налево<?br?>
 </para></textobject></mediaobject>
 </equation>
 
@@ -144,6 +150,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture35.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Комбинация из 2 заверток U&#0220;, направо и налево.
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">
@@ -197,6 +206,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/curve43.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Комбинация заверток U&#0220;, направо и налево.
+</para></textobject></mediaobject>
 </equation>
 
 <para>
@@ -248,6 +260,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture36.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Пружинящая завертка Z<subscript>1</subscript>, направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">
@@ -309,6 +324,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture37.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Пружинящая завертка Z<subscript>2</subscript>, налево.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -351,8 +369,8 @@
   <imageobject role="fo"><imagedata fileref="images/pdf/curve44-45.jpg" /></imageobject>
   </mediaobject>
   <mediaobject><textobject><para>
-Кривая 41. Завертка Z<subscript>1</subscript><?br?>
-Кривая 42. Завертка Z<subscript>2</subscript><?br?>
+Кривая 41. Завертка Z<subscript>1</subscript>, пружинящая, направо.<?br?>
+Кривая 42. Завертка Z<subscript>2</subscript>, пружинящая, налево.<?br?>
 </para></textobject></mediaobject>
 </equation>
 
@@ -388,6 +406,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture38.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Комбинация из 2 пружинящих заверток Z<subscript>1</subscript>Z<subscript>2</subscript>, направо и налево.
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">
@@ -406,6 +427,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/curve46.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+2 завертки Z<subscript>1</subscript> и Z<subscript>2</subscript>, направо и налево.
+</para></textobject></mediaobject>
 </equation>
 
 <para>
@@ -455,6 +479,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture39.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Завертка Z<subscript>3</subscript>, простая, направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">
@@ -546,6 +573,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture40.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Комбинация из 2 щеколд KM и 2 заверток Z<subscript>3</subscript>Z<subscript>4</subscript>.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -580,13 +610,16 @@
 </para>
 
 <figure id="picture41">
-  <title>Завертка пружинящая а</title>
+  <title>Завертка пружинящая a</title>
   <mediaobject>
   <textobject role="html"><ulink role="html" url="images/hires/picture41.jpg">
     <imageobject><imagedata fileref="images/html/picture41.jpg" /></imageobject>
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture41.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Завертка слабо пружинящая a, направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">
@@ -604,13 +637,16 @@
 </para>
 
 <equation id="curve49">
-  <title>Завертка а</title>
+  <title>Завертка a</title>
   <mediaobject>
   <textobject role="html"><ulink role="html" url="images/hires/curve49.jpg">
     <imageobject><imagedata fileref="images/html/curve49.jpg" /></imageobject>
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/curve49.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Завертка слабо пружинящая a.
+</para></textobject></mediaobject>
 </equation>
 
 <para>Эпизодические подъемы кривой весьма слабы.</para>

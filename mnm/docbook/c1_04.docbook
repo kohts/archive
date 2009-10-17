@@ -24,6 +24,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture13.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Задвижка горизонтальная O, тугая, направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -66,6 +69,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture14.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Задвижка горизонтальная P, направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -154,6 +160,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture15.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Задвижка вертикальная Q, самозамыкающаяся, вверх.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -184,6 +193,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture16.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Задвижка горизонтальная R, направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -219,6 +231,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture17.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Задвижка горизонтальная F, штифтовая, налево.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -250,6 +265,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture18.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Задвижка горизонтальная G, штифтовая, тугая, направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -277,6 +295,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture19.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Задвижка горизонтальная H, штифтовая, пружинящая, направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">
@@ -302,16 +323,28 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/curve16-23.jpg" /></imageobject>
   </mediaobject>
-  <mediaobject><textobject><para>
-Кривая 16. Задвижка P<?br?>
-Кривая 17. Задвижка O<?br?>
-Кривая 18. Задвижка Q<?br?>
-Кривая 19. Задвижка R<?br?>
-Кривая 20. Задвижка F<?br?>
-Кривая 21. Задвижка H<?br?>
-Кривая 22. Задвижка I<?br?>
-Кривая 23. Задвижка G<?br?>
-</para></textobject></mediaobject>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
+Кривая 16. Задвижка P, горизонтальная.<?br?>
+Кривая 17. Задвижка O, горизонтальная, тугая.<?br?>
+Кривая 18. Задвижка Q, вертикальная, самозамыкающаяся.<?br?>
+Кривая 19. Задвижка R, горизонтальная.<?br?>
+</para></entry>
+<entry><para role='figure'>
+Кривая 20. Задвижка F, штифтовая.<?br?>
+Кривая 21. Задвижка H, штифтовая, пружинящая.<?br?>
+Кривая 22. Задвижка I, штифтовая.<?br?>
+Кривая 23. Задвижка G, штифтовая, тугая.<?br?>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+ </textobject></mediaobject>
 </equation>
 
 <para>
@@ -326,6 +359,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture20.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Задвижка горизонтальная I, штифтовая, простая, направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">
@@ -357,6 +393,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture21.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Задвижка горизонтальная Y, штифтовая, со скрытым центр. прил. силы.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -431,6 +470,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/curve24.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Задвижка Y со скрытым штифтом.
+</para></textobject></mediaobject>
 </equation>
 
 <para role="details">
@@ -509,6 +551,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture22.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Комбинация 2 задвижек OP, направо.
+</para></textobject></mediaobject>
 </figure>
 
 При предъявлении животному <emphasis>комбинации из</emphasis> <emphasis role="bold">двух задвижек О</emphasis> и <emphasis role="bold">P</emphasis>, приделанных в том же горизонтальном положении на близком расстоянии (4,5 см) одна от другой (<xref linkend="picture22" />), обнаруживаются следующие особенности работы, легко прослеживаемые при рассмотрении главных слагаемых работы в помещенной ниже таблице.
@@ -580,6 +625,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture23.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Комбинация 3 задвижек EGH, направо, налево, направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -636,6 +684,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture24.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Комбинация 2 задвижек IY, направо и налево.
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">
@@ -727,6 +778,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/curve25.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+3 задвижки RIO (замкнута только R).
+</para></textobject></mediaobject>
 </equation>
 
 <para>
@@ -851,6 +905,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture25.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Комбинация 4 задвижек ROIP, налево, направо, направо, вниз.
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">
@@ -1027,6 +1084,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture26.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Сложная задвижка горизонтальная V, направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">
@@ -1079,6 +1139,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture27.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Сложная задвижка вертикальная X<subscript>2</subscript>, пружинящая вверх.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -1126,6 +1189,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture28.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Сложная задвижка горизонтальная Y<subscript>1</subscript>, направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -1182,6 +1248,14 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/curve31-36.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Кривая 31. Задвижка сложная V, горизонтальная.<?br?>
+Кривая 32. Задвижка сложная W, горизонтальная.<?br?>
+Кривая 33. Задвижка сложная пружинящая X<subscript>1</subscript>, горизонтальная.<?br?>
+Кривая 34. Задвижка сложная пружинящая X<subscript>2</subscript>, вертикальная.<?br?>
+Кривая 35. Задвижка Y<subscript>1</subscript>, горизонтальная, направо.<?br?>
+Кривая 36. Задвижка Y<subscript>4</subscript>, горизонтальная, налево.<?br?>
+</para></textobject></mediaobject>
 </equation>
 
 <para>
@@ -1214,6 +1288,10 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture29.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Комбинация из 4 сложных задвижек V<subscript>1</subscript>, W<subscript>1</subscript>, X<subscript>2</subscript>, Y<subscript>1</subscript>
+(направо, налево, вверх, вниз).
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">

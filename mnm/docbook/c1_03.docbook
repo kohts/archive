@@ -16,6 +16,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture8.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Щеколда горизонтальная K, налево.
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">
@@ -69,6 +72,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture9.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Щеколда вертикальная L, самозамыкающаяся, направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">
@@ -155,6 +161,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture10.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Щеколда вертикальная M, направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">
@@ -197,6 +206,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture11.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Комбинация 4 щеколд KLMN.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -228,6 +240,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture12.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Щеколда N, горизонтальная, направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">
@@ -279,9 +294,9 @@
   <imageobject role="fo"><imagedata fileref="images/pdf/curve12-14.jpg" /></imageobject>
   </mediaobject>
   <mediaobject><textobject><para>
-Кривая 1. Щеколда K<?br?>
-Кривая 2. Щеколда L<?br?>
-Кривая 3. Щеколда M<?br?>
+Кривая 1. Щеколда K, горизонтальная<?br?>
+Кривая 2. Щеколда L, самозамыкающаяся, вертикальная<?br?>
+Кривая 3. Щеколда M вертикальная<?br?>
 </para></textobject></mediaobject>
 </equation>
 

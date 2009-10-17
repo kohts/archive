@@ -10,6 +10,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture43.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Цепь наклонная C<subscript>1</subscript>, направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">
@@ -41,6 +44,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture44.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Цепь вертикальная C<subscript>2</subscript>, вверх.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -79,9 +85,9 @@
   <imageobject role="fo"><imagedata fileref="images/pdf/curve51-53.jpg" /></imageobject>
   </mediaobject>
   <mediaobject><textobject><para>
-Кривая 51. Цепь C<subscript>1</subscript><?br?>
-Кривая 52. Цепь C<subscript>2</subscript><?br?>
-Кривая 53. Цепь C<subscript>3</subscript><?br?>
+Кривая 51. Цепь C<subscript>1</subscript>, наклонная.<?br?>
+Кривая 52. Цепь C<subscript>2</subscript>, вертикальная.<?br?>
+Кривая 53. Цепь C<subscript>3</subscript>, горизонтальная.<?br?>
 </para></textobject></mediaobject>
 </equation>
 

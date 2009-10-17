@@ -21,6 +21,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture47.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Ключ внутреннего замка f<subscript>2</subscript> (180º), направо.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -95,9 +98,9 @@
   <imageobject role="fo"><imagedata fileref="images/pdf/curve60-62.jpg" /></imageobject>
   </mediaobject>
   <mediaobject><textobject><para>
-Кривая 60. Ключ f<subscript>2</subscript> &#8212; на 180º<?br?>
+Кривая 60. Ключ внутреннего замка f<subscript>2</subscript> &#8212; на 180º<?br?>
 Кривая 61. Ключ f<subscript>3</subscript> &#8212; на 270º, подвижный<?br?>
-Кривая 62. Ключ f<subscript>4</subscript> &#8212; на 270º, мало подвижный<?br?>
+Кривая 62. Ключ f<subscript>4</subscript> &#8212; на 270º, неподвижный<?br?>
 </para></textobject></mediaobject>
 </equation>
 

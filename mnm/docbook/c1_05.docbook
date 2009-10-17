@@ -11,6 +11,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture30.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Рычаг S, вниз.
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">
@@ -36,6 +39,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture31.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Рычаг T, вверх.
+</para></textobject></mediaobject>
 </figure>
 
 <para>
@@ -93,6 +99,9 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/picture32.jpg" /></imageobject>
   </mediaobject>
+  <mediaobject><textobject><para>
+Два рычага TS, вверх и вниз.
+</para></textobject></mediaobject>
 </figure>
 
 <para role="details">
@@ -118,9 +127,9 @@
   <imageobject role="fo"><imagedata fileref="images/pdf/curve38-40.jpg" /></imageobject>
   </mediaobject>
   <mediaobject><textobject><para>
-Кривая 38. Рычаг S<?br?>
-Кривая 39. Рычаг T<?br?>
-Кривая 40. Два рычага S и T<?br?>
+Кривая 38. Рычаг S, вниз.<?br?>
+Кривая 39. Рычаг T, вверх.<?br?>
+Кривая 40. Два рычага S и T, вверх и вниз.<?br?>
 </para></textobject></mediaobject>
 </equation>
 
