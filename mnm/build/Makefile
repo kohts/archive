@@ -20,7 +20,15 @@ STAMPS = ${PWD}/../stamps
 # make html and pdf output by default
 all: html pdf
 
-.PHONY : html fo pdf clean all-clean
+.PHONY : html fo pdf gen-plates clean all-clean
+
+${DOCBOOK_BASE}/photoplates_eng.docbook: ${DOCBOOK_BASE}/photoplates_eng.raw ${TOOLS}/gen-figures.pl
+	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng photo > ${DOCBOOK_BASE}/photoplates_eng.docbook
+
+${DOCBOOK_BASE}/photoplates_eng_print.docbook: ${DOCBOOK_BASE}/photoplates_eng.raw ${TOOLS}/gen-figures.pl
+	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng photo formalpara > ${DOCBOOK_BASE}/photoplates_eng_print.docbook
+
+gen-plates: $(DOCBOOK_BASE)/photoplates*.docbook
 
 html: ${STAMPS}/html
 ${STAMPS}/html: docbook-html-chunked.xsl $(DOCBOOK)

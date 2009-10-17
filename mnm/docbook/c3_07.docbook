@@ -110,7 +110,7 @@ III рубрика.</member>
 <member>Комбин. из 3 механ. Срок отмыкания от 5&mdash; 10 сек. &mdash; 1 комб. <emphasis role="bold">eee</emphasis></member>
 <member>Комбин. из 3 механ. Срок отмыкания от 10&mdash; 60 сек. &mdash; 2 комб. <emphasis role="bold">KNM</emphasis>, <emphasis role="bold">АБe</emphasis></member>
 <member>Комбин. из 3 механ. Срок отмыкания от 60&mdash;300 сек. &mdash; 3 комб. <emphasis role="bold">FGH</emphasis>, <emphasis role="bold">OIP</emphasis>, <emphasis role="bold">ROI</emphasis></member>
-<member>Комбин. из 4 механ. Срок отмыкания от 5&mdash; 10 сек. &mdash; 0 комб. &mdash;</member>
+<member>Комбин. из 4 механ. Срок отмыкания от 5&mdash; 10 сек. &mdash; 0 комб.</member>
 <member>Комбин. из 4 механ. Срок отмыкания от 10&mdash;60 сек. &mdash; 4 комб. <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">АБee</emphasis>, <emphasis role="bold">KLMN</emphasis>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">KM</emphasis></member>
 <member>Комбин. из 4 механ. Срок отмыкания от 60&mdash;300 сек. &mdash; 5 комб. <emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">d</emphasis><subscript>4</subscript>, 4 кр. (из 6), <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">V</emphasis><subscript>1</subscript><emphasis role="bold">W</emphasis><subscript>1</subscript><emphasis role="bold">X</emphasis><subscript>2</subscript><emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis><emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript></member>
 </simplelist>
@@ -153,6 +153,15 @@ III рубрика.</member>
 При учете влияния на среднюю длительность работы количества представленных механизмов мы должны будем сконструировать такую <xref linkend="table253-1" />:
 </para>
 
+<informalfigure id="table253-1" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table253-1.jpg">
+    <imageobject><imagedata fileref="images/html/table253-1.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table253-1.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
 <para>
 Из рассмотрения этой таблицы явственно намечается следующий вывод: в общем увеличение количества механизмов, входящих в состав комбинаций, естественно увеличивает среднюю продолжительность отмыкания. Количественно наибольшие комбинации из крюков, щеколд, задвижек отмыкаются дольше, нежели количественно меньшие комбинации; наблюдающиеся обратные соотношения относятся к исключениям &mdash; они относятся к комбинациям малым количественно, но с новым качественным составом механизмов [<emphasis role="bold">CD</emphasis><subscript>(1)</subscript>, <emphasis role="bold">IP</emphasis>], к комбинациям с малым опытным периодом, в отмыкании которых обезьяна мало упражнялась.
 </para>
@@ -162,8 +171,17 @@ III рубрика.</member>
 </para>
 
 <para>
-Сконструируем соответствующую таблицу, расположив числовые величины в нисходящем порядке и взяв для этого сопоставления качественно наиболее разнотипные комбинации из 2 механизмов и количественно наиболее многообразные комбинации из <emphasis>крюков</emphasis><xref linkend="table253-2" />:
+Сконструируем соответствующую таблицу, расположив числовые величины в нисходящем порядке и взяв для этого сопоставления качественно наиболее разнотипные комбинации из 2 механизмов и количественно наиболее многообразные комбинации из <emphasis>крюков</emphasis>:
 </para>
+
+<informalfigure id="table253-2" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table253-2.jpg">
+    <imageobject><imagedata fileref="images/html/table253-2.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table253-2.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
 
 <para>
 Взяв в этом сопоставлении отношение максимальной и минимальной величин каждого ряда, мы получим для качественного ряда цифру 43,5, для количественного ряда &mdash; 17,1.

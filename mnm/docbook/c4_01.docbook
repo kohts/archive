@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 Если мы проанализируем эти <emphasis role="bold">излишние движения</emphasis> в тех 17 случаях оперирования с комбинациями, где они были учтены, на основании соответствующей таблицы мы должны будем установить следующие закономерности:
 <orderedlist>
 <listitem><para>У 17,6% комбинаций механизмов количество лишних движений не превышает 25%</para></listitem>
@@ -13,12 +13,13 @@
 К 1 рубрике принадлежат следующие комбинации: <emphasis role="bold">KLNM</emphasis>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">OP</emphasis>.
 </para>
 <para>
-Ко 2 рубрике принадлежат комбинации: <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>, 8 кр., <emphasis role="bold">ST</emphasis>, <emphasis role="bold">U&#0220;</emphasis>, <emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">d</emphasis><subscript>4</subscript>. К 3 рубрике относятся следующие комбинации: <emphasis role="bold">Z</emphasis><subscript>1</subscript><emphasis role="bold">Z</emphasis><subscript>2</subscript>, V1W1X2Y1, <emphasis role="bold">IY</emphasis>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">KM</emphasis>, <emphasis role="bold">OIP</emphasis>, <emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis><emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">FGH</emphasis>.
+Ко 2 рубрике принадлежат комбинации: <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>, 8 кр., <emphasis role="bold">ST</emphasis>, <emphasis role="bold">U&#0220;</emphasis>, <emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">d</emphasis><subscript>4</subscript>.
 </para>
+<para>К 3 рубрике относятся следующие комбинации: <emphasis role="bold">Z</emphasis><subscript>1</subscript><emphasis role="bold">Z</emphasis><subscript>2</subscript>, V1W1X2Y1, <emphasis role="bold">IY</emphasis>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">KM</emphasis>, <emphasis role="bold">OIP</emphasis>, <emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis><emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">FGH</emphasis>.
 </para>
-
 <para>
 К 4 рубрике относится <emphasis role="bold">FG</emphasis>.
+</para>
 </para>
 
 <para>
@@ -41,6 +42,20 @@
 Обнаруживается, что максимальное количество излишних движений при работе с комбинациями падает <emphasis>чаще всего</emphasis> (в 76% случаев) на <emphasis>начальный</emphasis> период работы, <emphasis>реже &mdash; на середину ее</emphasis> (в 17% случаев) и <emphasis>еще реже &mdash; на конец</emphasis> (в 6% случаев).
 </para>
 
+<example id="photo20">
+  <title>Оперирование с единичными механизмами</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/photo20.jpg">
+    <imageobject><imagedata fileref="images/html/photo20.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/photo20.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Фиг. 1. Отмыкание ключем f<subscript>2</subscript> внутреннего замка<?br?>
+Фиг. 2. Разматывание обмотки &#931;<?br?>
+</para></textobject></mediaobject>
+</example>
+
 <para>
 Можно было бы предположить, что эти излишние движения в известной мере оправданы, что они приурочены главным образом к механизмам, представляющим для преодоления б&#1086;&#768;льшие трудности по сравнению с другими механизмами, входящими в состав комбинации.
 </para>
@@ -50,15 +65,12 @@
 </para>
 
 <para>
-Более того, при просмотре частоты <quote>приурочения</quote>
-<footnote><para>
-Частоты, выраженной в процентах.
-</para></footnote> 
+Более того, при просмотре частоты <quote>приурочения</quote><footnote><para>Частоты, выраженной в процентах.</para></footnote> 
 этих движений к механизмам, входящим в состав комбинаций, как правило обнаруживается полная хаотичность их распределения.
 </para>
 
 <para>
-Как то явствует из приводимой ниже таблицы <xref linkend="table257" />, излишние движения распределяются по отношению к разным механизмам, слагающим комбинацию, совершенно беспорядочно.
+Как то явствует из приводимой ниже <xref linkend="table257" />, излишние движения распределяются по отношению к разным механизмам, слагающим комбинацию, совершенно беспорядочно.
 </para>
 
 <para>
@@ -72,6 +84,15 @@
 <para>
 На основании этих данных вообще можно сказать, что из механизмов, входящих в состав 17 комбинаций, в 52,9% случаев максимальные излишние касания приурочены к верхним запорам, в 35,2% случаев &mdash; к нижним и в 11,7% случаев &mdash; к средним.
 </para>
+
+<informalfigure id="table257" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table257.jpg">
+    <imageobject><imagedata fileref="images/html/table257.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table257.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
 
 <para>
 Как часто на протяжении опытного периода встречаются эти огроможденные лишними движениями опыты, каков процент <emphasis role="bold">идеальных опытов</emphasis>
@@ -131,8 +152,17 @@
 </para>
 
 <para>
-Чтобы дать хотя бы отдаленное представление о том, как велика эта утечка времени работы, стоит привести следующую таблицу <xref linkend="table259" />:
+Чтобы дать хотя бы отдаленное представление о том, как велика эта утечка времени работы, стоит привести следующую <xref linkend="table259" />:
 </para>
+
+<informalfigure id="table259" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table259.jpg">
+    <imageobject><imagedata fileref="images/html/table259.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table259.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
 
 <para>
 Характерно, что нет ни одного случая, где бы в идеальных опытах при отсутствии лишних движений средний срок окончания работы был больше общего среднего срока работы. Если бы такой случай имел место, он мог бы навести на подозрение, что в течение опыта часть времени, расходуемая непроизводительно, уходит на другие моменты работы; раз этого нет, то вывод может быть только один: разница времени в среднем сроке работы (зачастую весьма значительная)

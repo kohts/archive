@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 Начав отмыкание первого механизма в одном месте, обезьяна перебрасывает действия к другому, часто топографически более удаленному механизму; не преуспев здесь, она обращается опять к первому, минуя срединный механизм, длительно забывая об отмыкании этого последнего и многократно бесцельно оперируя с крайними.
 </para>
 
@@ -33,10 +33,10 @@
 <para>
 При наличии 4 типов
 <footnote><para>
-<emphasis>Тип 1</emphasis>. Механизмы расположены <emphasis>сближенно</emphasis> вверху, в середине, внизу экспериментальной дверцы (<emphasis role="bold">FGH</emphasis>).
-<emphasis>Тип 2</emphasis>. Механизмы расположены <emphasis>удаленно</emphasis> вверху, в середине, внизу экспериментальной дверцы (8 кр., <emphasis role="bold">KLNM</emphasis>, <emphasis role="bold">OIP</emphasis>, <emphasis role="bold">V</emphasis><subscript>1</subscript><emphasis role="bold">W</emphasis><subscript>1</subscript><emphasis role="bold">X</emphasis><subscript>2</subscript><emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">MK</emphasis>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis>).
-<emphasis>Тип 3</emphasis>. Механизмы расположены <emphasis>сближенно</emphasis> вверху, внизу экспериментальной дверцы (<emphasis role="bold">OP</emphasis>, <emphasis role="bold">FG</emphasis>, <emphasis role="bold">ST</emphasis>, <emphasis role="bold">Z</emphasis><subscript>1</subscript><emphasis role="bold">Z</emphasis><subscript>2</subscript>).
-<emphasis>Тип 4</emphasis>. Механизмы расположены <emphasis>удаленно</emphasis> вверху, внизу экспериментальной дверцы YI, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">d</emphasis><subscript>4</subscript>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>.
+<para><emphasis>Тип 1</emphasis>. Механизмы расположены <emphasis>сближенно</emphasis> вверху, в середине, внизу экспериментальной дверцы (<emphasis role="bold">FGH</emphasis>).</para>
+<para><emphasis>Тип 2</emphasis>. Механизмы расположены <emphasis>удаленно</emphasis> вверху, в середине, внизу экспериментальной дверцы (8 кр., <emphasis role="bold">KLNM</emphasis>, <emphasis role="bold">OIP</emphasis>, <emphasis role="bold">V</emphasis><subscript>1</subscript><emphasis role="bold">W</emphasis><subscript>1</subscript><emphasis role="bold">X</emphasis><subscript>2</subscript><emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">MK</emphasis>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis>).</para>
+<para><emphasis>Тип 3</emphasis>. Механизмы расположены <emphasis>сближенно</emphasis> вверху, внизу экспериментальной дверцы (<emphasis role="bold">OP</emphasis>, <emphasis role="bold">FG</emphasis>, <emphasis role="bold">ST</emphasis>, <emphasis role="bold">Z</emphasis><subscript>1</subscript><emphasis role="bold">Z</emphasis><subscript>2</subscript>).</para>
+<para><emphasis>Тип 4</emphasis>. Механизмы расположены <emphasis>удаленно</emphasis> вверху, внизу экспериментальной дверцы YI, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">d</emphasis><subscript>4</subscript>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>.</para>
 </para></footnote> 
 топографического размещения механизмов в комбинации у 16 разных комбинаций мы имеем 14 разных форм порядка отмыкания (см. <xref linkend="table264" />).
 </para>
@@ -67,6 +67,15 @@
 <para>
 При учете максимального процента нахождения механизмов на разных по порядку местах оказывается, что на втором по порядку следования месте величина этого максимального процента не поднимается выше 70, на третьем &mdash; выше 58, на четвертом и пятом она еще менее значительна.
 </para>
+
+<informalfigure id="table264" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table264.jpg">
+    <imageobject><imagedata fileref="images/html/table264.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table264.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
 
 <para>
 И это дает нам основание предполагать, что порядок работы обезьяны более или менее <emphasis>мотивирован в самом начале и в самом конце</emphasis> работы; <emphasis>в средине работы этого порядка совершенно нет</emphasis>, ибо работа обезьяны хаотично, бессистемно перебрасывается от механизма к механизму.

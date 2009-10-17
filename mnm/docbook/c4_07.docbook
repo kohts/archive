@@ -20,7 +20,7 @@
 <listitem><para><emphasis role="bold">ROI</emphasis> &mdash; забывает о нижнем (<emphasis role="bold">I</emphasis>)</para></listitem>
 <listitem><para><emphasis role="bold">OP</emphasis> &mdash; забывает о нижнем <emphasis role="bold">P</emphasis></para></listitem>
 <listitem><para><emphasis role="bold">YI</emphasis> &mdash; забывает о <emphasis role="bold">I</emphasis></para></listitem>
-<listitem><para><emphasis role="bold">IP</emphasis> &mdash; забывает о удаленном <emphasis role="bold">P</emphasis></para></listitem>
+<listitem><para><emphasis role="bold">IP</emphasis> &mdash; забывает об удаленном <emphasis role="bold">P</emphasis></para></listitem>
 <listitem><para><emphasis role="bold">FGH</emphasis> &mdash; забывает о верхнем <emphasis role="bold">H</emphasis></para></listitem>
 <listitem><para><emphasis role="bold">ROI</emphasis> &mdash; забывает о среднем <emphasis role="bold">O</emphasis> (в виде исключения ввиду неучета замкнутости) </para></listitem>
 <listitem><para><emphasis role="bold">ROIP</emphasis> &mdash; не замечает эксцентричн. <emphasis role="bold">P</emphasis>

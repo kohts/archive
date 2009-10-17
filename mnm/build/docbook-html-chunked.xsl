@@ -25,7 +25,7 @@
 appendix  title
 article/appendix  nop
 article   toc,title
-book      toc,title,figure,table,example,equation
+book      toc,title,example,figure,table,equation
 chapter   toc,title
 part      toc,title
 preface   toc,title
@@ -49,6 +49,7 @@ part      toc,title
   
   <xsl:param name="local.l10n.xml" select="document('')"/>
   <l:i18n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0">
+
     <l:l10n language="ru">
 
 	  <l:gentext key="Figure" text="Рисунок"/>
@@ -93,7 +94,26 @@ part      toc,title
 	    <l:template name="equation" text="Кривая %n"/>
 	  </l:context>
 
-	</l:l10n>
+  	</l:l10n>
+  
+    <l:l10n language="en">
+
+	  <l:gentext key="Example" text="Photo"/>
+	  <l:gentext key="example" text="Photo"/>
+      <l:gentext key="ListofExamples" text="List of Photos"/>
+      <l:gentext key="listofexamples" text="List of Photos"/>
+	  <l:context name="title">
+        <l:template name="example" text="Photo %n. %t"/>
+	  </l:context>
+	  <l:context name="xref-number">
+	    <l:template name="example" text="Photo %n"/>
+	  </l:context>
+	  <l:context name="xref-number-and-title">
+	    <l:template name="example" text="Photo %n"/>
+	  </l:context>
+
+  	</l:l10n>
+
   </l:i18n>
   
 </xsl:stylesheet>

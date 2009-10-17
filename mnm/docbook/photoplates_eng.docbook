@@ -1,0 +1,434 @@
+<sect1 id='eng_photoplates_0'><title>1 &mdash; 10</title>
+<example id="eng_photo1">
+  <title>The Macaque <quote>Dasy</quote> at quiet.</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo1.jpg">
+      <imageobject><imagedata fileref="images/html/photo1.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo1.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'><?br?>
+</para></textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo2">
+  <title>The Macaque threatened and on the lookout.</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo2.jpg">
+      <imageobject><imagedata fileref="images/html/photo2.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo2.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1. The Macaque in a threatening posture.<?br?>
+Fig. 2. The Macaque on the lookout.<?br?>
+</para></textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo3">
+  <title>Preparation for experiments</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo3.jpg">
+      <imageobject><imagedata fileref="images/html/photo3.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo3.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Framework introduced into cage.<?br?>
+Fig. 2. Food introduced into cage.<?br?>
+</para></textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo4">
+  <title>The experiments.</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo4.jpg">
+      <imageobject><imagedata fileref="images/html/photo4.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo4.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1. The monkey unlocking a device.<?br?>
+Fig. 2. The monkey enters the open door.<?br?>
+</para></textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo5">
+  <title>Recording experiments and stimulation by food</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo5.jpg">
+      <imageobject><imagedata fileref="images/html/photo5.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo5.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1. The monkey eating up his reward.<?br?>
+Fig. 2. An additional reward.<?br?>
+</para></textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo6">
+  <title>The monkey is stimulated by swinging</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo6.jpg">
+      <imageobject><imagedata fileref="images/html/photo6.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo6.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Preparation to swinging.<?br?>
+Fig. 2. The swinging.<?br?>
+</para></textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo7">
+  <title>Performance with drawer door</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo7.jpg">
+      <imageobject><imagedata fileref="images/html/photo7.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo7.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Door drawn aside from without.<?br?>
+Fig. 2. Door drawn aside from within.<?br?>
+Fig. 3. Getting out.<?br?>
+</para></textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo8">
+  <title>Performances with hooks</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo8.jpg">
+      <imageobject><imagedata fileref="images/html/photo8.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo8.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1. The monkey is submitted an aggregate of 8 hooks.<?br?>
+Fig. 2. Hook e<subscript>2</subscript> is being unlocked.<?br?>
+Fig. 3. Hook e<subscript>3</subscript> is being unlocked.<?br?>
+</para></textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo9">
+  <title>Performances with hooks, sliding bolts and latches</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo9.jpg">
+      <imageobject><imagedata fileref="images/html/photo9.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo9.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
+Fig. 1. Hook Б out of a set of 8 is being unlocked.<?br?>
+Fig. 2. Control of door when operating with a set of 8 hooks.<?br?>
+</para></entry>
+<entry><para role='figure'>
+Fig. 3. Opening a self-locking latch L out of the KLMN aggregate.<?br?>
+Fig. 4. Opening sliding bolt F.<?br?>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo10">
+  <title>Performances with sliding bolts</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo10.jpg">
+      <imageobject><imagedata fileref="images/html/photo10.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo10.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Opening sliding bolt I.<?br?>
+Fig. 2. Combination of sliding bolts ROIP is submitted to monkey.<?br?>
+</para></textobject></mediaobject>
+</example>
+
+</sect1>
+
+<?page-break?>
+<sect1 id='eng_photoplates_1'><title>11 &mdash; 20</title>
+<example id="eng_photo11">
+  <title>Performances with sliding bolts</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo11.jpg">
+      <imageobject><imagedata fileref="images/html/photo11.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo11.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Groove-formed sliding bolt Y being opened.<?br?>
+Fig. 2. Sliding bolt O out of aggregate ROI being opened.<?br?>
+</para></textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo12">
+  <title>Performances with complex sliding bolts</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo12.jpg">
+      <imageobject><imagedata fileref="images/html/photo12.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo12.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Opening sliding bolt Y<subscript>1</subscript> out of aggregate X<subscript>2</subscript>, Y<subscript>1</subscript>, V<subscript>1</subscript>, W<subscript>1</subscript><?br?>
+Fig. 2. Opening sliding bolt W<subscript>1</subscript> out of aggregate V<subscript>1</subscript>, W<subscript>1</subscript>, X<subscript>2</subscript>, Y<subscript>1</subscript><?br?>
+</para></textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo13">
+  <title>Unfastening excentre-handle turning locks and centre-handle turning locks</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo13.jpg">
+      <imageobject><imagedata fileref="images/html/photo13.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo13.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
+Fig. 1. Unfastening excentre-handle turning lock S out of aggregate ST.<?br?>
+Fig. 2. Unfastening excentre-handle turning lock T out of aggregate ST.<?br?>
+</para></entry>
+<entry><para role='figure'>
+Fig. 3. Opening door after unfastening centre-handle turning locks U and &#0220;.<?br?>
+Fig. 4. Unfastening centre-handle turning lock U.<?br?>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo14">
+  <title>Unfastening centre-handle turning locks</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo14.jpg">
+      <imageobject><imagedata fileref="images/html/photo14.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo14.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Unfastening springy centre-handle turning lock Z<subscript>1</subscript><?br?>
+Fig. 2. Unfastening springy centre-handle turning lock Z<subscript>1</subscript> out of aggregate Z<subscript>1</subscript>Z<subscript>2</subscript><?br?>
+</para></textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo15">
+  <title>Unlocking combined devices</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo15.jpg">
+      <imageobject><imagedata fileref="images/html/photo15.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo15.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
+Fig. 1. Unfastening centre-handle turning lock Z<subscript>3</subscript> (aggregate Z<subscript>3</subscript>Z<subscript>4</subscript>KM)<?br?>
+Fig. 2. Opening latch M (aggregate Z<subscript>3</subscript>Z<subscript>4</subscript>KM)<?br?>
+</para></entry>
+<entry><para role='figure'>
+Fig. 3. Unwinding tape of aggregate (&#931;<subscript>3</subscript>, f<subscript>2</subscript>, Z<subscript>3</subscript>Z<subscript>4</subscript>)<?br?>
+Fig. 4. Unlocking centre-handle turning lock Z<subscript>4</subscript> (of aggregate KMZ<subscript>3</subscript>Z<subscript>4</subscript>).<?br?>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo16">
+  <title>Performances with sliding bolts and centre-handle turning locks</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo16.jpg">
+      <imageobject><imagedata fileref="images/html/photo16.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo16.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Opening sliding bolt with pawl (Y<subscript>2</subscript>).<?br?>
+Fig. 2. Opening centre-handle turning lock a with slight springing action.<?br?>
+</para></textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo17">
+  <title>Performances with chain and catch</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo17.jpg">
+      <imageobject><imagedata fileref="images/html/photo17.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo17.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
+Fig. 1. Putting chain aside (C<subscript>3</subscript>).<?br?>
+Fig. 2. Opening door after drawing chain (C<subscript>3</subscript>) aside.<?br?>
+</para></entry>
+<entry><para role='figure'>
+Fig. 3. Performance with catch (b).<?br?>
+Fig. 4. Releasing catch (b) and opening door.<?br?>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo18">
+  <title>Opening door strap with pawl</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo18.jpg">
+      <imageobject><imagedata fileref="images/html/photo18.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo18.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
+Fig. 1. Extraction of pawl (d<subscript>2</subscript>) by mouth.<?br?>
+Fig. 2. Drawing door strap aside.<?br?>
+</para></entry>
+<entry><para role='figure'>
+Fig. 3. Drawing door strap aside and control of door.<?br?>
+Fig. 4. Opening door.<?br?>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo19">
+  <title>Opening door strap with pawl out of aggregate d<subscript>0</subscript>d<subscript>1</subscript>d<subscript>2</subscript>d<subscript>3</subscript></title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo19.jpg">
+      <imageobject><imagedata fileref="images/html/photo19.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo19.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Extraction of horizontal pawl out of looking bar.<?br?>
+Fig. 2. Drawing out horizontal pawl after extraction of vertical pawl and setting aside lower horizontal door straps.<?br?>
+</para></textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo20">
+  <title>Opening complex unit devices</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo20.jpg">
+      <imageobject><imagedata fileref="images/html/photo20.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo20.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Opening of interior lock by means of key (f<subscript>2</subscript>).<?br?>
+Fig. 2. Unwinding tape.<?br?>
+</para></textobject></mediaobject>
+</example>
+
+</sect1>
+
+<?page-break?>
+<sect1 id='eng_photoplates_2'><title>21 &mdash; 24</title>
+<example id="eng_photo21">
+  <title>Opening door straps with unlocked padlocks</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo21.jpg">
+      <imageobject><imagedata fileref="images/html/photo21.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo21.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Submitting to monkey 2 door straps (one vertical and one horizontal closed with open padlocks).<?br?>
+Fig. 2. Extraction of upper padlock out of door straps.<?br?>
+</para></textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo22">
+  <title>Performance with padlocks locked by key</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo22.jpg">
+      <imageobject><imagedata fileref="images/html/photo22.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo22.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1. A moment of distraction.<?br?>
+Fig. 2. At work (handling of upper locked padlock З<subscript>1</subscript>).<?br?>
+</para></textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo23">
+  <title>Handling of padlocks</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo23.jpg">
+      <imageobject><imagedata fileref="images/html/photo23.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo23.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
+Fig. 1. Padlock (З<subscript>1</subscript>) released out of door strap.<?br?>
+Fig. 2. Upper door strap cast aside and padlock grasped.<?br?>
+</para></entry>
+<entry><para role='figure'>
+Fig. 3. Control of door.<?br?>
+Fig. 4. Upper door strap drawn aside.<?br?>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</textobject></mediaobject>
+</example>
+
+<?page-break?>
+<example id="eng_photo24">
+  <title>Distraction and attention</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/photo24.jpg">
+      <imageobject><imagedata fileref="images/html/photo24.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/photo24.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>Fig. 1. Distraction of macaque from work.<?br?>
+Fig. 2. Monkey gazing.<?br?>
+</para></textobject></mediaobject>
+</example>
+
+</sect1>

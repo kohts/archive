@@ -82,79 +82,131 @@
 <listitem><para>Работа обезьяны с <emphasis>одиночными</emphasis> установками протекает совершенно иначе, чем работа с <emphasis>сериальными</emphasis> (первая &mdash; чаще рационально, вторая иррационально обусловлена): первая отличается рядом <emphasis>положительных</emphasis>, вторая &mdash; рядом <emphasis>отрицательных</emphasis> особенностей, и это вопреки тому, что первые более разнотипны и трудны, вторые более однообразны и легки по трудности первого преодоления.
 </para>
 
-<formalpara>
-<title>Характерные черты работы при оперировании</title>
-</formalpara>
-<formalpara>
-<title>с одиночными установками:</title>
-</formalpara>
-<para>
-<orderedlist>
-<listitem><para><emphasis>Самостоятельность</emphasis> преодоления чаще.</para></listitem>
-<listitem><para><emphasis>Случайная</emphasis> удачливость решения реже.</para></listitem>
-<listitem><para><emphasis>Нахождение</emphasis> главных пунктов задержки раньше.</para></listitem>
-<listitem><para><emphasis>Скорая, прочная фиксация</emphasis> удачных приемов.</para></listitem>
-<listitem><para><emphasis>Выпадение</emphasis> лишних движений &mdash; <emphasis>упрощение</emphasis> со временем <emphasis>приема</emphasis> работы.</para></listitem>
-<listitem><para><emphasis>Кульминационный по трудности</emphasis> момент (наибольшая продолжительность отмыкания) чаще совпадает с 1-м или одним из первых 5 опытов серии, но <emphasis>не позднее</emphasis>.</para></listitem>
-<listitem><para><emphasis>Трудности первого</emphasis> преодоления <emphasis>более значительны</emphasis>.</para></listitem>
-<listitem><para>Большая <emphasis>разнотипность</emphasis> механизмов по трудности отмыкания.</para></listitem>
-<listitem><para>Максимально <emphasis>неудачные</emphasis> моменты работы при операциях с одной и той же установкой повторяются <emphasis>реже</emphasis>.</para></listitem>
-<listitem><para>Наибольшая величина <emphasis>отклонения</emphasis> (свыше 3 мин.) максимума от 1-го опыта встречается <emphasis>реже</emphasis>.</para></listitem>
-<listitem><para><emphasis>Минимальный срок более краток</emphasis>.</para></listitem>
-<listitem><para><emphasis>Кратчайший срок</emphasis> работы сохраняется <emphasis>до последнего</emphasis> опыта.</para></listitem>
-<listitem><para>Величина <emphasis>отклонения</emphasis> продолжительности последнего опыта от максимально кратковременного <emphasis>менее значительна</emphasis>.</para></listitem>
-<listitem><para><emphasis>Большая устойчивость</emphasis> максимально совершенных действий.</para></listitem>
-<listitem><para>Положительная роль <emphasis>упражнения более явственна</emphasis>.</para></listitem>
-<listitem><para><emphasis>Большая выучка и более</emphasis> значительный <emphasis>прогресс</emphasis> в скорости выполнения работы.</para></listitem>
-<listitem><para><emphasis>Выигрыш времени</emphasis> работы более значителен (в тысячи раз).</para></listitem>
-<listitem><para>У наибольшего количества установок <emphasis>выигрыш времени</emphasis> в пределах 10 &mdash;100.</para></listitem>
-<listitem><para>Максимальный <emphasis>прогресс и регресс</emphasis> (спуск и подъем кривой работы) <emphasis>рационально</emphasis> обусловлен.</para></listitem>
-<listitem><para><emphasis>Нет регрессивного типа</emphasis> (непрерывно восходящей) кривой работы.</para></listitem>
-<listitem><para><emphasis>Меньшая утомляемость</emphasis> (усталость наступает позднее &mdash; после 40 опытов).</para></listitem>
-<listitem><para><emphasis>Систематическое</emphasis> улучшение скорости работы <emphasis>чаще</emphasis>.</para></listitem>
-<listitem><para><emphasis>Темп</emphasis> усовершенствования <emphasis>более скорый</emphasis>.</para></listitem>
-<listitem><para><emphasis>В начальном</emphasis> периоде установки чаще относятся то к рубрике <emphasis>легких</emphasis> (I), то максимально <emphasis>трудных</emphasis> (IV).</para></listitem>
-<listitem><para><emphasis>В конечном</emphasis> итоге в рубриках <emphasis>легко отмыкаемых</emphasis> (за счет трудно отмыкаемых) <emphasis>повышение</emphasis> механизмов на 19%.</para></listitem>
-<listitem><para>Величина конечного <emphasis>усовершенствования</emphasis> в скорости работы <emphasis>более заметна</emphasis>.</para></listitem>
-<listitem><para><emphasis>Рациональная и радикальная</emphasis> зависимость между <emphasis>качественным</emphasis> осложнением установок и средней скоростью работы.</para></listitem>
-</orderedlist>
-</para>
-
-<formalpara>
-<title>с сериальными установками:</title>
-</formalpara>
-<para>
-<orderedlist>
-<listitem><para><emphasis>Самостоятельность</emphasis> преодоления <emphasis>реже</emphasis>.</para></listitem>
-<listitem><para><emphasis>Случайная</emphasis> удачливость решения вдвое <emphasis>чаще</emphasis>.</para></listitem>
-<listitem><para><emphasis>Нахождение</emphasis> мест задержки <emphasis>позднее</emphasis>.</para></listitem>
-<listitem><para><emphasis>Отсутствие фиксации</emphasis> удачных приемов.</para></listitem>
-<listitem><para><emphasis>Сохранение перерасхода</emphasis> движений вплоть до конечных опытов.</para></listitem>
-<listitem><para><emphasis>Кульминационный по трудности</emphasis> момент <emphasis>реже</emphasis> совпадает с начальным периодом работы (первыми 5 опытами), а иногда падает на срединные опыты серии, до 15-го
-включительно.</para></listitem>
-<listitem><para><emphasis>Трудности первого</emphasis> преодоления <emphasis>менее значительны</emphasis>.</para></listitem>
-<listitem><para>Большее <emphasis>единообразие</emphasis> по трудности отмыкания.</para></listitem>
-<listitem><para>Максимально <emphasis>неудачные</emphasis> моменты работы повторяются <emphasis>чаще</emphasis>.</para></listitem>
-<listitem><para>Наибольшая величина <emphasis>отклонения</emphasis> максимума от 1-го опыта встречается <emphasis>чаще</emphasis>.</para></listitem>
-<listitem><para>Минимальный <emphasis>менее краток</emphasis>.</para></listitem>
-<listitem><para><emphasis>Кратчайший срок</emphasis> работы <emphasis>не сохраняется в конечном опыте</emphasis> серии.</para></listitem>
-<listitem><para>Величина <emphasis>отклонения</emphasis> продолжительности последнего опыта от максимально короткого <emphasis>более значительна</emphasis>.</para></listitem>
-<listitem><para><emphasis>Меньшая устойчивость</emphasis> максимально совершенных действий.</para></listitem>
-<listitem><para>Положительная роль <emphasis>упражнения менее явственна</emphasis>.</para></listitem>
-<listitem><para><emphasis>Меньшая выучка и менее значительный прогресс</emphasis> в скорости выполнения работы.</para></listitem>
-<listitem><para><emphasis>Выигрыш времени</emphasis> работы менее значителен (в <emphasis>сотни</emphasis> раз).</para></listitem>
-<listitem><para>У наибольшего количества установок <emphasis>выигрыш времени</emphasis> в пределах 1&mdash;10.</para></listitem>
-<listitem><para><emphasis>Максимальный прогресс и регресс</emphasis> (спуск и подъем кривой работы) <emphasis>иррационально</emphasis> обусловлен.</para></listitem>
-<listitem><para><emphasis>Есть регресивный</emphasis> тип кривой работы.</para></listitem>
-<listitem><para><emphasis>Б&#1086;&#768;льшая утомляемость</emphasis> (усталость наступает ранее &mdash; после 24 опытов).</para></listitem>
-<listitem><para><emphasis>Систематическое</emphasis> улучшение скорости работы <emphasis>реже</emphasis>.</para></listitem>
-<listitem><para><emphasis>Темп</emphasis> усовершенствования <emphasis>более медленный</emphasis>.</para></listitem>
-<listitem><para>В начальном периоде установки чаще относятся к рубрикам <emphasis>средней</emphasis> трудности (II + III).</para></listitem>
-<listitem><para><emphasis>В конечном итоге</emphasis> в рубрике <emphasis>легко</emphasis> отмыкаемых (за счет трудно отмыкаемых) <emphasis>повышение</emphasis> количества установок только на 7%.</para></listitem>
-<listitem><para><emphasis>Величина конечного усовершенствования</emphasis> в скорости работы <emphasis>менее значительна</emphasis>.</para></listitem>
-<listitem><para>Отсутствие <emphasis>рациональной и явственной</emphasis> зависимости между <emphasis>количественным</emphasis> осложнением установок и средней скоростью работы.</para></listitem>
-</orderedlist>
-</para>
+<sect2><title>Характерные черты работы при оперировании</title>
+<informaltable frame='all' pgwide='1' colsep='1' rowsep='1' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<thead>
+<row>
+  <entry>с одиночными установками</entry>
+  <entry>с сериальными установками</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><para><emphasis>Самостоятельность</emphasis> преодоления чаще.</para></entry>
+<entry><para><emphasis>Самостоятельность</emphasis> преодоления <emphasis>реже</emphasis>.</para></entry>
+</row>
+<row>
+<entry><para><emphasis>Случайная</emphasis> удачливость решения реже.</para></entry>
+<entry><para><emphasis>Случайная</emphasis> удачливость решения вдвое <emphasis>чаще</emphasis>.</para></entry>
+</row>
+<row>
+<entry><para><emphasis>Нахождение</emphasis> главных пунктов задержки раньше.</para></entry>
+<entry><para><emphasis>Нахождение</emphasis> мест задержки <emphasis>позднее</emphasis>.</para></entry>
+</row>
+<row>
+<entry><para><emphasis>Скорая, прочная фиксация</emphasis> удачных приемов.</para></entry>
+<entry><para><emphasis>Отсутствие фиксации</emphasis> удачных приемов.</para></entry>
+</row>
+<row>
+<entry><para><emphasis>Выпадение</emphasis> лишних движений &mdash; <emphasis>упрощение</emphasis> со временем <emphasis>приема</emphasis> работы.</para></entry>
+<entry><para><emphasis>Сохранение перерасхода</emphasis> движений вплоть до конечных опытов.</para></entry>
+</row>
+<row>
+<entry><para><emphasis>Кульминационный по трудности</emphasis> момент (наибольшая продолжительность отмыкания) чаще совпадает с 1-м или одним из первых 5 опытов серии, но <emphasis>не позднее</emphasis>.</para></entry>
+<entry><para><emphasis>Кульминационный по трудности</emphasis> момент <emphasis>реже</emphasis> совпадает с начальным периодом работы (первыми 5 опытами), а иногда падает на срединные опыты серии, до 15-го
+включительно.</para></entry>
+</row>
+<row>
+<entry><para><emphasis>Трудности первого</emphasis> преодоления <emphasis>более значительны</emphasis>.</para></entry>
+<entry><para><emphasis>Трудности первого</emphasis> преодоления <emphasis>менее значительны</emphasis>.</para></entry>
+</row>
+<row>
+<entry><para>Большая <emphasis>разнотипность</emphasis> механизмов по трудности отмыкания.</para></entry>
+<entry><para>Большее <emphasis>единообразие</emphasis> по трудности отмыкания.</para></entry>
+</row>
+<row>
+<entry><para>Максимально <emphasis>неудачные</emphasis> моменты работы при операциях с одной и той же установкой повторяются <emphasis>реже</emphasis>.</para></entry>
+<entry><para>Максимально <emphasis>неудачные</emphasis> моменты работы повторяются <emphasis>чаще</emphasis>.</para></entry>
+</row>
+<row>
+<entry><para>Наибольшая величина <emphasis>отклонения</emphasis> (свыше 3 мин.) максимума от 1-го опыта встречается <emphasis>реже</emphasis>.</para></entry>
+<entry><para>Наибольшая величина <emphasis>отклонения</emphasis> максимума от 1-го опыта встречается <emphasis>чаще</emphasis>.</para></entry>
+</row>
+<row>
+<entry><para><emphasis>Минимальный срок более краток</emphasis>.</para></entry>
+<entry><para>Минимальный <emphasis>менее краток</emphasis>.</para></entry>
+</row>
+<row>
+<entry><para><emphasis>Кратчайший срок</emphasis> работы сохраняется <emphasis>до последнего</emphasis> опыта.</para></entry>
+<entry><para><emphasis>Кратчайший срок</emphasis> работы <emphasis>не сохраняется в конечном опыте</emphasis> серии.</para></entry>
+</row>
+<row>
+<entry><para>Величина <emphasis>отклонения</emphasis> продолжительности последнего опыта от максимально кратковременного <emphasis>менее значительна</emphasis>.</para></entry>
+<entry><para>Величина <emphasis>отклонения</emphasis> продолжительности последнего опыта от максимально короткого <emphasis>более значительна</emphasis>.</para></entry>
+</row>
+<row>
+<entry><para><emphasis>Большая устойчивость</emphasis> максимально совершенных действий.</para></entry>
+<entry><para><emphasis>Меньшая устойчивость</emphasis> максимально совершенных действий.</para></entry>
+</row>
+<row>
+<entry><para>Положительная роль <emphasis>упражнения более явственна</emphasis>.</para></entry>
+<entry><para>Положительная роль <emphasis>упражнения менее явственна</emphasis>.</para></entry>
+</row>
+<row>
+<entry><para><emphasis>Большая выучка и более</emphasis> значительный <emphasis>прогресс</emphasis> в скорости выполнения работы.</para></entry>
+<entry><para><emphasis>Меньшая выучка и менее значительный прогресс</emphasis> в скорости выполнения работы.</para></entry>
+</row>
+<row>
+<entry><para><emphasis>Выигрыш времени</emphasis> работы более значителен (в тысячи раз).</para></entry>
+<entry><para><emphasis>Выигрыш времени</emphasis> работы менее значителен (в <emphasis>сотни</emphasis> раз).</para></entry>
+</row>
+<row>
+<entry><para>У наибольшего количества установок <emphasis>выигрыш времени</emphasis> в пределах 10 &mdash;100.</para></entry>
+<entry><para>У наибольшего количества установок <emphasis>выигрыш времени</emphasis> в пределах 1&mdash;10.</para></entry>
+</row>
+<row>
+<entry><para>Максимальный <emphasis>прогресс и регресс</emphasis> (спуск и подъем кривой работы) <emphasis>рационально</emphasis> обусловлен.</para></entry>
+<entry><para><emphasis>Максимальный прогресс и регресс</emphasis> (спуск и подъем кривой работы) <emphasis>иррационально</emphasis> обусловлен.</para></entry>
+</row>
+<row>
+<entry><para><emphasis>Нет регрессивного типа</emphasis> (непрерывно восходящей) кривой работы.</para></entry>
+<entry><para><emphasis>Есть регресивный</emphasis> тип кривой работы.</para></entry>
+</row>
+<row>
+<entry><para><emphasis>Меньшая утомляемость</emphasis> (усталость наступает позднее &mdash; после 40 опытов).</para></entry>
+<entry><para><emphasis>Б&#1086;&#768;льшая утомляемость</emphasis> (усталость наступает ранее &mdash; после 24 опытов).</para></entry>
+</row>
+<row>
+<entry><para><emphasis>Систематическое</emphasis> улучшение скорости работы <emphasis>чаще</emphasis>.</para></entry>
+<entry><para><emphasis>Систематическое</emphasis> улучшение скорости работы <emphasis>реже</emphasis>.</para></entry>
+</row>
+<row>
+<entry><para><emphasis>Темп</emphasis> усовершенствования <emphasis>более скорый</emphasis>.</para></entry>
+<entry><para><emphasis>Темп</emphasis> усовершенствования <emphasis>более медленный</emphasis>.</para></entry>
+</row>
+<row>
+<entry><para><emphasis>В начальном</emphasis> периоде установки чаще относятся то к рубрике <emphasis>легких</emphasis> (I), то максимально <emphasis>трудных</emphasis> (IV).</para></entry>
+<entry><para>В начальном периоде установки чаще относятся к рубрикам <emphasis>средней</emphasis> трудности (II + III).</para></entry>
+</row>
+<row>
+<entry><para><emphasis>В конечном</emphasis> итоге в рубриках <emphasis>легко отмыкаемых</emphasis> (за счет трудно отмыкаемых) <emphasis>повышение</emphasis> механизмов на 19%.</para></entry>
+<entry><para><emphasis>В конечном итоге</emphasis> в рубрике <emphasis>легко</emphasis> отмыкаемых (за счет трудно отмыкаемых) <emphasis>повышение</emphasis> количества установок только на 7%.</para></entry>
+</row>
+<row>
+<entry><para>Величина конечного <emphasis>усовершенствования</emphasis> в скорости работы <emphasis>более заметна</emphasis>.</para></entry>
+<entry><para><emphasis>Величина конечного усовершенствования</emphasis> в скорости работы <emphasis>менее значительна</emphasis>.</para></entry>
+</row>
+<row>
+<entry><para><emphasis>Рациональная и радикальная</emphasis> зависимость между <emphasis>качественным</emphasis> осложнением установок и средней скоростью работы.</para></entry>
+<entry><para>Отсутствие <emphasis>рациональной и явственной</emphasis> зависимости между <emphasis>количественным</emphasis> осложнением установок и средней скоростью работы.</para></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+</sect2>
 </listitem>
 
 <listitem><para>При работе с <emphasis>сериальными</emphasis> установками некоторые преобладающие отрицательные черты выступают особенно <emphasis>рельефно</emphasis>.
@@ -174,6 +226,20 @@
 </orderedlist></para></listitem>
 </orderedlist>
 </para>
+
+<example id="photo24">
+  <title>Отвлечение и внимание</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/photo24.jpg">
+    <imageobject><imagedata fileref="images/html/photo24.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/photo24.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Фиг. 1. Отвлечение от работы<?br?>
+Фиг. 2. Пристальное рассматривание<?br?>
+</para></textobject></mediaobject>
+</example>
 
 <para>
 При более углубленной качественной квалификации вышеприведенных характерных черт работы обезьяны обнаруживаются три важные особенности:
@@ -336,3 +402,5 @@
 <para>
 И невозможно указать границ дальнейшего регресса этого создания, как для человека, давно опередившего своих полузвериных предков в ходе поступательной филогении и в завоевании материальной и духовной культуры, &mdash; нет предела для прогрессивной эволюции...
 </para>
+
+&liniya;
