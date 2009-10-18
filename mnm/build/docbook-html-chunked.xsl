@@ -82,8 +82,8 @@ part      toc,title
 
 	  <l:gentext key="Equation" text="Кривая"/>
 	  <l:gentext key="equation" text="Кривая"/>
-      <l:gentext key="ListofEquations" text="Список кривых"/>
-      <l:gentext key="listofequations" text="Список кривых"/>
+      <l:gentext key="ListofEquations" text="Перечень кривых"/>
+      <l:gentext key="listofequations" text="Перечень кривых"/>
 	  <l:context name="title">
         <l:template name="equation" text="Кривая %n. %t"/>
 	  </l:context>

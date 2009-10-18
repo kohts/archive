@@ -32,10 +32,8 @@
   <entry><imageobject role="html"><imagedata fileref="http://www.oasis-open.org/docbook/xmlcharent/glyphs/100dpi/U2153.png" /></imageobject></entry>
   <entry>&amp;frac13;</entry>
 </row>
-<row>
-  <entry>&#8212;</entry>
-  <entry>&amp;#8212;</entry>
-</row>
+<row><entry>&#8212;</entry><entry>&amp;#8212;</entry></row>
+<row><entry>&#0176;</entry><entry>&amp;#0176;</entry><entry>градус</entry></row>
 
 <row>
   <entry namest="c1" nameend="c3" align='center'><emphasis role="bold">Русские буквы с акцентом</emphasis></entry>
@@ -51,9 +49,14 @@
 <row id="xml_encoding_latin_ext" xreflabel='Латинские буквы'>
   <entry namest="c1" nameend="c3" align='center'><emphasis role="bold">Латинские буквы (акцент, умляут)</emphasis></entry>
 </row>
-<row><entry>&#0101;&#768;</entry><entry>&amp;#0101;&amp;#768;</entry></row>
+<row><entry>&#0224;</entry><entry>&amp;#0224;</entry><entry>латинская a с grave акцентом</entry></row>
+<row><entry>&#0225;</entry><entry>&amp;#0225;</entry><entry>латинская a с accute акцентом</entry></row>
+<row><entry>&#0101;&#768;</entry><entry>&amp;#0101;&amp;#768; или &amp;#0232;</entry><entry>латинская e с grave акцентом</entry></row>
+<row><entry>&#0233;</entry><entry>&amp;#0233;</entry><entry>латинская e с accute акцентом</entry></row>
 <row><entry>&#0220;</entry><entry>&amp;#0220;</entry></row>
 <row><entry>&#0252;</entry><entry>&amp;#0252;</entry></row>
+<row><entry>&#0228;</entry><entry>&amp;#0228;</entry></row>
+<row><entry>&#0246;</entry><entry>&amp;#0246;</entry></row>
 
 <row>
   <entry namest="c1" nameend="c3" align='center'><emphasis role="bold">Кириллица до реформы 1917 года</emphasis></entry>
