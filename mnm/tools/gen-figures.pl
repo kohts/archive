@@ -3,6 +3,7 @@
 use strict;
 use utf8;
 use Encode;
+use Getopt::Long;
 
 if (!$ARGV[0]) {
   die "usage: $0 filename [rus|eng] [table_pfx] [figure|example|formalpara]\n";
@@ -16,11 +17,14 @@ my $total_photos = 0;
 my $c_counter = 0;
 my $c;
 
+my $no_page_break;
+my $r = GetOptions("no-page-break" => \$no_page_break);
+
 sub dump_c {
   my ($c) = @_;
 
   if ($tag ne "formalpara") {
-    if ($c_counter ne 0) {
+    if ($c_counter ne 0 && !defined($no_page_break)) {
       print "<?page-break?>\n";
     }
 
@@ -39,7 +43,7 @@ sub dump_c {
         $max_photo = $p*10 + 10;
       }
     
-      print "<sect1 id='${pfx}photoplates_" . $p . "'><title>" . ($p * 10 + 1) . " &mdash; " . $max_photo . "</title>\n";
+      print "<sect1 id='${pfx}${table_pfx}_" . $p . "'><title>" . ($p * 10 + 1) . " &mdash; " . $max_photo . "</title>\n";
     }
   }
 

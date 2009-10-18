@@ -24,6 +24,8 @@ all: html pdf
 
 ${DOCBOOK_BASE}/photoplates_eng.docbook: ${DOCBOOK_BASE}/photoplates_eng.raw ${TOOLS}/gen-figures.pl
 	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng photo > ${DOCBOOK_BASE}/photoplates_eng.docbook
+${DOCBOOK_BASE}/pictures_eng.docbook: ${DOCBOOK_BASE}/pictures_eng.raw ${TOOLS}/gen-figures.pl
+	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/pictures_eng.raw eng picture figure --no-page-break > ${DOCBOOK_BASE}/pictures_eng.docbook
 
 ${DOCBOOK_BASE}/photoplates_eng_print.docbook: ${DOCBOOK_BASE}/photoplates_eng.raw ${TOOLS}/gen-figures.pl
 	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng photo formalpara > ${DOCBOOK_BASE}/photoplates_eng_print.docbook
@@ -55,6 +57,8 @@ ${STAMPS}/pdf: ${STAMPS}/fo ${FOP_BASE}/fop.xconf
 	touch ${STAMPS}/pdf
 
 clean:
+	touch -r /etc/passwd ${DOCBOOK_BASE}/photoplates_eng.docbook
+	touch -r /etc/passwd ${DOCBOOK_BASE}/pictures_eng.docbook
 	mkdir -p ${STAMPS}
 	rm -f ${STAMPS}/*
 

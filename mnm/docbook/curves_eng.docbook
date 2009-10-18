@@ -1,0 +1,457 @@
+<sect1 id='eng_curves_0'><title>1 &mdash; 25</title>
+<equation id="eng_curve1-5">
+  <title>Hooks A<subscript>1</subscript>, A<subscript>2</subscript>, A<subscript>3</subscript>, Б, E<subscript>1</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve1-5.jpg">
+    <imageobject><imagedata fileref="images/html/curve1-5.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve1-5.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Curve 1. Hook А<subscript>1</subscript> inclined (1-st)<?br?>
+Curve 2. Hook А<subscript>2</subscript> horizontal<?br?>
+Curve 3. Hook А<subscript>3</subscript> vertical<?br?>
+Curve 4. Hook Б vertical<?br?>
+Curve 5. Hook Е<subscript>1</subscript> horizontal<?br?>
+</para></textobject></mediaobject>
+</equation>
+
+<equation id="eng_curve6">
+  <title>Combination of 2 hooks C, D</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve6.jpg">
+    <imageobject><imagedata fileref="images/html/curve6.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve6.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+2 hooks C, D horizontal, to left and to right.
+</para></textobject></mediaobject>
+</equation>
+
+<equation id="eng_curve7-9">
+  <title>Combination of 3 hooks А<subscript>3</subscript>, Б, e, е<subscript>1</subscript>, е<subscript>2</subscript>, е<subscript>3</subscript>, е<subscript>4</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve7-9.jpg">
+    <imageobject><imagedata fileref="images/html/curve7-9.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve7-9.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Curve 7. 3 hooks А<subscript>3</subscript>Бе<subscript>3</subscript><?br?>
+Curve 8. 4 hooks А<subscript>3</subscript>Бее<?br?>
+Curve 9. 4 hooks (from 6) А<subscript>3</subscript>Бе<subscript>1</subscript>е<subscript>2</subscript>е<subscript>3</subscript>е<subscript>4</subscript><?br?>
+</para></textobject></mediaobject>
+</equation>
+
+<equation id="eng_curve10">
+  <title>Combination 6 hooks А<subscript>3</subscript>Бе<subscript>1</subscript>е<subscript>2</subscript>е<subscript>3</subscript>е<subscript>4</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve10.jpg">
+    <imageobject><imagedata fileref="images/html/curve10.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve10.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve11">
+  <title>Combination of 8 hooks А<subscript>3</subscript>БВГе<subscript>4</subscript>е<subscript>3</subscript>е<subscript>2</subscript>е<subscript>1</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve11.jpg">
+    <imageobject><imagedata fileref="images/html/curve11.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve11.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve12-14">
+  <title>Latches K, L, M</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve12-14.jpg">
+    <imageobject><imagedata fileref="images/html/curve12-14.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve12-14.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Curve 1. Latch K, horzontal<?br?>
+Curve 2. Latch L, vertical, self-locking<?br?>
+Curve 3. Latch M vertical, self-locking<?br?>
+</para></textobject></mediaobject>
+</equation>
+
+<equation id="eng_curve15">
+  <title>Combination of 4 latches K, L, M, N</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve15.jpg">
+    <imageobject><imagedata fileref="images/html/curve15.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve15.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve16-23">
+  <title>Sliding bolts P, O, Q, R, F, H, I, G</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve16-23.jpg">
+    <imageobject><imagedata fileref="images/html/curve16-23.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve16-23.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject>
+<informaltable frame='none'>
+<tgroup cols='2' align='left' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row><entry><para role='figure'>
+Curve 16. Sliding bolt P, horizontal.<?br?>
+Curve 17. Sliding bolt O, horizontal, tight fitting.<?br?>
+Curve 18. Sliding bolt Q, vertical, self locking.<?br?>
+Curve 19. Sliding bolt R, horizontal.<?br?>
+</para></entry>
+<entry><para role='figure'>
+Curve 20. Sliding bolt F, with stud bolt.<?br?>
+Curve 21. Sliding bolt H, with stud bolt, sping-acting.<?br?>
+Curve 22. Sliding bolt I, with stud bolt.<?br?>
+Curve 23. Sliding bolt G, with stud bolt, tight fitting.<?br?>
+</para></entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+ </textobject></mediaobject>
+</equation>
+
+<equation id="eng_curve24">
+  <title>Sliding bolt Y</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve24.jpg">
+    <imageobject><imagedata fileref="images/html/curve24.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve24.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Sliding bolt Y with concealed stud bolt.
+</para></textobject></mediaobject>
+</equation>
+
+<equation id="eng_curve25">
+  <title>Combination of 3 sliding bolts ROI &#8212; (enclosed only R)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve25.jpg">
+    <imageobject><imagedata fileref="images/html/curve25.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve25.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+</sect1>
+
+<sect1 id='eng_curves_1'><title>26 &mdash; 45</title>
+<equation id="eng_curve26">
+  <title>Combination of 2 sliding bolts OP</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve26.jpg">
+    <imageobject><imagedata fileref="images/html/curve26.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve26.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve27">
+  <title>Combination of 2 sliding bolts GF</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve27.jpg">
+    <imageobject><imagedata fileref="images/html/curve27.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve27.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve28">
+  <title>Combination of 2 sliding bolts YI</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve28.jpg">
+    <imageobject><imagedata fileref="images/html/curve28.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve28.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve29-30">
+  <title>Combination of sliding bolts GFH и OIP</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve29-30.jpg">
+    <imageobject><imagedata fileref="images/html/curve29-30.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve29-30.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve31-36">
+  <title>Complex sliding bolts V, W, X<subscript>1</subscript>, X<subscript>2</subscript>, Y<subscript>1</subscript>, Y<subscript>4</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve31-36.jpg">
+    <imageobject><imagedata fileref="images/html/curve31-36.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve31-36.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Curve 31. Complex sliding bolt V, horizontal.<?br?>
+Curve 32. Complex sliding bolt W, horizontal.<?br?>
+Curve 33. Complex sliding bolt with spring action X<subscript>1</subscript>, horizontal.<?br?>
+Curve 34. Complex sliding bolt with spring action X<subscript>2</subscript>, vertical.<?br?>
+Curve 35. Complex sliding bolt Y<subscript>1</subscript>, horizontal, to right.<?br?>
+Curve 36. Complex sliding bolt Y<subscript>4</subscript>, horizontal, to left.<?br?>
+</para></textobject></mediaobject>
+</equation>
+
+<equation id="eng_curve37">
+  <title>Combination of 4 complex sliding bolts V<subscript>1</subscript>, W<subscript>1</subscript>, X<subscript>2</subscript>, Y<subscript>1</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve37.jpg">
+    <imageobject><imagedata fileref="images/html/curve37.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve37.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve38-40">
+  <title>Excentre-handle turning-locks S, T</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve38-40.jpg">
+    <imageobject><imagedata fileref="images/html/curve38-40.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve38-40.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Curve 38. Excentre-handle turning-lock S, to right down.<?br?>
+Curve 39. Excentre-handle turning-lock T, lift upwards.<?br?>
+Curve 40. Combination of 2 excentre-handle turning-locks S and T.<?br?>
+</para></textobject></mediaobject>
+</equation>
+
+<equation id="eng_curve41-42">
+  <title>Centre-handle turning-locks U, &#0220;</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve41-42.jpg">
+    <imageobject><imagedata fileref="images/html/curve41-42.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve41-42.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Curve 41. Centre-handle turning-lock U, to right<?br?>
+Curve 42. Centre-handle turning-lock &#0220;, to left<?br?>
+</para></textobject></mediaobject>
+</equation>
+
+<equation id="eng_curve43">
+  <title>Combination of 2 centre-handle turning-locks U&#0220;</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve43.jpg">
+    <imageobject><imagedata fileref="images/html/curve43.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve43.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Combination of 2 centre-handle turning-locks U&#0220;, to right and to left.
+</para></textobject></mediaobject>
+</equation>
+
+<equation id="eng_curve44-45">
+  <title>Centre-handle turning-locks Z<subscript>1</subscript>, Z<subscript>2</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve44-45.jpg">
+    <imageobject><imagedata fileref="images/html/curve44-45.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve44-45.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Curve 44. Centre-handle turning-locks Z<subscript>1</subscript>, with spring action, to right.<?br?>
+Curve 45. Centre-handle turning-locks Z<subscript>2</subscript>, with spring action, to left.<?br?>
+</para></textobject></mediaobject>
+</equation>
+</sect1>
+
+<sect1 id='eng_curves_2'><title>46 &mdash; 59</title>
+<equation id="eng_curve46">
+  <title>Combination of 2 centre-handle turning-locks Z<subscript>1</subscript>, Z<subscript>2</subscript> with sprint action</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve46.jpg">
+    <imageobject><imagedata fileref="images/html/curve46.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve46.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve47">
+  <title>Combination of 2 centre-handle turning-locks Z<subscript>3</subscript>, Z<subscript>4</subscript> with spring action</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve47.jpg">
+    <imageobject><imagedata fileref="images/html/curve47.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve47.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve48">
+  <title>Combination of 2 latches K , M; 2 centre-handle turning-locks Z<subscript>3</subscript>, Z<subscript>4</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve48.jpg">
+    <imageobject><imagedata fileref="images/html/curve48.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve48.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve49">
+  <title>Turning-lock a</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve49.jpg">
+    <imageobject><imagedata fileref="images/html/curve49.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve49.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Turning-lock a to right
+</para></textobject></mediaobject>
+</equation>
+
+<equation id="eng_curve50">
+  <title>Catch b</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve50.jpg">
+    <imageobject><imagedata fileref="images/html/curve50.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve50.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve51-53">
+  <title>Chains C<subscript>1</subscript>, C<subscript>2</subscript>, C<subscript>3</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve51-53.jpg">
+    <imageobject><imagedata fileref="images/html/curve51-53.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve51-53.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Curve 51. Chain C<subscript>1</subscript>, inclined.<?br?>
+Curve 52. Chain C<subscript>2</subscript>, vertical.<?br?>
+Curve 53. Chain C<subscript>3</subscript>, horizontal.<?br?>
+</para></textobject></mediaobject>
+</equation>
+
+<equation id="eng_curve54-55">
+  <title>Door strap without pawl d<subscript>1</subscript>, with pawl d<subscript>2</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve54-55.jpg">
+    <imageobject><imagedata fileref="images/html/curve54-55.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve54-55.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Curve 54. Door strap without pawl d<subscript>1</subscript><?br?>
+Curve 55. Door strap with pawl d<subscript>2</subscript><?br?>
+</para></textobject></mediaobject>
+</equation>
+
+<equation id="eng_curve56">
+  <title>Sliding bolt Y<subscript>1</subscript> with pawl Y<subscript>2</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve56.jpg">
+    <imageobject><imagedata fileref="images/html/curve56.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve56.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve57">
+  <title>2 door straps, 2 pawls &#8212; d<subscript>2</subscript>, d<subscript>4</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve57.jpg">
+    <imageobject><imagedata fileref="images/html/curve57.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve57.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve58-59">
+  <title>Door strap d<subscript>3</subscript> and sliding bolt Y<subscript>3</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve58-59.jpg">
+    <imageobject><imagedata fileref="images/html/curve58-59.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve58-59.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Curve 58. Door strap with unlocked padlock d<subscript>3</subscript><?br?>
+Curve 59. Sliding bolt with unlocked padlock Y<subscript>3</subscript><?br?>
+</para></textobject></mediaobject>
+</equation>
+</sect1>
+
+<sect1 id='eng_curves_3'><title>60 &mdash; 67</title>
+<equation id="eng_curve60-62">
+  <title>Keys f<subscript>2</subscript>, f<subscript>3</subscript>, f<subscript>4</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve60-62.jpg">
+    <imageobject><imagedata fileref="images/html/curve60-62.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve60-62.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Curve 60. Key for inside look revolving 180º f<subscript>2</subscript><?br?>
+Curve 61. Key for inside look revolving 270º (moving) f<subscript>3</subscript><?br?>
+Curve 62. Key for inside look revolving 270º (stationary) f<subscript>4</subscript><?br?>
+</para></textobject></mediaobject>
+</equation>
+
+<equation id="eng_curve63">
+  <title>Tape &#931;<subscript>1</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve63.jpg">
+    <imageobject><imagedata fileref="images/html/curve63.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve63.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve64">
+  <title>2 centre-handle turning-locks Z<subscript>3</subscript>Z<subscript>4</subscript>, key f<subscript>2</subscript>, tape &#931;<subscript>3</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve64.jpg">
+    <imageobject><imagedata fileref="images/html/curve64.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve64.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve65">
+  <title>Padlock З<subscript>0</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve65.jpg">
+    <imageobject><imagedata fileref="images/html/curve65.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve65.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve66">
+  <title>2 door straps d<subscript>0</subscript>, d<subscript>1</subscript>, 2 locks З<subscript>1</subscript>, З<subscript>2</subscript></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve66.jpg">
+    <imageobject><imagedata fileref="images/html/curve66.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve66.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+
+<equation id="eng_curve67">
+  <title>2 door straps, pawl, padlock, key (d<subscript>0</subscript>З<subscript>1</subscript>d<subscript>2</subscript>)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/curve67.jpg">
+    <imageobject><imagedata fileref="images/html/curve67.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/curve67.jpg" /></imageobject>
+  </mediaobject>
+</equation>
+</sect1>

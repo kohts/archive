@@ -69,8 +69,6 @@
    <!ENTITY a5 SYSTEM "a5.docbook">
    
    <!ENTITY ae1 SYSTEM "ae1.docbook">
-   <!ENTITY ae3 SYSTEM "ae3.docbook">
-   <!ENTITY ae4 SYSTEM "ae4.docbook">
    <!ENTITY ae5 SYSTEM "ae5.docbook">
    
    <!ENTITY vyhodnye_dannye SYSTEM "vyhodnye_dannye.docbook">
@@ -78,6 +76,8 @@
    <!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
 
   <!ENTITY photoplates_eng SYSTEM "photoplates_eng.docbook">
+  <!ENTITY pictures_eng SYSTEM "pictures_eng.docbook">
+  <!ENTITY curves_eng SYSTEM "curves_eng.docbook">
 ]>
 
 <book id="ladygina-kohts-mnm" lang="ru">
@@ -171,8 +171,8 @@
 <appendix><title>Литература</title><sect3>&a5;</sect3></appendix>
 <appendix lang="en"><title>Resum&#0101;&#768; (Summary)</title><sect2>&ae1;</sect2></appendix>
 <appendix lang="en"><title>List of Illustrations (photo-plates)</title>&photoplates_eng;</appendix>
-<appendix lang="en"><title>Text Figures</title><sect3 lang="en">&ae3;</sect3></appendix>
-<appendix lang="en"><title>Time Curves</title><sect3 lang="en">&ae4;</sect3></appendix>
+<appendix lang="en"><title>Text Figures<footnote><para>All figures on a scale reduced twice against original, excepting <xref linkend="picture10" />, <xref linkend="picture43" />, <xref linkend="picture45" /> reduced fourfold.</para></footnote></title>&pictures_eng;</appendix>
+<appendix lang="en"><title>Time Curves</title>&curves_eng;</appendix>
 <appendix lang="en"><title>Contents</title><sect3 lang="en">&ae5;</sect3></appendix>
 
 <appendix><title>Приложения к электронному изданию</title>
