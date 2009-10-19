@@ -53,6 +53,7 @@
 медленно отмыкаемые механизмы, входят исключительно механизмы обмотки, допускающие произведение над собой самых неучитываемых и многообразных, посторонних излишних манипуляций.
 </para>
 
+<?page-break?>
 <example id="photo14">
   <title>Отмыкание заверток</title>
   <mediaobject>
@@ -61,7 +62,7 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/photo14.jpg" /></imageobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject><para role='figure'>
 Фиг. 1. Отмыкание пружинящей завертки Z<subscript>1</subscript><?br?>
 Фиг. 2. Отмыкание пружинящей завертки Z<subscript>1</subscript> из комбинации Z<subscript>1</subscript>Z<subscript>2</subscript><?br?>
 </para></textobject></mediaobject>

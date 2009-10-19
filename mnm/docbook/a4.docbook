@@ -64,6 +64,7 @@
 </sect2>
 
 <sect2><title>Сериальные установки</title>
+<para>
 <orderedlist>
 <listitem><para>2 крюка C и D (C горизонтальн. вправо, D горизонтальн. влево в одной плоск.)</para></listitem>
 <listitem><para>2 крюка e<subscript>1</subscript>e<subscript>2</subscript><footnote><para>или e<subscript>3</subscript></para></footnote> (в одной плоск.) все горизонтальн. влево (при 3 навинч.) &#8212; (e<subscript>1</subscript>e<subscript>2</subscript>e<subscript>3</subscript>)</para></listitem>
@@ -99,4 +100,5 @@
 <listitem><para>2 накладки, 2 замка (d<subscript>0</subscript> накл. вертикальн., d<subscript>1</subscript> накл. горизонтальн., З<subscript>1</subscript> верхн. висяч. подвижн. замок, З<subscript>2</subscript> нижн. висячий неподвижн. замок)</para></listitem>
 <listitem><para>Внутрен. замок с ключом, гвоздь с обмоткой проволоки 2 завертки. (Ключ f<subscript>2</subscript> на 180° направо, обмотка направо &#931;<subscript>3</subscript>, завертка Z<subscript>3</subscript> направо, Z<subscript>4</subscript> налево на 90°)</para></listitem>
 </orderedlist>
+</para>
 </sect2>

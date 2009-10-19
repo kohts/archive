@@ -64,6 +64,7 @@
 </para>
 <para>В 7-й раз (после перерыва) предлагается тот же механизм.</para>
 
+<?page-break?>
 <example id="photo12">
   <title>Операции со сложными задвижками</title>
   <mediaobject>
@@ -72,7 +73,7 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/photo12.jpg" /></imageobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject><para role='figure'>
 Фиг. 1. Отмыкание задвижки Y<subscript>1</subscript> из комбинации X<subscript>2</subscript>Y<subscript>1</subscript>V<subscript>1</subscript>W<subscript>1</subscript><?br?>
 Фиг. 2. Отмыкание задвижки W<subscript>1</subscript> из комбинации V<subscript>1</subscript>W<subscript>1</subscript>X<subscript>2</subscript>Y<subscript>1</subscript><?br?>
 </para></textobject></mediaobject>

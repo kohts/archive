@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY liniya "
+<informaltable frame='none' pgwide='1'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry><para role='Arial'>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
+</tgroup></informaltable>
+ ">
+
+   <!ENTITY cover SYSTEM "cover.docbook">
+   <!ENTITY predislovie SYSTEM "predislovie.docbook">
+   <!ENTITY vvedenie SYSTEM "vvedenie.docbook">
+
+   <!ENTITY c1_01 SYSTEM "c1_01.docbook">
+   <!ENTITY c1_02 SYSTEM "c1_02.docbook">
+   <!ENTITY c1_03 SYSTEM "c1_03.docbook">
+   <!ENTITY c1_04 SYSTEM "c1_04.docbook">
+   <!ENTITY c1_05 SYSTEM "c1_05.docbook">
+   <!ENTITY c1_06 SYSTEM "c1_06.docbook">
+   <!ENTITY c1_07 SYSTEM "c1_07.docbook">
+   <!ENTITY c1_08 SYSTEM "c1_08.docbook">
+   <!ENTITY c1_09 SYSTEM "c1_09.docbook">
+   <!ENTITY c1_10 SYSTEM "c1_10.docbook">
+   <!ENTITY c1_11 SYSTEM "c1_11.docbook">
+   <!ENTITY c1_12 SYSTEM "c1_12.docbook">
+
+   <!ENTITY c2_01 SYSTEM "c2_01.docbook">
+   <!ENTITY c2_02 SYSTEM "c2_02.docbook">
+   <!ENTITY c2_03 SYSTEM "c2_03.docbook">
+   <!ENTITY c2_04 SYSTEM "c2_04.docbook">
+   <!ENTITY c2_05 SYSTEM "c2_05.docbook">
+   <!ENTITY c2_06 SYSTEM "c2_06.docbook">
+   <!ENTITY c2_06_01 SYSTEM "c2_06_01.docbook">
+   <!ENTITY c2_06_02 SYSTEM "c2_06_02.docbook">
+   <!ENTITY c2_06_03 SYSTEM "c2_06_03.docbook">
+   <!ENTITY c2_06_04 SYSTEM "c2_06_04.docbook">
+   <!ENTITY c2_07 SYSTEM "c2_07.docbook">
+   <!ENTITY c2_08 SYSTEM "c2_08.docbook">
+   <!ENTITY c2_09 SYSTEM "c2_09.docbook">
+   <!ENTITY c2_10 SYSTEM "c2_10.docbook">
+
+   <!ENTITY c3_01 SYSTEM "c3_01.docbook">
+   <!ENTITY c3_02 SYSTEM "c3_02.docbook">
+   <!ENTITY c3_03 SYSTEM "c3_03.docbook">
+   <!ENTITY c3_04 SYSTEM "c3_04.docbook">
+   <!ENTITY c3_04_01 SYSTEM "c3_04_01.docbook">
+   <!ENTITY c3_04_02 SYSTEM "c3_04_02.docbook">
+   <!ENTITY c3_04_03 SYSTEM "c3_04_03.docbook">
+   <!ENTITY c3_04_04 SYSTEM "c3_04_04.docbook">
+   <!ENTITY c3_05 SYSTEM "c3_05.docbook">
+   <!ENTITY c3_06 SYSTEM "c3_06.docbook">
+   <!ENTITY c3_07 SYSTEM "c3_07.docbook">
+
+   <!ENTITY c4 SYSTEM "c4.docbook">
+   <!ENTITY c4_01 SYSTEM "c4_01.docbook">
+   <!ENTITY c4_02 SYSTEM "c4_02.docbook">
+   <!ENTITY c4_03 SYSTEM "c4_03.docbook">
+   <!ENTITY c4_04 SYSTEM "c4_04.docbook">
+   <!ENTITY c4_05 SYSTEM "c4_05.docbook">
+   <!ENTITY c4_06 SYSTEM "c4_06.docbook">
+   <!ENTITY c4_07 SYSTEM "c4_07.docbook">
+   <!ENTITY c4_08 SYSTEM "c4_08.docbook">
+   
+   <!ENTITY c5 SYSTEM "c5.docbook">
+   <!ENTITY zaklyuchenie SYSTEM "zaklyuchenie.docbook">
+
+   <!ENTITY a4 SYSTEM "a4.docbook">
+   <!ENTITY a5 SYSTEM "a5.docbook">
+   
+   <!ENTITY ae1 SYSTEM "ae1.docbook">
+   <!ENTITY ae5 SYSTEM "ae5.docbook">
+   
+   <!ENTITY vyhodnye_dannye SYSTEM "vyhodnye_dannye.docbook">
+   <!ENTITY darstevennaya_nn_ra SYSTEM "darstevennaya_nn_ra.docbook">
+   <!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
+
+  <!ENTITY photoplates_eng SYSTEM "photoplates_eng.docbook">
+  <!ENTITY photoplates_eng_print SYSTEM "photoplates_eng_print.docbook">
+  <!ENTITY pictures_eng SYSTEM "pictures_eng.docbook">
+  <!ENTITY curves_eng SYSTEM "curves_eng.docbook">
+]>
+
+<!--<simplelist>
+<member>&#916;</member>
+<member>&#931;</member>
+<member>&#0224;</member>
+<member>&#0225;</member>
+<member>&#0232;</member>
+<member>&#0233;</member>
+<member>&#0220;</member>
+<member>&#0252;</member>
+<member>&#0228;</member>
+<member>&#0246;</member>
+</simplelist>
+
+<simplelist>
+<member><emphasis role="bold">&#916;</emphasis></member>
+<member><emphasis role="bold">&#931;</emphasis></member>
+<member><emphasis role="bold">&#0224;</emphasis></member>
+<member><emphasis role="bold">&#0225;</emphasis></member>
+<member><emphasis role="bold">&#0232;</emphasis></member>
+<member><emphasis role="bold">&#0233;</emphasis></member>
+<member><emphasis role="bold">&#0220;</emphasis></member>
+<member><emphasis role="bold">&#0252;</emphasis></member>
+<member><emphasis role="bold">&#0228;</emphasis></member>
+<member><emphasis role="bold">&#0246;</emphasis></member>
+</simplelist>
+-->
+
+<book id="ladygina-kohts-mnm" lang="ru">
+
+<title>Приспособительные моторные навыки макака в условиях эксперимента</title>
+<titleabbrev>Моторные навыки макака</titleabbrev>
+
+<bookinfo>
+<author>
+<firstname>Надежда</firstname>
+<othername>Николаевна</othername>
+<surname>Ладыгина-Котс</surname>
+</author>
+</bookinfo>
+<date>Москва, 1928</date>
+
+<dedication>
+<para>Профессору Роберту Йерксу с чувством восхищения перед его научными исследованиями почтительно посвящает автор</para>
+<para>To Professor Robert M. Yerkes in admiration of his works this book is respectfully dedicated by the author</para>
+</dedication>
+
+<preface id="cover"><title>Обложка</title>&cover;</preface>
+<preface id="predislovie"><title>Предисловие</title>&predislovie;</preface>
+<preface id="vvedenie"><title>Введение. Цели и методика исследования.</title>&vvedenie;</preface>
+
+<chapter><title>Протоколы опытов</title>
+  <sect1><title>Открывание двери</title>&c1_01;</sect1>
+  <sect1><title>Отмыкание крюков</title>&c1_02;</sect1>
+  <sect1><title>Отмыкание щеколд</title>&c1_03;</sect1>
+  <sect1><title>Отмыкание задвижек</title>&c1_04;</sect1>
+  <sect1><title>Отмыкание рычагов</title>&c1_05;</sect1>
+  <sect1><title>Отмыкание заверток</title>&c1_06;</sect1>
+  <sect1><title>Отмыкание зацепки</title>&c1_07;</sect1>
+  <sect1><title>Отмыкание цепи</title>&c1_08;</sect1>
+  <sect1><title>Отмыкание простых и осложненных накладок</title>&c1_09;</sect1>
+  <sect1><title>Отпирание ключом внутреннего замка</title>&c1_10;</sect1>
+  <sect1><title>Разматывание проволоки</title>&c1_11;</sect1>
+  <sect1><title>Отпирание ключом наружных висячих замков</title>&c1_12;</sect1>
+</chapter>
+
+<chapter><title>Анализ фактических достижений при работе с единичными механизмами</title>
+  <sect1><title>Перечень фактических достижений</title>&c2_01;</sect1>
+  <sect1><title>Способ постижения</title>&c2_02;</sect1>
+  <sect1><title>Характер постижения</title>&c2_03;</sect1>
+  <sect1><title>Темп постижения</title>&c2_04;</sect1>
+  <sect1><title>Способ осуществления действия</title><subtitle>Начальный и конечный прием отмыкания</subtitle>&c2_05;</sect1>
+  <sect1><title>Скорость выполнения действия</title>&c2_06;
+    <sect2><title>Первый опыт отмыкания</title>&c2_06_01;</sect2>
+    <sect2><title>Последний опыт отмыкания</title>&c2_06_02;</sect2>
+    <sect2><title>Максимально длительный опыт</title>&c2_06_03;</sect2>
+    <sect2><title>Максимально короткий опыт</title>&c2_06_04;</sect2>
+  </sect1>
+  <sect1><title>Усовершенствование в скорости выполнения работы</title>&c2_07;</sect1>
+  <sect1><title>Темп усовершенствования</title>&c2_08;</sect1>
+  <sect1><title>Средняя скорость выполнения работы</title>&c2_09;</sect1>
+  <sect1><title>Прочность запоминания навыков</title>&c2_10;</sect1>
+</chapter>
+
+<chapter><title>Анализ фактических достижений при работе с комбинациями механизмов</title>
+  <sect1><title>Перечень фактических достижений</title>&c3_01;</sect1>
+  <sect1><title>Способ, характер и темп постижения</title>&c3_02;</sect1>
+  <sect1><title>Способ осуществления действий</title><subtitle>Начальный и конечный прием отмыкания</subtitle>&c3_03;</sect1>
+  <sect1><title>Скорость выполнения работы</title>&c3_04;
+    <sect2><title>Первый опыт отмыкания</title>&c3_04_01;</sect2>
+    <sect2><title>Последний опыт отмыкания</title>&c3_04_02;</sect2>
+    <sect2><title>Максимально длительный опыт</title>&c3_04_03;</sect2>
+    <sect2><title>Минимально длительный опыт</title>&c3_04_04;</sect2>
+  </sect1>
+  <sect1><title>Усовершенствование в скорости выполнения работы</title>&c3_05;</sect1>
+  <sect1><title>Темп усовершенствования</title>&c3_06;</sect1>
+  <sect1><title>Средняя продолжительность отмыкания</title>&c3_07;</sect1>
+</chapter>
+
+<chapter><title>Специфические отрицательные особенности работы обезьяны</title>
+  &c4;
+  <sect1><title>Излишние операции</title>&c4_01;</sect1>
+  <sect1><title>Неупорядоченность отмыкания</title>&c4_02;</sect1>
+  <sect1><title>Неучитывание отомкнутости механизмов</title>&c4_03;</sect1>
+  <sect1><title>Автоматизм действий</title>&c4_04;</sect1>
+  <sect1><title>Торопливость действий</title>&c4_05;</sect1>
+  <sect1><title>Отвлекаемость от работы</title>&c4_06;</sect1>
+  <sect1><title>Суженность сферы обследования</title>&c4_07;</sect1>
+  <sect1><title>Ограниченная подражательность</title>&c4_08;</sect1>
+</chapter>
+
+<chapter><title>Сопоставление итогов анализа работы обезьяны по отмыканию единичных механизмов и комбинаций механизмов</title>&c5;</chapter>
+<chapter><title>Заключение</title><subtitle>Прогнозы применительно к вопросу о способности обезьяны к трудовым процессам.
+Проблема о генетическом положении низших обезьян</subtitle>&zaklyuchenie;</chapter>
+
+<appendix><title>Перечень единичных и сериальных установок, предлагаемых для отмыкания</title>&a4;</appendix>
+<appendix><title>Литература</title><sect3>&a5;</sect3></appendix>
+
+<appendix lang="en"><title>Resum&#0101;&#768; (Summary)</title><sect2>&ae1;</sect2></appendix>
+
+<appendix lang="en"><title>List of Illustrations (photo-plates)</title>&photoplates_eng_print;</appendix>
+<!--
+<appendix lang="en"><title>Text Figures<footnote><para>All figures on a scale reduced twice against original, excepting <xref linkend="picture10" />, <xref linkend="picture43" />, <xref linkend="picture45" /> reduced fourfold.</para></footnote></title>&pictures_eng_print;</appendix>
+<appendix lang="en"><title>Time Curves</title>&curves_eng_print;</appendix>
+<appendix lang="en"><title>Contents</title><sect3 lang="en">&ae5;</sect3></appendix>
+-->
+
+<appendix><title>Приложения к электронному изданию</title>
+  <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1>
+  <?page-break?>
+  <sect1><title>Дарственная надпись Н. Н. Ладыгиной-Котс Р. А. Котс</title>&darstevennaya_nn_ra;</sect1>
+  <?page-break?>
+  <sect1><title>Подготовка электронного издания</title>&electronic_edition;</sect1>
+</appendix>
+
+</book>

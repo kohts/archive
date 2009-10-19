@@ -263,6 +263,7 @@
 <emphasis role="bold">Оба</emphasis> механизма прикрепляются <emphasis role="bold">одновременно</emphasis> и почти рядом (один под другим): крюк прежний <emphasis role="bold">C</emphasis> &mdash; верхний, прямой, левый; крюк <emphasis role="bold">D</emphasis> &mdash; новый, нижний, изогнутый, правый.
 </para>
 
+<?page-break?>
 <example id="photo4">
   <title>Проведение опытов</title>
   <mediaobject>
@@ -271,7 +272,7 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/photo4.jpg" /></imageobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject><para role='figure'>
 Фиг. 1. Работа обезьяны над отмыканием механизма<?br?>
 Фиг. 2. Вхождение обезьяны в отпертую дверь<?br?>
 </para></textobject></mediaobject>
@@ -539,6 +540,7 @@
 </para>
 </para>
 
+<?page-break?>
 <example id="photo5">
   <title>Протоколирование опытов и поощрение прикормом</title>
   <mediaobject>
@@ -547,7 +549,7 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/photo5.jpg" /></imageobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject><para role='figure'>
 Фиг. 1. Поедание обезьяной прикорма<?br?>
 Фиг. 2. Добавочная награда кормом<?br?>
 </para></textobject></mediaobject>

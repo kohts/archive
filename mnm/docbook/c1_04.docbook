@@ -117,6 +117,7 @@
 причем в последнем случае производится <emphasis>полное замыкание</emphasis> механизма; обезьяна работает, не теряя времени на бесплодные отвлечения в сторону, настойчиво, не отрываясь, держа главный центр приложения силы то руками, то зубами, явственно с усилием добивается его отодвигания вопреки полной замкнутости механизма. Таким образом первое самостоятельное отмыкание вполне замкнутого механизма <emphasis role="bold">O</emphasis> осуществляется после 1500 сек. работы (см. <xref linkend="photo11" />, фиг. 2).
 </para>
 
+<?page-break?>
 <example id="photo7">
   <title>Операции с выдвижной дверью</title>
   <mediaobject>
@@ -125,7 +126,7 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/photo7.jpg" /></imageobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject><para role='figure'>
 Фиг. 1. Выдвигание двери снаружи<?br?>
 Фиг. 2. Выдвигание двери изнутри<?br?>
 Фиг. 3. Вылезание обезьяны наружу<?br?>
@@ -705,6 +706,7 @@
  контроля двери она обращается к открыванию нижнего запора.
 </para>
 
+<?page-break?>
 <example id="photo8">
   <title>Оперирование с крюками</title>
   <mediaobject>
@@ -713,7 +715,7 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/photo8.jpg" /></imageobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject><para role='figure'>
 Фиг. 1. Предъявление комбинации из 8 крюков<?br?>
 Фиг. 2. Отпирание крюка e<subscript>2</subscript><?br?>
 Фиг. 3. Отпирание крюка e<subscript>3</subscript><?br?>
@@ -1217,6 +1219,7 @@
 Но прием отмыкания не уловлен, во 2-м опыте (самом длительном в ряду = 220 сек.) обезьяна прикладывается зубами, скребет задвижку, потом ухватывает руками за центр приложения силы, оттягивая его то вправо, то влево; движением влево, отрываясь, в три приема, она производит отмыкание, работая правой рукой; отомкнув, она забывает толкать дверь и производит вторичное замыкание и вторичное отмыкание, увеличивая срок окончания работы.
 </para>
 
+<?page-break?>
 <example id="photo9">
   <title>Операции с крюками, задвижками и щеколдами</title>
   <mediaobject>
@@ -1225,7 +1228,7 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/photo9.jpg" /></imageobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject><para role='figure'>
 Фиг. 1. Отпирание крюка Б из комбинации 8 крюков<?br?>
 Фиг. 2. Контроль двери при оперировании с комбинацией из 8 крюков<?br?>
 Фиг. 3. Отмыкание самозамыкающейся щеколды L (из комбинации KLMN)<?br?>

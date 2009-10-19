@@ -87,6 +87,7 @@
 </para>
 </sect2>
 
+<?page-break?>
 <example id="photo11">
   <title>Операции с задвижками</title>
   <mediaobject>
@@ -95,7 +96,7 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/photo11.jpg" /></imageobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject><para role='figure'>
 Фиг. 1. Отмыкание желобовидной задвижки Y<?br?>
 Фиг. 2. Отмыкание задвижки O из комбинации ROI<?br?>
 </para></textobject></mediaobject>

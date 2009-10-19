@@ -17,6 +17,7 @@
 Для решения второго вопроса мы сопоставляем между собой величины средней продолжительности опыта у различных механизмов в один и тот же период работы (в 1-й, или 2-й, или 3-й, или 4-й тэтраде), и в разные периоды работы (в 1-й, 2-й, 3-й и 4-й тэтрадах и т. д.). 
 </para>
 
+<?page-break?>
 <example id="photo15">
   <title>Отмыкание комбинаций из разнородных механизмов</title>
   <mediaobject>
@@ -25,7 +26,7 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/photo15.jpg" /></imageobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject><para role='figure'>
 Фиг. 1. Отмыкание завертки Z<subscript>3</subscript> (из комбинации Z<subscript>3</subscript>Z<subscript>4</subscript>KM)<?br?>
 Фиг. 2. Отмыкание щеколды M (из комбинации Z<subscript>3</subscript>Z<subscript>4</subscript>KM)<?br?>
 Фиг. 3. Разматывание обмотки (из комбинации Z<subscript>3</subscript>Z<subscript>4</subscript>f<subscript>2</subscript>&#931;)<?br?>

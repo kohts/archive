@@ -201,6 +201,7 @@
 <emphasis>Средняя продолжительность</emphasis> работы в сеансах после перерыва, как правило, <emphasis>уменьшена</emphasis> (у подавляющего большинства механизмов (17) это уменьшение в пределах от 1 до 10 раз и у 3 наиболее трудных для первого преодоления оно превышает 10 раз).
 </para>
 
+<?page-break?>
 <example id="photo17">
   <title>Отмыкание единичных механизмов</title>
   <mediaobject>
@@ -209,7 +210,7 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/photo17.jpg" /></imageobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject><para role='figure'>
 Фиг. 1. Оперирование с цепью C<subscript>3</subscript><?br?>
 Фиг. 2. Открывание двери после отмыкания цепи C<subscript>3</subscript><?br?>
 Фиг. 3. Оперирование с вытяжной зацепкой b<?br?>

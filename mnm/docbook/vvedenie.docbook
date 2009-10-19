@@ -241,16 +241,16 @@
 <para>
 Требовались следующие главные типы движений для успешного отмыкания предъявлявшихся механизмов:
 <orderedlist>
-<listitem><para>Движение <emphasis>откидывания, снимания, приподнимания,</emphasis></para></listitem>
-<listitem><para>Движение <emphasis>отведения,</emphasis></para></listitem>
-<listitem><para>Движение <emphasis>отодвигания,</emphasis></para></listitem>
-<listitem><para>Движение <emphasis>опускания, поднимания,</emphasis></para></listitem>
-<listitem><para>Движение <emphasis>повертывания,</emphasis></para></listitem>
-<listitem><para>Движение <emphasis>выдергивания и оттягивания,</emphasis></para></listitem>
-<listitem><para>Движение <emphasis>отведения и выдергивания, вытягивания,</emphasis></para></listitem>
-<listitem><para>Движение <emphasis>вращения на 45° &mdash; 90°&mdash; 180°,</emphasis></para></listitem>
-<listitem><para>Движение <emphasis>поднимания,</emphasis></para></listitem>
-<listitem><para>Движение <emphasis>разматывания, развязывания.</emphasis></para></listitem>
+<listitem><para>Движение <emphasis>откидывания, снимания, приподнимания</emphasis></para></listitem>
+<listitem><para>Движение <emphasis>отведения</emphasis></para></listitem>
+<listitem><para>Движение <emphasis>отодвигания</emphasis></para></listitem>
+<listitem><para>Движение <emphasis>опускания, поднимания</emphasis></para></listitem>
+<listitem><para>Движение <emphasis>повертывания</emphasis></para></listitem>
+<listitem><para>Движение <emphasis>выдергивания и оттягивания</emphasis></para></listitem>
+<listitem><para>Движение <emphasis>отведения и выдергивания, вытягивания</emphasis></para></listitem>
+<listitem><para>Движение <emphasis>вращения на 45° &mdash; 90°&mdash; 180°</emphasis></para></listitem>
+<listitem><para>Движение <emphasis>поднимания</emphasis></para></listitem>
+<listitem><para>Движение <emphasis>разматывания, развязывания</emphasis></para></listitem>
 </orderedlist>
 </para>
 
@@ -320,6 +320,7 @@
 
 &liniya;
 
+<?page-break?>
 <example id="photo2">
   <title>Макак в позе угрозы и насторожившийся</title>
   <mediaobject>
@@ -328,12 +329,13 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/photo2.jpg" /></imageobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject><para role='figure'>
 Фиг. 1. Макак в позе угрозы<?br?>
 Фиг. 2. Макак насторожившийся<?br?>
 </para></textobject></mediaobject>
 </example>
 
+<?page-break?>
 <example id="photo3">
   <title>Подготовка опытов</title>
   <mediaobject>
@@ -342,7 +344,7 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/photo3.jpg" /></imageobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject><para role='figure'>
 Фиг. 1. Вставление рамки в клетку<?br?>
 Фиг. 2. Вкладывание прикорма<?br?>
 </para></textobject></mediaobject>

@@ -133,7 +133,7 @@
 &mdash; эта закономерность нарушается (см. примеры: 4 и 5а-b, 6а-b, сравн. 7 и 8, 16 с 17 и 18).
 </para>
 
-<para role="details" id='table224' xrefllabel='табл.'>
+<para id="table224" role="details" xrefllabel='табл.'>
 <orderedlist>
 <listitem><para>Комбин. из 2 крюков <emphasis role="bold">CD</emphasis><subscript>(2)</subscript> имеет максимум от 10&mdash; 30 сек.</para></listitem>
 <listitem><para>Комбин. из 3 крюков <emphasis role="bold">eee</emphasis>, <emphasis role="bold">АБe</emphasis> имеет максимум от 10&mdash; 30 сек.</para></listitem>
@@ -160,6 +160,7 @@
 Таким образом оказывается, что наравне с увеличением количества знакомых механизмов на величину максимума радикально влияет и наличие <emphasis>незамкнутых</emphasis> запоров в комбинации и <emphasis>новизна</emphasis> запора (о последнем подробнее мы имели случай говорить ранее).
 </para>
 
+<?page-break?>
 <example id="photo18">
   <title>Отмыкание накладок и втулок</title>
   <mediaobject>
@@ -168,7 +169,7 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/photo18.jpg" /></imageobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject><para role='figure'>
 Фиг. 1. Выем втулки ртом<?br?>
 Фиг. 2. Оттягивание накладки d<subscript>1</subscript><?br?>
 Фиг. 3. Оттягивание накладки и контроль двери<?br?>

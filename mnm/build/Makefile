@@ -58,6 +58,7 @@ ${STAMPS}/pdf: ${STAMPS}/fo ${FOP_BASE}/fop.xconf
 
 clean:
 	touch -r /etc/passwd ${DOCBOOK_BASE}/photoplates_eng.docbook
+	touch -r /etc/passwd ${DOCBOOK_BASE}/photoplates_eng_print.docbook
 	touch -r /etc/passwd ${DOCBOOK_BASE}/pictures_eng.docbook
 	mkdir -p ${STAMPS}
 	rm -f ${STAMPS}/*

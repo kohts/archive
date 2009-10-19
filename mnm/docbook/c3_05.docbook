@@ -251,6 +251,7 @@
 </para>
 </para>
 
+<?page-break?>
 <example id="photo19">
   <title>Отмыкание накладок, заложенных втулками, из комбинации d<subscript>2</subscript>d<subscript>4</subscript>d<subscript>1</subscript>d<subscript>0</subscript></title>
   <mediaobject>
@@ -259,7 +260,7 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/photo19.jpg" /></imageobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject><para role='figure'>
 Фиг. 1. Вытягивание горизонтальной втулки d<subscript>4</subscript><?br?>
 Фиг. 2. Вытягивание горизонтальной втулки d<subscript>4</subscript> после выема вертикальной втулки d<subscript>2</subscript> и откладывания нижней горизонтальной накладки d<subscript>1</subscript><?br?>
 </para></textobject></mediaobject>

@@ -135,6 +135,7 @@
 </para>
 </para>
 
+<?page-break?>
 <example id="photo6">
   <title>Поощрение обезьяны качанием</title>
   <mediaobject>
@@ -143,7 +144,7 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/photo6.jpg" /></imageobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject><para role='figure'>
 Фиг. 1. Подготовка к качанию<?br?>
 Фиг. 2. Качание<?br?>
 </para></textobject></mediaobject>
