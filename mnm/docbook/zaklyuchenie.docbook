@@ -227,6 +227,7 @@
 </orderedlist>
 </para>
 
+<?page-break?>
 <example id="photo24">
   <title>Отвлечение и внимание</title>
   <mediaobject>
@@ -235,7 +236,7 @@
   </ulink></textobject>
   <imageobject role="fo"><imagedata fileref="images/pdf/photo24.jpg" /></imageobject>
   </mediaobject>
-  <mediaobject><textobject><para>
+  <mediaobject><textobject><para role='figure'>
 Фиг. 1. Отвлечение от работы<?br?>
 Фиг. 2. Пристальное рассматривание<?br?>
 </para></textobject></mediaobject>

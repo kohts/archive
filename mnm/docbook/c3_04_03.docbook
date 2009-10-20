@@ -118,7 +118,7 @@
 </para>
 
 <para>
-Как отражается на величине максимума изменение <emphasis role="bold">количества</emphasis> механизмов, входящих в состав комбинаций, &mdash; показывает <xref linkend="table224" />.
+Как отражается на величине максимума изменение <emphasis role="bold">количества</emphasis> механизмов, входящих в состав комбинаций, &mdash; показывает <xref linkend='table224' />.
 </para>
 
 <para>
@@ -133,8 +133,8 @@
 &mdash; эта закономерность нарушается (см. примеры: 4 и 5а-b, 6а-b, сравн. 7 и 8, 16 с 17 и 18).
 </para>
 
-<para id="table224" role="details" xrefllabel='табл.'>
-<orderedlist>
+<para role='details'>
+<orderedlist id='table224' xreflabel='табл.'>
 <listitem><para>Комбин. из 2 крюков <emphasis role="bold">CD</emphasis><subscript>(2)</subscript> имеет максимум от 10&mdash; 30 сек.</para></listitem>
 <listitem><para>Комбин. из 3 крюков <emphasis role="bold">eee</emphasis>, <emphasis role="bold">АБe</emphasis> имеет максимум от 10&mdash; 30 сек.</para></listitem>
 <listitem><para>Комбин. из 4 крюков <emphasis role="bold">АБee</emphasis> имеет максимум от 40 сек.</para></listitem>

@@ -1,0 +1,254 @@
+
+<formalpara id="eng_curve1-5">
+  <title>Hooks A<subscript>1</subscript>, A<subscript>2</subscript>, A<subscript>3</subscript>, Б, E<subscript>1</subscript></title>
+  <xref linkend="curve1-5" /><?br?>
+Curve 1. Hook А<subscript>1</subscript> inclined (1-st)<?br?>
+Curve 2. Hook А<subscript>2</subscript> horizontal<?br?>
+Curve 3. Hook А<subscript>3</subscript> vertical<?br?>
+Curve 4. Hook Б vertical<?br?>
+Curve 5. Hook Е<subscript>1</subscript> horizontal<?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve6">
+  <title>Combination of 2 hooks C, D</title>
+  <xref linkend="curve6" /><?br?>
+2 hooks C, D horizontal, to left and to right.
+
+</formalpara>
+
+<formalpara id="eng_curve7-9">
+  <title>Combination of 3 hooks А<subscript>3</subscript>, Б, e, е<subscript>1</subscript>, е<subscript>2</subscript>, е<subscript>3</subscript>, е<subscript>4</subscript></title>
+  <xref linkend="curve7-9" /><?br?>
+Curve 7. 3 hooks А<subscript>3</subscript>Бе<subscript>3</subscript><?br?>
+Curve 8. 4 hooks А<subscript>3</subscript>Бее<?br?>
+Curve 9. 4 hooks (from 6) А<subscript>3</subscript>Бе<subscript>1</subscript>е<subscript>2</subscript>е<subscript>3</subscript>е<subscript>4</subscript><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve10">
+  <title>Combination 6 hooks А<subscript>3</subscript>Бе<subscript>1</subscript>е<subscript>2</subscript>е<subscript>3</subscript>е<subscript>4</subscript></title>
+  <xref linkend="curve10" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve11">
+  <title>Combination of 8 hooks А<subscript>3</subscript>БВГе<subscript>4</subscript>е<subscript>3</subscript>е<subscript>2</subscript>е<subscript>1</subscript></title>
+  <xref linkend="curve11" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve12-14">
+  <title>Latches K, L, M</title>
+  <xref linkend="curve12-14" /><?br?>
+Curve 1. Latch K, horzontal<?br?>
+Curve 2. Latch L, vertical, self-locking<?br?>
+Curve 3. Latch M vertical, self-locking<?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve15">
+  <title>Combination of 4 latches K, L, M, N</title>
+  <xref linkend="curve15" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve16-23">
+  <title>Sliding bolts P, O, Q, R, F, H, I, G</title>
+  <xref linkend="curve16-23" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve24">
+  <title>Sliding bolt Y</title>
+  <xref linkend="curve24" /><?br?>
+Sliding bolt Y with concealed stud bolt.
+
+</formalpara>
+
+<formalpara id="eng_curve25">
+  <title>Combination of 3 sliding bolts ROI &#8212; (enclosed only R)</title>
+  <xref linkend="curve25" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve26">
+  <title>Combination of 2 sliding bolts OP</title>
+  <xref linkend="curve26" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve27">
+  <title>Combination of 2 sliding bolts GF</title>
+  <xref linkend="curve27" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve28">
+  <title>Combination of 2 sliding bolts YI</title>
+  <xref linkend="curve28" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve29-30">
+  <title>Combination of sliding bolts GFH и OIP</title>
+  <xref linkend="curve29-30" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve31-36">
+  <title>Complex sliding bolts V, W, X<subscript>1</subscript>, X<subscript>2</subscript>, Y<subscript>1</subscript>, Y<subscript>4</subscript></title>
+  <xref linkend="curve31-36" /><?br?>
+Curve 31. Complex sliding bolt V, horizontal.<?br?>
+Curve 32. Complex sliding bolt W, horizontal.<?br?>
+Curve 33. Complex sliding bolt with spring action X<subscript>1</subscript>, horizontal.<?br?>
+Curve 34. Complex sliding bolt with spring action X<subscript>2</subscript>, vertical.<?br?>
+Curve 35. Complex sliding bolt Y<subscript>1</subscript>, horizontal, to right.<?br?>
+Curve 36. Complex sliding bolt Y<subscript>4</subscript>, horizontal, to left.<?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve37">
+  <title>Combination of 4 complex sliding bolts V<subscript>1</subscript>, W<subscript>1</subscript>, X<subscript>2</subscript>, Y<subscript>1</subscript></title>
+  <xref linkend="curve37" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve38-40">
+  <title>Excentre-handle turning-locks S, T</title>
+  <xref linkend="curve38-40" /><?br?>
+Curve 38. Excentre-handle turning-lock S, to right down.<?br?>
+Curve 39. Excentre-handle turning-lock T, lift upwards.<?br?>
+Curve 40. Combination of 2 excentre-handle turning-locks S and T.<?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve41-42">
+  <title>Centre-handle turning-locks U, &#0220;</title>
+  <xref linkend="curve41-42" /><?br?>
+Curve 41. Centre-handle turning-lock U, to right<?br?>
+Curve 42. Centre-handle turning-lock &#0220;, to left<?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve43">
+  <title>Combination of 2 centre-handle turning-locks U&#0220;</title>
+  <xref linkend="curve43" /><?br?>
+Combination of 2 centre-handle turning-locks U&#0220;, to right and to left.
+
+</formalpara>
+
+<formalpara id="eng_curve44-45">
+  <title>Centre-handle turning-locks Z<subscript>1</subscript>, Z<subscript>2</subscript></title>
+  <xref linkend="curve44-45" /><?br?>
+Curve 44. Centre-handle turning-locks Z<subscript>1</subscript>, with spring action, to right.<?br?>
+Curve 45. Centre-handle turning-locks Z<subscript>2</subscript>, with spring action, to left.<?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve46">
+  <title>Combination of 2 centre-handle turning-locks Z<subscript>1</subscript>, Z<subscript>2</subscript> with sprint action</title>
+  <xref linkend="curve46" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve47">
+  <title>Combination of 2 centre-handle turning-locks Z<subscript>3</subscript>, Z<subscript>4</subscript> with spring action</title>
+  <xref linkend="curve47" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve48">
+  <title>Combination of 2 latches K , M; 2 centre-handle turning-locks Z<subscript>3</subscript>, Z<subscript>4</subscript></title>
+  <xref linkend="curve48" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve49">
+  <title>Turning-lock a</title>
+  <xref linkend="curve49" /><?br?>
+Turning-lock a to right
+
+</formalpara>
+
+<formalpara id="eng_curve50">
+  <title>Catch b</title>
+  <xref linkend="curve50" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve51-53">
+  <title>Chains C<subscript>1</subscript>, C<subscript>2</subscript>, C<subscript>3</subscript></title>
+  <xref linkend="curve51-53" /><?br?>
+Curve 51. Chain C<subscript>1</subscript>, inclined.<?br?>
+Curve 52. Chain C<subscript>2</subscript>, vertical.<?br?>
+Curve 53. Chain C<subscript>3</subscript>, horizontal.<?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve54-55">
+  <title>Door strap without pawl d<subscript>1</subscript>, with pawl d<subscript>2</subscript></title>
+  <xref linkend="curve54-55" /><?br?>
+Curve 54. Door strap without pawl d<subscript>1</subscript><?br?>
+Curve 55. Door strap with pawl d<subscript>2</subscript><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve56">
+  <title>Sliding bolt Y<subscript>1</subscript> with pawl Y<subscript>2</subscript></title>
+  <xref linkend="curve56" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve57">
+  <title>2 door straps, 2 pawls &#8212; d<subscript>2</subscript>, d<subscript>4</subscript></title>
+  <xref linkend="curve57" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve58-59">
+  <title>Door strap d<subscript>3</subscript> and sliding bolt Y<subscript>3</subscript></title>
+  <xref linkend="curve58-59" /><?br?>
+Curve 58. Door strap with unlocked padlock d<subscript>3</subscript><?br?>
+Curve 59. Sliding bolt with unlocked padlock Y<subscript>3</subscript><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve60-62">
+  <title>Keys f<subscript>2</subscript>, f<subscript>3</subscript>, f<subscript>4</subscript></title>
+  <xref linkend="curve60-62" /><?br?>
+Curve 60. Key for inside look revolving 180º f<subscript>2</subscript><?br?>
+Curve 61. Key for inside look revolving 270º (moving) f<subscript>3</subscript><?br?>
+Curve 62. Key for inside look revolving 270º (stationary) f<subscript>4</subscript><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve63">
+  <title>Tape &#931;<subscript>1</subscript></title>
+  <xref linkend="curve63" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve64">
+  <title>2 centre-handle turning-locks Z<subscript>3</subscript>Z<subscript>4</subscript>, key f<subscript>2</subscript>, tape &#931;<subscript>3</subscript></title>
+  <xref linkend="curve64" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve65">
+  <title>Padlock З<subscript>0</subscript></title>
+  <xref linkend="curve65" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve66">
+  <title>2 door straps d<subscript>0</subscript>, d<subscript>1</subscript>, 2 locks З<subscript>1</subscript>, З<subscript>2</subscript></title>
+  <xref linkend="curve66" /><?br?>
+
+</formalpara>
+
+<formalpara id="eng_curve67">
+  <title>2 door straps, pawl, padlock, key (d<subscript>0</subscript>З<subscript>1</subscript>d<subscript>2</subscript>)</title>
+  <xref linkend="curve67" /><?br?>
+
+</formalpara>

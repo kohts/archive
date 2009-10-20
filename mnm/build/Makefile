@@ -29,6 +29,11 @@ ${DOCBOOK_BASE}/pictures_eng.docbook: ${DOCBOOK_BASE}/pictures_eng.raw ${TOOLS}/
 
 ${DOCBOOK_BASE}/photoplates_eng_print.docbook: ${DOCBOOK_BASE}/photoplates_eng.raw ${TOOLS}/gen-figures.pl
 	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng photo formalpara > ${DOCBOOK_BASE}/photoplates_eng_print.docbook
+${DOCBOOK_BASE}/pictures_eng_print.docbook: ${DOCBOOK_BASE}/pictures_eng.raw ${TOOLS}/gen-figures.pl
+	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/pictures_eng.raw eng picture formalpara figure --no-page-break > ${DOCBOOK_BASE}/pictures_eng_print.docbook
+
+${DOCBOOK_BASE}/curves_eng_print.docbook: ${DOCBOOK_BASE}/curves_eng.docbook ${TOOLS}/conv_curves.pl
+	${TOOLS}/conv_curves.pl ${DOCBOOK_BASE}/curves_eng.docbook > ${DOCBOOK_BASE}/curves_eng_print.docbook
 
 gen-plates: $(DOCBOOK_BASE)/photoplates*.docbook
 
@@ -52,7 +57,9 @@ ${STAMPS}/pdf: ${STAMPS}/fo ${FOP_BASE}/fop.xconf
 	cd ${FOP_BASE} && ( if [ ! -h images ] && [ -d ../images ] ; then ln -s ../images ; fi )
 	cd ${FOP_BASE} && \
 	export FOP_HYPHENATION_PATH=${FOP_BASE}/fop-hyph.jar && \
-	fop -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
+	/root/fop-trunk/trunk/fop --execdebug -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
+	#/root/fop-0.95/fop --execdebug -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
+	#fop -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
 	mkdir -p ${STAMPS}
 	touch ${STAMPS}/pdf
 
@@ -60,6 +67,8 @@ clean:
 	touch -r /etc/passwd ${DOCBOOK_BASE}/photoplates_eng.docbook
 	touch -r /etc/passwd ${DOCBOOK_BASE}/photoplates_eng_print.docbook
 	touch -r /etc/passwd ${DOCBOOK_BASE}/pictures_eng.docbook
+	touch -r /etc/passwd ${DOCBOOK_BASE}/pictures_eng_print.docbook
+	touch -r /etc/passwd ${DOCBOOK_BASE}/curves_eng_print.docbook
 	mkdir -p ${STAMPS}
 	rm -f ${STAMPS}/*
 
