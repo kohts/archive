@@ -171,9 +171,9 @@
 <appendix><title>Литература</title><sect3>&a5;</sect3></appendix>
 <appendix lang="en"><title>Resum&#0101;&#768; (Summary)</title><sect2>&ae1;</sect2></appendix>
 <appendix lang="en"><title>List of Illustrations (photo-plates)</title>&photoplates_eng;</appendix>
-<appendix lang="en"><title>Text Figures<footnote><para>All figures on a scale reduced twice against original, excepting <xref linkend="picture10" />, <xref linkend="picture43" />, <xref linkend="picture45" /> reduced fourfold.</para></footnote></title>&pictures_eng;</appendix>
+<appendix lang="en"><title>Text Figures<footnote><para>All figures on a scale reduced twice against original, excepting <xref linkend="eng_picture10" />, <xref linkend="eng_picture43" />, <xref linkend="eng_picture45" /> reduced fourfold.</para></footnote></title>&pictures_eng;</appendix>
 <appendix lang="en"><title>Time Curves</title>&curves_eng;</appendix>
-<appendix lang="en"><title>Contents</title><sect3 lang="en">&ae5;</sect3></appendix>
+<appendix lang="en"><title>Contents</title>&ae5;</appendix>
 
 <appendix><title>Приложения к электронному изданию</title>
   <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1>
