@@ -41,7 +41,11 @@ html: ${STAMPS}/html
 ${STAMPS}/html: docbook-html-chunked.xsl $(DOCBOOK)
 	mkdir -p ${HTML_BASE}
 	cd ${HTML_BASE} && ( if [ ! -h images ] && [ -d ../images ] ; then ln -s ../images ; fi )
-	cd ${DOCBOOK_BASE} && xsltproc --xinclude --stringparam 'base.dir' ${HTML_BASE}/ ${PWD}/docbook-html-chunked.xsl ${MASTER}
+	cd ${DOCBOOK_BASE} && xsltproc --xinclude \
+	  --stringparam 'base.dir' ${HTML_BASE}/ \
+	  --stringparam html.stylesheet book.css \
+	  ${PWD}/docbook-html-chunked.xsl ${MASTER}
+	cp -f $(DOCBOOK_BASE)/book.css $(HTML_BASE)/book.css
 	mkdir -p ${STAMPS}
 	touch ${STAMPS}/html
 
