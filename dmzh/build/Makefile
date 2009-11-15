@@ -42,7 +42,7 @@ ${STAMPS}/pdf: ${STAMPS}/fo ${FOP_BASE}/fop.xconf
 	cd ${FOP_BASE} && ( if [ ! -h images ] && [ -d ../images ] ; then ln -s ../images ; fi )
 	cd ${FOP_BASE} && \
 	export FOP_HYPHENATION_PATH=${FOP_BASE}/fop-hyph.jar && \
-	fop -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
+	  /root/fop-trunk/trunk/fop --execdebug -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
 	mkdir -p ${STAMPS}
 	touch ${STAMPS}/pdf
 

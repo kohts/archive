@@ -1,0 +1,9 @@
+<figure id="f_cover">
+  <title>Обложка</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture0.jpg">
+    <imageobject><imagedata fileref="images/html/picture0.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture0.jpg" /></imageobject>
+  </mediaobject>
+</figure>
