@@ -20,32 +20,18 @@ STAMPS = ${PWD}/../stamps
 # make html and pdf output by default
 all: html pdf
 
-.PHONY : html fo pdf gen-plates clean all-clean
-
-${DOCBOOK_BASE}/photoplates_eng.docbook: ${DOCBOOK_BASE}/photoplates_eng.raw ${TOOLS}/gen-figures.pl
-	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng photo > ${DOCBOOK_BASE}/photoplates_eng.docbook
-${DOCBOOK_BASE}/pictures_eng.docbook: ${DOCBOOK_BASE}/pictures_eng.raw ${TOOLS}/gen-figures.pl
-	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/pictures_eng.raw eng picture figure --no-page-break > ${DOCBOOK_BASE}/pictures_eng.docbook
-
-${DOCBOOK_BASE}/photoplates_eng_print.docbook: ${DOCBOOK_BASE}/photoplates_eng.raw ${TOOLS}/gen-figures.pl
-	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng photo formalpara > ${DOCBOOK_BASE}/photoplates_eng_print.docbook
-${DOCBOOK_BASE}/pictures_eng_print.docbook: ${DOCBOOK_BASE}/pictures_eng.raw ${TOOLS}/gen-figures.pl
-	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/pictures_eng.raw eng picture formalpara figure --no-page-break > ${DOCBOOK_BASE}/pictures_eng_print.docbook
-
-${DOCBOOK_BASE}/curves_eng_print.docbook: ${DOCBOOK_BASE}/curves_eng.docbook ${TOOLS}/conv_curves.pl
-	${TOOLS}/conv_curves.pl ${DOCBOOK_BASE}/curves_eng.docbook > ${DOCBOOK_BASE}/curves_eng_print.docbook
-
-gen-plates: $(DOCBOOK_BASE)/photoplates*.docbook
+.PHONY : html fo pdf clean all-clean
 
 html: ${STAMPS}/html
 ${STAMPS}/html: docbook-html-chunked.xsl $(DOCBOOK)
 	mkdir -p ${HTML_BASE}
 	cd ${HTML_BASE} && ( if [ ! -h images ] && [ -d ../images ] ; then ln -s ../images ; fi )
+	if [ -e ${DOCBOOK_BASE}/book.css ] ; then CSS="--stringparam html.stylesheet book.css" ; fi
 	cd ${DOCBOOK_BASE} && xsltproc --xinclude \
 	  --stringparam 'base.dir' ${HTML_BASE}/ \
-	  --stringparam html.stylesheet book.css \
+	  ${CSS} \
 	  ${PWD}/docbook-html-chunked.xsl ${MASTER}
-	cp -f $(DOCBOOK_BASE)/book.css $(HTML_BASE)/book.css
+	if [ -e $(DOCBOOK_BASE)/book.css ] ; then cp -f $(DOCBOOK_BASE)/book.css $(HTML_BASE)/book.css ; fi
 	mkdir -p ${STAMPS}
 	touch ${STAMPS}/html
 
@@ -68,11 +54,6 @@ ${STAMPS}/pdf: ${STAMPS}/fo ${FOP_BASE}/fop.xconf
 	touch ${STAMPS}/pdf
 
 clean:
-	touch -r /etc/passwd ${DOCBOOK_BASE}/photoplates_eng.docbook
-	touch -r /etc/passwd ${DOCBOOK_BASE}/photoplates_eng_print.docbook
-	touch -r /etc/passwd ${DOCBOOK_BASE}/pictures_eng.docbook
-	touch -r /etc/passwd ${DOCBOOK_BASE}/pictures_eng_print.docbook
-	touch -r /etc/passwd ${DOCBOOK_BASE}/curves_eng_print.docbook
 	mkdir -p ${STAMPS}
 	rm -f ${STAMPS}/*
 
