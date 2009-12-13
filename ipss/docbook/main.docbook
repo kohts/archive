@@ -18,6 +18,7 @@
   <!ENTITY c1_2_1 SYSTEM "c1_2_1.docbook">
 
   <!ENTITY c1_3_1 SYSTEM "c1_3_1.docbook">
+  <!ENTITY c1_3_1_e SYSTEM "c1_3_1_e.docbook">
   <!ENTITY c1_3_2 SYSTEM "c1_3_2.docbook">
   <!ENTITY c1_3_3_1 SYSTEM "c1_3_3_1.docbook">
   <!ENTITY c1_3_3_2 SYSTEM "c1_3_3_2.docbook">
@@ -60,7 +61,7 @@
 <date>Москва, 1923</date>
 
 <dedication>
-<para>Александру Федоровичу Котс, моему учителю и другу, светлому спутнику жизни моей.</para>
+<para>Посвящаю Александру Федоровичу Котс, моему учителю и другу, светлому спутнику жизни моей.</para>
 </dedication>
 
 <preface id="predislovie"><title>Предисловие</title>&predislovie;</preface>
@@ -76,7 +77,7 @@
   <sect1 id="c1_2_1" label="A"><title>Метод <quote>выбора на образец</quote></title><subtitle>(Установление тождества)</subtitle>&c1_2_1;</sect1>
 </chapter>
 <chapter id="c1_3"><title>Различение хроматических цветов по методу <quote>выбора на образец</quote></title>
-  <sect1 id="c1_3_1" label="A"><title>Протокольное изложение опытов</title>&c1_3_1;</sect1>
+  <sect1 id="c1_3_1" label="A"><title>Протокольное изложение опытов</title>&c1_3_1; &c1_3_1_e;</sect1>
   <sect1 id="c1_3_2" label="B"><title>Схематичная рекапитуляция примененных приемов и полученных фактических достижений</title>&c1_3_2;</sect1>
   <sect1 id="c1_3_3" label="C"><title>Анализ примененных приемов и полученных достижений</title>
     <sect2 id="c1_3_3_1"><title>Анализ постижения обезьяной принципа выбора</title>&c1_3_3_1;</sect2>

@@ -32,8 +32,8 @@ preface   toc,title
 qandadiv  toc
 qandaset  toc
 reference toc,title
-sect1     title
-sect2     toc
+sect1     toc,title
+sect2     toc,title
 sect3     toc
 sect4     toc
 sect5     toc
