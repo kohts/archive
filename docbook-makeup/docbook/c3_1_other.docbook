@@ -109,7 +109,7 @@ i<subscript>1</subscript>, i<subscript>2</subscript>, i<subscript>3</subscript>
 <para>См. также: <ulink url="http://www.docbook.org/tdg/en/html/simplelist.html">документация по тегу simplelist</ulink></para>
 </sect3>
 
-<sect3><title>Ненумированные списки с декорацией</title>
+<sect3><title>Ненумерованные списки с декорацией</title>
 <?pre_b
 <itemizedlist mark='opencircle'>
 <listitem><para>в области цветовых восприятий (яркие, блестящие цвета по преимуществу первой половины спектра)</para></listitem>
@@ -125,7 +125,7 @@ i<subscript>1</subscript>, i<subscript>2</subscript>, i<subscript>3</subscript>
 <para>См. также: <ulink url="http://www.docbook.org/tdg/en/html/itemizedlist.html">документация по тегу itemizedlist</ulink></para>
 </sect3>
 
-<sect3><title>Нумированные списки</title>
+<sect3 id='orderedlist'><title>Нумерованные списки</title>
 <?pre_b
 <orderedlist>
 <listitem><para>Ознакомление с книгой, анализ структуры</para></listitem>
