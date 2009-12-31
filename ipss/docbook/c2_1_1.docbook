@@ -1,0 +1,16 @@
+<sect2><title>Выписка из протокола</title>
+<informaltable>
+<tgroup cols='3' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<colspec colname='c3'/>
+<thead><row><entry>Образец</entry><entry>Время реакции, сек.<footnote><para>Время, протекшее от момента
+фиксации образца до момента выбора искомой.</para></footnote></entry><entry>Ответ</entry></row></thead>
+<tbody>
+<row><entry>Синий</entry><entry>5</entry><entry>(+)</entry></row>
+<row><entry>Зеленый</entry><entry>5</entry><entry>(+)</entry></row>
+<row><entry>Синий</entry><entry>7</entry><entry>(+)</entry></row>
+
+</tbody></tgroup>
+</informaltable>
+</sect2>
