@@ -7,9 +7,9 @@
 <thead><row><entry>Образец</entry><entry>Время реакции, сек.<footnote><para>Время, протекшее от момента
 фиксации образца до момента выбора искомой.</para></footnote></entry><entry>Ответ</entry></row></thead>
 <tbody>
-<row><entry>Синий</entry><entry>5</entry><entry>(+)</entry></row>
-<row><entry>Зеленый</entry><entry>5</entry><entry>(+)</entry></row>
-<row><entry>Синий</entry><entry>7</entry><entry>(+)</entry></row>
+<row><entry>Синий</entry><entry>5</entry><entry>(&plus;)</entry></row>
+<row><entry>Зеленый</entry><entry>5</entry><entry>(&plus;)</entry></row>
+<row><entry>Синий</entry><entry>7</entry><entry>(&plus;)</entry></row>
 
 </tbody></tgroup>
 </informaltable>

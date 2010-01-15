@@ -35,6 +35,18 @@
 </para>
 </sect2>
 
+<sect2><title>Результаты экспериментов</title>
+<para>
+В тексте положительные результаты конкретных экспериментов обозначаются знаком +,
+а отрицательные &mdash; знаком минус. Эти знаки в верстке нужно кодировать так:
+<?pre_b
+&plus;
+&minus;
+?>
+</para>
+</sect2>
+
+
 <sect2><title>Часть I, глава 1, подглава B (Протоколы опытов) &#8212; Подзаголовки</title>
 Подчасти в главе 1, подглаве Б с подзаголовками типа "Сеанс третий"
 нужно оформлять тегами sect2, например:
@@ -126,12 +138,12 @@
 <thead><row><entry>Сопоставление</entry><entry>Цвета</entry><entry>Образец</entry><entry>Ответ</entry></row></thead>
 <tgroup cols='2' align='left'>
 <tbody>
-<row><entry>1</entry><entry>Темно-зеленый &#8212; белый</entry><entry>Зеленый?</entry><entry>+</entry></row>
-<row><entry>2</entry><entry>Синий &#8212; белый</entry><entry>Синий?</entry><entry>+</entry></row>
-<row><entry>3</entry><entry>Желтый &#8212; белый</entry><entry>Желтый?</entry><entry>+</entry></row>
-<row><entry>4</entry><entry>Красный &#8212; белый</entry><entry>Красный?</entry><entry>+</entry></row>
-<row><entry>5</entry><entry>Оранжевый &#8212; белый</entry><entry>Оранжевый?</entry><entry>+</entry></row>
-<row><entry>6</entry><entry>Черный &#8212; белый</entry><entry>Черный?</entry><entry>+</entry></row>
+<row><entry>1</entry><entry>Темно-зеленый &#8212; белый</entry><entry>Зеленый?</entry><entry>&plus;</entry></row>
+<row><entry>2</entry><entry>Синий &#8212; белый</entry><entry>Синий?</entry><entry>&plus;</entry></row>
+<row><entry>3</entry><entry>Желтый &#8212; белый</entry><entry>Желтый?</entry><entry>&plus;</entry></row>
+<row><entry>4</entry><entry>Красный &#8212; белый</entry><entry>Красный?</entry><entry>&plus;</entry></row>
+<row><entry>5</entry><entry>Оранжевый &#8212; белый</entry><entry>Оранжевый?</entry><entry>&plus;</entry></row>
+<row><entry>6</entry><entry>Черный &#8212; белый</entry><entry>Черный?</entry><entry>&plus;</entry></row>
 </tbody></tgroup>
 </informaltable>
 ?>
@@ -146,12 +158,12 @@
 <tgroup cols='2' align='left'>
 <thead><row><entry>Сопоставление</entry><entry>Цвета</entry><entry>Образец</entry><entry>Ответ</entry></row></thead>
 <tbody>
-<row><entry>1-е</entry><entry>Темно-зеленый &#8212; белый</entry><entry>Зеленый?</entry><entry>+</entry></row>
-<row><entry>2-е</entry><entry>Синий &#8212; белый</entry><entry>Синий?</entry><entry>+</entry></row>
-<row><entry>3-е</entry><entry>Желтый &#8212; белый</entry><entry>Желтый?</entry><entry>+</entry></row>
-<row><entry>4-е</entry><entry>Красный &#8212; белый</entry><entry>Красный?</entry><entry>+</entry></row>
-<row><entry>5-е</entry><entry>Оранжевый &#8212; белый</entry><entry>Оранжевый?</entry><entry>+</entry></row>
-<row><entry>6-е</entry><entry>Черный &#8212; белый</entry><entry>Черный?</entry><entry>+</entry></row>
+<row><entry>1-е</entry><entry>Темно-зеленый &#8212; белый</entry><entry>Зеленый?</entry><entry>&plus;</entry></row>
+<row><entry>2-е</entry><entry>Синий &#8212; белый</entry><entry>Синий?</entry><entry>&plus;</entry></row>
+<row><entry>3-е</entry><entry>Желтый &#8212; белый</entry><entry>Желтый?</entry><entry>&plus;</entry></row>
+<row><entry>4-е</entry><entry>Красный &#8212; белый</entry><entry>Красный?</entry><entry>&plus;</entry></row>
+<row><entry>5-е</entry><entry>Оранжевый &#8212; белый</entry><entry>Оранжевый?</entry><entry>&plus;</entry></row>
+<row><entry>6-е</entry><entry>Черный &#8212; белый</entry><entry>Черный?</entry><entry>&plus;</entry></row>
 </tbody></tgroup>
 </informaltable>
 </para>
@@ -226,7 +238,7 @@
 Выделенные в тексте блоки с ключевым словом "примерная комбинация"
 нужно оформлять тегом simplelist (простой список), дописывая
 пропущенный в строках текст (в первой строке есть слова
-примерная комбинация, во второй и третье -- нет)
+примерная комбинация, во второй и третье &mdash; нет)
 и убирая многоточия.
 </para>
 
@@ -252,7 +264,7 @@ orderedlist (см. <xref linkend="orderedlist" />)
 </sect2>
 
 <sect2><title>Часть II, Глава 3</title>
-Подзаголовки -- см. выше, абзацы мелким шрифтом -- см. выше,
+Подзаголовки &mdash; см. выше, абзацы мелким шрифтом &mdash; см. выше,
 пример оформления стр. 390 приведен в файле. Стр. 395
-нужно оформить аналогично (заголовки -- Протокол № 2 и т.п.)
+нужно оформить аналогично (заголовки &mdash; Протокол № 2 и т.п.)
 </sect2>
