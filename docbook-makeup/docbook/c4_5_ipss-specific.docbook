@@ -135,15 +135,15 @@
 тег informaltable, например:
 <?pre_b
 <informaltable>
+<tgroup cols='4' align='left'>
 <thead><row><entry>Сопоставление</entry><entry>Цвета</entry><entry>Образец</entry><entry>Ответ</entry></row></thead>
-<tgroup cols='2' align='left'>
 <tbody>
-<row><entry>1</entry><entry>Темно-зеленый &#8212; белый</entry><entry>Зеленый?</entry><entry>&plus;</entry></row>
-<row><entry>2</entry><entry>Синий &#8212; белый</entry><entry>Синий?</entry><entry>&plus;</entry></row>
-<row><entry>3</entry><entry>Желтый &#8212; белый</entry><entry>Желтый?</entry><entry>&plus;</entry></row>
-<row><entry>4</entry><entry>Красный &#8212; белый</entry><entry>Красный?</entry><entry>&plus;</entry></row>
-<row><entry>5</entry><entry>Оранжевый &#8212; белый</entry><entry>Оранжевый?</entry><entry>&plus;</entry></row>
-<row><entry>6</entry><entry>Черный &#8212; белый</entry><entry>Черный?</entry><entry>&plus;</entry></row>
+<row><entry>1-е</entry><entry>Темно-зеленый &#8212; белый</entry><entry>Зеленый?</entry><entry>&plus;</entry></row>
+<row><entry>2-е</entry><entry>Синий &#8212; белый</entry><entry>Синий?</entry><entry>&plus;</entry></row>
+<row><entry>3-е</entry><entry>Желтый &#8212; белый</entry><entry>Желтый?</entry><entry>&plus;</entry></row>
+<row><entry>4-е</entry><entry>Красный &#8212; белый</entry><entry>Красный?</entry><entry>&plus;</entry></row>
+<row><entry>5-е</entry><entry>Оранжевый &#8212; белый</entry><entry>Оранжевый?</entry><entry>&plus;</entry></row>
+<row><entry>6-е</entry><entry>Черный &#8212; белый</entry><entry>Черный?</entry><entry>&plus;</entry></row>
 </tbody></tgroup>
 </informaltable>
 ?>
@@ -155,7 +155,7 @@
 <para>
 Приведенный пример будет выглядеть следующим образом:
 <informaltable>
-<tgroup cols='2' align='left'>
+<tgroup cols='4' align='left'>
 <thead><row><entry>Сопоставление</entry><entry>Цвета</entry><entry>Образец</entry><entry>Ответ</entry></row></thead>
 <tbody>
 <row><entry>1-е</entry><entry>Темно-зеленый &#8212; белый</entry><entry>Зеленый?</entry><entry>&plus;</entry></row>
@@ -183,7 +183,7 @@
 
 <sect2><title>Часть I, Глава 3, подглава C</title>
 <para>
-Схема (стр. 189) оформляется как секция четвертого уровня с несколькими
+Схема (стр. 189) оформляется как секция четвертого уровня (sect4) с несколькими
 уровнями вложенности нумерованных списков (см. <xref linkend="orderedlist" />).
 </para>
 
