@@ -34,6 +34,9 @@
 </row>
 <row><entry>&#8212;</entry><entry>&amp;#8212;</entry></row>
 <row><entry>&#0176;</entry><entry>&amp;#0176;</entry><entry>градус</entry></row>
+<row><entry>&#8730;</entry><entry>&amp;#8730;</entry><entry>квадратный корень</entry></row>
+<row><entry>&#8731;</entry><entry>&amp;#8731;</entry><entry>кубический корень</entry></row>
+<row><entry>&#0215;</entry><entry>&amp;#0215;</entry><entry>умножение</entry></row>
 
 <row>
   <entry namest="c1" nameend="c3" align='center'><emphasis role="bold">Русские буквы с акцентом</emphasis></entry>
