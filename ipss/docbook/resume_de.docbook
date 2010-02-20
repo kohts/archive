@@ -1,5 +1,5 @@
-﻿<sect2><title>Aus dem Zoopsychologischen Laboratorium, des Museum Darwinianum in Moskau.</title>
-<subtitle>(Ausgef&#0252;hrt in den Jahren 1914&mdash;1916.)</subtitle>
+<para>Aus dem Zoopsychologischen Laboratorium, des Museum Darwinianum in Moskau.
+(Ausgef&#0252;hrt in den Jahren 1914&mdash;1916.)</para>
 
 <epigraph>
 <para>
@@ -409,7 +409,7 @@ fussend auf bereits Erreichtem, eines schier <emphasis>unendlichen
 Variierens</emphasis> der gestellten Aufgaben nach Form und Inhalt, das 
 <emphasis>Nichtwiederh&#0246;len</emphasis> zweier nacheinander folgender 
 Versuche und somit <emphasis>der Ausschluss alles Automatischen, 
-Stereotypen</emphasis> in den erzielten Leistungen, was seinerseits den <quote>Weg 
+Stereotypen</emphasis> in den erzielten Leistungen, was seinerseits den Weg 
 zu einem mehr <emphasis>bewussten, sinnreichen</emphasis> Verh&#0228;ltnisse 
 des Tieres zu denselben bahnt. Diese Abwechslung bezieht sich (innerhalb 
 Verrichtungen von gleicher Art) bald auf das Muster selbst (bei sonst gleichbleibenden 
@@ -615,6 +615,7 @@ verstanden wurden. Von diesen mit den drei Haupt-operierungsakten des Schimpanse
 Objekte) eng verbundenen Verfahrungsweisen seien hier die wichtigsten, sofern sie im 
 Prozesse der Bem&#0228;chtigung seitens des Schimpansen des Prinzips des 
 W&#0228;hlens von Bedeutung waren, kurz erw&#0228;hnt:
+</para>
 
 <orderedlist>
 <listitem><para><emphasis>Betreffend den Prozess der Wahrnehmung des 
@@ -643,7 +644,7 @@ St&#0252;ck.</para></listitem>
 <listitem><para><emphasis>In Bezug auf den Prozess des Identifizierens des zu w&#0228;hlenden Objektes mit dem vorgezeigten Muster</emphasis>:
 </para>
 <para>
-Alterieren der Konstellation bez&#0252;glich des als Vorlage oder Symbol gezeigten Musters; Ueberlassen dem Schimpansen</quote> voller
+Alterieren der Konstellation bez&#0252;glich des als Vorlage oder Symbol gezeigten Musters; Ueberlassen dem Schimpansen voller
 </para>
 <para>
 Freiheit f&#0252;r selbst&#0228;ndiges Identifizieren; Vorzeigen solcher 
@@ -695,11 +696,10 @@ sehr nahe stehenden Farben (dunkelblau&mdash;dunkelviolett) solcher von gleicher
 Qualit&#0228;t und ganz verschiedener Helligkeit (dunkelgr&#0252;n&mdash;
 kellgr&#0252;n); Farben von durchaus verschiedener Qualit&#0228;t und 
 ann&#0228;hernd gleicher Helligkeit (dunkelblau&mdash;
-dunkelviolett&mdash;dunkelbraun).</para></listitem>
-</para>
+dunkelviolett&mdash;dunkelbraun).</para>
+
 <para>
 Es wurden folgende Zusammenstellungen mit Erfolg zur Ausf&#0252;hrung gebracht:
-
 <simplelist>
 <member>3 T&#0246;ne dunkelroter <emphasis>Farbe</emphasis>: bordeau (I) 
 <footnote><para>
@@ -743,7 +743,7 @@ purpurn (XXIV), hellpurpurn (XXV), rotlila (XXIII), violett (XXII).</member>
 gr&#0252;n (XlVa), blau (XVII), dunkelblau (XIXb), violett (XXII), bei 24 farbigen 
 Objekten in der Gruppe.</member>
 
-</member>6 Farbent&#0246;ne der <emphasis>ersten</emphasis> 
+<member>6 Farbent&#0246;ne der <emphasis>ersten</emphasis> 
 Spektralh&#0228;lfte: rot (III), rosa (Va), orange (VII), orangegelb (VIIa), 
 zitronengelb (XII).</member>
 
@@ -778,7 +778,9 @@ hellpurpurn (XXV), dunkelpurpurn (XXIV), lila-rot (XXIII), violett (XXII), helll
 (XVII), hellblau (XVIII), kornblumenblau (XIX), violett (XXII), violettblau (XX), 
 helllila (XXI), dunkelpurpurn (XXIV), rosalila (XXVI), erbsengr&#0252;n 
 (XXVIII), graublau (XXXI), schwarz, weiss.</member>
-</simplelist></para></listitem>
+</simplelist>
+</para>
+</listitem>
 
 <listitem><para><emphasis>Hinsichtlich der verschiedenen Verfahren, die sich auf 
 das eigentliche W&#0228;hlen der geforderten identischen Objekte aus der 
@@ -812,9 +814,7 @@ gew&#0228;hlten St&#0252;cke, namentlich in F&#0228;llen z&#0228;her
 Wiederholung seitens des Schimpansen der misslungenen, irrt&#0252;mlichen 
 L&#0246;sung. Darbieten dem Affen &#0246;fterer Gelegenheit zu freiem, 
 eigenm&#0228;chtigem Hantieren mittelst der Versuchsobjekte und zu 
-selbst&#0228;ndiger Umgruppierung der Letzteren.</para></listitem>
-</orderedlist>
-</para>
+selbst&#0228;ndiger Umgruppierung der Letzteren.</para>
 
 <para>
 Entsprechend der bei weitem wichtigsten, bereits erw&#0228;hnten Schwierigkeit 
@@ -940,7 +940,8 @@ analytischen Betrachtung der beiden anderen Fragen, n&#0228;mlich &#0252;ber
 Grad und Umfang der f&#0252;r den Schimpansen festgestellten 
 Unterscheidungsf&#0228;higkeiten in bezug auf Farbe &#0252;berhaupt.
 </para>
-</sect2>
+</listitem>
+</orderedlist>
 
 &liniya;
 
@@ -953,10 +954,8 @@ n&#0228;chstfolgender Weise schildern.
 
 <sect2><title>SCHEMA DER BILDUNG UND VERVOLLKOMMNUNG DES IDENTIFIKATIONSPROZESSES BEIM SCHIMPANSEN.</title>
 
-<para>
 <orderedlist>
-<listitem><para><emphasis role="bold">Regelrecht korrektes wiederholtes Identifizieren von Farben</emphasis>.
-</para>
+<listitem><para><emphasis role="bold">Regelrecht korrektes wiederholtes Identifizieren von Farben</emphasis>.</para>
 <para>
 Richtiges Herausw&#0228;hlen auf Forderung des Experimentators-s&#0228;mtlicher 
 scharf distingter Farben bei <emphasis>mehrfach wiederholtem Operieren mit 
@@ -966,21 +965,19 @@ derselben Farbe</emphasis>.
 <listitem><para>Bei <emphasis>wiederholter</emphasis> Wahl von 
 <emphasis>gleichem</emphasis> Typus, bei Vorhandensein mehrerer identischer zu 
 suchender Objekte in der Gruppe.</para></listitem>
-
 <listitem><para>Bei Vorzeigen des Musters von derjenigen Farbe, mit welcher der Affe <emphasis>unmittelbar vordem</emphasis> gearbeitet.</para></listitem>
-
 <listitem><para>Bei Vorzeigen eines von Seiten <emphasis>des Schimpansen selber frei gew&#0228;hlten</emphasis> Musters.</para></listitem>
-
 <listitem><para>Nach Hinweisung von Seiten des Versuchsstellers aufs 
 <emphasis>erste St&#0252;ck</emphasis> der vom Versuchstiere geforderten 
 identischen Objekte.</para></listitem>
-
 <listitem><para>Bei Stellung gleichsinniger Fragen, also bei 
 <emphasis>wiederholtem</emphasis> Vorzeigen von gleichfarbigem Muster nach 
 gewisser Zwischenpause und erfolgter Aufmunterung f&#0252;r korrekt vollzogene 
 Wahl.</para></listitem>
 </orderedlist>
-</para></listitem>
+
+</para>
+</listitem>
 
 <listitem><para><emphasis role="bold">Willk&#0252;rlich selbst&#0228;ndiges <quote>w&#0228;hlerisch es</quote> 
 <footnote><para>
@@ -1016,8 +1013,8 @@ Schimpansen auf gestellte Forderung des Identifikationsprozesses in bezug auf
 <emphasis>s&#0228;mtliche gut unterscheidbare</emphasis> Farben, auch beim 
 Alte-rieren der Fragen.
 
+<orderedlist>
 <listitem><para>bei Abwechslung der farbigen Objekte innerhalb bloss <emphasis>zweier</emphasis> Farben:
-
 <orderedlist>
 <listitem><para>beim Vorlegen von Gruppen von der <emphasis>einfachsten</emphasis> Zusammensetzung,</para></listitem>
 <listitem><para>bei <emphasis>gradueller Komplizierung</emphasis> der zum W&#0228;hlen vorgelegten Gruppe.</para></listitem>
@@ -1030,8 +1027,12 @@ Alte-rieren der Fragen.
 <listitem><para>beim W&#0228;hlen aus Gruppen, die in bezug auf Qualit&#0228;t u. Quantit&#0228;t <emphasis>allm&#0228;hlich komplizierter</emphasis> werden,</para></listitem>
 <listitem><para>beim W&#0228;hlen aus Gruppen, die bereits <emphasis>von Anfang an recht kompliziert</emphasis> gestellt waren.</para></listitem>
 </orderedlist></para></listitem>
+</orderedlist>
+</para>
+</listitem>
 
-<listitem><para><emphasis role="bold">Korrektes neues Identifizieren seitens des Schimpansen von ganz neuen Farben, so wie von Objekten von ganz neuem Typus</emphasis>.
+<listitem><para><emphasis role="bold">Korrektes neues Identifizieren seitens des Schimpansen
+von ganz neuen Farben, so wie von Objekten von ganz neuem Typus</emphasis>.
 
 <orderedlist>
 <listitem><para>bei Wahl aus <emphasis>einfach</emphasis> konstruierten Gruppen (4 Farben, 4 farbige Objekte),</para></listitem>
@@ -1072,7 +1073,7 @@ kalionsbedingungen</emphasis>:
 <listitem><para>bei gleichzeitigem Zusammenstellen von 23 farbigen Objekten, enthaltend 23 diverse Farben.</para></listitem>
 </orderedlist></para></listitem>
 </orderedlist>
-</para>
+
 </sect2>
 
 &liniya;
@@ -1534,7 +1535,7 @@ repr&#0228;sentierten) Muster.
 <para>
 Noch weniger korrekt, obzwar im allgemeinen ohne Zweifel positiv, verl&#0228;uft 
 das W&#0228;hlen von entsprechenden Objekten auf ein Vorzeigen von deren 
-2&mdash;3-facher <emphasis>verkleinerter</emphasis> oder </emphasis>
+2&mdash;3-facher <emphasis>verkleinerter</emphasis> oder <emphasis>
 vergr&#0246;sserter</emphasis> Abbildung; &mdash; je mehr die 
 Gr&#0246;ssendifferenz, desto geringer die Korrektheit bei der Wahl.
 </para>

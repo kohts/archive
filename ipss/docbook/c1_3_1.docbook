@@ -1,4 +1,4 @@
-﻿<sect2><title>Сеанс 1-ый по методу <emphasis role="bold">выбора на образец</emphasis> (22-ой от начала занятий).</title><subtitle>25 февраля 1914 г.</subtitle>
+<sect2><title>Сеанс 1-ый по методу <emphasis role="bold">выбора на образец</emphasis> (22-ой от начала занятий).</title><subtitle>25 февраля 1914 г.</subtitle>
 <para>
 Проведение нового принципа выбора сочетается с введением в качестве 
 объектов, предъявляемых к избранию в эксперименте, вместо бумажек 
@@ -230,7 +230,9 @@
 <emphasis>повторного</emphasis> оперирования с тем же цветом и при 
 повторении того же вопроса вслед за произвольным, самостоятельным и 
 свободным оперированием шимпанзе с этим цветом.
+</para>
 </sect2>
+
 <sect2><title>Сеанс 2-ой по методу <quote>выбора на образец</quote> (23-ий от начала опытов).</title><subtitle>26 февраля 1914 г.</subtitle>
 <para>Перед шимпанзе располагается группа пластинок, тесно скученных между собой в количестве 15 штук, трех уже ранее предъявлявшихся цветов: черного, белого и красного.</para>
 
@@ -1067,6 +1069,7 @@
 успокоению только при угрозе засаживания его в клетку, когда сразу становится 
 серьезным и внимательным к моим требованиям и в частности к предлагаемым 
 заданиям.
+</para>
 </sect2>
 
 <sect2><title>Сеанс 5-й (26-й от начала занятий).</title><subtitle>2 марта.</subtitle>
@@ -1711,9 +1714,9 @@ XXIX&mdash;XXX из общей тесно перемешанной их груп
 </entry><entry>&plus;</entry></row>
 <row><entry>1-е</entry><entry>То же</entry><entry> зеленый?
 </entry><entry>&plus;</entry></row>
-<row><entry>2-е</entry><entry>зеленый&8212;красный </entry><entry>красный?
+<row><entry>2-е</entry><entry>зеленый&#8212;красный </entry><entry>красный?
 </entry><entry>&plus;</entry></row>
-<row><entry>3-е</entry><entry>красный&8212;желтый</entry><entry>желтый?
+<row><entry>3-е</entry><entry>красный&#8212;желтый</entry><entry>желтый?
 </entry><entry>&plus;</entry></row>
 </tbody></tgroup>
 </informaltable>
@@ -1742,25 +1745,25 @@ XXIX&mdash;XXX из общей тесно перемешанной их груп
 <thead><row><entry>Сопоставление</entry><entry>Цвета</entry><entry>Образец
 </entry><entry>Ответ</entry></row></thead>
 <tbody>
-<row><entry>1-е</entry><entry>темно-зеленый&8212;белый</entry><entry>зеленый?
+<row><entry>1-е</entry><entry>темно-зеленый&#8212;белый</entry><entry>зеленый?
 </entry><entry>&plus;</entry></row>
-<row><entry>1-е</entry><entry>темно-зеленый&8212;белый</entry><entry>белый?
+<row><entry>1-е</entry><entry>темно-зеленый&#8212;белый</entry><entry>белый?
 </entry><entry>&plus;</entry></row>
-<row><entry>2-е</entry><entry>синий&8212;желтый</entry><entry>синий?
+<row><entry>2-е</entry><entry>синий&#8212;желтый</entry><entry>синий?
 </entry><entry>&plus;</entry></row>
-<row><entry>2-е</entry><entry>синий&8212;желтый</entry><entry>желтый?
+<row><entry>2-е</entry><entry>синий&#8212;желтый</entry><entry>желтый?
 </entry><entry>&plus;</entry></row>
-<row><entry>3-е</entry><entry>черный&8212;оранжевый</entry><entry>черный?
+<row><entry>3-е</entry><entry>черный&#8212;оранжевый</entry><entry>черный?
 </entry><entry>&plus;</entry></row>
-<row><entry>3-е</entry><entry>черный&8212;оранжевый</entry>
+<row><entry>3-е</entry><entry>черный&#8212;оранжевый</entry>
 <entry>оранжевый?</entry><entry>&plus;</entry></row>
-<row><entry>4-е</entry><entry>красный&8212;зеленый</entry><entry>красный?
+<row><entry>4-е</entry><entry>красный&#8212;зеленый</entry><entry>красный?
 </entry><entry>&plus;</entry></row>
-<row><entry>4-е</entry><entry>красный&8212;зеленый</entry><entry>зеленый?
+<row><entry>4-е</entry><entry>красный&#8212;зеленый</entry><entry>зеленый?
 </entry><entry>&plus;</entry></row>
-<row><entry>5-е</entry><entry>красный&8212;оранжевый</entry><entry>красный?
+<row><entry>5-е</entry><entry>красный&#8212;оранжевый</entry><entry>красный?
 </entry><entry>&plus;</entry></row>
-<row><entry>5-е</entry><entry>красный&8212;оранжевый</entry>
+<row><entry>5-е</entry><entry>красный&#8212;оранжевый</entry>
 <entry>оранжевый?</entry><entry>&plus;</entry></row>
 </tbody></tgroup>
 </informaltable>
@@ -1790,9 +1793,9 @@ XXIX&mdash;XXX из общей тесно перемешанной их груп
 <thead><row><entry>Сопоставление</entry><entry>Цвета</entry><entry>Образец
 </entry><entry>Ответ</entry></row></thead>
 <tbody>
-<row><entry>1-е</entry><entry>черный&8212;желтый&8212;зеленый</entry>
+<row><entry>1-е</entry><entry>черный&#8212;желтый&#8212;зеленый</entry>
 <entry>зеленый?</entry><entry>&plus;</entry></row>
-<row><entry>2-е</entry><entry>белый&8212;красный&8212;синий</entry>
+<row><entry>2-е</entry><entry>белый&#8212;красный&#8212;синий</entry>
 <entry>синий?</entry><entry>&plus;</entry></row>
 </tbody></tgroup>
 </informaltable>
@@ -1804,11 +1807,11 @@ XXIX&mdash;XXX из общей тесно перемешанной их груп
 <thead><row><entry>Сопоставление</entry><entry>Цвета</entry><entry>Образец
 </entry><entry>Ответ</entry></row></thead>
 <tbody>
-<row><entry>1-е</entry><entry>черный&8212;белый&8212;красный&8212;
+<row><entry>1-е</entry><entry>черный&#8212;белый&#8212;красный&#8212;
 зеленый</entry><entry>красный?</entry><entry>&plus;</entry></row>
-<row><entry>2-е</entry><entry>синий&8212;белый&8212;желтый&8212;
+<row><entry>2-е</entry><entry>синий&#8212;белый&#8212;желтый&#8212;
 зеленый</entry><entry> белый?</entry><entry>&plus;</entry></row>
-<row><entry>3-е</entry><entry>белый&8212;оранжевый&8212;синий&8212;
+<row><entry>3-е</entry><entry>белый&#8212;оранжевый&#8212;синий&#8212;
 желтый</entry><entry>оранжевый?</entry><entry>&plus;</entry></row>
 </tbody></tgroup>
 </informaltable>
@@ -1828,25 +1831,25 @@ XXIX&mdash;XXX из общей тесно перемешанной их груп
 <thead><row><entry>Сопоставление</entry><entry>Цвета</entry><entry>Образец
 </entry><entry>Ответ</entry></row></thead>
 <tbody>
-<row><entry>1-е</entry><entry>синий&8212;желтый&8212;зеленый&8212;
-оранжевый&8212;красный</entry><entry>желтый</entry><entry>? &plus;
+<row><entry>1-е</entry><entry>синий&#8212;желтый&#8212;зеленый&#8212;
+оранжевый&#8212;красный</entry><entry>желтый</entry><entry>? &plus;
 <footnote><para>
 Шимпанзе предварительно дотрагивается до зеленого цветного объекта.
 </para></footnote>
 </entry></row>
-<row><entry>1-е</entry><entry>синий&8212;желтый&8212;зеленый&8212;
-оранжевый&8212;красный</entry><entry>синий</entry><entry>&plus;</entry></row>
-<row><entry>1-е</entry><entry>синий&8212;желтый&8212;зеленый&8212;
-оранжевый&8212;красный</entry><entry>красный</entry><entry>&plus;</entry>
+<row><entry>1-е</entry><entry>синий&#8212;желтый&#8212;зеленый&#8212;
+оранжевый&#8212;красный</entry><entry>синий</entry><entry>&plus;</entry></row>
+<row><entry>1-е</entry><entry>синий&#8212;желтый&#8212;зеленый&#8212;
+оранжевый&#8212;красный</entry><entry>красный</entry><entry>&plus;</entry>
 </row>
-<row><entry>1-е</entry><entry>синий&8212;желтый&8212;зеленый&8212;
-оранжевый&8212;красный</entry><entry>зеленый</entry><entry>? &plus;
+<row><entry>1-е</entry><entry>синий&#8212;желтый&#8212;зеленый&#8212;
+оранжевый&#8212;красный</entry><entry>зеленый</entry><entry>? &plus;
 <footnote><para>
 ? означает колебание, неуверенность избрания.
 </para></footnote>
 </entry></row>
-<row><entry>1-е</entry><entry>синий&8212;желтый&8212;зеленый&8212;
-оранжевый&8212;красный</entry><entry>желтый</entry><entry>? &plus;
+<row><entry>1-е</entry><entry>синий&#8212;желтый&#8212;зеленый&#8212;
+оранжевый&#8212;красный</entry><entry>желтый</entry><entry>? &plus;
 <footnote><para>
 Верному ответу опять предшествует дотрагивание шимпанзе до зеленого цвета объекта.
 </para></footnote>
@@ -1877,22 +1880,22 @@ XXIX&mdash;XXX из общей тесно перемешанной их груп
 <tbody>
 <row><entry>1-я</entry><entry>в группе избираемых две пластинки: желтая и 
 зеленая</entry><entry>желтый?</entry><entry>&plus;</entry></row>
-<row><entry>2-я</entry><entry>в группе три пластинки: красная&8212;
-зеленая&8212;желтая</entry><entry>красный?</entry><entry>&plus;</entry>
+<row><entry>2-я</entry><entry>в группе три пластинки: красная&#8212;
+зеленая&#8212;желтая</entry><entry>красный?</entry><entry>&plus;</entry>
 </row>
-<row><entry>3-я</entry><entry>в группе четыре пластинки: желтая&8212;
-красная&8212;синяя&8212;зеленая</entry><entry>синий?</entry><entry>&plus;
+<row><entry>3-я</entry><entry>в группе четыре пластинки: желтая&#8212;
+красная&#8212;синяя&#8212;зеленая</entry><entry>синий?</entry><entry>&plus;
 </entry></row>
-<row><entry>3-я</entry><entry>в группе четыре пластинки: желтая&8212;
-красная&8212;синяя&8212;зеленая</entry><entry>желтый?</entry>
+<row><entry>3-я</entry><entry>в группе четыре пластинки: желтая&#8212;
+красная&#8212;синяя&#8212;зеленая</entry><entry>желтый?</entry>
 <entry>&plus;</entry></row>
 <row><entry>4-я (предшествующий случай, затрудняющий шимпанзе)</entry>
-<entry>в группе пять цветов: синий&8212;желтый&8212;зеленый&8212;
-оранжевый&8212;красный</entry><entry>красный?</entry><entry>&plus;
+<entry>в группе пять цветов: синий&#8212;желтый&#8212;зеленый&#8212;
+оранжевый&#8212;красный</entry><entry>красный?</entry><entry>&plus;
 </entry></row>
 <row><entry>4-я (предшествующий случай, затрудняющий шимпанзе)</entry>
-<entry>в группе пять цветов: синий&8212;желтый&8212;зеленый&8212;
-оранжевый&8212;красный</entry><entry>желтый?</entry><entry>&plus;
+<entry>в группе пять цветов: синий&#8212;желтый&#8212;зеленый&#8212;
+оранжевый&#8212;красный</entry><entry>желтый?</entry><entry>&plus;
 </entry></row>
 </tbody></tgroup>
 </informaltable>
@@ -2944,6 +2947,7 @@ XXIX&mdash;XXX из общей тесно перемешанной их груп
 Светло- и темно-зеленого.
 </para></footnote>
 , пока совершенно не удается.
+</para>
 </sect3>
 </sect2>
 
@@ -3212,8 +3216,8 @@ Ridgway'я, приведенными в книге: <quote>Nomenclature of Color
 
 <para>Образец показывается светло - синий.
 <simplelist>
-<member>В ответ шимпанзе подает мне темно - синюю пластинку.<simplelist>
-<member>
+<member>В ответ шимпанзе подает мне темно - синюю пластинку.</member>
+</simplelist>
 </para>
 
 <para>Поправляю выбор, отвергаю взятую неверно. <simplelist>
@@ -3418,7 +3422,6 @@ Ridgway'я, приведенными в книге: <quote>Nomenclature of Color
 </sect2>
 
 <sect2><title>Сеанс 14-й (43-й от начала занятий).</title>
-</para>
 
 <para>Производится дальнейшая проверка точности различения других качественно близких цветов.</para>
 
@@ -3975,7 +3978,7 @@ XXV). Перечисленные здесь тона доступны разли
 
 <para>
 Предъявляю ту же серию цветов, меняя только бывшее дотоле параллельное 
-расположение цветных пластинок ( | | | | | | | | | ) на радиальное (><). И здесь цвета 
+расположение цветных пластинок ( | | | | | | | | | ) на радиальное (&gt;&lt;). И здесь цвета 
 располагаются в последовательном спектральном порядке.
 </para>
 
@@ -4542,7 +4545,7 @@ XVII, XVIII, XIX, XX, XXI, XXII, XXIV, XXVI, XXVIII XXXI
 <listitem><para><emphasis>Обучение животного посредством упражнения и 
 видоизменения условий опытов выделению, разграничению качественно 
 близких цветов, в начале занятий смешиваемых им.
-<emphasis></para></listitem>
+</emphasis></para></listitem>
 </orderedlist>
 </para>
 

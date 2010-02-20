@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 Техническое, внешнее выполнение реакции &mdash; вложение цветного объекта 
 (квадратика) в соответствующую полусферическую, цветную коробку &mdash; 
 непосредственно и легко усваивается обезьяной и осуществляется быстро и 
@@ -19,30 +19,28 @@
 сходству</emphasis> производятся первоначально при <emphasis role="bold">
 специальных</emphasis>, узко ограниченных <emphasis role="bold">условиях
 </emphasis> (с. 1):
-
 <orderedlist>
-</para></listitem><emphasis>При отсутствии момента выбора</emphasis> (при 
+<listitem><para><emphasis>При отсутствии момента выбора</emphasis> (при 
 наличности в группе одного цвета избираемых объектов, цвета, 
 соответствующего таковому предъявленной образцовой 
 коробки).</para></listitem>
-</para></listitem><emphasis>При наличности</emphasis> при предъявляемом в 
+<listitem><para><emphasis>При наличности</emphasis> при предъявляемом в 
 качестве образца объекте <emphasis>объектов, тождественных с 
 <quote>избираемыми</quote></emphasis> (предъявляемая коробка с цв. 
 квадратом; избираемые &mdash; цв. квадраты того же цвета).</para></listitem>
-</para></listitem>При <emphasis>повторном оперировании</emphasis> с того же 
+<listitem><para>При <emphasis>повторном оперировании</emphasis> с того же 
 цвета объектами (при наличности нескольких искомых одинакового цвета в 
 группе избираемых).</para></listitem>
-</para></listitem>При <emphasis>повторном предъявлении</emphasis> того же вопроса (вторичном воспроизведении той же реакции).</para></listitem>
+<listitem><para>При <emphasis>повторном предъявлении</emphasis> того же вопроса (вторичном воспроизведении той же реакции).</para></listitem>
 </orderedlist>
 </para>
 
 <para>
 Первые <emphasis>независимые, самостоятельные</emphasis> правильные выполнения процесса ассоциации по сходству первоначально осуществляются обезьяной <emphasis role="bold">эпизодически, избирательно</emphasis> (сеанс 1):
-
 <orderedlist>
-</para></listitem>при оперировании с <emphasis>новыми</emphasis> цветами (син., роз.)</para></listitem>
-</para></listitem>с цветами, в прошлом предпочитаемыми (синим)</para></listitem>
-</para></listitem>с цветами, максимально насыщенными (син., красн.).</para></listitem>
+<listitem><para>при оперировании с <emphasis>новыми</emphasis> цветами (син., роз.)</para></listitem>
+<listitem><para>с цветами, в прошлом предпочитаемыми (синим)</para></listitem>
+<listitem><para>с цветами, максимально насыщенными (син., красн.).</para></listitem>
 </orderedlist>
 </para>
 
@@ -152,7 +150,7 @@
 <para>
 <emphasis>Б&#1086;&#768;льшая устойчивость</emphasis> правильности 
 приурочения при оперировании шимпанзе с этим <emphasis>2-м приемом
-</emphasis>, нежели с </emphasis>1-м</emphasis>; прежняя 
+</emphasis>, нежели с <emphasis>1-м</emphasis>; прежняя 
 <emphasis>неодинаковость</emphasis> степени правильного приурочения 
 различных цветов объектов и, в частности, прежняя разгруппировка цветов по 
 степени правильности оперирования с ними шимпанзе (наихудшее приурочение 
@@ -387,25 +385,24 @@ role="bold">искомой</emphasis> и <emphasis role="bold">образца</e
 <sect2><title>Схема установления и усовершенствования процесса ассоциации по сходству (отвлечения цвета).</title>
 
 <para>
-<orderedlist>
-<listitem><para><emphasis role="bold">Вынужденно-правильное</emphasis> выполнение процесса <emphasis role="bold">ассоциации по сходству</emphasis>.
+<orderedlist numeration="upperroman">
+<listitem>
+<para><emphasis role="bold">Вынужденно-правильное</emphasis> выполнение процесса <emphasis role="bold">ассоциации по сходству</emphasis>.
 </para>
 <para>
  (Правильное объединение обезьяной различных по виду объектов <emphasis>по 
 признаку цвета</emphasis> по необходимости &mdash; при отсутствии момента 
-выбора.)</para></listitem>
+выбора.)</para>
+</listitem>
 
-<para>
-<listitem><para>Правильность <emphasis role="bold">повторного</emphasis> выполнения процесса <emphasis role="bold">ассоциации по сходству</emphasis>.
-</para>
-<para>
- (Правильное объединение объектов по <emphasis>признаку цвета</emphasis> 
+<listitem>
+<para>Правильность <emphasis role="bold">повторного</emphasis> выполнения процесса <emphasis role="bold">ассоциации по сходству</emphasis>.</para>
+<para>(Правильное объединение объектов по <emphasis>признаку цвета</emphasis> 
 при <emphasis>повторном</emphasis> непосредственном воспроизведении 
 операции с тем же самым цветом &mdash; <emphasis>повторный</emphasis> 
 выбор на тот же вопрос и новый выбор на <emphasis>однородный</emphasis> 
 вопрос.)</para></listitem>
 
-<para>
 <listitem><para>Правильность выполнения <emphasis role="bold">
 <quote>опосредственной</quote></emphasis> <emphasis role="bold">ассоциации 
 по сходству</emphasis>.
@@ -416,7 +413,6 @@ role="bold">искомой</emphasis> и <emphasis role="bold">образца</e
 фигур-образцов (предъявление образцовых коробок с 
 квадратами.)</para></listitem>
 
-<para>
 <listitem><para><emphasis role="bold">Эпизодическая, непосредственная, 
 произвольная, самостоятельная правильность</emphasis> выполнения 
 обезьяной процесса <emphasis role="bold">ассоциации по сходству</emphasis>.
@@ -427,7 +423,6 @@ role="bold">искомой</emphasis> и <emphasis role="bold">образца</e
 цветами <emphasis>предпочитаемыми</emphasis> (синим), с цветами наиболее 
 <emphasis>насыщенными</emphasis> (красн., син.).</para></listitem>
 
-<para>
 <listitem><para><emphasis role="bold">Избирательная, неустойчиво-
 систематическая</emphasis> правильность выполнения процесса 
 непосредственной <emphasis role="bold">ассоциации по сходству</emphasis>.
@@ -479,5 +474,8 @@ role="bold">ассоциации по сходству</emphasis> <emphasis>пр
 техническим приемом выполнения процесса.)</para></listitem>
 </orderedlist>
 </para></listitem>
+</orderedlist>
 </para>
 </sect2>
+
+&liniya;
