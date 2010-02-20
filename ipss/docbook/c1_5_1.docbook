@@ -947,10 +947,10 @@ linkend="tabler12" />. рис. 2, 1.
 <listitem><para>(К.-С.) &mdash; 100% (абсолютно не смешивается)</para></listitem>
 <listitem><para>(Г.-З.) &mdash; 91%</para></listitem>
 <listitem><para>(К.-Ж.) &mdash; 89% (смешивается с к.-з.)</para></listitem>
-<listitem><para>(К.Г.) &mdash; 79% (смеш. с к.-ж., к.-з. и к.-с.)</para></listitem>
+<listitem><para>(К.-Г.) &mdash; 79% (смеш. с к.-ж., к.-з. и к.-с.)</para></listitem>
 <listitem><para>(К.-З.) &mdash; 72% (смеш. к.-ж. и к.-г.)</para></listitem>
 <listitem><para>(Ж.-З.) &mdash; 67% (смеш. к.-ж. и ж.-г.)</para></listitem>
-<listitem><para>(Г:-Ж.) &mdash; 64% (смеш. ж.-з. и к.-ж.).</para></listitem>
+<listitem><para>(Г.-Ж.) &mdash; 64% (смеш. ж.-з. и к.-ж.).</para></listitem>
 </orderedlist>
 </para>
 
@@ -1619,3 +1619,5 @@ role="bold">по цвету</emphasis>, а не по <emphasis>форме, оч�
 </para>
 </sect3>
 </sect2>
+
+&liniya;
