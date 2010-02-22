@@ -1,3 +1,16 @@
+<figure id="grays">
+  <title>Grauleiter. Ахроматическая шкала светлот.</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/grays.jpg">
+      <imageobject><imagedata fileref="images/html/grays.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/grays.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Промежуточные ступени ахр. шкалы на рисунке не помечены.
+</para></textobject></mediaobject>
+</figure>
+
 <sect2><title>Сеанс 22-й на различение цветов, 82-й от начала опытов.</title>
 <subtitle>19 мая 1915 г.</subtitle>
 

@@ -701,4 +701,18 @@ linkend="" /> II серия, 6-й 7-й ряд опытов).</para></listitem>
 </sect3>
 </sect2>
 
+<figure id="tabler13">
+  <title>Осложненные случаи отождествления объектов.</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler13.jpg">
+      <imageobject><imagedata fileref="images/html/tabler13.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/tabler13.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. Отождествление объектов при различии сопоставляемых по цвету, форме, величине.<?br?>
+Рис. 2. Отождествление 3-хцветных сочетаний.<?br?>
+</para></textobject></mediaobject>
+</figure>
+
 &liniya;

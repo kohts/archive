@@ -1,3 +1,17 @@
+<figure id="tabler5">
+  <title>Приемы поощрения шимпанзе при занятиях.</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler5.jpg">
+      <imageobject><imagedata fileref="images/html/tabler5.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/tabler5.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. Момент поимки шимпанзе при игре-ловле.<?br?>
+Рис. 2. Момент мнимой борьбы.<?br?>
+</para></textobject></mediaobject>
+</figure>
+
 <sect2><title>Сеанс 1-ый по методу <emphasis role="bold">выбора на образец</emphasis> (22-ой от начала занятий).</title><subtitle>25 февраля 1914 г.</subtitle>
 <para>
 Проведение нового принципа выбора сочетается с введением в качестве 
@@ -2165,6 +2179,20 @@ XXIX&mdash;XXX из общей тесно перемешанной их груп
 
 <para>Теперь я предъявляю группу в 7 <emphasis>цветов</emphasis> и показываю образец зеленого цвета.</para>
 
+<figure id="tabler6">
+  <title>Отвлечение внимания шимпанзе от работы.</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler6.jpg">
+      <imageobject><imagedata fileref="images/html/tabler6.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/tabler6.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. Настороженное внимание к постороннему стимулу.<?br?>
+Рис. 2. Внезапное отвлечение внимания от опытов.<?br?>
+</para></textobject></mediaobject>
+</figure>
+
 <para>
 На этот раз шимпанзе определенно затрудняется в выборе, он дает резко 
 ошибочно: то красную, то синюю пластинку. По своему обыкновению, в 
@@ -4109,6 +4137,20 @@ XXV). Перечисленные здесь тона доступны разли
 <member>Темно-пурпурный (XXIV) &mdash; Magenta (14. VIII).</member>
 </simplelist>
 </para>
+
+<figure id="tabler7">
+  <title>Эмоциональные состояния шимпанзе.</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler7.jpg">
+      <imageobject><imagedata fileref="images/html/tabler7.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/tabler7.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. Шимпанзе в радостном настроении (улыбка).<?br?>
+Рис. 2. Шимпанзе в печали (плач).<?br?>
+</para></textobject></mediaobject>
+</figure>
 
 <para> (См. <xref linkend="colors" />, также цветные таблицы в книге Ridgway 'я: <quote>Nomenclature of Colors</quote>).</para>
 

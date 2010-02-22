@@ -28,6 +28,20 @@
 количества повторяющихся, одинаковых цветов в сопоставляемых комбинациях.
 </para>
 
+<figure id="tabler12">
+  <title>Оперирование шимпанзе с 2-х цветными сочетаниями.</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler12.jpg">
+      <imageobject><imagedata fileref="images/html/tabler12.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/tabler12.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. Сопоставление 7 двухцветных сочетаний (момент выбора искомой).<?br?>
+Рис. 2. Сопоставление 7 двухцветных сочетаний (момент вручения искомой).<?br?>
+</para></textobject></mediaobject>
+</figure>
+
 <para>
 Ввиду того, что настоящий сеанс является уже 83-м от начала опытов и 
 осуществляется по тому же принципу <quote>выбора на образец</quote>, 

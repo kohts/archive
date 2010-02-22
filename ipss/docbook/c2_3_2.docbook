@@ -6,6 +6,20 @@
 экспериментальных данных.
 </para>
 
+<figure id="tabler15">
+  <title>Отвлечение цвета при оперировании с разноплоскостными объектами.</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler15.jpg">
+      <imageobject><imagedata fileref="images/html/tabler15.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/tabler15.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Рис. 1. Выискивание обезьяной сходного объекта.<?br?>
+Рис. 2. Вручение избранного искомого сходного объекта.<?br?>
+</para></textobject></mediaobject>
+</figure>
+
 <sect2><title>Сеанс 1.</title>
 
 <para>Прием 1-й. Конкретное <emphasis>ознакомление обезьяны с техникой</emphasis> работы и <emphasis>принципом выбора</emphasis>.</para>
