@@ -1,4 +1,3 @@
-<sect1 id="colors" xreflabel='Цветная таблица'>
 <figure id="colors-1">
   <title>Цветная таблица № I.</title>
   <mediaobject>
@@ -22,9 +21,7 @@
   <mediaobject><textobject><para>
 </para></textobject></mediaobject>
 </figure>
-</sect1>
 
-<sect1 id="tabler3ab">
 <figure id="tabler3a">
   <title>Распределение хроматических цветов по степени точности их различения обезьяной.</title>
   <mediaobject>
@@ -48,4 +45,3 @@
   <mediaobject><textobject><para>
 </para></textobject></mediaobject>
 </figure>
-</sect1>
