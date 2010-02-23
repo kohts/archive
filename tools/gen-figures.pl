@@ -6,7 +6,7 @@ use Encode;
 use Getopt::Long;
 
 if (!$ARGV[0]) {
-  die "usage: $0 filename [rus|eng] [table_pfx] [figure|example|formalpara]\n";
+  die "usage: $0 filename [rus|eng|de] [table_pfx] [figure|example|formalpara]\n";
 }
 
 my $language = $ARGV[1] ? $ARGV[1] : "rus";

@@ -8,6 +8,49 @@
   </mediaobject>
   <mediaobject><textobject><para>
 </para></textobject></mediaobject>
+  <mediaobject><textobject><formalpara><title>Хроматические цвета, бывшие на испытании</title>
+<simplelist columns='2'>
+<member>№ I. Бордо</member>
+<member>№ II. Светло-бордо<footnote><para>Отпечаток несколько темнее оригинала</para></footnote></member>
+<member>№ III. Красный</member>
+<member>№ IV. Светло-красный</member>
+<member>№ V. Розовый</member>
+<member>№ Va. Розовый (из доп. гр.)</member>
+<member>№ VI. Светло-розовый<footnote><para>Отпечаток несколько темнее оригинала</para></footnote></member>
+<member>№ VII. Оранжевый</member>
+<member>№ VIIa. Оранжево-желтый (из доп. гр.)<footnote><para>Отпечаток несколько уклоняется
+по тону от оригинала, последний краснее</para></footnote></member>
+<member>№ VIII. Светло-коричневый</member>
+<member>№ IX. Коричнево-желтый<footnote><para>Отпечаток темнее оригинала</para></footnote></member>
+<member>№ Xa. Темно-коричневый (из доп. гр.)</member>
+<member>№ X. Коричнево-желтый</member>
+<member>№ XI. Золотисто-желтый</member>
+<member>№ XII. Лимонно-желтый</member>
+<member>№ XIV. Бутылочно-зеленый</member>
+<member>№ XIVa. Травяно-зеленый</member>
+<member>№ XVa. Темно-зеленый (из доп. гр.)<footnote><para>По ошибке обозначен на цв. таблице как № XIa</para></footnote></member>
+<member>№ XVb. Светло-зеленый (из доп. гр.)<footnote><para>Отпечаток значительно темнее оригинала</para></footnote></member><member>№ XV. Оливково-зеленый (из доп. гр.)<footnote><para>По ошибке отпечаток обозначен как № XVa,
+уклоняется по тону от оригинала</para></footnote></member>
+<member>№ XVI. Зелено-голубой<footnote><para>Уклоняется по тону от оригинала, кот. голубее, насыщеннее.</para></footnote></member>
+<member>№ XVII. Голубой</member>
+<member>№ XVIII. Светло-голубой</member>
+<member>№ XIX. Васильково-синий</member>
+<member>№ XIXa. Светло-синий (из доп. гр.)</member>
+<member>№ XIXb. Темно-синий (из доп. гр.)</member>
+<member>№ XX. Сине-фиолетовый</member>
+<member>№ XXI. Светло-лиловый</member>
+<member>№ XXII. Темно-фиолетовый</member>
+<member>№ XXIIa. Темно-фиолетовый (из доп. гр.)<footnote><para>Отпечаток светлее оригинала</para></footnote></member>
+<member>№ XXIII. Лилово-красный<footnote><para>Отпечаток розовее, чем оригинал, который лиловее</para></footnote></member>
+<member>№ XXIV. Темно-пурпурный<footnote><para>Отпечаток краснее, чем оригинал, который лиловее</para></footnote></member>
+<member>№ XXV. Светло-пурпурный<footnote><para>Отпечаток краснее, чем оригинал, послед. лиловее</para></footnote></member>
+<member>№ XXVI. Розово-лиловый</member>
+<member>№ XXVII. Темно-фиолет-пурпурн.<footnote><para>Отпечаток светлее и краснее, чем оригинал</para></footnote></member>
+<member>№ XXVIII. Желто-зеленый<footnote><para>Отпечаток зеленее и темнее, чем оригинал</para></footnote></member>
+<member>№ XXIX. Черный<footnote><para>Отпечаток по ошибке обозначен № XXX вместо № XXIX</para></footnote></member>
+<member>№ XXXI. Сине-голубой<footnote><para>Оригинал серее, чем отпечаток</para></footnote></member>
+</simplelist>
+</formalpara></textobject></mediaobject>
 </figure>
 
 <figure id="colors-2">
@@ -20,6 +63,30 @@
   </mediaobject>
   <mediaobject><textobject><para>
 </para></textobject></mediaobject>
+  <mediaobject><textobject><formalpara><title>Сочетания хроматических цветов, бывших на испытании</title>
+<simplelist columns='2'>
+<member>Ряд 1-ый сверху 1) (кс) &#8212; красно-синий</member>
+<member>Ряд 1-ый сверху 2) (кз) &#8212; красно-зеленый</member>
+<member>Ряд 1-ый сверху 3) (кг) &#8212; красно-голубой</member>
+<member>Ряд 1-ый сверху 4) (кж) &#8212; красно-желтый</member>
+<member>Ряд 1-ый сверху 5) (зж) &#8212; зелено-желтый</member>
+<member>Ряд 1-ый сверху 6) (зг) &#8212; зелено-голубой</member>
+<member>Ряд 1-ый сверху 7) (жг) &#8212; желто-голубой</member>
+<member>Ряд 2-ой сверху 1) (ж) &#8212; желтый</member>
+<member>Ряд 2-ой сверху 2) (жк) &#8212; желто-красный</member>
+<member>Ряд 2-ой сверху 3) (жк) &#8212; желто-красный</member>
+<member>Ряд 2-ой сверху 4) (жк) &#8212; желто-красный</member>
+<member>Ряд 2-ой сверху 5) (к) &#8212; красный</member>
+<member>Ряд 3-й сверху 1) (зжз) &#8212; зелен.-желт.-зеленый</member>
+<member>Ряд 3-й сверху 2) (зрз) &#8212; зелен.-розов.-зеленый</member>
+<member>Ряд 3-й сверху 3) (сгс) &#8212; син.-голуб.-синий</member>
+<member>Ряд 3-й сверху 4) (срс) &#8212; син.-розов.-синий</member>
+<member>Ряд 3-й сверху 5) (гкг) &#8212; голуб.-красн.-голубой</member>
+<member>Ряд 3-й сверху 6) (кгк) &#8212; красн.-голуб.-красный</member>
+<member>Ряд 4-й сверху 1) (крз) &#8212; красн.-розов.-зеленый</member>
+<member>Ряд 4-й сверху 2) (кжз) &#8212; красн.-желт.-зеленый</member>
+</simplelist>
+</formalpara></textobject></mediaobject>
 </figure>
 
 <figure id="tabler3a">

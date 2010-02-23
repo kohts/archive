@@ -88,18 +88,18 @@ book      toc,title,figure,table,example,equation
 
     <l:l10n language="ru">
 
-	  <l:gentext key="Figure" text="Рисунок"/>
-	  <l:gentext key="figure" text="Рисунок"/>
+	  <l:gentext key="Figure" text="Таблица"/>
+	  <l:gentext key="figure" text="Таблица"/>
       <l:gentext key="ListofFigures" text="Список рисунков"/>
       <l:gentext key="listoffigures" text="Список рисунков"/>
       <l:context name="title">
-	    <l:template name="figure" text="Рисунок %n. %t"/>
+	    <l:template name="figure" text="Таблица %n. %t"/>
 	  </l:context>
 	  <l:context name="xref-number">
-	    <l:template name="figure" text="Рисунок %n"/>
+	    <l:template name="figure" text="Таблица %n"/>
 	  </l:context>
 	  <l:context name="xref-number-and-title">
-        <l:template name="figure" text="Рис. %n"/>
+        <l:template name="figure" text="Табл. %n"/>
 	  </l:context>
 
 	  <l:gentext key="Example" text="Фотоиллюстрация"/>

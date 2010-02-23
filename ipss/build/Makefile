@@ -22,6 +22,12 @@ all: html pdf
 
 .PHONY : html fo pdf clean all-clean
 
+${DOCBOOK_BASE}/tables_de.docbook: ${DOCBOOK_BASE}/tables_de.raw ${TOOLS}/gen-figures.pl
+	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/tables_de.raw de tabler figure > ${DOCBOOK_BASE}/tables_de.docbook
+${DOCBOOK_BASE}/tables_de_print.docbook: ${DOCBOOK_BASE}/tables_de.raw ${TOOLS}/gen-figures.pl
+	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/tables_de.raw de tabler formalpara > ${DOCBOOK_BASE}/tables_de_print.docbook
+        
+
 html: ${STAMPS}/html
 ${STAMPS}/html: docbook-html-chunked.xsl $(DOCBOOK)
 	mkdir -p ${HTML_BASE}
