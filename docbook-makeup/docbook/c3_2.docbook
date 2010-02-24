@@ -41,25 +41,64 @@
 <row>
   <entry namest="c1" nameend="c3" align='center'><emphasis role="bold">Русские буквы с акцентом</emphasis></entry>
 </row>
-<row><entry>&#1072;&#768;</entry><entry>&amp;#1072;&amp;#768;</entry></row>
-<row><entry>&#1077;&#768;</entry><entry>&amp;#1077;&amp;#768;</entry></row>
-<row><entry>&#1080;&#768;</entry><entry>&amp;#1080;&amp;#768;</entry></row>
-<row><entry>&#1086;&#768;</entry><entry>&amp;#1086;&amp;#768;</entry></row>
-<row><entry>&#1091;&#768;</entry><entry>&amp;#1091;&amp;#768;</entry></row>
-<row><entry>&#1101;&#768;</entry><entry>&amp;#1101;&amp;#768;</entry></row>
-<row><entry>&#1103;&#768;</entry><entry>&amp;#1103;&amp;#768;</entry></row>
+<row><entry>&#1072;&#768;<emphasis>&#1072;&#768;</emphasis><emphasis role='bold'>&#1072;&#768;</emphasis>
+<emphasis><emphasis role='bold'>&#1072;&#768;</emphasis></emphasis></entry><entry>&amp;#1072;&amp;#768;</entry></row>
+<row><entry>&#1077;&#768;<emphasis>&#1077;&#768;</emphasis><emphasis role='bold'>&#1077;&#768;</emphasis>
+<emphasis><emphasis role='bold'>&#1077;&#768;</emphasis></emphasis></entry><entry>&amp;#1077;&amp;#768;</entry></row>
+<row><entry>&#1080;&#768;<emphasis>&#1080;&#768;</emphasis><emphasis role='bold'>&#1080;&#768;</emphasis>
+<emphasis><emphasis role='bold'>&#1080;&#768;</emphasis></emphasis></entry><entry>&amp;#1080;&amp;#768;</entry></row>
+<row><entry>&#1086;&#768;<emphasis>&#1086;&#768;</emphasis><emphasis role='bold'>&#1086;&#768;</emphasis>
+<emphasis><emphasis role='bold'>&#1086;&#768;</emphasis></emphasis></entry><entry>&amp;#1086;&amp;#768;</entry></row>
+<row><entry>&#1091;&#768;<emphasis>&#1091;&#768;</emphasis><emphasis role='bold'>&#1091;&#768;</emphasis>
+<emphasis><emphasis role='bold'>&#1091;&#768;</emphasis></emphasis></entry><entry>&amp;#1091;&amp;#768;</entry></row>
+<row><entry>&#1101;&#768;<emphasis>&#1101;&#768;</emphasis><emphasis role='bold'>&#1101;&#768;</emphasis>
+<emphasis><emphasis role='bold'>&#1101;&#768;</emphasis></emphasis></entry><entry>&amp;#1101;&amp;#768;</entry></row>
+<row><entry>&#1103;&#768;<emphasis>&#1103;&#768;</emphasis><emphasis role='bold'>&#1103;&#768;</emphasis>
+<emphasis><emphasis role='bold'>&#1103;&#768;</emphasis></emphasis></entry><entry>&amp;#1103;&amp;#768;</entry></row>
+<row><entry>&#1072;&#769;<emphasis>&#1072;&#769;</emphasis><emphasis role='bold'>&#1072;&#769;</emphasis>
+<emphasis><emphasis role='bold'>&#1072;&#769;</emphasis></emphasis></entry><entry>&amp;#1072;&amp;#768;</entry></row>
+<row><entry>&#1077;&#769;<emphasis>&#1077;&#769;</emphasis><emphasis role='bold'>&#1077;&#769;</emphasis>
+<emphasis><emphasis role='bold'>&#1077;&#769;</emphasis></emphasis></entry><entry>&amp;#1077;&amp;#769;</entry></row>
+<row><entry>&#1080;&#769;<emphasis>&#1080;&#769;</emphasis><emphasis role='bold'>&#1080;&#769;</emphasis>
+<emphasis><emphasis role='bold'>&#1080;&#769;</emphasis></emphasis></entry><entry>&amp;#1080;&amp;#769;</entry></row>
+<row><entry>&#1086;&#769;<emphasis>&#1086;&#769;</emphasis><emphasis role='bold'>&#1086;&#769;</emphasis>
+<emphasis><emphasis role='bold'>&#1086;&#769;</emphasis></emphasis></entry><entry>&amp;#1086;&amp;#769;</entry></row>
+<row><entry>&#1091;&#769;<emphasis>&#1091;&#769;</emphasis><emphasis role='bold'>&#1091;&#769;</emphasis>
+<emphasis><emphasis role='bold'>&#1091;&#769;</emphasis></emphasis></entry><entry>&amp;#1091;&amp;#769;</entry></row>
+<row><entry>&#1101;&#769;<emphasis>&#1101;&#769;</emphasis><emphasis role='bold'>&#1101;&#769;</emphasis>
+<emphasis><emphasis role='bold'>&#1101;&#769;</emphasis></emphasis></entry><entry>&amp;#1101;&amp;#769;</entry></row>
+<row><entry>&#1103;&#769;<emphasis>&#1103;&#769;</emphasis><emphasis role='bold'>&#1103;&#769;</emphasis>
+<emphasis><emphasis role='bold'>&#1103;&#769;</emphasis></emphasis></entry><entry>&amp;#1103;&amp;#769;</entry></row>
 
 <row id="xml_encoding_latin_ext" xreflabel='Латинские буквы'>
   <entry namest="c1" nameend="c3" align='center'><emphasis role="bold">Латинские буквы (акцент, умляут)</emphasis></entry>
 </row>
-<row><entry>&#0224;</entry><entry>&amp;#0224;</entry><entry>латинская a с grave акцентом</entry></row>
-<row><entry>&#0225;</entry><entry>&amp;#0225;</entry><entry>латинская a с accute акцентом</entry></row>
-<row><entry>&#0101;&#768;</entry><entry>&amp;#0101;&amp;#768; или &amp;#0232;</entry><entry>латинская e с grave акцентом</entry></row>
-<row><entry>&#0233;</entry><entry>&amp;#0233;</entry><entry>латинская e с accute акцентом</entry></row>
+<!--<row><entry>&#0224;</entry><entry>&amp;#0224;</entry><entry>латинская a с grave акцентом</entry></row>
+<row><entry>&#0225;</entry><entry>&amp;#0225;</entry><entry>латинская a с accute акцентом</entry></row>-->
+
+<row><entry>&#0097;&#768;<emphasis>&#0097;&#768;</emphasis><emphasis role='bold'>&#0097;&#768;</emphasis>
+<emphasis><emphasis role='bold'>&#0097;&#768;</emphasis></emphasis></entry><entry>&amp;#0097;&amp;#768;</entry></row>
+<row><entry>&#0101;&#768;<emphasis>&#0101;&#768;</emphasis><emphasis role='bold'>&#0101;&#768;</emphasis>
+<emphasis><emphasis role='bold'>&#0101;&#768;</emphasis></emphasis></entry><entry>&amp;#0101;&amp;#768;</entry></row>
+<row><entry>&#0111;&#768;<emphasis>&#0111;&#768;</emphasis><emphasis role='bold'>&#0111;&#768;</emphasis>
+<emphasis><emphasis role='bold'>&#0111;&#768;</emphasis></emphasis></entry><entry>&amp;#0111;&amp;#768;</entry></row>
+<row><entry>&#0105;&#768;<emphasis>&#0105;&#768;</emphasis><emphasis role='bold'>&#0105;&#768;</emphasis>
+<emphasis><emphasis role='bold'>&#0105;&#768;</emphasis></emphasis></entry><entry>&amp;#0105;&amp;#768;</entry></row>
+
+<row><entry>&#0097;&#769;<emphasis>&#0097;&#769;</emphasis><emphasis role='bold'>&#0097;&#769;</emphasis>
+<emphasis><emphasis role='bold'>&#0097;&#769;</emphasis></emphasis></entry><entry>&amp;#0097;&amp;#769;</entry></row>
+<row><entry>&#0101;&#769;<emphasis>&#0101;&#769;</emphasis><emphasis role='bold'>&#0101;&#769;</emphasis>
+<emphasis><emphasis role='bold'>&#0101;&#769;</emphasis></emphasis></entry><entry>&amp;#0101;&amp;#769;</entry></row>
+<row><entry>&#0111;&#769;<emphasis>&#0111;&#769;</emphasis><emphasis role='bold'>&#0111;&#769;</emphasis>
+<emphasis><emphasis role='bold'>&#0111;&#769;</emphasis></emphasis></entry><entry>&amp;#0111;&amp;#769;</entry></row>
+<row><entry>&#0105;&#769;<emphasis>&#0105;&#769;</emphasis><emphasis role='bold'>&#0105;&#769;</emphasis>
+<emphasis><emphasis role='bold'>&#0105;&#769;</emphasis></emphasis></entry><entry>&amp;#0105;&amp;#769;</entry></row>
+
 <row><entry>&#0220;</entry><entry>&amp;#0220;</entry></row>
 <row><entry>&#0252;</entry><entry>&amp;#0252;</entry></row>
 <row><entry>&#0228;</entry><entry>&amp;#0228;</entry></row>
 <row><entry>&#0246;</entry><entry>&amp;#0246;</entry></row>
+<row><entry>&#0252;</entry><entry>&amp;#0252;</entry></row>
 
 <row>
   <entry namest="c1" nameend="c3" align='center'><emphasis role="bold">Кириллица до реформы 1917 года</emphasis></entry>
