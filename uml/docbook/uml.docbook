@@ -1,3 +1,27 @@
+<figure id="tabler1">
+  <title>Краль съ <quote>Мухамедомъ</quote> и <quote>Царифомъ</quote>, Сл&#1123;пая лошадь <quote>Берто</quote></title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler1.jpg">
+      <imageobject><imagedata fileref="images/html/tabler1.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/tabler1.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Краль съ <quote>Мухамедомъ</quote> и <quote>Царифомъ</quote><?br?>
+Сл&#1123;пая лошадь <quote>Берто</quote><?br?>
+</para></textobject></mediaobject>
+</figure>
+
+<example id="picture1">
+  <title>Фонъ Остенъ съ <quote>Умнымъ Гансомъ</quote></title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/picture1.jpg">
+      <imageobject><imagedata fileref="images/html/picture1.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/picture1.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
 <para>
 Міръ полонъ глубокихъ тайнъ — надо лишь умѣть удивляться и увидѣть ихъ,
 и простые вещи и факты въ отраженіи оригинальнаго ума пріобрѣтаютъ
@@ -444,6 +468,16 @@
 отвѣчаетъ правильно, а потомъ, замѣчая отсутствіе контроля, совсѣмъ сбивается.
 </para>
 
+<figure id="tabler2">
+  <title>Царифъ и Мухамедъ</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler2.jpg">
+      <imageobject><imagedata fileref="images/html/tabler2.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/tabler2.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Интересно, что цифры, не написанныя на доскѣ, лошади не считаютъ за цифры
 и наотрѣзъ отказываются на нихъ отвѣчать, несмотря на самое горячее желаніе
@@ -461,6 +495,16 @@
 овладѣвъ этимъ оригинальнымъ способомъ выраженія рѣчи, научаются отвѣчать на вопросы
 и иногда говорятъ отъ себя.
 </para>
+
+<example id="picture2">
+  <title>Лошадиная азбука</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/picture2.jpg">
+      <imageobject><imagedata fileref="images/html/picture2.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/picture2.jpg" /></imageobject>
+  </mediaobject>
+</example>
 
 <para>
 Интересно, что скоро удается подмѣтить особенности въ ихъ правописаніи,
@@ -633,6 +677,16 @@ fveert, fv&#0228;rd, frd; pf&#0228;rt, pfrt; v&#1139;rd, v&#0228;rt, verd и т.
 </para>
 
 &liniya;
+
+<example id="picture3">
+  <title>Краль съ Мухамедомъ</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/picture3.jpg">
+      <imageobject><imagedata fileref="images/html/picture3.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/picture3.jpg" /></imageobject>
+  </mediaobject>
+</example>
 
 <para>
 Мы были въ Эльберфельдѣ два дня лѣтомъ прошлаго года. По счастливой случайности,
@@ -833,6 +887,16 @@ fveert, fv&#0228;rd, frd; pf&#0228;rt, pfrt; v&#1139;rd, v&#0228;rt, verd и т.
 Берт&#1086;&#768; отстукиваетъ прямо отвѣтъ: 6.
 </para>
 
+<example id="picture4">
+  <title>Слепая лошадь Берто</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/picture4.jpg">
+      <imageobject><imagedata fileref="images/html/picture4.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/picture4.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
 <para>
 Такимъ же путемъ отстукиваетъ Берт&#1086;&#768; отвѣты и на слѣдующія задачи:
 Вопросъ: 3&plus;3. Отвѣтъ: 6.
@@ -892,7 +956,7 @@ fveert, fv&#0228;rd, frd; pf&#0228;rt, pfrt; v&#1139;rd, v&#0228;rt, verd и т.
 <para>
 Краль предлагаетъ вопросъ: выстучать 25? Потомъ: 25 &plus; 24 (пишетъ задачу на доскѣ,
 ставя числа одно надъ другимъ). Мухамедъ стучитъ 56 (невѣрно); потомъ поправляется 46 (вѣрно).
-<quote>Обозначь цифру второго ряда!</quote> МухамСдъ стучитъ 21. Краль: — <quote>повтори</quote>.
+<quote>Обозначь цифру второго ряда!</quote> Мухамедъ стучитъ 21. Краль: — <quote>повтори</quote>.
 Мухамедъ — 21. <quote>Bravo, bravo</quote> говоритъ Краль. Мухамедъ самъ повторяетъ — 21.
 </para>
 
@@ -984,6 +1048,16 @@ un, deux, trois... Мухамедъ тотчасъ же отстукиваетъ
 Но вотъ приводятъ Царифа. (<xref linkend="tabler2" />, <xref linkend="picture5" />).
 </para>
 
+<example id="picture5">
+  <title>Царифъ</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/picture5.jpg">
+      <imageobject><imagedata fileref="images/html/picture5.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/picture5.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
 <para>
 Краль: <quote>Припшсь къ землѣ</quote>! Царифъ пригибается.
 Краль: <quote>Высуни языкъ</quote>! Царифъ исполняетъ.
@@ -1031,6 +1105,16 @@ un, deux, trois... Мухамедъ тотчасъ же отстукиваетъ
 Краль: <quote>Посмотримъ, сдѣлаетъ ли онъ это?</quote>
 ну-ка начинай, ну пора, только правильно, ну, пора!
 </para>
+
+<figure id="tabler3">
+  <title>Генсхенъ</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/tabler3.jpg">
+      <imageobject><imagedata fileref="images/html/tabler3.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/tabler3.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 Генсхенъ стучитъ: 2146, 46, 1246, 646 — все невѣрно.
@@ -1084,6 +1168,16 @@ un, deux, trois... Мухамедъ тотчасъ же отстукиваетъ
 <para>
 Поражаешься еще болѣе терпѣнію Краля и побѣдѣ его надъ этими строптивыми созданьями.
 </para>
+
+<example id="picture6">
+  <title>Генсхенъ</title>
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/picture6.jpg">
+      <imageobject><imagedata fileref="images/html/picture6.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/picture6.jpg" /></imageobject>
+  </mediaobject>
+</example>
 
 <para>
 Не стану скрывать, что даже послѣ этихъ, лично просмотрѣнныхъ, опытовъ,

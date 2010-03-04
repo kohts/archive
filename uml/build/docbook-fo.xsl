@@ -90,18 +90,18 @@ book      toc,title,figure,table,example,equation
         <l:template name="figure" text="Табл. %n"/>
 	  </l:context>
 
-	  <l:gentext key="Example" text="Фотоиллюстрация"/>
-	  <l:gentext key="example" text="Фотоиллюстрация"/>
-      <l:gentext key="ListofExamples" text="Список фотоиллюстраций"/>
-      <l:gentext key="listofexamples" text="Список фотоиллюстраций"/>
+	  <l:gentext key="Example" text="Рисунок"/>
+	  <l:gentext key="example" text="Рисунок"/>
+      <l:gentext key="ListofExamples" text="Список рисунков"/>
+      <l:gentext key="listofexamples" text="Список рисунков"/>
 	  <l:context name="title">
-        <l:template name="example" text="Табл. %n. %t"/>
+        <l:template name="example" text="Рис. %n. %t"/>
 	  </l:context>
 	  <l:context name="xref-number">
-	    <l:template name="example" text="Табл. %n"/>
+	    <l:template name="example" text="Рис. %n"/>
 	  </l:context>
 	  <l:context name="xref-number-and-title">
-	    <l:template name="example" text="Табл. %n"/>
+	    <l:template name="example" text="Рис. %n"/>
 	  </l:context>
 
 	</l:l10n>
