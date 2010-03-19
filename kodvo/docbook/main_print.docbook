@@ -10,6 +10,7 @@
 
   <!ENTITY vvedenie SYSTEM "vvedenie.docbook">
 
+  <!ENTITY c1_1 SYSTEM "c1_1.docbook">
   <!ENTITY c1_1_1 SYSTEM "c1_1_1.docbook">
   <!ENTITY c1_1_2 SYSTEM "c1_1_2.docbook">
   <!ENTITY c1_1_3 SYSTEM "c1_1_3.docbook">
@@ -19,6 +20,7 @@
   <!ENTITY c1_3_1 SYSTEM "c1_3_1.docbook">
   <!ENTITY c1_3_2 SYSTEM "c1_3_2.docbook">
   <!ENTITY c1_3_3 SYSTEM "c1_3_3.docbook">
+  <!ENTITY c1_4 SYSTEM "c1_4.docbook">
   <!ENTITY c1_4_1 SYSTEM "c1_4_1.docbook">
   <!ENTITY c1_4_2 SYSTEM "c1_4_2.docbook">
   <!ENTITY c1_4_3 SYSTEM "c1_4_3.docbook">
@@ -74,14 +76,14 @@
 <date>Москва, 1959</date>
 
 <dedication>
-<para>Столетнему юбилею со дня выхода в свет книги Чарльза Дарвина<quote>Происхождение видов</quote>
+<para>Столетнему юбилею со дня выхода в свет книги Чарльза Дарвина <quote>Происхождение видов</quote>
 посвящает свой труд автор.</para>
 </dedication>
 
 <preface id="vvedenie"><title>Введение</title>&vvedenie;</preface>
 
 <part id="p1"><title>Предметная деятельность шимпанзе в условиях свободного манипулирования различными материалами</title>
-<chapter id="c1_1"><title>Биологические данные о шимпанзе. Образ жизни шимпанзе на воле.</title>
+<chapter id="c1_1"><title>Биологические данные о шимпанзе. Образ жизни шимпанзе на воле.</title>&c1_1;
   <sect1 id="c1_1_1"><title>Анализаторы шимпанзе</title>&c1_1_1;</sect1>
   <sect1 id="c1_1_2"><title>Характеристика подопытного животного</title>&c1_1_2;</sect1>
   <sect1 id="c1_1_3"><title>Методика работы</title>&c1_1_3;</sect1>
@@ -96,7 +98,7 @@
   <sect1 id="c1_3_2"><title>Пластичность инстинктивной гнездостроительной деятельности шимпанзе</title>&c1_3_2;</sect1>
   <sect1 id="c1_3_3"><title>Участие различных анализаторов при оперировании шимпанзе гнездостроительным материалом</title>&c1_3_3;</sect1>
 </chapter>
-<chapter id="c1_4"><title>Формы деятельности шимпанзе при оперировании хвойными растениями</title>
+<chapter id="c1_4"><title>Формы деятельности шимпанзе при оперировании хвойными растениями</title>&c1_4;
   <sect1 id="c1_4_1"><title>Анализ ориентировочно-обследующей, ознакомительной формы деятельности</title>&c1_4_1;</sect1>
   <sect1 id="c1_4_2"><title>Анализ обрабатывающей формы деятельности</title>&c1_4_2;</sect1>
   <sect1 id="c1_4_3"><title>Анализ конструктивной формы деятельности</title>&c1_4_3;</sect1>
@@ -144,7 +146,7 @@
 <chapter id="c3_5"><title>Исследования интеллекта антропоидов И. П. Павловым и его сотрудниками и сопоставление их выводов с выводами данного исследования</title>&c3_5;</chapter>
 </part>
 
-<part id="p4"><title>Заключение</title>&zaklyuchenie;</part>
+<chapter><title>Заключение</title>&zaklyuchenie;</chapter>
 
 <appendix><title>Протоколы опытов</title>&protocols;</appendix>
 <appendix><title>Библиография</title>&bibliography;</appendix>

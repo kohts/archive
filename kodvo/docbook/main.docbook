@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
@@ -76,7 +76,7 @@
 <date>Москва, 1959</date>
 
 <dedication>
-<para>Столетнему юбилею со дня выхода в свет книги Чарльза Дарвина<quote>Происхождение видов</quote>
+<para>Столетнему юбилею со дня выхода в свет книги Чарльза Дарвина <quote>Происхождение видов</quote>
 посвящает свой труд автор.</para>
 </dedication>
 
@@ -146,10 +146,10 @@
 <chapter id="c3_5"><title>Исследования интеллекта антропоидов И. П. Павловым и его сотрудниками и сопоставление их выводов с выводами данного исследования</title>&c3_5;</chapter>
 </part>
 
-<part id="p4"><title>Заключение</title>&zaklyuchenie;</part>
+<chapter><title>Заключение</title>&zaklyuchenie;</chapter>
 
 <appendix><title>Протоколы опытов</title>&protocols;</appendix>
-<appendix><title>Библиография</title>&bibliography;</appendix>
+<appendix id='bibliography' xreflabel='Библиография'><title>Библиография</title>&bibliography;</appendix>
 
 <appendix><title>Приложения к электронному изданию</title>
   <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1>
