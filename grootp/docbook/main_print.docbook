@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY liniya "
+<informaltable frame='none' pgwide='1'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry><para>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
+</tgroup></informaltable>
+ ">
+  
+   <!ENTITY grootp SYSTEM "grootp.docbook">
+   <!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
+]>
+
+<book id="kohts-menzbir-1937" lang="ru">
+
+<title>О гомологических рядах в окраске оперения Tetraonidae и Phasianidae</title>
+<subtitle>из книги "Памяти академика М. А. Мензбира"</subtitle>
+
+<bookinfo>
+<author>
+<firstname>А.</firstname>
+<othername>Ф.</othername>
+<surname>Котс</surname>
+</author>
+</bookinfo>
+<date>Москва &#8212; 1937</date>
+
+<article>
+<title>О гомологических рядах в окраске оперения Tetraonidae и Phasianidae</title>
+&grootp;
+</article>
+
+<appendix><title>Подготовка электронного издания</title>&electronic_edition;
+</appendix>
+
+</book>

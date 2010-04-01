@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY liniya "
+<informaltable frame='none' pgwide='1'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry><para>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
+</tgroup></informaltable>
+ ">
+
+  <!ENTITY vvedenie SYSTEM "vvedenie.docbook">
+  <!ENTITY c1 SYSTEM "c1.docbook">
+  <!ENTITY c1_1 SYSTEM "c1_1.docbook">
+  <!ENTITY c1_2 SYSTEM "c1_2.docbook">
+  <!ENTITY c1_2_1 SYSTEM "c1_2_1.docbook">
+  <!ENTITY c1_2_2 SYSTEM "c1_2_2.docbook">
+  <!ENTITY c1_2_3 SYSTEM "c1_2_3.docbook">
+  <!ENTITY c2 SYSTEM "c2.docbook">
+  <!ENTITY c2_1 SYSTEM "c2_1.docbook">
+  <!ENTITY c2_2 SYSTEM "c2_2.docbook">
+  <!ENTITY c2_3 SYSTEM "c2_3.docbook">
+  <!ENTITY c2_4 SYSTEM "c2_4.docbook">
+  <!ENTITY c2_5 SYSTEM "c2_5.docbook">
+  <!ENTITY c3 SYSTEM "c3.docbook">
+  <!ENTITY c3_1 SYSTEM "c3_1.docbook">
+  <!ENTITY c3_2 SYSTEM "c3_2.docbook">
+  <!ENTITY c3_3 SYSTEM "c3_3.docbook">
+  <!ENTITY c3_3_1 SYSTEM "c3_3_1.docbook">
+  <!ENTITY c3_3_2 SYSTEM "c3_3_2.docbook">
+  <!ENTITY c3_4 SYSTEM "c3_4.docbook">
+  <!ENTITY zaklyuchenie SYSTEM "zaklyuchenie.docbook">
+  <!ENTITY bibliography SYSTEM "bibliography.docbook">
+  <!ENTITY vyhodnye_dannye SYSTEM "vyhodnye_dannye.docbook">
+  <!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
+ 
+  ]>
+
+<book id="ladygina-kohts-rppeo" lang="ru">
+
+<title>Развитие психики в процессе эволюции организмов</title>
+
+<bookinfo>
+<author>
+<firstname>Надежда</firstname>
+<othername>Николаевна</othername>
+<surname>Ладыгина-Котс</surname>
+</author>
+</bookinfo>
+<date>Москва, 1958</date>
+
+<preface id="vvedenie"><title>Введение</title>&vvedenie;</preface>
+
+<chapter id="c1"><title>Особенности поведения беспозвоночных</title>&c1;
+  <sect1 id="c1_1"><title>Одноклеточные организмы</title>&c1_1;</sect1>
+  <sect1 id="c1_2"><title>Многоклеточные организмы</title>&c1_2;
+    <sect2 id='c1_2_1'><title>Кишечнополостные</title>&c1_2_1;</sect2>
+    <sect2 id='c1_2_2'><title>Черви</title>&c1_2_2;</sect2>
+    <sect2 id='c1_2_3'><title>Членистоногие</title>&c1_2_3;</sect2>
+  </sect1>
+</chapter>
+<chapter id="c2"><title>Особенности поведения позвоночных (до приматов)</title>&c2;
+  <sect1 id="c2_1"><title>Рыбы</title>&c2_1;</sect1>
+  <sect1 id="c2_2"><title>Земноводные</title>&c2_2;</sect1>
+  <sect1 id="c2_3"><title>Пресмыкающиеся</title>&c2_3;</sect1>
+  <sect1 id="c2_4"><title>Птицы</title>&c2_4;</sect1>
+  <sect1 id="c2_5"><title>Млекопитающие (до приматов)</title>&c2_5;</sect1>
+</chapter>
+<chapter id="c3"><title>Особенности поведения приматов</title>&c3;
+  <sect1 id="c3_1"><title>Рецепция обезьян и свойства их нервных процессов</title>&c3_1;</sect1>
+  <sect1 id="c3_2"><title>Формы деятельности обезьян</title>&c3_2;</sect1>
+  <sect1 id="c3_3"><title>Экспериментальное исследование деятельности обезьян при использовании орудий</title>&c3_3;
+    <sect2 id='c3_3_1'><title>Эксперименты с низшими обезьянами</title>&c3_3_1;</sect2>
+    <sect2 id='c3_3_2'><title>Эксперименты с высшими обезьянами</title>&c3_3_2;</sect2>
+  </sect1>
+  <sect1 id="c3_4"><title>Голосовые сигналы высших обезьян и анализ условных реакций животных на звуки голоса</title>&c3_4;</sect1>
+</chapter>
+
+<chapter><title>Заключение</title>&zaklyuchenie;</chapter>
+<appendix id='bibliography' xreflabel='Библиография'><title>Литература</title>&bibliography;</appendix>
+
+<appendix><title>Приложения к электронному изданию</title>
+  <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1>
+  <?page-break?>
+  <sect1><title>Подготовка электронного издания</title>&electronic_edition;</sect1>
+</appendix>
+
+</book>
