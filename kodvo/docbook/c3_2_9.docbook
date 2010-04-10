@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 При резком изменении условий опытов, когда заложенный в трубу сверток 
 обвязывали веревкой (оп. 180)
 <footnote><para>
@@ -219,6 +219,22 @@ role="bold">замечал</emphasis> в центре ее круглое отв
 притягивания приманки из трубы, закрытой с одного конца, шимпанзе, лишь 
 наметив употребление крюка, отменяет действие им.
 </para>
+
+<figure id="picture68">
+  <title>Оперирование палкой с крюком на ее конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture68.jpg">
+    <imageobject><imagedata fileref="images/html/picture68.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture68.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+<simplelist>
+<member>а &#8212; всовывание прямого конца палки в трубу</member>
+<member>б &#8212; расщепление палки и отчленение крюка</member>
+</simplelist>
+</para></textobject></mediaobject>  
+</figure>
 
 <para>При вторичном предложении закрытой с одного конца трубы и неудаче в доставании свертка шимпанзе уже не проталкивает сверток, а притягивает его из отверстия трубы к себе, но не крюком, а обломками прямой палки (оп. 666).</para>
 

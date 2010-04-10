@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 При анализе употребления составного орудия из двух-трех-четырех-пяти 
 элементов было установлено, что после разъединения орудия шимпанзе иногда 
 обнаруживал тенденцию воссоединения разрозненных частей и редко, но все же 
@@ -130,6 +130,30 @@ role="bold">отсутствии</emphasis> трубы со свертком) о
 распаду соединяемых частей орудия, и шимпанзе но возобновляет соединение, а 
 применяет при доставании из трубы приманки единичные предметы и палец.
 </para>
+
+<figure id="picture65">
+  <title>График решения обезьяной задач на составление и употребления орудия</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture65.jpg">
+    <imageobject><imagedata fileref="images/html/picture65.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture65.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+<simplelist>
+<member>-2. Использование элементов, данных для составления, порознь (отсутствие составления)</member>
+<member>-1. Самостоятельное соединение и разъединение элементов (употребление их порознь)</member>
+<member>+1. Самостоятельное соединение элементов без их использования (упражнение)</member>
+<member>+2. Самостоятельное соединение элементов при отсутствии трубы с приманкой;
+неудачное использование составленного при предъявлении трубы</member>
+<member>+3. Самостоятельное соединение элементов при отсутствии трубы с приманкой;
+удачное использование составленного при предъявлении трубы</member>
+<member>+4. Самостоятельное соединение элементов при наличии трубы с приманкой
+и удачное использование составленного</member>
+<member>Цифры 1&#8212;104 по горизонтали означают номера опытов</member>
+</simplelist>
+</para></textobject></mediaobject>  
+</figure>
 
 <para>
 Шимпанзе в этом первом опыте как бы направленного составления, получив 
@@ -718,6 +742,23 @@ role="bold">опосредованном значении</emphasis> по отн
 linkend="picture66" />, а &mdash; б).
 </para>
 
+<figure id="picture66">
+  <title>Оперирование со связанными палками</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture66.jpg">
+    <imageobject><imagedata fileref="images/html/picture66.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture66.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+<simplelist>
+<member>а &#8212; вмещение в трубу связанных палок</member>
+<member>б &#8212; вынимание палок и попытки их развязывания зубами</member>
+<member>в &#8212; развязывание палок руками</member>
+</simplelist>
+</para></textobject></mediaobject>  
+</figure>
+
 <para>
 Несмотря на то, что в игровой, процессуальной деятельности шимпанзе очень 
 часто обвязывает два взятые в руку предмета, а еще чаще он крепко завязывает 
@@ -727,6 +768,22 @@ linkend="picture66" />, а &mdash; б).
 коротких элементов длинного составного орудия обезьяна этого скрепления не 
 производит.
 </para>
+
+<figure id="picture67">
+  <title>Оперирование со связанными палками</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture67.jpg">
+    <imageobject><imagedata fileref="images/html/picture67.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture67.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+<simplelist>
+<member>а &#8212; стаскивание завязок зубами</member>
+<member>б &#8212; оттягивание завязок пальцами</member>
+</simplelist>
+</para></textobject></mediaobject>  
+</figure>
 
 <para>
 Парис то применяет грубые попытки разрушения трубы со свертком (оп. 634, 

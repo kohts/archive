@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 Процесс гнездостроения обычно распадался на три главных акта:
 <orderedlist>
 <listitem><para>взятие материала,</para></listitem>
@@ -47,6 +47,64 @@
 материалы, предложенные в малом количестве и объеме, не вызывали скорого 
 включения в гнездостроение.
 </para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="picture9">
+  <title>Перенос веток ели</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture9.jpg">
+    <imageobject><imagedata fileref="images/html/picture9.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture9.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="picture10">
+  <title>Перенос веток ивы</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture10.jpg">
+    <imageobject><imagedata fileref="images/html/picture10.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture10.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+<row>
+  <entry>
+<figure id="picture11">
+  <title>Перенос пучка древесных стружек</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture11.jpg">
+    <imageobject><imagedata fileref="images/html/picture11.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture11.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="picture12">
+  <title>Перенос листа фанеры</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture12.jpg">
+    <imageobject><imagedata fileref="images/html/picture12.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture12.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 
 <para>
 Характерна реакция Париса на однообразный, повторно предлагаемый 
@@ -125,6 +183,24 @@
 кормежки и впоследствии стал переносить ее с места на место, всякий раз 
 садясь на нее, а не на голый пол.
 </para>
+
+<figure id="picture13">
+  <title>Оперирование шимпанзе с рулоном проклеенной бумаги</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture13.jpg">
+    <imageobject><imagedata fileref="images/html/picture13.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture13.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+<simplelist>
+<member>а &#8212; взятие рулона в зубы</member>
+<member>б &#8212; разматывание рулона руками</member>
+<member>в &#8212; оттягивание разматываемой ленты</member>
+<member>г &#8212; дальнейшее разматывание</member>
+</simplelist>
+</para></textobject></mediaobject>  
+</figure>
 
 <para>
 Заполучив знакомый, привычный материал, шимпанзе тотчас же направлялся с 
@@ -207,6 +283,39 @@ linkend="picture14" />). Наибольшая масса ветвей лежал
 центру.
 </para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="picture14">
+  <title>Шимпанзе, сидящий на гнезде из веток</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture14.jpg">
+    <imageobject><imagedata fileref="images/html/picture14.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture14.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="picture15">
+  <title>Шимпанзе, лежащий на гнезде из веток</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture15.jpg">
+    <imageobject><imagedata fileref="images/html/picture15.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture15.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>
 Предложенный Парису материал других лиственных деревьев &mdash; ясеня и 
 вяза &mdash; он точно так же использовал в гнездостроении, выбирая из двух 
@@ -241,6 +350,16 @@ linkend="picture14" />). Наибольшая масса ветвей лежал
 гнездовом углу, ломая кустики ели и раскладывая их вокруг себя.
 </para>
 
+<figure id="picture16">
+  <title>Гнездовое окружение из веток сосны и ели</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture16.jpg">
+    <imageobject><imagedata fileref="images/html/picture16.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture16.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Такая же картина наблюдалась и в отношении больших ветвей сосны. Только 
 после различных ознакомительных приемов, направленных на обследование игл 
@@ -274,6 +393,16 @@ linkend="picture16" />).
 <para>Получив другой материал &mdash; охапку сухих листьев, Парис положил их на пол и сел на них, как на настил.</para>
 
 <para>Парису предложили связанный пучок соломы; обезьяна его развязала, растрепала и также использовала как материал, пригодный для окружения; вытащив пучки соломинок, Парис, сев в угол, расположил их вокруг себя.</para>
+
+<figure id="picture17">
+  <title>Гнездо из древесных стружек</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture17.jpg">
+    <imageobject><imagedata fileref="images/html/picture17.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture17.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 Вновь предложенный материал &mdash; древесные стружки &mdash; Парис 
@@ -394,6 +523,23 @@ linkend="picture18" />, а&mdash;в). Но он не оставался долг
 наклонившись, пристально рассматривал их.
 </para>
 
+<figure id="picture18">
+  <title>Конструирование гнезда из бумаги</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture18.jpg">
+    <imageobject><imagedata fileref="images/html/picture18.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture18.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+<simplelist>
+<member>а &#8212; разрывание бумаги</member>
+<member>б &#8212; укладывание бумаги</member>
+<member>в &#8212; укрывание ног бумагой</member>
+</simplelist>
+</para></textobject></mediaobject>  
+</figure>
+
 <para>
 Иногда он уходил из гнездового угла, но оставшуюся неразобранной часть 
 книги он брал с собой и на новом месте продолжал расчленять книгу дальше, но 
@@ -428,6 +574,16 @@ linkend="picture18" />, а&mdash;в). Но он не оставался долг
 расположил их посредине клетки, очень близко один возле другого. Сначала он 
 сел на них, потом лег и, повалявшись, опять сел.
 </para>
+
+<figure id="picture19">
+  <title>Шимпанзе, сидящий на гнезде из картона</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture19.jpg">
+    <imageobject><imagedata fileref="images/html/picture19.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture19.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 Теперь только он стал пытаться завертывать к себе внутрь выступающий угол 
@@ -466,6 +622,22 @@ linkend="picture12" />), потом, взяв в зубы, пробовал гр
 </para>
 
 <para>Опять не добившись успеха, Парис встал и, ухватив край листа, с силой сгибал его; нажимая на него двумя руками и ногой, он в конце концов переломил фанеру на два куска.</para>
+
+<figure id="picture20">
+  <title>Оперирование шимпанзе с фанерой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture20.jpg">
+    <imageobject><imagedata fileref="images/html/picture20.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture20.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+<simplelist>
+<member>а &#8212; опробование фанеры тыльной частью кисти</member>
+<member>б &#8212; сгибание фанеры</member>
+</simplelist>
+</para></textobject></mediaobject>  
+</figure>
 
 <para>
 Но на этом он не остановился. Взяв один из сломанных кусков и согнув фанеру 
@@ -511,6 +683,22 @@ linkend="picture12" />), потом, взяв в зубы, пробовал гр
 пол оставшуюся цельную часть парусины, сел в центре ее, со всех сторон 
 окружая себя, как каймой, оторванным лоскутом.
 </para>
+
+<figure id="picture21">
+  <title>Освоение гнезд-настилов из ткани</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture21.jpg">
+    <imageobject><imagedata fileref="images/html/picture21.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture21.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+<simplelist>
+<member>а &#8212; шимпанзе, сидящий в гнезде из ткани</member>
+<member>б &#8212; шимпанзе, лежащий на настиле из ткани</member>
+</simplelist>
+</para></textobject></mediaobject>  
+</figure>
 
 <para>
 Иногда конструктивно-гнездовое использование ткани бывало еще более 
@@ -616,6 +804,39 @@ linkend="picture12" />), потом, взяв в зубы, пробовал гр
 опять делал около себя окружение из веревки.
 </para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="picture22">
+  <title>Кольцевое окружение из веревки</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture22.jpg">
+    <imageobject><imagedata fileref="images/html/picture22.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture22.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="picture23">
+  <title>Окружение из ветки ивы</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture23.jpg">
+    <imageobject><imagedata fileref="images/html/picture23.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture23.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>
 Сделав из веревки не объемное (как из других материалов &mdash; ветвей, 
 древесины, бумаги), а только линейное окружение в гнездовом углу, Парис не 
@@ -659,6 +880,16 @@ linkend="picture12" />), потом, взяв в зубы, пробовал гр
 зернышку или орешку.
 </para>
 
+<figure id="picture24">
+  <title>Окружениеиз кусков картона</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture24.jpg">
+    <imageobject><imagedata fileref="images/html/picture24.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture24.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para id='str46' xreflabel='стр. 46'>Иногда Парис делал линейное гнездовое окружение из куска ткани, которую он клал по круговой линии, а сам садился и затем ложился посредине на полу.</para>
 
 <para>
@@ -693,6 +924,39 @@ linkend="picture12" />), потом, взяв в зубы, пробовал гр
 прерывала это его занятие, после чего он опять принимался за настойчивое 
 развязывание.
 </para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="picture25">
+  <title>Деконструирование бумажного обруча</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture25.jpg">
+    <imageobject><imagedata fileref="images/html/picture25.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture25.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="picture26">
+  <title>Деконструирование картонного диска</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture26.jpg">
+    <imageobject><imagedata fileref="images/html/picture26.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture26.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>
 Когда ему удалось в одном месте разорвать и растянуть круг, то и 

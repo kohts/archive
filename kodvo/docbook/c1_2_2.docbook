@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 При одновременном предъявлении разнообразного гнездостроительного 
 материала или при наличии его в клетке шимпанзе нередко конструировал 
 сложное гнездо, вовлекая в стройку самый различный материал. Так, однажды, 
@@ -86,6 +86,39 @@
 парусину, стеля ее на пол в гнездовом углу, подвертывая к ногам, садясь на нее, 
 повторно беря в руки и отбрасывая от себя близлежащие стружки.
 </para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="picture27">
+  <title>Двухслойное гнездо из сена (внизу) и бумаги (наверху)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture27.jpg">
+    <imageobject><imagedata fileref="images/html/picture27.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture27.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="picture28">
+  <title>Двухслойное гнездо из прутьев (внизу) и бумаги (наверху)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture28.jpg">
+    <imageobject><imagedata fileref="images/html/picture28.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture28.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>
 Замечалось, что более мягкий материал Парис обычно располагал ближе к себе, 
