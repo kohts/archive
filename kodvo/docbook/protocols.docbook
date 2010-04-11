@@ -1,5 +1,5 @@
-<sect2>
-<title>Занятие 8-е</title><subtitle>(7 июля 1946 г.)</subtitle>
+<sect1>
+<title>Занятие 8-е, 7 июля 1946 г.</title>
 
 <para>
 Методика опытов на употребление орудия: приманка (сверток &mdash; кусок 
@@ -48,10 +48,10 @@
 просовывает ее в трубу; хотя при вталкивании палочка ломается, тем не менее 
 Парис выталкивает сверток.
 </para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 9-е</title><subtitle>(16 июля 1946 г.)</subtitle>
+<sect1>
+<title>Занятие 9-е, 16 июля 1946 г.</title>
 
 <para>
 В этом занятии методика исследования способности шимпанзе к употреблению 
@@ -66,6 +66,16 @@
 
 <para>Парис использует в качестве орудия доставания лежащие поблизости прутики.</para>
 
+<figure id="ppicture1">
+  <title>Ветвистый тонкий прутик</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture1.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture1.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture1.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Сначала он берет один тонкий ветвистый прутик (<xref linkend="ppicture1" />) и 
 сует его в трубу, но, по-видимому, ощущая его гибкость, а вследствие этого и 
@@ -75,6 +85,16 @@
 </para>
 
 <para>Тогда ему предлагают более соответственное орудие доставания &mdash; несколько изогнутый на конце прут длиной 70 см (оп. 34, <xref linkend="ppicture2" />).</para>
+
+<figure id="ppicture2">
+  <title>Изогнутый прут</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture2.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture2.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture2.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 Взяв прут в руки, упирая один конец трубы в пол, зажав в трубу в ноге, Парис 
@@ -89,6 +109,39 @@
 плотно обертывается на всем протяжении полоской белой бумаги, 
 затрудняющей ее вставление в трубу.
 </para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture3">
+  <title>Палка, завернутая в бумагу</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture3.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture3.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture3.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture4">
+  <title>Палка, завернутая на конце в бумагу</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture4.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture4.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture4.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>
 Взяв в руки трубу и орудие, Парис прежде всего освобождает от бумаги палку и 
@@ -161,6 +214,39 @@
 
 <para>В оп. 40 (<xref linkend="ppicture5" />) в качестве орудия дастся прут еще более сложно разветвленный (длина ветки &mdash; 70 см, ширина ветвления &mdash; 53 см).</para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture5">
+  <title>Ветвистый прутик</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture5.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture5.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture5.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture6">
+  <title>Слабо ветвистый прутик</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture6.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture6.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture6.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>
 Взяв этот прут, Парис сразу ломает всю ветвящуюся его часть, но тогда при 
 всовывании прута в трубу оказывается, что оставшаяся прямая часть прута 
@@ -187,9 +273,29 @@
 концом.
 </para>
 
+<figure id="ppicture7">
+  <title>Ветвистый прутик</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture7.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture7.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture7.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>Парис сразу обрывает две нижние ветки, приближая к отверстию трубы верхушечный метельчатый конец прута, но не вставляет его, а ломает метелку и другим, прямым нижним концом прута проталкивает сверток из трубы наружу.</para>
 
 <para>В оп. 43 (<xref linkend="ppicture8" />) даваемый шимпанзе прутик с двумя отростками обязательно должен быть обработан прежде, чем его употребить.</para>
+
+<figure id="ppicture8">
+  <title>Прут с длинными отростками</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture8.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture8.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture8.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 Шимпанзе сразу отделяет конец одного из отростков; но тот оказывается 
@@ -224,6 +330,16 @@
 успешно употребляет.
 </para>
 
+<figure id="ppicture9">
+  <title>Резко искривленная толстая палка</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture9.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture9.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture9.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>В оп. 47 (<xref linkend="ppicture9" />) Парису дается в качестве орудия очень большая (72 см) дважды резко искривленная палка с четырьмя отростками, ни одной своей частью негодная к употреблению без обработки.</para>
 
 <para>
@@ -245,6 +361,16 @@
 не может вытолкнуть им сверток. Тогда Парис заменяет этот отрезок другим, 
 более длинным, которым и выталкивает сверток из трубы.
 </para>
+
+<figure id="ppicture10">
+  <title>Сложно разветвленная ветка</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture10.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture10.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture10.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 В оп. 49 (<xref linkend="ppicture10" />) дается еще более сложно разветвленная 
@@ -275,10 +401,10 @@
 снимает завязку, разнимает палки, но не использует их, а берет лежащую 
 поблизости палку, которую я употребляет успешно для проталкивания свертка.
 </para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 10</title><subtitle>(20 июля 1946 г.)</subtitle>
+<sect1>
+<title>Занятие 10-е, 20 июля 1946 г.</title>
 
 <para>
 В настоящем занятии (осуществленном через 4 дня после 9-го) Парису 
@@ -319,6 +445,39 @@
 
 <para>В оп. 53 (<xref linkend="ppicture11" />) в качестве орудия Парису предлагается прямая проволока, один конец которой загнут петлей.</para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture11">
+  <title>Проволока с петлей на конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture11.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture11.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture11.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture12">
+  <title>Прямая проволока с загибом</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture12.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture12.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture12.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>Шимпанзе, взяв в руку проволоку, держа ее за петлю, сразу проталкивает в трубу ее прямой конец, потом разгибает петлю, выталкивает сверток до конца трубы и вытягивает его.</para>
 
 <para>В оп. 54 в качестве орудия доставания также предлагается проволока, но она изогнута на одном из концов под прямым углом и ее загиб (в виде буквы Г) шире просвета трубы (<xref linkend="ppicture12" />).</para>
@@ -334,6 +493,16 @@
 </para>
 
 <para>В оп. 55 предлагаемое шимпанзе орудие совершенно не может быть употреблено без обработки; оба конца проволоки загнуты под прямым углом к основной, прямой ее части (<xref linkend="ppicture13" />).</para>
+
+<figure id="ppicture13">
+  <title>Проволока с двумя загибами</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture13.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture13.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture13.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>Парис, взяв проволоку в руку, сразу разгибает ее с одного конца, по распрямляет лишь частично.</para>
 
@@ -367,6 +536,39 @@
 <para>Окончательно не расправив проволоку, он все же достает сверток с ближнего к себе конца трубы, употребив для этого нераспрямленный загнутый конец проволоки и притянув им сверток к себе.</para>
 
 <para>В оп. 56 (<xref linkend="ppicture14" />) в качестве орудия доставания предлагается тонкая, длинная, петлеобразно согнутая проволока; она, как и в предыдущих случаях, сразу до опыта вставления в трубу расправляется Парисом.</para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture14">
+  <title>Петлеобразно изогнутая тонкая проволока</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture14.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture14.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture14.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture15">
+  <title>Виток проволоки</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture15.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture15.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture15.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>
 Это расправление &mdash; прием новый по сравнению с применявшимся в 
@@ -432,6 +634,16 @@
 себя конца трубы, шимпанзе проталкивает ее и вынимает зубами 
 приблизившийся к краю отверстия трубы сверток.
 </para>
+
+<figure id="ppicture16">
+  <title>Широкая проволочная петля</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture16.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture16.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture16.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>Столь продолжительная работа явно утомляет шимпанзе; развернув сверток и съев лакомство, Парис уходит в дальний угол клетки, ложится там и захваченной с собой проволокой начинает опутывать свои ноги.</para>
 
@@ -513,6 +725,16 @@
 (<xref linkend="ppicture17" />).
 </para>
 
+<figure id="ppicture17">
+  <title>Двойная петля из проволоки</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture17.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture17.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture17.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>Парис, взяв проволоку в руки, немедленно разгибает ее, но не до конца. Тем не менее он тотчас же пытается вставлять ее то с одного, то с другого конца трубы.</para>
 
 <para>
@@ -547,10 +769,10 @@
 проволоку внутрь, смотря в трубу с противоположного конца, и, наконец, 
 выталкивает сверток.
 </para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 11-е</title><subtitle>(22 июля 1946 г.)</subtitle>
+<sect1>
+<title>Занятие 11-е, 22 июля 1946 г.</title>
 
 <para>
 В этом занятии, осуществленном через два дня после предыдущего, при 
@@ -589,6 +811,39 @@
 просовывает до конца трубы обломанный им прямой конец и достает им 
 сверток.
 </para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture18">
+  <title>Прут с отростками на одном конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture18.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture18.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture18.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture19">
+  <title>Изогнутый на одном конце ствол дерева</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture19.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture19.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture19.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>
 В оп. 64 Парису дается довольно толстый, изогнутый на одном конце отрезок 
@@ -689,6 +944,39 @@ linkend="ppicture19" />).
 21&mdash;23 см) и могут проходить в трубу без предварительной обработки.
 </para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture20">
+  <title>Прут ветвистый на верхушке</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture20.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture20.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture20.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture21">
+  <title>Ветка с верхушечным развилком</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture21.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture21.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture21.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>Взяв эту ветвь, Парис приносит ее в то место, где лежит труба, сразу обламывает один из отростков ветки и успешно выталкивает им сверток.</para>
 
 <para>
@@ -721,10 +1009,10 @@ linkend="ppicture19" />).
 толстый для проталкивания, просовывает его в трубу и выталкивает сверток. 
 Оставшуюся ветку он обламывает, а затем играет ею.
 </para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 12-е</title><subtitle>(23 июля 1946 г.)</subtitle>
+<sect1>
+<title>Занятие 12-е, 23 июля 1946 г.</title>
 
 <para>В оп. 76 в качестве орудия предлагается небольшой, в размер трубы, железный пестик.</para>
 
@@ -890,6 +1178,39 @@ linkend="ppicture19" />).
 он проталкивает ее в железную трубу и достает сверток.
 </para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture22">
+  <title>Палка с утолщенным концом, обвернутым бумагой и сукном</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture22.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture22.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture22.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture23">
+  <title>Палка с надетой резиновой трубой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture23.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture23.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture23.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>В оп. 89 дается связка из пяти палочек (по 25 см каждая), скрепленных с двух сторон (на 2&mdash;3 см от концов) веревочками.</para>
 
 <para>
@@ -925,6 +1246,16 @@ linkend="ppicture19" />).
 легко поддается вытягиванию, он схватывает ее свободный конец зубами, 
 высвобождает, проталкивает ее в трубу и вынимает сверток.
 </para>
+
+<figure id="ppicture24">
+  <title>Связка из пяти палочек, одна из них большей длины</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture24.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture24.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture24.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 В оп. 91 дается аналогичная по форме и структуре соединения лишь более 
@@ -968,10 +1299,10 @@ linkend="ppicture19" />).
 </para>
 
 <para>Потом он подходит к трубе, лежащей поодаль, борет ее в руки; далее он отделяет часть особенно толстого стебля, лежащей в гнезде облиственной ветки, и, не обрывая листьев, запускает конец стебля в трубу и выталкивает сверток.</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 13-е</title><subtitle>(25 июля 1946 г.)</subtitle>
+<sect1>
+<title>Занятие 13-е, 25 июля 1946 г.</title>
 
 <para>
 В этой серии опытов имеется в виду повторно проанализировать способность 
@@ -1027,6 +1358,16 @@ linkend="ppicture19" />).
 полном разгибании одного из ее концов.
 </para>
 
+<figure id="ppicture25">
+  <title>Проволока с двумя концевыми загибами</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture25.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture25.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture25.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Парис не делает ни того, ни другого; он сразу засовывает один из 
 петлеобразных концов проволоки в отверстие трубы, но не проталкивает 
@@ -1056,6 +1397,16 @@ linkend="ppicture19" />).
 
 <para>В оп. 99 (<xref linkend="ppicture26" />) различие между годным и негодным к непосредственному употреблению концами орудия не столь резко, как в предыдущем опыте.</para>
 
+<figure id="ppicture26">
+  <title>Проволока с двумя загибами разной длины, направленными в разные стороны</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture26.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture26.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture26.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>На прямой проволоке один конец загнут на 2 см и легко может быть просунут в трубу; другой более длинный конец также согнут под прямым углом, но не проходит в отверстие трубы без предварительного разгибания.</para>
 
 <para>Парис не сразу отличает непригодный конец: не разгибая, он всовывает именно его в трубу, с трудом вталкивает его в трубу, но до конца пропустить не может.</para>
@@ -1079,6 +1430,16 @@ linkend="ppicture19" />).
 </para>
 
 <para>Наконец, разогнутым концом он приближает сверток к краю трубы и вытягивает его загибом неразогнутого конца.</para>
+
+<figure id="ppicture27">
+  <title>Проволока с загнутыми в разные стороны концами и с поперечиной посредине</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture27.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture27.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture27.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 В оп. 101 (<xref linkend="ppicture27" />) Парису предлагается прямая проволока, 
@@ -1143,6 +1504,39 @@ linkend="ppicture19" />).
 
 <para>В оп. 104 проволока имеет более сложную форму широкой вилки с петлей (<xref linkend="ppicture28" />).</para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture28">
+  <title>Проволока в форме вилки с петлей</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture28.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture28.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture28.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture29">
+  <title>Проволока в виде восьмерки, скрепленная в трех местах</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture29.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture29.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture29.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>Для употребления этой проволоки требуется либо сжать свободные концы; вилки до соприкосновения, либо совершенно развести их в стороны.</para>
 
 <para>
@@ -1196,6 +1590,16 @@ linkend="ppicture19" />).
 
 <para>В оп. 106 (<xref linkend="ppicture30" />) дается тоже сложно оформленная, но более легко расчленяемая петлеобразная изогнутая проволока, свободные концы которой лишь слегка прилегают одна к другой и не скреплены.</para>
 
+<figure id="ppicture30">
+  <title>Проволока, изогнутая восьмеркой, без скрепов</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture30.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture30.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture30.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>Она может быть употреблена либо при сжатии, либо при разведении свободных концов.</para>
 
 <para>Взяв эту проволоку в руки, Парис сразу растягивает и разгибает ее и свободным ее концом проталкивает наружу из трубы сверток.</para>
@@ -1229,6 +1633,16 @@ linkend="ppicture19" />).
 </para>
 
 <para>В оп. 108 (<xref linkend="ppicture31" />) Парису предлагается плотно скрученная в плоскую спираль проволока; последний заворот проволоки слегка оттянут и является почти прямым концом.</para>
+
+<figure id="ppicture31">
+  <title>Проволока, скрученная спиралью</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture31.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture31.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture31.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 Взяв в руки трубу и проволоку, Парис тотчас отбрасывает последнюю. Он в 
@@ -1272,6 +1686,16 @@ linkend="ppicture19" />).
 может лишь несколько приблизить сверток к отверстию трубы.
 </para>
 
+<figure id="ppicture32">
+  <title>Проволока, имеющая вид креста</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture32.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture32.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture32.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para id='str331' xreflabel='стр. 331'>
 Парис сразу выделяет самый длинный конец проволоки и, не нарушая 
 крестообразную форму орудия, проталкивает именно этот конец в отверстие 
@@ -1297,6 +1721,39 @@ linkend="ppicture19" />).
 длинный отрезок Парис проталкивает в отверстие трубы, заглядывая с другой 
 стороны в отверстие трубы, и выталкивает сверток.
 </para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture33">
+  <title>Проволока с двузубцем и трезубцем на концах</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture33.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture33.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture33.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture34">
+  <title>Проволока в форме креста с крюками на концах</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture34.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture34.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture34.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>
 В оп. 112 (<xref linkend="ppicture34" />) задача для шимпанзе осложняется еще 
@@ -1331,6 +1788,16 @@ linkend="ppicture19" />).
 тогда уже окончательно откладывает трубу.
 </para>
 
+<figure id="ppicture35">
+  <title>Проволока с загибами</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture35.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture35.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture35.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Наконец, в последнем, 20-м опыте этого занятия (оп. 113) Парису дается 
 проволока, один конец которой слегка закручен, а второй чуть-чуть 
@@ -1342,10 +1809,10 @@ linkend="ppicture19" />).
 происходящему акту доставания, о проверке ею результатов своей 
 деятельности.
 </para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 14-е</title><subtitle>(27 июля 1946 г.)</subtitle>
+<sect1>
+<title>Занятие 14-е, 27 июля 1946 г.</title>
 
 <para>В новой серии опытов обезьяне были предложены в качестве орудий самые различные единичные и комплексно соединенные предметы, отличающиеся по материалу, форме и величине.</para>
 
@@ -1395,6 +1862,16 @@ linkend="ppicture19" />).
 руки и, вопреки надобности, начинает ее развязывать, издавая мыкающий звук. 
 Развязав, Парис удачно употребляет ее для проталкивания из трубы свертка.
 </para>
+
+<figure id="ppicture36">
+  <title>Три связанные вместе палки, расходящиеся на одном конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture36.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture36.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture36.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 В оп. 118 (<xref linkend="ppicture36" />) Парису снова предлагается комплекс из 
@@ -1466,6 +1943,39 @@ linkend="ppicture19" />).
 проталкивая его из трубы наружу.
 </para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture37">
+  <title>Четыре связанные палочки</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture37.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture37.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture37.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture38">
+  <title>Четыре связанные палочки</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture38.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture38.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture38.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>
 В оп. 122 Парису подается сложная фигура, состоящая из трех свободных 
 отрезков толстой проволоки (каждый длиной в 26 см), соединенных в округлый 
@@ -1476,6 +1986,16 @@ linkend="ppicture19" />).
 кругового закрепа, сует вынутый отрезок на секунду в рот, а затем вмещает его 
 в трубу и вынимает сверток.
 </para>
+
+<figure id="ppicture39">
+  <title>Три свободные проволочки, соединенные с неподвижно скрепленным остовом</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture39.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture39.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture39.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 В оп. 123 дается почти аналогичный по оформлению комплекс из пяти 
@@ -1525,10 +2045,21 @@ linkend="ppicture19" />).
 использования отбрасывает и их, снова уходит в глубь клетки, где достает 
 длинную большую палку, которую и употребляет для доставания свертка.
 </para>
-</sect2>
 
-<sect2>
-<title>Занятие 15-е</title><subtitle>(30 июля 1946 г.)</subtitle>
+<figure id="ppicture40">
+  <title>Проволочная спираль с отведенным концом</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture40.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture40.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture40.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
+</sect1>
+
+<sect1>
+<title>Занятие 15-е, 30 июля 1946 г.</title>
 
 <para>
 В оп. 129 (<xref linkend="ppicture41" />) шимпанзе дается та же труба и в 
@@ -1536,6 +2067,39 @@ linkend="ppicture19" />).
 концах которой прикреплены четыре веерообразно расходящиеся коротенькие 
 отрезка тоненькой спирально скрученной проволоки.
 </para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture41">
+  <title>Проволока с веерообразными концевыми отростками</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture41.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture41.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture41.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture42">
+  <title>Проволока с поперечиной</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture42.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture42.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture42.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>
 Взяв данный предмет в руки, шимпанзе прежде всего прикладывает его то 
@@ -1571,6 +2135,16 @@ linkend="ppicture19" />).
 кормлением).
 </para>
 
+<figure id="ppicture43">
+  <title>Проволока с двумя загибами и поперечиной</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture43.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture43.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture43.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 В оп. 132 (<xref linkend="ppicture44" />) в качестве орудия Парису предлагается 
 плоская железная палочка с семью поперечными перпендикулярно к основному 
@@ -1579,6 +2153,16 @@ linkend="ppicture19" />).
 является помехой для проталкивания предмета в трубу &mdash; все остальные 
 отрезки так коротки, что могут пройти в отверстие трубы без обработки.
 </para>
+
+<figure id="ppicture44">
+  <title>Плоская железная палочка с проволочными поперечинами</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture44.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture44.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture44.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>На этот раз шимпанзе начинает обработку не со среднего, самого длинного, а с крайнего короткого поперечного отрезка проволоки; его прежде всего Парис раскручивает, отламывает, пристально присматриваясь при этом.</para>
 
@@ -1641,6 +2225,16 @@ linkend="ppicture19" />).
 </para>
 
 <para>Без предварительной подработки все отрезки легко могут согнуться при энергичном проталкивании орудия.</para>
+
+<figure id="ppicture45">
+  <title>Деревянная палочка с проволочными поперечинами</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture45.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture45.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture45.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 Взяв орудие в руку, Парис осматривает его, издавая при этом мыкающий звук, 
@@ -1711,6 +2305,49 @@ linkend="ppicture19" />).
 конец палки и окончательно всовывает ее в трубу и достает сверток.
 </para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture46">
+  <title>Деревянная палочка, обмотанная толстой проволокой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture46.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture46.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture46.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture47">
+  <title>Деревянная палочка, на одном конце закрученная веревкой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture47.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture47.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture47.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
+<figure id="ppicture48">
+  <title>Деревянная палочка, замотанная посредине веревкой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture48.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture48.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture48.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>В оп. 138 ставится опять проверка того, в какой степени мнимые помехи будут препятствовать Парису в непосредственном употреблении им орудия.</para>
 
 <para>
@@ -1719,6 +2356,16 @@ linkend="ppicture19" />).
 концов. Безо всякой размотки палка с веревкой может быть просунута в трубу 
 для выталкивания свертка.
 </para>
+
+<figure id="ppicture49">
+  <title>Деревянная рогулька с обмоткой веревки</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture49.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture49.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture49.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 Но шимпанзе сразу обращается к разматыванию обмотки на одном конце палки 
@@ -1749,10 +2396,10 @@ linkend="ppicture19" />).
 меньшим отростком развилка), с трудом, но все же проталкивает ее и вынимает 
 сверток.
 </para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 16-е</title><subtitle>(2 августа 1946 г.)</subtitle>
+<sect1>
+<title>Занятие 16-е, 2 августа 1946 г.</title>
 
 <para>В настоящем занятии ставится серия опытов, отчасти повторяющая задания предыдущих занятий, отчасти вводящая все новые и новые предметы и их комплексы в качестве объектов, подлежащих использованию в роли орудия.</para>
 
@@ -1829,9 +2476,75 @@ linkend="ppicture19" />).
 проталкивая сверток, выводит его из трубы.
 </para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture50">
+  <title>Проволока, согнутая в узкую петлю</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture50.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture50.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture50.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture51">
+  <title>Проволока, согнутая овалообразно</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture51.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture51.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture51.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>В оп. 148 (<xref linkend="ppicture51" />) Парису дают аналогичную предыдущей только пошире растянутую овалообразную петлю из проволоки, концами закрученную, проходящую в отверстие трубы, но не достигающую свертка.</para>
 
 <para>Для успешного употребления требуется легкое сжатие боковых сторон петли, их сужение.</para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture52">
+  <title>Палочка с проволочной петлей на конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture52.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture52.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture52.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture53">
+  <title>Палочка с двумя проволочными петлями на концах</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture53.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture53.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture53.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>
 Вместо сжатия Парис и на этот раз, не примеряя петлю, начинает ее 
@@ -1885,6 +2598,16 @@ linkend="ppicture19" />).
 трубу и достает сверток.
 </para>
 
+<figure id="ppicture54">
+  <title>Палочка с обмоткой из мягкой проволоки, расходящейся на концах веером</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture54.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture54.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture54.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 В оп. 151 (<xref linkend="ppicture54" />) осложнение еще более значительно. 
 Предложенная в качестве орудия палка (длиной в 23 см) вся спирально 
@@ -1893,6 +2616,16 @@ linkend="ppicture19" />).
 могут быть согнуты путем их прижимания одного к другому или к основной 
 палке.
 </para>
+
+<figure id="ppicture55">
+  <title>Палочка с проволокой, петли которой выступают посредине</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture55.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture55.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture55.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 Парис избирает прежний путь решения задачи, &mdash; сразу же принимаясь за 
@@ -1940,6 +2673,39 @@ linkend="ppicture19" />).
 проволоку через конец палки, он смотрит на них, иногда же он разматывает, не 
 глядя, применяя обе руки, оттягивая зубами проволоку.
 </para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture56">
+  <title>Дощечка с расширением на конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture56.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture56.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture56.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture57">
+  <title>Дощечка с расширением посредине</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture57.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture57.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture57.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>
 Расправив петли и размотав довольно длинную проволоку, Парис все же 
@@ -2010,6 +2776,39 @@ linkend="ppicture19" />).
 и на этот раз удачно пропускает в отверстие трубы и достает сверток.
 </para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture58">
+  <title>Дощечка с расширениями на концах</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture58.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture58.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture58.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture59">
+  <title>Дощечка с тремя расширениями: на концах и средине</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture59.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture59.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture59.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>
 В оп. 159 (<xref linkend="ppicture60" />) Парису также дается для проталкивания 
 дощечка, но у нее расширения, расположенные на концах, имеют форму 
@@ -2017,16 +2816,26 @@ linkend="ppicture19" />).
 употребления орудия с узкого конца.
 </para>
 
+<figure id="ppicture60">
+  <title>Дощечка с треугольными концами</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture60.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture60.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture60.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Том не менее Парис не обманывается; он сразу начинает обгрызать один конец 
 (издавая при этом ухающий звук), потом пытается втолкнуть в трубу целый, 
 необгрызанный конец, но так как последний не проходит в трубу, Парис 
 подгрызает и этот конец и выталкивает им сверток.
 </para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 17-е</title><subtitle>(11 августа 1946 г.)</subtitle>
+<sect1>
+<title>Занятие 17-е, 11 августа 1946 г.</title>
 
 <para>
 В настоящем занятии проводится серия опытов, одни из которых направлены на 
@@ -2073,6 +2882,39 @@ linkend="ppicture19" />).
 мешающие проталкиванию.
 </para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture61">
+  <title>Прут с развилком</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture61.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture61.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture61.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture62">
+  <title>Прут с отростками на концах</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture62.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture62.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture62.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>
 Взяв орудие, Парис немедленно замечает поперечные выступы и обращается к 
 удалению двух из них, более длинных (в 3 и в 4 см); один он обгрызает, второй 
@@ -2080,6 +2922,16 @@ linkend="ppicture19" />).
 всовывает орудие в трубу и успешно достает сверток. Этот третий отросток сам 
 ломается при прохождении прута в трубу, зацепившись за его края.
 </para>
+
+<figure id="ppicture63">
+  <title>Прут с тремя отростками</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture63.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture63.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture63.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 В оп. 164 (<xref linkend="ppicture64" />) Парису дается большая ветка, нижний 
@@ -2089,6 +2941,16 @@ linkend="ppicture19" />).
 прямой также может быть использован для успешного проталкивания в трубу 
 как неотделенный, так и будучи отделенным от ветки.
 </para>
+
+<figure id="ppicture64">
+  <title>Прут с четырьмя отростками</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture64.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture64.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture64.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 До подачи орудия Парису дали трубу. Пока через большое отверстие ему 
@@ -2116,6 +2978,39 @@ linkend="ppicture19" />).
 сверток, не трогая и не ломая суковатой верхушки.
 </para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture65">
+  <title>Ветка ясеня с листьями</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture65.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture65.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture65.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture66">
+  <title>Две связанные палки. Одна прямая, другая с отростками</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture66.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture66.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture66.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>В оп. 166 (<xref linkend="ppicture65" />) Парису также дается длинная ветка ясеня (94 см), но облиственная, довольно разветвленная на верхушке; снизу ветка прямая (па протяжении 44 см) и пригодная для проталкивания в трубу без обработки.</para>
 
 <para>
@@ -2124,6 +3019,16 @@ linkend="ppicture19" />).
 искривленной, почти прямой палкой начинает орудовать, проталкивая ее в 
 трубу и легко доставая сверток.
 </para>
+
+<figure id="ppicture67">
+  <title>Толстый длинный прут с развилком</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture67.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture67.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture67.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 В оп. 167 также дается длинная (61 см) облиственная ветка ясеня, но на всем 
@@ -2167,6 +3072,16 @@ linkend="ppicture19" />).
 палку, запускает ее нужным концом и, хотя и ломает ее в процессе продвижения 
 в трубу, все же достает приманку.
 </para>
+
+<figure id="ppicture68">
+  <title>Палка, с двух концов обмотанная проводом</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture68.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture68.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture68.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>В оп. 170 снова предъявляется комплекс из двух палок, слегка связанных веревкой; одна из них длиной в 13 см, вторая &mdash; в 30 см; успешно может быть употреблена лишь последняя.</para>
 
@@ -2218,6 +3133,16 @@ linkend="ppicture19" />).
 концов, более распрямленный, шимпанзе вставляет в трубу и достает сверток.
 </para>
 
+<figure id="ppicture69">
+  <title>Проволока, волноообразно изогнутая и свернутая в дугу</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture69.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture69.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture69.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 В оп. 174 (<xref linkend="ppicture70" />) дается проволока (длиной в 55 см) также 
 дугообразно изогнутая, но ее свободные концы в трех предпоследних изгибах 
@@ -2238,6 +3163,39 @@ linkend="ppicture19" />).
 отталкивая его к противоположному краю трубы, и с этого конца вытягивает 
 сверток рукой.
 </para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture70">
+  <title>Провод двойной, перевитый</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture70.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture70.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture70.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture71">
+  <title>Проволока, переплетенная в трех последних изгибах</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture71.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture71.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture71.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>
 В оп. 175 (<xref linkend="ppicture71" />) дается более податливое орудие &mdash; 
@@ -2282,6 +3240,16 @@ linkend="ppicture19" />).
 
 <para>Взяв прут, шимпанзе, не ломая, осторожно проталкивает его с одного конца трубы и легко достает сверток.</para>
 
+<figure id="ppicture72">
+  <title>Провод, перевитый три раза</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture72.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture72.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture72.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>Парису вторично дается труба со свертком и тот же прут; теперь шимпанзе сразу ломает прут, отчленив от него отрезок в 25 см (на 5 см длиннее отрезка трубы) и употребляет его для доставания свертка.</para>
 
 <para>
@@ -2298,6 +3266,16 @@ linkend="ppicture19" />).
 палку, он не использует ее для доставания, а заменяет более длинной и 
 вынимает ею сверток.
 </para>
+
+<figure id="ppicture73">
+  <title>Сверток с протянутыми в отверстие трубы нитями</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture73.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture73.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture73.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 В оп. 180 (<xref linkend="ppicture73" />) постановка опыта резко изменяется по 
@@ -2330,6 +3308,39 @@ linkend="ppicture19" />).
 
 <para>Как поступает Парис при разрешении этой, совершенно новой для него задачи?</para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture74">
+  <title>Труба, замотанная поперек ниткой, и палка</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture74.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture74.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture74.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture75">
+  <title>Сверток с пропущенными сквозь трубу нитками, заканчивающийся на концах привязанными палочками</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture75.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture75.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture75.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>
 Сначала он просто тянет одну из палочек к себе, но противоположная палочка 
 не пускает. Потянув за нить, шимпанзе издает ухающий звук. Тогда он снимает 
@@ -2351,10 +3362,10 @@ linkend="ppicture19" />).
 удается, то он снова употребляет свои указательные пальцы, запустив их в оба 
 отверстия трубы и вытянув сверток.
 </para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 18-е</title><subtitle>(13 августа 1946 г.)</subtitle>
+<sect1>
+<title>Занятие 18-е, 13 августа 1946 г.</title>
 
 <para>Для выявления точности дифференцировки пригодности орудия по форме Парису даются разной формы стволы дерева.</para>
 
@@ -2385,6 +3396,16 @@ linkend="ppicture19" />).
 
 <para>В оп. 190 в качестве орудия Парису дается ствол дерева длиной в 21 см, диаметром в 3 см. Он проходит одним концом до выступов, достигая середины трубы.</para>
 
+<figure id="ppicture76">
+  <title>Отрезок ствола дерева с суками на одном конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture76.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture76.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture76.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Парис, взяв в руки ствол, запускает его сначала одним, потом другим концом, 
 но так как ствол не проходит в трубу, шимпанзе начинает зубами сдирать с него 
@@ -2401,6 +3422,16 @@ linkend="ppicture19" />).
 шимпанзе нажимает на ствол ногой, всовывает в трубу палец. Приблизив 
 сверток к краю трубы, он, наконец, вынимает сверток вторым пальцем.
 </para>
+
+<figure id="ppicture77">
+  <title>Отрезок ствола дерева с выступами на одном конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture77.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture77.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture77.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>В оп. 191 Парису дается в качестве орудия ствол дерева длиной в 21 см, диаметром в широкой части 3,25 см, в узкой &mdash; 2 см (труба диаметром в 3 см).</para>
 
@@ -2440,6 +3471,16 @@ linkend="ppicture19" />).
 клеенке, Парис выталкивает сверток.
 </para>
 
+<figure id="ppicture78">
+  <title>Труба со свертком, закрытая с одного конца клеенкой, и палка</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture78.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture78.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture78.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>В оп. 194 (<xref linkend="ppicture79" />) поданная Парису труба с двух сторон затянута марлей, широко продырявленной посредине; в качестве орудия предлагается тонкая палка.</para>
 
 <para>Парис сразу пробует всунуть палку в отверстие, но отменяет это и развязывает марлю с одного, потом с другого конца трубы. Затем он достает сверток.</para>
@@ -2453,6 +3494,39 @@ linkend="ppicture19" />).
 не мешает вставлению орудия, а потом опять всовывает проволоку в трубу и 
 выталкивает сверток.
 </para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture79">
+  <title>Труба со свертком, закрытая с двух сторон марлей, и палка</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture79.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture79.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture79.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture80">
+  <title>Труба, закрытая с одной стороны клеенкой, и проволока с петлеобразным концом</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture80.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture80.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture80.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>
 В оп. 196 то же задание ставится еще раз. И теперь Парис сразу протыкает 
@@ -2501,6 +3575,39 @@ linkend="ppicture19" />).
 зацепленную проволоку и приблизить сверток.
 </para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture81">
+  <title>Труба, опоясанная снаружи вдоль и поперек резинкой, и палка</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture81.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture81.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture81.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture82">
+  <title>Труба со свертком, прикрепленным к проволоке, на одном конце оканчивающейся пластинками</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture82.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture82.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture82.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>
 Взяв в руки трубу и палку, Парис прежде всего перебирает пластинки руками, 
 потом обращается к другому концу трубы, где проволока выступает, потом 
@@ -2548,7 +3655,17 @@ linkend="ppicture19" />).
 
 <para>Парис развязывает их. Сразу берет отрезок ткани. Картон бросает.</para>
 
-<subtitle>(Опыт не окончен).</subtitle>
+<para>(Опыт не окончен).</para>
+
+<figure id="ppicture83">
+  <title>Провод и шнур</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture83.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture83.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture83.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 В оп. 205 в качестве орудия даются связанные веревкой ремень и картонная 
@@ -2577,6 +3694,39 @@ linkend="ppicture19" />).
 
 <para>Взяв провод, Парис (издавая мыкающий звук) растягивает его двумя руками, а потом надевает его на голову. Потом он всовывает в трубу резинку, а вслед за ней и пальцы. Таким образом он приближает к себе сверток и вытаскивает его из трубы.</para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture84">
+  <title>Труба, заткнутая ватой с одного конца и перетянутая поперек резинкой, и палка</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture84.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture84.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture84.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture85">
+  <title>Труба, закрытая папиросной бумагой на концах, и проволока</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture85.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture85.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture85.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>
 В оп. 209 данную в качестве орудия закрученную резинку Парис растягивает, 
 надевает себе на голову. В трубу он всовывает палец (второй) и крутит им. 
@@ -2599,16 +3749,26 @@ linkend="ppicture19" />).
 вмещает ее в трубу и протыкает насквозь бумагу. Губами он схватывает 
 приблизившийся сверток.
 </para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 19-е</title><subtitle>(17 августа 1946 г.)</subtitle>
+<sect1>
+<title>Занятие 19-е, 17 августа 1946 г.</title>
 
 <para>Это занятие посвящено в первой части анализу оперирования шимпанзе, с составным орудием, во второй части &mdash; проверке выполнения задач, аналогичных прежним.</para>
 
 <para>В оп. 212 в качестве орудия предлагается бамбуковая палка, целая, из двух колен (длиной 35 см, диаметром в 1,5 см). Впервые дается большая металлическая труба со свертком (длиной в 30,2 см, диаметром в 3,5 см).</para>
 
 <para>Взяв трубу и бамбуковую палку, Парис сразу проталкивает последнюю в трубу и выталкивает сверток.</para>
+
+<figure id="ppicture86">
+  <title>Две бамбуковые тростинки</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture86.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture86.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture86.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 В оп. 213 (<xref linkend="ppicture86" />) в качестве орудия предлагаются порознь 
@@ -2624,6 +3784,16 @@ linkend="ppicture19" />).
 </para>
 
 <para>После перерыва (принесли еду) он все же проталкивает прежней (из оп. 212) палкой сверток, придвигает его очень близко к концу трубы и пальцем достает сверток, помогая при этом губами.</para>
+
+<figure id="ppicture87">
+  <title>Две бамбуковые тростинки, вставленные одна в другую</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture87.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture87.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture87.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 В оп. 214 (<xref linkend="ppicture87" />) в качестве орудия Парису даются две 
@@ -2655,6 +3825,39 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 вторично вставляет его в отверстие тростинки ввинчивающим движением, так 
 как отверстие довольно узкое.
 </para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture88">
+  <title>Палка прямая и полусогнутая</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture88.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture88.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture88.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture89">
+  <title>Палка с большим расширением на конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture89.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture89.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture89.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>Далее Парис опять разъединяет тростинку и прут; действует одной тростинкой, вталкивая ее в трубу. Потом он продвигает сверток в трубе, действуя одним прутом, вытягивая придвинутый к краю сверток пальцем.</para>
 
@@ -2706,6 +3909,16 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 
 <para>В оп. 221 в качестве орудия Парису дается ветка. Длина основной прямой ее части &mdash; 56 см; верхушка разветвленная; одним концом ветка может проходить в трубу беспрепятственно.</para>
 
+<figure id="ppicture90">
+  <title>Палка с развилком на одном конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture90.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture90.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture90.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>Взяв эту ветку с полузасохшими листьями. Парис сразу обламывает всю верхушку и достает сверток прямым ее стволом.</para>
 
 <para>
@@ -2726,6 +3939,16 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 Парис всовывает провод то с одного, то с другого конца трубы и при участии 
 своего указательного пальца вытаскивает сверток.
 </para>
+
+<figure id="ppicture91">
+  <title>Два свертка бумаги, один из них закручен проволокой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture91.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture91.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture91.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 В оп. 223 (<xref linkend="ppicture91" />) Парису даются два свертка бумаги; один 
@@ -2759,6 +3982,16 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 <para>В оп. 226 в качестве орудия Парису даются на выбор два предмета: провод из тонкой оголенной проволоки, длиной в 26 см и толстый шнур, длиной в 30 см.</para>
 
 <para>Взяв одновременно в руку оба предмета, Парис очень уверенно выбирает тонкую проволоку, отбрасывая шнур. Проволоку он вталкивает в трубу, помогая пальцем и вынимая сверток.</para>
+
+<figure id="ppicture92">
+  <title>Толстый шнур и провод</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture92.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture92.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture92.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>В oп. 227 Парису даются два орудия: провод длиной в 25 см, шириной в 2 см и веревка одинаковой с ним длины, ширины и того же цвета.</para>
 
@@ -2805,11 +4038,54 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 
 <para>Парис, оттянув в сторону продольную резинку с одного конца трубы, проталкивает с этого конца палку. С другого конца трубы он сдвигает резинку, но не снимает. Скоро он достает сверток, выталкивая его палкой.</para>
 
+<figure id="ppicture93">
+  <title>Две проволоки, одна из них с загибами концов, другая &#8212; с петлеобразными концами</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture93.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture93.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture93.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>В оп. 235 Парису дается труба со свертком, опоясанная накрест резинками (продольная резинка идет поверх поперечной), и палка.</para>
 
 <para>Парис сразу снимает все резинки (хотя мог бы не снимать поперечной) и проталкивает сверток из трубы наружу палкой.</para>
 
 <para>В оп. 236 (<xref linkend="ppicture95" />) Парису дается свернутый в круг провод, застегнутый на конце крючком за петельку, и труба со свертком.</para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture94">
+  <title>Металлическая труба, опоясанная накрест резинкой, и палка</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture94.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture94.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture94.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture95">
+  <title>Свернутый кольцом и застегнутый крючком за петлю провод</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture95.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture95.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture95.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>
 Взяв в руку круг, Парис прикладывает его к краю трубы (как бы пробуя или 
@@ -2818,10 +4094,10 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 петелька расцепляются, и провод расходится. Тогда Парис проталкивает его в 
 трубу одним концом и достает сверток.
 </para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 20-е</title><subtitle>(21 августа 1946 г.)</subtitle>
+<sect1>
+<title>Занятие 20-е, 21 августа 1946 г.</title>
 
 <para>Посвящено анализу оперирования шимпанзе с составным предметом, предложенным в качестве орудия.</para>
 
@@ -2865,6 +4141,16 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 </para>
 
 <para>В оп. 239 (<xref linkend="ppicture96" />) Парису снова предлагается большая труба и орудие, составленное из трех частей: металлической трубочки со вставленными в нее деревянными втулками. Общая длина всего орудия &mdash; 33,5 см.</para>
+
+<figure id="ppicture96">
+  <title>Металлическая трубочка с вставленными в нее деревянными втулками</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture96.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture96.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture96.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>Только целое орудие достает находящийся в трубе сверток. Отдельные его части порознь не достают. Но две соединенные части достают, приближая сверток к краю так, что при дополнительном употреблении пальца можно вынуть сверток.</para>
 
@@ -2913,6 +4199,16 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 трубы. Порознь каждая часть доводит его только до середины.
 </para>
 
+<figure id="ppicture97">
+  <title>Отрезок ствола ясеня с просунутым через него прутиком</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture97.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture97.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture97.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Парис развязывает проволоку, расщепляет толстую палку, еще и еще раз 
 расщепляет, потом пальцами (то вторым, то третьим) проникает в трубу. Затем 
@@ -2922,6 +4218,39 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 </para>
 
 <para>Тогда ему дается в помощь щепка (короткая, широкая, не проходящая в трубу, требующая предварительной обработки).</para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture98">
+  <title>Ствол ясеня со вставленной в него с одной стороны палочкой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture98.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture98.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture98.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture99">
+  <title>Палка с расщепом и вклиненной в него другой палкой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture99.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture99.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture99.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>Взяв щепку в руки, Парис не пробует всунуть ее в трубу и не обрабатывает, а запускает в трубу ранее снятую проволочку и ею выталкивает сверток.</para>
 
@@ -2942,6 +4271,16 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 быть лишь оба вместе. Общая длина орудия 30 см.
 </para>
 
+<figure id="ppicture100">
+  <title>Два связанных проволокой прута</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture100.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture100.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture100.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Парис сразу начинает развязывать проволоку. Потом с одного и с другого конца 
 трубы всовывает освобожденные прутики; вслед за тем смотрит в трубу. Далее 
@@ -2960,7 +4299,50 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 трубу со свертком. 
 </para>
 
+<figure id="ppicture101">
+  <title>Три скрепленных проволокой прутика</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture101.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture101.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture101.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>В оп. 248 Парису в качестве орудия на выбор даются три палочки одинакового диаметра (l см), но разной длины (32; 17,5 и 11,5 см) и формы (более и менее прямые).</para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture102">
+  <title>Две палки: прямая и искривленная</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture102.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture102.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture102.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture103">
+  <title>Закрученный провод с петлями разной ширины</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture103.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture103.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture103.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>Парис сразу выбирает самую прямую и длинную палку и ею легко достает сверток.</para>
 
@@ -2994,10 +4376,10 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 <para>В оп. 252б еще раз дается то же орудие.</para>
 
 <para>Парис пробует приложить к отверстию трубы его широкий конец. Потом делает кратковременную попытку размотать проволоку, останавливается. Затем всовывает его узким концом в трубу, вынимая сверток.</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 21-е</title><subtitle>(23 августа 1946 г.)</subtitle>
+<sect1>
+<title>Занятие 21-е, 23 августа 1946 г.</title>
 
 <para>В этом занятии ставится проверка употребления Парисом составных орудий.</para>
 
@@ -3232,10 +4614,10 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 второй, три раза третий, второй, третий, три раза второй. Наконец, губами 
 вынимает приблизившийся к краю трубы сверток.
 </para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 22-е</title><subtitle>(27 августа 1946 г.)</subtitle>
+<sect1>
+<title>Занятие 22-е, 27 августа 1946 г.</title>
 
 <para>В первых шести опытах этого занятия проверяется способность шимпанзе оперировать составным орудием и составлять орудие, в последующих &mdash; вариация тех же опытов.</para>
 
@@ -3246,6 +4628,16 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 &mdash; 11,5 см), выступающей из нее на 10 см. Орудие подается в 
 соединенном виде.
 </para>
+
+<figure id="ppicture104">
+  <title>Медная трубочка с деревянной втулкой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture104.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture104.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture104.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 При взятии Парисом в руку орудия, оно распадается на составные части. Парис 
@@ -3275,6 +4667,16 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 Как пинцетом, шимпанзе вынимает двумя пальцами приближенный к краю 
 трубы сверток.
 </para>
+
+<figure id="ppicture105">
+  <title>Металлическая трубочка и две деревянные втулки</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture105.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture105.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture105.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>В оп. 284 (<xref linkend="ppicture105" />) обезьяне дается орудие в разобранном виде. Оно состоит из медной трубочки (длина &mdash; 8,5 см) и двух деревянных палок (длина &mdash; 13,5 и 12 см).</para>
 
@@ -3306,6 +4708,39 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 </para>
 
 <para>В оп. 287 (<xref linkend="ppicture106" />) в качестве орудия дается проволока в форме лесенки длиной в 24 см, шириной в 2,5 см.</para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture106">
+  <title>Проволока в виде лесенки</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture106.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture106.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture106.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture107">
+  <title>Сетка из пяти рядов проволоки</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture107.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture107.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture107.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>Парис сразу берет ее и употребляет как орудие проталкивания в трубу, доставая приманку.</para>
 
@@ -3343,6 +4778,16 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 <para>Получив их, вместо того, чтобы сблизить, Парис разъединяет их, разводит еще шире. Отламывает один конец и успешно работает другим, целым, вынимая сверток.</para>
 
 <para>В оп. 291 Парису дается той же конструкции орудие, но разъединение палок на концах шире на 12 см.</para>
+
+<figure id="ppicture108">
+  <title>Две подвижно скрепленные палочки</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture108.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture108.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture108.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>Получив их, Парис вместо сближения концов опять разводит их еще шире. Отламывает одну палочку, а вторую проталкивает в трубу и легко вынимает сверток.</para>
 
@@ -3383,6 +4828,16 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 отщепом, вслед за которым вводит в трубу и свой палец. Приблизив сверток к 
 краю трубы, он достает его ртом.
 </para>
+
+<figure id="ppicture109">
+  <title>Кусок плетеной корзины</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture109.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture109.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture109.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para id='str367' xreflabel='стр. 367'>В оп. 295 (<xref linkend="ppicture109" />) Парису дается кусок от корзины из прутьев и стружек, длиной в 28 см. Ширина его с одного конца &mdash; 11 см, с другого &mdash; 17 см.</para>
 
@@ -3435,10 +4890,10 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 <para>В оп. 300 в виде орудия Парису дается сложная фигура из проволоки.</para>
 
 <para>Парис хотя и видит ее, но не берет, а орудует прутом, взятым из гнезда, а эту фигуру он потом разбирает.</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 23-е</title><subtitle>(2 сентября 1946 г.)</subtitle>
+<sect1>
+<title>Занятие 23-е, 2 сентября 1946 г.</title>
 
 <para>
 В ряде опытов этого занятия (301&mdash;302; 310&mdash;314) проверяется 
@@ -3471,6 +4926,39 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 трубу, по неудачно; тогда он берет более плотный стебель растения и, оперируя 
 им одним, просовывает его в трубу и выталкивает сверток.
 </para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture110">
+  <title>Дощечка с отверстием и втулка</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture110.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture110.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture110.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture111">
+  <title>Дощечка со вставленной втулкой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture111.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture111.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture111.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>В оп. 305 в качестве орудия Парису даются две сложенные и связанные соломинки.</para>
 
@@ -3561,10 +5049,10 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 </para>
 
 <para>Взяв в руки палку, Парис сразу пропускает ее сквозь трубу и выталкивает сверток.</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 26-е</title><subtitle>(12 сентября 1946 г.)</subtitle>
+<sect1>
+<title>Занятие 26-е, 12 сентября 1946 г.</title>
 
 <para>Демонстрационное занятие, проведенное в присутствии проф. С. Л. Рубинштейна.</para>
 
@@ -3577,6 +5065,39 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 <para>Взяв в руки палку, Парис отламывает от нее маленький отросток и запускает его в трубу. Орудие явно коротко, вытолкнуть им сверток не удается.</para>
 
 <para>Тогда Парис проталкивает в трубу большую оставшуюся часть орудия и ею выталкивает сверток.</para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture112">
+  <title>Ветвящийся прут</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture112.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture112.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture112.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture113">
+  <title>Прут с разветвлениями посредине</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture113.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture113.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture113.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>В оп. 366 (<xref linkend="ppicture112" />) в качестве орудия Парису дается сильно <emphasis role="bold">ветвящийся толстый прут</emphasis>.</para>
 
@@ -3599,6 +5120,39 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 <para>В оп. 368 (<xref linkend="ppicture114" />) Парису дается <emphasis role="bold">палка</emphasis> (длина &mdash; 44 см) с <emphasis role="bold">проволочной обмоткой</emphasis> вдоль всей ее длины.</para>
 
 <para>Один раз Парис пробует вставить в трубу орудие без обработки, но, не преуспев в этом, начинает разматывать проволоку; с некоторым усилием он разматывает ее всю. После этого освобожденную палку он вводит в трубу и достает ею сверток.</para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture114">
+  <title>Палка с проволочной обмоткой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture114.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture114.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture114.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture115">
+  <title>Две связанные палки: одна прямая, другая изогнутая</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture115.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture115.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture115.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>
 В оп. 369 (<xref linkend="ppicture115" />) Парису даются две связанные 
@@ -3661,6 +5215,39 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 
 <para>Парис разматывает оба конца палки, засовывает освобожденную палку внутрь трубы и вынимает сверток.</para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture116">
+  <title>Палка, обмотанная на концах проводом</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture116.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture116.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture116.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture117">
+  <title>Петлеобразно закрученная проволока</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture117.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture117.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture117.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>В оп. 378 (<xref linkend="ppicture117" />) в качестве орудия Парису дается <emphasis role="bold">петлеобразно закрученная проволока</emphasis>. Длина орудия &mdash; 24 см.</para>
 
 <para>Шимпанзе расправляет проволоку и сразу вмещает ее в трубу, доставая сверток.</para>
@@ -3672,10 +5259,10 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 <para>В оп. 380 в качестве орудия Парису даются три плотно сбитые <emphasis role="bold">планки</emphasis>. Длина орудия &mdash; 67 см.</para>
 
 <para>Он сразу вычленяет одну планку, отрывая ее зубами, хотя она и очень коротка, он все же просовывает ее в трубу. Вслед за тем сует палец и достает сверток.</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 27-е</title><subtitle>(18 февраля 1947 г.)</subtitle>
+<sect1>
+<title>Занятие 27-е, 18 февраля 1947 г.</title>
 
 <para>Осуществляется после пятимесячного перерыва в работе на доставание свертка.</para>
 
@@ -3692,11 +5279,10 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 <para>В оп. 382 в качестве орудия Парису дается прямая проволока.</para>
 
 <para>Парис пробует вставлять проволоку с одного, потом с другого конца трубы, потом опять и опять с того же конца. Потом подносит трубу ко рту; позднее он вытягивает сверток из трубы прутиком (вместо проволоки).</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 28-е</title><subtitle>(26 мая 1947 г.)</subtitle>
-<subtitle>Осуществляется после 3-месячного перерыва в работе</subtitle>
+<sect1>
+<title>Занятие 28-е, 26 мая 1947 г.</title><subtitle>Осуществляется после 3-месячного перерыва в работе</subtitle>
 
 <para>В оп. 383 Парису подается новая труба длиной в 40 см, диаметром в 3 см и в качестве орудия &mdash; прямая проволока длиной в 53 см.</para>
 
@@ -3737,10 +5323,10 @@ role="bold">отменяет</emphasis> это. Он отводит прут, а
 Тот не проходит в отверстие трубы. Парис его разгибает и, наконец, 
 выталкивает сверток из трубы.
 </para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 29-е</title><subtitle>(27 мая 1947 г.)</subtitle>
+<sect1>
+<title>Занятие 29-е, 27 мая 1947 г.</title>
 
 <para>Осуществляется в летней вольере, в которую поревели Париса после пребывания в течение шести месяцев в зимней клетке.</para>
 
@@ -3806,12 +5392,55 @@ linkend="ppicture65" />).
 
 <para>В оп. 408 дается то же орудие.</para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture118">
+  <title>Петлеобразно закрученная проволока</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture118.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture118.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture118.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture119">
+  <title>Проволока, закрученная тремя оборотами</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture119.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture119.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture119.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>
 Парис сразу разгибает проволоку, вводит ее в трубу и вдобавок сует туда же 
 свой палец. Когда он не сразу достает сверток, то начинает крутить проволоку. 
 Она изгибается и укорачивается. Он вынимает и беспорядочно разгибает и 
 сгибает ее. Все же он вынимает ею сверток в 1 м. 25 сек.
 </para>
+
+<figure id="ppicture120">
+  <title>Проволочная спираль из пяти оборотов</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture120.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture120.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture120.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>В оп. 409 дается то же орудие.</para>
 
@@ -3846,10 +5475,10 @@ linkend="ppicture65" />).
 <para>В оп. 417 (<xref linkend="ppicture120" />) Парису дается проволочная спираль из пяти оборотов.</para>
 
 <para>Парис сразу ее раскручивает, но все же не до конца, и она застревает при вмещении в трубу. Три раза Парис вынимает из трубы проволоку и расправляет ее. И, наконец, достает ею сверток в 1 мин.</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 30-е</title><subtitle>(28 мая 1947 г.)</subtitle>
+<sect1>
+<title>Занятие 30-е, 28 мая 1947 г.</title>
 
 <para>Проверка способности обезьяны дифференцировать длину элементов, препятствующих успешному применению орудия.</para>
 
@@ -3859,6 +5488,16 @@ linkend="ppicture65" />).
 (длина &mdash; 38 см) с отверстиями по оси, в два из которых, находящихся на 
 концах, воткнуты поперечные втулки (длина &mdash; 1,5 и 2,5 см).
 </para>
+
+<figure id="ppicture121">
+  <title>Планка с двумя поперечными втулками на концах</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture121.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture121.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture121.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>Планка дается в руки Парису концом, на котором находится более короткая поперечная втулка.</para>
 
@@ -3906,6 +5545,39 @@ linkend="ppicture65" />).
 вмещает в трубу всю планку и выталкивает сверток.
 </para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture122">
+  <title>Планка с одной поперечной втулкой на конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture122.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture122.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture122.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture123">
+  <title>Планка с одной поперечной втулкой посредине</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture123.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture123.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture123.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>В оп. 426 та же установка, что в оп. 425.</para>
 
 <para>Парис сразу вынимает из планки поперечину, проталкивает сверток планкой.</para>
@@ -3913,6 +5585,16 @@ linkend="ppicture65" />).
 <para>В оп. 427 установка та же.</para>
 
 <para>Парис сразу вынимает из планки поперечину, проталкивает сверток планкой.</para>
+
+<figure id="ppicture124">
+  <title>Планка с тремя поперечными втулками &#8212; на концах и посредине</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture124.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture124.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture124.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>В оп. 428 (<xref linkend="ppicture124" />) поперечины на планке, мешающие вставлению ее в трубу, расположены в трех местах: на краях (в первом и 14-м отверстиях) и в середине (в 7-м отверстии слева).</para>
 
@@ -3946,10 +5628,10 @@ linkend="ppicture65" />).
 вынимает ее (хотя это не обязательно) и, до конца всунув планку, выталкивает 
 сверток.
 </para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 31-е</title><subtitle>(31 мая 1947 г.)</subtitle>
+<sect1>
+<title>Занятие 31-е, 31 мая 1947 г.</title>
 
 <para>Продолжение и осложнение прежних опытов на дифференцировку величины поперечин на предложенном орудии.</para>
 
@@ -3962,6 +5644,39 @@ linkend="ppicture65" />).
 
 <para>Парис, держа за свободный от поперечин конец планки, сразу сует в трубу конец со втулками, не обращая на них внимания, и вынимает сверток.</para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture125">
+  <title>Планка с двумя поперечными втулками на конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture125.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture125.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture125.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture126">
+  <title>Планка с тремя поперечными втулками на конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture126.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture126.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture126.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>В оп. 433 (<xref linkend="ppicture126" />) Парису даются те же труба со свертком и планка.</para>
 
 <para>В первое, второе и третье отверстия планки вставлены поперечные втулки разной длины (3,5, 1 и 1 см).</para>
@@ -3969,6 +5684,16 @@ linkend="ppicture65" />).
 <para>Парис сует планку свободным от втулок концом. При приближении одной втулки к краю трубы, слегка трогает втулку, но не вынимает ее. Просовывает планку до конца, приближает сверток к отверстию трубы и вынимает его.</para>
 
 <para>В оп. 434 установка та же, но на конце планки первая втулка еще длиннее, чем  ранее (4,5 см), вторая и третья втулки те же (1 см).</para>
+
+<figure id="ppicture127">
+  <title>Планка с четырьмя поперечными втулками на конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture127.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture127.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture127.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>Парис всовывает в трубу планку со свободного конца. При застревании длинной поперечины, он вынимает планку из трубы, удаляет все поперечины и достает сверток.</para>
 
@@ -4003,6 +5728,39 @@ linkend="ppicture65" />).
 </para>
 
 <para>Оп. 438, где была дана та же планка с четырьмя разными по длине втулками, вмещенными в 1&mdash;4 отверстия, был сорван из-за отвлечения обезьяны.</para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture128">
+  <title>Планка с отрезками проволоки на концах</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture128.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture128.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture128.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture129">
+  <title>Две раздвигающиеся планки</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture129.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture129.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture129.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>В оп. 439 (<xref linkend="ppicture128" />) труба и планка те же. С обоих концов планки во второе и пятое отверстия всунуты отрезки проволоки. Они загнуты вниз, к поверхности планки и доведены до соприкосновения с ней.</para>
 
@@ -4056,6 +5814,49 @@ linkend="ppicture65" />).
 
 <para>Парис начинает раскручивать проволоку, иногда отводя глаза; не разогнув и не раскрутив, он просто снимает проволоку с трубы, проталкивает освобожденную тростинку в трубу. Тростинка выталкивает наружу сверток.</para>
 
+<figure id="ppicture130">
+  <title>Три раздвигающихся бруска</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture130.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture130.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture130.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture131">
+  <title>Планка с продернутой сквозь нее проволокой на конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture131.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture131.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture131.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture132">
+  <title>Бамбуковая тростинка с проволочной обмоткой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture132.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture132.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture132.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>
 Оп. 446&mdash;463 этого занятия, как и в последующие опыты (464&mdash;
 561) занятий 32, 33, 34, 35 и 36-го, проведенные в период с 3 июля 1947 г. по 25 
@@ -4065,10 +5866,10 @@ linkend="ppicture65" />).
 </para>
 
 <para>Результаты этих опытов отражены в соответствующих разделах основного текста и в графике (<xref linkend="ppicture65" />).</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 37-е</title><subtitle>(4 августа 1947 г.)</subtitle>
+<sect1>
+<title>Занятие 37-е, 4 августа 1947 г.</title>
 
 <para>Проверка выбора Парисом пригодного орудия из нескольких одновременно предложенных различных предметов.</para>
 
@@ -4099,6 +5900,16 @@ linkend="ppicture65" />).
 ломает. Берет в зубы и расщепляет зубами вдоль, ломает поперек.
 </para>
 
+<figure id="ppicture133">
+  <title>Дощечка со всунутойв ее отверстия проволокой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture133.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture133.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture133.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Садится, берет вторую по длине тростинку. Сразу вмещает ее в большую трубу 
 (она не доходит до конца трубы). Потом берет третью тростинку &mdash; более 
@@ -4119,6 +5930,39 @@ linkend="ppicture65" />).
 конца трубы, он сует ее и с противоположного конца трубы и резиновую 
 трубочку туда же вмещает и, наконец, достает сверток.
 </para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture134">
+  <title>Медная трубочка, тростинка и резиновая трубочка, соединенные металлическим кольцом</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture134.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture134.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture134.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture135">
+  <title>Резиновая трубочка со вставленной в нее тростинкой и три тростинки; связаны веревкой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture135.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture135.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture135.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>
 В оп. 564 алюминиевая труба та же. Орудие выталкивания четыре объекта, 
@@ -4152,16 +5996,26 @@ linkend="ppicture65" />).
 
 <para>В оп. 565 (<xref linkend="ppicture136" />) дается та же труба со свертком. Орудие выталкивания: резиновая трубочка длиной в 18 см, диаметром в 1,5 см, сквозь которую пропущена тростинка длиною в 30 см, диаметром в 0,3 см.</para>
 
+<figure id="ppicture136">
+  <title>Резиновая трубочка со вставленной в нее тростинкой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture136.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture136.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture136.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Парис сразу вставляет это орудие в трубу со свертком; с противоположной ее 
 стороны смотрит в отверстие. Потом он вынимает из трубы орудие, вынимает 
 тростинку из резиновой трубочки. Резиновую трубочку вталкивает пальцем в 
 трубу со свертком и выталкивает последний.
 </para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 38-е</title><subtitle>(19 мая 1948 г.)</subtitle>
+<sect1>
+<title>Занятие 38-е, 19 мая 1948 г.</title>
 
 <para>Проверка сохранения прежних навыков после 9-месячного перерыва в работе.</para>
 
@@ -4178,6 +6032,16 @@ linkend="ppicture65" />).
 <para>Парис сразу удачно употребляет палку, всовывая ее в трубу, и достает сверток.</para>
 
 <para>В оп. 569 Парису даются большая труба со свертком и сильно изогнутая проволока, сложенная вдвое.</para>
+
+<figure id="ppicture137">
+  <title>Палкас загибом на одном конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture137.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture137.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture137.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>Парис сразу разгибает проволоку, но не до конца. Вводит ее в трубу до сгиба, но потом разгибает проволоку до конца и достает сверток.</para>
 
@@ -4196,10 +6060,10 @@ linkend="ppicture65" />).
 <para>В оп. 573 Парису дается большая труба и в качестве орудия &mdash; узкая полоска картона и палка одинаковой ширины (оба предмета сразу).</para>
 
 <para>Парис выбирает палку и успешно ее применяет.</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 39-е</title><subtitle>(31 мая 1948 г.)</subtitle>
+<sect1>
+<title>Занятие 39-е, 31 мая 1948 г.</title>
 
 <para>Опыты, проведенные во время киносъемки (первый сеанс).</para>
 
@@ -4259,10 +6123,10 @@ linkend="ppicture65" />).
 <para>В оп. 582 Парису даются труба длиной в 40 см и две отдельные бамбуковые палочки, одна из которых, более длинная и тонкая, может быть вставлена в другую, более толстую и короткую.</para>
 
 <para>Парис сует в трубу сперва одну, потом другую палочку (не соединяя их) и вынимает сверток.</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 40-е</title><subtitle>(1 июня 1948 г.)</subtitle>
+<sect1>
+<title>Занятие 40-е, 1 июня 1948 г.</title>
 
 <para>Опыты, проведенные во время киносъемки (второй сеанс).</para>
 
@@ -4279,6 +6143,39 @@ linkend="ppicture65" />).
 <para>Парис берет то и другое и успешно вынимает палкой сверток из трубы.</para>
 
 <para>В оп. 586 (<xref linkend="ppicture138" />) шимпанзе даются труба и палка с тремя втулками, привязанными веревочками.</para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture138">
+  <title>Палка с тремя привязанными втулками</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture138.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture138.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture138.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture139">
+  <title>Палка с тремя поперечными втулками</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture139.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture139.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture139.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>Парис берет орудие и сразу начинает развязывать веревки, которыми привязаны поперечины. Потом он уходит в дальний угол клетки и там освобожденной палкой достает приманку из трубы.</para>
 
@@ -4310,7 +6207,7 @@ linkend="ppicture65" />).
 
 <para>Парис пробует вставлять планку в трубу, но она не входит; тогда он обгрызает ее, примеривает, опять обгрызает, но фанера плохо поддается обгрызанию и не расщепляется.</para>
 
-<subtitle>(Опыт не закончен)</subtitle>
+<para>(Опыт не закончен)</para>
 
 <para>В оп. 594 Парису дается вместо фанеры сосновая планка. Размер ее приблизительно равен размеру планки из фанеры в предыдущем опыте.</para>
 
@@ -4324,9 +6221,19 @@ linkend="ppicture65" />).
 решетку к макаку, где застряла, и Парис не может ее вытянуть.
 </para>
 
-<subtitle>(Опыт не закончен)</subtitle>
+<para>(Опыт не закончен)</para>
 
 <para>В оп. 595 (<xref linkend="ppicture140" />) еще раз даются та же труба и планка (расщепленная в предыдущем опыте).</para>
+
+<figure id="ppicture140">
+  <title>Планка с расщепом</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture140.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture140.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture140.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 Парис сразу вставляет планку в трубу более узким концом, но она до конца не 
@@ -4349,10 +6256,10 @@ linkend="ppicture65" />).
 </para>
 
 <para> (Опыт заснят на кинопленку).</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 41-е</title><subtitle>(3 июня 1948 г.)</subtitle>
+<sect1>
+<title>Занятие 41-е, 3 июня 1948 г.</title>
 
 <para>Проверка решения прежних задач.</para>
 
@@ -4382,21 +6289,74 @@ linkend="ppicture65" />).
 трубу и выталкивает ею сверток.
 </para>
 
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture141">
+  <title>Палка с поперечиной из проволоки на конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture141.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture141.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture141.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture142">
+  <title>Палочка с поперечиной посредине</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture142.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture142.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture142.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
 <para>В оп. 599 (<xref linkend="ppicture143" />) Парису даются та же труба и две связанные в центре проволочкой планки, расположенные крест на крест.</para>
 
 <para>Парис сразу разматывает проволочку-завязку, освобождает планки, потом вставляет в трубу сначала одну, потом другую планку и выталкивает сверток.</para>
+
+<figure id="ppicture143">
+  <title>Планки, связанные в центре проволокой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture143.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture143.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture143.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>В оп. 600 (<xref linkend="ppicture144" />) дается та же труба и в качестве орудия &mdash; прутик и слегка изогнутый провод почти равной длины и толщины. Оба связаны веревкой.</para>
 
 <para>Парис, взяв их, сразу направляет оба в трубу; прутик проходит, тогда как провод встает поперек трубы у края. Парис все вынимает назад. Потом освобождает окончательно прутик, вводит его в трубу и выталкивает им сверток.</para>
 
+<figure id="ppicture144">
+  <title>Прутик и проводо</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture144.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture144.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture144.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>В оп. 601 дается та же труба и в качестве орудия виток проволоки.</para>
 
 <para>Парис схватывает проволоку. Она полураспускается. Тогда он разгибает ее дальше. Начинает вставлять конец проволоки, она скрутилась петлей вдвое. Он ее вынимает, расправляет и, вставив распрямленный конец в трубу, достает сверток.</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 42-е</title><subtitle>(9 июня 1948 г.)</subtitle>
+<sect1>
+<title>Занятие 42-е, 9 июня 1948 г.</title>
 
 <para>Проверка решения прежних задач.</para>
 
@@ -4427,10 +6387,10 @@ linkend="ppicture65" />).
 <para>В оп. 608 та же установка, но палки даются по отдельности.</para>
 
 <para>Взяв их, не глядя, Парис сближает и всовывает их обе в трубу и выталкивает сверток из трубы.</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 43-е</title><subtitle>(13 июня 1948 г.)</subtitle>
+<sect1>
+<title>Занятие 43-е, 13 июня 1948 г.</title>
 
 <para>Проверка решения прежних задач.</para>
 
@@ -4456,10 +6416,10 @@ linkend="ppicture65" />).
 трубу, доставая сверток, дополнительно вставляя пальцы второй, третий, 
 четвертый.
 </para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 44-е</title><subtitle>(17 июля 1948 г.)</subtitle>
+<sect1>
+<title>Занятие 44-е, 17 июля 1948 г.</title>
 
 <para>Проверка решения прежних задач.</para>
 
@@ -4491,7 +6451,27 @@ linkend="ppicture65" />).
 сверток и вынимает его с другого конца трубы.
 </para>
 
+<figure id="ppicture145">
+  <title>Три палки, связанные концами</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture145.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture145.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture145.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>В оп. 612 (<xref linkend="ppicture146" />) в качестве орудия Парису дают три маленькие палочки, связанные концами, которые затесаны так, что не дают выступающих углов. Они скручены шпагатом в двух местах. Труба та же.</para>
+
+<figure id="ppicture146">
+  <title>Три палки с затесанными связанными концами</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture146.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture146.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture146.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>Парис бежит, схватывает трубу, размахивает ею, просунув ее в отверстие решетки. Потом убегает с трубой (не взяв палки) в противоположный угол клетки. Там он всовывает в трубу бумагу, проталкивая ее пальцем, помогая зубами.</para>
 
@@ -4506,10 +6486,10 @@ linkend="ppicture65" />).
 </para>
 
 <para>Парис берет их, тонкую бросает, толстую проталкивает в трубу и достает сверток.</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 45-е</title><subtitle>(4 августа 1948 г.)</subtitle>
+<sect1>
+<title>Занятие 45-е, 4 августа 1948 г.</title>
 
 <para>Проверка решения прежних задач.</para>
 
@@ -4533,16 +6513,26 @@ linkend="ppicture65" />).
 </para>
 
 <para>Тогда он берет зеленый прут, обдирает с него листочки, начинает всовывать в трубу, потом вытягивает его назад, опять всовывает и, наконец, выталкивает сверток.</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 46-е</title><subtitle>(8 августа 1948 г.)</subtitle>
+<sect1>
+<title>Занятие 46-е, 8 августа 1948 г.</title>
 
 <para>Проверка решения прежних задач.</para>
 
 <para>В оп. 616 (<xref linkend="ppicture147" />) Парису даются труба со свертком и в качестве орудия плотный стебель украинской ромашки с цветком на конце.</para>
 
 <para>Парис, не обрабатывая, вмещает стебель в трубу. Но, не вытащив сверток, сразу уходит в другой угол клетки, где в смежной клетке сидят обезьянки, отвлекается и не заканчивает вынимания свертка.</para>
+
+<figure id="ppicture147">
+  <title>Длинный стебель ромашки с цветком на конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture147.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture147.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture147.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>В оп. 617 Парису даются последовательно две ветки ивы.</para>
 
@@ -4570,6 +6560,16 @@ linkend="ppicture65" />).
 
 <para>В оп. 621 Парису дается в качестве орудия широкая дощечка (шире диаметра трубы).</para>
 
+<figure id="ppicture148">
+  <title>Две палки, обмотанные проволокой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture148.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture148.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture148.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Дощечку он не берет (она падает на пол), а собирает маленькие, находящиеся в 
 окружении палки. Берет надломанную палку из своего гнезда, ее расчленяет в 
@@ -4586,10 +6586,10 @@ linkend="ppicture65" />).
 <para>В оп. 624 (<xref linkend="ppicture148" />) Парису дается орудие, составленное из двух палочек, обмотанных проволокой.</para>
 
 <para>Парис, держа орудие в одной руке, начинает его разматывать другой рукой. Освобождает палки одну за другой, сует их в трубу, вслед за ними всовывает палец и достает сверток.</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 47-е</title><subtitle>(11 августа 1948 г.)</subtitle>
+<sect1>
+<title>Занятие 47-е, 11 августа 1948 г.</title>
 
 <para>В оп. 625 Парису дается труба со свертком и в качестве орудия &mdash; очень широкая доска.</para>
 
@@ -4629,6 +6629,16 @@ linkend="ppicture65" />).
 
 <para>В оп. 628 (<xref linkend="ppicture149" />) Парису даются та же труба и палка с двумя поперечными продернутыми через нее толстыми, но мягкими проводами.</para>
 
+<figure id="ppicture149">
+  <title>Палка с мягкими поперечниками</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture149.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture149.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture149.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Парис перевертывает орудие, пробует вынимать поперечину, накручивая на 
 палец провод, так как тот плотно вмещен, Парис упирается ногой в стену и с 
@@ -4656,6 +6666,16 @@ linkend="ppicture65" />).
 сверток палкой. Бросает палку.
 </para>
 
+<figure id="ppicture150">
+  <title>Палка со вставленным крюком на конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture150.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture150.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture150.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Снова ему дается палка с таким же крюком. Парис кладет ее и пытается 
 доставать сверток одной рукой, потом вводит в трубу другую руку и достает 
@@ -4668,6 +6688,39 @@ linkend="ppicture65" />).
 <para>Парис сразу, не развязывая, просовывает палку в трубу и вынимает сверток. После употребления Парис развязывает палку.</para>
 
 <para>В оп. 631 (<xref linkend="ppicture152" />) Парису даются широкая сквозная труба и две палки. На конце одной из них металлический поясок для вставления другой. Для доставания свертка требуется соединение палок.</para>
+
+<informaltable frame='none' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<tbody>
+<row>
+  <entry>
+<figure id="ppicture151">
+  <title>Палка из двух частей, связанная веревкой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture151.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture151.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture151.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+  <entry>
+<figure id="ppicture152">
+  <title>Две палки; одна из них с пояском, в который можно вставить другую палку</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture152.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture152.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture152.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+  </entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
 
 <para>
 Парис берет одну палку без пояска в рот, потом проталкивает ее в трубу. 
@@ -4697,10 +6750,10 @@ linkend="ppicture65" />).
 ломает тонкую палку, дальше ею не пользуется. Берет крюк, снова вставляет в 
 трубу прямым концом и притягивает им сверток к себе. Достает его.
 </para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 48-е</title><subtitle>(13 августа 1948 г.)</subtitle>
+<sect1>
+<title>Занятие 48-е, 13 августа 1948 г.</title>
 
 <para>Опыты, проведенные во время киносъемки (третий сеанс).</para>
 
@@ -4717,11 +6770,10 @@ linkend="ppicture65" />).
 <para> (Опыт заснят на кинопленку).</para>
 
 <para>В оп. 639 Парису дается короткая труба и две связанные палочки. Парис развязывает их и обе палки одну за другой вмещает в трубу. С противоположного конца трубы он вынимает приманку.</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 49-е</title><subtitle>(14 августа 1948 г.)</subtitle>
-<subtitle>(Киносъемка)</subtitle>
+<sect1>
+<title>Занятие 49-е, 14 августа 1948 г.</title><subtitle>(Киносъемка)</subtitle>
 
 <para>Опыты, проведенные во время киносъемки (четвертый сеанс).</para>
 
@@ -4796,6 +6848,16 @@ linkend="ppicture65" />).
 
 <para>Потом он берет трубу, смотрит в одно, потом в другое ее отверстие; кладет трубу под ноги, нажимает на нее ступнями ног, потом встает, идет, берет доску, расщепляет ее и отщепленной планкой достает сверток.</para>
 
+<figure id="ppicture153">
+  <title>Две палочки, одна из них замотана веревкой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture153.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture153.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture153.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>В оп. 655 (<xref linkend="ppicture153" />) Парису даются та же труба, две палочки и веревка для их связывания; одна палочка слегка обмотана веревкой.</para>
 
 <para>
@@ -4808,12 +6870,10 @@ linkend="ppicture65" />).
 <para>В оп. 656 Парису дается широкая труба и две палочки. На одну из них намотана веревка.</para>
 
 <para>Парис, как и ранее, пытается достать сверток порознь вмещенными палками, во не достает. Тогда он сжимает трубу и пытается руками достать сверток, но все же не может достать.</para>
-</sect2>
+</sect1>
 
-<sect2>
-<title>Занятие 50-е</title><subtitle>(15 сентября 1948 г.)</subtitle>
-
-<subtitle>Повторение прежних заданий</subtitle>
+<sect1>
+<title>Занятие 50-е, 15 сентября 1948 г.</title><subtitle>Повторение прежних заданий</subtitle>
 
 <para>В оп. 657 Парису даются узкая труба (длина &mdash; 40 см) и палка с двумя продетыми сквозь нее мягкими поперечинами из проволоки, которые могут быть легко согнуты и прижаты к палке, и тогда она легко проходит в трубу.</para>
 
@@ -4871,7 +6931,7 @@ linkend="ppicture65" />).
 
 <para>Взяв проволоку, Парис кладет ее на пол, сам лежит, запрокинув голову вверх. Потом берет палочку, пытается ею доставать сверток из трубы, &mdash; не выходит.</para>
 
-<subtitle>(Опыт не окончен).</subtitle>
+<para>(Опыт не окончен).</para>
 
 <para>В оп. 662 Парису дают добавочно другую, более тонкую проволоку, закрученную в виток.</para>
 
@@ -4895,6 +6955,16 @@ linkend="ppicture65" />).
 потом другую палку и палец в трубу, проталкивая приманку.
 </para>
 
+<figure id="ppicture154">
+  <title>Провод тонкий, скрученный</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture154.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture154.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture154.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>В оп. 665 еще раз дается та же установка.</para>
 
 <para>
@@ -4909,6 +6979,16 @@ linkend="ppicture65" />).
 </para>
 
 <para>В оп. 666 (<xref linkend="ppicture155" />) Парису даются широкая труба, закрытая с одного конца, и две палки: прямая и со вставленным крюком.</para>
+
+<figure id="ppicture155">
+  <title>Две палки: прямая и со вставленным крюком на конце</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/ppicture154.jpg">
+    <imageobject><imagedata fileref="images/html/ppicture154.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/ppicture154.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 Парис смотрит в трубу с одного, потом с другого конца. Берет палку с крюком. 
@@ -4929,7 +7009,7 @@ linkend="ppicture65" />).
 маленькими палочками старается достать сверток.
 </para>
 
-<subtitle>(Опыт не окончен).</subtitle>
+<para>(Опыт не окончен).</para>
 
 <para>В оп. 667 Парису дается добавочно еще палка с крюком.</para>
 
@@ -4993,4 +7073,4 @@ linkend="ppicture65" />).
 <para>В оп. 674 та же установка предлагается второй раз.</para>
 
 <para>Теперь Парис сразу берет длинную палку и ею достает сверток.</para>
-</sect2>
+</sect1>

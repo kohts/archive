@@ -149,7 +149,7 @@
 <chapter><title>Заключение</title>&zaklyuchenie;</chapter>
 
 <appendix><title>Протоколы опытов</title>&protocols;</appendix>
-<appendix><title>Библиография</title>&bibliography;</appendix>
+<appendix id='bibliography'><title>Библиография</title>&bibliography;</appendix>
 
 <appendix><title>Приложения к электронному изданию</title>
   <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1>
