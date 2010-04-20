@@ -21,20 +21,20 @@ all: html pdf
 
 .PHONY : html fo pdf gen-plates clean all-clean
 
-${DOCBOOK_BASE}/photoplates.docbook: ${DOCBOOK_BASE}/photoplates.raw ${TOOLS}/gen-figures.pl
-	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates.raw > ${DOCBOOK_BASE}/photoplates.docbook
+${DOCBOOK_BASE}/photoplates.docbook: ${DOCBOOK_BASE}/photoplates.raw ${TOOLS}/gen-figures-ichc.pl
+	${TOOLS}/gen-figures-ichc.pl ${DOCBOOK_BASE}/photoplates.raw > ${DOCBOOK_BASE}/photoplates.docbook
 
-${DOCBOOK_BASE}/photoplates_eng.docbook: ${DOCBOOK_BASE}/photoplates_eng.raw ${TOOLS}/gen-figures.pl
-	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng table > ${DOCBOOK_BASE}/photoplates_eng.docbook
+${DOCBOOK_BASE}/photoplates_eng.docbook: ${DOCBOOK_BASE}/photoplates_eng.raw ${TOOLS}/gen-figures-ichc.pl
+	${TOOLS}/gen-figures-ichc.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng table > ${DOCBOOK_BASE}/photoplates_eng.docbook
 
-${DOCBOOK_BASE}/photoplates_eng_print.docbook: ${DOCBOOK_BASE}/photoplates_eng.raw ${TOOLS}/gen-figures.pl
-	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng table formalpara > ${DOCBOOK_BASE}/photoplates_eng_print.docbook
+${DOCBOOK_BASE}/photoplates_eng_print.docbook: ${DOCBOOK_BASE}/photoplates_eng.raw ${TOOLS}/gen-figures-ichc.pl
+	${TOOLS}/gen-figures-ichc.pl ${DOCBOOK_BASE}/photoplates_eng.raw eng table formalpara > ${DOCBOOK_BASE}/photoplates_eng_print.docbook
 
-${DOCBOOK_BASE}/drawings_eng.docbook: ${DOCBOOK_BASE}/drawings_eng.raw ${TOOLS}/gen-figures.pl
-	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/drawings_eng.raw eng tabler figure > ${DOCBOOK_BASE}/drawings_eng.docbook
+${DOCBOOK_BASE}/drawings_eng.docbook: ${DOCBOOK_BASE}/drawings_eng.raw ${TOOLS}/gen-figures-ichc.pl
+	${TOOLS}/gen-figures-ichc.pl ${DOCBOOK_BASE}/drawings_eng.raw eng tabler figure > ${DOCBOOK_BASE}/drawings_eng.docbook
 	
-${DOCBOOK_BASE}/drawings_eng_print.docbook: ${DOCBOOK_BASE}/drawings_eng.raw ${TOOLS}/gen-figures.pl
-	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/drawings_eng.raw eng tabler formalpara > ${DOCBOOK_BASE}/drawings_eng_print.docbook
+${DOCBOOK_BASE}/drawings_eng_print.docbook: ${DOCBOOK_BASE}/drawings_eng.raw ${TOOLS}/gen-figures-ichc.pl
+	${TOOLS}/gen-figures-ichc.pl ${DOCBOOK_BASE}/drawings_eng.raw eng tabler formalpara > ${DOCBOOK_BASE}/drawings_eng_print.docbook
 
 gen-plates: $(DOCBOOK_BASE)/photoplates*.docbook $(DOCBOOK_BASE)/drawings*.docbook
 
@@ -54,11 +54,15 @@ ${STAMPS}/fo: docbook-fo.xsl $(DOCBOOK) $(IMAGES_PRINT)
 	touch ${STAMPS}/fo
 
 pdf: ${STAMPS}/pdf
-${STAMPS}/pdf: ${STAMPS}/fo ${FOP_BASE}/fop.xconf
+${STAMPS}/pdf: ${STAMPS}/fo
+	mkdir -p $(FOP_BASE)
+	cd $(FOP_BASE) && ( if [ ! -h fop-hyph.jar ] ; then ln -s ../../fonts/fop-hyph.jar ; fi )
+	cd $(FOP_BASE) && ( if [ ! -h fop.xconf ] ; then ln -s ../../fonts/fop.xconf ; fi )
+	cd $(FOP_BASE) && ( if [ ! -h fonts ] ; then ln -s ../../fonts/fonts ; fi )
 	cd ${FOP_BASE} && ( if [ ! -h images ] && [ -d ../images ] ; then ln -s ../images ; fi )
 	cd ${FOP_BASE} && \
 	export FOP_HYPHENATION_PATH=${FOP_BASE}/fop-hyph.jar && \
-	/root/fop-0.95/fop --execdebug -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
+	/root/fop/trunk/fop --execdebug -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
 	mkdir -p ${STAMPS}
 	touch ${STAMPS}/pdf
 

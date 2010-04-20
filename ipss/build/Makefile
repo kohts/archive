@@ -26,7 +26,6 @@ ${DOCBOOK_BASE}/tables_de.docbook: ${DOCBOOK_BASE}/tables_de.raw ${TOOLS}/gen-fi
 	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/tables_de.raw de tabler figure > ${DOCBOOK_BASE}/tables_de.docbook
 ${DOCBOOK_BASE}/tables_de_print.docbook: ${DOCBOOK_BASE}/tables_de.raw ${TOOLS}/gen-figures.pl
 	${TOOLS}/gen-figures.pl ${DOCBOOK_BASE}/tables_de.raw de tabler formalpara > ${DOCBOOK_BASE}/tables_de_print.docbook
-        
 
 html: ${STAMPS}/html
 ${STAMPS}/html: docbook-html-chunked.xsl $(DOCBOOK)
@@ -49,13 +48,15 @@ ${STAMPS}/fo: docbook-fo.xsl $(DOCBOOK)
 	touch ${STAMPS}/fo
 
 pdf: ${STAMPS}/pdf
-${STAMPS}/pdf: ${STAMPS}/fo ${FOP_BASE}/fop.xconf
+${STAMPS}/pdf: ${STAMPS}/fo
+	mkdir -p $(FOP_BASE)
+	cd $(FOP_BASE) && ( if [ ! -h fop-hyph.jar ] ; then ln -s ../../fonts/fop-hyph.jar ; fi )
+	cd $(FOP_BASE) && ( if [ ! -h fop.xconf ] ; then ln -s ../../fonts/fop.xconf ; fi )
+	cd $(FOP_BASE) && ( if [ ! -h fonts ] ; then ln -s ../../fonts/fonts ; fi )
 	cd ${FOP_BASE} && ( if [ ! -h images ] && [ -d ../images ] ; then ln -s ../images ; fi )
 	cd ${FOP_BASE} && \
 	export FOP_HYPHENATION_PATH=${FOP_BASE}/fop-hyph.jar && \
-	/root/fop-trunk/trunk/fop --execdebug -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
-	#/root/fop-0.95/fop --execdebug -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
-	#fop -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
+	/root/fop/trunk/fop --execdebug -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
 	mkdir -p ${STAMPS}
 	touch ${STAMPS}/pdf
 

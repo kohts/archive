@@ -6,7 +6,7 @@
 операционная система Ubuntu (Linux), она является бесплатной
 и при этом достаточно простой. Её можно скачать
 с сайта http://www.ubuntu.com (имеет смысл
-использовать Desktop Edition).
+использовать самую последнюю версию, Desktop Edition).
 </para>
 </sect2>
 
@@ -14,14 +14,26 @@
 <para>
 После установки операционной системы нужно установить
 программное обеспечение для работы с docbook. В Ubuntu
-это делается с помощью команды <code>sudo apt-get install имя_пакета</code> в терминале.
+установка программного обеспечения производится
+с помощью команды <code>sudo apt-get install имя_пакета</code> в терминале.
 </para>
 
 <para>
-Нужно установить следующие пакеты: docbook-xml, docbook-xsl, sun-java6-jre, xsltproc.
+Для работы с docbook нужно установить следующие пакеты:
+docbook-xml, docbook-xsl, sun-java6-jre, xsltproc.
 Установка пакетов должна производиться либо с помощью sudo,
 как в примере выше, либо из-под пользователя root.
 </para>
+
+<para>
+Пакет sun-java6-jre может располагаться в репозитории пакетов,
+не подключаемых по умолчанию. В Ubuntu Lucid (10.04)
+он находится в репозитории partner, который
+подключается в /etc/apt/sources.list (нужно раскомментировать
+соответствующую строку). После изменения sources.list нужно
+выполнить команду apt-get update.
+</para>
+
 
 <para>
 После установки пакетов нужно убедиться, что по умолчанию
@@ -33,7 +45,7 @@ java-6-sun 63 /usr/lib/jvm/java-6-sun
 java-gcj 1042 /usr/lib/jvm/java-gcj
 </literallayout>
 
-И установить нужную java-машину по умолнчаию с помощью команды
+И установить нужную java-машину по умолчанию с помощью команды
 <code>/usr/sbin/update-java-alternatives -s java-6-sun</code>
 </para>
 </sect2>
@@ -57,7 +69,46 @@ xsltproc имя_xsl_файла имя_docbook_файла
 </para>
 </sect1>
 
-<sect1><title>Подготовка шрифта для вывода в pdf</title>
+<sect1><title>Получение pdf-вывода</title>
+<para>
+Получение pdf-варианта книги состоит из 1) получения документа
+в формате FO (formatting objects) с помощью xsltproc,
+получение pdf из документа fo с помощью <ulink url="http://xmlgraphics.apache.org/fop/">fop</ulink>.
+</para>
+
+<para>
+Получение документа FO является шагом, абсолютно
+аналогичным получения документа в формате HTML.
+</para>
+
+<para>
+Для получения собственно pdf нужно установить программу fop,
+на данный момент наиболее удачный вывод получается с помощью
+development-кода, который можно получить из <ulink url="http://svn.apache.org/repos/asf/xmlgraphics/fop/trunk/">svn</ulink>
+с помощью команды:
+<code>
+svn export http://svn.apache.org/repos/asf/xmlgraphics/fop/trunk/
+</code>
+После этого fop нужно скомпилировать, для чего нужно установить
+пакеты sun-java6-jdk и ant, а после этого запустить команду ant
+в директории с исходным кодом fop.
+</para>
+
+<para>
+Для больших pdf файлов может понадобиться увеличить Max Heap Size для java
+(индикатором необходимости являются сообщения типа "Exception in thread "main"
+java.lang.OutOfMemoryError: Java heap space"). Для современных версий java
+для этого нужно передать параметр -Xmx512m при вызове java (где 512m означает
+512 мегабайт).
+</para>
+
+
+<para>
+Кроме того потребуется файл с определениями правил переноса слов:
+http://offo.sourceforge.net/hyphenation/index.html
+</para>
+
+<sect2><title>Подготовка шрифта для вывода в pdf</title>
 <para>
 Для вывода в pdf нужно подобрать шрифт, содержащий все необходимые символы,
 используемые в книге. Для современных книг на русском языке подходит шрифт
@@ -85,4 +136,33 @@ Arial Unicode MS, который можно взять из установлен
 нужно создать для них xml-файлы с описанием, что делается
 с помощью команды fop-ttfreader имя_файла.ttf имя_файла.xml
 </para>
+
+<para>
+Скрипт fop-ttfreader является специфичным для debian пакета fop:
+<code>
+petya@petya-desktop:~$ cat /usr/bin/fop-ttfreader
+#!/bin/sh
+
+# Shell script wrapper around the fop-ttfreader program,
+# Copyright 2008 by Vincent Fourmond fourmond@debian.org
+#
+# Licensed under the same terms as fop itself, that is under
+# the conditions of the Apache 2 licencee.
+
+# Include the wrappers utility script
+. /usr/lib/java-wrappers/java-wrappers.sh
+
+
+# We prefer to use openjdk or Sun's java if available
+find_java_runtime openjdk sun  || find_java_runtime
+
+find_jars commons-io avalon-framework serializer xalan2 xml-apis
+find_jars batik-all commons-logging servlet-api xercesImpl xmlgraphics-commons
+find_jars fop
+
+
+run_java org.apache.fop.fonts.apps.TTFReader  "$@"
+</code>
+</para>
+</sect2>
 </sect1>

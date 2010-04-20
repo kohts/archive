@@ -105,16 +105,13 @@ the location of this file.
         <font metrics-url="LIT55.xml" kerning="yes" embed-url="LIT55.ttf">
           <font-triplet name="Literaturnaya" style="normal" weight="normal"/>
         </font>
-<!--        <font metrics-url="LIT55__U.xml" kerning="yes" embed-url="LIT55__U.ttf">
-          <font-triplet name="Literaturnaya" style="normal" weight="normal"/>
-        </font>-->
-        <font metrics-url="LIT56__U.xml" kerning="yes" embed-url="LIT56__U.ttf">
+        <font metrics-url="LIT56.xml" kerning="yes" embed-url="LIT56.ttf">
           <font-triplet name="Literaturnaya" style="italic" weight="normal"/>
         </font>
-        <font metrics-url="LIT75__U.xml" kerning="yes" embed-url="LIT75__U.ttf">
+        <font metrics-url="LIT75.xml" kerning="yes" embed-url="LIT75.ttf">
           <font-triplet name="Literaturnaya" style="normal" weight="bold"/>
         </font>
-        <font metrics-url="LIT76__U.xml" kerning="yes" embed-url="LIT76__U.ttf">
+        <font metrics-url="LIT76.xml" kerning="yes" embed-url="LIT76.ttf">
           <font-triplet name="Literaturnaya" style="italic" weight="bold"/>
         </font>
       </fonts>

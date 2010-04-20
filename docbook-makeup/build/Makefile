@@ -38,11 +38,15 @@ ${STAMPS}/fo: docbook-fo.xsl $(DOCBOOK)
 	touch ${STAMPS}/fo
 
 pdf: ${STAMPS}/pdf
-${STAMPS}/pdf: ${STAMPS}/fo ${FOP_BASE}/fop.xconf
-	cd ${FOP_BASE} && ( if [ ! -h images ] ; then ln -s ../images ; fi )
+${STAMPS}/pdf: ${STAMPS}/fo
+	mkdir -p $(FOP_BASE)
+	cd $(FOP_BASE) && ( if [ ! -h fop-hyph.jar ] ; then ln -s ../../fonts/fop-hyph.jar ; fi )
+	cd $(FOP_BASE) && ( if [ ! -h fop.xconf ] ; then ln -s ../../fonts/fop.xconf ; fi )
+	cd $(FOP_BASE) && ( if [ ! -h fonts ] ; then ln -s ../../fonts/fonts ; fi )
+	cd ${FOP_BASE} && ( if [ ! -h images ] && [ -d ../images ] ; then ln -s ../images ; fi )
 	cd ${FOP_BASE} && \
 	export FOP_HYPHENATION_PATH=${FOP_BASE}/fop-hyph.jar && \
-	fop -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
+	/root/fop/trunk/fop -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
 	mkdir -p ${STAMPS}
 	touch ${STAMPS}/pdf
 
