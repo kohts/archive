@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY liniya "
+<informaltable frame='none' pgwide='1'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry><para>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
+</tgroup></informaltable>
+ ">
+
+  <!ENTITY vvedenie SYSTEM "vvedenie.docbook">
+  <!ENTITY c1 SYSTEM "c1.docbook">
+  <!ENTITY c1_1 SYSTEM "c1_1.docbook">
+  <!ENTITY c1_2 SYSTEM "c1_2.docbook">
+  <!ENTITY c1_3 SYSTEM "c1_3.docbook">
+  <!ENTITY c1_4 SYSTEM "c1_4.docbook">
+  <!ENTITY c1_5 SYSTEM "c1_5.docbook">
+  <!ENTITY c1_6 SYSTEM "c1_6.docbook">
+  <!ENTITY c2 SYSTEM "c2.docbook">
+  <!ENTITY c2_1 SYSTEM "c2_1.docbook">
+  <!ENTITY c2_2 SYSTEM "c2_2.docbook">
+  <!ENTITY c2_3 SYSTEM "c2_3.docbook">
+  <!ENTITY c2_4 SYSTEM "c2_4.docbook">
+  <!ENTITY zaklyuchenie SYSTEM "zaklyuchenie.docbook">
+  <!ENTITY vyhodnye_dannye SYSTEM "vyhodnye_dannye.docbook">
+  <!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
+ 
+  ]>
+
+<book id="ladygina-kohts-rppeo" lang="ru">
+
+<title>Предпосылки человеческого мышления</title>
+
+<bookinfo>
+<author>
+<firstname>Надежда</firstname>
+<othername>Николаевна</othername>
+<surname>Ладыгина-Котс</surname>
+</author>
+</bookinfo>
+<date>Москва, 1965</date>
+
+<preface id="vvedenie"><title>Введение</title>&vvedenie;</preface>
+
+<chapter id="c1"><title>Особенности процессов анализа и синтеза при воспроизведении антропоидом-шимпанзе объемных составных фигур</title>&c1;
+  <sect1 id="c1_1"><title>Методика, содержание и цель исследования</title>&c1_1;</sect1>
+  <sect1 id="c1_2"><title>Процесс конструирования</title>&c1_2;</sect1>
+  <sect1 id="c1_3"><title>Совершенствование решений задач при повторном конструировании</title>&c1_3;</sect1>
+  <sect1 id="c1_4"><title>Порядок выбора элементов</title>&c1_4;</sect1>
+  <sect1 id="c1_5"><title>Влияние формы и величины единичных фигур на их выбор</title>&c1_5;</sect1>
+  <sect1 id="c1_6"><title>Общие выводы об аналитико-синтетической деятельности шимпанзе</title>&c1_6;</sect1>
+</chapter>
+<chapter id="c2"><title>Подражательное конструирование детьми</title>&c2;
+  <sect1 id="c2_1"><title>Общие замечания</title>&c2_1;</sect1>
+  <sect1 id="c2_2"><title>Неверные и пробные решения задач</title>&c2_2;</sect1>
+  <sect1 id="c2_3"><title>Сопоставление подражательного конструирования шимпанзе и детьми</title>&c2_3;</sect1>
+  <sect1 id="c2_4"><title>Психологические особенности подражательной конструктивной деятельности у шимпанзе и детей</title>&c2_4;</sect1>
+</chapter>
+
+<chapter><title>Заключение</title>&zaklyuchenie;</chapter>
+
+<appendix><title>Приложения к электронному изданию</title>
+  <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1>
+  <?page-break?>
+  <sect1><title>Подготовка электронного издания</title>&electronic_edition;</sect1>
+</appendix>
+
+</book>
