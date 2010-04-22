@@ -21,6 +21,7 @@ my $conf = {
     'mnm' => 'ladygina-kohts_n.n./mnm',
     'nim' => 'kohts_a.f./nim',
     'otchet1921' => 'ladygina-kohts_n.n./otchet1921',
+    'rppeo' => 'ladygina-kohts_n.n./rppeo',
     'uml' => 'ladygina-kohts_n.n./uml',
     'vodo' => 'ladygina-kohts_n.n./vodo',
     'zhzh' => 'kohts_a.f./zhzh',
@@ -84,7 +85,7 @@ my $sync;
 my $filter;
 my $result = GetOptions ("filter=s"   => \$filter, "sync"  => \$sync);
 
-foreach my $e (keys %{$conf->{'equiv'}}) {
+foreach my $e (sort keys %{$conf->{'equiv'}}) {
   if ($filter) {
     next unless $e =~ /$filter/;
   }
