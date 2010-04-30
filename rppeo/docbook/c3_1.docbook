@@ -1,4 +1,4 @@
-﻿<para>Следует отметить высокий уровень рецепции обезьян.</para>
+<para>Следует отметить высокий уровень рецепции обезьян.</para>
 
 <para>
 У обезьян в связи с их образом жизни хватательные передние конечности типа 
@@ -161,6 +161,16 @@
 linkend="picture35" /> и <xref linkend="picture37" />).
 </para>
 
+<figure id="picture36">
+  <title>Обследование ветки мандриллом</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture36.jpg">
+    <imageobject><imagedata fileref="images/html/picture36.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture36.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Об этом хорошо говорит Н. Ю. Войтонис: <quote>Перейдя к такому 
 многообразному питанию, обезьяна уже не может инстинктивно реагировать на 
@@ -184,6 +194,16 @@ linkend="picture35" /> и <xref linkend="picture37" />).
 1952, стр. 65.
 </para></footnote>.
 </para>
+
+<figure id="picture37">
+  <title>Обследование ткани обезьяной макаком</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture37.jpg">
+    <imageobject><imagedata fileref="images/html/picture37.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture37.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 У обезьян легче, чем у других млекопитающих, происходит слияние отдельных 
@@ -334,6 +354,19 @@ linkend="picture35" /> и <xref linkend="picture37" />).
 пугающий предмет, хвост напряженно откидывается вверх.
 </para>
 
+<figure id="picture38">
+  <title>Выразительные движения обезьян (шимпанзе)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture38.jpg">
+    <imageobject><imagedata fileref="images/html/picture38.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture38.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>слева &#8212; мимика лица при возбуждении,
+в центре &#8212; мимика лица при плаче, справа &#8212; мимика лица при улыбке
+</para></textobject></mediaobject>  
+</figure>
+
 <para>
 В Московском зоопарке мы наблюдали, как в аналогичных случаях разъяренный 
 самец-павиан, оскаливая зубы и напряженно поднимая кверху хвост, иногда 
@@ -361,6 +394,6 @@ linkend="picture35" /> и <xref linkend="picture37" />).
 звуками, отражающими характер различных эмоциональных состояний 
 обезьяны<footnote>
 <para>
-Подробно о голосовых реакциях обезьян см. <xref linkend="str221" />&mdash; <xref linkend="str228" />.
+Подробно о голосовых реакциях обезьян см. <xref linkend="c3_4" />.
 </para></footnote>.
 </para>

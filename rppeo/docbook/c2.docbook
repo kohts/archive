@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 Переходя к обзору эволюции форм отражения у представителей основных 
 классов позвоночных животных (именно, рыб, амфибий, рептилий, птиц и 
 млекопитающих), достигающих по сравнению с беспозвоночными более высокой 
@@ -83,6 +83,20 @@
 другие отделы нервной системы. Непосредственная интеграция рефлекторной 
 деятельности осуществляется задними отделами мозга.
 </para>
+
+<figure id="picture18">
+  <title>Головной мозг позвоночных животных</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture18.jpg">
+    <imageobject><imagedata fileref="images/html/picture18.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture18.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>1 &#8212; акулы, 2 &#8212; костистой рыбы,
+3 &#8212; лягушки, 4 &#8212; ящерицы, 5 &#8212; птицы,
+6 &#8212; низшего млекопитающего (грызуна), 7 &#8212; хищника (собаки)
+</para></textobject></mediaobject>  
+</figure>
 
 <para>У птиц и рептилий интегративная деятельность сосредоточивается в полосатом теле переднего мозга.</para>
 
