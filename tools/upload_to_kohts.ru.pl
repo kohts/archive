@@ -96,3 +96,7 @@ foreach my $e (sort keys %{$conf->{'equiv'}}) {
     sync_book($e);
   }
 }
+
+if (!$filter && !$sync) {
+	print "\ncommand line: --filter and --sync\n\n";
+}
