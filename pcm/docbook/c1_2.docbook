@@ -11,6 +11,17 @@
 деятельность (<xref linkend="picture5" />).
 </para>
 
+<figure id="picture5">
+  <title>Правильное конструирование двух-, трех- и четырехэлементных
+фигур, когда в группе избираемых нет лишних элементов</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture5.jpg">
+    <imageobject><imagedata fileref="images/html/picture5.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture5.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>Отражалось ли на процессах анализа и синтеза у шимпанзе изменение условий предъявления образцов: предъявление их в готовом виде (51 случай) или конструирование в присутствии обезьяны (63 случая)?</para>
 
 <para>
@@ -150,6 +161,17 @@
 
 <para>Вместо конструирования двухэлементной фигуры (горизонтально лежащей призмы и на ней палочки на диске) шимпанзе ставит призму, а на нее кладет палочку на диске, но вверх основанием.</para>
 
+<figure id="picture6">
+  <title>Ошибка в конструировании по образцу</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture6.jpg">
+    <imageobject><imagedata fileref="images/html/picture6.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture6.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>слева &#8212; фигура-образец</para></textobject></mediaobject>
+</figure>
+
 <para>Наблюдается искаженное положение одного нижнего элемента (<xref linkend="picture7" />).</para>
 
 <para>На горизонтально лежащей призме положен кубик &mdash; шимпанзе ставит призму и кладет на нее кубик или палочку на диске.</para>
@@ -162,6 +184,17 @@
 вертикально.
 </para>
 
+<figure id="picture7">
+  <title>Ошибка в конструировании по образцу</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture7.jpg">
+    <imageobject><imagedata fileref="images/html/picture7.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture7.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>слева &#8212; фигура-образец</para></textobject></mediaobject>
+</figure>
+
 <para>Иногда шимпанзе смещает положение верхнего элемента, располагая его не строго посредине нижнего, а с краю (<xref linkend="picture8" />).</para>
 
 <para>
@@ -173,6 +206,17 @@
 полусферой.
 </para>
 
+<figure id="picture8">
+  <title>Ошибка в конструировании двухэлементной фигуры</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture8.jpg">
+    <imageobject><imagedata fileref="images/html/picture8.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture8.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>слева &#8212; фигура-образец</para></textobject></mediaobject>
+</figure>
+
 <para>
 В процессе конструирования часто наблюдается пробное составление обезьяной 
 элементов, как бы примеривание их и самостоятельное исправление ошибок. 
@@ -180,6 +224,17 @@
 (широкого цилиндра) берет дощечку, но вдруг останавливается и исправляется, 
 взяв нужную фигуру.
 </para>
+
+<figure id="picture9">
+  <title>Правильное конструирование фигуры из двух элементов,
+когда в группе избираемых нет лишних фигур</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture9.jpg">
+    <imageobject><imagedata fileref="images/html/picture9.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture9.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 Замечается еще одна закономерность, на которую нам хотелось бы обратить 
@@ -225,6 +280,18 @@
 горизонтального положения призмы придал ей вертикальное.
 </para>
 
+<figure id="picture10">
+  <title>Правильное конструирование двухэлементной фигуры по образцу
+при двух лишних элементах в группе избираемых</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture10.jpg">
+    <imageobject><imagedata fileref="images/html/picture10.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture10.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; избираемые, II &#8212; репродукции</para></textobject></mediaobject>
+</figure>
+
 <para>
 Аналогичная ошибка проявилась в опытах, где шимпанзе ставит нижний 
 элемент &mdash; призму &mdash; вертикально, вместо того, чтобы положить ее 
@@ -234,6 +301,30 @@
 положение и верхнего и нижнего элементов и, кроме того, ставит один из них 
 &mdash; верхний &mdash; в вертикальное положение.
 </para>
+
+<figure id="picture11">
+  <title>Правильное конструирование двухэлементной фигуры по образцу
+при пяти лишних элементах</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture11.jpg">
+    <imageobject><imagedata fileref="images/html/picture11.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture11.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; избираемые, II &#8212; репродукции</para></textobject></mediaobject>
+</figure>
+
+<figure id="picture12">
+  <title>Правильное конструирование двухэлементной фигуры по образцу
+при четырех лишних элементах</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture12.jpg">
+    <imageobject><imagedata fileref="images/html/picture12.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture12.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; избираемые, II &#8212; репродукции</para></textobject></mediaobject>
+</figure>
 
 <para>
 Анализ этих ошибочных решений задач определенно показывает, что главную 
@@ -248,6 +339,30 @@
 правильно, но это не предотвратило того, что шимпанзе в последующих опытах 
 снова решил эту же задачу неверно.
 </para>
+
+<figure id="picture13">
+  <title>Правильное конструирование двухэлементной фигуры по образцу
+при четырех лишних элементах</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture13.jpg">
+    <imageobject><imagedata fileref="images/html/picture13.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture13.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; избираемые, II &#8212; репродукции</para></textobject></mediaobject>
+</figure>
+
+<figure id="picture14">
+  <title>Правильное конструирование трехэлементной фигуры по образцу
+при одном лишнем элементе</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture14.jpg">
+    <imageobject><imagedata fileref="images/html/picture14.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture14.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; избираемые, II &#8212; репродукции</para></textobject></mediaobject>
+</figure>
 
 <para>
 Более успешно были исправлены ошибки в репродуцировании образцов, где 
@@ -278,6 +393,18 @@
 
 <para>Шимпанзе, выделяя фигуры для воспроизведения, берет их не подряд, а выбирает из группы сначала нижнюю фигуру, вслед за ней среднюю, не лежащую рядом с первой, и, наконец, оставшуюся верхнюю.</para>
 
+<figure id="picture15">
+  <title>Правильное конструирование трехэлементной фигуры по образцу
+при четырех лишних элементах</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture15.jpg">
+    <imageobject><imagedata fileref="images/html/picture15.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture15.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; избираемые, II &#8212; репродукции</para></textobject></mediaobject>
+</figure>
+
 <para>
 Интересно, что выбор у шимпанзе идет не только в порядке пространственного 
 размещения объектов в группе избираемых, но и то, что шимпанзе в состоянии 
@@ -295,6 +422,18 @@
 случае помещения тетраэдров на поверхности куба шимпанзе располагает их 
 более сближенно, чем в фигуре-образце.
 </para>
+
+<figure id="picture16">
+  <title>Правильное конструирование трехэлементной фигуры по образцу
+при трех лишних элементах</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture16.jpg">
+    <imageobject><imagedata fileref="images/html/picture16.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture16.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; избираемые, II &#8212; репродукции</para></textobject></mediaobject>
+</figure>
 
 <para>
 Правильное воспроизведение элементов обезьяна осуществляет после двух 
@@ -363,16 +502,52 @@
 образца, состоящую из двух элементов &mdash; второго и третьего (10 случаев 
 из 25). Еще реже шимпанзе не включает верхний элемент (три раза из 25), т. е. 
 репродуцирует лишь нижнюю часть фигуры из двух элементов &mdash; 
-первого и второго (<xref linkend="picture18" />).</para></listitem>
+первого и второго (<xref linkend="picture18" />).</para>
+
+<figure id="picture17">
+  <title>Ошибка в конструировании трехэлементной фигуры: пропуск среднего элемента</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture17.jpg">
+    <imageobject><imagedata fileref="images/html/picture17.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture17.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
+</listitem>
 
 <listitem><para>Шимпанзе смешивает одинаково часто (по восемь раз) 
 соотношение смежных элементов (второго и третьего и первого и второго), 
-располагая их не в том порядке, как в фигуре-образце.</para></listitem>
+располагая их не в том порядке, как в фигуре-образце.</para>
+
+<figure id="picture18">
+  <title>Ошибка в конструировании трехэлементной фигуры</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture18.jpg">
+    <imageobject><imagedata fileref="images/html/picture18.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture18.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
+</listitem>
 
 <listitem><para>Чаще шимпанзе искажает положение верхнего элемента, 
 перевертывая его, заменяя вертикальное его положение горизонтальным и 
 обратно (семь раз); реже он извращает положение среднего элемента (четыре 
-раза) и нижнего (один раз) (<xref linkend="picture19" />).</para></listitem>
+раза) и нижнего (один раз) (<xref linkend="picture19" />).</para>
+
+<figure id="picture19">
+  <title>Ошибка в конструировании трехэлементной фигуры</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture19.jpg">
+    <imageobject><imagedata fileref="images/html/picture19.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture19.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
+</listitem>
 
 <listitem><para>Иногда шимпанзе заменяет верхний элемент не 
 соответствующим по форме элементом. Например, вместо палочки на диске он 
@@ -408,6 +583,16 @@
 поставлены рядом на нижнем элементе &mdash; кубе.
 </para>
 
+<figure id="picture20">
+  <title>Две ошибки в конструировании по образцу</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture20.jpg">
+    <imageobject><imagedata fileref="images/html/picture20.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture20.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Оказалось, что эти типы репродукций как раз и представляли для шимпанзе 
 непреодолимые трудности. И эта трудность заключалась не только в том, что 
@@ -420,6 +605,17 @@
 расчленял одну составную фигуру-конструкцию на две, не достигая полного 
 сходства с образцом.
 </para>
+
+<figure id="picture21">
+  <title>Ошибочное конструирование: не учитывается статика</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture21.jpg">
+    <imageobject><imagedata fileref="images/html/picture21.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture21.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; избираемые, II &#8212; репродукции</para></textobject></mediaobject>
+</figure>
 
 <para>
 Подобное решение он дал, например, и в опыте 46, когда, накрыв один цилиндр 
@@ -452,6 +648,17 @@
 ошибками, но все же, в конце концов, правильно &mdash;10 фигур, что 
 составляет 52%; не выполнил вовсе восемь фигур, т. е. 41%.
 </para>
+
+<figure id="picture22">
+  <title>Варианты конструирования обезьяной четырехэлементной фигуры</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture22.jpg">
+    <imageobject><imagedata fileref="images/html/picture22.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture22.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; образец, II &#8212; избираемые, III &#8212; репродукции</para></textobject></mediaobject>
+</figure>
 
 <para>
 Один опыт конструирования (составляющий лишь 5% общего количества 
@@ -502,6 +709,16 @@
 неотчетливо воспринимается при расчленении фигуры и потому не включается 
 и при ее репродукции.
 </para>
+
+<figure id="picture23">
+  <title>Ошибка в конструировании по образцу</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture23.jpg">
+    <imageobject><imagedata fileref="images/html/picture23.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture23.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 Почти так же часто шимпанзе пропускает (26 раз) при репродуцировании фигур 
@@ -580,6 +797,17 @@
 
 <para>И, наконец, шимпанзе не умеет учесть соотношения соединяемых элементов: он смешивает их местоположение.</para>
 
+<figure id="picture24">
+  <title>Ошибки конструирования четырехэлементной фигуры</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture24.jpg">
+    <imageobject><imagedata fileref="images/html/picture24.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture24.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; образец, II &#8212; репродукции</para></textobject></mediaobject>
+</figure>
+
 <para>
 Таким образом, обнаруживается, что из 24 смешений расположения 
 соединяемых элементов чаще всего соединяются неправильно следующие 
@@ -652,6 +880,17 @@ linkend="picture24" />) указывает на то, что шимпанзе т
 соединяет три элемента, вставляя промежуточный элемент &mdash; призму, 
 ставит ее вертикально и накладывает на нее палочку, на диске.
 </para>
+
+<figure id="picture25">
+  <title>Варианты конструирования четырехэлементной фигуры</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture25.jpg">
+    <imageobject><imagedata fileref="images/html/picture25.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture25.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; образец, II &#8212; избираемые, III &#8212; репродукции</para></textobject></mediaobject>
+</figure>
 
 <para>
 Когда экспериментатор не принимает фигуру, шимпанзе делает другую, из 

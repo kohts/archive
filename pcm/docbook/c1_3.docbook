@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 Отмечая типы ошибочных решений у шимпанзе, мы должны теперь 
 проанализировать, может ли быть совершенствование этих решений при 
 повторном выполнении им задач на конструирование. Для этого рассмотрим 
@@ -266,6 +266,17 @@
 
 <para>В двух повторных опытах, в которых также нижним элементом является куб, а верхним &mdash; призма, положенная горизонтально, Иони сперва пытается ставить призму, а потом переводит ее сам в горизонтальное положение.</para>
 
+<figure id="picture26">
+  <title>Варианты конструирования трехэлементных фигур</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture26.jpg">
+    <imageobject><imagedata fileref="images/html/picture26.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture26.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; образец, II &#8212; избираемые, III &#8212; репродукции</para></textobject></mediaobject>
+</figure>
+
 <para>
 При повторном конструировании двухэлементных фигур, где нижний элемент 
 &mdash; куб, а верхний &mdash; конус, Иони не сразу ориентируется в выборе 
@@ -319,6 +330,17 @@
 конструирования в повторном опыте очевидно.
 </para>
 
+<figure id="picture27">
+  <title>Варианты конструирования четырехэлементных фигуры</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture27.jpg">
+    <imageobject><imagedata fileref="images/html/picture27.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture27.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; образец, II &#8212; избираемые, III &#8212; репродукции</para></textobject></mediaobject>
+</figure>
+
 <para>
 И, наконец, в опыте 107 Иони осуществляет два пробных варианта решения. В 
 опыте 108 он выполняет ту же задачу в более трудных условиях &mdash; при 
@@ -330,6 +352,28 @@
 призм поставлены два цилиндра. Эту задачу и после четырех пробных 
 вариантов Иони не решает.
 </para>
+
+<figure id="picture28">
+  <title>Варианты конструирования четырехэлементной фигур</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture28.jpg">
+    <imageobject><imagedata fileref="images/html/picture28.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture28.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; образец, II &#8212; избираемые, III &#8212; репродукции</para></textobject></mediaobject>
+</figure>
+
+<figure id="picture29">
+  <title>Варианты конструирования трехэлементной фигуры</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture29.jpg">
+    <imageobject><imagedata fileref="images/html/picture29.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture29.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; образец, II &#8212; избираемые, III &#8212; репродукции</para></textobject></mediaobject>
+</figure>
 
 <para>Совершенствования не наблюдается при выполнении некоторых четырехэлементных конструкций.</para>
 

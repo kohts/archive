@@ -1,4 +1,4 @@
-﻿<para>Шимпанзе при решении задач делает гораздо больше ошибок, чем каждый из детей, даже чем наименее успевающий Витя.</para>
+<para>Шимпанзе при решении задач делает гораздо больше ошибок, чем каждый из детей, даже чем наименее успевающий Витя.</para>
 
 <para>Так, шимпанзе Иони правильно конструирует двухэлементные фигуры в 31,5% случаев, Витя и Вова &mdash; в 66&mdash;68%, а Юра &mdash; в 81% случаев.</para>
 
@@ -779,6 +779,18 @@
 
 <para>Следует отметить, что в группе избираемых находились два лишних элемента. Тем не менее Иони производит выбор только нужных элементов.</para>
 
+<figure id="picture33">
+  <title>Сопоставление трех- и четырехэлементных фигур, сконструированных шимпанзе и ребенком</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture33.jpg">
+    <imageobject><imagedata fileref="images/html/picture33.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture33.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; образец, II &#8212; избираемые,
+III &#8212; варианты репродукций шимпанзе Иони, IV &#8212; варианты репродукций Вити А.</para></textobject></mediaobject>
+</figure>
+
 <para>
 В опыте 117 первый вариант абсолютно повторяет тот же вариант опыта 111 
 (Иони соединяет лишь первый и четвертый элементы, придав последнему 
@@ -788,6 +800,19 @@
 четвертом варианте он ставит третий элемент не рядом со вторым, а рядом с 
 первым.
 </para>
+
+<figure id="picture34">
+  <title>Сопоставление четырехэлементных фигур, сконструированных шимпанзе Иони и ребенком</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture34.jpg">
+    <imageobject><imagedata fileref="images/html/picture34.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture34.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; образец, II &#8212; избираемые,
+III &#8212; варианты репродукций шимпанзе Иони, IV &#8212; варианты репродукций Вити А.,
+V &#8212; репродукция Вовы М.</para></textobject></mediaobject>
+</figure>
 
 <para>
 В пятом варианте Иони исправляет ошибку: ставит третий элемент рядом со 
@@ -807,6 +832,19 @@
 четвертому элементу (палочке) иное положение, чем в образце: кладет ее не 
 поперек призм, как это надо, а несколько косо, по диагонали.
 </para>
+
+<figure id="picture35">
+  <title>Сопоставление пятиэлементных фигур, сконструированных шимпанзе и детьми</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture35.jpg">
+    <imageobject><imagedata fileref="images/html/picture35.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture35.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; образец, II &#8212; избираемые,
+III &#8212; варианты репродукций шимпанзе Иони, IV &#8212; варианты репродукций Вити А.,
+V &#8212; репродукция Вовы М., VI &#8212; репродукции Юры Х.</para></textobject></mediaobject>
+</figure>
 
 <para>
 Опытов по конструированию обезьяной пятиэлементных фигур было только 

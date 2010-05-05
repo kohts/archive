@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 Во время наших исследований познавательных способностей шимпанзе наш 
 подопытный побуждался к конструированию сложных составных фигур в 
 соответствии с показанной экспериментатором фигурой-образцом (<xref 
@@ -8,6 +8,17 @@ linkend="picture2" />).
 <para>Нами было проведено 119 опытов. Предлагаемые сложные фигуры-образцы составлялись из 12 различных планиметрических и стереометрических элементов; некоторые из них отличались и по величине (например, куб и призма).</para>
 
 <para>Предварительно была выяснена способность шимпанзе к дифференцировке и выбору единичных фигур, входивших позднее как элементы в состав комбинируемых сложных фигур.</para>
+
+<figure id="picture2">
+  <title>Ошибка в конструировании по образцу</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture2.jpg">
+    <imageobject><imagedata fileref="images/html/picture2.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture2.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>слева &#8212; фигура-образец</para></textobject></mediaobject>
+</figure>
 
 <para>
 Многочисленными опытами было установлено, что шимпанзе мог различать все 
@@ -80,7 +91,20 @@ linkend="picture4" />).</para></listitem>
 двух до пяти). При этом учитывался процент абсолютно правильно решенных 
 задач на воспроизведение составных фигур разной сложности, состоящих из 
 двух &mdash; пяти элементов, а также процент задач, вначале неправильно, но 
-позднее верно решенных, а также совсем не решенных.</para></listitem>
+позднее верно решенных, а также совсем не решенных.</para>
+
+<figure id="picture3">
+  <title>Конструирование фигуры (III) по заданному образцу (I) в том случае,
+когда в группе избираемых (II) нет лишних элементов</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture3.jpg">
+    <imageobject><imagedata fileref="images/html/picture3.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture3.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
+</listitem>
 <listitem><para>Как отражалось на правильности конструирования нужной 
 фигуры включение в группу избираемых (кроме необходимых элементов) 
 фигур, не нужных для конструирования.
@@ -90,7 +114,20 @@ linkend="picture4" />).</para></listitem>
 ею элементов, не пригодных для воспроизведения, учесть неправильные 
 способы их соединения в сложную фигуру. В связи с этим анализировались 
 варианты пробных решений (от 2 до 14 вариантов), последовательность 
-составления фигуры, подобной фигуре-образцу.</para></listitem>
+составления фигуры, подобной фигуре-образцу.</para>
+
+<figure id="picture4">
+  <title>Обезьяна конструирует фигуру по образцу (в группе избираемых
+имеются лишние элементы)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture4.jpg">
+    <imageobject><imagedata fileref="images/html/picture4.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture4.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
+</listitem>
 <listitem><para>Проследить совершенствование конструктивной деятельности 
 шимпанзе во второй половине опытов по сравнению с первой (после 57 опытов) 
 и воспроизведение им фигур различной сложности в результате 

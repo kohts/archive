@@ -1,4 +1,4 @@
-﻿<epigraph>
+<epigraph>
 <para>
 ...Вся природа, начиная от мельчайших частиц ее до величайших тел, начиная от 
 песчинок и кончая солнцами, начиная от протистов и кончая человеком, находится 
@@ -186,6 +186,16 @@ concreto</quote>
 ему установление связей по одному признаку. Самостоятельно отделить 
 признак от конкретного объекта шимпанзе не мог.
 </para>
+
+<figure id="picture1">
+  <title>Шимпанзе Иони</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture1.jpg">
+    <imageobject><imagedata fileref="images/html/picture1.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture1.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 Еще труднее удавался шимпанзе выбор из группы определенного количества 

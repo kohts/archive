@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 Как влияет форма и величина некоторых объектов на их выбор и правильность 
 расположения при конструировании соответственно фигуре-образцу
 <footnote><para>
@@ -440,6 +440,17 @@
 
 <para>Как включалась в конструкцию на протяжении пяти опытов фигура-шар?</para>
 
+<figure id="picture30">
+  <title>Варианты конструирования четырехэлементных фигур</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture30.jpg">
+    <imageobject><imagedata fileref="images/html/picture30.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture30.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; образец, II &#8212; избираемые, III &#8212; репродукции</para></textobject></mediaobject>
+</figure>
+
 <para>
 Шар избирался вместо пяти &mdash; 14 раз. Он включался в комбинации из 
 двух элементов один раз на втором месте, из трех &mdash; три раза на третьем 
@@ -447,6 +458,17 @@
 помещался на место в 35% случаев, пропускался &mdash; в 28%. Особенно 
 трудно обезьяне было ставить его на верхнее место в сходных конструкциях.
 </para>
+
+<figure id="picture31">
+  <title>Варианты конструирования четырехэлементной фигуры</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture31.jpg">
+    <imageobject><imagedata fileref="images/html/picture31.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture31.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>I &#8212; образец, II &#8212; избираемые, III &#8212; репродукции</para></textobject></mediaobject>
+</figure>
 
 <para>
 Диск с четырьмя глазками включался в фигуру-образец только в одном опыте 
