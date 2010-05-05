@@ -21,6 +21,7 @@ my $conf = {
     'mnm' => 'ladygina-kohts_n.n./mnm',
     'nim' => 'kohts_a.f./nim',
     'otchet1921' => 'ladygina-kohts_n.n./otchet1921',
+    'pcm' => 'ladygina-kohts_n.n./pcm',
     'rppeo' => 'ladygina-kohts_n.n./rppeo',
     'uml' => 'ladygina-kohts_n.n./uml',
     'vodo' => 'ladygina-kohts_n.n./vodo',
@@ -98,5 +99,5 @@ foreach my $e (sort keys %{$conf->{'equiv'}}) {
 }
 
 if (!$filter && !$sync) {
-	print "\ncommand line: --filter and --sync\n\n";
+  print "\ncommand line: --filter and --sync\n\n";
 }
