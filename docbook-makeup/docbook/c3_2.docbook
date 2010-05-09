@@ -32,6 +32,8 @@
   <entry><imageobject role="html"><imagedata fileref="http://www.oasis-open.org/docbook/xmlcharent/glyphs/100dpi/U2153.png" /></imageobject></entry>
   <entry>&amp;frac13;</entry>
 </row>
+<row><entry>&frac14;</entry><entry>&amp;frac14;</entry></row>
+<row><entry>&frac34;</entry><entry>&amp;frac34;</entry></row>
 <row><entry>&#8212;</entry><entry>&amp;#8212;</entry></row>
 <row><entry>&#0176;</entry><entry>&amp;#0176;</entry><entry>градус</entry></row>
 <row><entry>&#8730;</entry><entry>&amp;#8730;</entry><entry>квадратный корень</entry></row>
