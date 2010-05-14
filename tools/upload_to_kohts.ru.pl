@@ -22,6 +22,7 @@ my $conf = {
     'nim' => 'kohts_a.f./nim',
     'otchet1921' => 'ladygina-kohts_n.n./otchet1921',
     'pcm' => 'ladygina-kohts_n.n./pcm',
+    'pi' => 'ladygina-kohts_n.n./pi',
     'rppeo' => 'ladygina-kohts_n.n./rppeo',
     'uml' => 'ladygina-kohts_n.n./uml',
     'vodo' => 'ladygina-kohts_n.n./vodo',

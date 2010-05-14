@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY liniya "
+<informaltable frame='none' pgwide='1'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry><para>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
+</tgroup></informaltable>
+ ">
+
+<!ENTITY predislovie SYSTEM "predislovie.docbook">
+<!ENTITY vvedenie SYSTEM "vvedenie.docbook">
+<!ENTITY c1 SYSTEM "c1.docbook">
+<!ENTITY c1_1 SYSTEM "c1_1.docbook">
+<!ENTITY c1_2 SYSTEM "c1_2.docbook">
+<!ENTITY c2 SYSTEM "c2.docbook">
+<!ENTITY c2_1 SYSTEM "c2_1.docbook">
+<!ENTITY c2_2 SYSTEM "c2_2.docbook">
+<!ENTITY c2_3 SYSTEM "c2_3.docbook">
+<!ENTITY c2_4 SYSTEM "c2_4.docbook">
+<!ENTITY c2_5 SYSTEM "c2_5.docbook">
+<!ENTITY c3 SYSTEM "c3.docbook">
+<!ENTITY c3_1 SYSTEM "c3_1.docbook">
+<!ENTITY c4 SYSTEM "c4.docbook">
+<!ENTITY c4_1 SYSTEM "c4_1.docbook">
+<!ENTITY c5 SYSTEM "c5.docbook">
+<!ENTITY c6 SYSTEM "c6.docbook">
+<!ENTITY works SYSTEM "works.docbook">
+<!ENTITY bibliography SYSTEM "bibliography.docbook">
+<!ENTITY vyhodnye_dannye SYSTEM "vyhodnye_dannye.docbook">
+<!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
+ 
+  ]>
+
+<book id="vojtonis-pi" lang="ru">
+
+<title>Предистория интеллекта</title>
+<subtitle>К проблеме антропогенеза</subtitle>
+
+<bookinfo>
+<author>
+<firstname>Николай</firstname>
+<othername>Юрьевич</othername>
+<surname>Войтонис</surname>
+</author>
+</bookinfo>
+<date>Москва, 1949</date>
+
+<preface id="predislovie"><title>Предисловие</title>&predislovie;</preface>
+<preface id="vvedenie"><title>Введение</title>&vvedenie;</preface>
+
+<chapter id="c1"><title>Ориентировочно-исследовательская деятельность у обезьян</title>&c1;
+  <sect1 id="c1_1"><title>Подопытные животные, обстановка и методы экспериментирования</title>&c1_1;</sect1>
+  <sect1 id="c1_2"><title>Выводы</title>&c1_2;</sect1>
+</chapter>
+<chapter id="c2"><title>Отсроченные реакции как проявление <quote>установок направленности</quote> у обезьян</title>&c2;
+  <sect1 id="c2_1"><title>Метод <quote>замедленных</quote>, или <quote>отсроченных</quote>, реакций в сравнительной психологии</title>&c2_1;</sect1>
+  <sect1 id="c2_2"><title>Аппаратура, метод и условия работы</title>&c2_2;</sect1>
+  <sect1 id="c2_3"><title>Результаты экспериментов</title>&c2_3;</sect1>
+  <sect1 id="c2_4"><title>Анализ <quote>ошибок</quote> у подопытных животных</title>&c2_4;</sect1>
+  <sect1 id="c2_5"><title>Выводы</title>&c2_5;</sect1>
+</chapter>
+<chapter id="c3"><title>Пользование предметами как <quote>орудиями</quote><footnote><para>Войтонис
+употребляет слово <quote>орудие</quote> (здесь и далее) не в подлинном его значении, как оно функционирует
+при упоминании об общественном труде человека, но разумея лишь биологические предпосылки к употреблению орудия. &#8212; Ред.</para></footnote> у обезьян</title>&c3;
+  <sect1 id="c3_1"><title>Выводы</title>&c3_1;</sect1>
+</chapter>
+<chapter id="c4"><title>Стадные взаимоотношения обезьян</title>&c4;
+  <sect1 id="c4_1"><title>Выводы</title>&c4_1;</sect1>
+</chapter>
+
+<appendix id='c5'><title>Послесловие</title>&c5;</appendix>
+<appendix id='c6'><title>Пользование вещами как орудиями: роль мотивационных установок</title>
+<subtitle>Опыты с обезьяной макаком-лапундером Паташоном (резюме отдельных опытов и выдержки из дневника)</subtitle>
+&c6;
+</appendix>
+
+<appendix id='works'><title>Список главнейших работ Н. Ю. Войтониса</title>&works;</appendix>
+<appendix id='bibliography'><title>Литература<footnote><para>Список литературы дополнен двумя крупными
+новейшими монографиями советских ученых, имеющими непосредственное отношение к проблематике
+данного исследования, &#8212; Вацуро и Рогинского. &#8212; Ред.</para></footnote></title>&bibliography;</appendix>
+
+<appendix><title>Приложения к электронному изданию</title>
+  <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1>
+  <?page-break?>
+  <sect1><title>Подготовка электронного издания</title>&electronic_edition;</sect1>
+</appendix>
+
+</book>
