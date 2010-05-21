@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 <blockquote>...До бол&#1123;зни, лишившей меня зр&#1123;н&#1110;я и слуха, 
 я жила въ крошечномъ домик&#1123;, состоявшемъ изъ одной большой 
 комнаты и другой маленькой, для прислуги. Отецъ мой построилъ его 
@@ -27,6 +27,16 @@
 н&#1123;жныя, чистыя, мягк&#1110;я, словно прямо изъ Божьяго 
 сада...</blockquote>
 </para>
+
+<figure id="picture3">
+  <title>Усадьба Келлеровъ въ Тускумб&#1110;и (штатъ Алабама)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture3.jpg">
+    <imageobject><imagedata fileref="images/html/picture3.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture3.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 <blockquote>...Я совс&#1123;мъ не помню, чт&#1086;&#768; было въ первые 

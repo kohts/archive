@@ -1,3 +1,23 @@
+<figure id="picture1">
+  <title>Елена Келлеръ (15-ти л&#1123;тъ) и миссъ Солливанъ</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture1.jpg">
+    <imageobject><imagedata fileref="images/html/picture1.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture1.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
+<figure id="picture2">
+  <title>Факсимиле письма Елены Келлеръ</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture2.jpg">
+    <imageobject><imagedata fileref="images/html/picture2.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture2.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Маркъ Твэнъ сказалъ, что, по его мн&#1123;н&#1110;ю, въ прошломъ 
 в&#1123;к&#1123; родилось только два челов&#1123;ка, которыхъ можно 

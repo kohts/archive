@@ -1,8 +1,8 @@
-﻿<sect2><title>Титульная страница</title>
+<sect2><title>Титульная страница</title>
 <para><literallayout>
 <emphasis role="bold">З. А. Рагозина.</emphasis>
                 
-ИСТОР&#1110;Я
+ИСТОР&#1030;Я
 ОДНОЙ ДУШИ.
 
 (ЕЛЕНА КЕЛЛЕРЪ)
@@ -26,20 +26,3 @@
 
 </literallayout></para>
 </sect2>
-
-<?page-break?>
-<sect2><title>Вторая страница</title>
-<para><literallayout>
-
-<emphasis>Елена Келлеръ (15-ти л&#1123;тъ) и миссъ Солливанъ.</emphasis>
-</literallayout></para>
-</sect2>
-
-<?page-break?>
-<sect2><title> Оборот второй страницы</title>
-<para><literallayout>
-
-Факсимиле письма Елены Келлеръ.
-</literallayout></para>
-</sect2>
-
