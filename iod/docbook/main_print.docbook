@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
   "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
@@ -24,9 +24,10 @@
  
   ]>
 
-<book id="Ragozina" lang="ru">
+<book id="ragozina-iod" lang="ru">
 
-<title> ИСТОР&#1110;Я ОДНОЙ ДУШИ.</title>
+<title>Истор&#1110;я одной души.</title>
+<subtitle>Елена Келлеръ</subtitle>
 
 <bookinfo>
 <author>
@@ -37,17 +38,17 @@
 </bookinfo>
 <date> С.-ПЕТЕРБУРГЪ. Издан&#1110;е А. Ф. МАРКСА.</date>
 
-<chapter id="c1"><title>Елена Келлеръ.</title>&c1;</chapter>
-<chapter id="c2"><title>Во тьм&#1123; кром&#1123;шной.</title>&c2;</chapter>
-<chapter id="c3"><title>Миссъ Солливанъ.</title>&c3;</chapter>
-<chapter id="c4"><title>Сумерки.</title>&c4;</chapter>
-<chapter id="c5"><title>Пробужден&#1110;е.</title>&c5;</chapter>
-<chapter id="c6"><title>Расцв&#1123;тан&#1110;е.</title>&c6;</chapter>
-<chapter id="c7"><title>Первое горе.</title>&c7;</chapter>
-<chapter id="c8"><title>Борьба съ университетомъ.</title>&c8;</chapter>
-<chapter id="c9"><title>Университетъ. &mdash; Впечатл&#1123;н&#1110;я и оц&#1123;нка.</title>&c9;</chapter>
-<chapter id="c10"><title>Личныя характеристики.</title>&c10;</chapter>
-<chapter id="c11"><title><quote>Оптимизмъ</quote>. &mdash; (Литературный дебютъ Елены Келлеръ).</title>&c11;</chapter>
+<chapter id="c1"><title>Елена Келлеръ</title>&c1;</chapter>
+<chapter id="c2"><title>Во тьм&#1123; кром&#1123;шной</title>&c2;</chapter>
+<chapter id="c3"><title>Миссъ Солливанъ</title>&c3;</chapter>
+<chapter id="c4"><title>Сумерки</title>&c4;</chapter>
+<chapter id="c5"><title>Пробужден&#1110;е</title><subtitle>(Апр&#1123;ль&mdash;декабрь 1887 г.).</subtitle>&c5;</chapter>
+<chapter id="c6"><title>Расцв&#1123;тан&#1110;е</title><subtitle>(1888&mdash;1891).</subtitle>&c6;</chapter>
+<chapter id="c7"><title>Первое горе</title>&c7;</chapter>
+<chapter id="c8"><title>Борьба съ университетомъ</title>&c8;</chapter>
+<chapter id="c9"><title>Университетъ &mdash; Впечатл&#1123;н&#1110;я и оц&#1123;нка</title>&c9;</chapter>
+<chapter id="c10"><title>Личныя характеристики</title>&c10;</chapter>
+<chapter id="c11"><title><quote>Оптимизмъ</quote> &mdash; (Литературный дебютъ Елены Келлеръ)</title>&c11;</chapter>
 
 <appendix><title>Приложения к электронному изданию</title>
   <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1>
