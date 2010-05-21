@@ -16,6 +16,7 @@ my $conf = {
     'grootp' => 'kohts_a.f./grootp',
     'ichc' => 'ladygina-kohts_n.n./ichc',
     'ipss' => 'ladygina-kohts_n.n./ipss',
+    'iod' => 'other/iod',
     'kodvo' => 'ladygina-kohts_n.n./kodvo',
     'menzbir' => 'kohts_a.f./menzbir',
     'mnm' => 'ladygina-kohts_n.n./mnm',
@@ -80,6 +81,9 @@ sub sync_book {
         print $l;
       }
       });
+    if ($r->{'exit_code'} ne 0) {
+      print "error uploading: $r->{'merged'}\n";
+    }
   }
 }
 
