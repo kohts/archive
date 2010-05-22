@@ -56,6 +56,7 @@
 </sect2>
 
 <sect2><title>Цитаты отдельным блоком</title>
+<para>
 Цитаты, выделенные в отдельный блок/параграф, оформляются в тег &lt;blockquote&gt;&lt;/blockquote&gt;,
 ссылка на источник цитаты заключается в тег &lt;attribution&gt;&lt;/attribution&gt;. Стихотворные цитаты
 помимо прочего должны помещаться в тег &lt;literallayout&gt;
@@ -68,6 +69,27 @@
 </literallayout></para>
 </blockquote>
 ?>
+</para>
+<para>
+Если цитата занимает более одного абзаца, то все абзацы надо заключить
+в один блок blockquote, например:
+<?pre_b
+<blockquote>
+<para>
+Первый абзац
+</para>
+
+<para>
+Второй абзац
+</para>
+
+<para>
+Третий абзац
+</para>
+</blockquote>
+?>
+</para>
+
 </sect2>
 
 <sect2 id='subscripts'><title>Индексы</title>
