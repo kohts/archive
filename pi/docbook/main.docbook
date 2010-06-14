@@ -13,12 +13,14 @@
 <!ENTITY c1 SYSTEM "c1.docbook">
 <!ENTITY c1_1 SYSTEM "c1_1.docbook">
 <!ENTITY c1_2 SYSTEM "c1_2.docbook">
+<!ENTITY c1_3 SYSTEM "c1_3.docbook">
 <!ENTITY c2 SYSTEM "c2.docbook">
 <!ENTITY c2_1 SYSTEM "c2_1.docbook">
 <!ENTITY c2_2 SYSTEM "c2_2.docbook">
 <!ENTITY c2_3 SYSTEM "c2_3.docbook">
 <!ENTITY c2_4 SYSTEM "c2_4.docbook">
 <!ENTITY c2_5 SYSTEM "c2_5.docbook">
+<!ENTITY c2_6 SYSTEM "c2_6.docbook">
 <!ENTITY c3 SYSTEM "c3.docbook">
 <!ENTITY c3_1 SYSTEM "c3_1.docbook">
 <!ENTITY c4 SYSTEM "c4.docbook">
@@ -52,6 +54,7 @@
 <chapter id="c1"><title>Ориентировочно-исследовательская деятельность у обезьян</title>&c1;
   <sect1 id="c1_1"><title>Подопытные животные, обстановка и методы экспериментирования</title>&c1_1;</sect1>
   <sect1 id="c1_2"><title>Выводы</title>&c1_2;</sect1>
+  <sect1 id="c1_3"><title>Рисунки и таблицы к главе <xref linkend="c1" /></title>&c1_3;</sect1>
 </chapter>
 <chapter id="c2"><title>Отсроченные реакции как проявление <quote>установок направленности</quote> у обезьян</title>&c2;
   <sect1 id="c2_1"><title>Метод <quote>замедленных</quote>, или <quote>отсроченных</quote>, реакций в сравнительной психологии</title>&c2_1;</sect1>
@@ -59,6 +62,7 @@
   <sect1 id="c2_3"><title>Результаты экспериментов</title>&c2_3;</sect1>
   <sect1 id="c2_4"><title>Анализ <quote>ошибок</quote> у подопытных животных</title>&c2_4;</sect1>
   <sect1 id="c2_5"><title>Выводы</title>&c2_5;</sect1>
+  <sect1 id="c2_6"><title>Рисунки и таблицы к главе <xref linkend="c2" /></title>&c2_6;</sect1>
 </chapter>
 <chapter id="c3"><title>Пользование предметами как <quote>орудиями</quote><footnote><para>Войтонис
 употребляет слово <quote>орудие</quote> (здесь и далее) не в подлинном его значении, как оно функционирует

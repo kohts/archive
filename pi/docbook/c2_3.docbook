@@ -1,4 +1,4 @@
-﻿<sect2><title>Количественные показатели отсрочки и внешние факторы, влияющие на них</title>
+<sect2><title>Количественные показатели отсрочки и внешние факторы, влияющие на них</title>
 
 <para>
 Первым и самым общим результатом изучения отсроченных реакций является 
@@ -133,6 +133,16 @@ linkend="picture52" />). Иногда она ложится. Голова час
 готова принять позу активного устремления (<xref linkend="picture55" />).
 </para>
 
+<example id="picture50">
+  <title>Поза лисы во время которкой отсрочки: напряженная фиксация кормушки с приманкой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture50.jpg">
+    <imageobject><imagedata fileref="images/html/picture50.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture50.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
 <para>
 С дальнейшим удлинением отсрочки лиса все чаще отходит от аппарата, то 
 ложась поодаль, то бегая туда и сюда. По первому звуку команды она 
@@ -149,6 +159,16 @@ linkend="picture54" />). Если немного изменить обстано
 вперемежку с ними давали длинные. Дело шло лучше. Лиса начинала вновь 
 хорошо следить за приманкой.
 </para>
+
+<example id="picture51">
+  <title>Лиса еще больше приблизилась к приманке</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture51.jpg">
+    <imageobject><imagedata fileref="images/html/picture51.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture51.jpg" /></imageobject>
+  </mediaobject>
+</example>
 
 <para>
 Однако если в чередовании длинных и коротких отсрочек соблюдалась 
@@ -169,9 +189,18 @@ linkend="picture54" />). Если немного изменить обстано
 вызвало у медведицы Катьки отказ от работы, а у медвежонка Ваньки настолько 
 бурное устремление к аппарату, что с ним пришлось прекратить работу, так как 
 он ломал аппарат. Только у одного из подопытных медвежат (у Машки) удалось 
-получить довольно длительную отсрочку, до 5 мин. (см. <xref 
-linkend="picture66" /> на <xref linkend="str146" />).
+получить довольно длительную отсрочку, до 5 мин. (см. <xref linkend="picture66" />).
 </para>
+
+<example id="picture52">
+  <title>Поза лисы при продолжительной отсрочке (сонливое состояние)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture52.jpg">
+    <imageobject><imagedata fileref="images/html/picture52.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture52.jpg" /></imageobject>
+  </mediaobject>
+</example>
 
 <para>
 Для самки шакала наиболее характерной формой поведения была такая. При 
@@ -185,6 +214,26 @@ linkend="picture58" />). Эта самка шакала Джека была оч
 сразу настороженность, беганье и отказ от работы. И у шакала не удалось 
 довести отсрочку дольше 2 мин.: наступал отказ от работы.
 </para>
+
+<example id="picture53">
+  <title>Лиса положила голову на доску с приманкой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture53.jpg">
+    <imageobject><imagedata fileref="images/html/picture53.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture53.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
+<example id="picture54">
+  <title>Негативная реакция лисы (отворачивается от приманки)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture54.jpg">
+    <imageobject><imagedata fileref="images/html/picture54.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture54.jpg" /></imageobject>
+  </mediaobject>
+</example>
 
 <para>
 Сравнивая поведение хищников при различных отсрочках, мы видим, что 
@@ -224,6 +273,16 @@ linkend="picture58" />). Эта самка шакала Джека была оч
 шакал перешли к новому приему отыскания приманки, к ее вынюхиванию.
 </para>
 
+<example id="picture55">
+  <title>Позитивная реакция лисы (быстрый подход к кормушке по сигналу экспериментатора)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture55.jpg">
+    <imageobject><imagedata fileref="images/html/picture55.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture55.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
 <para>
 Желая изучить объем запоминания, мы увеличили число кормушек, намереваясь 
 в будущем закладывать приманку сразу в две кормушки. Аппарат был несколько 
@@ -239,6 +298,16 @@ linkend="picture58" />). Эта самка шакала Джека была оч
 типа она стала открывать кормушку, в которую была положена одна бумажка, 
 без приманки: запах бумаги стал условным сигналом на приманку.
 </para>
+
+<example id="picture56">
+  <title>Отсутствие напряженного устремления к кормушке у шакала</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture56.jpg">
+    <imageobject><imagedata fileref="images/html/picture56.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture56.jpg" /></imageobject>
+  </mediaobject>
+</example>
 
 <para>
 Сходная картина получилась и у шакала. Обнаружилось, между прочим, что он 
@@ -277,6 +346,26 @@ linkend="picture58" />). Эта самка шакала Джека была оч
 торчащей от сетки проволочкой и т. п. (<xref linkend="picture59" />).
 </para>
 
+<example id="picture57">
+  <title>Запаздывание реакции у шакала на приближение к аппарату</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture57.jpg">
+    <imageobject><imagedata fileref="images/html/picture57.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture57.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
+<example id="picture58">
+  <title>Шакал схватывает приманку</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture58.jpg">
+    <imageobject><imagedata fileref="images/html/picture58.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture58.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
 <para>
 С поднятием люка, которое здесь является предварительным сигналом, 
 заменяющим команду, она немедленно устремляется к кормушкам. Тот факт, 
@@ -288,6 +377,16 @@ linkend="picture58" />). Эта самка шакала Джека была оч
 определенных границах, конечно) не снижает заметно и числа правильных 
 реакций.
 </para>
+
+<example id="picture59">
+  <title>Поведение обезьяны (макака-лапундера) в период отсрочки (манипулирование различными предметами)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture59.jpg">
+    <imageobject><imagedata fileref="images/html/picture59.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture59.jpg" /></imageobject>
+  </mediaobject>
+</example>
 
 <para>
 Мы не можем еще проанализировать до конца поведение обезьян в период 

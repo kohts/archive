@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 Сектор психологии Института философии Академии Наук СССР публикует 
 труд, являющийся итогом научной деятельности одного из крупнейших 
 представителей советской эволюционной психологии проф. Н. Ю. Войтониса. 
@@ -30,8 +30,8 @@
 
 &liniya;
 
-<sect2><title>Н. Ю. ВОЙТОНИС</title>
-<subtitle> (Биографическая справка)</subtitle>
+<sect2><title>Н. Ю. Войтонис</title>
+<subtitle>Биографическая справка</subtitle>
 
 <para>
 Николай Юрьевич Войтонис родился 27/III (8/IV) 1887 г. в семье сельского 
@@ -120,6 +120,16 @@
 материалистическим решением проблемы антропогенеза.
 </para>
 
+<example id="vojtonis">
+  <title>Николай Юрьевич Войтонис (1887&#8212;1946)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/vojtonis.jpg">
+    <imageobject><imagedata fileref="images/html/vojtonis.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/vojtonis.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
 <para>
 Осенью 1940 г. он подытожил свои шестилетние исследования в Сухумском 
 питомнике и блестяще защитил диссертацию на степень доктора биологических 
@@ -168,3 +178,5 @@
 
 <para><emphasis role="bold">Н. Н. Ладыгина-Котс</emphasis></para>
 </sect2>
+
+&liniya;
