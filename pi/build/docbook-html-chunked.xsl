@@ -54,8 +54,8 @@ part      toc,title
 
 	  <l:gentext key="Figure" text="Таблица"/>
 	  <l:gentext key="figure" text="Таблица"/>
-      <l:gentext key="ListofFigures" text="Список рисунков"/>
-      <l:gentext key="listoffigures" text="Список рисунков"/>
+      <l:gentext key="ListofFigures" text="Список таблиц"/>
+      <l:gentext key="listoffigures" text="Список таблиц"/>
       <l:context name="title">
 	    <l:template name="figure" text="Таблица %n. %t"/>
 	  </l:context>
@@ -66,18 +66,18 @@ part      toc,title
         <l:template name="figure" text="Табл. %n"/>
 	  </l:context>
 
-	  <l:gentext key="Example" text="Фотоиллюстрация"/>
-	  <l:gentext key="example" text="Фотоиллюстрация"/>
-      <l:gentext key="ListofExamples" text="Перечень фототаблиц"/>
-      <l:gentext key="listofexamples" text="Перечень фототаблиц"/>
+	  <l:gentext key="Example" text="Рисунок"/>
+	  <l:gentext key="example" text="Рисунок"/>
+      <l:gentext key="ListofExamples" text="Перечень рисунков"/>
+      <l:gentext key="listofexamples" text="Перечень рисунков"/>
 	  <l:context name="title">
-        <l:template name="example" text="Фототаблица %n. %t"/>
+        <l:template name="example" text="Рисунок %n. %t"/>
 	  </l:context>
 	  <l:context name="xref-number">
-	    <l:template name="example" text="Фото %n"/>
+	    <l:template name="example" text="Рис. %n"/>
 	  </l:context>
 	  <l:context name="xref-number-and-title">
-	    <l:template name="example" text="Фото %n"/>
+	    <l:template name="example" text="Рис. %n"/>
 	  </l:context>
 
 	  <l:gentext key="Equation" text="Кривая"/>
