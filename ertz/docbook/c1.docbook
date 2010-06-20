@@ -1,4 +1,4 @@
-﻿<para>
+<para>
 Едва ли найдется вторая группа животныхъ посл&#1123; птицъ, столь же 
 знаменательная по своей зоологической истор&#1110;и, бол&#1123;е пригодная 
 для иллюстрац&#1110;и вышеуказанной см&#1123;ны идей, господствовавшихъ 
@@ -554,6 +554,16 @@ also Schizognathous</quote>. Такъ или иначе, т.-е. признае�
 разграничен&#1110;я.
 </para>
 
+<figure id="picture1">
+  <title>Небо Megalaema asiatica (по Паркеру)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture1.jpg">
+    <imageobject><imagedata fileref="images/html/picture1.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture1.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 Если черепъ Cariama, описанный какъ <quote>imperfectly direct</quote>, являетъ 
 намъ прим&#1123;ръ десмогнатизма, возникшаго на почв&#1123; 
@@ -608,11 +618,23 @@ membrane that fills up the craniofacial notch</quote> &mdash; по катего�
 </para></footnote>
 , куда, по Гексли, относились Trochilus, Cypselus и Caprimulgus. Въ 
 отд&#1123;л&#1123;, посвященномъ <quote>Оn the Structure and Development of 
-the Face in Cuculine Birds (p. 112), Паркеръ зам&#1123;чаетъ: <quote>Professors 
+the Face in Cuculine Birds</quote> (p. 112), Паркеръ зам&#1123;чаетъ: <quote>Professors 
 Huxleys Cypselomorphae is his w&#0246;rst Group</quote>. Изъ формъ, ее 
 составляющихъ, Cypselus р&#1123;шительно относится Паркеромъ къ 
 эгитогнатамъ, напротивъ, эгитогнатизмъ безусловно отрицается для Trochilus и 
-Caprimulgus. Насколько посл&#1123;днее справедливо &mdash; вопросъ, 
+Caprimulgus.
+
+<figure id="picture2">
+  <title>Небо Caprimulgus europaeus (по Гексли)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture2.jpg">
+    <imageobject><imagedata fileref="images/html/picture2.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture2.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
+Насколько посл&#1123;днее справедливо &mdash; вопросъ, 
 оставляемый пока открытымъ; надлежащее р&#1123;шен&#1110;е его возможно 
 лишь по выяснен&#1110;и существеннаго признака эгитогнатизма, въ виду 
 несостоятельности критер&#1110;я, избраннаго Паркеромъ. Для насъ 
@@ -627,6 +649,17 @@ Caprimulgus (<xref linkend="picture2" />). Оказывается, что въ �
 вторичное костное небо развивается путемъ соединен&#1110;я Palatina на 
 большемъ или меньшемъ ихъ протяжен&#1110;и. Всего лучше это выражено у 
 Podargus, съ его непом&#1123;рно развитымъ челюстнымъ аппаратомъ. 
+
+<figure id="picture3">
+  <title>Небо Podargus (по Паркеру)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture3.jpg">
+    <imageobject><imagedata fileref="images/html/picture3.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture3.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 Посл&#1123;дн&#1110;й, разсматриваемый съ небной поверхности (<xref 
 linkend="picture3" />), представляетъ одну сплошную костную покрышку, 
 образованную преимущественно верхне-челюстной костью при ничтожномъ 
@@ -645,7 +678,19 @@ Artamus (<xref linkend="picture3" />) и Gymnorhina. При этомъ обще�
 организац&#1110;и ближайшихъ родичей оставляетъ не р&#1123;шеннымъ 
 вопросъ, объяснить ли намъ такое сходство генетическою близостью или 
 независимой отсюда общей тенденц&#1110;ей къ интенсивности 
-окостен&#1123;н&#1110;й. Въ обоихъ случаяхъ обширная небная покрышка 
+окостен&#1123;н&#1110;й.
+
+<figure id="picture4">
+  <title>Artamus leucorhinus (по Паркеру)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture4.jpg">
+    <imageobject><imagedata fileref="images/html/picture4.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture4.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
+Въ обоихъ случаяхъ обширная небная покрышка 
 представлена сплошнымъ окостен&#1123;н&#1110;емъ дна носового лабиринта, 
 по бокамъ незам&#1123;тно переходящимъ въ челюстную кость, между 
 т&#1123;мъ какъ прилежащая <quote>interned alinasal wall</quote> (самая задняя 
@@ -718,6 +763,16 @@ melanocephala), нормальныхъ въ отношен&#1110;и носовы
 удобн&#1123;е будетъ разсмотр&#1123;ть въ конц&#1123; нашей статьи при 
 обсужден&#1110;и методологическихъ основъ разбираемой системы.
 </para>
+
+<figure id="picture5">
+  <title>Chordediles acutipennis texensis черепъ снизу (по Shuffeldt'у)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture5.jpg">
+    <imageobject><imagedata fileref="images/html/picture5.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture5.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>
 Какъ и сл&#1123;довало ожидать, наибольшей критик&#1123; подверглась 
@@ -808,6 +863,22 @@ desmognathism</quote> неба Cariama и черепъ Rhynochetus (20) съ
 морфологически еще бол&#1123;е примитивнаго состоян&#1110;я.
 </para>
 
+<figure id="picture6">
+  <title>Уклоняющаяся форма сошника у н&#1123;которыхъ Limicolae (по Garrod'у)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture6.jpg">
+    <imageobject><imagedata fileref="images/html/picture6.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture6.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><simplelist>
+<member>1. Haematopus ostralegus</member>
+<member>2. Numenius arquatus</member>
+<member>3. Recurvirostra avocetta</member>
+<member>4. Chionis alba</member>
+</simplelist></textobject></mediaobject>
+</figure>
+
 <para>
 Раскрыт&#1110;емъ взаимоотношен&#1110;й двухъ посл&#1123;днихъ типовъ 
 мы обязаны преимущественно Пайкрафту, окончательно уяснившему 
@@ -819,9 +890,9 @@ desmognathism</quote> неба Cariama и черепъ Rhynochetus (20) съ
 срастан&#1110;е съ Palatinum. Интересно, насколько близокъ былъ порою 
 Паркеръ къ д&#1123;йствительному пониман&#1110;ю этого процесса. Такъ, въ 
 описан&#1110;и черепа молодого Casuarius Benettii (14, p. 158) мы читаемъ: 
-<blockquote>the pterygoids have their usual Struthious form, being.., thin and 
+<quote>the pterygoids have their usual Struthious form, being.., thin and 
 splintery in front, where the <quote>mesopterygoid</quote> becomes segmented off 
-in other birds</blockquote>. Т&#1123;мъ не мен&#1123;е Паркеръ воздержался 
+in other birds</quote>. Т&#1123;мъ не мен&#1123;е Паркеръ воздержался 
 отъ дальн&#1123;йшихъ обобщен&#1110;й, и удачное сопоставлен&#1110;е 
 осталось впосл&#1123;дств&#1110;и не использованнымъ. Мысль, что въ 
 зародышевомъ состоян&#1110;и неба килевыхъ мы им&#1123;емъ 
@@ -932,6 +1003,16 @@ Tinamus, какъ формы переходной въ интересующем�
 законченности разработки.
 </para>
 
+<figure id="picture7">
+  <title>Латеральный видъ Pterygoideum у Megalaema marshallorum (по Пайкрафту)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture7.jpg">
+    <imageobject><imagedata fileref="images/html/picture7.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture7.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 <para>
 На этомъ очерк&#1123; воззр&#1123;н&#1110;й Пайкрафта мы считаемъ 
 возможнымъ покончить съ обзоромъ критической литературы, посвященной 
@@ -979,6 +1060,17 @@ Classification of Birds</quote> являлись многократно пред
 критер&#1110;я для опред&#1123;лен&#1110;я эгитогнатизма. Затрудняясь 
 подыскать общеприложимый д&#1110;агнозъ, различные авторы въ разныхъ 
 случаяхъ подчеркиваютъ то одну, то другую особенность этого строен&#1110;я. 
+
+<figure id="picture8">
+  <title>Indicator major, черепъ снизу (по Garrod'у)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture8.jpg">
+    <imageobject><imagedata fileref="images/html/picture8.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture8.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
 Такъ, напр., Garrod (9), описывая глубоко вильчатый сошникъ одного изъ 
 Capitonidae (Indicator major, <xref linkend="picture8" />) думаетъ найти 
 существенную разницу отъ неба Passeres въ расположен&#1110;и смежныхъ 
@@ -1001,7 +1093,19 @@ linkend="picture1" />), особенно подчеркиваетъ гистол
 отношен&#1110;яхъ напоминаетъ состоян&#1110;е, характерное для Passeres, 
 какъ по общей конфигурац&#1110;и костей, такъ въ особенности 
 отношен&#1110;емъ прилежащихъ частей носового либиринта и формой 
-сошника. Посл&#1123;дн&#1110;й у козодоя (<xref linkend="picture2" />) 
+сошника.
+
+<figure id="picture9">
+  <title>Видъ неба у Patagona gigas (Trochilidae) по Паркеру </title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture9.jpg">
+    <imageobject><imagedata fileref="images/html/picture9.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture9.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
+Посл&#1123;дн&#1110;й у козодоя (<xref linkend="picture2" />) 
 закругленъ на переднемъ своемъ конц&#1123;; у колибри (<xref 
 linkend="picture9" />) vomer спереди хотя и заостренъ, въ остальномъ однако 
 совершенно не похожъ на соотв&#1123;тственное образован&#1110;е 

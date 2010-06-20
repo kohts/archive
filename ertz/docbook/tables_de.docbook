@@ -1,5 +1,3 @@
-﻿<title>Erkl&#0228;rungen der Tafeln. </title>
-
 <para>
 Die Conture s&#0228;mtlicher histologischer Abbildungen wurden mit Hilfe des 
 Abbe'schen Zeichenapparats entworfen. Dicke der Schnitte: 10&mdash;15 &#0181;.; 
@@ -7,7 +5,15 @@ F&#0228;rbung: Haemalaun in toto; Vergr&#0246;sserungen: Zeiss, ос. 1, 2; ob.
 a<subscript>2</subscript>, c, DD.
 </para>
 
-<sect2><title>TAFEL IV.</title>
+<figure id="de_tabler4">
+  <title>Tafel 4</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/tabler4.jpg">
+    <imageobject><imagedata fileref="images/html/tabler4.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/tabler4.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>1. Embryo von Corvus frugilegus, &#0215; 8. (erstes Stadium).</para>
 
@@ -38,16 +44,32 @@ a<subscript>2</subscript>, c, DD.
 <para>23. Teil eines analog gef&#0252;hrten Schnittes bei mehr vorgeschrittenem Embryo.</para>
 
 <para>24. Dasselbe auf noch weiter vorger&#0252;cktem Stadium.</para>
-</sect2>
 
-<sect2><title>TAFEL V.</title>
+
+<figure id="de_tabler5">
+  <title>Tafel 5</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/tabler5.jpg">
+    <imageobject><imagedata fileref="images/html/tabler5.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/tabler5.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>25&mdash;33. Querschnitte des vorderen Sch&#0228;delteils von einem Embryo zur Zeit des Eiausschl&#0252;pfens.</para>
 
 <para>34&mdash;38. Querschnitte des Pflugscharbein-Gebietes eines wenige Tage alten Vogels.</para>
-</sect2>
 
-<sect2><title>TAFEL VI.</title>
+
+<figure id="de_tabler6">
+  <title>Tafel 6</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/tabler6.jpg">
+    <imageobject><imagedata fileref="images/html/tabler6.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/tabler6.jpg" /></imageobject>
+  </mediaobject>
+</figure>
 
 <para>39. Untere Kiefer-Gaumen-Partie eines etwa zwei Wochen alten Corvus frugilegus.</para>
 
@@ -64,11 +86,8 @@ a<subscript>2</subscript>, c, DD.
 <para>45. Sagittalschnitt durch das Pflugscharbein; &#0228;lteres Stadium.</para>
 
 <para>46. Definitive Form des Pflugscharbeins, so wie der angrenzenden Teile beim erwachsenen Corvus frugilegus.</para>
-</sect2>
 
 <sect2><title><emphasis>Abk&#0252;rzungen.</emphasis></title>
-
-</para>
 
 <para>a. na. &mdash; &#0196;ussere Nasen&#0246;ffnung.</para>
 
@@ -148,9 +167,9 @@ a<subscript>2</subscript>, c, DD.
 
 <para>S. n. &mdash; Septum nasale.</para>
 
-<para>S. l. sup. &mdash; sulcus lateralis superior &#0228;ussere Nasenfurchen, welche an den Nasenkapseln entlang ziehen und der Befestigung der Concha media & vestibuli entsprechen.</para>
+<para>S. l. sup. &mdash; sulcus lateralis superior &#0228;ussere Nasenfurchen, welche an den Nasenkapseln entlang ziehen und der Befestigung der Concha media &amp; vestibuli entsprechen.</para>
 
-<para>S. l. inf. &mdash; sulcus lateralis inferior &#0228;ussere Nasenfurchen, welche an den Nasenkapseln entlang ziehen und der Befestigung der Concha media & vestibuli entsprechen.</para>
+<para>S. l. inf. &mdash; sulcus lateralis inferior &#0228;ussere Nasenfurchen, welche an den Nasenkapseln entlang ziehen und der Befestigung der Concha media &amp; vestibuli entsprechen.</para>
 
 <para>Str. &mdash; Supratrabecula.</para>
 

@@ -17,10 +17,11 @@
   <!ENTITY resume_de SYSTEM "resume_de.docbook">
   <!ENTITY tables_de SYSTEM "tables_de.docbook">
   <!ENTITY contents_orig SYSTEM "contents_orig.docbook">
+  <!ENTITY vyhodnye_dannye SYSTEM "vyhodnye_dannye.docbook">
   <!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
 ]>
 
-<book id="kohts-menzbir-1937" lang="ru">
+<book id="kohts-ertz-1912" lang="ru">
 
 <title>Эгитогнатизмъ, его развит&#1110;е и таксономическое значен&#1110;е</title>
 <subtitle>Къ вопросу о методологическихъ основахъ современныхъ классификац&#1110;й</subtitle>
@@ -39,7 +40,14 @@
 <chapter id="c2"><title>Развит&#1110;е эгитогнатизма у Corvus frugilegus</title>&c2;</chapter>
 <chapter id="c3"><title>Таксономическое значен&#1110;е эгитогнатизма. Методологическ&#1110;я основан&#1110;я классификац&#1110;и Гексли и принципы нов&#1123;йшей систематики.</title>&c3;</chapter>
 
-<appendix><title>Главн&#1123;йшая литература</title>&literature;</appendix>
+<appendix><title>Главн&#1123;йшая литература<footnote><para>
+Приводя настоящ&#1110;й перечень для облегчен&#1110;я ссылокъ, 
+д&#1123;лаемыхъ въ текст&#1123;, мы ограничиваемся спец&#1110;альной 
+орнитологической литературой и вовсе не касаемся другихъ, упоминаемыхъ въ 
+первой глав&#1123;, изсл&#1123;дован&#1110;й, равно какъ и 
+сочинен&#1110;й бол&#1123;е раннихъ авторовъ.
+</para></footnote>
+</title>&literature;</appendix>
 <appendix><title>Таблицы</title>&tables;</appendix>
 
 <appendix lang="de"><title>Ueber Aegithognatie, deren Entwickelung und taxonomische Bedeutung, Inhalts-Uebersicht.</title>
@@ -48,7 +56,10 @@
 
 <appendix><title>Оглавление</title>&contents_orig;</appendix>
 
-<appendix><title>Подготовка электронного издания</title>&electronic_edition;
+<appendix><title>Приложения к электронному изданию</title>
+  <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1>
+  <?page-break?>
+  <sect1><title>Подготовка электронного издания</title>&electronic_edition;</sect1>
 </appendix>
 
 </book>
