@@ -13,6 +13,7 @@ my $conf = {
   'equiv' => {
     'dmzh' => 'ladygina-kohts_n.n./dmzh',
     'docbook-makeup' => 'docbook-makeup',
+    'ertz' => 'kohts_a.f./ertz',
     'grootp' => 'kohts_a.f./grootp',
     'ichc' => 'ladygina-kohts_n.n./ichc',
     'ipss' => 'ladygina-kohts_n.n./ipss',

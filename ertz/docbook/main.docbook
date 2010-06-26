@@ -18,6 +18,8 @@
   <!ENTITY tables_de SYSTEM "tables_de.docbook">
   <!ENTITY contents_orig SYSTEM "contents_orig.docbook">
   <!ENTITY vyhodnye_dannye SYSTEM "vyhodnye_dannye.docbook">
+  <!ENTITY oblozhka SYSTEM "oblozhka.docbook">
+  <!ENTITY inscription SYSTEM "inscription.docbook">
   <!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
 ]>
 
@@ -57,8 +59,9 @@
 <appendix><title>Оглавление</title>&contents_orig;</appendix>
 
 <appendix><title>Приложения к электронному изданию</title>
-  <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1>
-  <?page-break?>
+  &oblozhka;<?page-break?>
+  <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1><?page-break?>
+  &inscription;<?page-break?>
   <sect1><title>Подготовка электронного издания</title>&electronic_edition;</sect1>
 </appendix>
 
