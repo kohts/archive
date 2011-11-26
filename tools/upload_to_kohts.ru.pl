@@ -30,43 +30,37 @@ my $conf = {
     'vodo' => 'ladygina-kohts_n.n./vodo',
     'zhzh' => 'kohts_a.f./zhzh',
     },
-  'upload' => {
-    '^build$' => 1,
-    '^docbook$' => 1,
-    '^html$' => 1,
-    '^images$' => 1,
-    '.*\.pdf$' => 1,
-    },
+  'upload' => [
+  	{ 'from' => "$build_base/SOURCE", 'to' => "." },
+  	{ 'from' => "$build_base/IMAGES", 'to' => "images" },
+  	{ 'from' => "html", 'to' => "html" },
+  	{ 'from' => "pdf", 'to' => "." },
+  ],
   };
 
 sub sync_book {
   my ($b) = @_;
 
-  my $dummy;
-  opendir($dummy, "$build_base/$b") || die "unable to read $build_base/$b";
-  my @all_entries = readdir($dummy);
-  close($dummy);
-  
-  foreach my $f (sort @all_entries) {
-    next if $f eq '.' || $f eq '..';
-
-    my $upload = 0;
-    foreach my $upload_pattern (keys %{$conf->{'upload'}}) {
-      if ($f =~ /$upload_pattern/) {
-        $upload = 1;
-        last;
-      }
-    }
-    next unless $upload;
-
+  foreach my $upload_struct (@{$conf->{'upload'}}) {
     my $sync_cmd = "rsync --protect-args -av ";
 
-    if (-d "$build_base/$b/$f") {
-      $sync_cmd .= "\"$build_base/$b/$f/\" \"$upload_base/" . $conf->{'equiv'}->{$b} . "/$f/\"";
-    }
-    elsif (-f "$build_base/$b/$f") {
-      $sync_cmd .= "\"$build_base/$b/$f\" \"$upload_base/" . $conf->{'equiv'}->{$b} . "/$f\"";
-    }
+		if ($upload_struct->{'from'} eq 'pdf') {
+			my $pdf_name = IPC::Cmd::run_forked("cat $build_base/SOURCE/$b/build/Makefile | grep ^PDF_NAME | sed \"s%PDF_NAME = %%\" | sed 's%\"%%'g");
+
+			$pdf_name->{'stdout'} =~ s/[\r\n]$//;
+
+			if (!$pdf_name->{'stdout'}) {
+				die "$b: unable to determine PDF name";
+			}
+
+			$sync_cmd .= "\"" . "$build_base/OUT/$b/" . $pdf_name->{'stdout'} . "\" \"$upload_base/$conf->{'equiv'}->{$b}/" . $upload_struct->{'to'} . "\"";
+		}
+		elsif ($upload_struct->{'from'} eq 'html') {
+			$sync_cmd .= "\"" . "$build_base/OUT/$b/html/\" \"$upload_base/$conf->{'equiv'}->{$b}/" . $upload_struct->{'to'} . "/\"";
+		}
+		else {
+			$sync_cmd .= "\"" . $upload_struct->{'from'} . "/" . $b . "/\" \"$upload_base/$conf->{'equiv'}->{$b}/" . $upload_struct->{'to'} . "/\"";
+		}
 
     print $sync_cmd . "\n";
     
