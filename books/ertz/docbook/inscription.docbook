@@ -1,0 +1,14 @@
+<sect1><title>Дарственная надпись А. Ф. Котс Н. Н. Ладыгиной-Котс</title>
+<informalfigure id="darstevennaya">
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/inscription.jpg">
+      <imageobject><imagedata fileref="images/html/inscription.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/inscription.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para><literallayout>
+Дорогому "Эльфу"
+26. IV. 1912.
+</literallayout></para></textobject></mediaobject>
+</informalfigure>
+</sect1>
