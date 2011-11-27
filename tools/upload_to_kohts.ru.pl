@@ -31,73 +31,80 @@ my $conf = {
     'zhzh' => 'kohts_a.f./zhzh',
     },
   'upload' => [
-  	{ 'from' => "$build_base/SOURCE", 'to' => "." },
-  	{ 'from' => "$build_base/IMAGES", 'to' => "images" },
-  	{ 'from' => "html", 'to' => "html" },
-  	{ 'from' => "pdf", 'to' => "." },
+    { 'from' => "$build_base/SOURCE", 'to' => "." },
+    { 'from' => "$build_base/IMAGES", 'to' => "images", '--delete-excluded' => 1, },
+    { 'from' => "html", 'to' => "html", '--delete-excluded' => 1, },
+    { 'from' => "pdf", 'to' => "." },
   ],
   };
 
 sub sync_book {
-  my ($b) = @_;
+  my ($b, $opts) = @_;
+
+  $opts = {} unless $opts;
 
   foreach my $upload_struct (@{$conf->{'upload'}}) {
     my $sync_cmd = "rsync --protect-args -av ";
 
-		if ($upload_struct->{'from'} eq 'pdf') {
-			my $pdf_name = IPC::Cmd::run_forked("cat $build_base/SOURCE/$b/build/Makefile | grep ^PDF_NAME | sed \"s%PDF_NAME = %%\" | sed 's%\"%%'g");
+    if ($upload_struct->{'--delete-excluded'}) {
+      $sync_cmd .= " --delete-excluded ";
+    }
 
-			$pdf_name->{'stdout'} =~ s/[\r\n]$//;
+    if ($upload_struct->{'from'} eq 'pdf') {
+      my $pdf_name = IPC::Cmd::run_forked("cat $build_base/SOURCE/$b/build/Makefile | grep ^PDF_NAME | sed \"s%PDF_NAME = %%\" | sed 's%\"%%'g");
 
-			if (!$pdf_name->{'stdout'}) {
-				die "$b: unable to determine PDF name";
-			}
+      $pdf_name->{'stdout'} =~ s/[\r\n]$//;
 
-			$sync_cmd .= "\"" . "$build_base/OUT/$b/" . $pdf_name->{'stdout'} . "\" \"$upload_base/$conf->{'equiv'}->{$b}/" . $upload_struct->{'to'} . "\"";
-		}
-		elsif ($upload_struct->{'from'} eq 'html') {
-			$sync_cmd .= "\"" . "$build_base/OUT/$b/html/\" \"$upload_base/$conf->{'equiv'}->{$b}/" . $upload_struct->{'to'} . "/\"";
-		}
-		else {
-			$sync_cmd .= "\"" . $upload_struct->{'from'} . "/" . $b . "/\" \"$upload_base/$conf->{'equiv'}->{$b}/" . $upload_struct->{'to'} . "/\"";
-		}
+      if (!$pdf_name->{'stdout'}) {
+        die "$b: unable to determine PDF name";
+      }
+
+      $sync_cmd .= "\"" . "$build_base/OUT/$b/" . $pdf_name->{'stdout'} . "\" \"$upload_base/$conf->{'equiv'}->{$b}/" . $upload_struct->{'to'} . "\"";
+    }
+    elsif ($upload_struct->{'from'} eq 'html') {
+      $sync_cmd .= "\"" . "$build_base/OUT/$b/html/\" \"$upload_base/$conf->{'equiv'}->{$b}/" . $upload_struct->{'to'} . "/\"";
+    }
+    else {
+      $sync_cmd .= "\"" . $upload_struct->{'from'} . "/" . $b . "/\" \"$upload_base/$conf->{'equiv'}->{$b}/" . $upload_struct->{'to'} . "/\"";
+    }
 
     print $sync_cmd . "\n";
     
-    my $r = IPC::Cmd::run_forked($sync_cmd, {'stdout_handler' =>
-      sub {
-        my ($l) = @_;
-        
-        return if $l =~ /^\s*$/;
-        return if $l =~ /sending incremental file list/;
-        return if $l =~ /sent.*received.*bytes/;
-        return if $l =~ /total size is/;
+    if (!$opts->{'dry-run'}) {
+      my $r = IPC::Cmd::run_forked($sync_cmd, {'stdout_handler' =>
+        sub {
+          my ($l) = @_;
+          
+          return if $l =~ /^\s*$/;
+          return if $l =~ /sending incremental file list/;
+          return if $l =~ /sent.*received.*bytes/;
+          return if $l =~ /total size is/;
 
-        print $l;
+          print $l;
+        }
+        });
+      if ($r->{'exit_code'} ne 0) {
+        print "error uploading: $r->{'merged'}\n";
       }
-      });
-    if ($r->{'exit_code'} ne 0) {
-      print "error uploading: $r->{'merged'}\n";
     }
   }
 }
 
-my $sync;
-my $filter;
-my $result = GetOptions ("filter=s"   => \$filter, "sync"  => \$sync);
+my $opts = {};
+GetOptions($opts, 'filter=s', 'sync', 'dry-run');
 
 foreach my $e (sort keys %{$conf->{'equiv'}}) {
-  if ($filter) {
-    next unless $e =~ /$filter/;
+  if ($opts->{'filter'}) {
+    next unless $e =~ /$opts->{'filter'}/;
   }
   
   print "$build_base/$e -> $upload_base/$conf->{'equiv'}->{$e}\n";
 
-  if ($sync) {
-    sync_book($e);
+  if ($opts->{'sync'} || $opts->{'dry-run'}) {
+    sync_book($e, $opts);
   }
 }
 
-if (!$filter && !$sync) {
-  print "\ncommand line: --filter and --sync\n\n";
+if (!$opts->{'filter'} && !$opts->{'sync'} && !$opts->{'dry-run'}) {
+  print "\ncommand line: --filter <TEXT> and --sync or --dry-run\n\n";
 }

@@ -1,7 +1,7 @@
 KOHTS_BASE ?= /var/www
 
-BOOK_DIR = otchet1921
-PDF_NAME = "ladygina-kohts - otchet - 1921.pdf"
+BOOK_DIR = afk-works
+PDF_NAME = "kohts - works.pdf"
 
 FONTS = ${KOHTS_BASE}/FONTS
 TOOLS = ${KOHTS_BASE}/tools
@@ -31,7 +31,7 @@ STAMPS = ${BUILD_BASE}/stamps
 # make html and pdf output by default
 all: html pdf
 
-.PHONY : html fo pdf clean all-clean
+.PHONY : html fo pdf gen-plates clean all-clean
 
 html: ${STAMPS}/html
 ${STAMPS}/html: docbook-html-chunked.xsl $(DOCBOOK)

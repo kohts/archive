@@ -1,4 +1,3 @@
-KOHTS_BASE := $(KOHTS_BASE)
 KOHTS_BASE ?= /var/www
 
 BOOK_DIR = nim
