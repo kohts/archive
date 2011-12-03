@@ -1,4 +1,4 @@
-﻿<sect2>
+<sect2>
 <title>Проблема зрителя в музеях массового типа</title>
 
 <para>
@@ -782,6 +782,7 @@
 
 <para>
 Про чучело <emphasis role="bold">слона</emphasis>:
+<orderedlist>
 <listitem><para><quote>Сколько при жизни весил?</quote></para></listitem>
 <listitem><para><quote>Какая была кличка?</quote></para></listitem>
 <listitem><para><quote>А ложится ли на время сна?</quote></para></listitem>
@@ -790,6 +791,7 @@
 <listitem><para><quote>Что это чучело, или искусственно сделан?</quote></para></listitem>
 <listitem><para><quote>Как он попал в Музей?</quote></para></listitem>
 <listitem><para><quote>Как он прошел сквозь двери?</quote></para></listitem>
+</orderedlist>
 и т.д., и.т.д.
 </para>
 
@@ -1011,7 +1013,7 @@
 <para>
 Вообразите лектора на кафедре, читающего лекцию в обычной аудитории, стены которой 
 сплошь затянуты цитатами и текстами, буквально воспроизводящими &mdash; в видах 
-<quote>контроля" &mdash; всю читаемую лекцию... Повысится ли от подобной 
+<quote>контроля</quote> &mdash; всю читаемую лекцию... Повысится ли от подобной 
 обстановки эффективность лекции и, что важнее, чувство личного достоинства у лектора?
 </para>
 

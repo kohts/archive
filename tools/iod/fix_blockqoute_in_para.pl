@@ -13,7 +13,7 @@ if (!$ARGV[0]) {
 my $f_scalar = "";
 
 my $f;
-open($f, $ARGV[0]);
+open($f, $ARGV[0]) || die "unable to open [$ARGV[0]]";
 binmode $f, ':encoding(UTF-8)';
 while (<$f>) {
   my $l = $_;
@@ -26,14 +26,15 @@ close($f);
 my $in = $f_scalar;
 my $out = "";
 
-#                  1           3                   4                  5
+#                --1-- ---------------------------------2------------------------- -6-
+#                              3                   4                  5
 while ($in =~ /\G(.*?)(<para>([^\w]*?)<blockquote>(.+?)<\/blockquote>(.*?)<\/para>)(.*)/sg) {
   my @m = (0, $1, $2, $3, $4, $5, $6);  
 
   $out .= $m[1] if $m[1];
   
   if ($m[5] =~ /^[\;\,\!\.\r\n]+$/s) {
-    $out .= '<blockqoute>' . $m[4] . $m[5] . '</blockqoute>';
+    $out .= '<blockquote><para>' . $m[4] . $m[5] . '</para></blockquote>';
   }
   else {
     $out .= $m[2];
