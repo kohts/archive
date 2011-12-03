@@ -32,9 +32,6 @@ my $steps = {
   '1' => {
     'filename_stdout_tool' => 'iod/fix_blockqoute_in_para.pl',
     },
-  '2' => {
-    'filename_stdout_tool' => 'emphasis-role-bold-CAPS-remove.pl',
-    },
   };
 
 my $docname = $ARGV[0];

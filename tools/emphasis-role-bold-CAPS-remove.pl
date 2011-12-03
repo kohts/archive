@@ -35,6 +35,9 @@ while ($in =~ /\G(.*?)(\<emphasis role="bold"\>(.+?)\<\/emphasis\>)(.*)/sg) {
     $out .= '<emphasis role="bold">' . lc($m[3]) . '</emphasis>';
 #    print "boo: " . $m[3] . "::" . uc($m[3]) . "\n";
   }
+  else {
+    $out .= $m[2];
+  }
   
   $in = $m[4];  
 }
