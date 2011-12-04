@@ -29,9 +29,8 @@ sub write_file_scalar {
 
 
 my $steps = {
-  '1' => {
-    'filename_stdout_tool' => 'iod/fix_blockqoute_in_para.pl',
-    },
+  '1' => { 'filename_stdout_tool' => 'iod/fix_blockqoute_in_para.pl', },
+  '2' => { 'filename_stdout_tool' => 'remove_empty_para.pl', },
   };
 
 my $docname = $ARGV[0];

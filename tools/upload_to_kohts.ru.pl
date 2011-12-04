@@ -11,6 +11,7 @@ my $upload_base = 'nit@lenin.ru:/www/www.kohts.ru/html';
 
 my $conf = {
   'equiv' => {
+    'afk-works' => 'kohts_a.f./works',
     'dmzh' => 'ladygina-kohts_n.n./dmzh',
     'docbook-makeup' => 'docbook-makeup',
     'ertz' => 'kohts_a.f./ertz',
