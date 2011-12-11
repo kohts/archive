@@ -14,6 +14,7 @@ use warnings;
 
 use Data::Dumper;
 use File::Spec;
+use File::Basename;
 
 $| = 1;
 
@@ -71,6 +72,25 @@ sub read_dir {
   return $entries;
 }
 
+sub do_log {
+  my ($msg, $opts) = @_;
+  $opts = {} unless $opts;
+  $opts->{'log_file'} = $main::log_file unless $opts->{'log_file'};
+
+  die "unable to write to [$opts->{'log_file'}]" if -f $opts->{'log_file'} && ! -w $opts->{'log_file'};
+
+  my $log_msg = $msg;
+  $log_msg =~ s/[\r\n]/ /g;
+  $log_msg = localtime() . " " . $log_msg . "\n";
+
+  print $log_msg;
+
+  my $fh;
+  open($fh, ">>" . $opts->{'log_file'});
+  print $fh $log_msg;
+  close($fh);
+}
+
 if (!$ARGV[0]) {
   die "need archive directory\n";
 }
@@ -80,6 +100,7 @@ if (! -d $archive_dir) {
   die "not a directory: [$archive_dir]";
 }
 
+$main::log_file = File::Spec->catfile($archive_dir, basename($0) . ".log");
 my $d = read_dir($archive_dir);
 
 DOCUMENT: foreach my $doc_dir (@{$d}) {
@@ -106,10 +127,11 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
     if (-d $new_doc_dir) {
       die "unable to rename [$full_doc_dir] to canonical name: directory [$new_doc_dir] exists!";
     }
-    print "fixing $full_doc_dir -> $new_doc_dir\n";
+    do_log("fixing $full_doc_dir -> $new_doc_dir");
     rename ($full_doc_dir, $new_doc_dir) || die "unable to rename [$full_doc_dir] to [$new_doc_dir]: $!";
     $full_doc_dir = $new_doc_dir;
     $doc_dir = $archive_type . "-" . $part . "-" . $new_id;
+    $id = $new_id;
   }
 
   # check page names inside document directory
@@ -129,7 +151,7 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
         my $new_full_page_path = $full_page_path;
         $new_full_page_path =~ s/\.txt//;
         rename ($full_page_path, $new_full_page_path) || die "unable to rename [$full_page_path] to [$new_full_page_path]: $!";
-        print "fixing $full_page_path -> $new_full_page_path\n";
+        do_log("fixing $full_page_path -> $new_full_page_path");
         $full_page_path = $new_full_page_path;
         $page =~ s/\.txt//;
       }
@@ -146,7 +168,7 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
           next PAGE;
         }
 
-        print "fixing $full_page_path -> $new_full_page_path\n";
+        do_log("fixing $full_page_path -> $new_full_page_path");
 
         rename ($full_page_path, $new_full_page_path) || die "unable to rename [$full_page_path] to [$new_full_page_path]";
         $full_page_path = $new_full_page_path;
@@ -166,7 +188,7 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
     if ($archive_type ne $p_archive_type || $part ne $p_part || $id ne $p_id) {
       my $new_page = $archive_type . "-" . $part . "-" . $id . "-" . $p_number . $p_ext;
       my $new_full_page_path = File::Spec->catfile($full_doc_dir, $new_page);
-      print "fixing $full_page_path -> $new_full_page_path\n";
+      do_log("fixing $full_page_path -> $new_full_page_path");
       rename($full_page_path, $new_full_page_path) || die "unable to rename [$full_page_path] to [$new_full_page_path]\n";
     }
 
