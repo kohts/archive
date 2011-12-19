@@ -178,7 +178,10 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
       next PAGE;
     }
     
-    if ($page !~ /^(of|nvf)-(\d+?)-(\d+?)-(\d+?)(\..+)$/) {
+    # allow underscore in relaxed page name
+    # (which is converted below to canonical page id,
+    # extracted from document directory name)
+    if ($page !~ /^(of|nvf)-(\d+?)-([\d_]+?)-(\d+?)(\..+)$/) {
       print "skipping invalid page format: [$page]\n";
       next PAGE;
     } 
