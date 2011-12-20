@@ -9,7 +9,14 @@
  ">
 
   <!ENTITY of-10141-0003 SYSTEM "of-10141-0003.docbook">
+  <!ENTITY of-10141-0004 SYSTEM "of-10141-0004.docbook">
+  <!ENTITY of-10141-0005 SYSTEM "of-10141-0005.docbook">
+  <!ENTITY of-10141-0008 SYSTEM "of-10141-0008.docbook">
+  <!ENTITY of-10141-0011 SYSTEM "of-10141-0011.docbook">
 
+  <!ENTITY of-10141-0040 SYSTEM "of-10141-0040.docbook">
+  <!ENTITY of-10141-0041 SYSTEM "of-10141-0041.docbook">
+  <!ENTITY of-10141-0042 SYSTEM "of-10141-0042.docbook">
   <!ENTITY of-10141-0044 SYSTEM "of-10141-0044.docbook">
 
   <!ENTITY of-10141-0105 SYSTEM "of-10141-0105.docbook">
@@ -30,6 +37,11 @@
 <subtitle>Основы музеологической теории и практики</subtitle>
 
 <chapter id="of-10141-0003"><title>Проблема зрителя в музеях массового типа</title><subtitle>Об этикетаже</subtitle>&of-10141-0003;</chapter>
+<chapter id="of-10141-0008"><title>Об ударных методах музейной экспозиции</title><subtitle>Доклад на 1-ом музейном съезде</subtitle>&of-10141-0008;</chapter>
+<chapter id="of-10141-0005"><title>К вопросу о музейных кадрах</title>&of-10141-0005;</chapter>
+<chapter id="of-10141-0004"><title>О мировозренческой тематике музеев массового типа, о критериях и формах её подлинного усвоения</title>&of-10141-0004;</chapter>
+
+<chapter id="of-10141-0011"><title>О принципах оформления отделов дарвинизма в краеведческих музеях.</title>&of-10141-0011;</chapter>
 
 </part>
 
@@ -42,6 +54,9 @@
 <part id="p3"><title>Полвека лекционно-педагогической практики</title>
 <subtitle>1900 &mdash; 1950</subtitle>
 
+<chapter id="of-10141-0040"><title>Вступительная лекция по зоологии</title><subtitle></subtitle>&of-10141-0040;</chapter>
+<chapter id="of-10141-0041"><title>Дарвинизм, зоология и школа в дни Великой Отечественной Войны.</title><subtitle></subtitle>&of-10141-0041;</chapter>
+<chapter id="of-10141-0042"><title>Война и школа</title><subtitle>Как методологически связать арену боя с классной комнатой?</subtitle>&of-10141-0042;</chapter>
 <chapter id="of-10141-0044"><title>Школьно-учебный формализм</title><subtitle>О его симптомах, диагнозах, профилактике и терапии</subtitle>&of-10141-0044;</chapter>
 
 </part>
