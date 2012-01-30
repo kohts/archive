@@ -17,6 +17,7 @@
   <!ENTITY of-10141-0009 SYSTEM "of-10141-0009.docbook">
   <!ENTITY of-10141-0011 SYSTEM "of-10141-0011.docbook">
   <!ENTITY of-10141-0014 SYSTEM "of-10141-0014.docbook">
+  <!ENTITY of-10141-0016 SYSTEM "of-10141-0016.docbook">
 
   <!ENTITY of-10141-0040 SYSTEM "of-10141-0040.docbook">
   <!ENTITY of-10141-0041 SYSTEM "of-10141-0041.docbook">
@@ -47,6 +48,7 @@
 <chapter id="of-10141-0003"><title>Проблема зрителя в музеях массового типа</title><subtitle>Об этикетаже</subtitle>&of-10141-0003;</chapter>
 <chapter id="of-10141-0008"><title>Об ударных методах музейной экспозиции</title><subtitle>Доклад на 1-ом музейном съезде</subtitle>&of-10141-0008;</chapter>
 <chapter id="of-10141-0009"><title>О логических и методологических основах построения музейной экспозиции</title>&of-10141-0009;</chapter>
+<chapter id="of-10141-0016"><title>О музеях массового типа в свете Бэконовых идолов</title>&of-10141-0016;</chapter>
 <chapter id="of-10141-0006"><title>Понятие музейных фондов</title><subtitle>Доклад в Институте Муз. Краеведческой работы, июнь 1944</subtitle>&of-10141-0006;</chapter>
 <chapter id="of-10141-0005"><title>К вопросу о музейных кадрах</title>&of-10141-0005;</chapter>
 <chapter id="nvf-2116-0383"><title>Три параллели: музеи Политехнический, Зоологический МГУ и Дарвиновский</title>&nvf-2116-0383;</chapter>

@@ -1,8 +1,7 @@
 <sect1>
 <title>Вместо эпиграфа</title>
 
-<para>
-<blockquote>
+<blockquote><para>
 <attribution>А. Герцен -  <quote>Былое и Думы</quote>. Концы и начала. Письмо 3-е.</attribution>
 <para>
 Я это говорил десять раз. Но без повторений обойтись невозможно.
@@ -30,18 +29,17 @@
 непосредственностью сознания и нравственного быта, которая вообще лежит
 в бесспорной основе наших мнений и поступков.
 </para>
-</blockquote>
-</para>
 
-<para>
-<blockquote>
+</para></blockquote>
+
+<blockquote><para>
 <attribution>Гете, 1828 (из разговоров с Эккерманом)</attribution>
 <para>
 - И затем, должно всегда истину повторять, потому что ведь
 и ошибку все снова проповедуют вокруг нас...
 </para>
-</blockquote>
-</para>
+
+</para></blockquote>
 
 &liniya;
 
