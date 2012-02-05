@@ -140,6 +140,12 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
 
     my $full_page_path = File::Spec->catfile($full_doc_dir, $page);
 
+    # remove temporary files
+    if ($page eq "Thumbs.db") {
+      unlink($full_page_path);
+      next;
+    }
+
     # skip non-files
     next PAGE unless -f $full_page_path;
 
