@@ -15,9 +15,14 @@
   <!ENTITY of-10141-0006 SYSTEM "of-10141-0006.docbook">
   <!ENTITY of-10141-0008 SYSTEM "of-10141-0008.docbook">
   <!ENTITY of-10141-0009 SYSTEM "of-10141-0009.docbook">
+  <!ENTITY of-10141-0010 SYSTEM "of-10141-0010.docbook">
   <!ENTITY of-10141-0011 SYSTEM "of-10141-0011.docbook">
   <!ENTITY of-10141-0014 SYSTEM "of-10141-0014.docbook">
+  <!ENTITY of-10141-0015 SYSTEM "of-10141-0015.docbook">
   <!ENTITY of-10141-0016 SYSTEM "of-10141-0016.docbook">
+  <!ENTITY of-10141-0019 SYSTEM "of-10141-0019.docbook">
+
+  <!ENTITY of-10141-0034 SYSTEM "of-10141-0034.docbook">
 
   <!ENTITY of-10141-0040 SYSTEM "of-10141-0040.docbook">
   <!ENTITY of-10141-0041 SYSTEM "of-10141-0041.docbook">
@@ -51,17 +56,25 @@
 <chapter id="of-10141-0016"><title>О музеях массового типа в свете Бэконовых идолов</title>&of-10141-0016;</chapter>
 <chapter id="of-10141-0006"><title>Понятие музейных фондов</title><subtitle>Доклад в Институте Муз. Краеведческой работы, июнь 1944</subtitle>&of-10141-0006;</chapter>
 <chapter id="of-10141-0005"><title>К вопросу о музейных кадрах</title>&of-10141-0005;</chapter>
+
+<chapter id="of-10141-0010"><title>К теории и практике музейной экспозиции</title><subtitle>Принципы планировки, вещного комплектования и экспозиции в массовых музеях</subtitle>&of-10141-0010;</chapter>
+
 <chapter id="nvf-2116-0383"><title>Три параллели: музеи Политехнический, Зоологический МГУ и Дарвиновский</title>&nvf-2116-0383;</chapter>
+<chapter id="of-10141-0011"><title>О принципах оформления отделов дарвинизма в краеведческих музеях.</title>&of-10141-0011;</chapter>
+<chapter id="of-10141-0019"><title>О внемузейной деятельности музеев</title><subtitle>Museum Extention</subtitle>&of-10141-0019;</chapter>
 
 <chapter id="of-10141-0004"><title>О мировозренческой тематике музеев массового типа, о критериях и формах её подлинного усвоения</title>&of-10141-0004;</chapter>
 
-<chapter id="of-10141-0011"><title>О принципах оформления отделов дарвинизма в краеведческих музеях.</title>&of-10141-0011;</chapter>
+<chapter id="of-10141-0015"><title>Об эффективности работ музеев массового типа и методике её учёта</title><subtitle>Доклад в "Доме учёных" на собрании марксистско-музейного кружка</subtitle>&of-10141-0015;</chapter>
 
 </part>
 
 
 <part id="p2"><title>Государственный Дарвиновский Музей</title>
 <subtitle>История, задачи, методы работы, достижения и творческие перспективы</subtitle>
+
+<chapter id="of-10141-0034"><title>Проблемы обучения и воспитания в конкретно-методологическом их рассмотрении</title>&of-10141-0034;</chapter>
+
 </part>
 
 
