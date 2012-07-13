@@ -86,7 +86,7 @@ sub do_log {
   print $log_msg;
 
   my $fh;
-  open($fh, ">>" . $opts->{'log_file'});
+  open($fh, ">>" . $opts->{'log_file'}) || die "unable to open for append [$opts->{'log_file'}]";
   print $fh $log_msg;
   close($fh);
 }
