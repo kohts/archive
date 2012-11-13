@@ -451,7 +451,7 @@
 <para>Здесь достаточно лишь привести десяток заданных учащимся вопросов и полученных на них ответов, или, говоря точнее, &mdash; умолчаний!</para>
 
 <informaltable frame='all' pgwide='1' colsep='1' rowsep='0' valign='top'>
-<tgroup cols='4' align='left'>
+<tgroup cols='2' align='left'>
 <colspec colname='c1'/>
 <colspec colname='c2'/>
 <thead>
@@ -464,17 +464,18 @@
 <tbody>
 <row>
 <entry>
-<para>I. &mdash; Назовите основные <emphasis role="bold">две</emphasis> проблемы Эволюционного Учения.</para>
-<para>На какие два вопроса распадается учение об Изменчивости живого мира?</para>
+  <para>I. &mdash; Назовите основные <emphasis role="bold">две</emphasis> проблемы Эволюционного Учения.</para>
+  <para>На какие два вопроса распадается учение об Изменчивости живого мира?</para>
 </entry>
 <entry>
-<para><quote>Идеалистическая</quote> и <quote>Материалистическая</quote>! или</para>
-<para><quote>Изменчивость</quote> и <quote>Наследственность</quote>, или <quote>Борьба за Жизнь и Естественный Отбор!</quote></para>
+  <para><quote>Идеалистическая</quote> и <quote>Материалистическая</quote> или
+  <quote>Изменчивость</quote> и <quote>Наследственность</quote> или <quote>Борьба за Жизнь и Естественный Отбор</quote>
+  </para>
 </entry>
 </row>
 
 <row>
-  <entry namest="c1" nameend="c2" align='center'>(Об основном элементарнейшем делении 
+<entry namest="c1" nameend="c2" align='center'>(Об основном элементарнейшем делении 
 проблемы Эволюции, на <emphasis role="bold">факты</emphasis> и на 
 <emphasis role="bold">факторы</emphasis>, на <quote>Доказательства</quote> и 
 <quote>Объяснения</quote> Эволюции, пронизывающем основной труд Дарвина и 

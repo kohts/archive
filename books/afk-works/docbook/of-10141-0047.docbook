@@ -574,7 +574,7 @@
 
 
 
-<informaltable frame='all' pgwide='1' colsep='1' rowsep='0' valign='top'>
+<informaltable frame='all' pgwide='1' colsep='1' rowsep='1' valign='top'>
 <tgroup cols='2' align='left'>
 <colspec colname='c1'/>
 <colspec colname='c2'/>
@@ -664,14 +664,6 @@
 &mdash; <emphasis role="bold">Серова</emphasis>, ни одной 
 <emphasis role="bold">Сурикова</emphasis>. Из картин 
 <emphasis role="bold">Репина</emphasis> &mdash; только <quote>Бурлаки</quote>
-  </entry>
-</row>
-<row>
-  <entry>
-....... ....
-  </entry>
-  <entry>
-..... .........................
   </entry>
 </row>
 </tbody>
@@ -982,7 +974,7 @@
 <para>Для документации изложенного выше о пробелах знаний нашей молодежи
 представляется полезным привести хотя бы несколько конкретных и <quote>запротоколированных</quote> примеров.</para>
 
-<informaltable frame='all' pgwide='1' colsep='1' rowsep='0' valign='top'>
+<informaltable frame='all' pgwide='1' colsep='1' rowsep='1' valign='top'>
 <tgroup cols='2' align='left'>
 <colspec colname='c1'/>
 <colspec colname='c2'/>
@@ -1518,7 +1510,7 @@ I.&mdash; Влад. <emphasis role="bold">Гречанинов</emphasis>
 <emphasis>Ответы:</emphasis>
 </para>
 
-<informaltable frame='all' pgwide='1' colsep='1' rowsep='0' valign='top'>
+<informaltable frame='all' pgwide='1' colsep='1' rowsep='1' valign='top'>
 <tgroup cols='2' align='left'>
 <colspec colname='c1'/>
 <colspec colname='c2'/>
@@ -1631,7 +1623,7 @@ I.&mdash; Влад. <emphasis role="bold">Гречанинов</emphasis>
 
 <para>Достижение, более, чем скромное! и.. бесполезное....</para>
 
-<informaltable frame='all' pgwide='1' colsep='1' rowsep='0' valign='top'>
+<informaltable frame='all' pgwide='1' colsep='1' rowsep='1' valign='top'>
 <tgroup cols='7' align='left'>
 <colspec colname='c1'/>
 <colspec colname='c2'/>
