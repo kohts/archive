@@ -1,7 +1,8 @@
 KOHTS_BASE ?= /var/www
 
 BOOK_DIR = afk-works
-PDF_NAME = "kohts - works.pdf"
+BOOK_NAME = "kohts - works"
+PDF_NAME = $BOOK_NAME.pdf
 
 FONTS = ${KOHTS_BASE}/FONTS
 TOOLS = ${KOHTS_BASE}/tools
@@ -12,7 +13,9 @@ BUILD_BASE = ${KOHTS_BASE}/BUILD/${BOOK_DIR}
 
 # pdf
 IMAGES_PRINT = ${IMAGES_BASE}/pdf
-PDF = ${KOHTS_BASE}/OUT/${BOOK_DIR}/${PDF_NAME}
+PDF_OUTPUT = ${KOHTS_BASE}/OUT/${BOOK_DIR}/${PDF_NAME}
+RTF_OUTPUT = ${KOHTS_BASE}/OUT/${BOOK_DIR}/${BOOK_NAME}.rtf
+TXT_OUTPUT = ${KOHTS_BASE}/OUT/${BOOK_DIR}/${BOOK_NAME}.txt
 
 # html
 HTML_BASE = ${KOHTS_BASE}/OUT/${BOOK_DIR}/html
@@ -22,6 +25,7 @@ DOCBOOK_BASE = ${SOURCE_BASE}/docbook
 DOCBOOK = ${DOCBOOK_BASE}/*.docbook
 MASTER = main.docbook
 MASTER_PRINT = main_print.docbook
+MASTER_RTF = main_rtf.docbook
 
 # temp
 FO_BASE = ${BUILD_BASE}/fo
@@ -53,6 +57,13 @@ ${STAMPS}/fo: docbook-fo.xsl $(DOCBOOK) $(IMAGES_PRINT)
 	mkdir -p ${STAMPS}
 	touch ${STAMPS}/fo
 
+fo-rtf: ${STAMPS}/fo-rtf
+${STAMPS}/fo-rtf: docbook-fo.xsl $(DOCBOOK) $(IMAGES_PRINT)
+	mkdir -p ${FO_BASE}
+	cd ${DOCBOOK_BASE} && xsltproc -o ${FO_BASE}/index-rtf.fo ${SOURCE_BASE}/build/docbook-fo.xsl ${MASTER_RTF}
+	mkdir -p ${STAMPS}
+	touch ${STAMPS}/fo
+
 pdf: ${STAMPS}/pdf
 ${STAMPS}/pdf: ${STAMPS}/fo
 	mkdir -p $(FOP_BASE)
@@ -62,9 +73,35 @@ ${STAMPS}/pdf: ${STAMPS}/fo
 	cd ${FOP_BASE} && ( if [ ! -h images ] && [ -d ${IMAGES_BASE} ] ; then ln -s ${IMAGES_BASE} images ; fi )
 	cd ${FOP_BASE} && \
 	export FOP_HYPHENATION_PATH=${FOP_BASE}/fop-hyph.jar && \
-	  /root/fop/trunk/fop --execdebug -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF}
+	  /root/fop/trunk/fop --execdebug -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF_OUTPUT}
 	mkdir -p ${STAMPS}
 	touch ${STAMPS}/pdf
+
+rtf: ${STAMPS}/rtf
+${STAMPS}/rtf: ${STAMPS}/fo-rtf
+	mkdir -p $(FOP_BASE)
+	cd $(FOP_BASE) && ( if [ ! -h fop-hyph.jar ] ; then ln -s ${FONTS}/fop-hyph.jar ; fi )
+	cd $(FOP_BASE) && ( if [ ! -h fop.xconf ] ; then ln -s ${FONTS}/fop.xconf ; fi )
+	cd $(FOP_BASE) && ( if [ ! -h fonts ] ; then ln -s ${FONTS}/fonts ; fi )
+	cd ${FOP_BASE} && ( if [ ! -h images ] && [ -d ${IMAGES_BASE} ] ; then ln -s ${IMAGES_BASE} images ; fi )
+	cd ${FOP_BASE} && \
+	export FOP_HYPHENATION_PATH=${FOP_BASE}/fop-hyph.jar && \
+	  /root/fop/trunk/fop --execdebug -c fop.xconf ${FO_BASE}/index-rtf.fo -rtf ${RTF_OUTPUT}
+	mkdir -p ${STAMPS}
+	touch ${STAMPS}/rtf
+
+txt: ${STAMPS}/txt
+${STAMPS}/txt: ${STAMPS}/fo
+	mkdir -p $(FOP_BASE)
+	cd $(FOP_BASE) && ( if [ ! -h fop-hyph.jar ] ; then ln -s ${FONTS}/fop-hyph.jar ; fi )
+	cd $(FOP_BASE) && ( if [ ! -h fop.xconf ] ; then ln -s ${FONTS}/fop.xconf ; fi )
+	cd $(FOP_BASE) && ( if [ ! -h fonts ] ; then ln -s ${FONTS}/fonts ; fi )
+	cd ${FOP_BASE} && ( if [ ! -h images ] && [ -d ${IMAGES_BASE} ] ; then ln -s ${IMAGES_BASE} images ; fi )
+	cd ${FOP_BASE} && \
+	export FOP_HYPHENATION_PATH=${FOP_BASE}/fop-hyph.jar && \
+	  /root/fop/trunk/fop --execdebug -c fop.xconf ${FO_BASE}/index.fo -out text/plain ${TXT_OUTPUT}
+	mkdir -p ${STAMPS}
+	touch ${STAMPS}/txt
 
 clean:
 	mkdir -p ${STAMPS}
@@ -76,8 +113,11 @@ clean-html:
 
 clean-pdf:
 	rm -rf ${FO_BASE}
-	rm -rf ${PDF}
 	rm -f ${STAMPS}/fo
 	rm -f ${STAMPS}/pdf
 
-all-clean: clean-html clean-pdf clean
+clean-text:
+	rm -f ${STAMPS}/txt
+	rm -f ${STAMPS}/rtf
+
+all-clean: clean-html clean-pdf clean-text clean 

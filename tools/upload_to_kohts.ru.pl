@@ -53,7 +53,11 @@ sub sync_book {
 
     if ($upload_struct->{'from'} eq 'pdf') {
       my $pdf_name = IPC::Cmd::run_forked("cat $build_base/SOURCE/$b/build/Makefile | grep ^PDF_NAME | sed \"s%PDF_NAME = %%\" | sed 's%\"%%'g");
+      $pdf_name->{'stdout'} =~ s/[\r\n]$//;
 
+      if (!$pdf_name->{'stdout'}) {
+          $pdf_name = IPC::Cmd::run_forked("cd $build_base/SOURCE/$b/build && make pdfname");
+      }
       $pdf_name->{'stdout'} =~ s/[\r\n]$//;
 
       if (!$pdf_name->{'stdout'}) {

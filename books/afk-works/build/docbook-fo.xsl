@@ -37,7 +37,7 @@ this is for FO output, used to produce PDF with Apache FOP. -->
 
 <!-- page header
 http://docbook.sourceforge.net/release/xsl/current/doc/fo/header.column.widths.html -->
-<xsl:param name="header.column.widths">1 3 1</xsl:param>
+<xsl:param name="header.column.widths">1 4 1</xsl:param>
 
 <xsl:param name="toc.section.depth">1</xsl:param>
 <xsl:param name="generate.toc">
