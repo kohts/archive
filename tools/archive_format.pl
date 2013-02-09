@@ -151,6 +151,14 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
         $id = $opts->{'new_id'};
     };
 
+    if ($id =~ /\-$/) {
+        my $new_id = $id;
+        $new_id =~ s/\-$//;
+        $change_doc_dir_name->({
+            'new_id' => $new_id,
+              });
+    }
+
     # make canonical document directory name
     if (length($id) < 4) {
         my $new_id = "";
