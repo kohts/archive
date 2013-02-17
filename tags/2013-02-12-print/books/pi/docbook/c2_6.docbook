@@ -1,0 +1,469 @@
+<example id="picture60">
+  <title>Способность обезьян к выработке навыков</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture60.jpg">
+    <imageobject><imagedata fileref="images/html/picture60.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture60.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
+<figure id="table42">
+  <title>Сводка по реакциям на захлопывание кормушки без приманки</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table42.jpg">
+    <imageobject><imagedata fileref="images/html/table42.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table42.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
+<figure id="table43">
+  <title>Факторы, влияющие на правильность реакций</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table43.jpg">
+    <imageobject><imagedata fileref="images/html/table43.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table43.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject>
+<para role="details">Числа обозначают номера опытов; набранные курсивом &mdash; снижение процента правильности; набранные жирным &mdash; повышение процента правильности.</para>
+</textobject></mediaobject>
+</figure>
+
+<figure id="table44">
+  <title>Опыты с заменой одной приманки другой</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table44.jpg">
+    <imageobject><imagedata fileref="images/html/table44.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table44.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject>
+<para role="details">
+<emphasis>Условные обозначения</emphasis>: в &mdash; взял; (в) &mdash; взял, но сразу бросил; н &mdash; не взял; (н) &mdash; сразу не взял, взял потом.
+</para>
+</textobject></mediaobject>
+</figure>
+
+<figure id="table45">
+  <title>Выбор после отсрочки</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table45.jpg">
+    <imageobject><imagedata fileref="images/html/table45.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table45.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject>
+<para><emphasis>Условия опыта</emphasis>: в одну из пяти кормушек закладывается большой кусок сахара, в другую &mdash; маленький. Отсрочка 2&mdash;3 сек.</para>
+<para>Мишка (гамадрилл)</para>
+</textobject></mediaobject>
+</figure>
+
+<figure id="table46">
+  <title>Выбор после отсрочки</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table46.jpg">
+    <imageobject><imagedata fileref="images/html/table46.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table46.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject>
+<para>
+<emphasis>Условия опыта</emphasis>: в одну из пяти кормушек закладывается 
+большой кусок сахара, а в другую маленький. В опытах 269&mdash;273 
+отсрочка 30 сек., в опытах 276&mdash;284, кроме того, еще пауза в 15 сек. 
+между закладыванием первой и второй приманок
+</para>
+<para>Рустам (гамадрилл)</para>
+</textobject></mediaobject>
+</figure>
+
+<figure id="table47">
+  <title>Анализ <quote>ошибок</quote> (в %)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table47.jpg">
+    <imageobject><imagedata fileref="images/html/table47.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table47.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject>
+<para>Без отсрочек, число кормушек &mdash; 5</para>
+</textobject></mediaobject>
+</figure>
+
+<figure id="table48">
+  <title>Анализ <quote>ошибок</quote> (в %)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table48.jpg">
+    <imageobject><imagedata fileref="images/html/table48.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table48.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject>
+<para>Макак-лапундер Клара</para>
+</textobject></mediaobject>
+</figure>
+
+<figure id="table49">
+  <title>Анализ <quote>ошибок</quote> (в %)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table49.jpg">
+    <imageobject><imagedata fileref="images/html/table49.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table49.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject>
+<para>Макак-лапундер Пат</para>
+</textobject></mediaobject>
+</figure>
+
+<figure id="table50">
+  <title>Влияние положения кормушки на запоминание, гамадрилл Рустам, макак-лапундер Клара</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table50.jpg">
+    <imageobject><imagedata fileref="images/html/table50.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table50.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
+<figure id="table51">
+  <title>Влияние положения кормушек на запоминание, гамадрилл Рустам</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table51.jpg">
+    <imageobject><imagedata fileref="images/html/table51.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table51.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject>
+<para role="details">
+<para><emphasis>Примечание 1</emphasis>: 1-я графа &mdash; отсрочка 30 сек.; 2-я графа &mdash; отсрочка 30 сек., но после первой закладки пауза 15 сек.; 3-я графа &mdash; то же.</para>
+
+<para><emphasis>Примечание 2</emphasis>: пр. &mdash; правильные решения, непр. &mdash; неправильные решения; % пр. &mdash; процент правильных решений.</para>
+</para>
+</textobject></mediaobject>
+</figure>
+
+<figure id="table52">
+  <title>Влияние положения кормушек на запоминание, гамадрилл Мишка</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table52.jpg">
+    <imageobject><imagedata fileref="images/html/table52.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table52.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject>
+<para><emphasis>Установка</emphasis>: приманка закладывается в одну из двух кормушек: либо в 1-ю, либо в 4-ю (при наличии 2, 3, 5 и 6). Остальные удалены</para>
+</textobject></mediaobject>
+</figure>
+
+<figure id="table53">
+  <title>Влияние положения кормушек на запоминание, гамадрилл Мишка</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table53.jpg">
+    <imageobject><imagedata fileref="images/html/table53.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table53.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject>
+<para role="details"><emphasis>Примечание</emphasis>. 1-я графа &mdash; отсрочка 30 сек.; 2-я графа &mdash; без отсрочки; 3-я графа &mdash; отсрочка 30 сек.</para>
+</textobject></mediaobject>
+</figure>
+
+<figure id="table54">
+  <title>Влияние положения кормушек на запоминание, макак-лапундер Пат</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table54.jpg">
+    <imageobject><imagedata fileref="images/html/table54.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table54.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
+
+<sect2>
+<title>УСЛОВНЫЕ ОБОЗНАЧЕНИЯ К РИС. 61&mdash;82</title>
+
+<emphasis>Приманка</emphasis>
+<simplelist>
+<member><emphasis role="bold">Щ</emphasis>. &mdash; щавель</member>
+<member><emphasis role="bold">Мш</emphasis>. &mdash; мушмала</member>
+<member><emphasis role="bold">М</emphasis>. &mdash; мясо</member>
+<member><emphasis role="bold">В</emphasis>. &mdash; вещи</member>
+<member><emphasis role="bold">o.в</emphasis>. &mdash; однородные вещи</member>
+<member><emphasis role="bold">н.в</emphasis>. &mdash; новые вещи</member>
+<member><emphasis role="bold">С</emphasis>. &mdash; сахар</member>
+<member><emphasis role="bold">Пус</emphasis>. &mdash; пустой ящик</member>
+<member><emphasis role="bold">X</emphasis>. &mdash; хлеб</member>
+<member><emphasis role="bold">х. с</emphasis>. &mdash; хлеб сладкий</member>
+<member><emphasis role="bold">Я</emphasis>. &mdash; яблоко</member>
+<member><emphasis role="bold">Ш</emphasis>. &mdash; шелковица</member>
+<member><emphasis role="bold">Голод</emphasis> &mdash; до опыта не кормлен</member>
+</simplelist>
+
+<emphasis>Отсрочка</emphasis>
+<simplelist>
+<member><emphasis role="bold">б.о</emphasis>. &mdash; без отсрочки</member>
+<member><emphasis role="bold">м-1, м-2</emphasis> и т. д. &mdash; число отсроченных реакций</member>
+</simplelist>
+
+<emphasis>Паузы</emphasis>
+<simplelist>
+<member><emphasis role="bold">б.п</emphasis>. &mdash; без пауз</member>
+<member><emphasis role="bold">п-1, п-2</emphasis> и т. д. &mdash; длительность паузы</member>
+<member><emphasis role="bold">Экран</emphasis> &mdash; в период отсрочки кормушки закрыты экраном</member>
+</simplelist>
+
+<emphasis>Изменение положения кормушек</emphasis>
+<simplelist>
+<member>1&mdash;3, 2&mdash;3, 1&mdash;4, 1&mdash;6, 2&mdash;4: порядковые номера кормушек (попарно)</member>
+<member>2&mdash;4: четыре кормушки удалены, оставлены 2 и 4-я</member>
+<member>&minus; 3: удалена 3-я кормушка</member>
+<member>&plus; 3: вставлена 3-я кормушка</member>
+<member>1&mdash;4 обв.: кормушки с приманкой повернуты на 180&#0176;</member>
+<member>4 обв.: кормушка 4-я все время повернута на 180&#0176;</member>
+<member>3 выш., 6 выш.: эти кормушки выше остальных</member>
+</simplelist>
+</sect2>
+
+<example id="picture61">
+  <title>Процент правильных реакций при разных условиях (лиса Лиза)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture61.jpg">
+    <imageobject><imagedata fileref="images/html/picture61.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture61.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
+<example id="picture62">
+  <title>Процент правильных реакций при разных условиях (шакал Джека)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture62.jpg">
+    <imageobject><imagedata fileref="images/html/picture62.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture62.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
+<example id="picture63">
+  <title>Процент правильных реакций при разных условиях (медведь Катя)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture63.jpg">
+    <imageobject><imagedata fileref="images/html/picture63.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture63.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
+<example id="picture64">
+  <title>Отсроченные реакции: средние числа правильных реакций (медвежонок Люся)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture64.jpg">
+    <imageobject><imagedata fileref="images/html/picture64.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture64.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Кормушки большие, 1&#8212;4; приманка &#8212; сахар
+</para></textobject></mediaobject>
+</example>
+
+<example id="picture65">
+  <title>Отсроченные реакции: средние числа правильных реакций (медвежонок Мишка)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture65.jpg">
+    <imageobject><imagedata fileref="images/html/picture65.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture65.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Кормушки большие, 1&#8212;4; приманка &#8212; сахар
+</para></textobject></mediaobject>
+</example>
+
+<example id="picture66">
+  <title>Отсроченные реакции: средние числа правильных реакций (медвежонок Машка)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture66.jpg">
+    <imageobject><imagedata fileref="images/html/picture66.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture66.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Кормушки большие, 1&#8212;4; приманка &#8212; сахар
+</para></textobject></mediaobject>
+</example>
+
+<example id="picture67">
+  <title>Процент правильных реакций при разных условиях (макак-лапундер Пат)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture67.jpg">
+    <imageobject><imagedata fileref="images/html/picture67.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture67.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
+<example id="picture68">
+  <title>Отсроченные реакции: % правильных реакций</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture68.jpg">
+    <imageobject><imagedata fileref="images/html/picture68.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture68.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Закладка в кормушки 1&#8212;4, 2&#8212;6; приманка &#8212; сахар
+</para></textobject></mediaobject>
+</example>
+
+<example id="picture69">
+  <title>Процент правильных реакций при разных условиях (макак-лапундер Паташон)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture69.jpg">
+    <imageobject><imagedata fileref="images/html/picture69.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture69.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
+<example id="picture70">
+  <title>Процент правильных реакций при разных условиях (макак-лапундер Рица)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture70.jpg">
+    <imageobject><imagedata fileref="images/html/picture70.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture70.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
+<example id="picture71">
+  <title>Отсроченные реакции: средние числа правильных реакций (гамадрилл Мишка)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture71.jpg">
+    <imageobject><imagedata fileref="images/html/picture71.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture71.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Кормушки большие, 1&#8212;4; приманка &#8212; сахар
+</para></textobject></mediaobject>
+</example>
+
+<example id="picture72">
+  <title>Отсроченные реакции: % правильных реакций (макак-лапундер Клара)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture72.jpg">
+    <imageobject><imagedata fileref="images/html/picture72.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture72.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
+<example id="picture73">
+  <title>Отсроченные реакции: средние числа правильных реакций (гамадрилл Рустам)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture73.jpg">
+    <imageobject><imagedata fileref="images/html/picture73.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture73.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Кормушки большие, 1&#8212;4; приманка &#8212; сахар
+</para></textobject></mediaobject>
+</example>
+
+<example id="picture74">
+  <title>Отсроченные реакции: средние числа правильных реакций (гамадрилл Рустам)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture74.jpg">
+    <imageobject><imagedata fileref="images/html/picture74.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture74.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para>
+Пять малых кормушек (3-я вынута); закладка приманки (сахар) одновременно в две кормушки (объем удержания); пары переменные
+</para></textobject></mediaobject>
+</example>
+
+<example id="picture75">
+  <title>Процент правильных реакций в зависимости от поведения лисы во время отсрочки (в опытах 16&#8212;97)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture75.jpg">
+    <imageobject><imagedata fileref="images/html/picture75.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture75.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
+<example id="picture76">
+  <title>Процент правильных реакций в зависимости от поведения лисы во время отсрочки (в опытах 54&#8212;97)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture76.jpg">
+    <imageobject><imagedata fileref="images/html/picture76.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture76.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
+<example id="picture77">
+  <title>Процент правильных реакций при разной степени внимания к закладке приманки</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture77.jpg">
+    <imageobject><imagedata fileref="images/html/picture77.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture77.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
+<example id="picture78">
+  <title>Процент правильных реакций при разной степени внимания к закладке приманки</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture78.jpg">
+    <imageobject><imagedata fileref="images/html/picture78.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture78.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
+<example id="picture79">
+  <title>Процент правильных реакций в зависимости от позиции обезьяны (в опытах 1&#8212;241)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture79.jpg">
+    <imageobject><imagedata fileref="images/html/picture79.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture79.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
+<example id="picture80">
+  <title>Процент правильных реакций в зависимости от позиции обезьяны (в опытах 1&#8212;246)</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture80.jpg">
+    <imageobject><imagedata fileref="images/html/picture80.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture80.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
+<example id="picture81">
+  <title>Восприятие и удержание числа приманок обезьяной</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture81.jpg">
+    <imageobject><imagedata fileref="images/html/picture81.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture81.jpg" /></imageobject>
+  </mediaobject>
+</example>
+
+<example id="picture82">
+  <title>Влияние характера установки на запоминание у лисы</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture82.jpg">
+    <imageobject><imagedata fileref="images/html/picture82.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture82.jpg" /></imageobject>
+  </mediaobject>
+</example>

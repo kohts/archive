@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY liniya "
+<informaltable frame='none' pgwide='1'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry><para>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
+</tgroup></informaltable>
+ ">
+
+   <!ENTITY cover SYSTEM "cover.docbook">
+   <!ENTITY predislovie SYSTEM "predislovie.docbook">
+   <!ENTITY vvedenie SYSTEM "vvedenie.docbook">
+
+   <!ENTITY c01 SYSTEM "c01.docbook">
+   <!ENTITY c02 SYSTEM "c02.docbook">
+   <!ENTITY c03 SYSTEM "c03.docbook">
+   <!ENTITY c04 SYSTEM "c04.docbook">
+   <!ENTITY c05 SYSTEM "c05.docbook">
+   <!ENTITY c06 SYSTEM "c06.docbook">
+   <!ENTITY zaklyuchenie SYSTEM "zakluychenie.docbook">
+
+   <!ENTITY app1 SYSTEM "app1.docbook">
+   <!ENTITY app2 SYSTEM "app2.docbook">
+   <!ENTITY app3 SYSTEM "app3.docbook">
+   <!ENTITY app4 SYSTEM "app4.docbook">
+
+   <!ENTITY vyhodnye_dannye SYSTEM "vyhodnye_dannye.docbook">
+   <!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
+]>
+
+<book id="ziegler-zoopsychologie" lang="ru">
+
+<title>Душевный мир животных</title>
+<titleabbrev>Душевный мир животных</titleabbrev>
+
+<bookinfo>
+<author>
+<firstname>Генрих</firstname>
+<othername>Э.</othername>
+<surname>Циглер</surname>
+</author>
+</bookinfo>
+
+<preface id="cover"><title>Обложка</title>&cover;</preface>
+<preface id="predislovie"><title>Предисловие к русскому переводу</title>&predislovie;</preface>
+<preface id="vvedenie"><title>Введение</title>&vvedenie;</preface>
+
+<chapter><title>История зоопсихологии</title>&c01;</chapter>
+<chapter><title>Основные понятия зоопсихологии</title>&c02;</chapter>
+<chapter><title>Простейшие</title>&c03;</chapter>
+<chapter><title>Кишечнополостные: полипы и медузы</title>&c04;</chapter>
+<chapter><title>Черви, членистоногие и моллюски</title>&c05;</chapter>
+<chapter><title>Позвоночные: рыбы, амфибии, птицы, млекопитающие</title>&c06;</chapter>
+<chapter><title>Заключение</title>&zaklyuchenie;</chapter>
+
+<appendix><title>Приложение</title>
+<para>Предлагая вниманию читателя книжку Г. Э. Циглера: Душевный мир животных,
+Редакция издательства сочла не бесполезным приложить к ней четыре небольших статейки
+о <quote>говорящей собаке</quote> Рольф, заимствованные из книги
+того же автора: <quote>Душа животного</quote>, (Н. Е. Zigler: <quote>Die Seele des Tieres</quote>. W. Junk, Berlin) 1916
+</para>
+
+<sect1><title>Паула Мёкель. Наша собака Рольф</title>&app1;</sect1>
+<sect1 id='str120'><title>Г. Э. Циглер. Письма собаки</title>&app2;</sect1>
+<sect1><title>Г. Э. Циглер. Сообщение о публичном демонстрировании собаки</title>&app3;</sect1>
+<sect1><title>Г. Э. Циглер. Руководство к самостоятельным опытам</title>&app4;</sect1>
+</appendix>
+
+<appendix><title>Приложения к электронному изданию</title>
+  <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1>
+  <?page-break?>
+  <sect1><title>Подготовка электронного издания</title>&electronic_edition;</sect1>
+</appendix>
+
+</book>

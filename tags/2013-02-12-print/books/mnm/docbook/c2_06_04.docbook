@@ -1,0 +1,144 @@
+<para>
+При анализе <emphasis role="bold">минимальных</emphasis> сроков работы как в отношении характера данных, так и в отношении выводов наблюдается полная противоположность тому, что мы имели при рассмотрении цифр максимума.
+</para>
+
+<para role="details">
+<para>
+Во-первых, обнаруживается, что размах колебания сроков работы весьма <emphasis>невелик</emphasis> (заключен в пределах от 1 до 60 сек.) и количество разных цифровых данных минимума сокращено до 11 (против 40 данных максимума).
+</para>
+<para>
+Правда, и здесь одинаковые по величине минимумы встречаются главным образом при меньших величинах (не превосходящих срока 6 сек.), но эти минимумы разделяют между собой большое количество механизмов. Так, например:
+<simplelist>
+<member>минимум в 1 сек. имеют 21 механизм</member>
+<member>минимум в 2 сек. имеют 14 механизмов</member>
+<member>минимум в 3 сек. имеют 7 механизмов</member>
+<member>минимум в 5 сек. имеют 2 механизма</member>
+<member>минимум в 6 сек. имеют 2 механизма</member>
+</simplelist>
+</para>
+<para>
+Минимумы в 10 сек. и выше, как правило, приурочены к отмыканию какого-либо одного механизма.
+</para>
+<para>
+Аналогично предыдущему, при разверстке всей величины минимума (варьирующей в пределах от 1 до 60 сек.) на равные периоды времени подтверждается только что высказанная мысль &mdash; чем более низка цифра минимума, тем <emphasis>большее количество</emphasis> механизмов разделяет между собой этот минимум:
+<simplelist>
+<member>в минимальный срок 1-5 сек. отмыкается 44 механизма</member>
+<member>в минимальный срок 5-10 сек. отмыкается 4 механизма</member>
+<member>в минимальный срок 10-15 сек. отмыкается 1 механизм</member>
+<member>в минимальный срок 15-20 сек. отмыкается 2 механизма</member>
+<member>в минимальный срок 20-25 сек. отмыкается 0 механизмов</member>
+<member>в минимальный срок 25-60 сек. отмыкается 1 механизм</member>
+<member>в минимальный срок свыше 60 сек. отмыкается 1 механизм</member>
+</simplelist>
+</para>
+<para>
+В противоположность цифрам максимума цифра минимума зачастую <emphasis>повторяется</emphasis> при оперировании с <emphasis>одним и тем же механизмом</emphasis>, и в особенности велика повторяемость низких по величине минимумов:
+<simplelist>
+<member>Минимум <emphasis>1 сек.</emphasis> повтор. по 2 раза у 3 мех., 3 раза &mdash; 1 мех., 4 раза &mdash; 5 мех., 5 раз &mdash; 4 мех., 11 раз &mdash; 1 мех. (т. е. <emphasis>всего повторяется 60 раз</emphasis>).</member>
+<member>Минимум <emphasis>2 сек.</emphasis> повтор. по 2 раза у 1 мех., 3 раза &mdash; 4 мех., 4 раза &mdash; 1 мех., 12 раз &mdash; 1 мех. (т. е. <emphasis>всего повторяется 30 раз</emphasis>).</member>
+<member>Минимум <emphasis>3 сек.</emphasis> повтор. по 3 раза у 3 мех., 4 раза &mdash; 1 мех. (т. е. <emphasis>всего повторяется 13 раз</emphasis>).</member>
+<member>Минимум <emphasis>5 сек.</emphasis> повтор. по 2 раза у 1 мех. (т. е. <emphasis>всего повторяется 2 раза</emphasis>).</member>
+<member>Минимум <emphasis>6 сек.</emphasis> повтор. по 3 раза у 1 мех. (т. е. <emphasis>всего повторяется 3 раза</emphasis>).</member>
+<member>Минимум <emphasis>свыше 6 сек.</emphasis> не <emphasis>повторяется</emphasis> и у одного и того же механизма. </member>
+</simplelist>
+</para>
+<para>
+В противовес тому, что наблюдалось в отношении цифры максимума, цифра минимума в громадном, подавляющем большинстве случаев (в 64,1 %) приходится на последний опыт отмыкания и в 28% случаев &mdash; на один из последних 5 опытов, и только в 7% случаев она падает на средние по порядку следования опыты.
+</para>
+<para>
+Следует подчеркнуть, впрочем, что из группы в 19 механизмов
+<footnote><para>
+<emphasis role="bold">C</emphasis>, <emphasis role="bold">L</emphasis>, <emphasis role="bold">P</emphasis>, <emphasis role="bold">Y</emphasis>, <emphasis role="bold">X</emphasis><subscript>2</subscript>, <emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">S</emphasis>, <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">C</emphasis><subscript>2</subscript>, <emphasis role="bold">C</emphasis><subscript>3</subscript>, <emphasis role="bold">d</emphasis><subscript>1</subscript>, <emphasis role="bold">d</emphasis><subscript>3</subscript>, <emphasis role="bold">Y</emphasis><subscript>3</subscript>, <emphasis role="bold">f</emphasis><subscript>1</subscript>, <emphasis role="bold">f</emphasis><subscript>3</subscript>, <emphasis role="bold">f</emphasis><subscript>4</subscript>, <emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">&#916;</emphasis><subscript>1</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>n</subscript>.
+</para></footnote> 
+(у которых цифра, минимума отклоняется от цифры последнего опыта отмыкания) у 15 из них величина отклонения настолько незначительна (не более 4 сек.), что всецело связана с индивидуальной вариацией реакции, и только в 4 случаях у механизмов сложной конструкции (<emphasis role="bold"><emphasis role="bold">Y</emphasis></emphasis><subscript>3</subscript>, <emphasis role="bold">f</emphasis><subscript>3</subscript>, обмотки тонкой проволоки <emphasis role="bold">&#916;</emphasis><subscript>1</subscript>, веревки <emphasis role="bold">&#931;</emphasis><subscript>n</subscript>) цифра минимума уклоняется довольно резко, что и обусловливает несколько видоизмененную (по сравнению с таковой последнего опыта) перегруппировку механизмов при распределении цифр минимума работы в соответствии с прежними рубриками. (Самое появление минимума в более ранних опытах &mdash; повидимому случайно.)
+</para>
+<para>
+Таким образом оказывается, что, принимая во внимание минимумы работы, можно все механизмы распределить по 2-м рубрикам.
+</para>
+<para>
+В <emphasis>первую</emphasis> рубрику, включающую механизмы с <emphasis>минимальным</emphasis> сроком отмыкания (от 1 до 10 сек.), войдут 47 механизмов, а именно:
+<simplelist>
+<member>со сроком отмыкания в 1 сек. времени &mdash; 21 механизм (<emphasis role="bold">C</emphasis>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">M</emphasis>, <emphasis role="bold">Q</emphasis>, <emphasis role="bold">G</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">V</emphasis>, <emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">Y</emphasis><subscript>4</subscript>, <emphasis role="bold">S</emphasis>, <emphasis role="bold">U</emphasis>, <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">a</emphasis>, <emphasis role="bold">b</emphasis>, <emphasis role="bold">C</emphasis><subscript>2</subscript>, <emphasis role="bold">C</emphasis><subscript>3</subscript>, <emphasis role="bold">d</emphasis><subscript>1</subscript>, <emphasis role="bold">f</emphasis><subscript>4</subscript>, <emphasis role="bold">З</emphasis><subscript>2</subscript>);</member>
+<member>со сроком отмыкания в 2 сек. &mdash; 14 механизмов (<emphasis role="bold">А</emphasis><subscript>3</subscript>, <emphasis role="bold">D</emphasis>, <emphasis role="bold">E</emphasis><subscript>1</subscript>, <emphasis role="bold">L</emphasis>, <emphasis role="bold">P</emphasis>, <emphasis role="bold">R</emphasis>, <emphasis role="bold">F</emphasis>, <emphasis role="bold">H</emphasis>, <emphasis role="bold">X</emphasis><subscript>1</subscript>, <emphasis role="bold">X</emphasis><subscript>2</subscript>, <emphasis role="bold">T</emphasis>, <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">f</emphasis><subscript>1</subscript>, <emphasis role="bold">f</emphasis><subscript>3</subscript>);</member>
+<member>со сроком отмыкания в 3 сек. – 7 механизмов (<emphasis role="bold">А</emphasis><subscript>1</subscript>, <emphasis role="bold">Б</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">Y</emphasis>, <emphasis role="bold">W</emphasis>, <emphasis role="bold">d</emphasis><subscript>3</subscript>, <emphasis role="bold">Y</emphasis><subscript>3</subscript>);</member>
+<member>со сроком отмыкания в 4 сек. – 1 механизм (<emphasis role="bold">C</emphasis><subscript>1</subscript>);</member>
+<member>со сроком отмыкания в 5 сек. – 2 механизма (<emphasis role="bold">А</emphasis><subscript>2</subscript>, <emphasis role="bold">&#916;</emphasis><subscript>1</subscript>);</member>
+<member>со сроком отмыкания в 6 сек. – 2 механизма (<emphasis role="bold">f</emphasis><subscript>2</subscript>, <emphasis role="bold">&#931;</emphasis>);</member>
+</simplelist>
+</para>
+<para>
+Во <emphasis>вторую</emphasis> рубрику с минимальным сроком отмыкания свыше 10 и по 60 сек. отойдут 5 механизмов, из которых 4 суть обмотки, один <emphasis role="bold">Y</emphasis><subscript>2</subscript> &mdash; задвижка, заложенная втулкой.
+</para>
+<para>
+Из этого распределения явствует, что в деле отмыкания подавляющего большинства и самых разнообразных механизмов обезьяна чрезвычайно <emphasis>прогрессировала</emphasis>, и только в отмыкании механизмов, по отношению к которым не выработался строго определенный прием
+<footnote><para>
+Не выработался, по всей вероятности, в силу сравнительно малого количества опытов отмыкания.
+</para></footnote>, 
+обезьяна преуспела сравнительно меньше.
+</para>
+<para>
+Итак, по степени легкости отмыкания в особо удачных опытах механизмы распределяются <emphasis>по двум неравным группам</emphasis>: 1) количественно б&#1086;&#768;льшая (в 47 механизмов) с меньшей величиной минимума (ниже 10 сек.), 2) количественно меньшая (в 5 механизмов) с большей величиной минимума, (выше 10 сек. и до 1 мин.).
+</para>
+<para>
+Следует отметить еще одну особенность, связанную с величиной цифры минимума.
+</para>
+<para>
+<emphasis>Одна и та же величина минимума</emphasis> (в пределах, напр., 1&mdash;2 &mdash; 4 сек.) достигается обезьяной в отношении разных механизмов по истечении <emphasis>разного количества опытов</emphasis>.
+</para>
+<para>
+У некоторых особенно легко податливых и известных по способу отмыкания механизмов уже в <emphasis>первом же опыте</emphasis> отмыкания срок работы минимален, как у <emphasis role="bold">f</emphasis><subscript>4</subscript>; у других, менее податливых и частично известных по способу отмыкания, минимальный срок работы наступает в пределах <emphasis>первых 5 опытов</emphasis> (<emphasis role="bold">C</emphasis>, <emphasis role="bold">S</emphasis>, <emphasis role="bold">А</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">f</emphasis>, <emphasis role="bold">F</emphasis>, <emphasis role="bold">H</emphasis>, <emphasis role="bold">Б</emphasis>, <emphasis role="bold">W</emphasis>); у третьих, весьма многообразных по типу механизмов (всех остальных), минимум устанавливается в пределах от 6-го по 58-й опыт, причем в этом последнем случае пока не удается установить никакой более глубокой закономерности между характером механизмов и быстротой наступания минимума.
+</para>
+<para>
+Чтобы выяснить точнее, через <emphasis>какой же срок времени</emphasis> осуществляется 1-й минимальный по времени опыт, правильнее принять в соображение не количество предшествующих этому опыту <emphasis>экспериментов</emphasis>, а количество <emphasis>времени</emphasis>, затраченного на работу до момента осуществления этого максимально удачного опыта; и при учете этих-то данных выявляются весьма закономерные соотношения между количеством времени, предшествующим минимальному сроку работы, и сложностью, трудностью способа отмыкания механизма.
+</para>
+<para>
+<orderedlist>
+<listitem><para>Время работы, предшествующее минимальному (не более 4 сек.) сроку отмыкания, заключается в пределах от 1 до 10 сек. для механизмов <emphasis>легко податливых, с ограниченным и привычным</emphasis> направлением передвижения центра приложения силы.
+</para>
+<para>Это имеет место у следующих 5 механизмов (<emphasis role="bold">f</emphasis><subscript>4</subscript>, <emphasis role="bold">f</emphasis><subscript>1</subscript>, <emphasis role="bold">C</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">W</emphasis>).</para></listitem>
+<listitem><para>Это время заключается в пределах <emphasis>свыше</emphasis> 10 до 60 сек. у механизмов также с ограниченным направлением передвижения и <emphasis>легко податливых</emphasis>, но по большей части <emphasis>новых</emphasis> (<emphasis role="bold">a</emphasis>, <emphasis role="bold">S</emphasis>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">d</emphasis><subscript>1</subscript>, <emphasis role="bold">b</emphasis>, <emphasis role="bold">M</emphasis>) или отчасти знакомых по способу отмыкания, новых лишь по внешнему виду <emphasis role="bold">E</emphasis><subscript>1</subscript>, <emphasis role="bold">F</emphasis>, <emphasis role="bold">Y</emphasis><subscript>1</subscript> и в виде исключения у видоизмененных по положению (<emphasis role="bold">C</emphasis><subscript>2</subscript>).</para></listitem>
+<listitem><para>Это время заключается в пределах <emphasis>от 10 до 30</emphasis> мин. для механизмов <emphasis>средне</emphasis> податливых, видоизмененных по положению (<emphasis role="bold">Б</emphasis>, <emphasis role="bold">А</emphasis><subscript>3</subscript>, <emphasis role="bold">X</emphasis><subscript>2</subscript>, <emphasis role="bold">C</emphasis><subscript>3</subscript>, <emphasis role="bold">Q</emphasis>, <emphasis role="bold">H</emphasis>, <emphasis role="bold">R</emphasis>, <emphasis role="bold">F</emphasis>, <emphasis role="bold">D</emphasis>, <emphasis role="bold">Y</emphasis><subscript>4</subscript>, <emphasis role="bold">L</emphasis>), отчасти знакомых по способу отмыкания, механизмов осложненных конструкций (<emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>3</subscript>, <emphasis role="bold">Y</emphasis><subscript>3</subscript>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>), механизмов новых (<emphasis role="bold">V</emphasis>, <emphasis role="bold">C</emphasis><subscript>1</subscript>).</para></listitem>
+<listitem><para>Это время заключается в пределах от 10 до 30 мин. для механизмов <emphasis>трудно</emphasis> податливых (<emphasis role="bold">O</emphasis>, <emphasis role="bold">G</emphasis>, <emphasis role="bold">Z</emphasis><subscript>2</subscript>) или для имеющих направление передвижения резко противоположное привычному направлению передвижения (<emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">Z</emphasis><subscript>2</subscript>), в виде исключения у механизмов новых <emphasis role="bold">U</emphasis> и секретных по способу отмыкания (<emphasis role="bold">Y</emphasis>).</para></listitem>
+<listitem><para>Это время заключается в пределах от <emphasis><superscript>1</superscript>/<subscript>2</subscript> часа и свыше 1 часа у первых вновь предъявленных механизмов</emphasis> (<emphasis role="bold">А</emphasis><subscript>1</subscript>, <emphasis role="bold">P</emphasis>) и у механизмов, имеющих подвижность во второстепенных частях (<emphasis role="bold">f</emphasis><subscript>3</subscript>).</para></listitem>
+</orderedlist>
+</para>
+<para>
+Механизмы с минимальным сроком отмыкания в 5 сек. и б&#1086;&#768;льшим (до 60 сек.) имеют количество времени работы, предшествующее минимуму, включенное в узких пределах от 43 до 255 сек., почему следует думать, что при наличии <emphasis>б&#1086;&#768;льшего упражнения</emphasis> и соответственно <emphasis>б&#1086;&#768;льшей величине рабочего времени</emphasis>, затраченного на их отмыкание, этот минимум был бы значительно ниже. Поэтому эти минимумы свыше 5 сек. не приходится особенно принимать в расчет.
+</para>
+</para>
+
+<para>
+Общие выводы, намечающиеся на основании учета величины минимальных сроков, следующие:
+</para>
+
+<para>
+<emphasis>Амплитуда колебания</emphasis> величины цифр минимума <emphasis>мала</emphasis> (1&mdash;60 сек.).
+</para>
+
+<para>
+Цифровые данные <emphasis>однообразны</emphasis> (11 разных сроков минимума).
+</para>
+
+<para>
+Одни и те же <emphasis>меньшие</emphasis> по величине минимумы разделяются <emphasis>б&#1086;&#768;льшим количеством механизмов</emphasis>, нежели одни и те же большие по величине минимумы.
+</para>
+
+<para>
+Минимум <emphasis>наибольшего</emphasis> количества механизмов (44) включен в период времени 1&mdash;5 сек.; минимум меньшего количества (7) механизмов &mdash; в период 5&mdash;20 сек.; минимум наименьшего количества (2) &mdash; в период времени 25 сек. и выше.
+</para>
+
+<para>
+Наблюдается <emphasis>повторяемость</emphasis> цифры минимума при оперировании с одним и тем же механизмом.
+</para>
+
+<para>
+<emphasis>Низшие по величине минимумы</emphasis> при работе с одним и тем же механизмом повторяются <emphasis>чаще</emphasis>, нежели более высокие по величине минимумы.
+</para>
+
+<para>
+В подавляющем большинстве случаев (в 64%) цифра минимума приходится на последний опыт отмыкания.
+</para>
+
+<para>
+Величина минимума определяется и сложностью установки и величиной предшествующего упражнения.
+</para>

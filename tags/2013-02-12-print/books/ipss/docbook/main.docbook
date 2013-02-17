@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY liniya "
+<informaltable frame='none' pgwide='1'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry><para role='Arial'>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
+</tgroup></informaltable>
+ ">
+
+  <!ENTITY predislovie SYSTEM "predislovie.docbook">
+  <!ENTITY vvedenie SYSTEM "vvedenie.docbook">
+
+  <!ENTITY c1_1_1 SYSTEM "c1_1_1.docbook">
+  <!ENTITY c1_1_2 SYSTEM "c1_1_2.docbook">
+  <!ENTITY c1_1_3 SYSTEM "c1_1_3.docbook">
+
+  <!ENTITY c1_2_1 SYSTEM "c1_2_1.docbook">
+
+  <!ENTITY c1_3_1 SYSTEM "c1_3_1.docbook">
+  <!ENTITY c1_3_1_e SYSTEM "c1_3_1_e.docbook">
+  <!ENTITY c1_3_2 SYSTEM "c1_3_2.docbook">
+  <!ENTITY c1_3_3_1 SYSTEM "c1_3_3_1.docbook">
+  <!ENTITY c1_3_3_2 SYSTEM "c1_3_3_2.docbook">
+  <!ENTITY c1_3_4 SYSTEM "c1_3_4.docbook">
+  
+  <!ENTITY c1_4 SYSTEM "c1_4.docbook">
+
+  <!ENTITY c1_5_1 SYSTEM "c1_5_1.docbook">
+  <!ENTITY c1_5_2 SYSTEM "c1_5_2.docbook">
+  
+  <!ENTITY c2_1_1 SYSTEM "c2_1_1.docbook">
+  <!ENTITY c2_1_2 SYSTEM "c2_1_2.docbook">
+  <!ENTITY c2_1_3 SYSTEM "c2_1_3.docbook">
+  
+  <!ENTITY c2_2 SYSTEM "c2_2.docbook">
+
+  <!ENTITY c2_3_1 SYSTEM "c2_3_1.docbook">
+  <!ENTITY c2_3_2 SYSTEM "c2_3_2.docbook">
+  <!ENTITY c2_3_3 SYSTEM "c2_3_3.docbook">
+
+  <!ENTITY zaklyuchenie SYSTEM "zaklyuchenie.docbook">
+  <!ENTITY tables SYSTEM "tables.docbook">
+  <!ENTITY resume_de SYSTEM "resume_de.docbook">
+  <!ENTITY tables_de SYSTEM "tables_de.docbook">
+
+  <!ENTITY vyhodnye_dannye SYSTEM "vyhodnye_dannye.docbook">
+  <!ENTITY darstevennaya_nn_ra SYSTEM "darstevennaya_nn_ra.docbook">
+  <!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
+  ]>
+
+<book id="ladygina-kohts-ipss" lang="ru">
+
+<title>Исследование познавательных способностей шимпанзе</title>
+
+<bookinfo>
+<author>
+<firstname>Надежда</firstname>
+<othername>Николаевна</othername>
+<surname>Ладыгина-Котс</surname>
+</author>
+</bookinfo>
+<date>Москва, 1923</date>
+
+<dedication>
+<para>Посвящаю Александру Федоровичу Котс, моему учителю и другу, светлому спутнику жизни моей.</para>
+</dedication>
+
+<preface id="predislovie"><title>Предисловие</title>&predislovie;</preface>
+<preface id="vvedenie"><title>Введение. Критический обзор главных методов зоопсихологии</title>&vvedenie;</preface>
+
+<part id="p1"><title>Распознавание цветов и сочетаний цветов</title>
+<chapter id="c1_1"><title>Различение ахроматических цветов по методу <quote>выбора на название</quote></title>
+  <sect1 id="c1_1_1" label="A"><title>Методика работы</title>&c1_1_1;</sect1>
+  <sect1 id="c1_1_2" label="Б"><title>Протоколы опытов</title>&c1_1_2;</sect1>
+  <sect1 id="c1_1_3" label="В"><title>Итоги опытов</title>&c1_1_3;</sect1>
+</chapter>
+<chapter id="c1_2"><title>Новый метод исследования познавательных способностей шимпанзе</title>
+  <sect1 id="c1_2_1" label="A"><title>Метод <quote>выбора на образец</quote></title><subtitle>(Установление тождества)</subtitle>&c1_2_1;</sect1>
+</chapter>
+<chapter id="c1_3"><title>Различение хроматических цветов по методу <quote>выбора на образец</quote></title>
+  <sect1 id="c1_3_1" label="A"><title>Протокольное изложение опытов</title>&c1_3_1; &c1_3_1_e;</sect1>
+  <sect1 id="c1_3_2" label="B"><title>Схематичная рекапитуляция примененных приемов и полученных фактических достижений</title>&c1_3_2;</sect1>
+  <sect1 id="c1_3_3" label="C"><title>Анализ примененных приемов и полученных достижений</title>
+    <sect2 id="c1_3_3_1"><title>Анализ постижения обезьяной принципа выбора</title>&c1_3_3_1;</sect2>
+    <sect2 id="c1_3_3_2"><title>Анализ распознавания обезьяной различных цветов</title>&c1_3_3_2;</sect2>
+  </sect1>
+  <sect1 id="c1_3_4" label="D"><title>Общие выводы на основании этого анализа</title>&c1_3_4;</sect1>
+</chapter>
+<chapter id="c1_4"><title>Различение светлот ахроматических цветов</title>&c1_4;</chapter>
+<chapter id="c1_5"><title>Различение сочетаний цветов</title>
+  <sect1 id="c1_5_1" label="A"><title>Различение 2-х цветных сочетаний<footnote><para>Обозначение
+сочетаний цветов, расположенных горизонтально один над другим, было изменено по сравнению
+с оригинальным изданием книги для удобства электронной верстки. В электронной версии цвета,
+располагающиеся друг над другом, обозначаются двойной вертикальной чертой,
+например "к.||ж." (прим. редактора эл. версии)</para></footnote></title>&c1_5_1;</sect1>
+  <sect1 id="c1_5_2" label="B"><title>Различение 3-х цветных сочетаний<footnote><para>Обозначение
+сочетаний цветов, расположенных горизонтально один над другим, было изменено по сравнению
+с оригинальным изданием книги для удобства электронной верстки. В электронной версии цвета,
+располагающиеся друг над другом, обозначаются двойной вертикальной чертой,
+например "з.||ж.||з." (прим. редактора эл. версии)</para></footnote></title>&c1_5_2;</sect1>
+</chapter>
+</part>
+
+<part id="p2"><title>Отвлечение цвета</title>
+<chapter id="c2_1"><title>Осложненные случаи отождествления цветов</title>
+  <sect1 id="c2_1_1" label="A"><title>Узнавание тождественного объекта после однократной экспозиции образца</title>&c2_1_1;</sect1>
+  <sect1 id="c2_1_2" label="B"><title>Узнавание тождественного объекта при замене предметного образца его изображением</title>&c2_1_2;</sect1>
+  <sect1 id="c2_1_3" label="C"><title>Узнавание тождественного объекта по трем признакам (цвету, форме, величине)</title>&c2_1_3;</sect1>
+</chapter>
+<chapter id="c2_2"><title>Отвлечение цвета от формы и величины при оперировании с одноплоскостными объектами</title>
+<subtitle>Установление ассоциации по сходству</subtitle>&c2_2;
+</chapter>
+<chapter id="c2_3"><title>Отвлечение цвета от формы и величины при оперировании с разноплоскостными объектами</title>
+<subtitle>Установление ассоциации по сходству</subtitle>
+  <sect1 id="c2_3_1" label="A"><title>Протоколы опытов</title>&c2_3_1;</sect1>
+  <sect1 id="c2_3_2" label="B"><title>Схематичная рекапитуляция примененных приемов и этапов выполнения процесса ассоциации по сходству</title>&c2_3_2;</sect1>
+  <sect1 id="c2_3_3" label="C"><title>Итоги и конечные обобщения на основании анализа выполнения обезьяной процесса ассоциации по сходству</title>&c2_3_3;</sect1>
+</chapter>
+</part>
+
+<chapter id="zaklyuchenie"><title>Заключение</title>&zaklyuchenie;</chapter>
+
+<appendix><title>Таблицы</title>&tables;</appendix>
+
+<appendix lang="de"><title>Resum&#0101;&#768; работы на немецком языке</title>
+<subtitle>Untersuchungen ueber die Erkenntnisf&#0228;higkeiten de Schimpansen von Nadie Kohts</subtitle>
+&resume_de;
+</appendix>
+<appendix lang="de"><title>Verzeichnis der Tafelbilder<footnote><para>Bezüglich des an der Mehrzahl
+dieser Tafeln leicht ersichtlichen Kontaktes zwischen dem Versuchssteiler und dem Versuchstier —
+Halten des Schimpansen bei der Hand — vrgl. die in Anmerkung auf Seite. 459. des deutschen
+Inhaltsübersicht gegebene Erklärung.</para></footnote></title>&tables_de;</appendix>
+
+<appendix><title>Приложения к электронному изданию</title>
+  <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1>
+  <?page-break?>
+  <sect1><title>Дарственная надпись Н. Н. Ладыгиной-Котс Р. А. Котс</title>&darstevennaya_nn_ra;</sect1>
+  <?page-break?>
+  <sect1><title>Подготовка электронного издания</title>&electronic_edition;</sect1>
+</appendix>
+
+</book>

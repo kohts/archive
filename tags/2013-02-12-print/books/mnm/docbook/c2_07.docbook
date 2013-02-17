@@ -1,0 +1,206 @@
+<para>
+Вслед за анализом величин цифр максимума и минимума времени отмыкания разных механизмов небезынтересно будет проследить <emphasis role="bold">усовершенствование</emphasis> обезьяны в работе, максимальную величину выигрыша времени при отмыкании разных запоров. Эта величина, конечно, определяется простым отношением между цифрой максимума и минимума времени завершения работы в единичных опытах.
+</para>
+
+<para role="details">
+<para>
+По установлении этой величины обнаруживается опять-таки чрезвычайное многообразие (39) данных, свидетельствующее о разной степени усовершенствования обезьяны в отношении разных запоров: большой размах амплитуды колебания этой величины (в пределах от 1,8 до 1802 раз) говорит о чрезвычайной вариации этого усовершенствования.
+</para>
+<para>
+Только в немногих случаях (10) наблюдается одинаковая величина выигрыша времени работы в отношении разных и зачастую разнотипных механизмов, причем одну и ту же величину разделяют не более чем 2 &mdash; 3 запора (единообразие величины усовершенствования как правило осуществляется при меньших величинах, не превосходящих цифру 60).
+</para>
+<para>
+Выигрыш времени работы, усовершенствование, ускорение отмыкания можно наглядно выявить в следующей таблице:
+<orderedlist>
+<listitem><para>ускорение в 1,8 раза имеется по отношению к 2 механизмам &mdash; <emphasis role="bold">f</emphasis><subscript>1</subscript> и <emphasis role="bold">&#931;</emphasis><subscript>5</subscript></para></listitem>
+<listitem><para>ускорение в 2 раза имеется по отношению к 3 механизмам &mdash; <emphasis role="bold">E</emphasis><subscript>1</subscript>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">W</emphasis></para></listitem>
+<listitem><para>ускорение в 5 раз имеется по отношению к 3 механизмам &mdash; <emphasis role="bold">M</emphasis>, <emphasis role="bold">F</emphasis>, <emphasis role="bold">a</emphasis></para></listitem>
+<listitem><para>ускорение в 10 раз имеется по отношению к 2 механизмам &mdash; <emphasis role="bold">K</emphasis>, <emphasis role="bold">b</emphasis></para></listitem>
+<listitem><para>ускорение в 12 раз имеется по отношению к 2 механизмам &mdash; <emphasis role="bold">Y</emphasis><subscript>3</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>3</subscript></para></listitem>
+<listitem><para>ускорение в 15 раз имеется по отношению к 2 механизмам &mdash; <emphasis role="bold">C</emphasis>, <emphasis role="bold">Y</emphasis><subscript>1</subscript></para></listitem>
+<listitem><para>ускорение в 20 раз имеется по отношению к 2 механизмам &mdash; <emphasis role="bold">Z</emphasis>, <emphasis role="bold">d</emphasis><subscript>1</subscript></para></listitem>
+<listitem><para>ускорение в 30 раз имеется по отношению к 3 механизмам &mdash; <emphasis role="bold">А</emphasis><subscript>3</subscript>, <emphasis role="bold">Б</emphasis>, <emphasis role="bold">L</emphasis></para></listitem>
+<listitem><para>ускорение в 60 раз имеется по отношению к 2 механизмам &mdash; <emphasis role="bold">S</emphasis>, <emphasis role="bold">T</emphasis></para></listitem>
+</orderedlist>
+</para>
+<para>
+При разгруппировке данных, выражающих величину выигрыша времени работы, в более общие группы (именно в 5 групп), причем в каждой последующей группе величина ускорения будет в 5 раз больше, нежели в каждой предыдущей, обнаружится следующее распределение механизмов по этим группам.
+</para>
+<para>
+<emphasis>В I группу</emphasis> механизмов с величиной ускорения в пределах от 1 до 5 раз войдут почти исключительно <emphasis>легко податливые и знакомые по способу</emphasis> отмыкания механизмы, числом 9 (<emphasis role="bold">f</emphasis><subscript>1</subscript>, <emphasis role="bold">E</emphasis><subscript>1</subscript>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">W</emphasis>, <emphasis role="bold">f</emphasis><subscript>4</subscript>, <emphasis role="bold">M</emphasis>, <emphasis role="bold">F</emphasis>, <emphasis role="bold">a</emphasis>, <emphasis role="bold">&#931;</emphasis><subscript>5</subscript>).
+</para>
+<para>
+<emphasis>Во II группу</emphasis> с величиной ускорения свыше 5 до 25 раз войдут всего 16 запоров: во-первых, <emphasis>легко податливые, новые</emphasis> запоры (5) &mdash; <emphasis role="bold">V</emphasis>, <emphasis role="bold">&#916;</emphasis><subscript>1</subscript>, <emphasis role="bold">d</emphasis><subscript>1</subscript>, <emphasis role="bold">b</emphasis>, <emphasis role="bold">K</emphasis>; во-вторых, <emphasis>видоизмененные, осложненные</emphasis> то с большей, то с меньшей степенью податливости (11) &mdash; <emphasis role="bold">А</emphasis><subscript>2</subscript>, <emphasis role="bold">X</emphasis><subscript>1</subscript>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">C</emphasis><subscript>2</subscript>, <emphasis role="bold">C</emphasis>, <emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">Y</emphasis><subscript>3</subscript>, <emphasis role="bold">&#916;</emphasis><subscript>2</subscript>, <emphasis role="bold">&#916;</emphasis><subscript>3</subscript><emphasis role="bold">&#931;</emphasis><subscript>n</subscript>, <emphasis role="bold">Y</emphasis><subscript>2</subscript>.
+</para>
+<para>
+<emphasis>В III группу</emphasis>, с величиной ускорения от 25 до 125 раз, войдет также 16 механизмов, из которых подавляющее большинство (12) &mdash; <emphasis>видоизмененные</emphasis> по положению или <emphasis>осложненные, т. е. отчасти знакомые</emphasis> по способу отмыкания (именно: <emphasis role="bold">R</emphasis>, <emphasis role="bold">C</emphasis><subscript>3</subscript>, <emphasis role="bold">D</emphasis>, <emphasis role="bold">T</emphasis>, <emphasis role="bold">X</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>1</subscript>, <emphasis role="bold">А</emphasis><subscript>3</subscript>, <emphasis role="bold">Б</emphasis>, <emphasis role="bold">L</emphasis>, <emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>3</subscript>), и 4 совершенно <emphasis>новые</emphasis>, по большей части мало податливые (именно: <emphasis role="bold">S</emphasis>, <emphasis role="bold">f</emphasis><subscript>2</subscript>, <emphasis role="bold">C</emphasis><subscript>1</subscript>, <emphasis role="bold">U</emphasis>).
+</para>
+<para>
+<emphasis>В IV группу</emphasis> с величиной ускорения свыше 125 и <emphasis>до</emphasis> 725 раз (фактически до 500 раз) войдет небольшая серия из 8 механизмов, из которых большая часть или трудно (<emphasis role="bold">O</emphasis>, <emphasis role="bold">H</emphasis>) податлива, или имеет направление передвижения, обратное привычному (<emphasis role="bold">Y</emphasis><subscript>4</subscript>, <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">Z</emphasis><subscript>2</subscript>), или осложнена специфическими особенностями:
+<simplelist>
+<member><emphasis role="bold">Y</emphasis> задвижка &mdash; со скрытым центром приложения силы,</member>
+<member><emphasis role="bold">Q</emphasis> задвижка &mdash; самозамыкающаяся,</member>
+<member><emphasis role="bold">H</emphasis> задвижка &mdash; самозамыкающаяся, пружинящая,</member>
+<member><emphasis role="bold">f</emphasis><subscript>3</subscript> ключ &mdash; с подвижн. во второстепенных частях.</member>
+</simplelist>
+</para>
+<para>
+И наконец последняя <emphasis>V группа</emphasis> механизмов с величиной ускорения свыше 725 до 1802 раз включает всего 3 механизма: 1-й крюк (<emphasis role="bold">А</emphasis><subscript>1</subscript>). 1-ю задвижку (<emphasis role="bold">P</emphasis>), наиболее тугую задвижку с обратным направлением передвижения (<emphasis role="bold">G</emphasis>).
+</para>
+<para>
+Следовательно, в отношении:
+<simplelist>
+<member>28,8% механизмов выигрыш времени = 1&mdash;10 раз</member>
+<member>48,0% механизмов выигрыш времени = 10&mdash;100 раз</member>
+<member>19,2% механизмов выигрыш времени = 100 &mdash; 1000 раз</member>
+<member>3,8% механизмов выигрыш времени = свыше 1000 раз</member>
+</simplelist>
+</para>
+</para>
+
+<para>
+Таким образом становится совершенно очевидным, что обезьяна <emphasis>наиболее прогрессирует</emphasis> в скорости завершения работы при отмыкании механизмов <emphasis>новых, трудно податливых</emphasis> по центру приложения силы, имеющих <emphasis>противоположное</emphasis> привычному направление передвижения; обезьяна сравнительно <emphasis>меньше прогрессирует</emphasis> при отмыкании механизмов, <emphasis>отчасти знакомых</emphasis> по способу отмыкания (видоизмененных или осложненных по сравнению с прежде представленными механизмами), легко и средне податливых <emphasis>новых</emphasis>; макак <emphasis>всего меньше прогрессирует</emphasis> в работе при отмыкании <emphasis>известных</emphasis> и кроме того <emphasis>легко</emphasis> податливых механизмов. У большинства механизмов выигрыш времени от 10 до 100 раз.
+</para>
+
+<para>
+Переходя к следующему по очереди естественно возникающему вопросу о том, к какому моменту, <emphasis role="bold">к какому но порядку опыту</emphasis> приурочено <emphasis role="bold">максимальное усовершенствование</emphasis> в деле отмыкания, и как велика <emphasis>величина</emphasis> этого максимального сдвига кривой времени работы,&mdash; мы на основании рассмотрения кривых работы обнаружим следующие закономерности.
+</para>
+
+<para role="details">
+<para>
+У наибольшего количества механизмов (именно 19) самых разнообразных конструкций и с различной величиной сокращения времени работы 1-е
+<footnote><para>
+1-е &mdash; так как при меньших по величине максимальных спусках на протяжении одной и той же серии опытов они иногда повторяются.
+</para></footnote> 
+максимальное падение времени работы &mdash; спуск кривой &mdash; наблюдается во 2-м опыте; у почти вдвое меньшего количества механизмов (10) 1-й максимальный спуск кривой &mdash; в 3-м опыте: в следующих более поздних опытах максимальное улучшение работы наблюдается все реже и реже; оно совсем не встречается в опытах более поздних, чем 23-й (см. <xref linkend="table173" />).
+</para>
+
+<informalfigure id="table173" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table173.jpg">
+    <imageobject><imagedata fileref="images/html/table173.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table173.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
+<para>
+Таким образом у подавляющего большинства механизмов (именно у 40) в 81% случаев наибольший спуск кривой приурочен к первым 6 опытам (2&mdash;6), в следующих 6 опытах (7&mdash;12) максимальный спуск кривой наблюдается лишь в 12,2% случаев, а в более поздних опытах (13&mdash;23) максимальный спуск встречается лишь у 3 механизмов (т. е. в 6,1% случаев).
+</para>
+<para>
+Если оттенить данные, выражающие <emphasis>максимальное улучшение</emphasis> (спуск кривой), данными, отражающими <emphasis>максимальное ухудшение</emphasis> (подъем кривой), то при их сопоставлении обнаружатся следующие особенности (см. вышеприведенную таблицу). Максимальный <emphasis>подъем кривой</emphasis> в значительно меньшем количестве случаев (в 6)
+<footnote><para>
+Во всех случаях после первого случайно удачного отмыкания.
+</para></footnote> 
+приурочен ко 2-му опыту. Во всех последующих опытах (начиная с 3-го и до 7-го) это максимальное ухудшение распределяется довольно равномерно, т. е. на каждый опыт приходится довольно одинаковое (5&mdash;7) количество (зачастую разнотипных) механизмов, имеющих максимальный сдвиг кривой в. одном и том же опыте. В более поздних опытах подъемы кривой встречаются редко (1&mdash;4 раза).
+</para>
+<para>
+В противоположность максимумам спуска максимумы подъема кривой не встречаются в опытах более поздних чем № 16.
+</para>
+<para>
+В противоположность максимумам спуска максимумы подъема в первых 6 опытах имеют 66,6% случаев (их имеют 32 механизма), а значительно меньшее количество механизмов &mdash; 27% (именно 13 механизмов) &mdash; имеют максимальные подъемы в пределах от 7 по 12 опыт (т. е. в середине работы); в конце же сеанса (от 13-го по 16-й опыт) количество подъемов столь же невелико (6% &mdash; именно у 3 механизмов), как и количество спусков.
+</para>
+<para>
+Характерно, что подъема кривой нет абсолютно, имеется непрерывный спуск из всех механизмов у одного лишь механизма <emphasis role="bold">H</emphasis> (задвижки пружинящей).
+</para>
+</para>
+
+<para>
+Таким образом <emphasis>максимальное колебание кривых</emphasis> как в сторону <emphasis>подъема</emphasis>, так и <emphasis>падения</emphasis> приурочено чаще всего к <emphasis>началу</emphasis> сеанса.
+</para>
+
+<para>
+В <emphasis>середине сеанса</emphasis> значительно чаще встречаются максимальные <emphasis>подъемы</emphasis>, нежели спуски
+<footnote><para>
+Повидимому, имеет место уставание, утомление; аналогичное подтверждено было и опытами проф. <emphasis>Л. П. Нечаева</emphasis> &mdash; см. его книгу: <quote>Очерк психологии для воспитателей и учителей</quote>, 5-е изд. (глава <quote>Упражнение и утомление</quote>).
+</para></footnote>; 
+в конце сеанса спуски, равно как и подъемы, встречаются <emphasis>весьма редко</emphasis>.
+</para>
+
+<para>
+При рассмотрении каждой кривой работы следует принять во внимание еще одно обстоятельство:
+<simplelist>
+<member><emphasis>в каком порядке</emphasis> следуют и размещаются на одной и той же кривой максимум спуска и подъема, т.е., точнее, предшествует ли у различных механизмов спуск подъему или наблюдается обратное соотношение.</member>
+</simplelist>
+</para>
+
+<para role="details">
+<para>
+При рассмотрении с этой точки зрения кривых работы вскрывается, что все кривые работы с разными механизмами разделяются на 2 почти равные группы; у большей половины кривых (26-ти &mdash; в 54,2 % случаев) на протяжении одной и той же кривой <emphasis>максимум спуска предваряет максимум подъема</emphasis>, а у меньшей половины (22-х &mdash; в 46% случаев) <emphasis>максимум подъема предшествует максимуму спуска</emphasis>. В состав той и другой группы входят самой разнообразной сложности механизмы.
+</para>
+<para>
+Является самым интересным только тот факт, что там, где максимальные спуски предваряют максимальные подъемы, опыты, на которые приходятся максимум улучшения и максимум ухудшения, в громадном большинстве случаев (в 84 %) являются далеко разобщенными
+<footnote><para>
+Например, максимум спуска во 2-м опыте, а максимум подъема в 15-м опыте.
+</para></footnote> 
+и только в 15,5% случаев являются смежными
+<footnote><para>
+Например, максимум спуска во 2-м опыте, максимум подъема в 3-м опыте и т.д.
+</para></footnote>; 
+там же, где максимальные подъемы предшествуют максимальным спускам, соотношение как раз обратное: в громадном большинстве случаев
+<footnote><para>
+<simplelist>
+<member>Например, максимум подъема во 2-м, максимум спуска в 3-м опыте</member>
+<member>Например, максимум подъема в 9-м, максимум спуска в 10-м опыте</member>
+</simplelist>
+</para></footnote> 
+(90%) опыты с максимальным улучшением и ухудшением являются смежными и только в виде исключения (в 9% случаев) разобщенными
+<footnote><para>
+Например, максимум подъема в 8-м, спуска &mdash; в 13-м опыте.
+</para></footnote>.
+</para>
+</para>
+
+<para>
+Это последнее указывает на то, что если максимальное <emphasis>улучшение предшествует</emphasis> максимальному <emphasis>ухудшению</emphasis>, то это <emphasis>ухудшение</emphasis> объяснимо привходящими <emphasis>случайными</emphasis>, не связанными с сущностью работы обстоятельствами; если же максимальное <emphasis>ухудшение</emphasis> предваряет максимальное <emphasis>улучшение</emphasis>, то это <emphasis>ухудшение</emphasis> связано у обезьяны с <emphasis>существенными</emphasis> затруднениями, преоборов которые она сразу непосредственно делает громадные успехи в смысле выигрыша во времени окончания работы.
+</para>
+
+<para role="details">
+<para>
+Замечается также, что одинаковые максимальные величины спуска и подъема в некоторых случаях (в 12,5%, в 14,3%), если эти величины сравнительно <emphasis>невелики</emphasis>
+<footnote><para>
+В пределах от 1 до 26 сек.
+</para></footnote>, 
+на протяжении <emphasis>одной кривой</emphasis> иногда <emphasis>повторяются</emphasis> два и даже три раза. Это повторение наблюдается чаще всего при малой абсолютной величине цифры максимума подъемов и спусков (равной 1&mdash;2&mdash;3&mdash;7 сек. и в виде исключения 22&mdash;26 сек.) и по большей части у сравнительно легко податливых механизмов
+<footnote><para>
+<emphasis role="bold">E</emphasis><subscript>1</subscript>, <emphasis role="bold">M</emphasis>, <emphasis role="bold">V</emphasis>, <emphasis role="bold">W</emphasis>, <emphasis role="bold">U</emphasis>, <emphasis role="bold">a</emphasis>, <emphasis role="bold">C</emphasis><subscript>2</subscript>, <emphasis role="bold">P</emphasis>, <emphasis role="bold">R</emphasis>, <emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">d</emphasis><subscript>1</subscript>, <emphasis role="bold">f</emphasis><subscript>2</subscript>.
+</para></footnote>.
+</para>
+<para>
+Наоборот, в пределах одной и той же кривой в громадном большинстве случаев максимальные величины спусков и подъемов с <emphasis>большой</emphasis> абсолютной величиной цифр <emphasis>не повторяются</emphasis>.
+</para>
+</para>
+
+<para>
+При параллельном сопоставлении абсолютных цифровых величин максимальных спусков и подъемов времени работы у одного и того же механизма наблюдается четыре разных соотношения.
+<orderedlist>
+<listitem><para>Есть лишь число, выражающее максимальный <emphasis>спуск</emphasis>, подъема абсолютно <emphasis>нет</emphasis> &mdash; кривая работы представляет собой <quote>классическую</quote> кривую (у механизма <emphasis role="bold">H</emphasis>).</para></listitem>
+<listitem><para>Число, выражающее максимум спуска, <emphasis>равно</emphasis> числу, выражающему максимум подъема.
+</para>
+<para>
+Этот случай наблюдается при сравнительно малой величине времени максимального улучшения и ухудшения (именно в пределах 1&mdash;8 сек.), приурочен к немногим (5) механизмам &mdash; наиболее легких, известных конструкций (<emphasis role="bold">E</emphasis><subscript>1</subscript>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">F</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">f</emphasis><subscript>4</subscript>).</para></listitem>
+<listitem><para>Число, выражающее максимум спуска, <emphasis>меньше</emphasis> числа, выражающего максимум подъема.
+</para>
+<para>
+Это имеет место в отношении 9 механизмов самых разнообразных конструкций (<emphasis role="bold">А</emphasis>, <emphasis role="bold">T</emphasis>, <emphasis role="bold">U</emphasis>, <emphasis role="bold">V</emphasis>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">W</emphasis>, <emphasis role="bold">a</emphasis>, <emphasis role="bold">C</emphasis><subscript>2</subscript>, <emphasis role="bold">F</emphasis><subscript>4</subscript>).
+</para>
+<para>
+В подавляющем большинстве случаев
+<footnote><para>
+В 77 % случаев.
+</para></footnote> 
+это различие величины времени максимального ухудшения по сравнению с таковым максимального улучшения весьма незначительно (в пределах 1&mdash;6 сек.), и характерно &mdash; всегда при данных обстоятельствах максимальное улучшение по времени наступления предваряет максимальное ухудшение; в тех же случаях
+<footnote><para>
+В 22% случаев.
+</para></footnote>, 
+где это различие значительнее (в 22 сек., в 118 сек.), как правило, максимальное ухудшение предваряет максимальное улучшение.</para></listitem>
+<listitem><para>Число, выражающее максимум спуска, <emphasis>больше</emphasis> числа, выражающего максимум подъема.
+</para>
+<para>
+Это имеет место у <emphasis>наибольшего</emphasis> количества (именно 34) механизмов, у большей половины которых (19) максимальное улучшение предваряет максимальное ухудшение.</para></listitem>
+</orderedlist>
+</para>
+
+<para role="details">
+Что касается величины отклонения цифры максимального улучшения от цифры максимального ухудшения, то у различных механизмов здесь наблюдаются следующие закономерности. Величина отклонения пропорциональна степени сложности механизмов: она наибольшая (исчисляется трехзначными цифрами) у сложных по способу отмыкания механизмов, наименьшая (в пределах однозначных цифр) у более простых по способу отмыкания механизмов, средняя &mdash; у средних по трудности отмыкания механизмов.
+</para>

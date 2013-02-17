@@ -1,0 +1,484 @@
+<para>
+Обращаясь к рассмотрению седьмой группы числовых данных-данных, выражающих <emphasis role="bold">среднюю скорость отмыкания</emphasis> различных механизмов, мы можем установить следующие особенности.
+</para>
+
+<para role="details">
+<para>
+Наблюдается, что и средняя скорость работы
+<footnote><para>
+Способ определения величины средней скорости работы или средней продолжительности отмыкания в единичных опытах дан на <xref linkend="str20" /> в сноске (1).
+</para></footnote> 
+с разными механизмами чрезвычайно <emphasis>разнообразна по величине</emphasis>: для 53 механизмов имеется 41 различных числовых данных и широкий размах колебания их абсолютной величины (в пределах от 1,9 до 3531 сек.).
+</para>
+<para>
+Одинаковая величина скорости отмыкания различных механизмов наблюдается в 17% случаев при малом числовом значении скорости (от 2 до 5 сек.) и относится не более чем к 3&mdash; 5 механизмам, близким по трудности отмыкания.
+</para>
+<para>
+При б&#1086;&#768;льших числовых значениях скорости одинаковая величина скорости у разных механизмов наблюдается лишь в виде исключения; при числовых значениях скорости б&#1086;&#768;льших 15 повторяемости совершенно не наблюдается. Так, напр.:
+<simplelist>
+<member>скорость 2 сек. имеют 3 механизма <emphasis role="bold">I</emphasis>, <emphasis role="bold">b</emphasis>, <emphasis role="bold">f</emphasis><subscript>4</subscript></member>
+<member>скорость 3 сек. имеют 5 механизмов <emphasis role="bold">C</emphasis>, <emphasis role="bold">E</emphasis><subscript>1</subscript>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">M</emphasis>, <emphasis role="bold">f</emphasis><subscript>1</subscript></member>
+<member>скорость 4 сек. имеют 5 механизмов <emphasis role="bold">F</emphasis>, <emphasis role="bold">W</emphasis>, <emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">C</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>1</subscript></member>
+<member>скорость 7 сек. имеют 2 механизма <emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">S</emphasis></member>
+<member>скорость 13 сек. имеют 2 механизма <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">T</emphasis></member>
+<member>скорость 15 сек. имеют 2 механизма <emphasis role="bold">I</emphasis>, <emphasis role="bold">А</emphasis><subscript>3</subscript></member>
+<member>скорость 18 сек. имеют 2 механизма <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">f</emphasis><subscript>2</subscript></member>
+</simplelist>
+</para>
+<para>
+При распределении механизмов соответственно величине скорости их отмыкания по 5 привычным рубрикам обнаруживается следующее их распределение:
+</para>
+<para>
+В <emphasis>I рубрику</emphasis> механизмов (со скоростью отмыкания 1&mdash; 10 сек.) войдет 20 механизмов <emphasis role="bold">a</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">b</emphasis>, <emphasis role="bold">f</emphasis><subscript>4</subscript>, <emphasis role="bold">C</emphasis>, <emphasis role="bold">E</emphasis><subscript>1</subscript>, <emphasis role="bold">K</emphasis>, <emphasis role="bold">M</emphasis>, <emphasis role="bold">f</emphasis><subscript>1</subscript>, <emphasis role="bold">F</emphasis>, <emphasis role="bold">W</emphasis>, <emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">C</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>1</subscript>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">V</emphasis>, <emphasis role="bold">З</emphasis><subscript>2</subscript>, <emphasis role="bold">S</emphasis>, <emphasis role="bold">X</emphasis><subscript>1</subscript>, <emphasis role="bold">U</emphasis>), большая часть которых представляет собой механизмы <emphasis>легких пластичных, известных</emphasis> по способу отмыкания конструкций.
+</para>
+<para>
+<emphasis>II рубрика</emphasis> механизмов (со скоростью отмыкания 10&mdash; 60 сек.), наиболее обильна по количеству; она включает 24 механизма (<emphasis role="bold">C</emphasis><subscript>3</subscript>, <emphasis role="bold">d</emphasis><subscript>3</subscript>, <emphasis role="bold">T</emphasis>, <emphasis role="bold">L</emphasis>, <emphasis role="bold">А</emphasis><subscript>3</subscript>, <emphasis role="bold">Y</emphasis><subscript>3</subscript>, <emphasis role="bold">f</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">X</emphasis><subscript>2</subscript>, <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">Б</emphasis>, <emphasis role="bold">D</emphasis>, <emphasis role="bold">Y</emphasis><subscript>4</subscript>, <emphasis role="bold">&#916;</emphasis><subscript>1</subscript>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">R</emphasis>, <emphasis role="bold">А</emphasis><subscript>2</subscript>, <emphasis role="bold">Y</emphasis><subscript>2</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>1</subscript>, <emphasis role="bold">Q</emphasis>, <emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>5</subscript>, <emphasis role="bold">f</emphasis><subscript>3</subscript>, <emphasis role="bold">C</emphasis><subscript>1</subscript>, <emphasis role="bold">H</emphasis>).
+</para>
+<para>
+Как то совершенно очевидно, в состав этой II группы вошли механизмы средней трудности &mdash; <emphasis>видоизмененные, осложненные, средне податливые, новые</emphasis>.
+</para>
+<para>
+В состав <emphasis>III рубрики</emphasis> механизмов (со скоростью отмыкания 1&mdash; 5 мин.) войдет только семь запоров, наиболее <emphasis>трудных</emphasis> по способу отмыкания (веревка <emphasis role="bold">&#931;</emphasis><subscript>n</subscript>, задвижка тугая <emphasis role="bold">O</emphasis>, задвижка с секретом <emphasis role="bold">Y</emphasis>, обмотка тонкой проволоки <emphasis role="bold">&#916;</emphasis><subscript>2</subscript>, <emphasis role="bold">&#916;</emphasis><subscript>3</subscript>, задвижка тугая <emphasis role="bold">G</emphasis> и первая задвижка <emphasis role="bold">P</emphasis>).
+</para>
+<para>
+В состав <emphasis>IV рубрики</emphasis> (со средним сроком отмыкания б&#1086;&#768;льшим 5 мин.) войдет только один единственный, 1-й по <emphasis>предъявлению</emphasis>, механизм (1-й крюк <emphasis role="bold">А</emphasis><subscript>1</subscript>).
+</para>
+<para>
+И наконец в последней <emphasis>V рубрике</emphasis> окажется также один единственный непревзойденный механизм замок <emphasis role="bold">З</emphasis><subscript>0</subscript> (средний срок работы с которым равен 58 мин.).
+</para>
+<para>
+Таким образом ясно, что по скорости отмыкания <emphasis>наиб&#1086;&#768;льшее</emphasis> количество механизмов (именно 24, т. е. 45% общего количества механизмов) отмыкается в <emphasis>средний срок</emphasis> времени от 10 сек. до 1 мин.;
+<simplelist>
+<member>меньшее количество (20 мех.&mdash; 37%) &mdash; в срок от 1 до 10 сек.;</member>
+<member>меньшее количество (7 мех.&mdash; 13%) &mdash; в срок от 1 до 5 мин.;</member>
+<member>наименьшее количество (2 мех.&mdash; 3%) &mdash; свыше 5 мин.</member>
+</simplelist>
+</para>
+<para>
+Очевидно, что обезьяна сравнительно хорошо овладевает техникой отмыкания всех механизмов за исключением механизмов <emphasis>трудно податливых и слишком легко податливых во второстепенных частях</emphasis>, допускающих манипуляции вне центра приложения силы.
+</para>
+<para>
+Анализ числовых значений, выражающих величину средней скорости отмыкания различных механизмов, произведенный на основании рассмотрения соответствующей таблицы (<xref linkend="table186" />), позволяет нам установить ряд закономерностей.
+</para>
+
+<?page-break?>
+<informalfigure id="table186" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table186.jpg">
+    <imageobject><imagedata fileref="images/html/table186.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table186.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+<informalfigure id="table187" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table187.jpg">
+    <imageobject><imagedata fileref="images/html/table187.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table187.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
+<orderedlist>
+<listitem><para>Как то легко видно из таблицы, в подавляющем большинстве случаев в пределах каждой серии механизмов <emphasis>порядок предъявления механизмов не оказывал влияния на среднюю скорость работы</emphasis> (это имело место для серии механизмов II, IV, V, VII, VIII, IX); там же, где это влияние сказывалось (как в X, I
+<footnote><para>
+Отчасти: <emphasis role="bold">E</emphasis><subscript>2</subscript>, <emphasis role="bold">З</emphasis><subscript>0</subscript> вполне не идут в счет, так как остались непреодоленными.
+</para></footnote>, 
+III, VI серии механизмов), оно касалось только <emphasis>первого предъявления механизма новой серии</emphasis>
+<footnote><para>
+Только в этих сериях <emphasis>первые</emphasis> по предъявлению механизмы отмыкаются <emphasis>дольше</emphasis>, чем последующие, более поздние по предъявлению.
+</para></footnote>.
+</para></listitem>
+
+<listitem><para>Скорость отмыкания <emphasis>разных первых</emphasis> по предъявлению механизмов в каждой <emphasis>серии механизмов</emphasis> весьма различна.
+</para>
+<para id='str188' xreflabel='стр. 188'>
+Сопоставим скорости отмыкания всех <emphasis>первых</emphasis> по предъявлению разнородных механизмов, расположим все главные механизмы по степени убывающей величины их скорости; тогда мы получим следующий ряд:
+<simplelist>
+<member>1-е место занимает замок <emphasis role="bold">З</emphasis><subscript>0</subscript>, скорость отмыкания &mdash; 3531,0 сек.</member>
+<member>2 место занимает крюк <emphasis role="bold">А</emphasis><subscript>1</subscript>, скорость отмыкания &mdash; 327,7 сек.</member>
+<member>3 место занимает задвижка <emphasis role="bold">P</emphasis>, скорость отмыкания &mdash; 233,0 сек.</member>
+<member>4 место занимает обмотка веревки <emphasis role="bold">&#931;</emphasis><subscript>n</subscript>, скорость отмыкания &mdash; 64,2 сек.</member>
+<member>5 место занимает цепь <emphasis role="bold">C</emphasis><subscript>1</subscript>, скорость отмыкания &mdash; 56,6 сек.</member>
+<member>6 место занимает обмотка тонк. пров. <emphasis role="bold">&#916;</emphasis><subscript>1</subscript>, скорость отмыкания &mdash; 27,2 сек.</member>
+<member>7 место занимает накладка со втулкой <emphasis role="bold">d</emphasis><subscript>2</subscript>, скорость отмыкания &mdash; 18,8 сек.</member>
+<member>8 место занимает ключ <emphasis role="bold">f</emphasis><subscript>2</subscript> (180<superscript>о</superscript> подв.), скорость отмыкания &mdash; 18,3 сек.</member>
+<member>9 место занимает накладка с замком <emphasis role="bold">d</emphasis><subscript>2</subscript>, скорость отмыкания &mdash; 14,8 сек.</member>
+<member>10 место занимает завертка простая <emphasis role="bold">U</emphasis>, скорость отмыкания &mdash; 8,6 сек.</member>
+<member>11 место занимает рычаг одноплечн. <emphasis role="bold">S</emphasis>, скорость отмыкания &mdash; 7,1 сек.</member>
+<member>12 место занимает накладка <emphasis role="bold">d</emphasis><subscript>1</subscript>, скорость отмыкания &mdash; 4,6 сек.</member>
+<member>13 место занимает щеколда <emphasis role="bold">K</emphasis>, скорость отмыкания &mdash; 3,2 сек.</member>
+<member>14 место занимает вытяжная зацепка <emphasis role="bold">b</emphasis>, скорость отмыкания &mdash; 2,2 сек.</member>
+</simplelist>
+</para>
+<para>
+На основании рассмотрения этого ряда обнаруживается, что в конечном итоге из первых по предъявлению разнородных механизмов совершенно непреодоленным оказывается сложной конструкции механизм &mdash; нижний неприкрепленный замок, имеющий б&#1086;&#768;льшую подвижность во второстепенных частях, нежели в месте центра приложения силы
+<footnote><para>
+Средняя скорость работы с замком выведенная, правда, лишь на основании 2 удачных при 24 неудачных опытах, исчисляется тысячами секунд.
+</para></footnote>.
+</para>
+<para>
+Вслед за тем наиболее <emphasis>медленна</emphasis> работа с двумя <emphasis>самыми первыми по предъявлению механизмами</emphasis> (первым наклонным крюком <emphasis role="bold">А</emphasis><subscript>1</subscript> и первой горизонтальной задвижкой <emphasis role="bold">P</emphasis>), скорость отмыкания которых определяется сотнями секунд.
+</para>
+<para>
+В <emphasis>третьей очереди</emphasis> по величине средней скорости работы, исчисляемой десятками секунд
+<footnote><para>
+Почти от <superscript>1</superscript>/<subscript>2</subscript> мин. до 1 мин.
+</para></footnote>, 
+стоят механизмы, <emphasis>легко подвижные во второстепенных частях</emphasis> (как обмотки и цепь).
+</para>
+<para>
+Вслед за ними находятся <emphasis>осложненные</emphasis> (состоящие из 2 частей) механизмы &mdash; накладки, заложенные втулками и замком, и завертки (в виде ключа и двуплечного рычага) со скоростью отмыкания от 10 до 20 сек.
+</para>
+<para>
+И наконец <emphasis>всего скорее</emphasis> осуществляется работа с <emphasis>простейшими</emphasis> механизмами, имеющими одно единственное и легко осуществимое направление передвижения (как одноплечный рычаг, накладка, щеколда, вытяжная зацепка).
+</para></listitem>
+<listitem><para>Величина скорости, даже в пределах групп <emphasis>однотипных</emphasis> механизмов, весьма неодинакова.</para></listitem>
+</orderedlist>
+</para>
+<para>
+Распределим ряд однородных механизмов (всех имеющихся у нас типов) в порядке убывающей величины их скорости (см. <xref linkend="table186" />)
+</para>
+<para>
+При рассмотрении длительности отмыкания различных <emphasis>крюков</emphasis> мы замечаем, что <emphasis>наиболее медлительно</emphasis> завершение работы с <emphasis>тугим</emphasis> <emphasis role="bold">E</emphasis><subscript>2</subscript> и 1-м <emphasis>по предъявлению</emphasis> <emphasis role="bold">А</emphasis><subscript>1</subscript> крюками (скорость исчисляется сотнями секунд), значительно <emphasis>скорее</emphasis> производится отмыкание последующих <emphasis>средней податливости</emphasis> горизонтальных и вертикальных крюков (скорость определяется десятками секунд) и, наконец, всего быстрее (менее чем в 5 сек.) отмыкаются <emphasis>легко податливые</emphasis> горизонтальные крюки. Как то совершенно очевидно, порядок последующего предъявления (кроме 1-го) не играет решающей роли, не уменьшает цифры длительности работы.
+</para>
+<para>
+При аналогичном рассмотрении длительности отмыкания серии щеколд оказывается, что всего <emphasis>медленнее</emphasis> завершение работы с <emphasis>самозамыкающейся</emphasis> вертикальной щеколдой <emphasis role="bold">L</emphasis>, в то время как первая по предъявлению щеколда <emphasis role="bold">K</emphasis>, как и вертикальная <emphasis role="bold">M</emphasis> &mdash; отмыкаются быстро и почти равно скоро.
+</para>
+<para>
+Произведенный с той же точки зрения анализ ряда механизмов <emphasis>задвижек</emphasis> позволяет установить аналогичные закономерности.
+</para>
+<para>
+Наблюдается (подобно тому, что было при анализе крюков), что наиболее медлительно (в срок сотен секунд) отмыкание 2 простых по конструкции, но <emphasis>первой</emphasis> по предъявлению (<emphasis role="bold">P</emphasis>) и самой тугой (<emphasis role="bold">G</emphasis>) задвижек; значительно <emphasis>скорее</emphasis> (в срок от 9 сек. и свыше 1 мин.) производится отмыкание <emphasis>сложных</emphasis> задвижек (с секретом, пружинящих, самозамыкающихся, мало податливых) и задвижек, имеющих направление передвижения <emphasis>обратное привычному</emphasis>.
+</para>
+<para>
+<emphasis>Всего скорее</emphasis> (в срок от 2 до 6 сек.) производится отмыкание <emphasis>легко податливых</emphasis> задвижек (простых и сложных). Порядок предъявления задвижек (кроме 1-го случая предъявления) па скорость отмыкания не оказывает влияния.
+</para>
+<para>
+Из двух предъявлявшихся <emphasis>рычагов</emphasis> &mdash; рычаг, требующий движения <emphasis>вверх</emphasis> (<emphasis role="bold">T</emphasis>), отмыкается в 2 раза <emphasis>медленнее</emphasis>, нежели рычаг <emphasis role="bold">S</emphasis>, требующий движения <emphasis>вниз</emphasis>, хотя <emphasis role="bold">S</emphasis> 1-й по порядку предъявления.
+</para>
+<para>
+Из пяти механизмов-<emphasis>заверток</emphasis> всего медленнее открываются завертки, имеющие направление передвижения, <emphasis>обратное привычному</emphasis> (<emphasis role="bold">Z</emphasis><subscript>2</subscript>, <emphasis role="bold">&#0220;</emphasis>), а из последних &mdash; более <emphasis>тугая, пружинящая</emphasis> завертка <emphasis role="bold">Z</emphasis><subscript>2</subscript>; из 3-х более скоро отмыкаемых заверток медленнее отмыкается 1-я по предъявлению завертка <emphasis role="bold">U</emphasis>&mdash; медленнее, даже вопреки тому, что последние завертки являются пружинящими; из пружинящих более тугая <emphasis role="bold">Z</emphasis><subscript>1</subscript> отмыкается медленнее, нежели менее тугая (<emphasis role="bold">a</emphasis>).
+</para>
+<para>
+Порядок предъявления механизмов в общем и здесь не влияет на скорость отмыкания.
+</para>
+<para>
+При анализе отмыкания механизма цепи, предъявленной в трех различных положениях, выявляется, что наиболее длительно отмыкается 1-я по предъявлению <emphasis>наклонная</emphasis> цепь (<emphasis role="bold">C</emphasis><subscript>1</subscript>), затем скорее &mdash; цепь <emphasis>горизонтальная</emphasis> (вопреки ее предъявлению в последней очереди) и всего скорее завершение работы с вертикальной цепью (2-й по предъявлению).
+</para>
+<para>
+При рассмотрении отмыкания механизма ключа внутреннего замка, предлагаемого в четырех разных видах, наблюдается, что всего <emphasis>длительнее</emphasis> завершение работы с <emphasis>подвижно-прикрепленным ключом</emphasis>, повернутым на 270<superscript>о</superscript> (<emphasis role="bold">f</emphasis><subscript>3</subscript>); <emphasis>скорее</emphasis> кончается отмыкание ключа с поворотом на 180<superscript>о</superscript> и в особенности на 90<superscript>о</superscript>; <emphasis>самым легким</emphasis> по скорости отмыкания оказывается (<emphasis role="bold">f</emphasis><subscript>4</subscript>) <emphasis>прикрепленный</emphasis> ключ, вопреки его более длинному повороту (на 270<superscript>о</superscript>).
+</para>
+<para id='str190' xreflabel='стр. 190'>
+Из серии <emphasis>осложненных</emphasis> механизмов (<emphasis>задвижек и накладок с замками и втулками</emphasis>) <emphasis>медлительнее</emphasis> открываются механизмы с участием <emphasis>втулок</emphasis> (<emphasis role="bold">Y</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>2</subscript>), длительно привлекающих к себе внимание, бесцельные пробы обезьяны; <emphasis>легче</emphasis> отмыкаются механизмы, <emphasis>заложенные свободно висящим замком</emphasis>, и еще <emphasis>легче</emphasis> &mdash; освобожденные от добавочных элементов (замков и втулок) <emphasis>простые накладки и задвижки</emphasis>, причем <emphasis>горизонтальная</emphasis> накладка отмыкается несколько медленнее, нежели <emphasis>вертикальная</emphasis>.
+</para>
+<para>
+Из ряда <emphasis>механизмов-обмоток</emphasis>, естественно, <emphasis>многократные</emphasis> обороты (<emphasis role="bold">&#916;</emphasis><subscript>3</subscript>, <emphasis role="bold">&#916;</emphasis><subscript>2</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>n</subscript>, <emphasis role="bold">&#931;</emphasis><subscript>5</subscript>) раскручиваются <emphasis>медленнее</emphasis>, нежели <emphasis>однократные</emphasis>, а из последних <emphasis>толстая</emphasis> проволока снимается <emphasis>медленнее</emphasis>, нежели <emphasis>тонкая</emphasis>.
+</para>
+<para>
+Из двух предложенных замков, как то и следует ожидать, <emphasis>неподвижно прикрепленный и второй по времени предъявления замок</emphasis> (<emphasis role="bold">З</emphasis><subscript>2</subscript>), в среднем отмыкается в <emphasis>тысячи раз скорее</emphasis>, нежели <emphasis>нижний замок</emphasis> (<emphasis role="bold">З</emphasis><subscript>0</subscript>), <emphasis>подвижный</emphasis> замок 1-й по предъявлению, отмыканием которого обезьяна не может вполне овладеть и после 24 пробных
+<footnote><para>
+Пробным мы называем безрезультатный опыт, прерванный самой обезьяной до окончания работы.
+</para></footnote> 
+опытов.
+</para>
+<para>
+На основании учета средней скорости работы с различными механизмами и в целях получения <emphasis>новых</emphasis> выводов касательно особенностей двигательных реакций макака, мы можем, углубив наш анализ, наметить и осветить ряд <emphasis>новых</emphasis> вопросов:
+<orderedlist>
+<listitem><para>как отражается
+<footnote><para>
+При прочих более или менее равных условиях сопоставления.
+</para></footnote> 
+на величине средней скорости работы <emphasis>изменение типа</emphasis> механизмов?</para></listitem>
+<listitem><para>как изменяется скорость работы при замене <emphasis>простого</emphasis> механизма более <emphasis>сложным</emphasis> того же типа и положения <emphasis>механизмом</emphasis>?</para></listitem>
+<listitem><para>в какой степени удлиняется скорость работы при изменении степени <emphasis>податливости</emphasis> механизмов той же или сходной конструкции?</para></listitem>
+<listitem><para>как влияет на скорость завершения работы с одним и тем же (или родственным по конструкции) механизмом резкое изменение <emphasis>положения</emphasis> этого механизма?</para></listitem>
+<listitem><para>и наконец, как варьирует скорость (при оперировании с родственными механизмами) в зависимости от того, насколько <emphasis>привычно</emphasis> или <emphasis>необычно</emphasis> для обезьяны осуществляемое ею движение?</para></listitem>
+</orderedlist>
+</para>
+
+<para id='str191' xreflabel='page 191'>
+Чтобы наглядно выявить эти различные соотношения между вариацией скорости работы в соответствии с вариацией замыкающих приборов, мы сконструируем применительно к каждому затронутому вопросу свою <xref linkend="table191" />, подобрав из каждой серии механизмов наиболее сравнимые по порядку предъявления, по положению и по податливости.
+</para>
+
+<informalfigure id="table191" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table191.jpg">
+    <imageobject><imagedata fileref="images/html/table191.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table191.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
+<para>
+Эта таблица наглядно показывает нам, что при изменении типа механизмов &mdash; наиболее резкое изменение скорости работы (коэффициент осложнения или упрощения исчисляется сотнями) осуществляется при переходе от первого типа механизма (<emphasis role="bold">А</emphasis><subscript>1</subscript> ко второму типу (<emphasis role="bold">K</emphasis>), при предложении типа механизма более подвижного во второстепенных частях, нежели в главной части (<emphasis role="bold">З</emphasis><subscript>0</subscript>); изменение скорости работы
+<footnote><para>
+Как в сторону замедления (при переходе от <emphasis role="bold">K</emphasis> к <emphasis role="bold">P</emphasis>), так и ускорения (при переходе от <emphasis role="bold">P</emphasis> к <emphasis role="bold">S</emphasis>).
+</para></footnote> 
+менее значительно (коэффициент осложнения и упрощения исчисляется десятками) при включении механизмов типа задвижек (<emphasis role="bold">P</emphasis>), требующих нового движения отодвигания, и при включении механизма цепи (<emphasis role="bold">C</emphasis><subscript>1</subscript>) с легко подвижными второстепенными частями.
+</para>
+
+<para>
+Если мы проследим величину средней продолжительности опыта всех представленных в таблице типов механизмов и распределим их в порядке убывающей величины их скорости (как это сделано в таблице <xref linkend="str188" />), то обнаружится, что
+<footnote><para>
+За исключением 1-го представленного механизма-крюка <emphasis role="bold">А</emphasis><subscript>1</subscript> и других осложненных (на фоне основных типов) механизмов, как обмотка веревки <emphasis role="bold">&#931;</emphasis><subscript>n</subscript>, <emphasis role="bold">d</emphasis><subscript>3</subscript>, <emphasis role="bold">d</emphasis><subscript>2</subscript>.
+</para></footnote> 
+особенно труден для 1-го преодоления свободно висящий замок, более подвижный во второстепенных частях по сравнению с главной частью; затем в нисходящем порядке идут задвижка, цепь, обмотка, ключ, завертка, рычаг, накладка, щеколда, вытяжная зацепка.
+</para>
+
+<informalfigure id="table192" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table192.jpg">
+    <imageobject><imagedata fileref="images/html/table192.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table192.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
+<para>
+Это означает, что обезьяна всего труднее производит вращательные движения при условии сопротивления центра приложения силы, при наличии легко подвижных второстепенных частей, что отодвигание дается ей более трудно, нежели разматывание, отведение и выдергивание и вращение; вращение &mdash; труднее, чем поворот и спускание; спускание &mdash; труднее, чем притягивание; притягивание &mdash; труднее, чем отведение; отведение &mdash; труднее, чем вытягивание.
+</para>
+
+<?page-break?>
+<example id="photo16">
+  <title>Отмыкание единичных механизмов</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/photo16.jpg">
+    <imageobject><imagedata fileref="images/html/photo16.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/photo16.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para role='figure'>
+Фиг. 1. Отмыкание задвижки со втулкой Y<subscript>2</subscript><?br?>
+Фиг. 2. Отмыкание слабо пружинящей завертки a<?br?>
+</para></textobject></mediaobject>
+</example>
+
+<para>
+На основании сопоставления <emphasis>однотипных</emphasis> механизмов, <emphasis>одинаковых по положению</emphasis>, но видоизмененных в деталях конструкции (<xref linkend="table192" />), &mdash; явствует, что всякое, даже <emphasis>незначительное</emphasis> видоизменение конструкции механизмов в сторону осложнения неизменно увеличивает длительность среднего срока работы; упрощение конструкции уменьшает скорость завершения работы.
+</para>
+
+<para>
+<emphasis>Коэффициент осложнения</emphasis> (или упрощения) особенно <emphasis>значителен</emphasis> (выражается десятками и сотнями) при замене <emphasis>неподвижного</emphasis> механизма <emphasis>подвижным</emphasis> во второстепенных частях (как в случаях 1 и 2) и при затенении выступания на первый план центра приложения силы (как в случае 3 и 4). Коэффициент осложнения (или упрощения) <emphasis>менее значителен</emphasis> (меньше 10) <emphasis>при удлинении пути передвижения</emphasis> центра приложения силы механизма (как в случаях 5, 8, 15), при операции с ключом и (в случаях 11, 13, 16, 17, 18) при операциях с обмотками или при <emphasis>осложнении</emphasis> механизма <emphasis>добавочными частями</emphasis> (как в случаях 6, 10, 12, 14), при оперировании с накладками и задвижками. В том же направлении значительного увеличения средней скорости работы естественно влияет такое осложнение, как <emphasis>загиб конца</emphasis> простого крюка или способность механизма к <emphasis>самозамыканию</emphasis> (см. случаи 7 и 9).
+</para>
+
+<para>
+Длительность работы увеличивается, конечно, и оттого, что мы заменяем <emphasis>пластичный</emphasis>, легко податливый для передвижения центр приложения силы механизма <emphasis>менее податливым</emphasis>.
+</para>
+
+<para>
+Последующая <xref linkend="table193" /> вскрывает нам это совершенно недвусмысленно.
+</para>
+
+<informalfigure id="table193" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table193.jpg">
+    <imageobject><imagedata fileref="images/html/table193.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table193.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
+<para>
+За единичным исключением (случай 8) <emphasis>увеличение сопротивляемости</emphasis> центра приложения силы влечет неминуемо <emphasis>увеличение длительности</emphasis> завершения работы; коэффициент осложнения особенно значителен при затруднении движения приподнимания, отодвигания при оперировании с неподатливыми крюками и задвижками; он менее высок при затрудненном вращении, разматывании. коэффициент осложнения равен отрицательной величине в одном единственном случае при замене тугим пружинящим механизмом <emphasis role="bold">X</emphasis><subscript>2</subscript> самозамыкающегося <emphasis role="bold">Q</emphasis>, представляющего для обезьяны большие трудности при отмыкании, нежели первый
+<footnote><para>
+Случай 9 не приходится брать в расчет ввиду того, что завертка <emphasis role="bold">U</emphasis> была 1-й по предъявлению из группы всех заверток.
+</para></footnote>.
+</para>
+
+<para>
+Изменение <emphasis>положения</emphasis> механизмов одной и той же или сходной конструкции также не остается без влияния на среднюю скорость работы, в чем нас убеждает <xref linkend="table194" />.
+</para>
+
+<informalfigure id="table194" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table194.jpg">
+    <imageobject><imagedata fileref="images/html/table194.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table194.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
+<para>
+Как то совершенно очевидно, механизмы, отмыкающиеся <emphasis>вправо</emphasis>, в среднем, как правило, имеют длительность завершения работы более <emphasis>кратковременную</emphasis>, нежели те же механизмы или родственные им по конструкции, но отмыкающиеся <emphasis>влево</emphasis>, &mdash; и это наблюдается в отношении всех главных видов запоров, и в особенности заверток и задвижек
+<footnote><para>
+Коэффициент осложнения которых значительно выше 1.
+</para></footnote>; 
+в отношении рычагов &mdash; и в особенности крюков &mdash; различие в направлении движения сказывается не столь явственно.
+</para>
+
+<para>
+Следует только четко оговорить, что почти
+<footnote><para>
+За единичным исключением 4-го случая, где механизм <emphasis role="bold">F</emphasis> давался ранее <emphasis role="bold">I</emphasis>.
+</para></footnote> 
+во всех приведенных случаях передвижения механизм, отмыкающийся влево, предъявлялся позднее механизма, отмыкающегося вправо, и, конечно, предшествующие навыки отмыкания должны были оказать свое тормозящее влияние; мы не имели бы никакого права выдвигать на первый план значение направления передвижения, если бы механизмы, отмыкающиеся вправо, в свою очередь не предъявлялись после механизмов сходной конструкции, но имеющих другое, иногда также прямо противоположное (т. е. левое) направление передвижения
+<footnote><para>
+См. указание порядка следования механизмов в той же <xref linkend="table194" />.
+</para></footnote>, 
+как то было в отношении большинства из приведенных механизмов (<emphasis role="bold">Z</emphasis><subscript>1</subscript> предъявлялся после <emphasis role="bold">&#0220;</emphasis>, <emphasis role="bold">R</emphasis> &mdash; после <emphasis role="bold">Q</emphasis>, <emphasis role="bold">U</emphasis> &mdash; после <emphasis role="bold">T</emphasis>, <emphasis role="bold">S</emphasis> &mdash; после <emphasis role="bold">R</emphasis>, <emphasis role="bold">А</emphasis><subscript>3</subscript> &mdash; после <emphasis role="bold">E</emphasis>). Констатируя факт более скорого открывания правосторонне отмыкающихся механизмов (по сравнению с левосторонними), мы должны сделать только еще одну оговорку: из всего числа предъявленных механизмов запоров, открывающихся движением вправо, было значительно (в 2 раза) больше, чем таковых, открывающихся влево
+<footnote><para>
+См. в конце книги перечень механизмов, предъявлявшихся в экспериментах.
+</para></footnote>; 
+обезьяна в силу этого упражнялась в первом движении более, нежели во втором. Это происходило не от недосмотра экспериментатора, а в силу естественной необходимости, ибо запоры, взятые из человеческого обихода, почти как правило имеют при отмыкании правое направление передвижения &mdash; в силу преобладающего развития у человека <emphasis>правой</emphasis> руки. Таким образом на основании данных опытов только с <emphasis>большой осторожностью</emphasis> возможно говорить о <emphasis>большем</emphasis> развитии <emphasis>правой руки макака</emphasis>.
+</para>
+
+<para>
+Естественно, что и изменение <emphasis>положения</emphasis> механизма в двух других направлениях &mdash; именно, в горизонтальной и вертикальной плоскостях, оказывает влияние на длительность завершения работы, что и показано на <xref linkend="table196" />.
+</para>
+
+<para>
+При рассмотрении этой таблицы видно, что большая часть механизмов (<emphasis role="bold">C</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>0</subscript>, <emphasis role="bold">А</emphasis><subscript>3</subscript>, <emphasis role="bold">Q</emphasis>), прикрепленных в вертикальном положении, отмыкается скорее таковых, прикрепленных в горизонтальном положении, хотя в общем величина этого различия весьма невелика.
+</para>
+
+<para>
+Наблюдается отступление только у горизонтальной щеколды <emphasis role="bold">K</emphasis>, отмыкаемой почти в тот же срок, что и вертикальная <emphasis role="bold">M</emphasis>.
+</para>
+
+<para>
+В противоположность тому, что было оговорено при анализе предыдущей таблицы, в данном случае влияние предшествующих навыков не приходится брать в расчет по следующим основаниям.
+</para>
+
+<informalfigure id="table196" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table196.jpg">
+    <imageobject><imagedata fileref="images/html/table196.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table196.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
+<para>
+Как правило, более кратковременно отмыкаемые вертикальные механизмы (<emphasis role="bold">C</emphasis><subscript>2</subscript>, <emphasis role="bold">d</emphasis><subscript>0</subscript>, <emphasis role="bold">А</emphasis><subscript>3</subscript>, <emphasis role="bold">Q</emphasis>) в подавляющем большинстве случаев
+<footnote><para>
+В пяти случаях из шести.
+</para></footnote> 
+(в 83 %) предъявлялись после оперирования с механизмами в прямо противоположном положении (горизонтальном, наклонном), и тем не менее в общем это не повлияло на относительную кратковременность
+<footnote><para>
+По сравнению с таковой при оперировании с горизонтально прикрепленным механизмом.
+</para></footnote> 
+их отмыкания.
+</para>
+
+<para>
+С другой стороны, только небольшая часть более длительно отмыкаемых горизонтальных механизмов (<emphasis role="bold">А</emphasis><subscript>2</subscript>, <emphasis role="bold">C</emphasis><subscript>3</subscript>) была предложена после предварительного оперирования с иными по расположению механизмами (вертикальными, наклонными). Более того, даже те горизонтальные механизмы, которые предъявляются вслед за горизонтальными же (как <emphasis role="bold">d</emphasis><subscript>1</subscript>, <emphasis role="bold">H</emphasis>), родственными им по отмыканию, отпираются дольше вертикального механизма тождественной конструкции.
+</para>
+
+<para>
+Как будто только в отношении единственного типа запоров, именно <emphasis>щеколды</emphasis>, различие положения <emphasis>не играет никакой</emphasis> роли: вопреки тому, что и горизонтальные и вертикальные щеколды (<emphasis role="bold">K</emphasis> и <emphasis role="bold">M</emphasis>) предъявлялись вслед за различными по расположению механизмами, они отмыкаются почти в равный срок времени.
+</para>
+
+<para>
+Таким образом движения отводяще-выдергивающее, притягивающее, снимающее, легко отодвигающее, производимое снизу вверх или сзади наперед, или слева направо &mdash; осуществляются лучше в вертикальной плоскости
+<footnote><para>
+При пользовании вертикально расположенными точками опоры для рук при передвижении центра приложения силы.
+</para></footnote>, 
+нежели в горизонтальной; для движения простого отведения изменение положения механизма, повидимому, не играет роли.
+</para>
+
+<para id='str197' xreflabel='page 197'>
+Обращаясь к освещению бегло затронутого вопроса о том, в какой степени влияет на скорость отмыкания различие в <emphasis>привычности</emphasis> или <emphasis>необычности</emphasis> совершаемого движения, на основании сравнительно немногих возможных сопоставлений
+<footnote><para>
+Сопоставлений механизмов, одинаковых по типу, родственных по конструкции, приблизительно одинаковых по податливости и безусловно одинаковых по направлению передвижения центра приложения силы.
+</para></footnote> 
+можно все же совершенно определенно сказать следующее.
+</para>
+
+<para>
+Как правило, новое по направлению движение отмыкания осуществляется длительнее, нежели таковое в привычном направлении.
+</para>
+
+<para>
+Приводимая здесь <xref linkend="table197" /> выявляет нам это довольно хорошо.
+</para>
+
+<informalfigure id="table197" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table197.jpg">
+    <imageobject><imagedata fileref="images/html/table197.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table197.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
+<para>
+Из рассмотрения этой таблицы явствует, что при прочих более или менее равных условиях механизмы с <emphasis>новым</emphasis> для обезьяны направлением передвижения центра приложения силы отмыкаются значительно дольше, нежели одинаковые с ними по конструкции механизмы, предложенные вслед за первыми (во 2-ю, 3-ю, 4-ю очередь). И это вопреки тому, что работа с некоторыми из этих <quote>вторичных</quote> механизмов (как с мех. <emphasis role="bold">a</emphasis>, <emphasis role="bold">Z</emphasis><subscript>1</subscript>, <emphasis role="bold">W</emphasis>, <emphasis role="bold">Y</emphasis><subscript>1</subscript>) не следовала непосредственно вслед за отмыканием <quote>привычных</quote>, а прерывалась оперированием с другими по конструкции механизмами, имевшими зачастую иное направление передвижения; тем не менее предшествующие навыки удачного отмыкания оказывали свое плодотворное влияние на воспроизведение последующих аналогичных действий.
+</para>
+
+<para>
+В результате анализа влияния на длительность завершения работы различных факторов мы можем приблизительно учесть, какие из этих факторов являются наиболее радикальными по своему воздействию.
+</para>
+
+<para id='str198' xreflabel='стр. 198'>
+Мы можем сделать это на основании рассмотрения всех 6 вышеприведенных таблиц, для удобства расположив максимумы коэффициента изменения (осложнения или упрощения) в нисходящем порядке:
+</para>
+
+<informaltable frame='all' pgwide='0' colsep='0' rowsep='0' valign='top'>
+<tgroup cols='2' align='left'>
+<colspec colname='c1'/>
+<colspec colname='c2'/>
+<thead>
+<row>
+  <entry></entry>
+  <entry>Макс. коэф. изменения</entry>
+  </row>
+</thead>
+<tbody>
+<row><entry><para>Изменение сложности конструкции однотипных механизмов</para></entry><entry>490,0</entry></row>
+<row><entry><para>Изменение податливости родственных однотипных механизмов</para></entry><entry>150,0</entry></row>
+<row><entry><para>Изменение типа механизмов</para></entry><entry>109,0</entry></row>
+<row><entry><para>Различие в порядке предъявления однотипных механизмов</para></entry><entry><para>99,0 
+<footnote><para>
+Цифра получена на основании учета данных таблицы <xref linkend="str188" /> из I серии механизмов, где влияние порядка предъявления оказалось наиболее радикальным &mdash; именно:
+<simplelist>
+<member>1-й по предъявлению крюк отмыкается в срок 327,7 сек.</member>
+<member>2-й по предъявлению крюк отмыкается в срок 33 сек.</member>
+</simplelist>
+</para></footnote></para></entry></row>
+<row><entry><para>Различие в привычности движения</para></entry><entry>10,0</entry></row>
+<row><entry><para>Изменение положения справа налево</para></entry><entry>8,2</entry></row>
+<row><entry><para>Изменение положения из вертикального в горизонтальное</para></entry><entry>2,5</entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+<para>
+Итак, подведение общих итогов работы обезьяны с различными установками приводит опять-таки к заключению, что эта работа разнится не только в отдельных характерных моментах
+<footnote><para>
+В 1-м, в последнем, в максимально удачном и максимально неудачном опытах.
+</para></footnote>, 
+но и в ее <emphasis>целом</emphasis>
+<footnote><para>
+При учете средней продолжительности единичного опыта (среднего срока работы).
+</para></footnote>, 
+и это различие естественно тем больше, тем многообразнее, чем значительнее качественное несходство предлагаемых установок. Уравненными по трудности отмыкания оказываются лишь установки легкие по способу отмыкания. В общем предлагаемые обезьяне установки, взятые из человеческого обихода, оказываются <emphasis>средними</emphasis> по трудности, отмыкаются в срок от 10 сек. до 1 мин. Условия, благоприятствующие успешности работы, &mdash; те, что облегчают осуществление двигательных реакций, т. е. привычность, легкость движения и ограниченность направления и количества развиваемых действий.
+</para>
+
+<para>
+Точный учет факторов, определяющих качество работы, позволяет упомянуть о <emphasis>семи</emphasis>:
+<orderedlist>
+<listitem><para><emphasis>Порядок предъявления</emphasis> механизмов &mdash; фактор, выдвигающий роль освоения обезьяны с установками как препятствиями к выходу. Влияние сказывается лишь частично: только при <emphasis>первом</emphasis> предъявлении механизмов новой серии (в более ранних сериях по преимуществу) в немногих случаях (серия I, III, VI).</para></listitem>
+<listitem><para><emphasis>Тип</emphasis> механизма &mdash; фактор, указывающий, что разные виды новых движений осуществляются чрезвычайно различно: наиболее трудно для обезьяны произведение нужных движений при многообразии направления подвижности частей механизма, когда необходимое движение является более затрудненным, нежели второстепенные легко осуществимые. Постоянная тенденция обезьяны к работе на линии наименьшего сопротивления чрезвычайно затрудняет ей нахождение главного центра задержки и работу с менее податливыми частями механизмов. Из ограниченных по направлению движений в нисходящем по трудности порядке идут: движение отодвигания, вращения, поворота, спуска, притягивания, отведения, вытягивания.</para></listitem>
+<listitem><para><emphasis>Конструкция</emphasis> механизма &mdash; фактор, вскрывающий, что всякое осложнение, увеличивающее количество потребных для отмыкания движений, путь передвижения, направление подвижности и величину прилагаемого мышечного усилия, затушевывающее центр приложения силы, уменьшающее точки опоры для рук, &mdash; затрудняет работу отмыкания.</para></listitem>
+<listitem><para><emphasis>Податливость, пластичность</emphasis> центра приложения силы &mdash; фактор, вскрывающий, что увеличение сопротивляемости центра приложения силы увеличивает длительность завершения работы, что обезьяна развивает б&#1086;&#768;льшую мышечную силу, преодолевает сопротивление легче при производстве движений по <emphasis>кривой</emphasis>, нежели по <emphasis>прямой</emphasis> линии.</para></listitem>
+<listitem><para>Изменение <emphasis>положения</emphasis> механизма (из правостороннего в левостороннее) &mdash; фактор, обнаруживающий более совершенную работу обезьяны при движениях вправо, нежели влево, что может говорить о преобладающем развитии у обезьяны <emphasis>правой</emphasis> руки перед <emphasis>левой</emphasis>.</para></listitem>
+<listitem><para>Изменение <emphasis>положения</emphasis> механизма из <emphasis>горизонтального в вертикальное</emphasis> &mdash; фактор, выявляющий, что обезьяна легче производит движения отводяще выдергивающие, притягивающие, легко отодвигающие, откидывающие (снимающие), при пользовании вертикально расположенными точками опоры, нежели горизонтальными.</para></listitem>
+<listitem><para><emphasis>Привычность</emphasis> или <emphasis>необычность</emphasis> действия &mdash; фактор, позволяющий установить роль предшествующего упражнения в последующем, прочность приобретенных навыков и способность их утилизации в видоизмененных условиях.</para></listitem>
+</orderedlist>
+</para>
+
+<para>
+Какие из этих 7 факторов являются <emphasis>наиболее радикальными</emphasis> по своему воздействию?
+</para>
+
+<para>
+Приведенный выше ряд максимумов коэффициентов изменения (<xref linkend="str198" />) наглядно показывает нам, что при вариации условий эксперимента из всех 7 возможных, имеющих место влияний, изменяющих длительность завершения работы, наиболее сильное воздействие оказало <emphasis>осложнение конструкции</emphasis>, изменение <emphasis>податливости</emphasis> центра приложения силы механизмов и <emphasis>изменение типа</emphasis> механизмов.
+</para>
+
+<para>
+Значительно слабее действуют на длительность работы <emphasis>предшествующие навыки отмыкания</emphasis> (порядок предъявления механизмов и привычность действия) и, наконец, изменение положения механизмов <emphasis>из правостороннего в левостороннее</emphasis>.
+</para>
+
+<para>
+Наименьшее влияние производит изменение положения механизма из <emphasis>вертикальной</emphasis> плоскости в <emphasis>горизонтальную</emphasis>.
+</para>

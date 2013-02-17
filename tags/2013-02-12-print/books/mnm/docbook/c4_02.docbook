@@ -1,0 +1,139 @@
+<para>
+Начав отмыкание первого механизма в одном месте, обезьяна перебрасывает действия к другому, часто топографически более удаленному механизму; не преуспев здесь, она обращается опять к первому, минуя срединный механизм, длительно забывая об отмыкании этого последнего и многократно бесцельно оперируя с крайними.
+</para>
+
+<para>
+Как на пример, укажем 21-й опыт при работе с комбинацией <emphasis role="bold">OIP</emphasis>, где обезьяна производит 10 лишних движений именно вследствие отсутствия упорядоченного отмыкания и пропускания срединного механизма.
+</para>
+
+<para>
+Вместо идеальной формы опыта, у которого порядок отмыкания имеет вид: <emphasis role="bold">PIO</emphasis> или <emphasis role="bold">OPI</emphasis>, опыт принимает следующий вид: <emphasis role="bold">P</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">контроль</emphasis>, <emphasis role="bold">P</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">P замыкание</emphasis>, <emphasis role="bold">P отмыкание</emphasis>, <emphasis role="bold">P замыкание</emphasis>, <emphasis role="bold">P отмыкание</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">контроль</emphasis>, <emphasis role="bold">контроль</emphasis>, <emphasis role="bold">I отмыкание</emphasis>
+<footnote><para>
+<simplelist>
+<member>Контроль (двери).</member>
+<member>Замыкание (механизма).</member>
+<member>Отмыкание (механизма).</member>
+</simplelist>
+</para></footnote>. 
+Это еще далеко не самый иррациональный по форме отмыкания опыт &mdash; при отмыкании той же комбинации в 8-м опыте обезьяна делает 20 лишних движений обращения к двум верхним механизмам <emphasis role="bold">O</emphasis> и <emphasis role="bold">I</emphasis> и к двери (контроль двери), прежде чем впервые коснуться до эксцентрично расположенного нижнего механизма <emphasis role="bold">P</emphasis>. Форма опыта такова: <emphasis role="bold">I</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">контроль</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">контроль</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">контроль</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">контроль</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">P</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">контроль</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">контроль</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">контроль</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">контроль</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">P</emphasis>, <emphasis role="bold">контроль</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">O</emphasis>, <emphasis role="bold">I</emphasis>, <emphasis role="bold">контроль</emphasis>, <emphasis role="bold">P</emphasis> (см. также работу с комбинацией <emphasis role="bold">ROI</emphasis>, где обезьяна производит 57 обращений к механизмам, вместо 4 необходимых, <xref linkend="str70" />).
+</para>
+
+<para>
+При наличии упорядоченного отмыкания такое пропускание механизмов не могло бы иметь места, и количество излишних обращений, бессмысленные замыкания и повторные отмыкания могли бы сократиться. Отсутствие такого порядка, особенно при наличии самозамыкающихся механизмов <emphasis role="bold">L</emphasis>, <emphasis role="bold">H</emphasis>, долженствующих быть открытыми в последнюю очередь (но не ранее), чрезвычайно тормозит удачное завершение работы; упорядоченное отмыкание сильно сокращает бесцельные манипуляции (что и замечается в частных случаях &mdash; см., например, работу с комбинацией <emphasis role="bold">OP</emphasis>, <xref linkend="str60" />).
+</para>
+
+<para>
+Фактически же такого <emphasis>порядка</emphasis> отмыкания зачастую <emphasis>нет</emphasis>.
+</para>
+
+<para>
+Чтобы это утверждение не осталось голословным, следует привести следующие обоснования.
+</para>
+
+<para>
+При наличии 4 типов
+<footnote><para>
+<para><emphasis>Тип 1</emphasis>. Механизмы расположены <emphasis>сближенно</emphasis> вверху, в середине, внизу экспериментальной дверцы (<emphasis role="bold">FGH</emphasis>).</para>
+<para><emphasis>Тип 2</emphasis>. Механизмы расположены <emphasis>удаленно</emphasis> вверху, в середине, внизу экспериментальной дверцы (8 кр., <emphasis role="bold">KLNM</emphasis>, <emphasis role="bold">OIP</emphasis>, <emphasis role="bold">V</emphasis><subscript>1</subscript><emphasis role="bold">W</emphasis><subscript>1</subscript><emphasis role="bold">X</emphasis><subscript>2</subscript><emphasis role="bold">Y</emphasis><subscript>1</subscript>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">MK</emphasis>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">З</emphasis><subscript>1</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">f</emphasis><subscript>2</subscript><emphasis role="bold">&#931;</emphasis>).</para>
+<para><emphasis>Тип 3</emphasis>. Механизмы расположены <emphasis>сближенно</emphasis> вверху, внизу экспериментальной дверцы (<emphasis role="bold">OP</emphasis>, <emphasis role="bold">FG</emphasis>, <emphasis role="bold">ST</emphasis>, <emphasis role="bold">Z</emphasis><subscript>1</subscript><emphasis role="bold">Z</emphasis><subscript>2</subscript>).</para>
+<para><emphasis>Тип 4</emphasis>. Механизмы расположены <emphasis>удаленно</emphasis> вверху, внизу экспериментальной дверцы YI, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript>, <emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">d</emphasis><subscript>4</subscript>, <emphasis role="bold">d</emphasis><subscript>0</subscript><emphasis role="bold">d</emphasis><subscript>2</subscript><emphasis role="bold">З</emphasis><subscript>2</subscript>.</para>
+</para></footnote> 
+топографического размещения механизмов в комбинации у 16 разных комбинаций мы имеем 14 разных форм порядка отмыкания (см. <xref linkend="table264" />).
+</para>
+
+<para>
+В данном случае мы приняли во внимание только первое, второе и последнее место (при работе с каждой комбинацией), указали какой по местонахождению на дверце механизм в преобладающем большинстве случаев (вычисленных в процентах) находится на каждом из этих мест.
+</para>
+
+<para>
+Если бы мы приняли в расчет еще промежуточные места (3, 4, 5), то многообразие форм порядка отмыкания было бы еще более значительно.
+</para>
+
+<para>
+Мы, однако, сознательно опустили учет размещения механизмов по этим местам по следующему соображению.
+</para>
+
+<para>
+При просмотре цифр, выражающих максимальный процент нахождения какого-либо механизма каждой комбинации на каждом (по порядку его следования при работе обезьяны) месте, оказывается, что о преобладающем нахождении того или другого механизма (из каждой комбинации) на том или другом месте можно говорить, принимая во внимание главным образом <emphasis>первое, последнее</emphasis> и отчасти <emphasis>второе</emphasis> место; здесь действительно в большинстве случаев (свыше 50%) максимальный процент нахождения механизма на этом месте выше 50 и доходит до 80%.
+</para>
+
+<para>
+<simplelist>
+<member>Напр., у комб. <emphasis role="bold">YI</emphasis> механизм <emphasis role="bold">Y</emphasis> отмыкается 1-м в 80% случаев, последним &mdash; в 48% случ. </member>
+<member>Напр., у комб. <emphasis role="bold">YI</emphasis> механизм <emphasis role="bold">I</emphasis> отмыкается 1-м в 20% случаев, последним &mdash; в 52% случ. </member>
+</simplelist>
+</para>
+
+<para>
+При учете максимального процента нахождения механизмов на разных по порядку местах оказывается, что на втором по порядку следования месте величина этого максимального процента не поднимается выше 70, на третьем &mdash; выше 58, на четвертом и пятом она еще менее значительна.
+</para>
+
+<informalfigure id="table264" xreflabel='табл.'>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/table264.jpg">
+    <imageobject><imagedata fileref="images/html/table264.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/table264.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+
+<para>
+И это дает нам основание предполагать, что порядок работы обезьяны более или менее <emphasis>мотивирован в самом начале и в самом конце</emphasis> работы; <emphasis>в средине работы этого порядка совершенно нет</emphasis>, ибо работа обезьяны хаотично, бессистемно перебрасывается от механизма к механизму.
+</para>
+
+<para>
+На основании вышеприведенной таблицы мы можем установить, какие формы порядка отмыкания имеют разные типы комбинаций.
+</para>
+
+<para>
+Оказывается, что комбинации типа:
+<simplelist>
+<member>1-го имеют 3-ю форму порядка отмыкания.</member>
+<member>2-го имеют 1, 2, 4, 9, 6, 11, 10 форму порядка отмыкания.</member>
+<member>3-го имеют 10, 7, 13, 12 форму порядка отмыкания.</member>
+<member>4-го имеют 8, 10, 5, 14 форму порядка отмыкания.</member>
+</simplelist>
+</para>
+
+<para>
+Из этого сопоставления обнаруживается, во-первых, что одни и те же типы комбинаций механизмов имеют весьма разные формы порядка отмыкания; во-вторых, что одну и ту же форму отмыкания (№ 10) имеют три разных по типу комбинации (типа 2, 3, 4). Это лишний раз подчеркивает бессистемность, почти полное отсутствие упорядоченного отмыкания при работе с разными комбинациями.
+</para>
+
+<para>
+Мы говорим <quote>почти</quote> потому, что при более точном учете количества случаев наличия на 1-м, 2-м и последнем месте среднего, верхнего и нижнего механизмов мы обнаружим следующее соотношение (в процентах):
+<simplelist>
+<member>1-е по порядку отмыкания место в 57%
+<footnote><para>
+Процентное отношение составлено на основании учета количества случаев наличия каждого из механизмов на каждом месте к количеству случаев предъявления комбинаций, включающих данный механизм.
+</para></footnote> 
+случаев занимает средний механизм</member>
+<member>1-е по порядку отмыкания место в 50% случаев занимает нижний механизм</member>
+<member>1-е по порядку отмыкания место в 43% случаев занимает верхний механизм</member>
+<member>2-е по порядку отмыкания место в 43% случаев занимает верхний механизм</member>
+<member>2-е по порядку отмыкания место в 43% случаев занимает нижний механизм</member>
+<member>2-е по порядку отмыкания место в 42% случаев занимает средний механизм</member>
+<member>Последнее по порядку отмыкания место в 87% случаев занимает верхний механизм</member>
+<member>Последнее по порядку отмыкания место в 18% случаев занимает нижний механизм</member>
+<member>Последнее по порядку отмыкания место в 14% случаев занимает средний механизм</member>
+</simplelist>
+</para>
+
+<para>
+Из этого сопоставления явствует, что в большинстве случаев обезьяна начинает отмыкание со <emphasis>срединно</emphasis> расположенных механизмов (реже &mdash; снизу и значительно реже &mdash; сверху), затем идет (равно часто) то вверх, то вниз, но в подавляющем большинстве случаев (в 87%) она <emphasis>заканчивает отмыкание верхним механизмом</emphasis> (реже &mdash; нижним и еще реже &mdash; средним).
+</para>
+
+<para>
+Это подводит нас к обобщению, что обезьяна <emphasis>прежде всего</emphasis> оперирует с преодолением препятствий, находящихся <emphasis>в центре ее поля зрения</emphasis>; позднее всего она преодолевает удаленно расположенные препятствия (вот почему, быть может, наибольший процент лишних операций падал на верхний эксцентрично расположенный механизм: начиная, как правило, отмыкать со средины, обезьяна чаще всего считает здесь дело законченным).
+</para>
+
+<para role="details">
+<para>
+При беглом учете того, не мотивируется ли порядок отмыкания не столько топографией (степенью близости или удаленности механизма), сколько качественными свойствами механизма (степенью его податливости и неподатливости, новизны или знакомости, самозамыкаемости) &mdash; на основании количественно весьма малых данных обнаруживается следующее.
+</para>
+<para>
+При наличии новых механизмов в комбинации обезьяна как будто бы чаще начинает отмыкание именно с новых (<emphasis role="bold">N</emphasis>, <emphasis role="bold">Г</emphasis>, <emphasis role="bold">Z</emphasis><subscript>4</subscript>; см. комбинации <emphasis role="bold">KLNM</emphasis>, <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">KM</emphasis>, 8 крюков), хотя они не всегда расположены в центре (как у <emphasis role="bold">Z</emphasis><subscript>3</subscript><emphasis role="bold">Z</emphasis><subscript>4</subscript><emphasis role="bold">KM</emphasis>), в ряде случаев она как будто начинает отмыкание с менее податливых (G &mdash; из комб. FGH; <emphasis role="bold">G</emphasis> &mdash; из <emphasis role="bold">FG</emphasis>; <emphasis role="bold">Y</emphasis> &mdash; из <emphasis role="bold">YI</emphasis>; <emphasis role="bold">O</emphasis> &mdash; из <emphasis role="bold">OIP</emphasis>; <emphasis role="bold">X</emphasis><subscript>2</subscript> &mdash; из <emphasis role="bold">V</emphasis><subscript>1</subscript><emphasis role="bold">W</emphasis><subscript>1</subscript><emphasis role="bold">X</emphasis><subscript>2</subscript><emphasis role="bold">Y</emphasis>; <emphasis role="bold">Z</emphasis><subscript>2</subscript> &mdash; из <emphasis role="bold">Z</emphasis><subscript>1</subscript><emphasis role="bold">Z</emphasis><subscript>2</subscript>). Иногда эти неподатливые, как раз срединные по положению (как <emphasis role="bold">G</emphasis> или <emphasis role="bold">O</emphasis>), расположены на уровне ее глаз, но есть примеры, когда в преобладающем большинстве случаев обезьяна начинает отмыкание с более податливых (<emphasis role="bold">P</emphasis> из <emphasis role="bold">OP</emphasis>) и таким образом обращается к менее податливому уже уставшей.
+</para>
+<para>
+Но, повторяем, эти данные слишком малочисленны, чтобы дать основание для более общих соображений.
+</para>
+</para>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY liniya "
+<informaltable frame='none' pgwide='1'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry><para>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
+</tgroup></informaltable>
+ ">
+
+  <!ENTITY vvedenie SYSTEM "vvedenie.docbook">
+
+  <!ENTITY c1_1 SYSTEM "c1_1.docbook">
+  <!ENTITY c1_1_1 SYSTEM "c1_1_1.docbook">
+  <!ENTITY c1_1_2 SYSTEM "c1_1_2.docbook">
+  <!ENTITY c1_1_3 SYSTEM "c1_1_3.docbook">
+  <!ENTITY c1_2_1 SYSTEM "c1_2_1.docbook">
+  <!ENTITY c1_2_2 SYSTEM "c1_2_2.docbook">
+  <!ENTITY c1_2_3 SYSTEM "c1_2_3.docbook">
+  <!ENTITY c1_3_1 SYSTEM "c1_3_1.docbook">
+  <!ENTITY c1_3_2 SYSTEM "c1_3_2.docbook">
+  <!ENTITY c1_3_3 SYSTEM "c1_3_3.docbook">
+  <!ENTITY c1_4 SYSTEM "c1_4.docbook">
+  <!ENTITY c1_4_1 SYSTEM "c1_4_1.docbook">
+  <!ENTITY c1_4_2 SYSTEM "c1_4_2.docbook">
+  <!ENTITY c1_4_3 SYSTEM "c1_4_3.docbook">
+  <!ENTITY c1_4_4 SYSTEM "c1_4_4.docbook">
+  <!ENTITY c1_4_5 SYSTEM "c1_4_5.docbook">
+  <!ENTITY c1_4_6 SYSTEM "c1_4_6.docbook">
+  <!ENTITY c2_1_1 SYSTEM "c2_1_1.docbook">
+  <!ENTITY c2_1_2 SYSTEM "c2_1_2.docbook">
+  <!ENTITY c2_1_3 SYSTEM "c2_1_3.docbook">
+  <!ENTITY c2_1_4 SYSTEM "c2_1_4.docbook">
+  <!ENTITY c2_1_5 SYSTEM "c2_1_5.docbook">
+  <!ENTITY c2_1_6 SYSTEM "c2_1_6.docbook">
+  <!ENTITY c2_1_7 SYSTEM "c2_1_7.docbook">
+  <!ENTITY c2_1_8 SYSTEM "c2_1_8.docbook">
+  <!ENTITY c2_1_9 SYSTEM "c2_1_9.docbook">
+  <!ENTITY c2_1_10 SYSTEM "c2_1_10.docbook">
+  <!ENTITY c3_1 SYSTEM "c3_1.docbook">
+  <!ENTITY c3_2_1 SYSTEM "c3_2_1.docbook">
+  <!ENTITY c3_2_2 SYSTEM "c3_2_2.docbook">
+  <!ENTITY c3_2_3 SYSTEM "c3_2_3.docbook">
+  <!ENTITY c3_2_4 SYSTEM "c3_2_4.docbook">
+  <!ENTITY c3_2_5 SYSTEM "c3_2_5.docbook">
+  <!ENTITY c3_2_6 SYSTEM "c3_2_6.docbook">
+  <!ENTITY c3_2_7 SYSTEM "c3_2_7.docbook">
+  <!ENTITY c3_2_8 SYSTEM "c3_2_8.docbook">
+  <!ENTITY c3_2_9 SYSTEM "c3_2_9.docbook">
+  <!ENTITY c3_3_1 SYSTEM "c3_3_1.docbook">
+  <!ENTITY c3_3_2 SYSTEM "c3_3_2.docbook">
+  <!ENTITY c3_3_3 SYSTEM "c3_3_3.docbook">
+  <!ENTITY c3_3_4 SYSTEM "c3_3_4.docbook">
+  <!ENTITY c3_4 SYSTEM "c3_4.docbook">
+  <!ENTITY c3_5 SYSTEM "c3_5.docbook">
+  
+  <!ENTITY zaklyuchenie SYSTEM "zaklyuchenie.docbook">
+  <!ENTITY protocols SYSTEM "protocols.docbook">
+  <!ENTITY bibliography SYSTEM "bibliography.docbook">
+
+  <!ENTITY vyhodnye_dannye SYSTEM "vyhodnye_dannye.docbook">
+  <!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
+  <!ENTITY inscription SYSTEM "inscription.docbook">
+  ]>
+
+<book id="ladygina-kohts-kodvo" lang="ru">
+
+<title>Конструктивная и орудийная деятельность высших обезьян (шимпанзе)</title>
+
+<bookinfo>
+<author>
+<firstname>Надежда</firstname>
+<othername>Николаевна</othername>
+<surname>Ладыгина-Котс</surname>
+</author>
+</bookinfo>
+<date>Москва, 1959</date>
+
+<dedication>
+<para>Столетнему юбилею со дня выхода в свет книги Чарльза Дарвина <quote>Происхождение видов</quote>
+посвящает свой труд автор.</para>
+</dedication>
+
+<preface id="vvedenie"><title>Введение</title>&vvedenie;</preface>
+
+<part id="p1"><title>Предметная деятельность шимпанзе в условиях свободного манипулирования различными материалами</title>
+<chapter id="c1_1"><title>Биологические данные о шимпанзе. Образ жизни шимпанзе на воле.</title>&c1_1;
+  <sect1 id="c1_1_1"><title>Анализаторы шимпанзе</title>&c1_1_1;</sect1>
+  <sect1 id="c1_1_2"><title>Характеристика подопытного животного</title>&c1_1_2;</sect1>
+  <sect1 id="c1_1_3"><title>Методика работы</title>&c1_1_3;</sect1>
+</chapter>
+<chapter id="c1_2"><title>Конструктивная гнездостроительная деятельность шимпанзе Париса</title>
+  <sect1 id="c1_2_1"><title>Конструирование простых гнезд из разнородных материалов разного качества</title>&c1_2_1;</sect1>
+  <sect1 id="c1_2_2"><title>Конструирование сложных гнезд из разнородных материалов</title>&c1_2_2;</sect1>
+  <sect1 id="c1_2_3"><title>Основные выводы о конструктивной гнездостроительной деятельности шимпанзе</title>&c1_2_3;</sect1>
+</chapter>
+<chapter id="c1_3"><title>Анализ гнездостроительной деятельности шимпанзе</title>
+  <sect1 id="c1_3_1"><title>Инстинктивный характер гнездостроительной деятельности шимпанзе</title>&c1_3_1;</sect1>
+  <sect1 id="c1_3_2"><title>Пластичность инстинктивной гнездостроительной деятельности шимпанзе</title>&c1_3_2;</sect1>
+  <sect1 id="c1_3_3"><title>Участие различных анализаторов при оперировании шимпанзе гнездостроительным материалом</title>&c1_3_3;</sect1>
+</chapter>
+<chapter id="c1_4"><title>Формы деятельности шимпанзе при оперировании хвойными растениями</title>&c1_4;
+  <sect1 id="c1_4_1"><title>Анализ ориентировочно-обследующей, ознакомительной формы деятельности</title>&c1_4_1;</sect1>
+  <sect1 id="c1_4_2"><title>Анализ обрабатывающей формы деятельности</title>&c1_4_2;</sect1>
+  <sect1 id="c1_4_3"><title>Анализ конструктивной формы деятельности</title>&c1_4_3;</sect1>
+  <sect1 id="c1_4_4"><title>Анализ деятельности присвоения, отвергания, игровой и орудийной форм деятельности</title>&c1_4_4;</sect1>
+  <sect1 id="c1_4_5"><title>Анализ структуры деятельности</title>&c1_4_5;</sect1>
+  <sect1 id="c1_4_6"><title>Анализ смены форм деятельности</title>&c1_4_6;</sect1>
+</chapter>
+</part>
+
+<part id="p2"><title>Особенности и биологическая обусловленность структуры предметной деятельности шимпанзе при оперировании различными материалами</title>
+<chapter id="c2_1"><title>Структура предметной деятельности шимпанзе</title>
+  <sect1 id="c2_1_1"><title>Изменение частоты применения разных форм деятельности в зависимости от качества материала</title>&c2_1_1;</sect1>
+  <sect1 id="c2_1_2"><title>Изменение частоты применения разных форм деятельности в зависимости от знакомства с материалом</title>&c2_1_2;</sect1>
+  <sect1 id="c2_1_3"><title>Особенности ознакомительной формы деятельности шимпанзе и ее биологическая обусловленность</title>&c2_1_3;</sect1>
+  <sect1 id="c2_1_4"><title>Особенности обрабатывающей формы деятельности и ее биологическая обусловленность</title>&c2_1_4;</sect1>
+  <sect1 id="c2_1_5"><title>Особенности конструктивной формы деятельности шимпанзе и ее биологическая обусловленность</title>&c2_1_5;</sect1>
+  <sect1 id="c2_1_6"><title>Особенности двигательно-игровой формы деятельности шимпанзе и ее биологическая обусловленность</title>&c2_1_6;</sect1>
+  <sect1 id="c2_1_7"><title>Особенности орудийной формы деятельности шимпанзе и ее биологичечская обусловленность</title>&c2_1_7;</sect1>
+  <sect1 id="c2_1_8"><title>Особенности деятельности присвоения, сохранения и ее биологическая обусловленность</title>&c2_1_8;</sect1>
+  <sect1 id="c2_1_9"><title>Особенности деятельности отвергания и ее биологическая обусловленность</title>&c2_1_9;</sect1>
+  <sect1 id="c2_1_10"><title>Основные выводы о характере предметной деятельности шимпанзе</title>&c2_1_10;</sect1>
+</chapter>
+</part>
+
+<part id="p3"><title>Употребление орудия в экспериментальной ситуации</title>
+<chapter id="c3_1"><title>Задачи исследования и методика работы</title>&c3_1;</chapter>
+<chapter id="c3_2"><title>Анализ экспериментальных данных</title>
+  <sect1 id="c3_2_1"><title>Анализ употребления обезьяной в качестве орудия единичных твердых предметов</title>&c3_2_1;</sect1>
+  <sect1 id="c3_2_2"><title>Анализ употребления обезьяной в качестве орудия единичных эластичных предметов</title>&c3_2_2;</sect1>
+  <sect1 id="c3_2_3"><title>Оперирование шимпанзе с комплексом предметов, предложенных в качестве орудия</title>&c3_2_3;</sect1>
+  <sect1 id="c3_2_4"><title>Анализ способности шимпанзе к выделению и употреблению в качестве орудия пригодной части предмета</title>&c3_2_4;</sect1>
+  <sect1 id="c3_2_5"><title>Анализ способности шимпанзе к изменению формы предметов, непригодных к непосредственному употреблению в качестве орудия</title>&c3_2_5;</sect1>
+  <sect1 id="c3_2_6"><title>Особенности деятельности шимпанзе при наличии орудия, требующего применения синтетических приемов</title>&c3_2_6;</sect1>
+  <sect1 id="c3_2_7"><title>Особенности деятельности шимпанзе при употреблении готового составного орудия</title>&c3_2_7;</sect1>
+  <sect1 id="c3_2_8"><title>Особенности деятельности шимпанзе при конструктивном оформлении составного орудия</title>&c3_2_8;</sect1>
+  <sect1 id="c3_2_9"><title>Особенности деятельности шимпанзе при изменении вида трубы с приманкой</title>&c3_2_9;</sect1>
+</chapter>
+<chapter id="c3_3"><title>Особенности аналитико-синтетической деятельности шимпанзе, проявляющиеся в процессе применения орудия в экспериментальной ситуации</title>
+  <sect1 id="c3_3_1"><title>Особенности аналитико-синтетической деятельности шимпанзе в процессе выбора орудия</title>&c3_3_1;</sect1>
+  <sect1 id="c3_3_2"><title>Особенности аналитико-синтетической деятельности шимпанзе в процессе обработки орудия</title>&c3_3_2;</sect1>
+  <sect1 id="c3_3_3"><title>Особенности аналитико-синтетической деятельности шимпанзе при выполнении конструктивных действий</title>&c3_3_3;</sect1>
+  <sect1 id="c3_3_4"><title>Особенности аналитико-синтетической деятельности шимпанзе при вариации вила трубы, содержащей приманку</title>&c3_3_4;</sect1>
+</chapter>
+<chapter id="c3_4"><title>Биологическая обусловленность особенностей орудийной деятельности шимпанзе, осуществляемой в условиях опыта</title>&c3_4;</chapter>
+<chapter id="c3_5"><title>Исследования интеллекта антропоидов И. П. Павловым и его сотрудниками и сопоставление их выводов с выводами данного исследования</title>&c3_5;</chapter>
+</part>
+
+<chapter><title>Заключение</title>&zaklyuchenie;</chapter>
+
+<appendix><title>Протоколы опытов</title>&protocols;</appendix>
+<appendix id='bibliography'><title>Библиография</title>&bibliography;</appendix>
+
+<appendix><title>Приложения к электронному изданию</title>
+  <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1>
+  <?page-break?>
+  &inscription;<?page-break?>
+  <sect1><title>Подготовка электронного издания</title>&electronic_edition;</sect1>
+</appendix>
+
+</book>

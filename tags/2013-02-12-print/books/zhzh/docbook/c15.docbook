@@ -1,0 +1,23 @@
+<figure id="picture13">
+  <title>Сова ушастая</title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture13.jpg">
+    <imageobject><imagedata fileref="images/html/picture13.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture13.jpg" /></imageobject>
+  </mediaobject>
+</figure>
+
+<para id='str17' xreflabel='стр. 17'>
+Стройнѣе, мельче предыдущей и съ пучками удлиненныхъ перышекъ на головѣ. Вмѣстѣ съ золотистыми глазами эти <quote>уши</quote> (не имѣющія, впрочемъ, никакого отношенія къ слуху) придаютъ совиному лицу выраженіе удивленія и любопытства. Вопреки ходячему воззрѣнію будто совы избѣгаютъ появляться на свѣту, ушастая сова охотно грѣется на солнцѣ и въ неволѣ. Здѣсь она легко и скоро приручается, занятно присѣдая и гримасничая въ состояніи оживленія. Въ зависимости отъ предмета, обратившаго вниманіе совы, она то выпрямляется (<xref linkend="picture13" />) и, прижимая перья къ тѣлу, истончается, какъ бы желая оставаться непримѣтной, то, напротивъ, пригибается, становится горизонтально и, переступая съ ноги на ногу, топорщитъ. крылья и пушится (<xref linkend="picture14" />), фыркаетъ, пощелкиваетъ клювомъ, словно преднамѣренно старается казаться больше и страшнѣе, словно угрожая своему врагу. Это &#8212; примѣръ <quote><emphasis role="bold">движенія угрозы</emphasis></quote>, наблюдаемаго нерѣдко у звѣрей и птицъ.
+</para>
+
+<figure id="picture14">
+  <title>Она же, встревоженная, в позѣ <quote>угрозы</quote></title>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/picture14.jpg">
+    <imageobject><imagedata fileref="images/html/picture14.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/picture14.jpg" /></imageobject>
+  </mediaobject>
+</figure>

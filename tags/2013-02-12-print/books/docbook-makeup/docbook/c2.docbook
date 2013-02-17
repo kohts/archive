@@ -1,0 +1,107 @@
+<sect1><title>Элементы книги</title>
+<para>
+В DocBook книга представляется в виде набора глав (тег &lt;chapter&gt;),
+которые опционально могут объединяться в главы (тег &lt;part&gt;). Если
+книга очень маленькая и не имеет внутреннего дробления, то тег chapter
+может быть заменен на тег article.
+</para>
+
+<para>
+Внутри глав может встречаться более мелкое структурное дробление текста &mdash;
+обычно такое дробление можно отличить по наличию в главе (или даже секции главы)
+нескольких параграфов с одинаково выделеннымии заголовками
+(с нумерацией или без, текст может быть разреженным, жирным или наклонным).
+</para>
+
+<para>
+Все такие структурные дробления нужно сохранить. Например,
+структурное дробление первого уровня оформляется в виде тега &lt;sect1&gt;,
+заголовок выносится в теги &lt;title&gt;:
+<?pre_b
+<sect1><title></title>
+<para>...</para>
+</sect1>
+?>
+
+Если внутри &lt;sect1&gt; встречается еще более мелкое дробление,
+то оно оформляется тегом &lt;sect2&gt;, подзаголовок выносится
+в тег &lt;title&gt;:
+<?pre_b
+<sect1><title>подзаголовок уровня 1</title>
+  <sect2><title>первый подзаголовок уровня 2</title>
+    <para>...</para>
+  </sect2>
+  <sect2><title>второй подзаголовок уровня 2</title>
+    <para>...</para>
+  </sect2>
+</sect1>
+?>
+</para>
+
+<para>
+В DocBok внутри каждой главы разрешено шесть уровней смыслового дробления
+(теги sect1 &mdash; sect6). В реальности большинство книг укладывается
+в три уровня.
+</para>
+
+<para>
+Кроме глав в DocBook предусмотрены: предисловие (тег &lt;preface&gt;),
+которых может быть несколько, а также приложения (тег &lt;appendix&gt;),
+которых также может быть несколько.
+</para>
+</sect1>
+
+<sect1><title>Мастер файл</title>
+<para>
+Непосредственным результатом анализа структуры книги является
+мастер файл, описывающего эту структуру. Наиболее типичной
+является следующая структура (чтобы xml был валиден в первой строке
+нужно убрать пробел между знаком меньше и вопросом
+и знаком больше и вопросом):
+
+<?pre_b
+< ? xml version="1.0" encoding="UTF-8" ? >
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY predislovie SYSTEM "predislovie.docbook">
+  <!ENTITY c1_1_1 SYSTEM "c1_1_1.docbook">
+  <!ENTITY c1_1_2 SYSTEM "c1_1_2.docbook">
+  <!ENTITY photoplates_eng SYSTEM "photoplates_eng.docbook">
+]>
+
+<book id="ladygina-kohts-infant-chimpanzee-and-human-child" lang="ru">
+<title>Дитя шимпанзе и дитя человека</title>
+
+<dedication id="dedication1">
+  <para>Посвящается Дарвиновскому музею (1905 &mdash; 1935) и коллективу его преданных сотрудников</para>
+</dedication>
+
+<preface id="predislovie"><title>Предисловие</title>&amp;predislovie;</preface>
+
+<part id="p1"><title>Поведение дитяти шимпанзе (описательная часть)</title>
+  <chapter id="c1_1"><title>Описание внешнего облика шимпанзе</title>
+    <sect1 id="c1_1_1" label="а"><title>Лицо шимпанзе в статике</title>&amp;c1_1_1;</sect1>
+      <para>...</para>
+    </sect1>
+    <sect1 id="c1_1_2" label="б"><title>Руки шимпанзе</title>&amp;c1_1_2;</sect1>
+  </chapter>
+</part>
+
+<appendix><title>Photo plates</title>&amp;photoplates_eng;</appendix>
+
+</book>
+?>
+</para>
+
+<para>
+Крупные элементы книги (главы, секции глав) имеет смысл выносить в отдельные файлы,
+как для удобства редактирования, так и для возможности более удобного
+распараллеливания работы между несколькими людьми, а также
+более аккуратного контроля выполнения работы.
+</para>
+
+<para>
+<ulink url="http://www.kohts.ru/ladygina-kohts/ichc/docbook/main.docbook">Пример итогового мастер файла</ulink>
+</para>
+</sect1>

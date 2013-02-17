@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY liniya "
+<informaltable frame='none' pgwide='1'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry><para>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
+</tgroup></informaltable>
+ ">
+
+  <!ENTITY of-10141-0001 SYSTEM "of-10141-0001.docbook">
+  <!ENTITY of-10141-0003 SYSTEM "of-10141-0003.docbook">
+  <!ENTITY of-10141-0004 SYSTEM "of-10141-0004.docbook">
+  <!ENTITY of-10141-0005 SYSTEM "of-10141-0005.docbook">
+  <!ENTITY of-10141-0006 SYSTEM "of-10141-0006.docbook">
+  <!ENTITY of-10141-0007 SYSTEM "of-10141-0007.docbook">
+  <!ENTITY of-10141-0008 SYSTEM "of-10141-0008.docbook">
+  <!ENTITY of-10141-0009 SYSTEM "of-10141-0009.docbook">
+  <!ENTITY of-10141-0010 SYSTEM "of-10141-0010.docbook">
+  <!ENTITY of-10141-0011 SYSTEM "of-10141-0011.docbook">
+  <!ENTITY of-10141-0014 SYSTEM "of-10141-0014.docbook">
+  <!ENTITY of-10141-0015 SYSTEM "of-10141-0015.docbook">
+  <!ENTITY of-10141-0016 SYSTEM "of-10141-0016.docbook">
+  <!ENTITY of-10141-0017 SYSTEM "of-10141-0017.docbook">
+  <!ENTITY of-10141-0018 SYSTEM "of-10141-0018.docbook">
+  <!ENTITY of-10141-0019 SYSTEM "of-10141-0019.docbook">
+
+  <!ENTITY of-10141-0026 SYSTEM "of-10141-0026.docbook">
+
+  <!ENTITY of-10141-0034 SYSTEM "of-10141-0034.docbook">
+  <!ENTITY of-10141-0035 SYSTEM "of-10141-0035.docbook">
+  <!ENTITY of-10141-0036 SYSTEM "of-10141-0036.docbook">
+  <!ENTITY of-10141-0037 SYSTEM "of-10141-0037.docbook">
+
+  <!ENTITY of-10141-0040 SYSTEM "of-10141-0040.docbook">
+  <!ENTITY of-10141-0041 SYSTEM "of-10141-0041.docbook">
+  <!ENTITY of-10141-0042 SYSTEM "of-10141-0042.docbook">
+  <!ENTITY of-10141-0043 SYSTEM "of-10141-0043.docbook">
+  <!ENTITY of-10141-0044 SYSTEM "of-10141-0044.docbook">
+
+  <!ENTITY of-10141-0047 SYSTEM "of-10141-0047.docbook">
+  <!ENTITY of-10141-0048 SYSTEM "of-10141-0048.docbook">
+  
+  <!ENTITY of-10141-0050_51 SYSTEM "of-10141-0050_51.docbook">
+  <!ENTITY of-10141-0052 SYSTEM "of-10141-0052.docbook">
+  <!ENTITY of-10141-0053 SYSTEM "of-10141-0053.docbook">
+  <!ENTITY of-10141-0054 SYSTEM "of-10141-0054.docbook">
+  <!ENTITY of-10141-0056 SYSTEM "of-10141-0056.docbook">
+
+  <!ENTITY of-10141-0062 SYSTEM "of-10141-0062.docbook">
+  <!ENTITY of-10141-0064 SYSTEM "of-10141-0064.docbook">
+  <!ENTITY of-10141-0065 SYSTEM "of-10141-0065.docbook">
+
+  <!ENTITY of-10141-0105 SYSTEM "of-10141-0105.docbook">
+  <!ENTITY of-10141-0111 SYSTEM "of-10141-0111.docbook">
+  <!ENTITY of-10141-0112 SYSTEM "of-10141-0112.docbook">
+  <!ENTITY of-10141-0115 SYSTEM "of-10141-0115.docbook">
+
+  <!ENTITY of-10141-0458 SYSTEM "of-10141-0458.docbook">  
+  
+  <!ENTITY of-10141-0530 SYSTEM "of-10141-0530.docbook">
+
+  <!ENTITY of-10141-0600 SYSTEM "of-10141-0600.docbook">
+
+  <!ENTITY of-10141-0624 SYSTEM "of-10141-0624.docbook">
+  <!ENTITY of-10141-0625 SYSTEM "of-10141-0625.docbook">
+  <!ENTITY of-10141-0626 SYSTEM "of-10141-0626.docbook">
+  <!ENTITY of-10141-0627 SYSTEM "of-10141-0627.docbook">
+  <!ENTITY of-10141-0628 SYSTEM "of-10141-0628.docbook">
+  
+  <!ENTITY nvf-2116-0383 SYSTEM "nvf-2116-0383.docbook">
+  
+  <!ENTITY of-12430-0007 SYSTEM "of-12430-0007.docbook">
+  <!ENTITY of-12430-0014 SYSTEM "of-12430-0014.docbook">
+
+]>
+
+<book id="kohts-works" lang="ru">
+<title>Собрание сочинений</title>
+
+<bookinfo>
+<author>
+<firstname>Александр</firstname>
+<othername>Федорович</othername>
+<surname>Котс</surname>
+</author>
+</bookinfo>
+<date>Москва, 1880 &mdash; 1964</date>
+
+<part id="p1"><title>Полвека музейной работы</title>
+<subtitle>Основы музеологической теории и практики</subtitle>
+
+<chapter id="of-10141-0001"><title>Введение</title>&of-10141-0001;</chapter>
+<chapter id="of-10141-0007"><title>О музеях, как лабораториях по изучению методики культмассовой работы</title>&of-10141-0007;</chapter>
+<chapter id="of-10141-0014"><title>Что такое массовый музей?</title>&of-10141-0014;</chapter>
+<chapter id="of-10141-0458"><title>Что такое массовый музей и массовый музейный зритель?</title>&of-10141-0458;</chapter>
+<chapter id="of-10141-0003"><title>Проблема зрителя в музеях массового типа</title><subtitle>Об этикетаже</subtitle>&of-10141-0003;</chapter>
+<chapter id="of-10141-0008"><title>Об ударных методах музейной экспозиции</title><subtitle>Доклад на 1-ом музейном съезде</subtitle>&of-10141-0008;</chapter>
+<chapter id="of-10141-0009"><title>О логических и методологических основах построения музейной экспозиции</title>&of-10141-0009;</chapter>
+<chapter id="of-10141-0627"><title>О музеях-Левиафанах и о гигантомании в музейной практике</title>&of-10141-0627;</chapter>
+<chapter id="of-10141-0016"><title>О музеях массового типа в свете Бэконовых идолов</title>&of-10141-0016;</chapter>
+<chapter id="of-10141-0625"><title>Об элементах и соотношениях формальной логики в музейной экспозиции</title>&of-10141-0625;</chapter>
+<chapter id="of-10141-0628"><title>О научно-исследовательской работе музеев</title>&of-10141-0628;</chapter>
+<chapter id="of-10141-0626"><title>О диалектике в музейной экспозиции</title>&of-10141-0626;</chapter>
+<chapter id="of-10141-0006"><title>Понятие музейных фондов</title><subtitle>Доклад в Институте Муз. Краеведческой работы, июнь 1944</subtitle>&of-10141-0006;</chapter>
+<chapter id="of-10141-0005"><title>К вопросу о музейных кадрах</title>&of-10141-0005;</chapter>
+
+<chapter id="of-10141-0010"><title>К теории и практике музейной экспозиции</title><subtitle>Принципы планировки, вещного комплектования и экспозиции в массовых музеях</subtitle>&of-10141-0010;</chapter>
+
+<chapter id="nvf-2116-0383"><title>Три параллели: музеи Политехнический, Зоологический МГУ и Дарвиновский</title>&nvf-2116-0383;</chapter>
+<chapter id="of-10141-0011"><title>О принципах оформления отделов дарвинизма в краеведческих музеях.</title>&of-10141-0011;</chapter>
+<chapter id="of-10141-0019"><title>О внемузейной деятельности музеев</title><subtitle>Museum Extension</subtitle>&of-10141-0019;</chapter>
+
+<chapter id="of-10141-0017"><title>Музей и школа I</title><subtitle>Речь на общегородском собрании педагогов</subtitle>&of-10141-0017;</chapter>
+<chapter id="of-10141-0047"><title>Музей и школа II</title><subtitle>О значении музеев как контрольных пунктов для проверки школьного образования</subtitle>&of-10141-0047;</chapter>
+
+<chapter id="of-10141-0018"><title>К методике работы лектора-экскурсовода (методологические вехи и путёвки)</title><subtitle>Доклад на Конференции Музейных Работников летом 1943 года</subtitle>&of-10141-0018;</chapter>
+
+<chapter id="of-10141-0004"><title>О мировозренческой тематике музеев массового типа, о критериях и формах её подлинного усвоения</title>&of-10141-0004;</chapter>
+
+<chapter id="of-10141-0015"><title>Об эффективности работ музеев массового типа и методике её учёта</title><subtitle>Доклад в "Доме учёных" на собрании марксистско-музейного кружка</subtitle>&of-10141-0015;</chapter>
+
+<chapter id="of-10141-0048"><title>Природоведение, музеи и война</title>&of-10141-0048;</chapter>
+
+<chapter id="of-10141-0026"><title>О задачах, содержании и методике природоведных отделов краеведческих музеев в отсвете литературных данных</title>&of-10141-0026;</chapter>
+<chapter id="of-10141-0624"><title>К вопросу о структуре и тематике отдела природы в краеведческих музеях</title><subtitle>Доклад в Институте Муз. Краеведческой работы в Июне 1944 г.</subtitle>&of-10141-0624;</chapter>
+
+</part>
+
+
+<part id="p2"><title>Государственный Дарвиновский Музей</title>
+<subtitle>История, задачи, методы работы, достижения и творческие перспективы</subtitle>
+
+<chapter id="of-10141-0050_51"><title>К истории Дарвиновского Музея</title><subtitle>От 80-х годов XIX столетия до Великой Октябрьской Социалистической Революции</subtitle>&of-10141-0050_51;</chapter>
+<chapter id="of-10141-0052"><title>Что такое Дарвиновский Музей в Москве</title><subtitle>К пятидесятилетию его фактического основания. Май 1946.</subtitle>&of-10141-0052;</chapter>
+<chapter id="of-10141-0053"><title>О профиле и тематике Дарвиновского Музея</title>&of-10141-0053;</chapter>
+<chapter id="of-10141-0056"><title>Краткий очерк развернутой экспозиции Государственного Дарвиновского Музея</title><subtitle>Основы Дарвинизма в развернутой экспозиции Государственного Дарвиновского Музея в Москве</subtitle>&of-10141-0056;</chapter>
+
+<chapter id="of-10141-0054"><title>Тридцать пять лет работы Дарвиновского Музея (1905 &mdash; 1940)</title><subtitle>Юбилейный отчет</subtitle>&of-10141-0054;</chapter>
+<chapter id="of-10141-0600"><title>Об ударных и очередных задачах Дарвиновского Музея</title>&of-10141-0600;</chapter>
+<chapter id="of-10141-0064"><title>Связь Государственного Дарвиновского Музея с производством</title>&of-10141-0064;</chapter>
+
+<chapter id="of-10141-0115"><title>Очерк деятельности музея за 30 лет Советской Власти</title><subtitle>Государственный Дарвиновский Музей, как детище Великого Октября</subtitle>&of-10141-0115;</chapter>
+
+<chapter id="of-10141-0062"><title>О научно-исследовательских работах Государственного Дарвиновского Музея</title>&of-10141-0062;</chapter>
+
+<chapter id="of-10141-0065"><title>Люди вымирающего цеха</title>
+<subtitle>Препаратор-орденоносец Филипп Евтихиевич Федулов и препаратор народный ополченец Дмитрий Яковлевич Федулов. О <quote>последних могиканах</quote> Лоренцевой школы препараторов-таксидермистов.</subtitle>&of-10141-0065;</chapter>
+<chapter id="of-10141-0530"><title>Михаил Дмитриевич Езучевский в Дарвиновском Музее</title><subtitle>Историческая живопись в Дарвиновском Музее</subtitle>&of-10141-0530;</chapter>
+
+<chapter id="of-10141-0112"><title>Светлой памяти стоявших некогда у колыбели Дарвиновского музея.</title><subtitle>Н. Крупская, П. Штернберг, М. Мензбир, С. Чаплыгин, Н. Кольцов, П.П. Сушкин, Ф.К. Лоренц, Б.М. Житков, Н.М. Кулагин, В. Клумов, Ф.Ю. Фельман, В. Бобринская, Е.А. Котс</subtitle>&of-10141-0112;</chapter>
+
+</part>
+
+
+<part id="p3"><title>Полвека лекционно-педагогической практики</title>
+<subtitle>1900 &mdash; 1950</subtitle>
+
+<chapter id="of-10141-0034"><title>Проблемы обучения и воспитания в конкретно-методологическом их рассмотрении</title>&of-10141-0034;</chapter>
+<chapter id="of-10141-0035"><title>К вопросу о наглядности преподавания в средней школе</title><subtitle>Речь на конференции преподавателей-биологов г. Москвы 6 сентября 1944 в аудитории ГПИ им. Ленина</subtitle>&of-10141-0035;</chapter>
+<chapter id="of-10141-0036"><title>О принципе согласованности в методах учебно-школьного преподавания</title><subtitle>1945</subtitle>&of-10141-0036;</chapter>
+<chapter id="of-10141-0037"><title>Старое и новое в учебно-лекционной практике</title><subtitle>О методике и пользе лекционного преподавания, 1943</subtitle>&of-10141-0037;</chapter>
+
+<chapter id="of-10141-0040"><title>Вступительная лекция по зоологии</title><subtitle></subtitle>&of-10141-0040;</chapter>
+<chapter id="of-10141-0041"><title>Дарвинизм, зоология и школа в дни Великой Отечественной Войны</title><subtitle>Лекция для преподавателей-биологов, дважды прочитанная на конференции педагогов Москвы в январе 1944г.</subtitle>&of-10141-0041;</chapter>
+<chapter id="of-10141-0042"><title>Война и школа</title><subtitle>Речь на конференции педагогов Свердловского р-на г. Москвы 6 Января 1945 года</subtitle>&of-10141-0042;</chapter>
+<chapter id="of-10141-0043"><title>Иностранные языки в музеях</title><subtitle>О проведении музейных осмотров на иностранных языках</subtitle>&of-10141-0043;</chapter>
+
+<chapter id="of-10141-0044"><title>Школьно-учебный формализм</title><subtitle>О его симптомах, диагнозах, профилактике и терапии</subtitle>&of-10141-0044;</chapter>
+
+</part>
+
+
+<part id="p4"><title>Лекции, статьи и речи в годы мира и войны</title>
+</part>
+
+
+<part id="p5"><title>Из циклов лекций, читанных в дни ВОВ в подшефных Дарвиновскому Музею госпиталях</title>
+<subtitle>в частности в Эвако-госпитале военной академии им. Фрунзе. 1941-1943.</subtitle>
+
+<chapter id="of-10141-0105"><title>О боевом коне</title><subtitle>Очерки по истории конницы</subtitle>&of-10141-0105;</chapter>
+<chapter id="of-10141-0111"><title>К биографии Н.А. Бобринского</title><subtitle>Страницы жизни</subtitle>&of-10141-0111;</chapter>
+
+</part>
+
+
+<part id="p6"><title>Лекции и речи по вопросам эволюционного учения и дарвинизма</title>
+<chapter id="of-12430-0007"><title>Проблема вида в свете учения о прямом влиянии среды. На изменчивости тетеревиных птиц</title><subtitle>Автореферат</subtitle>&of-12430-0007;</chapter>
+</part>
+
+
+<part id="p7"><title>Научно-исследовательские работы</title>
+
+<chapter id="of-12430-0014"><title>Об изменчивости внутривидового ранга</title><subtitle>Цветовые варьететы и географические расы</subtitle>&of-12430-0014;</chapter>
+
+</part>
+
+
+<part id="p8"><title>Научная обработка фондовых коллекций Дарвиновского Музея</title>
+</part>
+
+</book>

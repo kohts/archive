@@ -1,0 +1,25 @@
+<sect1><title>Передняя обложка</title>
+<para>
+<informalfigure>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/cover-front.jpg">
+    <imageobject><imagedata fileref="images/html/cover-front.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/cover-front.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+</para>
+</sect1>
+
+<sect1><title>Задняя обложка</title>
+<para>
+<informalfigure>
+  <mediaobject>
+  <textobject role="html"><ulink role="html" url="images/hires/cover-back.jpg">
+    <imageobject><imagedata fileref="images/html/cover-back.jpg" /></imageobject>
+  </ulink></textobject>
+  <imageobject role="fo"><imagedata fileref="images/pdf/cover-back.jpg" /></imageobject>
+  </mediaobject>
+</informalfigure>
+</para>
+</sect1>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY liniya "
+<informaltable frame='none' pgwide='1'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry><para role='Arial'>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
+</tgroup></informaltable>
+ ">
+  
+   <!ENTITY otchet SYSTEM "otchet.docbook">
+   <!ENTITY vyhodnye_dannye SYSTEM "vyhodnye_dannye.docbook">
+   <!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
+]>
+
+<book id="ladygina-kohts-otchet-1921" lang="ru">
+
+<title>Отчет зоопсихологической лаборатории при Дарвиновском Музее</title>
+
+<bookinfo>
+<author>
+<firstname>Н.</firstname>
+<othername>Н.</othername>
+<surname>Ладыгина-Котс</surname>
+</author>
+<publisher>
+  <publishername>Государственное Издательство</publishername>
+</publisher>
+</bookinfo>
+<date>1921</date>
+
+<article>
+<title>Отчет зоопсихологической лаборатории при Дарвиновском Музее</title>
+&otchet;
+</article>
+
+<appendix><title>Приложения к электронному изданию</title>
+  <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1>
+  <?page-break?>
+  <sect1><title>Подготовка электронного издания</title>&electronic_edition;</sect1>
+</appendix>
+
+</book>

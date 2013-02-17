@@ -1,0 +1,15 @@
+<sect1><title>Дарственная надпись Н. Н. Ладыгиной-Котс Р. А. Котс</title>
+<informalfigure id="darstevennaya">
+  <mediaobject>
+    <textobject role="html"><ulink role="html" url="images/hires/inscription.jpg">
+      <imageobject><imagedata fileref="images/html/inscription.jpg" /></imageobject>
+    </ulink></textobject>
+    <imageobject role="fo"><imagedata fileref="images/pdf/inscription.jpg" /></imageobject>
+  </mediaobject>
+  <mediaobject><textobject><para><literallayout>
+Дорогому Рудусе с сердечным поздравлением с большим киноуспехом в 1959 г.
+и с горячим пожеланием его продолжения и усиления в новом 1960 году
+твоя мама. 31/XII 1959.
+</literallayout></para></textobject></mediaobject>
+</informalfigure>
+</sect1>

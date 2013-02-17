@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY liniya "
+<informaltable frame='none' pgwide='1'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry><para role='Arial'>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
+</tgroup></informaltable>
+ ">
+  
+  <!ENTITY vvedenie SYSTEM "vvedenie.docbook">
+  <!ENTITY c1 SYSTEM "c1.docbook">
+  <!ENTITY c2 SYSTEM "c2.docbook">
+  <!ENTITY c3 SYSTEM "c3.docbook">
+  <!ENTITY literature SYSTEM "literature.docbook">
+  <!ENTITY tables SYSTEM "tables.docbook">
+  <!ENTITY resume_de SYSTEM "resume_de.docbook">
+  <!ENTITY tables_de SYSTEM "tables_de.docbook">
+  <!ENTITY contents_orig SYSTEM "contents_orig.docbook">
+  <!ENTITY vyhodnye_dannye SYSTEM "vyhodnye_dannye.docbook">
+  <!ENTITY oblozhka SYSTEM "oblozhka.docbook">
+  <!ENTITY inscription SYSTEM "inscription.docbook">
+  <!ENTITY electronic_edition SYSTEM "electronic_edition.docbook">
+]>
+
+<book id="kohts-ertz-1912" lang="ru">
+
+<title>Эгитогнатизмъ, его развит&#1110;е и таксономическое значен&#1110;е</title>
+<subtitle>Къ вопросу о методологическихъ основахъ современныхъ классификац&#1110;й</subtitle>
+
+<bookinfo>
+<author>
+<firstname>А.</firstname>
+<othername>&#1138;.</othername>
+<surname>Котсъ</surname>
+</author>
+</bookinfo>
+<date>Москва &#8212; 1912</date>
+
+<preface id="vvedenie"><title>Введение</title>&vvedenie;</preface>
+<chapter id="c1"><title>Фактическ&#1110;я основан&#1110;я классификац&#1110;и Гексли и поздн&#1123;йшая ихъ критика</title>&c1;</chapter>
+<chapter id="c2"><title>Развит&#1110;е эгитогнатизма у Corvus frugilegus</title>&c2;</chapter>
+<chapter id="c3"><title>Таксономическое значен&#1110;е эгитогнатизма. Методологическ&#1110;я основан&#1110;я классификац&#1110;и Гексли и принципы нов&#1123;йшей систематики.</title>&c3;</chapter>
+
+<appendix><title>Главн&#1123;йшая литература<footnote><para>
+Приводя настоящ&#1110;й перечень для облегчен&#1110;я ссылокъ, 
+д&#1123;лаемыхъ въ текст&#1123;, мы ограничиваемся спец&#1110;альной 
+орнитологической литературой и вовсе не касаемся другихъ, упоминаемыхъ въ 
+первой глав&#1123;, изсл&#1123;дован&#1110;й, равно какъ и 
+сочинен&#1110;й бол&#1123;е раннихъ авторовъ.
+</para></footnote>
+</title>&literature;</appendix>
+<appendix><title>Таблицы</title>&tables;</appendix>
+
+<appendix lang="de"><title>Ueber Aegithognatie, deren Entwickelung und taxonomische Bedeutung, Inhalts-Uebersicht.</title>
+<subtitle>Von A. E. Kohts</subtitle>&resume_de;</appendix>
+<appendix lang="de"><title>Tafeln</title>&tables_de;</appendix>
+
+<appendix><title>Оглавление</title>&contents_orig;</appendix>
+
+<appendix><title>Приложения к электронному изданию</title>
+  &oblozhka;<?page-break?>
+  <sect1><title>Выходные данные</title>&vyhodnye_dannye;</sect1><?page-break?>
+  &inscription;<?page-break?>
+  <sect1><title>Подготовка электронного издания</title>&electronic_edition;</sect1>
+</appendix>
+
+</book>
