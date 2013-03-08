@@ -2,7 +2,7 @@ KOHTS_BASE ?= /var/www
 
 BOOK_DIR = afk-works
 BOOK_NAME = "kohts - works"
-PDF_NAME = $BOOK_NAME.pdf
+_PDF_NAME = ${BOOK_NAME}.pdf
 
 FONTS = ${KOHTS_BASE}/FONTS
 TOOLS = ${KOHTS_BASE}/tools
@@ -13,7 +13,7 @@ BUILD_BASE = ${KOHTS_BASE}/BUILD/${BOOK_DIR}
 
 # pdf
 IMAGES_PRINT = ${IMAGES_BASE}/pdf
-PDF_OUTPUT = ${KOHTS_BASE}/OUT/${BOOK_DIR}/${PDF_NAME}
+PDF_OUTPUT = ${KOHTS_BASE}/OUT/${BOOK_DIR}/${_PDF_NAME}
 RTF_OUTPUT = ${KOHTS_BASE}/OUT/${BOOK_DIR}/${BOOK_NAME}.rtf
 TXT_OUTPUT = ${KOHTS_BASE}/OUT/${BOOK_DIR}/${BOOK_NAME}.txt
 
@@ -76,6 +76,9 @@ ${STAMPS}/pdf: ${STAMPS}/fo
 	  /root/fop/trunk/fop --execdebug -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF_OUTPUT}
 	mkdir -p ${STAMPS}
 	touch ${STAMPS}/pdf
+
+pdfname:
+	@echo $(_PDF_NAME)
 
 rtf: ${STAMPS}/rtf
 ${STAMPS}/rtf: ${STAMPS}/fo-rtf

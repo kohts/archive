@@ -9,6 +9,7 @@ most suitable format for online reading -->
 <xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/html/chunk.xsl"/>
 
 <!-- general documented customization -->
+<xsl:param name="use.id.as.filename" select="1"></xsl:param>
 <xsl:param name="chunker.output.encoding" select="'utf-8'"/>
 <xsl:param name="toc.section.depth">1</xsl:param>
 <xsl:param name="generate.toc">
