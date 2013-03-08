@@ -18,6 +18,64 @@ use File::Basename;
 
 $| = 1;
 
+# returns nicely formatted callstack
+#
+sub get_callstack {
+  my $cstack;
+  my $i = 0;
+  while ( 1 ) {
+    my @caller_arr = caller($i);
+    
+    my $filename = $caller_arr[1];
+    my $tline = $caller_arr[2];
+    my $tfunc = $caller_arr[3];
+
+    if (defined($tfunc) && $tfunc ne "") {
+      if (
+#        $tfunc !~ /\_\_ANON\_\_/ &&
+        $tfunc !~ /.*::get_callstack/) {
+
+        my $called = "";
+        if ($filename && $filename ne '/dev/null') {
+          $called .= ", called in $filename";
+
+          if (defined($tline)) {
+            $called .= " line $tline";
+          }
+        }
+        $cstack .= "\t" . $tfunc . $called . "\n";
+      }
+      $i = $i + 1;
+    }
+    else {
+      last;
+    }
+  }
+
+  # following line is matched with regexp in Magic::Task,
+  # update in both places if needed
+  return "\nCallstack:\n" . $cstack . "\n";
+}
+
+sub my_die {
+    my ($message, $opts) = @_;
+
+    $opts //= {};
+
+    my $msg = $message;
+
+    if (!$opts->{'suppress_callstack'}) {
+        $msg .= get_callstack();
+    }
+
+    # You can assign a number to $! to set errno if, for instance,
+    # you want "$!"  to return the string for error n, or you want to set
+    # the exit value for the die() operator. (Mnemonic: What just went bang?)
+    $! = 1;
+
+    CORE::die $msg;
+}
+
 sub zero_pad {
     my ($v, $length) = @_;
 
@@ -26,7 +84,7 @@ sub zero_pad {
     $length = 2 unless $length;
     
     if (length($v) > $length) {
-        die("unable to pad string [$v] to length [$length] as it is longer");
+        my_die("unable to pad string [$v] to length [$length] as it is longer");
     }
     
     while (length($v) < $length) {
@@ -49,7 +107,7 @@ sub read_dir {
             return 0;
         }
         else {
-            die("ERROR: unable to open directory [$dirname]");
+            my_die("ERROR: unable to open directory [$dirname]");
         }
     }
 
@@ -95,7 +153,7 @@ sub do_log {
     $opts = {} unless $opts;
     $opts->{'log_file'} = $main::log_file unless $opts->{'log_file'};
 
-    die "unable to write to [$opts->{'log_file'}]" if -f $opts->{'log_file'} && ! -w $opts->{'log_file'};
+    my_die("unable to write to [$opts->{'log_file'}]") if -f $opts->{'log_file'} && ! -w $opts->{'log_file'};
 
     my $log_msg = $msg;
     $log_msg =~ s/[\r\n]/ /g;
@@ -104,18 +162,23 @@ sub do_log {
     print $log_msg;
 
     my $fh;
-    open($fh, ">>" . $opts->{'log_file'}) || die "unable to open for append [$opts->{'log_file'}]";
+    open($fh, ">>" . $opts->{'log_file'}) || my_die ("unable to open for append [$opts->{'log_file'}]");
     print $fh $log_msg;
     close($fh);
 }
 
+sub canonical_document_name {
+    my ($d) = @_;
+    return $d->{'archive_type'} . "-" . $d->{'archive_id'} . "-" . $d->{'document_id'};
+}
+
 if (!$ARGV[0]) {
-    die "need archive directory\n";
+    my_die("need archive directory\n");
 }
 
 my $archive_dir = $ARGV[0];
 if (! -d $archive_dir) {
-    die "not a directory: [$archive_dir]";
+    my_die "not a directory: [$archive_dir]";
 }
 
 $main::log_file = File::Spec->catfile($archive_dir, basename($0) . ".log");
@@ -127,67 +190,106 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
     # skip non-directories
     next DOCUMENT unless -d $full_doc_dir;
 
-    if ($doc_dir !~ /^(of|nvf)-(\d+?)-([\d_,;\-\ \.]+)$/) {
+    if ($doc_dir !~ /^(of|nvf)[\-\ \_](\d+?)[\-\ \_](\d[\d_,;\-\ \.]+)$/) {
         print "skipping invalid doc_dir format: [$doc_dir]\n";
         next DOCUMENT;
     }
     my ($archive_type, $part, $id) = ($1, $2, $3);
 
-    my $change_doc_dir_name = sub {
+    my $current_document = {
+        'archive_dir' => $archive_dir,
+        'archive_type' => $archive_type,
+        'archive_id' => $part,
+        'document_id' => $id,
+        'full_document_path' => $full_doc_dir,
+        };
+
+    my $change_document_path = sub {
         my ($opts) = @_;
         $opts = {} unless $opts;
-        die "need new_id parameter"
-            unless $opts->{'new_id'};
-      
-        my $new_doc_dir = File::Spec->catfile($archive_dir, $archive_type . "-" . $part . "-" . $opts->{'new_id'});
-        if (-d $new_doc_dir) {
-            die "unable to rename [$full_doc_dir] to canonical name: directory [$new_doc_dir] exists!";
+        my_die "Need document" unless $opts->{'document'};
+        my_die "Need new path" unless $opts->{'new_path'};
+
+        if (-d $opts->{'new_path'}) {
+            my_die("unable to rename [$opts->{'document'}->{'full_document_path'}] to new name: directory [$opts->{'new_path'}] exists!");
         }
-        do_log("fixing $full_doc_dir -> $new_doc_dir");
-        rename ($full_doc_dir, $new_doc_dir) || die "unable to rename [$full_doc_dir] to [$new_doc_dir]: $!";
+
+        do_log("renaming $opts->{'document'}->{'full_document_path'} -> $opts->{'new_path'}");
+        rename ($opts->{'document'}->{'full_document_path'}, $opts->{'new_path'}) ||
+            my_die "unable to rename [$opts->{'document'}->{'full_document_path'}] to [$opts->{'new_path'}]: $!";
       
-        $full_doc_dir = $new_doc_dir;
-        $doc_dir = $archive_type . "-" . $part . "-" . $opts->{'new_id'};
-        $id = $opts->{'new_id'};
+        $opts->{'document'}->{'full_document_path'} = $opts->{'new_path'};
     };
 
-    if ($id =~ /\-$/) {
-        my $new_id = $id;
+    my $change_document_id = sub {
+        my ($opts) = @_;
+        $opts = {} unless $opts;
+        my_die "Need document" unless $opts->{'document'};
+        my_die "Need new id" unless $opts->{'new_id'};
+      
+        my $new_doc_dir = File::Spec->catfile(
+            $opts->{'document'}->{'archive_dir'},
+            canonical_document_name({
+                'archive_type' => $opts->{'document'}->{'archive_type'},
+                'archive_id' => $opts->{'document'}->{'archive_id'},
+                'document_id' => $opts->{'new_id'},
+                })
+            );
+
+        $change_document_path->({
+            'document' => $opts->{'document'},
+            'new_path' => $new_doc_dir,
+            });
+        $opts->{'document'}->{'document_id'} = $opts->{'new_id'};
+    };
+
+    # remove trailing minus
+    if ($current_document->{'document_id'} =~ /\-$/) {
+        my $new_id = $current_document->{'document_id'};
         $new_id =~ s/\-$//;
-        $change_doc_dir_name->({
+        $change_document_id->({
+            'document' => $current_document,
             'new_id' => $new_id,
-              });
+            });
     }
 
     # make canonical document directory name
-    if (length($id) < 4) {
+    if (length($current_document->{'document_id'}) < 4) {
         my $new_id = "";
-        for(my $i = length($id); $i < 4; $i++) {
+        for(my $i = length($current_document->{'document_id'}); $i < 4; $i++) {
             $new_id = "0" . $new_id;
         }
-        $new_id = $new_id . $id;
-
-        $change_doc_dir_name->({
+        $new_id = $new_id . $current_document->{'document_id'};
+        $change_document_id->({
+            'document' => $current_document,
             'new_id' => $new_id,
-              });
+            });
     }
 
     # canonical delimiters in id
-    if ($id =~ /,/) {
-        my $t_id = $id;
+    if ($current_document->{'document_id'} =~ /,/) {
+        my $t_id = $current_document->{'document_id'};
         $t_id =~ s/,/;/g;
-
-        $change_doc_dir_name->({
+        $change_document_id->({
+            'document' => $current_document,
             'new_id' => $t_id,
             });
     }
 
+    # canonical delimiters between document identification parts
+    if (File::Spec->catfile($current_document->{'archive_dir'}, canonical_document_name($current_document)) ne $current_document->{'full_document_path'}) {
+        $change_document_path->({
+            'document' => $current_document,
+            'new_path' => File::Spec->catfile($current_document->{'archive_dir'}, canonical_document_name($current_document)),
+            });
+    }
+
     # check page names inside document directory
-    my $pages = read_dir($full_doc_dir);
+    my $pages = read_dir($current_document->{'full_document_path'});
     my $i = 0;
     PAGE: foreach my $page (@{$pages}) {
 
-        my $full_page_path = File::Spec->catfile($full_doc_dir, $page);
+        my $full_page_path = File::Spec->catfile($current_document->{'full_document_path'}, $page);
 
         # remove temporary files
         if ($page eq "Thumbs.db") {
@@ -205,7 +307,7 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
             if ($full_page_path =~ /\.txt\.txt/) {
                 my $new_full_page_path = $full_page_path;
                 $new_full_page_path =~ s/\.txt//;
-                rename ($full_page_path, $new_full_page_path) || die "unable to rename [$full_page_path] to [$new_full_page_path]: $!";
+                rename ($full_page_path, $new_full_page_path) || my_die "unable to rename [$full_page_path] to [$new_full_page_path]: $!";
                 do_log("fixing $full_page_path -> $new_full_page_path");
                 $full_page_path = $new_full_page_path;
                 $page =~ s/\.txt//;
@@ -214,18 +316,18 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
             # give description file canonical name
             my ($name, $ext) = ($page =~ /^(.+)(\..+)$/);
 
-            if ($name ne $doc_dir) {
-                my $new_desc_name = $doc_dir . $ext;
-                my $new_full_page_path = File::Spec->catfile($full_doc_dir, $new_desc_name);
+            if ($name ne canonical_document_name($current_document)) {
+                my $new_desc_name = canonical_document_name($current_document) . $ext;
+                my $new_full_page_path = File::Spec->catfile($current_document->{'full_document_path'}, $new_desc_name);
 
                 if (-f $new_full_page_path) {
-                    print "more than one txt file in document: [$full_doc_dir]\n";
+                    print "more than one txt file in document: [$current_document->{'full_document_path'}]\n";
                     next PAGE;
                 }
 
                 do_log("fixing $full_page_path -> $new_full_page_path");
 
-                rename ($full_page_path, $new_full_page_path) || die "unable to rename [$full_page_path] to [$new_full_page_path]";
+                rename ($full_page_path, $new_full_page_path) || my_die "unable to rename [$full_page_path] to [$new_full_page_path]";
                 $full_page_path = $new_full_page_path;
                 $page = $new_desc_name;
             }
@@ -236,7 +338,7 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
         # allow underscore in relaxed page name
         # (which is converted below to canonical page id,
         # extracted from document directory name)
-        if ($page !~ /^(of|nvf)-(\d+?)-([\d_,;\-\ \.]+?)-(\d+?)(\.jpg)$/) {
+        if ($page !~ /^(of|nvf)[\-\ ](\d+?)[\-\ \_](\d[\d_,;\-\ \.]+?)-(\d+?)(\.jpg)$/) {
             print "skipping invalid page format: [$page]\n";
             next PAGE;
         } 
@@ -247,19 +349,22 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
         my ($p_archive_type, $p_part, $p_id, $p_number, $p_ext) = ($1, $2, $3, $4, $5);
         my $int_p_number = int($p_number);
 
-        # update page name parts according to doc_dir
-        if ($archive_type ne $p_archive_type || $part ne $p_part || $id ne $p_id || $int_p_number ne $i || length($p_number) ne 3) {
-            my $new_page = $archive_type . "-" . $part . "-" . $id . "-" . zero_pad($i, 3) . $p_ext;
-            my $new_full_page_path = File::Spec->catfile($full_doc_dir, $new_page);
+        # update page name parts according to current_document parameters
+        if ($current_document->{'archive_type'} ne $p_archive_type ||
+            $current_document->{'archive_id'} ne $p_part ||
+            $current_document->{'document_id'} ne $p_id ||
+            $int_p_number ne $i ||
+            length($p_number) ne 3) {
+            
+            my $new_page = canonical_document_name($current_document) . "-" . zero_pad($i, 3) . $p_ext;
+            my $new_full_page_path = File::Spec->catfile($current_document->{'full_document_path'}, $new_page);
 
             if (-e $new_full_page_path) {
-                die ("unable to rename [$full_page_path] to [$new_full_page_path], destination exists");
+                my_die ("unable to rename [$full_page_path] to [$new_full_page_path], destination exists");
             }
 
-            do_log("fixing $full_page_path -> $new_full_page_path");
-            rename($full_page_path, $new_full_page_path) || die "unable to rename [$full_page_path] to [$new_full_page_path]\n";
+            do_log("renaming $full_page_path -> $new_full_page_path");
+            rename($full_page_path, $new_full_page_path) || my_die "unable to rename [$full_page_path] to [$new_full_page_path]\n";
         }
-
-        #print "$doc_dir $p_archive_type $p_part $p_id $p_ext\n";
     }
 }
