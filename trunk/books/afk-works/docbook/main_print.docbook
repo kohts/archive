@@ -50,6 +50,9 @@
   <!ENTITY of-10141-0062 SYSTEM "of-10141-0062.docbook">
   <!ENTITY of-10141-0064 SYSTEM "of-10141-0064.docbook">
   <!ENTITY of-10141-0065 SYSTEM "of-10141-0065.docbook">
+  <!ENTITY of-10141-0067 SYSTEM "of-10141-0067.docbook">
+
+  <!ENTITY of-10141-0073 SYSTEM "of-10141-0073.docbook">
 
   <!ENTITY of-10141-0105 SYSTEM "of-10141-0105.docbook">
   <!ENTITY of-10141-0111 SYSTEM "of-10141-0111.docbook">
@@ -72,6 +75,7 @@
   
   <!ENTITY of-12430-0007 SYSTEM "of-12430-0007.docbook">
   <!ENTITY of-12430-0014 SYSTEM "of-12430-0014.docbook">
+  <!ENTITY of-12430-0059 SYSTEM "of-12430-0059.docbook">
 
 ]>
 
@@ -161,7 +165,7 @@
 <part id="p3"><title>Полвека лекционно-педагогической практики</title>
 <subtitle>1900 &mdash; 1950</subtitle>
 
-<chapter id="of-10141-0034"><title>Проблемы обучения и воспитания в конкретно-методологическом их рассмотрении</title>&of-10141-0034;</chapter>
+<chapter id="of-10141-0034"><title>Проблемы обучения и воспитания в конкретно-методологическом их рассмотрении</title><subtitle>1940</subtitle>&of-10141-0034;</chapter>
 <chapter id="of-10141-0035"><title>К вопросу о наглядности преподавания в средней школе</title><subtitle>Речь на конференции преподавателей-биологов г. Москвы 6 сентября 1944 в аудитории ГПИ им. Ленина</subtitle>&of-10141-0035;</chapter>
 <chapter id="of-10141-0036"><title>О принципе согласованности в методах учебно-школьного преподавания</title><subtitle>1945</subtitle>&of-10141-0036;</chapter>
 <chapter id="of-10141-0037"><title>Старое и новое в учебно-лекционной практике</title><subtitle>О методике и пользе лекционного преподавания, 1943</subtitle>&of-10141-0037;</chapter>
