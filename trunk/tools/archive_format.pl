@@ -190,7 +190,7 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
     # skip non-directories
     next DOCUMENT unless -d $full_doc_dir;
 
-    if ($doc_dir !~ /^(of|nvf)[\-\ \_](\d+?)[\-\ \_](\d[\d_,;\-\ \.]+)$/) {
+    if ($doc_dir !~ /^(of|nvf|eh)[\-\ \_](\d+?)[\-\ \_](\d[\d_,;\-\ \.]+)$/) {
         print "skipping invalid doc_dir format: [$doc_dir]\n";
         next DOCUMENT;
     }
@@ -338,7 +338,7 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
         # allow underscore in relaxed page name
         # (which is converted below to canonical page id,
         # extracted from document directory name)
-        if ($page !~ /^(of|nvf)[\-\ ](\d+?)[\-\ \_](\d[\d_,;\-\ \.]+?)-(\d+?)(\.jpg)$/) {
+        if ($page !~ /^(of|nvf|eh)[\-\ ](\d+?)[\-\ \_](\d[\d_,;\-\ \.]+?)-(\d+?)(\.jpg)$/) {
             print "skipping invalid page format: [$page]\n";
             next PAGE;
         } 

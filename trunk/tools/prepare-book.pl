@@ -25,6 +25,7 @@ use Data::Dumper;
 my $steps = {
   '1' => { 'filename_stdout_tool' => 'iod/fix_blockqoute_in_para.pl', },
   '2' => { 'filename_stdout_tool' => 'remove_empty_para.pl', },
+  '3' => { 'filename_stdout_tool' => 'replace-dash-with-mdash.pl', },
   };
 
 my $docname = $ARGV[0];
@@ -38,12 +39,12 @@ foreach my $stepnumber (sort keys %{$steps}) {
   my $step = $steps->{$stepnumber};  
 
   if ($step->{'filename_stdout_tool'}) {
-    Yandex::Tools::debug("running step $stepnumber for document $docname");
-
-    my $tool_path = $ENV{'ARCHIVE_HOME'} . "/tools/" . $step->{'filename_stdout_tool'};
+    my $tool_path = $ENV{'ARCHIVE_HOME'} . "/tools/filters/" . $step->{'filename_stdout_tool'};
     if (! -x $tool_path) {
       die "Invalid processing tool: $tool_path";
     }
+
+    Yandex::Tools::debug("running step [$stepnumber] [$tool_path] for document [$docname]");
 
     my $docbook_files = Docbook::Archive::get_document_docbook_files($docname);
     
