@@ -62,12 +62,19 @@
   <!ENTITY of-10141-0092 SYSTEM "of-10141-0092.docbook">
   <!ENTITY of-10141-0093 SYSTEM "of-10141-0093.docbook">
   <!ENTITY of-10141-0095 SYSTEM "of-10141-0095.docbook">
+  <!ENTITY of-10141-0096 SYSTEM "of-10141-0096.docbook">
   <!ENTITY of-10141-0097 SYSTEM "of-10141-0097.docbook">
+  <!ENTITY of-10141-0098_200 SYSTEM "of-10141-0098_200.docbook">
+  <!ENTITY of-10141-0100 SYSTEM "of-10141-0100.docbook">
   
+  <!ENTITY of-10141-0103 SYSTEM "of-10141-0103.docbook">
+  <!ENTITY of-10141-0104 SYSTEM "of-10141-0104.docbook">
   <!ENTITY of-10141-0105 SYSTEM "of-10141-0105.docbook">
   <!ENTITY of-10141-0107 SYSTEM "of-10141-0107.docbook">
+  <!ENTITY of-10141-0109 SYSTEM "of-10141-0109.docbook">
   <!ENTITY of-10141-0111 SYSTEM "of-10141-0111.docbook">
   <!ENTITY of-10141-0112 SYSTEM "of-10141-0112.docbook">
+  <!ENTITY of-10141-0113 SYSTEM "of-10141-0113.docbook">
   <!ENTITY of-10141-0115 SYSTEM "of-10141-0115.docbook">
 
   <!ENTITY of-10141-0458 SYSTEM "of-10141-0458.docbook">  
@@ -212,16 +219,23 @@
 <chapter id="of-10141-0093"><title>Дарвин и Чехов</title><subtitle>Дарвинизм и расизм в отражении чеховского творчества, июнь 1944 (прочитан в МГУ в <quote>Чеховские дни</quote> в 1954</subtitle>&of-10141-0093;</chapter>
 <chapter id="of-10141-0095"><title>Анимализм в свете Дарвина и Гёте</title><subtitle>Доклад на собрании художников в клубе <quote>МОССХА</quote> 19 февраля 1946 года</subtitle>&of-10141-0095;</chapter>
 <chapter id="of-10141-0582"><title>Анимализм в свете Дарвина и Гёте</title><subtitle>Доклад на собрании художников в клубе <quote>МОССХА</quote> 19 февраля 1946 года</subtitle>&of-10141-0582;</chapter>
-<chapter id="of-10141-0630"><title>Дарвинизм в свете Бэкона и Декарта</title><subtitle>1939?</subtitle>&of-10141-0092;</chapter>
+<chapter id="of-10141-0630"><title>Дарвинизм в свете Бэкона и Декарта</title><subtitle>1939?</subtitle>&of-10141-0630;</chapter>
+<chapter id="of-10141-0096"><title>Десять дней в усадьбе А.Н. Комарова</title><subtitle>30 июля 1948</subtitle>&of-10141-0096;</chapter>
 <chapter id="of-10141-0097"><title>Рецензия на диссертацию Н.В. Виноградова <quote>О предшественниках Дарвина и первых дарвинистах России</quote></title><subtitle>Рецензия на диссертацию Н.В. Виноградова, представленную на соискание 
 Ученой Степени <quote>Кандидата Биологических Наук</quote>, 25 ноября 1944</subtitle>&of-10141-0097;</chapter>
+<chapter id="of-10141-0098_200"><title>Отзыва о диссертации К.К. Флёрова <quote>Монографическое описание оленевых</quote></title>&of-10141-0098_200;</chapter>
+<chapter id="of-10141-0100"><title>Речь на открытии вновь восстановленного Палеонтологического Музея Академии Наук</title>&of-10141-0100;</chapter>
 <chapter id="of-10141-0107"><title>Слово старого советского учёного в защиту мира</title><subtitle>Речь, произнесенная 20 августа 1950 года в Останкинском парке культуры и отдыха</subtitle>&of-10141-0107;</chapter>
+<chapter id="of-10141-0109"><title>О Московском Зоосаде в отсвете восьмисотлетия Москвы</title>&of-10141-0109;</chapter>
+<chapter id="of-10141-0113"><title>О принципах экспозиции в Зоосадах и Зоопарках</title>&of-10141-0113;</chapter>
 </part>
 
 
 <part id="p5"><title>Из циклов лекций, читанных в дни ВОВ в подшефных Дарвиновскому Музею госпиталях</title>
-<subtitle>в частности в Эвако-госпитале военной академии им. Фрунзе. 1941-1943.</subtitle>
+<subtitle>в частности в Эвако-госпитале военной академии им. Фрунзе. 1941 &mdash; 1943.</subtitle>
 
+<chapter id="of-10141-0103"><title>Животные и война в историческом обзоре</title>&of-10141-0103;</chapter>
+<chapter id="of-10141-0104"><title>Маскировка у животных и её значение для военной маскировки</title>&of-10141-0104;</chapter>
 <chapter id="of-10141-0105"><title>О боевом коне</title><subtitle>Очерки по истории конницы, 1941 &mdash; 1943</subtitle>&of-10141-0105;</chapter>
 <chapter id="of-10141-0111"><title>К биографии Н.А. Бобринского</title><subtitle>12 апреля 1960 года</subtitle>&of-10141-0111;</chapter>
 <chapter id="of-12497-0589"><title>Война, победа и культура</title><subtitle>Семь выступлений в Госпиталях в Дни Великой Отечественной Войны, 1941 &mdash; 1945</subtitle>&of-12497-0589;</chapter>

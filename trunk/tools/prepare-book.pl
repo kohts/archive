@@ -26,6 +26,7 @@ my $steps = {
   '1' => { 'filename_stdout_tool' => 'iod/fix_blockqoute_in_para.pl', },
   '2' => { 'filename_stdout_tool' => 'remove_empty_para.pl', },
   '3' => { 'filename_stdout_tool' => 'replace-dash-with-mdash.pl', },
+  '4' => { 'filename_stdout_tool' => 'replace-tridot-with-three-dots.pl', },
   };
 
 my $docname = $ARGV[0];
@@ -52,7 +53,7 @@ foreach my $stepnumber (sort keys %{$steps}) {
       my $v = $docbook_files->{$docbook_file};
       
       my $before_processing = Yandex::Tools::read_file_scalar($v->{'absolute_name'});
-      my $processed = Yandex::Tools::run_forked("$tool_path $v->{'absolute_name'}");
+      my $processed = Yandex::Tools::run_forked("$tool_path \"$v->{'absolute_name'}\"");
       if ($processed->{'exit_code'} ne 0) {
         die "Error processing file [$v->{'absolute_name'}]: " . $processed->{'err_msg'};
       }

@@ -13,3 +13,6 @@ Ubuntu 12.04
 http://xmlgraphics.apache.org/fop/
 
 3) get current version of Oracle (Sun) Java - 6/7/8 (?)
+
+4) CPAN modules (for tools):
+  Yandex::Tools
