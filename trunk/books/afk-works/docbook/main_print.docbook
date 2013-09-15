@@ -8,7 +8,7 @@
 </tgroup></informaltable>
  ">
 
-  <!ENTITY of-10141-0001 SYSTEM "of-10141-0001.docbook">
+ <!ENTITY of-10141-0001 SYSTEM "of-10141-0001.docbook">
   <!ENTITY of-10141-0003 SYSTEM "of-10141-0003.docbook">
   <!ENTITY of-10141-0004 SYSTEM "of-10141-0004.docbook">
   <!ENTITY of-10141-0005 SYSTEM "of-10141-0005.docbook">
@@ -52,6 +52,7 @@
   <!ENTITY of-10141-0054 SYSTEM "of-10141-0054.docbook">
   <!ENTITY of-10141-0055 SYSTEM "of-10141-0055.docbook">
   <!ENTITY of-10141-0056 SYSTEM "of-10141-0056.docbook">
+  <!ENTITY of-10141-0059 SYSTEM "of-10141-0059.docbook">
 
   <!ENTITY of-10141-0060 SYSTEM "of-10141-0060.docbook">
   <!ENTITY of-10141-0062 SYSTEM "of-10141-0062.docbook">
@@ -60,6 +61,7 @@
   <!ENTITY of-10141-0067 SYSTEM "of-10141-0067.docbook">
 
   <!ENTITY of-10141-0073 SYSTEM "of-10141-0073.docbook">
+  <!ENTITY of-10141-0076 SYSTEM "of-10141-0076.docbook">
   <!ENTITY of-10141-0079 SYSTEM "of-10141-0079.docbook">
   <!ENTITY of-10141-0080 SYSTEM "of-10141-0080.docbook">
   <!ENTITY of-10141-0081 SYSTEM "of-10141-0081.docbook">
@@ -73,6 +75,7 @@
   <!ENTITY of-10141-0098_200 SYSTEM "of-10141-0098_200.docbook">
   <!ENTITY of-10141-0100 SYSTEM "of-10141-0100.docbook">
   
+  <!ENTITY of-10141-0102 SYSTEM "of-10141-0102.docbook">
   <!ENTITY of-10141-0103 SYSTEM "of-10141-0103.docbook">
   <!ENTITY of-10141-0104 SYSTEM "of-10141-0104.docbook">
   <!ENTITY of-10141-0105 SYSTEM "of-10141-0105.docbook">
@@ -82,6 +85,8 @@
   <!ENTITY of-10141-0112 SYSTEM "of-10141-0112.docbook">
   <!ENTITY of-10141-0113 SYSTEM "of-10141-0113.docbook">
   <!ENTITY of-10141-0115 SYSTEM "of-10141-0115.docbook">
+  <!ENTITY of-10141-0189-288 SYSTEM "of-10141-0189_0288.docbook">
+  <!ENTITY of-10141-0191 SYSTEM "of-10141-0191.docbook">
 
   <!ENTITY of-10141-0458 SYSTEM "of-10141-0458.docbook">  
   <!ENTITY of-10141-0460 SYSTEM "of-10141-0460.docbook">  
@@ -103,11 +108,14 @@
   <!ENTITY of-10141-0630 SYSTEM "of-10141-0630.docbook">
   
   <!ENTITY nvf-2116-0383 SYSTEM "nvf-2116-0383.docbook">
+  <!ENTITY nvf-2116-0498 SYSTEM "nvf-2116-0498.docbook">
   
   <!ENTITY of-12430-0007 SYSTEM "of-12430-0007.docbook">
   <!ENTITY of-12430-0014 SYSTEM "of-12430-0014.docbook">
+  <!ENTITY of-12430-0043 SYSTEM "of-12430-0043.docbook">
   <!ENTITY of-12430-0059 SYSTEM "of-12430-0059.docbook">
 
+  <!ENTITY of-12497-0541 SYSTEM "of-12497-0541.docbook">
   <!ENTITY of-12497-0589 SYSTEM "of-12497-0589.docbook">
 ]>
 
@@ -194,9 +202,15 @@
 <chapter id="of-10141-0067"><title>Жизнь родной природы в отражении творчества большого мастера</title><subtitle>Живописные работы заслуженного деятеля искусств, художника Алексея Никаноровича Комарова для Государственного Дарвиновского Музея</subtitle>&of-10141-0067;</chapter>
 <chapter id="of-10141-0073"><title>Анималист-художник и фаунист-палеонтолог К. К. Флеров и его работы в Государственном Дарвиновском Музее</title><subtitle>1945?</subtitle>&of-10141-0073;</chapter>
 
+<chapter id="of-10141-0191"><title>О работах молодого поколения художников-натуралистов ГДМ</title><subtitle></subtitle>&of-10141-0191;</chapter>
+
+<chapter id="of-10141-0059"><title>Государственный Дарвиновский Музей в Москве</title>&of-10141-0059;</chapter>
 <chapter id="of-10141-0460"><title>О принципах экспозиции и культ-массовой работы Государственного Дарвиновского Музея</title>&of-10141-0460;</chapter>
 
 <chapter id="of-10141-0112"><title>Светлой памяти стоявших некогда у колыбели Дарвиновского музея</title><subtitle>1960</subtitle>&of-10141-0112;</chapter>
+
+<chapter id="of-12430-0043"><title>Из жизни Дарвиновского музея и его основателя</title><subtitle>1960</subtitle>&of-12430-0043;</chapter>
+<chapter id="of-10141-0076"><title>Вместо эпилога</title><subtitle>31 августа 1960</subtitle>&of-10141-0076;</chapter>
 
 </part>
 
@@ -236,6 +250,9 @@
 <chapter id="of-10141-0107"><title>Слово старого советского учёного в защиту мира</title><subtitle>Речь, произнесенная 20 августа 1950 года в Останкинском парке культуры и отдыха</subtitle>&of-10141-0107;</chapter>
 <chapter id="of-10141-0109"><title>О Московском Зоосаде в отсвете восьмисотлетия Москвы</title>&of-10141-0109;</chapter>
 <chapter id="of-10141-0113"><title>О принципах экспозиции в Зоосадах и Зоопарках</title>&of-10141-0113;</chapter>
+<chapter id="of-10141-0102"><title>О задачах музеев в свете решений ЦК ВКПб о повышении идеологической работы</title><subtitle>К заседанию в Институте Музее-краеведческой работы 2 апреля 1948</subtitle>&of-10141-0102;</chapter>
+
+<chapter id="of-10141-0189-288"><title>Некрологи</title>&of-10141-0189-288;</chapter>
 </part>
 
 
@@ -276,6 +293,7 @@
 
 
 <part id="p8"><title>Научная обработка фондовых коллекций Дарвиновского Музея</title>
+<chapter id="nvf-2116-0498"><title>Содержание двух функционирующих зал ГДМ</title><subtitle></subtitle>&nvf-2116-0498;</chapter>
 </part>
 
 </book>
