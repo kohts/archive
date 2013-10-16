@@ -19,6 +19,7 @@ use lib "$ENV{'ARCHIVE_HOME'}/tools/lib";
 use lib "$ENV{'TEST_LIB'}";
 use Docbook::Archive;
 
+use IPC::Cmd;
 use Yandex::Tools;
 use Data::Dumper;
 
@@ -36,6 +37,11 @@ if (! Docbook::Archive::is_valid_document($docname)) {
   die "Not valid document [" . Yandex::Tools::safe_string($docname) . "]";
 }
 
+my $filename_filter;
+if (Yandex::Tools::defined_cmdline_param("filter")) {
+   $filename_filter = Yandex::Tools::get_cmdline_param("filter");
+}
+
 foreach my $stepnumber (sort keys %{$steps}) {
   my $step = $steps->{$stepnumber};  
 
@@ -50,11 +56,15 @@ foreach my $stepnumber (sort keys %{$steps}) {
     my $docbook_files = Docbook::Archive::get_document_docbook_files($docname);
     
     foreach my $docbook_file (keys %{$docbook_files}) {
+      if ($filename_filter && $docbook_file !~ /$filename_filter/) {
+          next;
+      }
+
       my $v = $docbook_files->{$docbook_file};
       
       my $before_processing = Yandex::Tools::read_file_scalar($v->{'absolute_name'});
-      my $processed = Yandex::Tools::run_forked("$tool_path \"$v->{'absolute_name'}\"");
-      if ($processed->{'exit_code'} ne 0) {
+      my $processed = IPC::Cmd::run_forked("$tool_path \"$v->{'absolute_name'}\"");
+      if ($processed->{'exit_code'} ne 0 || $processed->{'stderr'} ne '') {
         die "Error processing file [$v->{'absolute_name'}]: " . $processed->{'err_msg'};
       }
 
