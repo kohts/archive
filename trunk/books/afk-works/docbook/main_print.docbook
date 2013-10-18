@@ -8,7 +8,7 @@
 </tgroup></informaltable>
  ">
 
- <!ENTITY of-10141-0001 SYSTEM "of-10141-0001.docbook">
+  <!ENTITY of-10141-0001 SYSTEM "of-10141-0001.docbook">
   <!ENTITY of-10141-0003 SYSTEM "of-10141-0003.docbook">
   <!ENTITY of-10141-0004 SYSTEM "of-10141-0004.docbook">
   <!ENTITY of-10141-0005 SYSTEM "of-10141-0005.docbook">
@@ -62,10 +62,12 @@
 
   <!ENTITY of-10141-0073 SYSTEM "of-10141-0073.docbook">
   <!ENTITY of-10141-0076 SYSTEM "of-10141-0076.docbook">
+  <!ENTITY of-10141-0077 SYSTEM "of-10141-0077.docbook">
   <!ENTITY of-10141-0079 SYSTEM "of-10141-0079.docbook">
   <!ENTITY of-10141-0080 SYSTEM "of-10141-0080.docbook">
   <!ENTITY of-10141-0081 SYSTEM "of-10141-0081.docbook">
   <!ENTITY of-10141-0087 SYSTEM "of-10141-0087.docbook">
+  <!ENTITY of-10141-0088 SYSTEM "of-10141-0088.docbook">
   <!ENTITY of-10141-0090 SYSTEM "of-10141-0090.docbook">
   <!ENTITY of-10141-0092 SYSTEM "of-10141-0092.docbook">
   <!ENTITY of-10141-0093 SYSTEM "of-10141-0093.docbook">
@@ -87,12 +89,16 @@
   <!ENTITY of-10141-0115 SYSTEM "of-10141-0115.docbook">
   <!ENTITY of-10141-0189-288 SYSTEM "of-10141-0189_0288.docbook">
   <!ENTITY of-10141-0191 SYSTEM "of-10141-0191.docbook">
+  <!ENTITY of-10141-0193-478 SYSTEM "of-10141-0193_0478.docbook">
 
-  <!ENTITY of-10141-0458 SYSTEM "of-10141-0458.docbook">  
-  <!ENTITY of-10141-0460 SYSTEM "of-10141-0460.docbook">  
-  <!ENTITY of-10141-0463 SYSTEM "of-10141-0463.docbook">  
-  <!ENTITY of-10141-0477 SYSTEM "of-10141-0477.docbook">  
-  <!ENTITY of-10141-0479 SYSTEM "of-10141-0479.docbook">  
+  <!ENTITY of-10141-0458 SYSTEM "of-10141-0458.docbook">
+  <!ENTITY of-10141-0460 SYSTEM "of-10141-0460.docbook">
+  <!ENTITY of-10141-0463 SYSTEM "of-10141-0463.docbook">
+  <!ENTITY of-10141-0468 SYSTEM "of-10141-0468.docbook">
+  <!ENTITY of-10141-0475 SYSTEM "of-10141-0475.docbook">
+  <!ENTITY of-10141-0476 SYSTEM "of-10141-0476.docbook">
+  <!ENTITY of-10141-0477 SYSTEM "of-10141-0477.docbook">
+  <!ENTITY of-10141-0479 SYSTEM "of-10141-0479.docbook">
   
   <!ENTITY of-10141-0530 SYSTEM "of-10141-0530.docbook">
   <!ENTITY of-10141-0564 SYSTEM "of-10141-0564.docbook">
@@ -106,12 +112,15 @@
   <!ENTITY of-10141-0627 SYSTEM "of-10141-0627.docbook">
   <!ENTITY of-10141-0628 SYSTEM "of-10141-0628.docbook">
   <!ENTITY of-10141-0630 SYSTEM "of-10141-0630.docbook">
+  <!ENTITY of-10141-0631 SYSTEM "of-10141-0631.docbook">
   
   <!ENTITY nvf-2116-0383 SYSTEM "nvf-2116-0383.docbook">
+  <!ENTITY nvf-2116-0475 SYSTEM "nvf-2116-0475.docbook">
   <!ENTITY nvf-2116-0498 SYSTEM "nvf-2116-0498.docbook">
   
   <!ENTITY of-12430-0007 SYSTEM "of-12430-0007.docbook">
   <!ENTITY of-12430-0014 SYSTEM "of-12430-0014.docbook">
+  <!ENTITY of-12430-0029 SYSTEM "of-12430-0029.docbook">
   <!ENTITY of-12430-0043 SYSTEM "of-12430-0043.docbook">
   <!ENTITY of-12430-0059 SYSTEM "of-12430-0059.docbook">
 
@@ -241,7 +250,6 @@
 <chapter id="of-10141-0093"><title>Дарвин и Чехов</title><subtitle>Дарвинизм и расизм в отражении чеховского творчества, июнь 1944 (прочитан в МГУ в <quote>Чеховские дни</quote> в 1954</subtitle>&of-10141-0093;</chapter>
 <chapter id="of-10141-0095"><title>Анимализм в свете Дарвина и Гёте</title><subtitle>Доклад на собрании художников в клубе <quote>МОССХА</quote> 19 февраля 1946 года</subtitle>&of-10141-0095;</chapter>
 <chapter id="of-10141-0582"><title>Анимализм в свете Дарвина и Гёте</title><subtitle>Доклад на собрании художников в клубе <quote>МОССХА</quote> 19 февраля 1946 года</subtitle>&of-10141-0582;</chapter>
-<chapter id="of-10141-0630"><title>Дарвинизм в свете Бэкона и Декарта</title><subtitle>1939?</subtitle>&of-10141-0630;</chapter>
 <chapter id="of-10141-0096"><title>Десять дней в усадьбе А.Н. Комарова</title><subtitle>30 июля 1948</subtitle>&of-10141-0096;</chapter>
 <chapter id="of-10141-0097"><title>Рецензия на диссертацию Н.В. Виноградова <quote>О предшественниках Дарвина и первых дарвинистах России</quote></title><subtitle>Рецензия на диссертацию Н.В. Виноградова, представленную на соискание 
 Ученой Степени <quote>Кандидата Биологических Наук</quote>, 25 ноября 1944</subtitle>&of-10141-0097;</chapter>
@@ -269,18 +277,32 @@
 
 
 <part id="p6"><title>Лекции и речи по вопросам эволюционного учения и дарвинизма</title>
+<chapter id="of-10141-0077"><title>Величайший биолог Чарльз Дарвин</title>&of-10141-0077;</chapter>
 <chapter id="of-10141-0079"><title>Эволюционное учение и Дарвинизм</title><subtitle>Краткий Очерк в индуктивном и недогматичном изложении</subtitle>&of-10141-0079;</chapter>
 <chapter id="of-10141-0087"><title>К столетию первого очерка Теории Дарвина</title><subtitle>1842&mdash;1942 (20.VI.42)</subtitle>&of-10141-0080;</chapter>
 <chapter id="of-10141-0463"><title>О великих вопрошателях природы</title>&of-10141-0463;</chapter>
 <chapter id="of-10141-0080"><title>Предшественники Дарвина</title><subtitle>1938 &mdash; 1939</subtitle>&of-10141-0080;</chapter>
+<chapter id="nvf-2116-0475"><title>К столетию Дарвинизма</title><subtitle>1858 &mdash; 1958</subtitle>&nvf-2116-0475;</chapter>
 <chapter id="of-10141-0090"><title>Учение Дарвина в кратчайшем изложении</title>&of-10141-0090;</chapter>
 <chapter id="of-10141-0046"><title>Великие биологи как самобытные характеры</title><subtitle>Чему нас могут научить примеры жизни выдающихся ученых (лекция в Дарвиновском Музее для молодежи)</subtitle>&of-10141-0046;</chapter>
+<chapter id="of-10141-0088"><title>Чарльз Дарвин и происхождение видов</title><subtitle>Публичная лекция в Ленинской аудитории МГПИ. 13.XI.1939</subtitle>&of-10141-0088;</chapter>
+
 <chapter id="of-10141-0049"><title>Послесловие к лекции для молодежи (учащимся 9-ых классов)</title><subtitle>1948 &mdash; 1949</subtitle>&of-10141-0049;</chapter>
 
 <chapter id="of-12430-0007"><title>Проблема вида в свете учения о прямом влиянии среды. На изменчивости тетеревиных птиц</title><subtitle>Автореферат. 1951.</subtitle>&of-12430-0007;</chapter>
+<chapter id="of-10141-0475"><title>О теории Дарвина в свете современной генетики, фаунистики и систематики</title><subtitle>Август 1958</subtitle>&of-10141-0475;</chapter>
+<chapter id="of-10141-0476"><title>О мимикрии</title><subtitle>17.IX.1959</subtitle>&of-10141-0476;</chapter>
+
 <chapter id="of-10141-0081"><title>Бигль, Дарвин и Дарвинизм</title><subtitle>Лекция для педагогов, 17 сентября 1939</subtitle>&of-10141-0081;</chapter>
 <chapter id="of-10141-0477"><title>Русский кречет в свете Дарвинизма</title><subtitle>Опубликовано в журнале "Охрана природы", номер 6, 1948, с. 66-79</subtitle>&of-10141-0477;</chapter>
+<chapter id="of-10141-0193-478"><title>Об украшающих окрасках и о половом подборе</title><subtitle>1949</subtitle>&of-10141-0193-478;</chapter>
+<chapter id="of-12430-0029"><title>Zur Kritik der Sexuellen Zuchtwahl</title><subtitle>von Prof. Dr. Alexander E. Kohts. Gr&#0252;nder (1905) und Vorstand des <quote>Museum Darwinianum</quote> in Moskau</subtitle>&of-12430-0029;</chapter>
+
+<chapter id="of-10141-0468"><title>Columbidae: о диких голубях тропического леса</title><subtitle></subtitle>&of-10141-0468;</chapter>
 <chapter id="of-10141-0479"><title>Trochilidae: о колибри в свете Дарвинизма</title><subtitle>1950</subtitle>&of-10141-0479;</chapter>
+
+<chapter id="of-10141-0630"><title>Дарвинизм в свете Бэкона и Декарта</title><subtitle>1939?</subtitle>&of-10141-0630;</chapter>
+<chapter id="of-10141-0631"><title>Томас Генри Гексли</title><subtitle>К полустолетию со дня смерти (29.06.1885 &mdash; 26.06.1945)</subtitle>&of-10141-0631;</chapter>
 
 </part>
 
