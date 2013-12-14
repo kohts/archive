@@ -8,6 +8,7 @@
 </tgroup></informaltable>
  ">
 
+
   <!ENTITY of-10141-0001 SYSTEM "of-10141-0001.docbook">
   <!ENTITY of-10141-0003 SYSTEM "of-10141-0003.docbook">
   <!ENTITY of-10141-0004 SYSTEM "of-10141-0004.docbook">
@@ -25,6 +26,7 @@
   <!ENTITY of-10141-0018 SYSTEM "of-10141-0018.docbook">
   <!ENTITY of-10141-0019 SYSTEM "of-10141-0019.docbook">
 
+  <!ENTITY of-10141-0023 SYSTEM "of-10141-0023.docbook">
   <!ENTITY of-10141-0026 SYSTEM "of-10141-0026.docbook">
 
   <!ENTITY of-10141-0034 SYSTEM "of-10141-0034.docbook">
@@ -95,12 +97,14 @@
   <!ENTITY of-10141-0460 SYSTEM "of-10141-0460.docbook">
   <!ENTITY of-10141-0463 SYSTEM "of-10141-0463.docbook">
   <!ENTITY of-10141-0468 SYSTEM "of-10141-0468.docbook">
+  <!ENTITY of-10141-0471 SYSTEM "of-10141-0471.docbook">
   <!ENTITY of-10141-0475 SYSTEM "of-10141-0475.docbook">
   <!ENTITY of-10141-0476 SYSTEM "of-10141-0476.docbook">
   <!ENTITY of-10141-0477 SYSTEM "of-10141-0477.docbook">
   <!ENTITY of-10141-0479 SYSTEM "of-10141-0479.docbook">
   
   <!ENTITY of-10141-0530 SYSTEM "of-10141-0530.docbook">
+  <!ENTITY of-10141-0546 SYSTEM "of-10141-0546.docbook">
   <!ENTITY of-10141-0564 SYSTEM "of-10141-0564.docbook">
   <!ENTITY of-10141-0582 SYSTEM "of-10141-0582.docbook">
 
@@ -120,7 +124,9 @@
   
   <!ENTITY of-12430-0007 SYSTEM "of-12430-0007.docbook">
   <!ENTITY of-12430-0014 SYSTEM "of-12430-0014.docbook">
+  <!ENTITY of-12430-0016 SYSTEM "of-12430-0016.docbook">
   <!ENTITY of-12430-0029 SYSTEM "of-12430-0029.docbook">
+  <!ENTITY of-12430-0038 SYSTEM "of-12430-0038.docbook">
   <!ENTITY of-12430-0043 SYSTEM "of-12430-0043.docbook">
   <!ENTITY of-12430-0059 SYSTEM "of-12430-0059.docbook">
 
@@ -195,8 +201,10 @@
 <chapter id="of-10141-0054"><title>Тридцать лет работы Дарвиновского Музея и перспективы его деятельности</title><subtitle>Юбилейный отчет. 24 апреля 1940 года.</subtitle>&of-10141-0054;</chapter>
 <chapter id="of-10141-0055"><title>Тридцать пять лет работы Дарвиновского Музея (1905 &mdash; 1940)</title><subtitle>1905 &mdash; 1935</subtitle>&of-10141-0055;</chapter>
 <chapter id="of-10141-0060"><title>К 40-летию Дарвиновского Музея</title>&of-10141-0060;</chapter>
+<chapter id="of-10141-0546"><title>Годовой отчет Государственного Дарвиновского Музея за 1949 год</title>&of-10141-0546;</chapter>
 <chapter id="of-10141-0600"><title>Об ударных и очередных задачах Дарвиновского Музея</title><subtitle>1937?</subtitle>&of-10141-0600;</chapter>
 <chapter id="of-10141-0064"><title>Связь Государственного Дарвиновского Музея с производством</title>&of-10141-0064;</chapter>
+<chapter id="of-12430-0038"><title>Государственный Дарвиновский Музей на переломном этапе своего существования</title><subtitle>Март 1952</subtitle>&of-12430-0038;</chapter>
 
 <chapter id="of-10141-0115"><title>Очерк деятельности музея за 30 лет Советской Власти</title><subtitle>Государственный Дарвиновский Музей, как детище Великого Октября. 1947?</subtitle>&of-10141-0115;</chapter>
 
@@ -254,6 +262,7 @@
 <chapter id="of-10141-0097"><title>Рецензия на диссертацию Н.В. Виноградова <quote>О предшественниках Дарвина и первых дарвинистах России</quote></title><subtitle>Рецензия на диссертацию Н.В. Виноградова, представленную на соискание 
 Ученой Степени <quote>Кандидата Биологических Наук</quote>, 25 ноября 1944</subtitle>&of-10141-0097;</chapter>
 <chapter id="of-10141-0098_200"><title>Отзыва о диссертации К.К. Флёрова <quote>Монографическое описание оленевых</quote></title>&of-10141-0098_200;</chapter>
+<chapter id="of-10141-0023"><title>Отзыв о брошюре проф. Н.Н. Плавильщикова <quote>О научно-просветительской пропаганде в краеведческих музеях</quote></title><subtitle>1947</subtitle>&of-10141-0023;</chapter>
 <chapter id="of-10141-0100"><title>Речь на открытии вновь восстановленного Палеонтологического Музея Академии Наук</title>&of-10141-0100;</chapter>
 <chapter id="of-10141-0107"><title>Слово старого советского учёного в защиту мира</title><subtitle>Речь, произнесенная 20 августа 1950 года в Останкинском парке культуры и отдыха</subtitle>&of-10141-0107;</chapter>
 <chapter id="of-10141-0109"><title>О Московском Зоосаде в отсвете восьмисотлетия Москвы</title>&of-10141-0109;</chapter>
@@ -309,7 +318,9 @@
 
 <part id="p7"><title>Научно-исследовательские работы</title>
 
+<chapter id="of-10141-0471"><title>Проблема вида в свете таксономики и видового дихроматизма птиц</title><subtitle>29 июня 1955</subtitle>&of-10141-0471;</chapter>
 <chapter id="of-12430-0014"><title>Об изменчивости внутривидового ранга</title><subtitle>Цветовые варьететы и географические расы. 1945.</subtitle>&of-12430-0014;</chapter>
+<chapter id="of-12430-0016"><title>О телеидии у млекопитающих и птиц</title>&of-12430-0016;</chapter>
 
 </part>
 

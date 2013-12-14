@@ -73,7 +73,7 @@ ${STAMPS}/pdf: ${STAMPS}/fo
 	cd ${FOP_BASE} && ( if [ ! -h images ] && [ -d ${IMAGES_BASE} ] ; then ln -s ${IMAGES_BASE} images ; fi )
 	cd ${FOP_BASE} && \
 	export FOP_HYPHENATION_PATH=${FOP_BASE}/fop-hyph.jar && \
-	  /root/fop/trunk/fop --execdebug -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF_OUTPUT}
+	  fop -c fop.xconf ${FO_BASE}/index.fo -pdf ${PDF_OUTPUT}
 	mkdir -p ${STAMPS}
 	touch ${STAMPS}/pdf
 
@@ -89,7 +89,7 @@ ${STAMPS}/rtf: ${STAMPS}/fo-rtf
 	cd ${FOP_BASE} && ( if [ ! -h images ] && [ -d ${IMAGES_BASE} ] ; then ln -s ${IMAGES_BASE} images ; fi )
 	cd ${FOP_BASE} && \
 	export FOP_HYPHENATION_PATH=${FOP_BASE}/fop-hyph.jar && \
-	  /root/fop/trunk/fop --execdebug -c fop.xconf ${FO_BASE}/index-rtf.fo -rtf ${RTF_OUTPUT}
+	  /root/fop/trunk/fop -c fop.xconf ${FO_BASE}/index-rtf.fo -rtf ${RTF_OUTPUT}
 	mkdir -p ${STAMPS}
 	touch ${STAMPS}/rtf
 
@@ -102,7 +102,7 @@ ${STAMPS}/txt: ${STAMPS}/fo
 	cd ${FOP_BASE} && ( if [ ! -h images ] && [ -d ${IMAGES_BASE} ] ; then ln -s ${IMAGES_BASE} images ; fi )
 	cd ${FOP_BASE} && \
 	export FOP_HYPHENATION_PATH=${FOP_BASE}/fop-hyph.jar && \
-	  /root/fop/trunk/fop --execdebug -c fop.xconf ${FO_BASE}/index.fo -out text/plain ${TXT_OUTPUT}
+	  /root/fop/trunk/fop -c fop.xconf ${FO_BASE}/index.fo -out text/plain ${TXT_OUTPUT}
 	mkdir -p ${STAMPS}
 	touch ${STAMPS}/txt
 

@@ -1,5 +1,3 @@
-﻿<sect2>
-
 <blockquote>
 <para><quote>А куда рукам и оку проникать возбраняет натура, туда достигать надлежит разумом, что, по моему убеждению, равно великим является</quote>.</para>
 <attribution><emphasis role="bold">Ломоносов</emphasis>.</attribution>
@@ -19,8 +17,7 @@
 
 <para>Моменты статики и динамичности при трактовании видовой проблемы.</para>
 
-<para>
-</para>
+
 
 <para>
 Мнимая трудность различения <emphasis role="bold">Видов</emphasis> от 
@@ -32,8 +29,7 @@
 
 <para>Отрицательная роль бинарных наименований, затемняющих различия изменчивости видовой и внутривидовой.</para>
 
-<para>
-</para>
+
 
 <para>
 Тринарная номенклатура, не всегда уберегающая от смешения понятий Вида и 
@@ -43,8 +39,7 @@
 
 <para>Объективные критерии разграничения этих двух разных категорий: обособленность морфологическая, локальная и половая.</para>
 
-<para>
-</para>
+
 
 <para>
 Зависимость решения видовой проблемы от таксономических оценок изучаемых животных 
@@ -81,8 +76,7 @@
 в той же местности.
 </para>
 
-<para>
-</para>
+
 
 <para>Моменты умозрения при объяснении возникновения сексуального обособления различных фаз диморфных видов.</para>
 
@@ -97,8 +91,7 @@
 отличий.
 </para>
 
-<para>
-</para>
+
 
 <para>Видовой дихроматизм, как реальный довод против догмата полезности, витальной значимости видовых отличий, прокламированных <emphasis role="bold">Дарвином</emphasis>.</para>
 
@@ -799,7 +792,7 @@ Sacra</emphasis>, мы как раз встречаемся с подобным 
 <para>
 Более чем где либо приходится считаться здесь с известным изречением 
 <emphasis role="bold">Линнея</emphasis>, что <quote>не признаки определяют 
-Буьзрфышы кщду=ЭищдвЭЮВидБ.уьзрфышыЮб а вид определяет признакиБ.йгщеуЮю
+<emphasis role="bold">вид</emphasis>, а вид определяет признаки</quote>
 </para>
 
 &liniya;
@@ -818,17 +811,20 @@ Sacra</emphasis>, мы как раз встречаемся с подобным 
 
 <para>
 <orderedlist numeration="upperalpha">
-<listitem><para>Вне свидетельств, доставляемых всей совокупностью наук, проблема <emphasis role="bold">Вида</emphasis> разрешается только частично данными прямого наблюдения.</para>
+<listitem>
+<para>Вне свидетельств, доставляемых всей совокупностью наук, проблема <emphasis role="bold">Вида</emphasis> разрешается только частично данными прямого наблюдения.</para>
 <para>Эти последние двояки:
 <orderedlist numeration="loweralpha">
 <listitem><para>Либо данные географических, локальных форм, сменяющихся в смежно 
 обитаемых районах, форм плодливых при взаимном скрещивании, но взаимно 
 отличающихся признаками <emphasis role="bold">ниже-видового 
-ранга</emphasis>.</para></listitem>
+ранга</emphasis>.</para>
+</listitem>
 <listitem><para>Либо данные дихроматичных видов, хорошо показывающих, как в той же 
 местности возможны уклонения <emphasis role="bold">видового</emphasis> ранга, но 
 вполне плодливые при скрещивании с исходной формой.</para>
-</para><para>Ни одна из этих двух различных форм изменчивости не решает видовой проблемы эмпирически, нуждаясь в привнесении <emphasis role="bold">умозрительного</emphasis> элемента.</para></listitem>
+<para>Ни одна из этих двух различных форм изменчивости не решает видовой проблемы эмпирически,
+нуждаясь в привнесении <emphasis role="bold">умозрительного</emphasis> элемента.</para></listitem>
 </orderedlist>
 
 <orderedlist numeration="loweralpha">
@@ -973,7 +969,7 @@ Sacra</emphasis>, мы как раз встречаемся с подобным 
 <orderedlist>
 <listitem><para>Пять географических форм /рас/ чечеток, трактуемых Хартертом и Джулианом Хаксли, как принадлежащих к двум разным видам:</para>
 <para> (из <quote><emphasis role="bold">Endeavour</emphasis></quote> Volume V, Number 17,1946. p.6. J.S. <emphasis role="bold">Huxley</emphasis> Species and evolution.</para></listitem>
-<listitem><para>Владимирский</quote> дихроматичный выводок Большого Подорлика
+<listitem><para>Владимирский дихроматичный выводок Большого Подорлика
 <orderedlist numeration="loweralpha">
 <listitem><para>Хромистическая морфа,
 <simplelist>
@@ -981,10 +977,10 @@ Sacra</emphasis>, мы как раз встречаемся с подобным 
 <member>Aquila clanga Pallas.</member>
 </simplelist></para></listitem>
 <listitem><para>Обычная, темная. Aquila clanga Pallas</para></listitem>
-</orderedlist></para></listitem>
+</orderedlist>
+</para></listitem>
 <listitem><para><emphasis role="bold">Florida Caerulea L.</emphasis>. Темные (сизые), белые и пестрые особи той же гнездовой колонии. Вест-Индия, Гвиана, Бразилия.</para></listitem>
 <listitem><para><emphasis role="bold">Demiegretta Sacra</emphasis>, Gm. Пример типичного дихроматизма взрослых особей. Бенгальский залив, Малайя, Австралия.</para></listitem>
 <listitem><para><emphasis role="bold">Demiegretta Eulophotes</emphasis> лишь в белом оперении, трактуемая как обособившаяся за счет белой фазы предыдущего вида /Китай/</para></listitem>
 </orderedlist>
 </sect3>
-</sect2>
