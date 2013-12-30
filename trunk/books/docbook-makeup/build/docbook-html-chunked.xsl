@@ -3,7 +3,16 @@
 <xsl:stylesheet version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-  <xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/html/chunk.xsl"/>
+<xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/html/chunk.xsl"/>
+
+<xsl:variable name="archive_id" select="'of-12497-1044'" />
+
+<!-- update this with correct url target when implementing deepzoom -->
+<xsl:template match="ulink[@type='original_page']">
+<!--
+<a href="file://c:/_gdm/raw-afk/{@archive_id}/{@url}"><xsl:value-of select="$archive_id"/>-<xsl:value-of select="@url"/>.jpg</a>
+-->
+</xsl:template>
 
 <xsl:template match="para[@role='details']">
   <p><font size="-1">
