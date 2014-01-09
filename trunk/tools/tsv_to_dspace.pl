@@ -95,6 +95,7 @@ foreach my $line (@{$list}) {
     $doc_name =~ s/\s+$//;
     $doc_name =~ s/\s\,\s/\, /g;
     $doc_name =~ s/\s\:\s/\: /g;
+    $doc_name =~ s/\s\;\s/\; /g;
     $doc_name =~ s/\s\./\./g;
     $doc_name =~ s/\&/\&amp\;/g;
     $doc_name =~ s/\s\s/ /g;
