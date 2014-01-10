@@ -86,29 +86,74 @@ foreach my $line (@{$list}) {
         Carp::confess("unable to write to [" . $dc_filepath . "/dublin_core.xml" . "]");
     binmode $fh1, ':encoding(UTF-8)';
     
+    # the order is important, $doc_name is repeatedly transformed and cropped at the right side
+
     my $doc_name = $line_struct->{'doc_name'};
     $doc_name =~ s/""/"/g;
     $doc_name =~ s/^"//;
     $doc_name =~ s/"$//;
     $doc_name =~ s/^Котс А.Ф.//;
-    $doc_name =~ s/^\s+//;
-    $doc_name =~ s/\s+$//;
     $doc_name =~ s/\s\,\s/\, /g;
     $doc_name =~ s/\s\:\s/\: /g;
     $doc_name =~ s/\s\;\s/\; /g;
     $doc_name =~ s/\s\./\./g;
     $doc_name =~ s/\&/\&amp\;/g;
+    $doc_name =~ s/^\s+//;
+    $doc_name =~ s/\s+$//;
     $doc_name =~ s/\s\s/ /g;
 
-    my $doc_date;
+    if ($doc_name =~ /^(.+)Техника:(.+?)$/) {
+        $doc_name = $1;
+        my $doc_type_extracted = $2;
+        $doc_type_extracted =~ s/\s+$//;
+        $doc_type_extracted =~ s/^\s+?//;
+        $doc_type_extracted =~ s/\s\s/ /g;
+
+        if ($line_struct->{'doc_type'}) {
+            $line_struct->{'doc_type'} .= ", " . $doc_type_extracted;
+        }
+        else {
+            $line_struct->{'doc_type'} = $doc_type_extracted;
+        }
+    }
+    if ($doc_name =~ /^(.+)Описание:(.+?)$/) {
+        $doc_name = $1;
+        my $doc_desc = $2;
+        $doc_desc =~ s/\s+$//;
+        $doc_desc =~ s/^\s+?//;
+        $doc_desc =~ s/\s\s/ /g;
+
+        if ($line_struct->{'doc_desc'}) {
+            $line_struct->{'doc_desc'} .= ", " . $doc_desc;
+        }
+        else {
+            $line_struct->{'doc_desc'} = $doc_desc;
+        }
+    }
+    if ($doc_name =~ /^(.+)Время создания:(.+?)$/) {
+        $doc_name = $1;
+        my $doc_date = $2;
+        $doc_date =~ s/\s+$//;
+        $doc_date =~ s/^\s+?//;
+        $doc_date =~ s/\s\s/ /g;
+
+        if ($line_struct->{'doc_date'}) {
+            $line_struct->{'doc_date'} .= ", " . $doc_date;
+        }
+        else {
+            $line_struct->{'doc_date'} = $doc_date;
+        }
+    }
+
+    $doc_name =~ s/^\s+//;
+    $doc_name =~ s/\s+$//;
+    $doc_name =~ s/\s\s/ /g;
+
     if ($line_struct->{'doc_date'} =~ /^[\[]*(\d\d\d\d)[\]]*$/) {
-        $doc_date = $1;
+        $line_struct->{'doc_date'} = $1;
     }
-    else {
-        $doc_date = $line_struct->{'doc_date'};
-    }
-    if ($doc_date =~ /^\s*$/) {
-        $doc_date = "unknown";
+    if ($line_struct->{'doc_date'} =~ /^\s*$/) {
+        $line_struct->{'doc_date'} = "unknown";
     }
 
     my $collection_identifier;
@@ -135,7 +180,7 @@ foreach my $line (@{$list}) {
   <dcvalue element="contributor" qualifier="author" language="eng">Kohts (Coates), Alexander Erich</dcvalue>
   <dcvalue element="creator" qualifier="none" language="rus">Котс, Александр Федорович</dcvalue>
   <dcvalue element="creator" qualifier="none" language="eng">Kohts (Coates), Alexander Erich</dcvalue>
-  <dcvalue element="date" qualifier="created" language="eng">' . $doc_date . '</dcvalue>' .
+  <dcvalue element="date" qualifier="created" language="eng">' . $line_struct->{'doc_date'} . '</dcvalue>' .
     ($line_struct->{'storage_number'} ? '
   <dcvalue element="identifier" qualifier="other" language="rus">Место хранения: ' . $line_struct->{'storage_number'} . '</dcvalue>' : "") . 
     ($collection_identifier ? '
