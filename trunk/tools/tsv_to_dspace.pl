@@ -24,6 +24,7 @@ Getopt::Long::GetOptionsFromArray(\@ARGV, $o,
     'extract-authors',
     'check-authors',
     'add-items',
+    'add-not-in-map',
     );
 
 Carp::confess("Need --input-file")
@@ -52,6 +53,8 @@ Carp::confess("metadata mode needs --add-items or --map-file")
     if $o->{'output-metadata-tsv'} && ! $o->{'add-items'} && ! $o->{'map-file'};
 Carp::confess("--map-file [$o->{'map-file'}] must exist")
     if $o->{'map-file'} && ! -e $o->{'map-file'};
+Carp::confess("--add-not-in-map is an option of --map-file which was not specified")
+    if $o->{'add-not-in-map'} && !$o->{'map-file'};
 
 if ($o->{'include-collection-ids'}) {
     $o->{'include-collection-ids'} =~ s/-/\//g;
@@ -455,7 +458,13 @@ DOCUMENT: foreach my $line (@{$list}) {
         }
 
         if ($o->{'map-file'} && !$map->{$collection_identifier}) {
-            Carp::confess("unable to find [$collection_identifier] in --map-file");
+            if (!$o->{'add-not-in-map'}) {
+                Carp::confess("unable to find [$collection_identifier] in --map-file");
+            }
+            else {
+                $o->{'prev_add-items'} = $o->{'add-items'};
+                $o->{'add-items'} = 1;
+            }
         }
         
         my $record = [
@@ -502,6 +511,11 @@ DOCUMENT: foreach my $line (@{$list}) {
         print $output_fh join(",",
             map {my $s = $_ ; $s =~ s/"/""/g; '"' . $s . '"'} @{$record}
             ) . "\n";
+
+        if ($o->{'prev_add-items'}) {
+            $o->{'add-items'} = $o->{'prev_add-items'};
+            delete($o->{'prev_add-items'});
+        }
     }
 }
 
