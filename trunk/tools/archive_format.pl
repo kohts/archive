@@ -268,6 +268,7 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
             # give description file canonical name
             my ($name, $ext) = ($page =~ /^(.+)(\..+)$/);
 
+
             if ($name ne canonical_document_name($current_document)) {
                 my $new_desc_name = canonical_document_name($current_document) . $ext;
                 my $new_full_page_path = File::Spec->catfile($current_document->{'full_document_path'}, $new_desc_name);
@@ -338,6 +339,10 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
         }
         foreach my $old_path_tmp (sort keys %{$page_renames->{'tmp_old_to_new'}}) {
             my $rename_struct = $page_renames->{'tmp_old_to_new'}->{$old_path_tmp};
+
+            Carp::confess("Unable to rename [$old_path_tmp], not going to overwrite [$rename_struct->{'new_path'}]")
+                if -e $rename_struct->{'new_path'};
+            
             rename($old_path_tmp, $rename_struct->{'new_path'}) || Carp::confess("unable to rename [$old_path_tmp] to [$rename_struct->{'new_path'}]");
             do_log("renamed $rename_struct->{'old_path'} -> $rename_struct->{'new_path'}");
         }
