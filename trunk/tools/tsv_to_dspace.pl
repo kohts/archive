@@ -3,14 +3,24 @@
 use strict;
 use warnings;
 
-$| = 1;
 use utf8;
 use Data::Dumper;
+$Data::Dumper::Useqq = 1;
+{
+    no warnings 'redefine';
+    sub Data::Dumper::qquote {
+        my $s = shift;
+        return "'$s'";
+    }
+}
+
 use IPC::Cmd;
 use Getopt::Long;
 use Carp;
 use File::Path;
 use Text::CSV::Hashify;
+
+$| = 1;
 
 binmode STDOUT, ':encoding(UTF-8)';
 my $o = {};
@@ -25,6 +35,11 @@ Getopt::Long::GetOptionsFromArray(\@ARGV, $o,
     'check-authors',
     'add-items',
     'add-not-in-map',
+    'dump-titles',
+    'dump-tsv-raw',
+    'dump-tsv-struct',
+    'dump-storage-stats',
+    'dump-titles-by-storage-number=s',
     );
 
 Carp::confess("Need --input-file")
@@ -34,8 +49,15 @@ Carp::confess("--extract-authors and --check-authors are mutually exclusive")
 Carp::confess("--extract-authors|--check-authors mode needs only --input-file")
     if ($o->{'extract-authors'} || $o->{'check-authors'}) &&
        ($o->{'output-dir'} || $o->{'output-metadata-tsv'} || $o->{'target-collection-handle'});
-Carp::confess("Need --output-dir or --output-metadata-tsv")
-    unless $o->{'check-authors'} || $o->{'extract-authors'} || $o->{'output-dir'} || $o->{'output-metadata-tsv'};
+
+Carp::confess("Need one of: --output-dir, --output-metadata-tsv, --check-authors, --extract-authors, " .
+    "--dump-titles, --dump-tsv-raw, --dump-tsv-struct, --dump-storage-stats")
+    unless
+        $o->{'check-authors'} || $o->{'extract-authors'} ||
+        $o->{'output-dir'} || $o->{'output-metadata-tsv'} ||
+        $o->{'dump-titles'} || $o->{'dump-tsv-raw'} || $o->{'dump-tsv-struct'} ||
+        $o->{'dump-storage-stats'} || $o->{'dump-titles-by-storage-number'};
+
 Carp::confess("--output-dir and --output-metadata-tsv are mutually exclusive")
     if $o->{'output-dir'} && $o->{'output-metadata-tsv'};
 Carp::confess("Output directory [$o->{'output-dir'}] must not exist")
@@ -134,12 +156,14 @@ my $description_labels = {
     };
 my $authors_canonical = {
 "Barlow N." => [
-    {"name" => "Emma Nora Barlow", "lang" => "eng"},
+    {"name" => "Barlow, Emma Nora", "lang" => "eng"},
     ],
 "Edwards W.N." => [
-    {"name" => "Wilfred Norman Edwards", "lang" => "eng"},
+    {"name" => "Edwards, Wilfred Norman", "lang" => "eng"},
     ],
-"Артоболевский В.М." => ["Владимир Михайлович Артоболевский", ],
+"Артоболевский В.М." => [
+    "Артоболевский, Владимир Михайлович",
+    ],
 "Белоголовый Ю.А." => [],
 "Берг А.Н." => [],
 "Биашвили В.Я." => [],
@@ -158,28 +182,31 @@ my $authors_canonical = {
 "Железнякова О.У." => [],
 "Житков Б.М." => [],
 "Завадовский Б.М." => [],
+"Захаров В." => [],
 "Игнатьева В.Н." => [],
 "Кожевников Г.А." => [],
 "Конёнкова М.И." => [],
 "Конюс А.Г." => [],
 "Котс А." => [
-    "Александр Федорович Котс",
-    {"name" => "Alexander Erich Kohts (Coates)", "lang" => "eng"},
+    "Котс, Александр Федорович",
+    {"name" => "Kohts (Coates), Alexander Erich", "lang" => "eng"},
     ],
-"Котс А.Р." => ["Александр Рудольфович Котс"],
+"Котс А.Р." => ["Котс, Александр Рудольфович"],
 "Котс А.Ф." => [
-    "Александр Федорович Котс",
-    {"name" => "Alexander Erich Kohts (Coates)", "lang" => "eng"},
+    "Котс, Александр Федорович",
+    {"name" => "Kohts (Coates), Alexander Erich", "lang" => "eng"},
     ],
 "Котс Р.А." => [
-    "Рудольф Александрович Котс",
-    {"name" => "Rudolf (Roody) Alfred Kohts", "lang" => "eng"},
+    "Котс, Рудольф Александрович",
+    {"name" => "Kohts, Rudolf (Roody) Alfred", "lang" => "eng"},
     ],
-"Крупская Н.К." => [],
+"Крупская Н.К." => [
+    "Крупская, Надежда Константиновна",
+    ],
 "Крушинский Л.В." => [],
 "Ладыгина - Котс Н.Н." => [
-    "Надежда Николаевна Ладыгина-Котс",
-    {"name" => "Nadezhda Ladygina-Kohts", "lang" => "eng"},
+    "Ладыгина-Котс, Надежда Николаевна",
+    {"name" => "Ladygina-Kohts, Nadezhda Nikolaevna", "lang" => "eng"},
     ],
 "Лоренц Ф.К." => [],
 "Малахова М.Ф." => [],
@@ -216,8 +243,7 @@ my $authors_canonical = {
     };
 
 # find dspace handle by afk_status_of_nvf_number
-my $map = {
-    };
+my $map = {};
 if ($o->{'map-file'}) {
     my $map_hash = Text::CSV::Hashify->new({
         'file' => $o->{'map-file'},
@@ -243,24 +269,84 @@ if ($o->{'map-file'}) {
     }
 }
 
-my $id = 0;
+my $in_doc_struct = {
+    'title_line' => {},
+    'array' => [],
+    'by_line_number' => {},
+    'by_storage_number' => {},
+    'total_input_lines' => 0,
+    };
 
-DOCUMENT: foreach my $line (@{$list}) {
-    my $line_array = [split("\t", $line, -1)];
-    my $line_struct = {};
+TSV_LINE: foreach my $line (@{$list}) {
+    $in_doc_struct->{'total_input_lines'}++;
+
+    my $line_struct = {
+        'array' => [split("\t", $line, -1)],
+        'by_field_name' => {},
+        };
+
     my $i = 0;
-    foreach my $fvalue (@{$line_array}) {
-        $line_struct->{$afk_status_def->[$i]} = $fvalue;
+    foreach my $fvalue (@{$line_struct->{'array'}}) {
+        $fvalue =~ s/\s+$//s;
+        $line_struct->{'by_field_name'}->{$afk_status_def->[$i]} = $fvalue;
         $i++;
+    }
+    if ($o->{'dump-tsv-raw'}) {
+        print Data::Dumper::Dumper($line_struct);
+        next TSV_LINE;
     }
 
     # skip title
-    next if $line_struct->{'date_of_status'} eq 'date of status';
+    if ($line_struct->{'by_field_name'}->{'date_of_status'} eq 'date of status') {
+        if ($in_doc_struct->{'total_input_lines'} ne 1) {
+            Carp::confess("Unexpected title line on the line number [$in_doc_struct->{'total_input_lines'}]");
+        }
 
-    $id++;
+        $in_doc_struct->{'title_line'} = $line_struct;
+        next TSV_LINE;
+    }
+
+    push @{$in_doc_struct->{'array'}}, $line_struct;
+    $in_doc_struct->{'by_line_number'}->{$in_doc_struct->{'total_input_lines'}} = $line_struct;
+
+    if ($line_struct->{'by_field_name'}->{'storage_number'}) {
+        my $storage_struct = $in_doc_struct->{'by_storage_number'}->{$line_struct->{'by_field_name'}->{'storage_number'}} // [];
+        push @{$storage_struct}, $line_struct;
+        $in_doc_struct->{'by_storage_number'}->{$line_struct->{'by_field_name'}->{'storage_number'}} = $storage_struct;
+    }
+}
+
+if ($o->{'dump-tsv-struct'}) {
+    print Data::Dumper::Dumper($in_doc_struct);
+    print "total number of lines: " . $in_doc_struct->{'total_input_lines'} . "\n";
+    print "total data lines: " . scalar(@{$in_doc_struct->{'array'}}) . "\n";
+    print "total number of storage items: " . scalar(keys %{$in_doc_struct->{'by_storage_number'}}) . "\n";
+    exit;
+}
+if ($o->{'dump-storage-stats'}) {
+    foreach my $storage_number (sort {$a <=> $b} keys %{$in_doc_struct->{'by_storage_number'}}) {
+        my $storage_items = scalar(@{$in_doc_struct->{'by_storage_number'}->{$storage_number}});
+        print "storage number $storage_number: " . $storage_items . " item" .
+            ($storage_items > 1 ? "s" : "") . "\n";
+    }
+    exit;
+}
+if ($o->{'dump-titles-by-storage-number'}) {
+    if (defined($in_doc_struct->{'by_storage_number'}->{$o->{'dump-titles-by-storage-number'}})) {
+        foreach my $item (@{$in_doc_struct->{'by_storage_number'}->{$o->{'dump-titles-by-storage-number'}}}) {
+            print $item->{'by_field_name'}->{'doc_name'} . "\n";
+        }
+    } else {
+        Carp::confess("No storage number [$o->{'dump-titles-by-storage-number'}] found");
+    }
+}
+
+my $line_number = 0;
+LINE_STRUCT: foreach my $line_struct (@{$in_doc_struct->{'array'}}) {
+    $line_number++;
 
     # the order is important, $doc_name is repeatedly transformed and cropped at the right side
-    my $doc_name = $line_struct->{'doc_name'};
+    my $doc_name = $line_struct->{'by_field_name'}->{'doc_name'};
     $doc_name =~ s/""/"/g;
     $doc_name =~ s/^"//;
     $doc_name =~ s/"$//;
@@ -281,11 +367,11 @@ DOCUMENT: foreach my $line (@{$list}) {
         $doc_type_extracted =~ s/^\s+?//;
         $doc_type_extracted =~ s/\s\s/ /g;
 
-        if ($line_struct->{'doc_type'}) {
-            $line_struct->{'doc_type'} .= ", " . $doc_type_extracted;
+        if ($line_struct->{'by_field_name'}->{'doc_type'}) {
+            $line_struct->{'by_field_name'}->{'doc_type'} .= ", " . $doc_type_extracted;
         }       
         else {
-            $line_struct->{'doc_type'} = $doc_type_extracted;
+            $line_struct->{'by_field_name'}->{'doc_type'} = $doc_type_extracted;
         }
     }
     if ($doc_name =~ /^(.+)Описание:(.+?)$/) {
@@ -295,11 +381,11 @@ DOCUMENT: foreach my $line (@{$list}) {
         $doc_desc =~ s/^\s+?//;
         $doc_desc =~ s/\s\s/ /g;
 
-        if ($line_struct->{'doc_desc'}) {
-            $line_struct->{'doc_desc'} .= ", " . $doc_desc;
+        if ($line_struct->{'by_field_name'}->{'doc_desc'}) {
+            $line_struct->{'by_field_name'}->{'doc_desc'} .= ", " . $doc_desc;
         }
         else {
-            $line_struct->{'doc_desc'} = $doc_desc;
+            $line_struct->{'by_field_name'}->{'doc_desc'} = $doc_desc;
         }
     }
     if ($doc_name =~ /^(.+)Время создания:(.+?)$/) {
@@ -309,18 +395,17 @@ DOCUMENT: foreach my $line (@{$list}) {
         $doc_date =~ s/^\s+?//;
         $doc_date =~ s/\s\s/ /g;
 
-        if ($line_struct->{'doc_date'}) {
-            $line_struct->{'doc_date'} .= ", " . $doc_date;
-        }
-        else {
-            $line_struct->{'doc_date'} = $doc_date;
+        if ($line_struct->{'by_field_name'}->{'doc_date'}) {
+            $line_struct->{'by_field_name'}->{'doc_date'} .= ", " . $doc_date;
+        } else {
+            $line_struct->{'by_field_name'}->{'doc_date'} = $doc_date;
         }
     }
     
     my $doc_authors = [];
-    while ($doc_name && $doc_name =~ /^Автор:\s([Нн]еизвестный\sавтор|Ладыгина\s\-\sКотс\sН.\s?Н.|[^\s]+?\s+?([^\s]?\.?\s?[^\s]?\.?|))(\s|,)(.+)$/) {
+    while ($doc_name && $doc_name =~ /^Автор:\s([Нн]еизвестный\sавтор|Ладыгина\s*?\-\s*?Котс\s?Н.\s?Н.|[^\s]+?\s+?([^\s]?\.?\s?[^\s]?\.?|))(\s|,)(.+)$/) {
         my $author = $1;
-        $doc_name = $3;
+        $doc_name = $4;
         
         if ($o->{'extract-authors'}) {
             print $1 . "\n";
@@ -342,7 +427,12 @@ DOCUMENT: foreach my $line (@{$list}) {
                 }
             }
             else {
-                push @{$doc_authors}, {"name" => $author, "lang" => "rus"};
+                if ($author =~ /^([^\.]+?)\s+?(.*)$/) {
+                    my ($lastname, $othername) = ($1, $2);
+                    push @{$doc_authors}, {"name" => $lastname . ", " . $othername, "lang" => "rus"};
+                } else {
+                    push @{$doc_authors}, {"name" => $author, "lang" => "rus"};
+                }
             }
         }
     }
@@ -354,21 +444,20 @@ DOCUMENT: foreach my $line (@{$list}) {
     $doc_name =~ s/\s+$//;
     $doc_name =~ s/\s\s/ /g;
 
-    if ($line_struct->{'doc_date'} =~ /^[\[]*(\d\d\d\d)[\]]*$/) {
-        $line_struct->{'doc_date'} = $1;
+    if ($line_struct->{'by_field_name'}->{'doc_date'} =~ /^[\[]*(\d\d\d\d)[\]]*$/) {
+        $line_struct->{'by_field_name'}->{'doc_date'} = $1;
     }
-    if ($line_struct->{'doc_date'} =~ /^\s*$/) {
-        $line_struct->{'doc_date'} = "unknown";
+    if ($line_struct->{'by_field_name'}->{'doc_date'} =~ /^\s*$/) {
+        $line_struct->{'by_field_name'}->{'doc_date'} = "unknown";
     }
 
     my $collection_identifier;
-    if ($line_struct->{'of_number'}) {
-        $collection_identifier = "ОФ-" . $line_struct->{'of_number'} .
-            ($line_struct->{'number_suffix'} ? "/" . $line_struct->{'number_suffix'} : "");
-    }
-    elsif ($line_struct->{'nvf_number'}) {
-        $collection_identifier = "НВФ-" . $line_struct->{'nvf_number'} .
-            ($line_struct->{'number_suffix'} ? "/" . $line_struct->{'number_suffix'} : "");
+    if ($line_struct->{'by_field_name'}->{'of_number'}) {
+        $collection_identifier = "ОФ-" . $line_struct->{'by_field_name'}->{'of_number'} .
+            ($line_struct->{'by_field_name'}->{'number_suffix'} ? "/" . $line_struct->{'by_field_name'}->{'number_suffix'} : "");
+    } elsif ($line_struct->{'by_field_name'}->{'nvf_number'}) {
+        $collection_identifier = "НВФ-" . $line_struct->{'by_field_name'}->{'nvf_number'} .
+            ($line_struct->{'by_field_name'}->{'number_suffix'} ? "/" . $line_struct->{'by_field_name'}->{'number_suffix'} : "");
     }
 #    else {
 #        Carp::confess("No of_number and no nvf_number: " . Data::Dumper::Dumper($line_struct));
@@ -378,13 +467,11 @@ DOCUMENT: foreach my $line (@{$list}) {
     if ($o->{'include-collection-ids'}) {
         if ($collection_identifier) {
             if ($o->{'include-collection-ids'} !~ /\b$collection_identifier\b/) {
-                next DOCUMENT;
+                next LINE_STRUCT;
+            } else {
             }
-            else {
-            }
-        }
-        else {
-            next DOCUMENT;
+        } else {
+            next LINE_STRUCT;
         }
     }
 
@@ -393,13 +480,13 @@ DOCUMENT: foreach my $line (@{$list}) {
     if ($o->{'output-dir'}) {
         my $descriptions = [];
         foreach my $f (qw/doc_property_full doc_property_genuine doc_type doc_desc/) {
-            if ($line_struct->{$f} && $line_struct->{$f} !~ /^\s*$/) {
+            if ($line_struct->{'by_field_name'}->{$f} && $line_struct->{'by_field_name'}->{$f} !~ /^\s*$/) {
                 push @{$descriptions}, '
-  <dcvalue element="description" qualifier="none" language="rus">' . $description_labels->{$f} . $line_struct->{$f} . '</dcvalue>';
+  <dcvalue element="description" qualifier="none" language="rus">' . $description_labels->{$f} . $line_struct->{'by_field_name'}->{$f} . '</dcvalue>';
             }
         }
 
-        my $dc_filepath = $o->{'output-dir'} . "/" . sprintf("%05d", $id);
+        my $dc_filepath = $o->{'output-dir'} . "/" . sprintf("%05d", $line_number);
         File::Path::make_path($dc_filepath);
         open($output_fh, ">" . $dc_filepath . "/dublin_core.xml") ||
             Carp::confess("unable to write to [" . $dc_filepath . "/dublin_core.xml" . "]");
@@ -414,9 +501,9 @@ DOCUMENT: foreach my $line (@{$list}) {
 
         print $output_fh '<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <dublin_core schema="dc">' . $author_xml . '
-  <dcvalue element="date" qualifier="created" language="eng">' . $line_struct->{'doc_date'} . '</dcvalue>' .
-    ($line_struct->{'storage_number'} ? '
-  <dcvalue element="identifier" qualifier="other" language="rus">Место хранения: ' . $line_struct->{'storage_number'} . '</dcvalue>' : "") . 
+  <dcvalue element="date" qualifier="created" language="eng">' . $line_struct->{'by_field_name'}->{'doc_date'} . '</dcvalue>' .
+    ($line_struct->{'by_field_name'}->{'storage_number'} ? '
+  <dcvalue element="identifier" qualifier="other" language="rus">Место хранения: ' . $line_struct->{'by_field_name'}->{'storage_number'} . '</dcvalue>' : "") . 
     ($collection_identifier ? '
   <dcvalue element="identifier" qualifier="other" language="rus">' . $collection_identifier . '</dcvalue>' : "") .
     join("", @{$descriptions}) . '
@@ -429,8 +516,7 @@ DOCUMENT: foreach my $line (@{$list}) {
 </dublin_core>
 ';
         close($output_fh);
-    }
-    elsif ($o->{'output-metadata-tsv'}) {
+    } elsif ($o->{'output-metadata-tsv'}) {
         my $author_rus = [];
         my $author_eng = [];
         foreach my $a (@{$doc_authors}) {
@@ -444,14 +530,14 @@ DOCUMENT: foreach my $line (@{$list}) {
 
         my $descriptions = [];
         foreach my $f (qw/doc_property_full doc_property_genuine doc_type doc_desc/) {
-            if ($line_struct->{$f} && $line_struct->{$f} !~ /^\s*$/) {
-                push @{$descriptions}, $description_labels->{$f} . $line_struct->{$f};
+            if ($line_struct->{'by_field_name'}->{$f} && $line_struct->{'by_field_name'}->{$f} !~ /^\s*$/) {
+                push @{$descriptions}, $description_labels->{$f} . $line_struct->{'by_field_name'}->{$f};
             }
         }
 
         my $identifiers = [];
-        if ($line_struct->{'storage_number'}) {
-            push @{$identifiers}, "Место хранения: " . $line_struct->{'storage_number'};
+        if ($line_struct->{'by_field_name'}->{'storage_number'}) {
+            push @{$identifiers}, "Место хранения: " . $line_struct->{'by_field_name'}->{'storage_number'};
         }
         if ($collection_identifier) {
             push @{$identifiers}, $collection_identifier;
@@ -485,7 +571,7 @@ DOCUMENT: foreach my $line (@{$list}) {
             #dc.date.available,
             ($o->{'add-items'} ? "" : $map->{$collection_identifier}->{'orig_obj'}->{'dc.date.available'}),
             #dc.date.created[eng],
-            $line_struct->{'doc_date'},
+            $line_struct->{'by_field_name'}->{'doc_date'},
             #dc.description.provenance[en],
             ($o->{'add-items'} ? "" : $map->{$collection_identifier}->{'orig_obj'}->{'dc.description.provenance[en]'}),
             #dc.description[rus],
@@ -516,6 +602,8 @@ DOCUMENT: foreach my $line (@{$list}) {
             $o->{'add-items'} = $o->{'prev_add-items'};
             delete($o->{'prev_add-items'});
         }
+    } elsif ($o->{'dump-titles'}) {
+        print $doc_name . "\n";
     }
 }
 
