@@ -12,69 +12,12 @@
 use strict;
 use warnings;
 
+use Carp;
 use Data::Dumper;
 use File::Spec;
 use File::Basename;
 
 $| = 1;
-
-# returns nicely formatted callstack
-#
-sub get_callstack {
-  my $cstack;
-  my $i = 0;
-  while ( 1 ) {
-    my @caller_arr = caller($i);
-    
-    my $filename = $caller_arr[1];
-    my $tline = $caller_arr[2];
-    my $tfunc = $caller_arr[3];
-
-    if (defined($tfunc) && $tfunc ne "") {
-      if (
-#        $tfunc !~ /\_\_ANON\_\_/ &&
-        $tfunc !~ /.*::get_callstack/) {
-
-        my $called = "";
-        if ($filename && $filename ne '/dev/null') {
-          $called .= ", called in $filename";
-
-          if (defined($tline)) {
-            $called .= " line $tline";
-          }
-        }
-        $cstack .= "\t" . $tfunc . $called . "\n";
-      }
-      $i = $i + 1;
-    }
-    else {
-      last;
-    }
-  }
-
-  # following line is matched with regexp in Magic::Task,
-  # update in both places if needed
-  return "\nCallstack:\n" . $cstack . "\n";
-}
-
-sub my_die {
-    my ($message, $opts) = @_;
-
-    $opts //= {};
-
-    my $msg = $message;
-
-    if (!$opts->{'suppress_callstack'}) {
-        $msg .= get_callstack();
-    }
-
-    # You can assign a number to $! to set errno if, for instance,
-    # you want "$!"  to return the string for error n, or you want to set
-    # the exit value for the die() operator. (Mnemonic: What just went bang?)
-    $! = 1;
-
-    CORE::die $msg;
-}
 
 sub zero_pad {
     my ($v, $length) = @_;
@@ -84,7 +27,7 @@ sub zero_pad {
     $length = 2 unless $length;
     
     if (length($v) > $length) {
-        my_die("unable to pad string [$v] to length [$length] as it is longer");
+        Carp::confess("unable to pad string [$v] to length [$length] as it is longer");
     }
     
     while (length($v) < $length) {
@@ -107,7 +50,7 @@ sub read_dir {
             return 0;
         }
         else {
-            my_die("ERROR: unable to open directory [$dirname]");
+            Carp::confess("ERROR: unable to open directory [$dirname]");
         }
     }
 
@@ -153,7 +96,7 @@ sub do_log {
     $opts = {} unless $opts;
     $opts->{'log_file'} = $main::log_file unless $opts->{'log_file'};
 
-    my_die("unable to write to [$opts->{'log_file'}]") if -f $opts->{'log_file'} && ! -w $opts->{'log_file'};
+    Carp::confess("unable to write to [$opts->{'log_file'}]") if -f $opts->{'log_file'} && ! -w $opts->{'log_file'};
 
     my $log_msg = $msg;
     $log_msg =~ s/[\r\n]/ /g;
@@ -162,7 +105,7 @@ sub do_log {
     print $log_msg;
 
     my $fh;
-    open($fh, ">>" . $opts->{'log_file'}) || my_die ("unable to open for append [$opts->{'log_file'}]");
+    open($fh, ">>" . $opts->{'log_file'}) || Carp::confess ("unable to open for append [$opts->{'log_file'}]");
     print $fh $log_msg;
     close($fh);
 }
@@ -173,12 +116,12 @@ sub canonical_document_name {
 }
 
 if (!$ARGV[0]) {
-    my_die("need archive directory\n");
+    Carp::confess("need archive directory\n");
 }
 
 my $archive_dir = $ARGV[0];
 if (! -d $archive_dir) {
-    my_die "not a directory: [$archive_dir]";
+    Carp::confess("not a directory: [$archive_dir]");
 }
 
 $main::log_file = File::Spec->catfile($archive_dir, basename($0) . ".log");
@@ -207,16 +150,16 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
     my $change_document_path = sub {
         my ($opts) = @_;
         $opts = {} unless $opts;
-        my_die "Need document" unless $opts->{'document'};
-        my_die "Need new path" unless $opts->{'new_path'};
+        Carp::confess("Need document") unless $opts->{'document'};
+        Carp::confess("Need new path") unless $opts->{'new_path'};
 
         if (-d $opts->{'new_path'}) {
-            my_die("unable to rename [$opts->{'document'}->{'full_document_path'}] to new name: directory [$opts->{'new_path'}] exists!");
+            Carp::confess("unable to rename [$opts->{'document'}->{'full_document_path'}] to new name: directory [$opts->{'new_path'}] exists!");
         }
 
         do_log("renaming $opts->{'document'}->{'full_document_path'} -> $opts->{'new_path'}");
         rename ($opts->{'document'}->{'full_document_path'}, $opts->{'new_path'}) ||
-            my_die "unable to rename [$opts->{'document'}->{'full_document_path'}] to [$opts->{'new_path'}]: $!";
+            Carp::confess("unable to rename [$opts->{'document'}->{'full_document_path'}] to [$opts->{'new_path'}]: $!");
       
         $opts->{'document'}->{'full_document_path'} = $opts->{'new_path'};
     };
@@ -224,8 +167,8 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
     my $change_document_id = sub {
         my ($opts) = @_;
         $opts = {} unless $opts;
-        my_die "Need document" unless $opts->{'document'};
-        my_die "Need new id" unless $opts->{'new_id'};
+        Carp::confess("Need document") unless $opts->{'document'};
+        Carp::confess("Need new id") unless $opts->{'new_id'};
       
         my $new_doc_dir = File::Spec->catfile(
             $opts->{'document'}->{'archive_dir'},
@@ -287,6 +230,14 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
     # check page names inside document directory
     my $pages = read_dir($current_document->{'full_document_path'});
     my $i = 0;
+    
+    my $page_renames = {
+        # old page "path/filename" -> new page "path/filename"
+        'old_to_new' => {},
+        'new_from_old' => {},
+        'tmp_old_to_new' => {},
+        };
+
     PAGE: foreach my $page (@{$pages}) {
 
         my $full_page_path = File::Spec->catfile($current_document->{'full_document_path'}, $page);
@@ -294,6 +245,7 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
         # remove temporary files
         if ($page eq "Thumbs.db") {
             unlink($full_page_path);
+            do_log("removed garbage $full_page_path");
             next;
         }
 
@@ -307,7 +259,7 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
             if ($full_page_path =~ /\.txt\.txt/) {
                 my $new_full_page_path = $full_page_path;
                 $new_full_page_path =~ s/\.txt//;
-                rename ($full_page_path, $new_full_page_path) || my_die "unable to rename [$full_page_path] to [$new_full_page_path]: $!";
+                rename ($full_page_path, $new_full_page_path) || Carp::confess("unable to rename [$full_page_path] to [$new_full_page_path]: $!");
                 do_log("fixing $full_page_path -> $new_full_page_path");
                 $full_page_path = $new_full_page_path;
                 $page =~ s/\.txt//;
@@ -315,6 +267,7 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
 
             # give description file canonical name
             my ($name, $ext) = ($page =~ /^(.+)(\..+)$/);
+
 
             if ($name ne canonical_document_name($current_document)) {
                 my $new_desc_name = canonical_document_name($current_document) . $ext;
@@ -327,7 +280,7 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
 
                 do_log("fixing $full_page_path -> $new_full_page_path");
 
-                rename ($full_page_path, $new_full_page_path) || my_die "unable to rename [$full_page_path] to [$new_full_page_path]";
+                rename ($full_page_path, $new_full_page_path) || Carp::confess("unable to rename [$full_page_path] to [$new_full_page_path]");
                 $full_page_path = $new_full_page_path;
                 $page = $new_desc_name;
             }
@@ -338,33 +291,60 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
         # allow underscore in relaxed page name
         # (which is converted below to canonical page id,
         # extracted from document directory name)
-        if ($page !~ /^(of|nvf|eh)[\-\ ](\d+?)[\-\ \_](\d[\d_,;\-\ \.]*?)-(\d+?)(\.jpg)$/) {
+        if ($page !~ /^(of|nvf|eh)[\-\ ](\d+?)[\-\ \_](\d[\d_,;\-\ \.]*?)-([\d_]+?)(\.jpg)$/) {
             print "skipping invalid page format: [$page]\n";
             next PAGE;
-        } 
+        }
+
+#        my ($p_archive_type, $p_delim_1, $p_part, $p_id, $p_number, $p_ext) = ($1, $2, $3, $4, $5, $6);
+        my $p_parsed = {
+            'archive_type' => $1,
+            'part' => $2,
+            'id' => $3,
+            'number' => $4,
+            'ext' => $5,
+            };
 
         # this is a valid page, increment page counter
         $i = $i + 1;
 
-        my ($p_archive_type, $p_part, $p_id, $p_number, $p_ext) = ($1, $2, $3, $4, $5);
-        my $int_p_number = int($p_number);
+        my $int_p_number = int($p_parsed->{'number'});
 
-        # update page name parts according to current_document parameters
-        if ($current_document->{'archive_type'} ne $p_archive_type ||
-            $current_document->{'archive_id'} ne $p_part ||
-            $current_document->{'document_id'} ne $p_id ||
-            $int_p_number ne $i ||
-            length($p_number) ne 3) {
-            
-            my $new_page = canonical_document_name($current_document) . "-" . zero_pad($i, 3) . $p_ext;
+        my $new_page = canonical_document_name($current_document) . "-" . zero_pad($i, 3) . $p_parsed->{'ext'};
+        
+        # update page filename if its canonical name doesn't match its current name
+        if ($new_page ne $page) {
             my $new_full_page_path = File::Spec->catfile($current_document->{'full_document_path'}, $new_page);
 
-            if (-e $new_full_page_path) {
-                my_die ("unable to rename [$full_page_path] to [$new_full_page_path], destination exists");
-            }
+            Carp::confess ("At least two identical old page paths [$full_page_path], something is very wrong")
+                if $page_renames->{'old_to_new'}->{$full_page_path};
+            Carp::confess ("One new page generated from at least two old page paths [$new_full_page_path], something is very wrong")
+                if $page_renames->{'new_from_old'}->{$new_full_page_path};
 
-            do_log("renaming $full_page_path -> $new_full_page_path");
-            rename($full_page_path, $new_full_page_path) || my_die "unable to rename [$full_page_path] to [$new_full_page_path]\n";
+            $page_renames->{'old_to_new'}->{$full_page_path} = $new_full_page_path;
+            $page_renames->{'new_from_old'}->{$new_full_page_path} = $full_page_path;
+        }
+    }
+
+    if (scalar(keys %{$page_renames->{'old_to_new'}})) {
+        foreach my $old_path (sort keys %{$page_renames->{'old_to_new'}}) {
+            my $old_tmp = $old_path . ".old.$$";
+
+            $page_renames->{'tmp_old_to_new'}->{$old_tmp} = {
+                'old_path' => $old_path,
+                'new_path' => $page_renames->{'old_to_new'}->{$old_path}
+                };
+            
+            rename($old_path, $old_tmp) || Carp::confess("unable to rename [$old_path] to [$old_tmp]");
+        }
+        foreach my $old_path_tmp (sort keys %{$page_renames->{'tmp_old_to_new'}}) {
+            my $rename_struct = $page_renames->{'tmp_old_to_new'}->{$old_path_tmp};
+
+            Carp::confess("Unable to rename [$old_path_tmp], not going to overwrite [$rename_struct->{'new_path'}]")
+                if -e $rename_struct->{'new_path'};
+            
+            rename($old_path_tmp, $rename_struct->{'new_path'}) || Carp::confess("unable to rename [$old_path_tmp] to [$rename_struct->{'new_path'}]");
+            do_log("renamed $rename_struct->{'old_path'} -> $rename_struct->{'new_path'}");
         }
     }
 }
