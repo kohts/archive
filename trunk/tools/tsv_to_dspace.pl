@@ -106,26 +106,6 @@ if ($o->{'output-metadata-tsv'}) {
     print $output_fh "id,collection,dc.contributor.author[eng],dc.contributor.author[rus],dc.creator[eng],dc.creator[rus],dc.date.accessioned,dc.date.available,dc.date.created[eng],dc.description.provenance[en],dc.description[rus],dc.identifier.other[rus],dc.identifier.uri,dc.language.iso[eng],dc.publisher[eng],dc.publisher[rus],dc.subject[rus],dc.title[rus],dc.type[eng]\n";
 }
 
-my $afk_status_def = [qw/
-    date_of_status
-    status
-    number_of_pages
-    id
-    of_number
-    nvf_number
-    number_suffix
-    storage_number
-    doc_id
-    classification_code
-    doc_name
-    doc_property_full
-    doc_property_genuine
-    doc_type
-    doc_date
-    doc_desc
-    archive_date
-    /];
-
 my $dspace_metadata_export = [qw/
 id
 collection
@@ -154,93 +134,130 @@ my $description_labels = {
     'doc_type' => 'Способ воспроизведения: ',
     'doc_desc' => 'Примечания: ',
     };
-my $authors_canonical = {
-"Barlow N." => [
-    {"name" => "Barlow, Emma Nora", "lang" => "eng"},
-    ],
-"Edwards W.N." => [
-    {"name" => "Edwards, Wilfred Norman", "lang" => "eng"},
-    ],
-"Артоболевский В.М." => [
-    "Артоболевский, Владимир Михайлович",
-    ],
-"Белоголовый Ю.А." => [],
-"Берг А.Н." => [],
-"Биашвили В.Я." => [],
-"Бобринский Н.А." => [],
-"Бунчур А.," => [],
-"Бутурлин С.А." => [],
-"Васильев Е.Н." => [],
-"Ватагин В.А." => [],
-"Волкац Д.С." => [],
-"Голиков А." => [],
-"Дембовский Я.К." => [],
-"Дементьев Г.П." => [],
-"Дробыш А." => [],
-"Дурова-Садовская А.В." => [],
-"Жандармов А.П." => [],
-"Железнякова О.У." => [],
-"Житков Б.М." => [],
-"Завадовский Б.М." => [],
-"Захаров В." => [],
-"Игнатьева В.Н." => [],
-"Кожевников Г.А." => [],
-"Конёнкова М.И." => [],
-"Конюс А.Г." => [],
-"Котс А." => [
-    "Котс, Александр Федорович",
-    {"name" => "Kohts (Coates), Alexander Erich", "lang" => "eng"},
-    ],
-"Котс А.Р." => ["Котс, Александр Рудольфович"],
-"Котс А.Ф." => [
-    "Котс, Александр Федорович",
-    {"name" => "Kohts (Coates), Alexander Erich", "lang" => "eng"},
-    ],
-"Котс Р.А." => [
-    "Котс, Рудольф Александрович",
-    {"name" => "Kohts, Rudolf (Roody) Alfred", "lang" => "eng"},
-    ],
-"Крупская Н.К." => [
-    "Крупская, Надежда Константиновна",
-    ],
-"Крушинский Л.В." => [],
-"Ладыгина - Котс Н.Н." => [
-    "Ладыгина-Котс, Надежда Николаевна",
-    {"name" => "Ladygina-Kohts, Nadezhda Nikolaevna", "lang" => "eng"},
-    ],
-"Лоренц Ф.К." => [],
-"Малахова М.Ф." => [],
-"Минцлова А.Р." => [],
-"Муцетони В.М." => [],
-"Неизвестный автор" => [
-    "Неизвестный автор",
-    {"name" => "Unknown author", "lang" => "eng"},
-    ],
-"Песков В.М." => [],
-"Петров Ф.Н." => [],
-"Полосатова Е.В." => [],
-"Потапов М.М." => [],
-"Псахис Б.С." => [],
-"Пупершлаг Е.А." => [],
-"Рейнвальд Л.Л." => [],
-"Сироткин М.A." => [],
-"Слудский А.А." => [],
-"Смолин П.П." => [],
-"Сосновский И.П." => [],
-"Спангенберг Е.П." => [],
-"Суворов И.П." => [],
-"Сукачев В.Н." => [],
-"Туров С.С." => [],
-"Фабри К.Э." => [],
-"Федулов Ф.Е." => [],
-"Хануков А." => [],
-"Хахлов В.А." => [],
-"Цингер В.Я." => [],
-"Чибисов Н.Е." => [],
-"Шиллингер Ф.Ф." => [],
-"Шперлинг М." => [],
-"Штернберг П.К." => [],
+
+my $data_desc_struct = {
+    'input_tsv_fields' => [qw/
+        date_of_status
+        status
+        number_of_pages
+        id
+        of_number
+        nvf_number
+        number_suffix
+        storage_number
+        scanned_doc_id
+        classification_code
+        doc_name
+        doc_property_full
+        doc_property_genuine
+        doc_type
+        doc_date
+        doc_desc
+        archive_date
+        /],
+
+    'authors_canonical' => {
+        "Barlow N." => [
+            {"name" => "Barlow, Emma Nora", "lang" => "eng"},
+            ],
+        "Edwards W.N." => [
+            {"name" => "Edwards, Wilfred Norman", "lang" => "eng"},
+            ],
+        "Артоболевский В.М." => [
+            "Артоболевский, Владимир Михайлович",
+            ],
+        "Белоголовый Ю.А." => [],
+        "Берг А.Н." => [],
+        "Биашвили В.Я." => [],
+        "Бобринский Н.А." => [],
+        "Бунчур А.," => [],
+        "Бутурлин С.А." => [],
+        "Васильев Е.Н." => [],
+        "Ватагин В.А." => [],
+        "Волкац Д.С." => [],
+        "Голиков А." => [],
+        "Дембовский Я.К." => [],
+        "Дементьев Г.П." => [],
+        "Дробыш А." => [],
+        "Дурова-Садовская А.В." => [],
+        "Жандармов А.П." => [],
+        "Железнякова О.У." => [],
+        "Житков Б.М." => [],
+        "Завадовский Б.М." => [],
+        "Захаров В." => [],
+        "Игнатьева В.Н." => [],
+        "Кожевников Г.А." => [],
+        "Конёнкова М.И." => [],
+        "Конюс А.Г." => [],
+        "Котс А." => [
+            "Котс, Александр Федорович",
+            {"name" => "Kohts (Coates), Alexander Erich", "lang" => "eng"},
+            ],
+        "Котс А.Р." => ["Котс, Александр Рудольфович"],
+        "Котс А.Ф." => [
+            "Котс, Александр Федорович",
+            {"name" => "Kohts (Coates), Alexander Erich", "lang" => "eng"},
+            ],
+        "Котс Р.А." => [
+            "Котс, Рудольф Александрович",
+            {"name" => "Kohts, Rudolf (Roody) Alfred", "lang" => "eng"},
+            ],
+        "Крупская Н.К." => [
+            "Крупская, Надежда Константиновна",
+            ],
+        "Крушинский Л.В." => [],
+        "Ладыгина - Котс Н.Н." => [
+            "Ладыгина-Котс, Надежда Николаевна",
+            {"name" => "Ladygina-Kohts, Nadezhda Nikolaevna", "lang" => "eng"},
+            ],
+        "Лоренц Ф.К." => [],
+        "Малахова М.Ф." => [],
+        "Минцлова А.Р." => [],
+        "Муцетони В.М." => [],
+        "Неизвестный автор" => [
+            "Неизвестный автор",
+            {"name" => "Unknown author", "lang" => "eng"},
+            ],
+        "Песков В.М." => [],
+        "Петров Ф.Н." => [],
+        "Полосатова Е.В." => [],
+        "Потапов М.М." => [],
+        "Псахис Б.С." => [],
+        "Пупершлаг Е.А." => [],
+        "Рейнвальд Л.Л." => [],
+        "Сироткин М.A." => [],
+        "Слудский А.А." => [],
+        "Смолин П.П." => [],
+        "Сосновский И.П." => [],
+        "Спангенберг Е.П." => [],
+        "Суворов И.П." => [],
+        "Сукачев В.Н." => [],
+        "Туров С.С." => [],
+        "Фабри К.Э." => [],
+        "Федулов Ф.Е." => [],
+        "Хануков А." => [],
+        "Хахлов В.А." => [],
+        "Цингер В.Я." => [],
+        "Чибисов Н.Е." => [],
+        "Шиллингер Ф.Ф." => [],
+        "Шперлинг М." => [],
+        "Штернберг П.К." => [],
+        },
+    
+    'storage_items_to_treat_as_one_document' => {
+        'array' => [qw/574 756 858/],
+        'hash' => {},
+        },
+    
     };
+
+for (my $i = 900; $i<1320; $i++) {
+    push @{$data_desc_struct->{'storage_items_to_treat_as_one_document'}->{'array'}}, $i;
+}
+foreach my $storage_number (@{$data_desc_struct->{'storage_items_to_treat_as_one_document'}->{'array'}}) {
+    $data_desc_struct->{'storage_items_to_treat_as_one_document'}->{'hash'}->{$storage_number} = 1;
+}
+
 
 # find dspace handle by afk_status_of_nvf_number
 my $map = {};
@@ -277,20 +294,44 @@ my $in_doc_struct = {
     'total_input_lines' => 0,
     };
 
+my $dspace_items = {
+    'by_unique_id' => {},
+    };
+
 TSV_LINE: foreach my $line (@{$list}) {
     $in_doc_struct->{'total_input_lines'}++;
 
     my $line_struct = {
-        'array' => [split("\t", $line, -1)],
+        'field_values_array' => [split("\t", $line, -1)],
         'by_field_name' => {},
+        'unique_storage_id' => '',
         };
 
     my $i = 0;
-    foreach my $fvalue (@{$line_struct->{'array'}}) {
+    foreach my $fvalue (@{$line_struct->{'field_values_array'}}) {
         $fvalue =~ s/\s+$//s;
-        $line_struct->{'by_field_name'}->{$afk_status_def->[$i]} = $fvalue;
+        $line_struct->{'by_field_name'}->{$data_desc_struct->{'input_tsv_fields'}->[$i]} = $fvalue;
         $i++;
     }
+    if ($line_struct->{'by_field_name'}->{'of_number'}) {
+        if ($line_struct->{'by_field_name'}->{'of_number'} eq '15845') {
+            # Уважаемый Петр! Здравствуйте. Нумерация ед.хр. у фонда ОФ 15845 с 1 по 1713. С ув., И.П. Калачева.
+            $line_struct->{'by_field_name'}->{'storage_number'} = '15845' . "-" . $line_struct->{'by_field_name'}->{'number_suffix'};
+        }
+    }
+
+#    if ($line_struct->{'by_field_name'}->{'of_number'}) {
+#        $line_struct->{'unique_storage_id'} = "of-" . $line_struct->{'by_field_name'}->{'of_number'} . "-" . $line_struct->{'by_field_name'}->{'number_suffix'};
+#    } elsif ($line_struct->{'by_field_name'}->{'nvf_number'}) {
+#        $line_struct->{'unique_storage_id'} = "nvf-" . $line_struct->{'by_field_name'}->{'nvf_number'} . "-" . $line_struct->{'by_field_name'}->{'number_suffix'};
+#    } elsif ($line_struct->{'by_field_name'}->{'storage_number'}) {
+#        $line_struct->{'unique_storage_id'} = "eh-" . $line_struct->{'by_field_name'}->{'storage_number'};
+#    }
+#    if (!$line_struct->{'unique_storage_id'}) {
+#        print Data::Dumper::Dumper($line_struct);
+#        Carp::confess("Data inconsistency: of, nvf and storage_number are empty, line [" . $in_doc_struct->{'total_input_lines'} . "]: $line");
+#    }
+    
     if ($o->{'dump-tsv-raw'}) {
         print Data::Dumper::Dumper($line_struct);
         next TSV_LINE;
@@ -313,6 +354,9 @@ TSV_LINE: foreach my $line (@{$list}) {
         my $storage_struct = $in_doc_struct->{'by_storage_number'}->{$line_struct->{'by_field_name'}->{'storage_number'}} // [];
         push @{$storage_struct}, $line_struct;
         $in_doc_struct->{'by_storage_number'}->{$line_struct->{'by_field_name'}->{'storage_number'}} = $storage_struct;
+    } else {
+        print Data::Dumper::Dumper($line_struct);
+        Carp::confess("storage_number not defined: $line");
     }
 }
 
@@ -323,22 +367,65 @@ if ($o->{'dump-tsv-struct'}) {
     print "total number of storage items: " . scalar(keys %{$in_doc_struct->{'by_storage_number'}}) . "\n";
     exit;
 }
-if ($o->{'dump-storage-stats'}) {
-    foreach my $storage_number (sort {$a <=> $b} keys %{$in_doc_struct->{'by_storage_number'}}) {
-        my $storage_items = scalar(@{$in_doc_struct->{'by_storage_number'}->{$storage_number}});
-        print "storage number $storage_number: " . $storage_items . " item" .
+
+foreach my $storage_number (sort {$a cmp $b} keys %{$in_doc_struct->{'by_storage_number'}}) {
+    my $storage_items;
+    my $status = "";
+
+    if ($data_desc_struct->{'storage_items_to_treat_as_one_document'}->{'hash'}->{$storage_number}) {
+        $storage_items = 1;
+
+        $dspace_items->{'by_unique_id'}->{"eh-" . $storage_number} = 1;
+    } else {
+        my $scanned_doc_id;
+        STORAGE_ITEM: foreach my $item (@{$in_doc_struct->{'by_storage_number'}->{$storage_number}}) {
+            if ($item->{'by_field_name'}->{'status'} eq 'scanned' ||
+                $item->{'by_field_name'}->{'status'} eq 'ocr' ||
+                $item->{'by_field_name'}->{'status'} eq 'docbook') {
+                
+                if ($scanned_doc_id && $item->{'by_field_name'}->{'scanned_doc_id'} ne $scanned_doc_id) {
+                    $scanned_doc_id = undef;
+                    last STORAGE_ITEM;
+                }
+
+                $scanned_doc_id = $item->{'by_field_name'}->{'scanned_doc_id'};
+                $status = "scanned";
+            } else {
+                $scanned_doc_id = undef;
+                last STORAGE_ITEM;
+            }
+        }
+
+        if ($scanned_doc_id) {
+            $storage_items = 1;
+            
+            $dspace_items->{'by_unique_id'}->{$scanned_doc_id} = 1;
+        } else {
+            asdasdd
+            $storage_items = scalar(@{$in_doc_struct->{'by_storage_number'}->{$storage_number}});
+        }
+    }
+
+    if ($o->{'dump-storage-stats'}) {
+        print "storage number $storage_number ($status): " . $storage_items . " item" .
             ($storage_items > 1 ? "s" : "") . "\n";
     }
+}
+
+if ($o->{'dump-storage-stats'}) {
+    print Data::Dumper::Dumper($dspace_items);
     exit;
 }
+
 if ($o->{'dump-titles-by-storage-number'}) {
     if (defined($in_doc_struct->{'by_storage_number'}->{$o->{'dump-titles-by-storage-number'}})) {
         foreach my $item (@{$in_doc_struct->{'by_storage_number'}->{$o->{'dump-titles-by-storage-number'}}}) {
-            print $item->{'by_field_name'}->{'doc_name'} . "\n";
+            print $item->{'by_field_name'}->{'scanned_doc_id'} . ": " . $item->{'by_field_name'}->{'doc_name'} . "\n";
         }
     } else {
         Carp::confess("No storage number [$o->{'dump-titles-by-storage-number'}] found");
     }
+    exit;
 }
 
 my $line_number = 0;
@@ -411,13 +498,13 @@ LINE_STRUCT: foreach my $line_struct (@{$in_doc_struct->{'array'}}) {
             print $1 . "\n";
         }
         elsif ($o->{'check-authors'}) {
-            if (!$authors_canonical->{$author}) {
+            if (!$data_desc_struct->{'authors_canonical'}->{$author}) {
                 print "unknown author: [$author]\n";
             }
         }
         else {
-            if ($authors_canonical->{$author}) {
-                foreach my $a_struct (@{$authors_canonical->{$author}}) {
+            if ($data_desc_struct->{'authors_canonical'}->{$author}) {
+                foreach my $a_struct (@{$data_desc_struct->{'authors_canonical'}->{$author}}) {
                     if (ref($a_struct) eq '') {
                         push @{$doc_authors}, {"name" => $a_struct, "lang" => "rus"};
                     }
