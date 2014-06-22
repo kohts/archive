@@ -157,15 +157,9 @@ my $data_desc_struct = {
         /],
 
     'authors_canonical' => {
-        "Barlow N." => [
-            {"name" => "Barlow, Emma Nora", "lang" => "eng"},
-            ],
-        "Edwards W.N." => [
-            {"name" => "Edwards, Wilfred Norman", "lang" => "eng"},
-            ],
-        "Артоболевский В.М." => [
-            "Артоболевский, Владимир Михайлович",
-            ],
+        "Barlow N." => [ {"name" => "Barlow, Emma Nora", "lang" => "eng"}, ],
+        "Edwards W.N." => [ {"name" => "Edwards, Wilfred Norman", "lang" => "eng"}, ],
+        "Артоболевский В.М." => [ "Артоболевский, Владимир Михайлович", ],
         "Белоголовый Ю.А." => [],
         "Берг А.Н." => [],
         "Биашвили В.Я." => [],
@@ -189,35 +183,18 @@ my $data_desc_struct = {
         "Кожевников Г.А." => [],
         "Конёнкова М.И." => [],
         "Конюс А.Г." => [],
-        "Котс А." => [
-            "Котс, Александр Федорович",
-            {"name" => "Kohts (Coates), Alexander Erich", "lang" => "eng"},
-            ],
+        "Котс А." => [ "Котс, Александр Федорович", {"name" => "Kohts (Coates), Alexander Erich", "lang" => "eng"}, ],
         "Котс А.Р." => ["Котс, Александр Рудольфович"],
-        "Котс А.Ф." => [
-            "Котс, Александр Федорович",
-            {"name" => "Kohts (Coates), Alexander Erich", "lang" => "eng"},
-            ],
-        "Котс Р.А." => [
-            "Котс, Рудольф Александрович",
-            {"name" => "Kohts, Rudolf (Roody) Alfred", "lang" => "eng"},
-            ],
-        "Крупская Н.К." => [
-            "Крупская, Надежда Константиновна",
-            ],
+        "Котс А.Ф." => [ "Котс, Александр Федорович", {"name" => "Kohts (Coates), Alexander Erich", "lang" => "eng"}, ],
+        "Котс Р.А." => [ "Котс, Рудольф Александрович", {"name" => "Kohts, Rudolf (Roody) Alfred", "lang" => "eng"}, ],
+        "Крупская Н.К." => [ "Крупская, Надежда Константиновна", ],
         "Крушинский Л.В." => [],
-        "Ладыгина - Котс Н.Н." => [
-            "Ладыгина-Котс, Надежда Николаевна",
-            {"name" => "Ladygina-Kohts, Nadezhda Nikolaevna", "lang" => "eng"},
-            ],
+        "Ладыгина - Котс Н.Н." => [ "Ладыгина-Котс, Надежда Николаевна", {"name" => "Ladygina-Kohts, Nadezhda Nikolaevna", "lang" => "eng"}, ],
         "Лоренц Ф.К." => [],
         "Малахова М.Ф." => [],
         "Минцлова А.Р." => [],
         "Муцетони В.М." => [],
-        "Неизвестный автор" => [
-            "Неизвестный автор",
-            {"name" => "Unknown author", "lang" => "eng"},
-            ],
+        "Неизвестный автор" => [ "Неизвестный автор", {"name" => "Unknown author", "lang" => "eng"}, ],
         "Песков В.М." => [],
         "Петров Ф.Н." => [],
         "Полосатова Е.В." => [],
@@ -244,20 +221,45 @@ my $data_desc_struct = {
         "Штернберг П.К." => [],
         },
     
-    'storage_items_to_treat_as_one_document' => {
-        'array' => [qw/574 756 858/],
-        'hash' => {},
+    'storage_groups' => {
+        1 => {
+            'name' => 'old',
+            'funds' => [qw/
+                           1237
+                           1363 1364 1365 1366 1367 1368
+                           2116
+                           6912
+                           9595 9596 9597 9598 9599 9600 9601 9602 9603 9604 9605 9606 9607 9608 9609
+                           9626 9649 9650 9651 9662 9664
+                           9749 9764 9765 9766 9767 9771 9774 9775 9776 9768 9772 9773 
+                           10109
+                           10141
+                           10621
+                           12430 12497
+                           /],
         },
-    
+        2 => {
+            'name' => 'new',
+            'funds' => ['15845'],
+            },
+        },
     };
 
-for (my $i = 900; $i<1320; $i++) {
-    push @{$data_desc_struct->{'storage_items_to_treat_as_one_document'}->{'array'}}, $i;
-}
-foreach my $storage_number (@{$data_desc_struct->{'storage_items_to_treat_as_one_document'}->{'array'}}) {
-    $data_desc_struct->{'storage_items_to_treat_as_one_document'}->{'hash'}->{$storage_number} = 1;
-}
+$data_desc_struct->{'storage_groups_by_fund_number'} = {};
+$data_desc_struct->{'storage_groups_by_name'} = {};
 
+foreach my $st_gr_id (keys %{$data_desc_struct->{'storage_groups'}}) {
+    Carp::confess("storage group name must be unique")
+        if $data_desc_struct->{'storage_groups_by_name'}->{$data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name'}};
+    
+    $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'id'} = $st_gr_id;
+    $data_desc_struct->{'storage_groups_by_name'}->{$data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name'}} =
+        $data_desc_struct->{'storage_groups'}->{$st_gr_id};
+    
+    foreach my $fund_id (@{$data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'funds'}}) {
+        $data_desc_struct->{'storage_groups_by_fund_number'}->{$fund_id} = $st_gr_id;
+    }
+}
 
 # find dspace handle by afk_status_of_nvf_number
 my $map = {};
@@ -267,7 +269,6 @@ if ($o->{'map-file'}) {
         'format' => 'aoh',
         });
 
-    
     foreach my $d (@{$map_hash->all()}) {
         next unless $d->{'dc.identifier.other[rus]'};
 
@@ -290,12 +291,8 @@ my $in_doc_struct = {
     'title_line' => {},
     'array' => [],
     'by_line_number' => {},
-    'by_storage_number' => {},
+    'by_storage' => {},
     'total_input_lines' => 0,
-    };
-
-my $dspace_items = {
-    'by_unique_id' => {},
     };
 
 TSV_LINE: foreach my $line (@{$list}) {
@@ -313,25 +310,7 @@ TSV_LINE: foreach my $line (@{$list}) {
         $line_struct->{'by_field_name'}->{$data_desc_struct->{'input_tsv_fields'}->[$i]} = $fvalue;
         $i++;
     }
-    if ($line_struct->{'by_field_name'}->{'of_number'}) {
-        if ($line_struct->{'by_field_name'}->{'of_number'} eq '15845') {
-            # Уважаемый Петр! Здравствуйте. Нумерация ед.хр. у фонда ОФ 15845 с 1 по 1713. С ув., И.П. Калачева.
-            $line_struct->{'by_field_name'}->{'storage_number'} = '15845' . "-" . $line_struct->{'by_field_name'}->{'number_suffix'};
-        }
-    }
 
-#    if ($line_struct->{'by_field_name'}->{'of_number'}) {
-#        $line_struct->{'unique_storage_id'} = "of-" . $line_struct->{'by_field_name'}->{'of_number'} . "-" . $line_struct->{'by_field_name'}->{'number_suffix'};
-#    } elsif ($line_struct->{'by_field_name'}->{'nvf_number'}) {
-#        $line_struct->{'unique_storage_id'} = "nvf-" . $line_struct->{'by_field_name'}->{'nvf_number'} . "-" . $line_struct->{'by_field_name'}->{'number_suffix'};
-#    } elsif ($line_struct->{'by_field_name'}->{'storage_number'}) {
-#        $line_struct->{'unique_storage_id'} = "eh-" . $line_struct->{'by_field_name'}->{'storage_number'};
-#    }
-#    if (!$line_struct->{'unique_storage_id'}) {
-#        print Data::Dumper::Dumper($line_struct);
-#        Carp::confess("Data inconsistency: of, nvf and storage_number are empty, line [" . $in_doc_struct->{'total_input_lines'} . "]: $line");
-#    }
-    
     if ($o->{'dump-tsv-raw'}) {
         print Data::Dumper::Dumper($line_struct);
         next TSV_LINE;
@@ -350,14 +329,43 @@ TSV_LINE: foreach my $line (@{$list}) {
     push @{$in_doc_struct->{'array'}}, $line_struct;
     $in_doc_struct->{'by_line_number'}->{$in_doc_struct->{'total_input_lines'}} = $line_struct;
 
-    if ($line_struct->{'by_field_name'}->{'storage_number'}) {
-        my $storage_struct = $in_doc_struct->{'by_storage_number'}->{$line_struct->{'by_field_name'}->{'storage_number'}} // [];
-        push @{$storage_struct}, $line_struct;
-        $in_doc_struct->{'by_storage_number'}->{$line_struct->{'by_field_name'}->{'storage_number'}} = $storage_struct;
+    my $st_gr_id;
+    if ($line_struct->{'by_field_name'}->{'of_number'}) {
+        $st_gr_id = $data_desc_struct->{'storage_groups_by_fund_number'}->{$line_struct->{'by_field_name'}->{'of_number'}};
+    } elsif ($line_struct->{'by_field_name'}->{'nvf_number'}) {
+        $st_gr_id = $data_desc_struct->{'storage_groups_by_fund_number'}->{$line_struct->{'by_field_name'}->{'nvf_number'}};
+    } elsif ($line_struct->{'by_field_name'}->{'storage_number'} eq '796') {
+        $st_gr_id = $data_desc_struct->{'storage_groups_by_name'}->{'old'}->{'id'};
     } else {
         print Data::Dumper::Dumper($line_struct);
-        Carp::confess("storage_number not defined: $line");
+        Carp::confess("of_number and nvf_number are undefined for the line [$in_doc_struct->{'total_input_lines'}]");
     }
+    if (!$st_gr_id) {
+        print Data::Dumper::Dumper($line_struct);
+        Carp::confess("Unable to find storage group for the line [$in_doc_struct->{'total_input_lines'}]");
+    } else {
+        Carp::confess("Invalid storage group id [$st_gr_id]")
+            unless defined($data_desc_struct->{'storage_groups'}->{$st_gr_id});
+
+        $in_doc_struct->{'by_storage'}->{$st_gr_id} = {}
+            unless $in_doc_struct->{'by_storage'}->{$st_gr_id};
+    }
+
+    my $st_id;
+    if ($data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name'} eq 'old') {
+        $st_id = $line_struct->{'by_field_name'}->{'storage_number'};
+    } else {
+        $st_id = $line_struct->{'by_field_name'}->{'number_suffix'};
+    }
+
+    if (!$st_id) {
+        print Data::Dumper::Dumper($line_struct);
+        Carp::confess("Unable to detect storage_number for line [$in_doc_struct->{'total_input_lines'}]");
+    }
+
+    my $storage_struct = $in_doc_struct->{'by_storage'}->{$st_gr_id}->{$st_id} // [];
+    push @{$storage_struct}, $line_struct;
+    $in_doc_struct->{'by_storage'}->{$st_gr_id}->{$st_id} = $storage_struct;
 }
 
 if ($o->{'dump-tsv-struct'}) {
@@ -368,17 +376,13 @@ if ($o->{'dump-tsv-struct'}) {
     exit;
 }
 
-foreach my $storage_number (sort {$a cmp $b} keys %{$in_doc_struct->{'by_storage_number'}}) {
-    my $storage_items;
-    my $status = "";
+foreach my $st_gr_id (keys %{$in_doc_struct->{'by_storage'}}) {
+    foreach my $storage_number (sort {$a <=> $b} keys %{$in_doc_struct->{'by_storage'}->{$st_gr_id}}) {
+        my $storage_items;
+        my $status = "not scanned";
 
-    if ($data_desc_struct->{'storage_items_to_treat_as_one_document'}->{'hash'}->{$storage_number}) {
-        $storage_items = 1;
-
-        $dspace_items->{'by_unique_id'}->{"eh-" . $storage_number} = 1;
-    } else {
         my $scanned_doc_id;
-        STORAGE_ITEM: foreach my $item (@{$in_doc_struct->{'by_storage_number'}->{$storage_number}}) {
+        STORAGE_ITEM: foreach my $item (@{$in_doc_struct->{'by_storage'}->{$st_gr_id}->{$storage_number}}) {
             if ($item->{'by_field_name'}->{'status'} eq 'scanned' ||
                 $item->{'by_field_name'}->{'status'} eq 'ocr' ||
                 $item->{'by_field_name'}->{'status'} eq 'docbook') {
@@ -398,33 +402,34 @@ foreach my $storage_number (sort {$a cmp $b} keys %{$in_doc_struct->{'by_storage
 
         if ($scanned_doc_id) {
             $storage_items = 1;
-            
-            $dspace_items->{'by_unique_id'}->{$scanned_doc_id} = 1;
         } else {
-            asdasdd
-            $storage_items = scalar(@{$in_doc_struct->{'by_storage_number'}->{$storage_number}});
+            $storage_items = scalar(@{$in_doc_struct->{'by_storage'}->{$st_gr_id}->{$storage_number}});
+        }
+
+        if ($o->{'dump-storage-stats'}) {
+            print "storage group [$st_gr_id] storage number [$storage_number] ($status): " . $storage_items . " item" .
+                ($storage_items > 1 ? "s" : "") . "\n";
         }
     }
-
-    if ($o->{'dump-storage-stats'}) {
-        print "storage number $storage_number ($status): " . $storage_items . " item" .
-            ($storage_items > 1 ? "s" : "") . "\n";
-    }
-}
-
-if ($o->{'dump-storage-stats'}) {
-    print Data::Dumper::Dumper($dspace_items);
-    exit;
 }
 
 if ($o->{'dump-titles-by-storage-number'}) {
-    if (defined($in_doc_struct->{'by_storage_number'}->{$o->{'dump-titles-by-storage-number'}})) {
-        foreach my $item (@{$in_doc_struct->{'by_storage_number'}->{$o->{'dump-titles-by-storage-number'}}}) {
-            print $item->{'by_field_name'}->{'scanned_doc_id'} . ": " . $item->{'by_field_name'}->{'doc_name'} . "\n";
-        }
-    } else {
-        Carp::confess("No storage number [$o->{'dump-titles-by-storage-number'}] found");
-    }
+#    my ($gr_name, $st_number) = split(" ", $o->{'dump-titles-by-storage-number'});
+#    Carp::confess("--dump-titles-by-storage-number needs space delimited storage_group_name (one of: " .
+#        join (",", keys %{$data_desc_struct->{'storage_groups_by_name'}}) . ") and storage number")
+#        if !$gr_name ||
+#           !$data_desc_struct->{'storage_groups_by_name'}->{$gr_name} ||
+#           !$st_number;
+#
+#    if ($in_doc_struct->{'by_storage'}->{$data_desc_struct->{'storage_groups_by_name'}->{$gr_name}->{'id'}}->)
+#
+#    if (defined($in_doc_struct->{'by_storage_number'}->{$o->{'dump-titles-by-storage-number'}})) {
+#        foreach my $item (@{$in_doc_struct->{'by_storage_number'}->{$o->{'dump-titles-by-storage-number'}}}) {
+#            print $item->{'by_field_name'}->{'scanned_doc_id'} . ": " . $item->{'by_field_name'}->{'doc_name'} . "\n";
+#        }
+#    } else {
+#        Carp::confess("No storage number [$o->{'dump-titles-by-storage-number'}] found");
+#    }
     exit;
 }
 
