@@ -84,6 +84,7 @@ use IPC::Cmd;
 use Getopt::Long;
 use Carp;
 use File::Path;
+use Text::CSV;
 use Text::CSV::Hashify;
 
 # unbuffered output
@@ -108,6 +109,9 @@ my $o_names = [
     'dump-storage-stats',
     'dump-titles-by-storage-number=s',
     'dump-data-desc',
+    'descriptor-dump=s',
+    'data-split-by-tab',
+    'data-split-by-comma',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -251,6 +255,96 @@ foreach my $st_gr_id (keys %{$data_desc_struct->{'storage_groups'}}) {
     }
 }
 
+sub separated_list_to_struct {
+    my ($in_string, $opts) = @_;
+    
+    $opts = {} unless $opts;
+    $opts->{'delimiter'} = "," unless $opts->{'delimiter'};
+    
+    my $out = {
+        'string' => $in_string,
+        'array' => [],
+        'by_name0' => {},
+        'by_position0' => {},
+        'by_name1' => {},
+        'by_position1' => {},
+        'opts' => $opts,
+        'number_of_elements' => 0,
+        };
+    my $i = 0;
+    
+    foreach my $el (split($opts->{'delimiter'}, $in_string)) {
+        push (@{$out->{'array'}}, $el);
+        
+        $out->{'by_name0'}->{$el} = $i;
+        $out->{'by_name1'}->{$el} = $i + 1;
+        $out->{'by_position0'}->{$i} = $el;
+        $out->{'by_position1'}->{$i + 1} = $el;
+        
+        $i = $i + 1;
+    }
+    
+    $out->{'number_of_elements'} = $i;
+    
+    return $out;
+}
+
+sub safe_string {
+  my ($str, $default) = @_;
+
+  $default = "" unless defined($default);
+
+  if (defined($str)) {
+    return $str;
+  }
+  else {
+    return $default;
+  }
+}
+
+sub trim {
+    my ($string, $symbols) = @_;
+  
+    if (ref($string) eq 'SCALAR') {
+        my $tstr = safe_string($$string);
+    
+        return 0 if $tstr eq ''; # nothing to trim, do not waste cpu cycles
+    
+        if ($symbols) {
+            $tstr =~ s/^[${symbols}]+//so;
+            $tstr =~ s/[${symbols}]+$//so;
+        }
+        else {
+            $tstr =~ s/^\s+//so;
+            $tstr =~ s/\s+$//so;
+        }
+
+        if ($tstr ne $$string) {
+            $$string = $tstr;
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+    else {
+        $string = safe_string($string);
+
+        return "" if $string eq ''; # nothing to trim, do not waste cpu cycles
+
+        if ($symbols) {
+            $string =~ s/^[${symbols}]+//so;
+            $string =~ s/[${symbols}]+$//so;
+        }
+        else {
+            $string =~ s/^\s+//so;
+            $string =~ s/\s+$//so;
+        }
+
+        return $string;
+    }
+}
+
 sub tsv_read_and_validate {
     my ($input_file, $o) = @_;
 
@@ -282,6 +376,7 @@ sub tsv_read_and_validate {
         my $line_struct = {
             'field_values_array' => [split("\t", $line, -1)],
             'by_field_name' => {},
+            'orig_line_number' => $doc_struct->{'total_input_lines'},
             };
 
         my $i = 0;
@@ -379,12 +474,111 @@ sub tsv_read_and_validate {
         }
     }
 
+    foreach my $st_gr_id (keys %{$doc_struct->{'by_storage'}}) {
+        foreach my $storage_number (sort {$a <=> $b} keys %{$doc_struct->{'by_storage'}->{$st_gr_id}}) {
+            my $storage_struct = $doc_struct->{'by_storage'}->{$st_gr_id}->{$storage_number};
+            
+            # - detect and store storage paths here against $data_desc_struct->{'external_archive_storage_base'}
+            # - check "scanned" status (should be identical for all the documents in the storage item)
+            
+            foreach my $item (@{$storage_struct->{'documents'}}) {
+                if ($storage_struct->{'status'}) {
+                    if ($item->{'by_field_name'}->{'status'} ne $storage_struct->{'status'}) {
+                        if (
+                            $item->{'by_field_name'}->{'status'} eq 'published' ||
+                            (
+                                $item->{'by_field_name'}->{'status'} eq 'docbook' &&
+                                $storage_struct->{'status'} ne 'published'
+                            ) ||
+                            (
+                                $item->{'by_field_name'}->{'status'} eq 'ocr' &&
+                                $storage_struct->{'status'} ne 'published' &&
+                                $storage_struct->{'status'} ne 'docbook'
+                            ) ||
+                            (
+                                $item->{'by_field_name'}->{'status'} eq 'scanned' &&
+                                $storage_struct->{'status'} ne 'published' &&
+                                $storage_struct->{'status'} ne 'docbook' &&
+                                $storage_struct->{'status'} ne 'ocr'
+                            ) ||
+                            (
+                                $item->{'by_field_name'}->{'status'} eq 'scanning' &&
+                                $storage_struct->{'status'} ne 'published' &&
+                                $storage_struct->{'status'} ne 'docbook' &&
+                                $storage_struct->{'status'} ne 'ocr' &&
+                                $storage_struct->{'status'} ne 'scanned'
+                            )
+                            ) {
+                            $storage_struct->{'status'} = $item->{'by_field_name'}->{'status'};
+                            $storage_struct->{'date_of_status'} = $item->{'by_field_name'}->{'date_of_status'};
+                        }
+                    }
+                } else {
+                    $storage_struct->{'status'} = $item->{'by_field_name'}->{'status'};
+                    $storage_struct->{'date_of_status'} = $item->{'by_field_name'}->{'date_of_status'};
+                }
+
+                foreach my $array_uf (qw/scanned_doc_id/) {
+                    $storage_struct->{$array_uf} = [] unless
+                        $storage_struct->{$array_uf};
+                    if (! scalar(grep($_ eq $item->{'by_field_name'}->{$array_uf}, @{$storage_struct->{$array_uf}}))) {
+                        push @{$storage_struct->{$array_uf}}, $item->{'by_field_name'}->{$array_uf};
+                    }
+                }
+            }
+        }
+    }
+
     return $doc_struct;
 }
 
 if ($o->{'dump-data-desc'}) {
     print Data::Dumper::Dumper($data_desc_struct);
     exit 0;
+} elsif ($o->{'data-split-by-tab'}) {
+    my $line_number = 0;
+    while (my $l = <STDIN>) {
+        $line_number = $line_number + 1;
+        my $fields = [split("\t", $l, -1)];
+        my $i = 0;
+        foreach my $f (@{$fields}) {
+            $i = $i + 1;
+            print $line_number . "." . $i . ": " . $f . "\n";
+        }
+    }    
+} elsif ($o->{'data-split-by-comma'}) {
+    my $csv = Text::CSV->new();
+
+    my $line_number = 0;
+    while (my $l = <STDIN>) {
+        $line_number = $line_number + 1;
+
+        $csv->parse($l);
+
+        my $fields = [$csv->fields()];
+        
+        my $i = 0;
+        foreach my $f (@{$fields}) {
+            $i = $i + 1;
+            print $line_number . "." . $i . ": " . $f . "\n";
+        }
+        print "\n";
+    }    
+} elsif ($o->{'descriptor-dump'}) {
+    my $d = $o->{'descriptor-dump'} . "\n";
+    $d = trim($d);
+
+    if (!$d) {
+        while (my $l = <STDIN>) {
+            $d .= $l;
+        }
+    }
+
+    my $ds = separated_list_to_struct($d);
+
+    foreach my $f (@{$ds->{'array'}}) {
+        print $ds->{'by_name1'}->{$f} . ": " . $f . "\n";
+    }
 } elsif ($o->{'dump-tsv-struct'}) {
     Carp::confess("Need --input-file") unless $o->{'input-file'};
 
@@ -400,50 +594,6 @@ if ($o->{'dump-data-desc'}) {
     foreach my $fund_number (sort {$a <=> $b} keys %{$in_doc_struct->{'storage_items_by_fund_number'}}) {
         print uc($in_doc_struct->{'funds'}->{$fund_number}->{'type'}) . " " . $fund_number . ": " .
             scalar(keys %{$in_doc_struct->{'storage_items_by_fund_number'}->{$fund_number}}) . " storage items\n";
-    }
-
-    foreach my $st_gr_id (keys %{$in_doc_struct->{'by_storage'}}) {
-        foreach my $storage_number (sort {$a <=> $b} keys %{$in_doc_struct->{'by_storage'}->{$st_gr_id}}) {
-            my $storage_struct = $in_doc_struct->{'by_storage'}->{$st_gr_id}->{$storage_number};
-            
-            # - detect and store storage paths here against $data_desc_struct->{'external_archive_storage_base'}
-            # - check "scanned" status (should be identical for all the documents in the storage item)
-            print Data::Dumper::Dumper($storage_struct);
-            adfsdfdexit;
-
-            my $storage_items;
-            my $status = "not scanned";
-
-            my $scanned_doc_id;
-            STORAGE_ITEM: foreach my $item (@{$in_doc_struct->{'by_storage'}->{$st_gr_id}->{$storage_number}}) {
-                if ($item->{'by_field_name'}->{'status'} eq 'scanned' ||
-                    $item->{'by_field_name'}->{'status'} eq 'ocr' ||
-                    $item->{'by_field_name'}->{'status'} eq 'docbook') {
-                    
-                    if ($scanned_doc_id && $item->{'by_field_name'}->{'scanned_doc_id'} ne $scanned_doc_id) {
-                        $scanned_doc_id = undef;
-                        last STORAGE_ITEM;
-                    }
-
-                    $scanned_doc_id = $item->{'by_field_name'}->{'scanned_doc_id'};
-                    $status = "scanned";
-                } else {
-                    $scanned_doc_id = undef;
-                    last STORAGE_ITEM;
-                }
-            }
-
-            if ($scanned_doc_id) {
-                $storage_items = 1;
-            } else {
-                $storage_items = scalar(@{$in_doc_struct->{'by_storage'}->{$st_gr_id}->{$storage_number}});
-            }
-
-            if ($o->{'dump-storage-stats'}) {
-                print "storage group [$st_gr_id] storage number [$storage_number] ($status): " . $storage_items . " item" .
-                    ($storage_items > 1 ? "s" : "") . "\n";
-            }
-        }
     }
 } else {
     Carp::confess("--extract-authors and --check-authors are mutually exclusive")
