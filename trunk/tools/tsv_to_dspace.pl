@@ -369,7 +369,7 @@ sub extract_authors {
         } else {
             foreach my $a_struct (@{$data_desc_struct->{'authors_canonical'}->{$author}}) {
                 if (ref($a_struct) eq '') {
-                    push @{$doc_authors}, {"name" => $author, "lang" => "ru"};
+                    push @{$doc_authors}, {"name" => $a_struct, "lang" => "ru"};
                 } else {
                     push @{$doc_authors}, $a_struct;
                 }
