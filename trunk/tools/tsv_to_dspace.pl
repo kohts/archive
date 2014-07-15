@@ -40,8 +40,8 @@
 # resource type id(s) are stored in core/Constants.java (as of DSpace 4.1).
 #
 #
-# A.E. Kohts SDM archives items are also uniquely identified, historically
-# archives were catalogued in two takes.
+# A.E. Kohts SDM archives items are also uniquely identified.
+# Historically archives were catalogued in two takes.
 #
 # First take happened for several tens of years after death of A.E. Kohts
 # by several different people and was finally summed up around 1998-1999
@@ -59,6 +59,41 @@
 # original (physical) identification of the documents, so it's
 # easily possible to refer to the old identification having found
 # the item in DSpace archive.
+#
+#
+# So the structure of input data is as follows:
+#
+#   storage group -- physical identification system top level identifier;
+#                    the group inside which all the items have unique
+#                    storage (inventory) numbers. A.E. Kohts archives
+#                    stored in the SDM are organized in two
+#                    storage groups (as described above).
+#
+#   storage item  -- physical identification system second level identifier;
+#                    Storage item is uniquely identified in the scope
+#                    of some storage group by its inventory number.
+#                    A.E. Kohts archives storage item is usually
+#                    a group of objects usually combined into a paper
+#                    folder or envelope or other type of wrapping.
+#
+#   item          -- is a document (usually a folder with several pages
+#                    inside of it) or other object or several objects
+#                    (such as pins for example), which is stored in a
+#                    storage item possibly together with several other
+#                    items (usually somehow logically interconnected).
+#                    Every item in A.E. Kohts archive is uniquely identified
+#                    by the its fund number and the number inside the fund
+#                    (e.g. OF-10141/1)
+#
+#   fund number -- is the element of logical identification system which
+#                  groups items according to some property of the items.
+#                  "funds" termonilogy comes from Russian museology where
+#                  all the museum items are grouped into funds according
+#                  to the purpose of the fund. There are two main types
+#                  of funds which are used for A.E. Kohts archives:
+#                  main funds ("ОФ" -- acronym of "основной фонд" in Russian)
+#                  and auxiliary funds ("НВФ" -- acronym of
+#                  "научно-вспомогательный фонд" in Russian).
 #
 
 use strict;
@@ -85,7 +120,6 @@ use Getopt::Long;
 use Carp;
 use File::Path;
 use Text::CSV;
-use Text::CSV::Hashify;
 
 # unbuffered output
 $| = 1;
@@ -94,20 +128,8 @@ binmode(STDOUT, ':encoding(UTF-8)');
 
 my $o_names = [
     'input-file=s',
-    'output-dir=s',
-    'output-metadata-tsv=s',
-    'include-collection-ids=s',
-    'target-collection-handle=s',
-    'map-file=s',
-    'extract-authors',
-    'check-authors',
-    'add-items',
-    'add-not-in-map',
-    'dump-titles',
     'dump-tsv-raw',
     'dump-tsv-struct',
-    'dump-storage-stats',
-    'dump-titles-by-storage-number=s',
     'dump-data-desc',
     'descriptor-dump=s',
     'data-split-by-tab',
@@ -115,17 +137,12 @@ my $o_names = [
     'output-tsv',
     'debug',
     'initial-import', 'target-collection-handle=s',
-    'dump-storage-item=s'
+    'dump-storage-item=s',
+    'tsv-output',
+    'input-line=s',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
-
-my $description_labels = {
-    'doc_property_full' => 'Полнота: ',
-    'doc_property_genuine' => 'Подлинность: ',
-    'doc_type' => 'Способ воспроизведения: ',
-    'doc_desc' => 'Примечания: ',
-    };
 
 my $data_desc_struct = {
     'external_archive_storage_base' => 'c:/_gdm/raw-afk',    
@@ -155,19 +172,25 @@ my $data_desc_struct = {
         "Edwards W.N." => [ {"name" => "Edwards, Wilfred Norman", "lang" => "en"}, ],
         "Артоболевский В.М." => [ "Артоболевский, Владимир Михайлович", ],
         "Белоголовый Ю.А." => [ "Белоголовый, Юрий Аполлонович" ],
+        "Белышев В.А." => [],
         "Берг А.Н." => [ "" ],
         "Биашвили В.Я." => [],
         "Бобринский Н.А." => [ "Бобринский, Николай Алексеевич" ],
         "Бунчур А.," => [],
         "Бутурлин С.А." => [],
         "Васильев Е.Н." => [],
-        "Ватагин В.А." => [ "Ватагин, Василий Алексеевич" ],
+        "Ватагин В.А." => [ "Ватагин, Василий Алексеевич", {"name" => "Vatagin, Vasily", "lang" => "en"}, ],
+        "Виноградов Н.В." => [],
         "Волкац Д.С." => [],
+        "Вяжлинский Д.М." => [ "Вяжлинский, Дмитрий Михайлович" ],
+        "Гептнер В.Г." => [ "Гептнер, Владимир Георгиевич" ],
+        "Гладков Н.А." => [],
         "Голиков А." => [],
         "Дембовский Я.К." => [],
         "Дементьев Г.П." => [ "Дементьев, Георгий Петрович" ],
         "Дробыш А." => [],
         "Дурова-Садовская А.В." => [ "Дурова-Садовская, Анна Владимировна" ],
+        "Евстафьев В.М." => [ "Евстафьев, Виктор Михайлович" ],
         "Жандармов А.П." => [ "Анжанов (Жандармов), Анатолий Петрович" ],
         "Железнякова О.У." => [],
         "Житков Б.М." => [ "Житков, Борис Михайлович" ],
@@ -180,36 +203,50 @@ my $data_desc_struct = {
         "Котс А." => [ "Котс, Александр Федорович", {"name" => "Kohts (Coates), Alexander Erich", "lang" => "en"}, ],
         "Котс А.Р." => ["Котс, Александр Рудольфович"],
         "Котс А.Ф." => [ "Котс, Александр Федорович", {"name" => "Kohts (Coates), Alexander Erich", "lang" => "en"}, ],
-        "Котс Р.А." => [ "Котс, Рудольф Александрович", {"name" => "Kohts, Rudolf (Roody) Alfred", "lang" => "en"}, ],
+        "Котс Р.А." => [ "Котс, Рудольф Александрович", {"name" => "Kohts, Rudolf Alfred", "lang" => "en"}, ],
+        "Котс С.Р." => [ "Котс, Сергей Рудольфович" ],
+        "Кириллова Н.В." => [],
         "Крупская Н.К." => [ "Крупская, Надежда Константиновна", ],
         "Крушинский Л.В." => [ "Крушинский, Леонид Викторович" ],
-        "Ладыгина - Котс Н.Н." => [ "Ладыгина-Котс, Надежда Николаевна", {"name" => "Ladygina-Kohts, Nadezhda Nikolaevna", "lang" => "en"}, ],
+        "Ладыгина-Котс Н.Н." => [ "Ладыгина-Котс, Надежда Николаевна", {"name" => "Ladygina-Kohts, Nadezhda Nikolaevna", "lang" => "en"}, ],
+        "Левыкина Н.Ф." => [ "Левыкина, Наталья Федоровна" ],
+        "Логинова Н.Я." => [],
         "Лоренц Ф.К." => [ "Лоренц, Фёдор Карлович" ],
         "Малахова М.Ф." => [],
+        "Мардис П.Е." => [],
+        "Мензбир М.А." => [ "Мензбир, Михаил Александрович", {"name" => "Menzbier, Mikhail Aleksandrovich", "lang" => "en"}, ],
         "Минцлова А.Р." => [ "Минцлова, Анна Рудольфовна" ],
         "Муцетони В.М." => [ "Муцетони, Валентина Михайловна" ],
         "Неизвестный автор" => [ "Неизвестный автор", {"name" => "Unknown author", "lang" => "en"}, ],
         "Песков В.М." => [],
         "Петров Ф.Н." => [],
+        "Плавильщиков Н.Н." => [ "Плавильщиков, Николай Николаевич" ],
         "Полосатова Е.В." => [],
+        "Полякова Ю.Ф." => [],
         "Потапов М.М." => [],
         "Псахис Б.С." => [],
         "Пупершлаг Е.А." => [ "Пупершлаг, Евгения Александровна" ],
         "Рейнвальд Л.Л." => [],
+        "Садовникова-Кольцова М.П." => [],
         "Сироткин М.A." => [],
         "Слудский А.А." => [],
         "Смолин П.П." => [ "Смолин, Петр Петрович" ],
         "Сосновский И.П." => [ "Сосновский, Игорь Петрович" ],
         "Спангенберг Е.П." => [ "Спангенберг, Евгений Павлович" ],
         "Суворов И.П." => [],
+        "Судиловская А.М." => [ "Судиловская, Ангелина Михайловна" ],
         "Сукачев В.Н." => [],
+        "Толстой С.С." => [ "Толстой, Сергей Сергеевич" ],
         "Туров С.С." => [ "Туров, Сергей Сергеевич" ],
         "Фабри К.Э." => [ "Фабри, Курт Эрнестович" ],
         "Федулов Ф.Е." => [ "Федулов, Филипп Евтихиевич" ],
+        "Федулов Д.Я." => [ "Федулов, Дмитрий Яковлевич" ],
+        "Формозов А.Н." => [ "Формозов, Александр Николаевич" ],
         "Хануков А." => [],
         "Хахлов В.А." => [],
         "Цингер В.Я." => [ "Цингер, Василий Яковлевич" ],
         "Чибисов Н.Е." => [ "Чибисов, Никандр Евлампиевич" ],
+        "Чибисова Н.Н." => [],
         "Шиллингер Ф.Ф." => [ "Шиллингер, Франц Францович" ],
         "Шперлинг М." => [],
         "Штернберг П.К." => [ "Штернберг, Павел Карлович" ],
@@ -357,7 +394,11 @@ sub extract_authors {
     my ($text) = @_;
 
     my $doc_authors = [];
-    while ($text && $text =~ /^Автор:\s([Нн]еизвестный\sавтор|Ладыгина\s*?\-\s*?Котс\s?Н.\s?Н.|[^\s]+?\s+?([^\s]?\.?\s?[^\s]?\.?|))(\s|,)(.+)$/) {
+    
+    $text =~ s/Автор: Ладыгина. Котс/Автор: Ладыгина-Котс/;
+    $text =~ s/Автор: Ладыгина - Котс/Автор: Ладыгина-Котс/;
+
+    while ($text && $text =~ /^\s*Автор:\s([Нн]еизвестный\sавтор|Ладыгина\s*?\-\s*?Котс\s?Н.\s?Н.|[^\s]+?\s+?([^\s]?\.?\s?[^\s]?\.?|))(\s|,)(.+)$/) {
         my $author = $1;
         $text = $4;
         
@@ -376,11 +417,41 @@ sub extract_authors {
             }
         }
     }
+
+    if ($text && $text =~ /^и др\.(.+)/) {
+        $text = $1;
+    }
+
     if (!scalar(@{$doc_authors})) {
         push @{$doc_authors}, {"name" => "Котс, Александр Федорович", "lang" => "ru"}, {"name" => "Kohts (Coates), Alexander Erich", "lang" => "en"};
     }
 
-    return $doc_authors;
+    return {
+        'extracted_struct' => $doc_authors,
+        'trimmed_input' => $text,
+        };
+}
+
+sub extract_single_field {
+    my ($text, $field_label) = @_;
+
+    Carp::confess("Programmer error: need field_label (one of: Техника, Дата создания)")
+        unless $field_label && (
+            $field_label eq 'Техника' || $field_label eq 'Время создания'
+            );
+
+    my $doc_type_extracted = "";
+    if ($text =~ /^(.+)${field_label}:([^\.]+?)(\.|\s|$)(.*)/) {
+        $text = trim(safe_string($1) . safe_string($4));
+
+        $doc_type_extracted = trim($2);
+        $doc_type_extracted =~ s/\s+/ /g;
+    }
+
+    return {
+        'extracted_struct' => $doc_type_extracted,
+        'trimmed_input' => $text,
+        };
 }
 
 sub tsv_read_and_validate {
@@ -411,7 +482,12 @@ sub tsv_read_and_validate {
     TSV_LINE: foreach my $line (@{$list}) {
         $doc_struct->{'total_input_lines'}++;
 
+        if ($o->{'input-line'}) {
+            next TSV_LINE if $doc_struct->{'total_input_lines'} ne $o->{'input-line'};
+        }
+
         my $line_struct = {
+            #'orig_line' => $line,
             'orig_field_values_array' => [split("\t", $line, -1)],
             'by_field_name' => {},
             'orig_line_number' => $doc_struct->{'total_input_lines'},
@@ -419,15 +495,31 @@ sub tsv_read_and_validate {
 
         my $i = 0;
         foreach my $fvalue (@{$line_struct->{'orig_field_values_array'}}) {
-            if ($fvalue && substr($fvalue, 0, 1) eq '"' &&
-                substr($fvalue, length($fvalue) - 1, 1) eq '"') {
-                $fvalue = substr($fvalue, 1, length($fvalue) - 2);
+            # generic input text filtering
+            my $nvalue = $fvalue;
+
+            # remove surrounding quotes
+            if ($nvalue && substr($nvalue, 0, 1) eq '"' &&
+                substr($nvalue, length($nvalue) - 1, 1) eq '"') {
+                $nvalue = substr($nvalue, 1, length($nvalue) - 2);
             }
 
-            $fvalue =~ s/\s+$//s;
-            $fvalue =~ s/""/"/g;
+            # remove heading and trailing whitespace
+            $nvalue = trim($nvalue);
 
-            $line_struct->{'by_field_name'}->{$data_desc_struct->{'input_tsv_fields'}->[$i]} = $fvalue;
+            # replace all repeated space with one space symbol
+            while ($nvalue =~ /\s\s/) {
+                $nvalue =~ s/\s\s/ /gs;
+            }
+
+            # push dangling commas and dots to the text
+            $nvalue =~ s/\s\,(\s|$)/\,$1/g;
+            $nvalue =~ s/\s\.(\s|$)/\.$1/g;
+            $nvalue =~ s/\s\;(\s|$)/\;$1/g;
+
+            $nvalue =~ s/""/"/g;
+
+            $line_struct->{'by_field_name'}->{$data_desc_struct->{'input_tsv_fields'}->[$i]} = $nvalue;
             $i++;
         }
 
@@ -524,10 +616,10 @@ sub tsv_read_and_validate {
             my $storage_struct = $doc_struct->{'by_storage'}->{$st_gr_id}->{$storage_number};
             
             my $tsv_struct = {
-                'dc.contributor.author[en]' => '',
-                'dc.contributor.author[ru]' => '',
-                'dc.creator[en]' => '',
-                'dc.creator[ru]' => '',
+                'dc.contributor.author[en]' => [],
+                'dc.contributor.author[ru]' => [],
+                'dc.creator[en]' => [],
+                'dc.creator[ru]' => [],
                 'dc.date.created' => '',
 #                'dc.date.issued' => '',
                 'dc.description[ru]' => '',
@@ -548,54 +640,79 @@ sub tsv_read_and_validate {
             };
 
             if (scalar(@{$storage_struct->{'documents'}}) == 1) {
-                my $doc_authors = extract_authors($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_name'});
-                foreach my $author (@{$doc_authors}) {
-                    $tsv_struct->{'dc.contributor.author[' . $author->{'lang'} . ']'} = $author->{'name'};
-                    $tsv_struct->{'dc.creator[' . $author->{'lang'} . ']'} = $author->{'name'};
+                
+                my $title_struct = extract_authors($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_name'});
+                foreach my $author (@{$title_struct->{'extracted_struct'}}) {
+                    push @{$tsv_struct->{'dc.contributor.author[' . $author->{'lang'} . ']'}}, $author->{'name'};
+                    push @{$tsv_struct->{'dc.creator[' . $author->{'lang'} . ']'}}, $author->{'name'};
                 }
 
-                $tsv_struct->{'dc.date.created'} = $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_date'};
+                my $doc_type = extract_single_field($title_struct->{'trimmed_input'}, 'Техника');
+                if ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_type'} &&
+                    $doc_type->{'extracted_struct'}) {
+                    Carp::confess("Unable to determine document type: " . Data::Dumper::Dumper($storage_struct));
+                }
+                $tsv_struct->{'sdm-archive-workflow.misc.document-type'} =
+                    $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_type'} ||
+                    $doc_type->{'extracted_struct'};
+
+                my $doc_date = extract_single_field($doc_type->{'trimmed_input'}, 'Время создания');
+                if ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_date'} &&
+                    $doc_date->{'extracted_struct'}) {
+                    Carp::confess("Unable to determine document date: " . Data::Dumper::Dumper($storage_struct));
+                }
+                $tsv_struct->{'dc.date.created'} =
+                    $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_date'} ||
+                    $doc_date->{'extracted_struct'};
+
+                $tsv_struct->{'dc.title[ru]'} = $doc_date->{'trimmed_input'};
 
                 $tsv_struct->{'dc.identifier.other[ru]'} = 'Место хранения ' . $storage_number .
                     ' (' . $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable'} . ')';
-                $tsv_struct->{'dc.identifier.other[en]'} = 'Inventory number  ' . $storage_number .
+                $tsv_struct->{'dc.identifier.other[en]'} = 'Storage item ' . $storage_number .
                     ' (' . $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable_en'} . ')';
-                
-                $tsv_struct->{'dc.title[ru]'} = $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_name'};
 
                 $tsv_struct->{'sdm-archive-workflow.misc.completeness'} = $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_property_full'};
                 $tsv_struct->{'sdm-archive-workflow.misc.authenticity'} = $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_property_genuine'};
-                $tsv_struct->{'sdm-archive-workflow.misc.document-type'} = $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_type'};
                 $tsv_struct->{'sdm-archive-workflow.misc.classification-code'} = $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'classification_code'};
                 $tsv_struct->{'sdm-archive-workflow.misc.archive-date'} = $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'archive_date'};
+                $tsv_struct->{'sdm-archive-workflow.misc.notes'} = $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_desc'};
 
                 $tsv_struct->{'dc.description[ru]'} = "";
                 if ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'of_number'}) {
                     $tsv_struct->{'dc.description[ru]'} .= "ОФ-" .
-                        $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'of_number'} . "/" .
-                        $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'number_suffix'}
+                        $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'of_number'} .
+                        ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'number_suffix'} ?
+                            "/" . $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'number_suffix'}
+                            : "")
                         ;
                 } else {
                     $tsv_struct->{'dc.description[ru]'} .= "НВФ-" .
-                        $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'nvf_number'} . "/" .
-                        $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'number_suffix'}
+                        $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'nvf_number'} .
+                        ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'number_suffix'} ?
+                            "/" . $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'number_suffix'}
+                            : "")
                     ;
                 }
                 
                 my $desc_elements = [];
-                push (@{$desc_elements}, $tsv_struct->{'dc.title[ru]'} . ".");
-
+                my $push_desc_el = sub {
+                    my ($str) = @_;
+                    push (@{$desc_elements}, $str . ($str =~ /\.$/ ? "" : "."));
+                };
+                
+                $push_desc_el->($tsv_struct->{'dc.title[ru]'});
                 if ($tsv_struct->{'sdm-archive-workflow.misc.completeness'}) {
-                    push (@{$desc_elements}, "Полнота:", $tsv_struct->{'sdm-archive-workflow.misc.completeness'} . ".");
+                    $push_desc_el->("Полнота: " . $tsv_struct->{'sdm-archive-workflow.misc.completeness'});
                 }
                 if ($tsv_struct->{'sdm-archive-workflow.misc.authenticity'}) {
-                    push (@{$desc_elements}, "Подлинность:", $tsv_struct->{'sdm-archive-workflow.misc.authenticity'} . ".");
+                    $push_desc_el->("Подлинность: " . $tsv_struct->{'sdm-archive-workflow.misc.authenticity'});
                 }
                 if ($tsv_struct->{'sdm-archive-workflow.misc.document-type'}) {
-                    push (@{$desc_elements}, "Способ воспроизведения:", $tsv_struct->{'sdm-archive-workflow.misc.document-type'} . ".");
+                    $push_desc_el->("Способ воспроизведения: " . $tsv_struct->{'sdm-archive-workflow.misc.document-type'});
                 }
                 if ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_desc'}) {
-                    push (@{$desc_elements}, "Примечания:", $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_desc'} . ".");
+                    $push_desc_el->("Примечания: " . $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_desc'});
                 }
 
                 $tsv_struct->{'dc.description[ru]'} .= " " . join (" ", @{$desc_elements});
@@ -681,6 +798,11 @@ sub tsv_output_record {
         $out_array = ["+"];
         foreach my $field_name (sort keys %{$tsv_record}) {
             my $field_value = $tsv_record->{$field_name};
+            
+            if (ref($field_value) eq 'ARRAY') {
+                $field_value = join("||", @{$field_value});
+            }
+
             $field_value =~ s/"/""/g;
             push @{$out_array}, '"' . $field_value . '"';
         }
@@ -745,7 +867,7 @@ if ($o->{'dump-data-desc'}) {
     Carp::confess("Need --input-file")
         unless $o->{'input-file'};
   
-    my $in_doc_struct = tsv_read_and_validate($o->{'input-file'});
+    my $in_doc_struct = tsv_read_and_validate($o->{'input-file'}, $o);
 
     Carp::confess("Invalid storage group id specified")
         unless defined($in_doc_struct->{'by_storage'}->{$st_gr_id});
@@ -754,20 +876,26 @@ if ($o->{'dump-data-desc'}) {
     
     print Data::Dumper::Dumper($in_doc_struct->{'by_storage'}->{$st_gr_id}->{$st_number});
 
+    if ($o->{'tsv-output'}) {
+        tsv_output_record($in_doc_struct->{'by_storage'}->{$st_gr_id}->{$st_number}->{'tsv_struct'});
+    }
 } elsif ($o->{'dump-tsv-struct'}) {
     Carp::confess("Need --input-file")
         unless $o->{'input-file'};
 
-    my $in_doc_struct = tsv_read_and_validate($o->{'input-file'});
+    my $in_doc_struct = tsv_read_and_validate($o->{'input-file'}, $o);
 
     if ($o->{'debug'}) {
         print Data::Dumper::Dumper($in_doc_struct);
     }
 
-    print "total number of input lines: " . $in_doc_struct->{'total_input_lines'} . "\n";
+    print "total input lines: " . $in_doc_struct->{'total_input_lines'} . "\n";
     print "total data lines: " . scalar(@{$in_doc_struct->{'array'}}) . "\n";
     foreach my $st_gr_id (sort keys %{$in_doc_struct->{'by_storage'}}) {
-        print "total items in storage group [$st_gr_id]: " . scalar(keys %{$in_doc_struct->{'by_storage'}->{$st_gr_id}}) . "\n";
+        print
+            "total items in storage group [$st_gr_id] (" .
+            $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable_en'} .
+            "): " . scalar(keys %{$in_doc_struct->{'by_storage'}->{$st_gr_id}}) . "\n";
     }
 
     foreach my $fund_number (sort {$a <=> $b} keys %{$in_doc_struct->{'storage_items_by_fund_number'}}) {
@@ -780,7 +908,7 @@ if ($o->{'dump-data-desc'}) {
 
     my $target_collection_handle = $o->{'target-collection-handle'} || "123456789/2";
 
-    my $in_doc_struct = tsv_read_and_validate($o->{'input-file'});
+    my $in_doc_struct = tsv_read_and_validate($o->{'input-file'}, $o);
 
     my $output_labels;
 
@@ -840,345 +968,5 @@ if ($o->{'dump-data-desc'}) {
     tsv_output_record($tsv_record, {'mode' => 'labels'});
     tsv_output_record($tsv_record, {'mode' => 'values'});
 } else {
-    Carp::confess("--extract-authors and --check-authors are mutually exclusive")
-        if $o->{'extract-authors'} && $o->{'check-authors'};
-    Carp::confess("--extract-authors|--check-authors mode needs only --input-file")
-        if ($o->{'extract-authors'} || $o->{'check-authors'}) &&
-           ($o->{'output-dir'} || $o->{'output-metadata-tsv'} || $o->{'target-collection-handle'});
-
-    Carp::confess("Need one of: --output-dir, --output-metadata-tsv, --check-authors, --extract-authors, " .
-        "--dump-titles, --dump-tsv-raw, --dump-storage-stats")
-        unless
-            $o->{'check-authors'} || $o->{'extract-authors'} ||
-            $o->{'output-dir'} || $o->{'output-metadata-tsv'} ||
-            $o->{'dump-titles'} || $o->{'dump-tsv-raw'} ||
-            $o->{'dump-storage-stats'} || $o->{'dump-titles-by-storage-number'};
-
-    Carp::confess("--output-dir and --output-metadata-tsv are mutually exclusive")
-        if $o->{'output-dir'} && $o->{'output-metadata-tsv'};
-    Carp::confess("Output directory [$o->{'output-dir'}] must not exist")
-        if $o->{'output-dir'} && -d $o->{'output-dir'};
-    Carp::confess("Output metadata file [$o->{'output-metadata-tsv'}] must not exist")
-        if $o->{'output-metadata-tsv'} && -e $o->{'output-metadata-tsv'};
-    Carp::confess("metadata --add-items mode needs --target-collection-handle")
-        if $o->{'output-metadata-tsv'} && $o->{'add-items'} && ! $o->{'target-collection-handle'};
-
-    Carp::confess("--add-items and --map-file don't work with --output-dir yet")
-        if $o->{'output_dir'} && ($o->{'add-items'} || $o->{'map-file'});
-    Carp::confess("--add-items and --map-file are mutually exclusive")
-        if $o->{'add-items'} && $o->{'map-file'};
-    Carp::confess("metadata mode needs --add-items or --map-file")
-        if $o->{'output-metadata-tsv'} && ! $o->{'add-items'} && ! $o->{'map-file'};
-    Carp::confess("--map-file [$o->{'map-file'}] must exist")
-        if $o->{'map-file'} && ! -e $o->{'map-file'};
-    Carp::confess("--add-not-in-map is an option of --map-file which was not specified")
-        if $o->{'add-not-in-map'} && !$o->{'map-file'};
-
-    my $output_fh;
-    if ($o->{'output-metadata-tsv'}) {
-        open($output_fh, ">" . $o->{'output-metadata-tsv'}) ||
-                Carp::confess("unable to write to [" . $o->{'output-metadata-tsv'} . "]");
-        binmode($output_fh, ':encoding(UTF-8)');
-
-        # header
-        print $output_fh "id,collection,dc.contributor.author[eng],dc.contributor.author[rus],dc.creator[eng],dc.creator[rus],dc.date.accessioned,dc.date.available,dc.date.created[eng],dc.description.provenance[en],dc.description[rus],dc.identifier.other[rus],dc.identifier.uri,dc.language.iso[eng],dc.publisher[eng],dc.publisher[rus],dc.subject[rus],dc.title[rus],dc.type[eng]\n";
-    }
-
-    # find dspace handle by afk_status_of_nvf_number
-    my $map = {};
-    if ($o->{'map-file'}) {
-        my $map_hash = Text::CSV::Hashify->new({
-            'file' => $o->{'map-file'},
-            'format' => 'aoh',
-            });
-
-        foreach my $d (@{$map_hash->all()}) {
-            next unless $d->{'dc.identifier.other[rus]'};
-
-            my ($storage_number, $of_nvf_id) = split(/\|\|/, $d->{'dc.identifier.other[rus]'}, -1);
-            next unless $of_nvf_id;
-
-            my $handle = $d->{'dc.identifier.uri'};
-            $handle =~ s%http://hdl.handle.net/%%;
-
-            $map->{$of_nvf_id} = {
-                'id' => $d->{'id'},
-                'handle' => $handle,
-                'dspace_storage' => $storage_number,
-                'orig_obj' => $d,
-                };
-        }
-    }
-
-    my $in_doc_struct = tsv_read_and_validate($o->{'input-file'});
-
-    my $line_number = 0;
-    LINE_STRUCT: foreach my $line_struct (@{$in_doc_struct->{'array'}}) {
-        $line_number++;
-
-        # the order is important, $doc_name is repeatedly transformed and cropped at the right side
-        my $doc_name = $line_struct->{'by_field_name'}->{'doc_name'};
-        $doc_name =~ s/""/"/g;
-        $doc_name =~ s/^"//;
-        $doc_name =~ s/"$//;
-        $doc_name =~ s/^Котс А.Ф.//;
-        $doc_name =~ s/\s\,\s/\, /g;
-        $doc_name =~ s/\s\:\s/\: /g;
-        $doc_name =~ s/\s\;\s/\; /g;
-        $doc_name =~ s/\s\./\./g;
-        $doc_name =~ s/\&/\&amp\;/g;
-        $doc_name =~ s/^\s+//;
-        $doc_name =~ s/\s+$//;
-        $doc_name =~ s/\s\s/ /g;
-
-        if ($doc_name =~ /^(.+)Техника:(.+?)$/) {
-            $doc_name = $1;
-            my $doc_type_extracted = $2;
-            $doc_type_extracted =~ s/\s+$//;
-            $doc_type_extracted =~ s/^\s+?//;
-            $doc_type_extracted =~ s/\s\s/ /g;
-
-            if ($line_struct->{'by_field_name'}->{'doc_type'}) {
-                $line_struct->{'by_field_name'}->{'doc_type'} .= ", " . $doc_type_extracted;
-            }       
-            else {
-                $line_struct->{'by_field_name'}->{'doc_type'} = $doc_type_extracted;
-            }
-        }
-        if ($doc_name =~ /^(.+)Описание:(.+?)$/) {
-            $doc_name = $1;
-            my $doc_desc = $2;
-            $doc_desc =~ s/\s+$//;
-            $doc_desc =~ s/^\s+?//;
-            $doc_desc =~ s/\s\s/ /g;
-
-            if ($line_struct->{'by_field_name'}->{'doc_desc'}) {
-                $line_struct->{'by_field_name'}->{'doc_desc'} .= ", " . $doc_desc;
-            }
-            else {
-                $line_struct->{'by_field_name'}->{'doc_desc'} = $doc_desc;
-            }
-        }
-        if ($doc_name =~ /^(.+)Время создания:(.+?)$/) {
-            $doc_name = $1;
-            my $doc_date = $2;
-            $doc_date =~ s/\s+$//;
-            $doc_date =~ s/^\s+?//;
-            $doc_date =~ s/\s\s/ /g;
-
-            if ($line_struct->{'by_field_name'}->{'doc_date'}) {
-                $line_struct->{'by_field_name'}->{'doc_date'} .= ", " . $doc_date;
-            } else {
-                $line_struct->{'by_field_name'}->{'doc_date'} = $doc_date;
-            }
-        }
-        
-        my $doc_authors = [];
-        while ($doc_name && $doc_name =~ /^Автор:\s([Нн]еизвестный\sавтор|Ладыгина\s*?\-\s*?Котс\s?Н.\s?Н.|[^\s]+?\s+?([^\s]?\.?\s?[^\s]?\.?|))(\s|,)(.+)$/) {
-            my $author = $1;
-            $doc_name = $4;
-            
-            if ($o->{'extract-authors'}) {
-                print $1 . "\n";
-            }
-            elsif ($o->{'check-authors'}) {
-                if (!$data_desc_struct->{'authors_canonical'}->{$author}) {
-                    print "unknown author: [$author]\n";
-                }
-            }
-            else {
-                if ($data_desc_struct->{'authors_canonical'}->{$author}) {
-                    foreach my $a_struct (@{$data_desc_struct->{'authors_canonical'}->{$author}}) {
-                        if (ref($a_struct) eq '') {
-                            push @{$doc_authors}, {"name" => $a_struct, "lang" => "rus"};
-                        }
-                        else {
-                            push @{$doc_authors}, $a_struct;
-                        }
-                    }
-                }
-                else {
-                    if ($author =~ /^([^\.]+?)\s+?(.*)$/) {
-                        my ($lastname, $othername) = ($1, $2);
-                        push @{$doc_authors}, {"name" => $lastname . ", " . $othername, "lang" => "rus"};
-                    } else {
-                        push @{$doc_authors}, {"name" => $author, "lang" => "rus"};
-                    }
-                }
-            }
-        }
-        if (!scalar(@{$doc_authors})) {
-            push @{$doc_authors}, {"name" => "Александр Федорович Котс", "lang" => "rus"}, {"name" => "Alexander Erich Kohts (Coates)", "lang" => "eng"};
-        }
-
-        $doc_name =~ s/^\s+//;
-        $doc_name =~ s/\s+$//;
-        $doc_name =~ s/\s\s/ /g;
-
-        if ($line_struct->{'by_field_name'}->{'doc_date'} =~ /^[\[]*(\d\d\d\d)[\]]*$/) {
-            $line_struct->{'by_field_name'}->{'doc_date'} = $1;
-        }
-        if ($line_struct->{'by_field_name'}->{'doc_date'} =~ /^\s*$/) {
-            $line_struct->{'by_field_name'}->{'doc_date'} = "unknown";
-        }
-
-        my $collection_identifier;
-        if ($line_struct->{'by_field_name'}->{'of_number'}) {
-            $collection_identifier = "ОФ-" . $line_struct->{'by_field_name'}->{'of_number'} .
-                ($line_struct->{'by_field_name'}->{'number_suffix'} ? "/" . $line_struct->{'by_field_name'}->{'number_suffix'} : "");
-        } elsif ($line_struct->{'by_field_name'}->{'nvf_number'}) {
-            $collection_identifier = "НВФ-" . $line_struct->{'by_field_name'}->{'nvf_number'} .
-                ($line_struct->{'by_field_name'}->{'number_suffix'} ? "/" . $line_struct->{'by_field_name'}->{'number_suffix'} : "");
-        }
-    #    else {
-    #        Carp::confess("No of_number and no nvf_number: " . Data::Dumper::Dumper($line_struct));
-    #    }
-
-        # filter out only those which we need
-        if ($o->{'include-collection-ids'}) {
-            if ($collection_identifier) {
-                if ($o->{'include-collection-ids'} !~ /\b$collection_identifier\b/) {
-                    next LINE_STRUCT;
-                } else {
-                }
-            } else {
-                next LINE_STRUCT;
-            }
-        }
-
-        # "dspace import" mode, generates directory with subdirectory containing dublin_core.xml,
-        # doesn't account for multiple authorship
-        if ($o->{'output-dir'}) {
-            my $descriptions = [];
-            foreach my $f (qw/doc_property_full doc_property_genuine doc_type doc_desc/) {
-                if ($line_struct->{'by_field_name'}->{$f} && $line_struct->{'by_field_name'}->{$f} !~ /^\s*$/) {
-                    push @{$descriptions}, '
-      <dcvalue element="description" qualifier="none" language="rus">' . $description_labels->{$f} . $line_struct->{'by_field_name'}->{$f} . '</dcvalue>';
-                }
-            }
-
-            my $dc_filepath = $o->{'output-dir'} . "/" . sprintf("%05d", $line_number);
-            File::Path::make_path($dc_filepath);
-            open($output_fh, ">" . $dc_filepath . "/dublin_core.xml") ||
-                Carp::confess("unable to write to [" . $dc_filepath . "/dublin_core.xml" . "]");
-            binmode $output_fh, ':encoding(UTF-8)';
-
-            my $author_xml = "";
-            foreach my $a (@{$doc_authors}) {
-                $author_xml .= '
-      <dcvalue element="contributor" qualifier="author" language="' . $a->{'lang'} . '">' . $a->{'name'} . '</dcvalue>
-      <dcvalue element="creator" qualifier="none" language="' . $a->{'lang'} . '">' . $a->{'name'} . '</dcvalue>';
-            }
-
-            print $output_fh '<?xml version="1.0" encoding="utf-8" standalone="no"?>
-    <dublin_core schema="dc">' . $author_xml . '
-      <dcvalue element="date" qualifier="created" language="eng">' . $line_struct->{'by_field_name'}->{'doc_date'} . '</dcvalue>' .
-        ($line_struct->{'by_field_name'}->{'storage_number'} ? '
-      <dcvalue element="identifier" qualifier="other" language="rus">Место хранения: ' . $line_struct->{'by_field_name'}->{'storage_number'} . '</dcvalue>' : "") . 
-        ($collection_identifier ? '
-      <dcvalue element="identifier" qualifier="other" language="rus">' . $collection_identifier . '</dcvalue>' : "") .
-        join("", @{$descriptions}) . '
-      <dcvalue element="language" qualifier="iso" language="eng">rus</dcvalue>
-      <dcvalue element="publisher" qualifier="none" language="eng">State Darwin Museum</dcvalue>
-      <dcvalue element="publisher" qualifier="none" language="rus">Государственный Дарвиновский Музей</dcvalue>
-      <dcvalue element="subject" qualifier="none" language="rus">Музейное дело</dcvalue>
-      <dcvalue element="title" qualifier="none" language="rus">' . $doc_name . '</dcvalue>
-      <dcvalue element="type" qualifier="none" language="eng">Text</dcvalue>
-    </dublin_core>
-    ';
-            close($output_fh);
-        } elsif ($o->{'output-metadata-tsv'}) {
-            my $author_rus = [];
-            my $author_eng = [];
-            foreach my $a (@{$doc_authors}) {
-                if ($a->{'lang'} eq 'eng') {
-                    push @{$author_eng}, $a->{'name'};
-                }
-                else {
-                    push @{$author_rus}, $a->{'name'};
-                }
-            }
-
-            my $descriptions = [];
-            foreach my $f (qw/doc_property_full doc_property_genuine doc_type doc_desc/) {
-                if ($line_struct->{'by_field_name'}->{$f} && $line_struct->{'by_field_name'}->{$f} !~ /^\s*$/) {
-                    push @{$descriptions}, $description_labels->{$f} . $line_struct->{'by_field_name'}->{$f};
-                }
-            }
-
-            my $identifiers = [];
-            if ($line_struct->{'by_field_name'}->{'storage_number'}) {
-                push @{$identifiers}, "Место хранения: " . $line_struct->{'by_field_name'}->{'storage_number'};
-            }
-            if ($collection_identifier) {
-                push @{$identifiers}, $collection_identifier;
-            }
-
-            if ($o->{'map-file'} && !$map->{$collection_identifier}) {
-                if (!$o->{'add-not-in-map'}) {
-                    Carp::confess("unable to find [$collection_identifier] in --map-file");
-                }
-                else {
-                    $o->{'prev_add-items'} = $o->{'add-items'};
-                    $o->{'add-items'} = 1;
-                }
-            }
-            
-            my $record = [
-                #id,
-                ($o->{'add-items'} ? "+" : $map->{$collection_identifier}->{'id'} || ""),
-                #collection,
-                ($o->{'add-items'} ? $o->{'target-collection-handle'} : $map->{$collection_identifier}->{'orig_obj'}->{'collection'}),
-                #dc.contributor.author[eng],
-                #dc.contributor.author[rus],
-                #dc.creator[eng],
-                #dc.creator[rus],
-                join("||", @{$author_eng}),
-                join("||", @{$author_rus}),
-                join("||", @{$author_eng}),
-                join("||", @{$author_rus}),
-                #dc.date.accessioned,
-                ($o->{'add-items'} ? "" : $map->{$collection_identifier}->{'orig_obj'}->{'dc.date.accessioned'}),
-                #dc.date.available,
-                ($o->{'add-items'} ? "" : $map->{$collection_identifier}->{'orig_obj'}->{'dc.date.available'}),
-                #dc.date.created[eng],
-                $line_struct->{'by_field_name'}->{'doc_date'},
-                #dc.description.provenance[en],
-                ($o->{'add-items'} ? "" : $map->{$collection_identifier}->{'orig_obj'}->{'dc.description.provenance[en]'}),
-                #dc.description[rus],
-                join("||", @{$descriptions}),
-                #dc.identifier.other[rus],
-                join("||", @{$identifiers}),
-                #dc.identifier.uri,
-                ($o->{'add-items'} ? "" : $map->{$collection_identifier}->{'orig_obj'}->{'dc.identifier.uri'}),
-                #dc.language.iso[eng],
-                "rus",
-                #dc.publisher[eng],
-                "State Darwin Museum",
-                #dc.publisher[rus],
-                "Государственный Дарвиновский Музей",
-                #dc.subject[rus],
-                "Музейное дело",
-                #dc.title[rus],
-                $doc_name,
-                #dc.type[eng]\n";
-                "Text",
-                ];
-
-            print $output_fh join(",",
-                map {my $s = $_ ; $s =~ s/"/""/g; '"' . $s . '"'} @{$record}
-                ) . "\n";
-
-            if ($o->{'prev_add-items'}) {
-                $o->{'add-items'} = $o->{'prev_add-items'};
-                delete($o->{'prev_add-items'});
-            }
-        } elsif ($o->{'dump-titles'}) {
-            print $doc_name . "\n";
-        }
-    }
-
-    if ($o->{'output-metadata-tsv'}) {
-        close($output_fh);
-    }
+    Carp::confess("Need command line parameter, one of: " . join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n");
 }
