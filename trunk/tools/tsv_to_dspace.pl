@@ -482,51 +482,6 @@ sub extract_meta_data {
     return $possible_field_labels;
 }
 
-sub extract_single_field {
-    my ($text, $field_label) = @_;
-
-    my $possible_field_labels = {
-        'Техника' => 1,
-        'Время создания' => 1,
-        };
-
-    Carp::confess("Programmer error: need field_label (one of: " . join (",", keys %{$possible_field_labels}) . ")")
-        unless $field_label && $possible_field_labels->{$field_label};
-
-    my $doc_type_extracted = "";
-    
-    if ($field_label eq 'Техника') {
-        if ($text =~ /^(.+)${field_label}:\s*?(печать\s*?типографская)(\.|\s|$)(.*)/) {
-            $text = trim(safe_string($1) . safe_string($4));
-            $doc_type_extracted = "печать типографская";
-        }
-    }
-    if ($field_label eq 'Время создания') {
-        foreach my $tfl (keys %{$possible_field_labels}) {
-            if ($text =~ /^(.+)${field_label}:\s*(\d+?\s+?[^\s]{3,10}\s+?\d+?)(\s+?${tfl}:.+|$)/) {
-                $text = trim(safe_string($1) . safe_string($3));
-
-                $doc_type_extracted = trim($2);
-                $doc_type_extracted =~ s/\s+/ /g;
-                $doc_type_extracted = trim($doc_type_extracted, ",");
-            }
-        }
-    }
-    
-    if (!$doc_type_extracted && $text =~ /^(.+)${field_label}:([^\.]+?)(\.|\s|$)(.*)/) {
-        $text = trim(safe_string($1) . safe_string($4));
-
-        $doc_type_extracted = trim($2);
-        $doc_type_extracted =~ s/\s+/ /g;
-        $doc_type_extracted = trim($doc_type_extracted, ",");
-    }
-
-    return {
-        'extracted_struct' => $doc_type_extracted,
-        'trimmed_input' => $text,
-        };
-}
-
 sub tsv_read_and_validate {
     my ($input_file, $o) = @_;
 
