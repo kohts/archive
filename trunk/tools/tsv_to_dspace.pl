@@ -418,6 +418,7 @@ sub extract_authors {
         }
     }
 
+    $text = trim($text);
     if ($text && $text =~ /^и др\.(.+)/) {
         $text = $1;
     }
@@ -432,20 +433,92 @@ sub extract_authors {
         };
 }
 
+sub extract_meta_data {
+    my ($text) = @_;
+
+    my $possible_field_labels = {
+        'doc_type' => {'label' => 'Техника', 'pos' => undef, 'value' => undef},
+        'doc_date' => {'label' => 'Время создания', 'pos' => undef, 'value' => undef},
+        'doc_desc' => {'label' => 'Описание', 'pos' => undef, 'value' => undef},
+        };
+    
+    my $sorted_fls = [];
+
+    foreach my $fl (keys %{$possible_field_labels}) {
+        my $fl_match_pos = index($text, $possible_field_labels->{$fl}->{'label'} . ":");
+        if ($fl_match_pos < 0) {
+            delete($possible_field_labels->{$fl});
+        } else {
+            $possible_field_labels->{$fl}->{'pos'} = $fl_match_pos;
+        }
+    }
+    
+    $sorted_fls = [sort {$possible_field_labels->{$a}->{'pos'} <=> $possible_field_labels->{$b}->{'pos'}} keys %{$possible_field_labels}];
+
+    my $i = 0;
+    foreach my $fl (@{$sorted_fls}) {
+        my $rx_str = '^(.*?)' . $possible_field_labels->{$fl}->{'label'} . '\s*?:\s*?(.+)(\s*?';
+
+        if ($i < (scalar(@{$sorted_fls}) - 1)) {
+            $rx_str = $rx_str . $possible_field_labels->{$sorted_fls->[$i+1]}->{'label'} . '\s*?:\s*?.+$)';
+        } else {
+            $rx_str = $rx_str . '\s*?$)';
+        }
+
+#        print $rx_str . "\n";
+        if ($text =~ /$rx_str/) {
+            $possible_field_labels->{$fl}->{'value'} = trim($2);
+#            print $1 . "\n";
+#            print $2 . "\n";
+#            print $3 . "\n";
+            $text = $1 . $3;
+        }
+        $i++;
+    }
+
+#    print Data::Dumper::Dumper($possible_field_labels);
+
+    $possible_field_labels->{'trimmed_input'} = trim($text);
+    return $possible_field_labels;
+}
+
 sub extract_single_field {
     my ($text, $field_label) = @_;
 
-    Carp::confess("Programmer error: need field_label (one of: Техника, Дата создания)")
-        unless $field_label && (
-            $field_label eq 'Техника' || $field_label eq 'Время создания'
-            );
+    my $possible_field_labels = {
+        'Техника' => 1,
+        'Время создания' => 1,
+        };
+
+    Carp::confess("Programmer error: need field_label (one of: " . join (",", keys %{$possible_field_labels}) . ")")
+        unless $field_label && $possible_field_labels->{$field_label};
 
     my $doc_type_extracted = "";
-    if ($text =~ /^(.+)${field_label}:([^\.]+?)(\.|\s|$)(.*)/) {
+    
+    if ($field_label eq 'Техника') {
+        if ($text =~ /^(.+)${field_label}:\s*?(печать\s*?типографская)(\.|\s|$)(.*)/) {
+            $text = trim(safe_string($1) . safe_string($4));
+            $doc_type_extracted = "печать типографская";
+        }
+    }
+    if ($field_label eq 'Время создания') {
+        foreach my $tfl (keys %{$possible_field_labels}) {
+            if ($text =~ /^(.+)${field_label}:\s*(\d+?\s+?[^\s]{3,10}\s+?\d+?)(\s+?${tfl}:.+|$)/) {
+                $text = trim(safe_string($1) . safe_string($3));
+
+                $doc_type_extracted = trim($2);
+                $doc_type_extracted =~ s/\s+/ /g;
+                $doc_type_extracted = trim($doc_type_extracted, ",");
+            }
+        }
+    }
+    
+    if (!$doc_type_extracted && $text =~ /^(.+)${field_label}:([^\.]+?)(\.|\s|$)(.*)/) {
         $text = trim(safe_string($1) . safe_string($4));
 
         $doc_type_extracted = trim($2);
         $doc_type_extracted =~ s/\s+/ /g;
+        $doc_type_extracted = trim($doc_type_extracted, ",");
     }
 
     return {
@@ -647,25 +720,30 @@ sub tsv_read_and_validate {
                     push @{$tsv_struct->{'dc.creator[' . $author->{'lang'} . ']'}}, $author->{'name'};
                 }
 
-                my $doc_type = extract_single_field($title_struct->{'trimmed_input'}, 'Техника');
-                if ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_type'} &&
-                    $doc_type->{'extracted_struct'}) {
+                my $meta = extract_meta_data($title_struct->{'trimmed_input'});
+                my $doc_type = $meta->{'doc_type'} ? $meta->{'doc_type'}->{'value'} : "";
+                my $doc_date = $meta->{'doc_date'} ? $meta->{'doc_date'}->{'value'} : "";
+                my $doc_desc = $meta->{'doc_desc'} ? $meta->{'doc_desc'}->{'value'} : "";
+
+                if ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_type'} && $doc_type) {
                     Carp::confess("Unable to determine document type: " . Data::Dumper::Dumper($storage_struct));
                 }
                 $tsv_struct->{'sdm-archive-workflow.misc.document-type'} =
-                    $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_type'} ||
-                    $doc_type->{'extracted_struct'};
+                    $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_type'} || $doc_type;
 
-                my $doc_date = extract_single_field($doc_type->{'trimmed_input'}, 'Время создания');
-                if ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_date'} &&
-                    $doc_date->{'extracted_struct'}) {
+                if ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_desc'} && $doc_desc) {
+                    Carp::confess("Unable to determine document description: " . Data::Dumper::Dumper($storage_struct));
+                }
+                $tsv_struct->{'sdm-archive-workflow.misc.notes'} =
+                    $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_desc'} || $doc_desc;
+
+                if ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_date'} && $doc_date) {
                     Carp::confess("Unable to determine document date: " . Data::Dumper::Dumper($storage_struct));
                 }
                 $tsv_struct->{'dc.date.created'} =
-                    $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_date'} ||
-                    $doc_date->{'extracted_struct'};
+                    $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_date'} || $doc_date;
 
-                $tsv_struct->{'dc.title[ru]'} = $doc_date->{'trimmed_input'};
+                $tsv_struct->{'dc.title[ru]'} = $meta->{'trimmed_input'};
 
                 $tsv_struct->{'dc.identifier.other[ru]'} = 'Место хранения ' . $storage_number .
                     ' (' . $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable'} . ')';
@@ -676,7 +754,6 @@ sub tsv_read_and_validate {
                 $tsv_struct->{'sdm-archive-workflow.misc.authenticity'} = $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_property_genuine'};
                 $tsv_struct->{'sdm-archive-workflow.misc.classification-code'} = $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'classification_code'};
                 $tsv_struct->{'sdm-archive-workflow.misc.archive-date'} = $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'archive_date'};
-                $tsv_struct->{'sdm-archive-workflow.misc.notes'} = $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_desc'};
 
                 $tsv_struct->{'dc.description[ru]'} = "";
                 if ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'of_number'}) {
@@ -702,6 +779,9 @@ sub tsv_read_and_validate {
                 };
                 
                 $push_desc_el->($tsv_struct->{'dc.title[ru]'});
+                if ($tsv_struct->{'dc.date.created'}) {
+                    $push_desc_el->("Время создания: " . $tsv_struct->{'dc.date.created'});
+                }
                 if ($tsv_struct->{'sdm-archive-workflow.misc.completeness'}) {
                     $push_desc_el->("Полнота: " . $tsv_struct->{'sdm-archive-workflow.misc.completeness'});
                 }
@@ -711,8 +791,8 @@ sub tsv_read_and_validate {
                 if ($tsv_struct->{'sdm-archive-workflow.misc.document-type'}) {
                     $push_desc_el->("Способ воспроизведения: " . $tsv_struct->{'sdm-archive-workflow.misc.document-type'});
                 }
-                if ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_desc'}) {
-                    $push_desc_el->("Примечания: " . $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_desc'});
+                if ($tsv_struct->{'sdm-archive-workflow.misc.notes'}) {
+                    $push_desc_el->("Примечания: " . $tsv_struct->{'sdm-archive-workflow.misc.notes'});
                 }
 
                 $tsv_struct->{'dc.description[ru]'} .= " " . join (" ", @{$desc_elements});
