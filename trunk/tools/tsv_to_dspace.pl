@@ -140,6 +140,7 @@ my $o_names = [
     'dump-storage-item=s',
     'tsv-output',
     'input-line=s',
+    'list-storage-items',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -642,7 +643,10 @@ sub tsv_read_and_validate {
     foreach my $st_gr_id (keys %{$doc_struct->{'by_storage'}}) {
         foreach my $storage_number (sort {$a <=> $b} keys %{$doc_struct->{'by_storage'}->{$st_gr_id}}) {
             my $storage_struct = $doc_struct->{'by_storage'}->{$st_gr_id}->{$storage_number};
-            
+
+            my $tsv_struct_helper = {
+                'authors' => {},
+                };
             my $tsv_struct = {
                 'dc.contributor.author[en]' => [],
                 'dc.contributor.author[ru]' => [],
@@ -668,9 +672,10 @@ sub tsv_read_and_validate {
             };
 
             if (scalar(@{$storage_struct->{'documents'}}) == 1) {
-                
                 my $title_struct = extract_authors($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_name'});
                 foreach my $author (@{$title_struct->{'extracted_struct'}}) {
+                    next if $tsv_struct_helper->{'authors'}->{$author->{'name'}};
+                    $tsv_struct_helper->{'authors'}->{$author->{'name'}} = 1;
                     push @{$tsv_struct->{'dc.contributor.author[' . $author->{'lang'} . ']'}}, $author->{'name'};
                     push @{$tsv_struct->{'dc.creator[' . $author->{'lang'} . ']'}}, $author->{'name'};
                 }
@@ -752,12 +757,20 @@ sub tsv_read_and_validate {
 
                 $tsv_struct->{'dc.description[ru]'} .= " " . join (" ", @{$desc_elements});
 
-                $storage_struct->{'tsv_struct'} = $tsv_struct;
             } else {
 
                 # - detect and store storage paths here against $data_desc_struct->{'external_archive_storage_base'}
                 # - check "scanned" status (should be identical for all the documents in the storage item)
                 foreach my $item (@{$storage_struct->{'documents'}}) {
+
+                    my $title_struct = extract_authors($item->{'by_field_name'}->{'doc_name'});
+                    foreach my $author (@{$title_struct->{'extracted_struct'}}) {
+                        next if $tsv_struct_helper->{'authors'}->{$author->{'name'}};
+                        $tsv_struct_helper->{'authors'}->{$author->{'name'}} = 1;
+                        push @{$tsv_struct->{'dc.contributor.author[' . $author->{'lang'} . ']'}}, $author->{'name'};
+                        push @{$tsv_struct->{'dc.creator[' . $author->{'lang'} . ']'}}, $author->{'name'};
+                    }
+
                     if ($storage_struct->{'status'}) {
                         if ($item->{'by_field_name'}->{'status'} ne $storage_struct->{'status'}) {
                             if (
@@ -804,7 +817,8 @@ sub tsv_read_and_validate {
                 }
             }
 
-#            $storage_struct->{'tsv_struct'} = $tsv_struct;
+            $storage_struct->{'tsv_struct'} = $tsv_struct;
+            $storage_struct->{'tsv_struct_helper'} = $tsv_struct_helper;
         }
     }
 
@@ -913,6 +927,21 @@ if ($o->{'dump-data-desc'}) {
 
     if ($o->{'tsv-output'}) {
         tsv_output_record($in_doc_struct->{'by_storage'}->{$st_gr_id}->{$st_number}->{'tsv_struct'});
+    }
+} elsif ($o->{'list-storage-items'}) {
+    Carp::confess("Need --input-file")
+        unless $o->{'input-file'};
+  
+    my $doc_struct = tsv_read_and_validate($o->{'input-file'}, $o);
+
+    foreach my $st_gr_id (keys %{$doc_struct->{'by_storage'}}) {
+        foreach my $storage_number (sort {$a <=> $b} keys %{$doc_struct->{'by_storage'}->{$st_gr_id}}) {
+            my $storage_struct = $doc_struct->{'by_storage'}->{$st_gr_id}->{$storage_number};
+
+            print
+                "storage group (" . $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable_en'} . ") " .
+                "storage item " . $storage_number . ": " . scalar(@{$storage_struct->{'documents'}}) . " items\n";
+        }
     }
 } elsif ($o->{'dump-tsv-struct'}) {
     Carp::confess("Need --input-file")
