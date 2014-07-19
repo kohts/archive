@@ -644,181 +644,199 @@ sub tsv_read_and_validate {
         foreach my $storage_number (sort {$a <=> $b} keys %{$doc_struct->{'by_storage'}->{$st_gr_id}}) {
             my $storage_struct = $doc_struct->{'by_storage'}->{$st_gr_id}->{$storage_number};
 
-            my $tsv_struct_helper = {
-                'authors' => {},
-                };
+            my $tsv_struct_helper = {};
             my $tsv_struct = {
-                'dc.contributor.author[en]' => [],
-                'dc.contributor.author[ru]' => [],
-                'dc.creator[en]' => [],
-                'dc.creator[ru]' => [],
-                'dc.date.created' => '',
+                'dc.contributor.author[en]' => "",
+                'dc.contributor.author[ru]' => "",
+                'dc.creator[en]' => "",
+                'dc.creator[ru]' => "",
+                'dc.date.created' => "",
 #                'dc.date.issued' => '',
-                'dc.description[ru]' => '',
+                'dc.description[ru]' => "",
 #                    'ОФ-10141/1 "От автора". Введение к тому музейно-методических работ. Полнота: полная. Подлинность: копия. Способ воспроизведения: машинопись. Примечания: Т. I' .
 #                    '||' .
 #                    'НВФ-2116/460 "От автора". Введение к тому музейно-методических работ. Полнота: полная. Подлинность: оригинал. Способ воспроизведения: машинопись. Примечания: Т. I ; 1 экз.основной + 2 экз. редакции (5 лл.,6 лл.)',
-                'dc.identifier.other[ru]' => '',
+                'dc.identifier.other[ru]' => "",
 #                'dc.identifier.uri' => '', # http://hdl.handle.net/123456789/4
                 'dc.language.iso[en]' => 'ru',
                 'dc.publisher[en]' => 'State Darwin Museum',
                 'dc.publisher[ru]' => 'Государственный Дарвиновский Музей',
-                'dc.subject[en]' => '',
+                'dc.subject[en]' => 'Museology',
                 'dc.subject[ru]' => 'Музейное дело',
-                'dc.title[ru]' => '',
+                'dc.title[ru]' => "",
                 'dc.type[en]' => 'Text',
 #                'sdm-archive-workflow.date.cataloged' => '28.01.2012',
 #                'sdm-archive-workflow.date.digitized' => '28.01.2012',
             };
 
-            if (scalar(@{$storage_struct->{'documents'}}) == 1) {
-                my $title_struct = extract_authors($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_name'});
+            # appends unique value for metadata field,
+            # returns appended value or undef (if
+            # supplied value already was exists
+            # and was not appended therefore)
+            my $push_metadata_value = sub {
+                my ($metadata_name, $metadata_value) = @_;
+
+                $tsv_struct->{$metadata_name} = "" unless defined($tsv_struct->{$metadata_name});
+                
+                return undef unless defined($metadata_value) && $metadata_value ne "";
+
+                if (!defined($tsv_struct_helper->{$metadata_name})) {
+                    $tsv_struct_helper->{$metadata_name} = {};
+                }
+
+                if (defined($tsv_struct_helper->{$metadata_name}->{$metadata_value})) {
+                    return undef;
+                } else {
+                    $tsv_struct_helper->{$metadata_name}->{$metadata_value} = 1;
+
+                    if (!defined($tsv_struct->{$metadata_name})) {
+                        $tsv_struct->{$metadata_name} = $metadata_value;
+                    } else {
+                        if (ref($tsv_struct->{$metadata_name}) eq '') {
+                            if ($tsv_struct->{$metadata_name} eq '') {
+                                $tsv_struct->{$metadata_name} = $metadata_value;
+                            } else {
+                                $tsv_struct->{$metadata_name} = [$tsv_struct->{$metadata_name}, $metadata_value];
+                            }
+                        } else {
+                            push @{$tsv_struct->{$metadata_name}}, $metadata_value;
+                        }
+                    }
+
+                    return $metadata_value;
+                }
+            };
+
+
+            # - detect and store storage paths here against $data_desc_struct->{'external_archive_storage_base'}
+            # - check "scanned" status (should be identical for all the documents in the storage item)
+            STORAGE_PLACE_ITEMS: foreach my $item (@{$storage_struct->{'documents'}}) {
+
+                my $title_struct = extract_authors($item->{'by_field_name'}->{'doc_name'});
                 foreach my $author (@{$title_struct->{'extracted_struct'}}) {
-                    next if $tsv_struct_helper->{'authors'}->{$author->{'name'}};
-                    $tsv_struct_helper->{'authors'}->{$author->{'name'}} = 1;
-                    push @{$tsv_struct->{'dc.contributor.author[' . $author->{'lang'} . ']'}}, $author->{'name'};
-                    push @{$tsv_struct->{'dc.creator[' . $author->{'lang'} . ']'}}, $author->{'name'};
+                    $push_metadata_value->('dc.contributor.author[' . $author->{'lang'} . ']', $author->{'name'});
+                    $push_metadata_value->('dc.creator[' . $author->{'lang'} . ']', $author->{'name'});
                 }
 
                 my $meta = extract_meta_data($title_struct->{'trimmed_input'});
-                my $doc_type = $meta->{'doc_type'} ? $meta->{'doc_type'}->{'value'} : "";
-                my $doc_date = $meta->{'doc_date'} ? $meta->{'doc_date'}->{'value'} : "";
-                my $doc_desc = $meta->{'doc_desc'} ? $meta->{'doc_desc'}->{'value'} : "";
+                Carp::confess("Unable to determine document type: " . Data::Dumper::Dumper($storage_struct))
+                    if $item->{'by_field_name'}->{'doc_type'} && $meta->{'doc_type'};
+                Carp::confess("Unable to determine document description: " . Data::Dumper::Dumper($storage_struct))
+                    if $item->{'by_field_name'}->{'doc_desc'} && $meta->{'doc_date'};
+                Carp::confess("Unable to determine document date: " . Data::Dumper::Dumper($storage_struct))
+                    if $item->{'by_field_name'}->{'doc_date'} && $meta->{'doc_desc'};
 
-                if ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_type'} && $doc_type) {
-                    Carp::confess("Unable to determine document type: " . Data::Dumper::Dumper($storage_struct));
-                }
-                $tsv_struct->{'sdm-archive-workflow.misc.document-type'} =
-                    $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_type'} || $doc_type;
+                my $doc_type = $meta->{'doc_type'} ? $meta->{'doc_type'}->{'value'} : $item->{'by_field_name'}->{'doc_type'};
+                my $doc_date = $meta->{'doc_date'} ? $meta->{'doc_date'}->{'value'} : $item->{'by_field_name'}->{'doc_date'};
+                my $doc_desc = $meta->{'doc_desc'} ? $meta->{'doc_desc'}->{'value'} : $item->{'by_field_name'}->{'doc_desc'};
 
-                if ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_desc'} && $doc_desc) {
-                    Carp::confess("Unable to determine document description: " . Data::Dumper::Dumper($storage_struct));
-                }
-                $tsv_struct->{'sdm-archive-workflow.misc.notes'} =
-                    $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_desc'} || $doc_desc;
+                $push_metadata_value->('dc.title[ru]', $meta->{'trimmed_input'});
 
-                if ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_date'} && $doc_date) {
-                    Carp::confess("Unable to determine document date: " . Data::Dumper::Dumper($storage_struct));
-                }
-                $tsv_struct->{'dc.date.created'} =
-                    $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_date'} || $doc_date;
+                $doc_type = $push_metadata_value->('sdm-archive-workflow.misc.document-type', $doc_type);
+                $doc_desc = $push_metadata_value->('sdm-archive-workflow.misc.notes', $doc_desc);
+                $doc_date = $push_metadata_value->('dc.date.created', $doc_date);
 
-                $tsv_struct->{'dc.title[ru]'} = $meta->{'trimmed_input'};
+                $push_metadata_value->('dc.identifier.other[ru]',
+                    'Место хранения ' . $storage_number . ' (' . $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable'} . ')');
+                $push_metadata_value->('dc.identifier.other[en]',
+                    'Storage item ' . $storage_number . ' (' . $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable_en'} . ')');
 
-                $tsv_struct->{'dc.identifier.other[ru]'} = 'Место хранения ' . $storage_number .
-                    ' (' . $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable'} . ')';
-                $tsv_struct->{'dc.identifier.other[en]'} = 'Storage item ' . $storage_number .
-                    ' (' . $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable_en'} . ')';
+                $item->{'by_field_name'}->{'doc_property_full'} =
+                    $push_metadata_value->('sdm-archive-workflow.misc.completeness', $item->{'by_field_name'}->{'doc_property_full'});
+                $item->{'by_field_name'}->{'doc_property_genuine'} = 
+                    $push_metadata_value->('sdm-archive-workflow.misc.authenticity', $item->{'by_field_name'}->{'doc_property_genuine'});
+                $item->{'by_field_name'}->{'classification_code'} = 
+                    $push_metadata_value->('sdm-archive-workflow.misc.classification-code', $item->{'by_field_name'}->{'classification_code'});
+                $item->{'by_field_name'}->{'archive_date'} =
+                    $push_metadata_value->('sdm-archive-workflow.misc.archive-date', $item->{'by_field_name'}->{'archive_date'});
 
-                $tsv_struct->{'sdm-archive-workflow.misc.completeness'} = $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_property_full'};
-                $tsv_struct->{'sdm-archive-workflow.misc.authenticity'} = $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'doc_property_genuine'};
-                $tsv_struct->{'sdm-archive-workflow.misc.classification-code'} = $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'classification_code'};
-                $tsv_struct->{'sdm-archive-workflow.misc.archive-date'} = $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'archive_date'};
-
-                $tsv_struct->{'dc.description[ru]'} = "";
-                if ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'of_number'}) {
-                    $tsv_struct->{'dc.description[ru]'} .= "ОФ-" .
-                        $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'of_number'} .
-                        ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'number_suffix'} ?
-                            "/" . $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'number_suffix'}
-                            : "")
-                        ;
+                my $item_desc = "";
+                if ($item->{'by_field_name'}->{'of_number'}) {
+                    $item_desc .= "ОФ-" . $item->{'by_field_name'}->{'of_number'} .
+                        ($item->{'by_field_name'}->{'number_suffix'} ?
+                            "/" . $item->{'by_field_name'}->{'number_suffix'}
+                            : "");
                 } else {
-                    $tsv_struct->{'dc.description[ru]'} .= "НВФ-" .
-                        $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'nvf_number'} .
-                        ($storage_struct->{'documents'}->[0]->{'by_field_name'}->{'number_suffix'} ?
-                            "/" . $storage_struct->{'documents'}->[0]->{'by_field_name'}->{'number_suffix'}
-                            : "")
-                    ;
+                    $item_desc .= "НВФ-" . $item->{'by_field_name'}->{'nvf_number'} .
+                        ($item->{'by_field_name'}->{'number_suffix'} ?
+                            "/" . $item->{'by_field_name'}->{'number_suffix'}
+                            : "");
                 }
-                
+
                 my $desc_elements = [];
                 my $push_desc_el = sub {
                     my ($str) = @_;
                     push (@{$desc_elements}, $str . ($str =~ /\.$/ ? "" : "."));
                 };
-                
-                $push_desc_el->($tsv_struct->{'dc.title[ru]'});
-                if ($tsv_struct->{'dc.date.created'}) {
-                    $push_desc_el->("Время создания: " . $tsv_struct->{'dc.date.created'});
-                }
-                if ($tsv_struct->{'sdm-archive-workflow.misc.completeness'}) {
-                    $push_desc_el->("Полнота: " . $tsv_struct->{'sdm-archive-workflow.misc.completeness'});
-                }
-                if ($tsv_struct->{'sdm-archive-workflow.misc.authenticity'}) {
-                    $push_desc_el->("Подлинность: " . $tsv_struct->{'sdm-archive-workflow.misc.authenticity'});
-                }
-                if ($tsv_struct->{'sdm-archive-workflow.misc.document-type'}) {
-                    $push_desc_el->("Способ воспроизведения: " . $tsv_struct->{'sdm-archive-workflow.misc.document-type'});
-                }
-                if ($tsv_struct->{'sdm-archive-workflow.misc.notes'}) {
-                    $push_desc_el->("Примечания: " . $tsv_struct->{'sdm-archive-workflow.misc.notes'});
-                }
 
-                $tsv_struct->{'dc.description[ru]'} .= " " . join (" ", @{$desc_elements});
+                $push_desc_el->($meta->{'trimmed_input'});
+                if ($doc_date) {
+                    $push_desc_el->("Время создания: " . $doc_date);
+                }
+                if ($item->{'by_field_name'}->{'doc_property_full'}) {
+                    $push_desc_el->("Полнота: " . $item->{'by_field_name'}->{'doc_property_full'});
+                }
+                if ($item->{'by_field_name'}->{'doc_property_genuine'}) {
+                    $push_desc_el->("Подлинность: " . $item->{'by_field_name'}->{'doc_property_genuine'});
+                }
+                if ($doc_type) {
+                    $push_desc_el->("Способ воспроизведения: " . $doc_type);
+                }
+                if ($doc_desc) {
+                    $push_desc_el->("Примечания: " . $doc_desc);
+                }
+                $item_desc .= " " . join (" ", @{$desc_elements});
+                $push_metadata_value->('dc.description[ru]', $item_desc);
 
-            } else {
-
-                # - detect and store storage paths here against $data_desc_struct->{'external_archive_storage_base'}
-                # - check "scanned" status (should be identical for all the documents in the storage item)
-                foreach my $item (@{$storage_struct->{'documents'}}) {
-
-                    my $title_struct = extract_authors($item->{'by_field_name'}->{'doc_name'});
-                    foreach my $author (@{$title_struct->{'extracted_struct'}}) {
-                        next if $tsv_struct_helper->{'authors'}->{$author->{'name'}};
-                        $tsv_struct_helper->{'authors'}->{$author->{'name'}} = 1;
-                        push @{$tsv_struct->{'dc.contributor.author[' . $author->{'lang'} . ']'}}, $author->{'name'};
-                        push @{$tsv_struct->{'dc.creator[' . $author->{'lang'} . ']'}}, $author->{'name'};
-                    }
-
-                    if ($storage_struct->{'status'}) {
-                        if ($item->{'by_field_name'}->{'status'} ne $storage_struct->{'status'}) {
-                            if (
-                                $item->{'by_field_name'}->{'status'} eq 'published' ||
-                                (
-                                    $item->{'by_field_name'}->{'status'} eq 'docbook' &&
-                                    $storage_struct->{'status'} ne 'published'
-                                ) ||
-                                (
-                                    $item->{'by_field_name'}->{'status'} eq 'ocr' &&
-                                    $storage_struct->{'status'} ne 'published' &&
-                                    $storage_struct->{'status'} ne 'docbook'
-                                ) ||
-                                (
-                                    $item->{'by_field_name'}->{'status'} eq 'scanned' &&
-                                    $storage_struct->{'status'} ne 'published' &&
-                                    $storage_struct->{'status'} ne 'docbook' &&
-                                    $storage_struct->{'status'} ne 'ocr'
-                                ) ||
-                                (
-                                    $item->{'by_field_name'}->{'status'} eq 'scanning' &&
-                                    $storage_struct->{'status'} ne 'published' &&
-                                    $storage_struct->{'status'} ne 'docbook' &&
-                                    $storage_struct->{'status'} ne 'ocr' &&
-                                    $storage_struct->{'status'} ne 'scanned'
-                                )
-                                ) {
-                                $storage_struct->{'status'} = $item->{'by_field_name'}->{'status'};
-                                $storage_struct->{'date_of_status'} = $item->{'by_field_name'}->{'date_of_status'};
-                            }
+                if ($storage_struct->{'status'}) {
+                    if ($item->{'by_field_name'}->{'status'} ne $storage_struct->{'status'}) {
+                        if (
+                            $item->{'by_field_name'}->{'status'} eq 'published' ||
+                            (
+                                $item->{'by_field_name'}->{'status'} eq 'docbook' &&
+                                $storage_struct->{'status'} ne 'published'
+                            ) ||
+                            (
+                                $item->{'by_field_name'}->{'status'} eq 'ocr' &&
+                                $storage_struct->{'status'} ne 'published' &&
+                                $storage_struct->{'status'} ne 'docbook'
+                            ) ||
+                            (
+                                $item->{'by_field_name'}->{'status'} eq 'scanned' &&
+                                $storage_struct->{'status'} ne 'published' &&
+                                $storage_struct->{'status'} ne 'docbook' &&
+                                $storage_struct->{'status'} ne 'ocr'
+                            ) ||
+                            (
+                                $item->{'by_field_name'}->{'status'} eq 'scanning' &&
+                                $storage_struct->{'status'} ne 'published' &&
+                                $storage_struct->{'status'} ne 'docbook' &&
+                                $storage_struct->{'status'} ne 'ocr' &&
+                                $storage_struct->{'status'} ne 'scanned'
+                            )
+                            ) {
+                            $storage_struct->{'status'} = $item->{'by_field_name'}->{'status'};
+                            $storage_struct->{'date_of_status'} = $item->{'by_field_name'}->{'date_of_status'};
                         }
-                    } else {
-                        $storage_struct->{'status'} = $item->{'by_field_name'}->{'status'};
-                        $storage_struct->{'date_of_status'} = $item->{'by_field_name'}->{'date_of_status'};
                     }
+                } else {
+                    $storage_struct->{'status'} = $item->{'by_field_name'}->{'status'};
+                    $storage_struct->{'date_of_status'} = $item->{'by_field_name'}->{'date_of_status'};
+                }
 
-                    foreach my $array_uf (qw/scanned_doc_id/) {
-                        $storage_struct->{$array_uf} = [] unless
-                            $storage_struct->{$array_uf};
-                        if (! scalar(grep($_ eq $item->{'by_field_name'}->{$array_uf}, @{$storage_struct->{$array_uf}}))) {
-                            push @{$storage_struct->{$array_uf}}, $item->{'by_field_name'}->{$array_uf};
-                        }
+                foreach my $array_uf (qw/scanned_doc_id/) {
+                    $storage_struct->{$array_uf} = [] unless
+                        $storage_struct->{$array_uf};
+                    if (! scalar(grep($_ eq $item->{'by_field_name'}->{$array_uf}, @{$storage_struct->{$array_uf}}))) {
+                        push @{$storage_struct->{$array_uf}}, $item->{'by_field_name'}->{$array_uf};
                     }
                 }
             }
 
-            $storage_struct->{'tsv_struct'} = $tsv_struct;
-            $storage_struct->{'tsv_struct_helper'} = $tsv_struct_helper;
+#            if (scalar(@{$storage_struct->{'documents'}}) == 1) {
+                $storage_struct->{'tsv_struct'} = $tsv_struct;
+#            }
+#            $storage_struct->{'tsv_struct_helper'} = $tsv_struct_helper;
         }
     }
 
