@@ -146,7 +146,7 @@ my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
 
 my $data_desc_struct = {
-    'external_archive_storage_base' => 'c:/_gdm/raw-afk',    
+    'external_archive_storage_base' => '/gone/root',
 
     'input_tsv_fields' => [qw/
         date_of_status
@@ -181,7 +181,7 @@ my $data_desc_struct = {
         "Бунчур А.," => [],
         "Бутурлин С.А." => [],
         "Васильев Е.Н." => [],
-        "Варсанофьева В.А." => [ "Варсанофьева Вера Александровна" ],
+        "Варсанофьева В.А." => [ "Варсанофьева, Вера Александровна" ],
         "Ватагин В.А." => [ "Ватагин, Василий Алексеевич", {"name" => "Vatagin, Vasily", "lang" => "en"}, ],
         "Вахромеев К.А." => [ "Вахромеев, Кирилл Альвинович" ],
         "Виноградов Н.В." => [],
@@ -237,7 +237,7 @@ my $data_desc_struct = {
         "Логинова Н.Я." => [],
         "Лоренц Ф.К." => [ "Лоренц, Фёдор Карлович" ],
         "Лушкин П." => [],
-        "Мантейфель П.А." => [ "Мантейфель Петр Александрович" ],
+        "Мантейфель П.А." => [ "Мантейфель, Петр Александрович" ],
         "Малахова М.Ф." => [],
         "Мардис П.Е." => [],
         "Медведев Е." => [ "Медведев, Евгений" ],
@@ -960,6 +960,29 @@ sub tsv_read_and_validate {
         foreach my $storage_number (sort {$a <=> $b} keys %{$doc_struct->{'by_storage'}->{$st_gr_id}}) {
             my $storage_struct = $doc_struct->{'by_storage'}->{$st_gr_id}->{$storage_number};
 
+            $storage_struct->{'possible_scanned_document_directories'} = [];
+            $storage_struct->{'possible_scanned_document_directories_h'} = {};
+
+            my $push_scanned_doc_dir = sub {
+                my ($dir) = @_;
+                return unless defined($dir) && $dir ne "";
+                return if defined($storage_struct->{'possible_scanned_document_directories_h'}->{$dir});
+                $storage_struct->{'possible_scanned_document_directories_h'}->{$dir} = 1;
+                push @{$storage_struct->{'possible_scanned_document_directories'}}, $dir;
+            };
+
+            if ($data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name'} eq 'Novikova') {
+                my $pfx = "";
+                if (length($storage_number) == 3) {
+                    $pfx = "0";
+                } elsif(length($storage_number) == 2) {
+                    $pfx = "00";
+                } elsif(length($storage_number) == 1) {
+                    $pfx = "000";
+                }
+                $push_scanned_doc_dir->("eh-" . $pfx . $storage_number);
+            }
+
             my $predefined_storage_struct;
             if (defined($data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'storage_items'}) &&
                 defined($data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'storage_items'}->{$storage_number})) {
@@ -1093,11 +1116,17 @@ sub tsv_read_and_validate {
                         ($item->{'by_field_name'}->{'number_suffix'} ?
                             "/" . $item->{'by_field_name'}->{'number_suffix'}
                             : "");
+                    $push_scanned_doc_dir->("of-" . $item->{'by_field_name'}->{'of_number'} .
+                            ($item->{'by_field_name'}->{'number_suffix'} ?
+                            "-" . $item->{'by_field_name'}->{'number_suffix'} : ""));
                 } else {
                     $item_desc .= "НВФ-" . $item->{'by_field_name'}->{'nvf_number'} .
                         ($item->{'by_field_name'}->{'number_suffix'} ?
                             "/" . $item->{'by_field_name'}->{'number_suffix'}
                             : "");
+                    $push_scanned_doc_dir->("nvf-" . $item->{'by_field_name'}->{'nvf_number'} .
+                            ($item->{'by_field_name'}->{'number_suffix'} ?
+                            "-" . $item->{'by_field_name'}->{'number_suffix'} : ""));
                 }
 
                 my $desc_elements = [];
@@ -1124,6 +1153,8 @@ sub tsv_read_and_validate {
                 }
                 $item_desc .= " " . join (" ", @{$desc_elements});
                 $push_metadata_value->('dc.description[ru]', $item_desc);
+
+                $push_scanned_doc_dir->($item->{'by_field_name'}->{'scanned_doc_id'});
 
                 if ($storage_struct->{'status'}) {
                     if ($item->{'by_field_name'}->{'status'} ne $storage_struct->{'status'}) {
@@ -1160,18 +1191,10 @@ sub tsv_read_and_validate {
                     $storage_struct->{'status'} = $item->{'by_field_name'}->{'status'};
                     $storage_struct->{'date_of_status'} = $item->{'by_field_name'}->{'date_of_status'};
                 }
-
-                foreach my $array_uf (qw/scanned_doc_id/) {
-                    $storage_struct->{$array_uf} = [] unless
-                        $storage_struct->{$array_uf};
-                    if (! scalar(grep($_ eq $item->{'by_field_name'}->{$array_uf}, @{$storage_struct->{$array_uf}}))) {
-                        push @{$storage_struct->{$array_uf}}, $item->{'by_field_name'}->{$array_uf};
-                    }
-                }
             }
 
 #            if (scalar(@{$storage_struct->{'documents'}}) == 1) {
-                $storage_struct->{'tsv_struct'} = $tsv_struct;
+             $storage_struct->{'tsv_struct'} = $tsv_struct;
 #            }
 #            $storage_struct->{'tsv_struct_helper'} = $tsv_struct_helper;
         }
