@@ -133,103 +133,7 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
     # skip non-directories
     next DOCUMENT unless -d $full_doc_dir;
 
-    if ($doc_dir !~ /^(of|nvf|eh)[\-\ \_](\d+?)[\-\ \_](\d[\d_,;\-\ \.]*)$/) {
-        print "skipping invalid doc_dir format: [$doc_dir]\n";
-        next DOCUMENT;
-    }
-    my ($archive_type, $part, $id) = ($1, $2, $3);
-
-    my $current_document = {
-        'archive_dir' => $archive_dir,
-        'archive_type' => $archive_type,
-        'archive_id' => $part,
-        'document_id' => $id,
-        'full_document_path' => $full_doc_dir,
-        };
-
-    my $change_document_path = sub {
-        my ($opts) = @_;
-        $opts = {} unless $opts;
-        Carp::confess("Need document") unless $opts->{'document'};
-        Carp::confess("Need new path") unless $opts->{'new_path'};
-
-        if (-d $opts->{'new_path'}) {
-            Carp::confess("unable to rename [$opts->{'document'}->{'full_document_path'}] to new name: directory [$opts->{'new_path'}] exists!");
-        }
-
-        do_log("renaming $opts->{'document'}->{'full_document_path'} -> $opts->{'new_path'}");
-        rename ($opts->{'document'}->{'full_document_path'}, $opts->{'new_path'}) ||
-            Carp::confess("unable to rename [$opts->{'document'}->{'full_document_path'}] to [$opts->{'new_path'}]: $!");
-      
-        $opts->{'document'}->{'full_document_path'} = $opts->{'new_path'};
-    };
-
-    my $change_document_id = sub {
-        my ($opts) = @_;
-        $opts = {} unless $opts;
-        Carp::confess("Need document") unless $opts->{'document'};
-        Carp::confess("Need new id") unless $opts->{'new_id'};
-      
-        my $new_doc_dir = File::Spec->catfile(
-            $opts->{'document'}->{'archive_dir'},
-            canonical_document_name({
-                'archive_type' => $opts->{'document'}->{'archive_type'},
-                'archive_id' => $opts->{'document'}->{'archive_id'},
-                'document_id' => $opts->{'new_id'},
-                })
-            );
-
-        $change_document_path->({
-            'document' => $opts->{'document'},
-            'new_path' => $new_doc_dir,
-            });
-        $opts->{'document'}->{'document_id'} = $opts->{'new_id'};
-    };
-
-    # remove trailing minus
-    if ($current_document->{'document_id'} =~ /\-$/) {
-        my $new_id = $current_document->{'document_id'};
-        $new_id =~ s/\-$//;
-        $change_document_id->({
-            'document' => $current_document,
-            'new_id' => $new_id,
-            });
-    }
-
-    # make canonical document directory name
-    if (length($current_document->{'document_id'}) < 4) {
-        my $new_id = "";
-        for(my $i = length($current_document->{'document_id'}); $i < 4; $i++) {
-            $new_id = "0" . $new_id;
-        }
-        $new_id = $new_id . $current_document->{'document_id'};
-        $change_document_id->({
-            'document' => $current_document,
-            'new_id' => $new_id,
-            });
-    }
-
-    # canonical delimiters in id
-    if ($current_document->{'document_id'} =~ /,/) {
-        my $t_id = $current_document->{'document_id'};
-        $t_id =~ s/,/;/g;
-        $change_document_id->({
-            'document' => $current_document,
-            'new_id' => $t_id,
-            });
-    }
-
-    # canonical delimiters between document identification parts
-    if (File::Spec->catfile($current_document->{'archive_dir'}, canonical_document_name($current_document)) ne $current_document->{'full_document_path'}) {
-        $change_document_path->({
-            'document' => $current_document,
-            'new_path' => File::Spec->catfile($current_document->{'archive_dir'}, canonical_document_name($current_document)),
-            });
-    }
-
-    # check page names inside document directory
-    my $pages = read_dir($current_document->{'full_document_path'});
-    my $i = 0;
+    my $current_document;
     
     my $page_renames = {
         # old page "path/filename" -> new page "path/filename"
@@ -237,95 +141,263 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
         'new_from_old' => {},
         'tmp_old_to_new' => {},
         };
+    my $push_page_rename = sub {
+        my ($o) = @_;
 
-    PAGE: foreach my $page (@{$pages}) {
+        my $new_full_page_path = File::Spec->catfile($o->{'current_document_path'}, $o->{'new_page_name'});
 
-        my $full_page_path = File::Spec->catfile($current_document->{'full_document_path'}, $page);
+        Carp::confess ("At least two identical old page paths [" . $o->{'current_page_path'} . "], something is very wrong")
+            if defined($page_renames->{'old_to_new'}->{$o->{'current_page_path'}});
+        Carp::confess ("One new page generated from at least two old page paths [$new_full_page_path], something is very wrong")
+            if defined($page_renames->{'new_from_old'}->{$new_full_page_path});
 
-        # remove temporary files
-        if ($page eq "Thumbs.db") {
-            unlink($full_page_path);
-            do_log("removed garbage $full_page_path");
-            next;
-        }
+        $page_renames->{'old_to_new'}->{$o->{'current_page_path'}} = $new_full_page_path;
+        $page_renames->{'new_from_old'}->{$new_full_page_path} = $o->{'current_page_path'};
+    };
 
-        # skip non-files
-        next PAGE unless -f $full_page_path;
+    if ($doc_dir =~ /^(of|nvf)[\-\ \_](\d+?)[\-\ \_](\d[\d_,;\-\ \.]*)$/) {
+        my ($archive_type, $part, $id) = ($1, $2, $3);
 
-        # special processing for description files
-        if ($full_page_path =~ /\.txt$/) {
-            
-            # remove double extension (.txt.txt)
-            if ($full_page_path =~ /\.txt\.txt/) {
-                my $new_full_page_path = $full_page_path;
-                $new_full_page_path =~ s/\.txt//;
-                rename ($full_page_path, $new_full_page_path) || Carp::confess("unable to rename [$full_page_path] to [$new_full_page_path]: $!");
-                do_log("fixing $full_page_path -> $new_full_page_path");
-                $full_page_path = $new_full_page_path;
-                $page =~ s/\.txt//;
-            }
-
-            # give description file canonical name
-            my ($name, $ext) = ($page =~ /^(.+)(\..+)$/);
-
-
-            if ($name ne canonical_document_name($current_document)) {
-                my $new_desc_name = canonical_document_name($current_document) . $ext;
-                my $new_full_page_path = File::Spec->catfile($current_document->{'full_document_path'}, $new_desc_name);
-
-                if (-f $new_full_page_path) {
-                    print "more than one txt file in document: [$current_document->{'full_document_path'}]\n";
-                    next PAGE;
-                }
-
-                do_log("fixing $full_page_path -> $new_full_page_path");
-
-                rename ($full_page_path, $new_full_page_path) || Carp::confess("unable to rename [$full_page_path] to [$new_full_page_path]");
-                $full_page_path = $new_full_page_path;
-                $page = $new_desc_name;
-            }
-
-            next PAGE;
-        }
-        
-        # allow underscore in relaxed page name
-        # (which is converted below to canonical page id,
-        # extracted from document directory name)
-        if ($page !~ /^(of|nvf|eh)[\-\ ](\d+?)[\-\ \_](\d[\d_,;\-\ \.]*?)-([\d_]+?)(\.jpg)$/) {
-            print "skipping invalid page format: [$page]\n";
-            next PAGE;
-        }
-
-#        my ($p_archive_type, $p_delim_1, $p_part, $p_id, $p_number, $p_ext) = ($1, $2, $3, $4, $5, $6);
-        my $p_parsed = {
-            'archive_type' => $1,
-            'part' => $2,
-            'id' => $3,
-            'number' => $4,
-            'ext' => $5,
+        $current_document = {
+            'archive_dir' => $archive_dir,
+            'archive_type' => $archive_type,
+            'archive_id' => $part,
+            'document_id' => $id,
+            'full_document_path' => $full_doc_dir,
             };
 
-        # this is a valid page, increment page counter
-        $i = $i + 1;
+        my $change_document_path = sub {
+            my ($opts) = @_;
+            $opts = {} unless $opts;
+            Carp::confess("Need document") unless $opts->{'document'};
+            Carp::confess("Need new path") unless $opts->{'new_path'};
 
-        my $int_p_number = int($p_parsed->{'number'});
+            if (-d $opts->{'new_path'}) {
+                Carp::confess("unable to rename [$opts->{'document'}->{'full_document_path'}] to new name: directory [$opts->{'new_path'}] exists!");
+            }
 
-        my $new_page = canonical_document_name($current_document) . "-" . zero_pad($i, 3) . $p_parsed->{'ext'};
-        
-        # update page filename if its canonical name doesn't match its current name
-        if ($new_page ne $page) {
-            my $new_full_page_path = File::Spec->catfile($current_document->{'full_document_path'}, $new_page);
+            do_log("renaming $opts->{'document'}->{'full_document_path'} -> $opts->{'new_path'}");
+            rename ($opts->{'document'}->{'full_document_path'}, $opts->{'new_path'}) ||
+                Carp::confess("unable to rename [$opts->{'document'}->{'full_document_path'}] to [$opts->{'new_path'}]: $!");
+          
+            $opts->{'document'}->{'full_document_path'} = $opts->{'new_path'};
+        };
 
-            Carp::confess ("At least two identical old page paths [$full_page_path], something is very wrong")
-                if $page_renames->{'old_to_new'}->{$full_page_path};
-            Carp::confess ("One new page generated from at least two old page paths [$new_full_page_path], something is very wrong")
-                if $page_renames->{'new_from_old'}->{$new_full_page_path};
+        my $change_document_id = sub {
+            my ($opts) = @_;
+            $opts = {} unless $opts;
+            Carp::confess("Need document") unless $opts->{'document'};
+            Carp::confess("Need new id") unless $opts->{'new_id'};
+          
+            my $new_doc_dir = File::Spec->catfile(
+                $opts->{'document'}->{'archive_dir'},
+                canonical_document_name({
+                    'archive_type' => $opts->{'document'}->{'archive_type'},
+                    'archive_id' => $opts->{'document'}->{'archive_id'},
+                    'document_id' => $opts->{'new_id'},
+                    })
+                );
 
-            $page_renames->{'old_to_new'}->{$full_page_path} = $new_full_page_path;
-            $page_renames->{'new_from_old'}->{$new_full_page_path} = $full_page_path;
+            $change_document_path->({
+                'document' => $opts->{'document'},
+                'new_path' => $new_doc_dir,
+                });
+            $opts->{'document'}->{'document_id'} = $opts->{'new_id'};
+        };
+
+        # remove trailing minus
+        if ($current_document->{'document_id'} =~ /\-$/) {
+            my $new_id = $current_document->{'document_id'};
+            $new_id =~ s/\-$//;
+            $change_document_id->({
+                'document' => $current_document,
+                'new_id' => $new_id,
+                });
         }
+
+        # make canonical document directory name
+        if (length($current_document->{'document_id'}) < 4) {
+            my $new_id = "";
+            for(my $i = length($current_document->{'document_id'}); $i < 4; $i++) {
+                $new_id = "0" . $new_id;
+            }
+            $new_id = $new_id . $current_document->{'document_id'};
+            $change_document_id->({
+                'document' => $current_document,
+                'new_id' => $new_id,
+                });
+        }
+
+        # canonical delimiters in id
+        if ($current_document->{'document_id'} =~ /,/) {
+            my $t_id = $current_document->{'document_id'};
+            $t_id =~ s/,/;/g;
+            $change_document_id->({
+                'document' => $current_document,
+                'new_id' => $t_id,
+                });
+        }
+
+        # canonical delimiters between document identification parts
+        if (File::Spec->catfile($current_document->{'archive_dir'}, canonical_document_name($current_document)) ne $current_document->{'full_document_path'}) {
+            $change_document_path->({
+                'document' => $current_document,
+                'new_path' => File::Spec->catfile($current_document->{'archive_dir'}, canonical_document_name($current_document)),
+                });
+        }
+
+        # check page names inside document directory
+        my $pages = read_dir($current_document->{'full_document_path'});
+        my $i = 0;
+        
+        PAGE: foreach my $page (@{$pages}) {
+
+            my $full_page_path = File::Spec->catfile($current_document->{'full_document_path'}, $page);
+
+            # remove temporary files
+            if ($page eq "Thumbs.db") {
+                unlink($full_page_path);
+                do_log("removed garbage $full_page_path");
+                next;
+            }
+
+            # skip non-files
+            next PAGE unless -f $full_page_path;
+
+            # special processing for description files
+            if ($full_page_path =~ /\.txt$/) {
+                
+                # remove double extension (.txt.txt)
+                if ($full_page_path =~ /\.txt\.txt/) {
+                    my $new_full_page_path = $full_page_path;
+                    $new_full_page_path =~ s/\.txt//;
+                    rename ($full_page_path, $new_full_page_path) || Carp::confess("unable to rename [$full_page_path] to [$new_full_page_path]: $!");
+                    do_log("fixing $full_page_path -> $new_full_page_path");
+                    $full_page_path = $new_full_page_path;
+                    $page =~ s/\.txt//;
+                }
+
+                # give description file canonical name
+                my ($name, $ext) = ($page =~ /^(.+)(\..+)$/);
+
+
+                if ($name ne canonical_document_name($current_document)) {
+                    my $new_desc_name = canonical_document_name($current_document) . $ext;
+                    my $new_full_page_path = File::Spec->catfile($current_document->{'full_document_path'}, $new_desc_name);
+
+                    if (-f $new_full_page_path) {
+                        print "more than one txt file in document: [$current_document->{'full_document_path'}]\n";
+                        next PAGE;
+                    }
+
+                    do_log("fixing $full_page_path -> $new_full_page_path");
+
+                    rename ($full_page_path, $new_full_page_path) || Carp::confess("unable to rename [$full_page_path] to [$new_full_page_path]");
+                    $full_page_path = $new_full_page_path;
+                    $page = $new_desc_name;
+                }
+
+                next PAGE;
+            }
+            
+            # allow underscore in relaxed page name
+            # (which is converted below to canonical page id,
+            # extracted from document directory name)
+            if ($page !~ /^(of|nvf)[\-\ ](\d+?)[\-\ \_](\d[\d_,;\-\ \.]*?)-([\d_]+?)(\.jpg)$/) {
+                print "skipping invalid page format: [$page]\n";
+                next PAGE;
+            }
+
+    #        my ($p_archive_type, $p_delim_1, $p_part, $p_id, $p_number, $p_ext) = ($1, $2, $3, $4, $5, $6);
+            my $p_parsed = {
+                'archive_type' => $1,
+                'part' => $2,
+                'id' => $3,
+                'number' => $4,
+                'ext' => $5,
+                };
+
+            # this is a valid page, increment page counter
+            $i = $i + 1;
+
+            my $int_p_number = int($p_parsed->{'number'});
+
+            my $new_page = canonical_document_name($current_document) . "-" . zero_pad($i, 3) . $p_parsed->{'ext'};
+            
+            # update page filename if its canonical name doesn't match its current name
+            if ($new_page ne $page) {
+                $push_page_rename->({
+                    'current_document_path' => $current_document->{'full_document_path'},
+                    'current_page_path' => $full_page_path,
+                    'new_page_name' => $new_page,
+                    });
+            }
+        }
+    } elsif ($doc_dir =~ /^eh-(\d+)$/) {
+        my $eh_number = $1;
+
+        $current_document = {
+            'archive_dir' => $archive_dir,
+            'full_document_path' => $full_doc_dir,
+            };
+
+        # check page names inside document directory
+        my $pages = read_dir($current_document->{'full_document_path'});
+        my $i = 0;
+
+        my $page_renames = {
+            # old page "path/filename" -> new page "path/filename"
+            'old_to_new' => {},
+            'new_from_old' => {},
+            'tmp_old_to_new' => {},
+            };
+
+        PAGE: foreach my $page (@{$pages}) {
+
+            my $full_page_path = File::Spec->catfile($current_document->{'full_document_path'}, $page);
+
+            # remove temporary files
+            if ($page eq "Thumbs.db") {
+                unlink($full_page_path);
+                do_log("removed garbage $full_page_path");
+                next;
+            }
+
+            # skip non-files
+            next PAGE unless -f $full_page_path;
+
+            my $ext;
+            if ($page =~ /^eh[\-\ ](\d+?)[\-\ \_](\d+?)\.([a-zA-Z]+)$/) {
+                $ext = $3;
+            } elsif ($page =~ /(\d+)\.([a-zA-Z]+)$/) {
+                $ext = $2;
+            } else {
+                print "skipping invalid page format: [$page]\n";
+                next PAGE;
+            }
+
+            # this is a valid page, increment page counter
+            $i = $i + 1;
+
+            my $new_page = "eh-" . $eh_number . "-" . zero_pad($i, 3) . "." . $ext;
+            
+            # update page filename if its canonical name doesn't match its current name
+            if ($new_page ne $page) {
+                $push_page_rename->({
+                    'current_document_path' => $current_document->{'full_document_path'},
+                    'current_page_path' => $full_page_path,
+                    'new_page_name' => $new_page,
+                    });
+            }
+        }
+    } else {
+        print "skipping invalid doc_dir format: [$doc_dir]\n";
+        next DOCUMENT;
     }
 
+#    if (scalar(keys %{$page_renames->{'old_to_new'}})) {
+#        print Data::Dumper::Dumper($page_renames->{'old_to_new'});
+#    }
     if (scalar(keys %{$page_renames->{'old_to_new'}})) {
         foreach my $old_path (sort keys %{$page_renames->{'old_to_new'}}) {
             my $old_tmp = $old_path . ".old.$$";
@@ -347,4 +419,5 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
             do_log("renamed $rename_struct->{'old_path'} -> $rename_struct->{'new_path'}");
         }
     }
+
 }
