@@ -141,6 +141,7 @@ my $o_names = [
     'tsv-output',
     'input-line=s',
     'list-storage-items',
+    'titles',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -1089,6 +1090,26 @@ sub tsv_read_and_validate {
                 my $doc_desc = $meta->{'doc_desc'} ? $meta->{'doc_desc'}->{'value'} : $item->{'by_field_name'}->{'doc_desc'};
 
                 if (!defined($predefined_storage_struct)) {
+                    my $done;
+
+                    while (!$done) {
+                        my $orig_title = $meta->{'trimmed_input'};
+    
+                        # remove start-end double-quotes
+                        if ($meta->{'trimmed_input'} =~ /^"(.+)"$/) {
+                            $meta->{'trimmed_input'} = $1;
+                        }
+
+                        # remove trailing dot
+                        if ($meta->{'trimmed_input'} =~ /\.$/) {
+                            $meta->{'trimmed_input'} = substr($meta->{'trimmed_input'}, 0, length($meta->{'trimmed_input'}) - 1);
+                        }
+
+                        if ($orig_title eq $meta->{'trimmed_input'}) {
+                            $done = 1;
+                        }
+                    }
+
                     $push_metadata_value->('dc.title[ru]', $meta->{'trimmed_input'});
                 }
 
@@ -1316,9 +1337,15 @@ if ($o->{'dump-data-desc'}) {
         foreach my $storage_number (sort {$a <=> $b} keys %{$doc_struct->{'by_storage'}->{$st_gr_id}}) {
             my $storage_struct = $doc_struct->{'by_storage'}->{$st_gr_id}->{$storage_number};
 
-            print
-                "storage group (" . $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable_en'} . ") " .
-                "storage item " . $storage_number . ": " . scalar(@{$storage_struct->{'documents'}}) . " items\n";
+            if ($o->{'titles'}) {
+                print
+                    "storage group (" . $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable_en'} . ") " .
+                    "storage item " . $storage_number . ": " . $storage_struct->{'tsv_struct'}->{'dc.title[ru]'} . "\n";
+            } else {
+                print
+                    "storage group (" . $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable_en'} . ") " .
+                    "storage item " . $storage_number . ": " . scalar(@{$storage_struct->{'documents'}}) . " items\n";
+            }
         }
     }
 } elsif ($o->{'dump-tsv-struct'}) {
