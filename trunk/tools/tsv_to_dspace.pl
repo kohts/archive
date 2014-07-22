@@ -1093,6 +1093,31 @@ sub tsv_read_and_validate {
                 
                 return undef unless defined($metadata_value) && $metadata_value ne "";
 
+                my $cleanup_done;
+                while (!$cleanup_done) {
+                    my $orig_value = $metadata_value;
+
+                    if ($metadata_name eq 'dc.title[ru]') {
+                        # remove start-end double-quotes
+                        if ($metadata_value =~ /^"(.+)"$/) {
+                            $metadata_value = $1;
+                        }
+
+                        # remove trailing dot
+                        if ($metadata_value =~ /\.$/) {
+                            $metadata_value = substr($metadata_value, 0, length($metadata_value) - 1);
+                        }
+                    } elsif ($metadata_name eq 'dc.date.created') {
+                        if ($metadata_value =~ /^\[(.+)\]$/) {
+                            $metadata_value = $1;
+                        }
+                    }
+
+                    if ($orig_value eq $metadata_value) {
+                        $cleanup_done = 1;
+                    }
+                }
+
                 if (!defined($tsv_struct_helper->{$metadata_name})) {
                     $tsv_struct_helper->{$metadata_name} = {};
                 }
@@ -1157,32 +1182,14 @@ sub tsv_read_and_validate {
                 my $doc_desc = $meta->{'doc_desc'} ? $meta->{'doc_desc'}->{'value'} : $item->{'by_field_name'}->{'doc_desc'};
 
                 if (!defined($predefined_storage_struct)) {
-                    my $done;
-
-                    while (!$done) {
-                        my $orig_title = $meta->{'trimmed_input'};
-    
-                        # remove start-end double-quotes
-                        if ($meta->{'trimmed_input'} =~ /^"(.+)"$/) {
-                            $meta->{'trimmed_input'} = $1;
-                        }
-
-                        # remove trailing dot
-                        if ($meta->{'trimmed_input'} =~ /\.$/) {
-                            $meta->{'trimmed_input'} = substr($meta->{'trimmed_input'}, 0, length($meta->{'trimmed_input'}) - 1);
-                        }
-
-                        if ($orig_title eq $meta->{'trimmed_input'}) {
-                            $done = 1;
-                        }
-                    }
-
                     $push_metadata_value->('dc.title[ru]', $meta->{'trimmed_input'});
                 }
 
                 $doc_type = $push_metadata_value->('sdm-archive-workflow.misc.document-type', $doc_type);
                 $doc_desc = $push_metadata_value->('sdm-archive-workflow.misc.notes', $doc_desc);
+
                 $doc_date = $push_metadata_value->('dc.date.created', $doc_date);
+
 
                 $push_metadata_value->('dc.identifier.other[ru]',
                     'Место хранения ' . $storage_number . ' (' . $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable'} . ')');
