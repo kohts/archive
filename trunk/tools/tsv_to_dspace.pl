@@ -101,6 +101,7 @@ use warnings;
 
 use utf8;
 
+use DateTime;
 use Data::Dumper;
 $Data::Dumper::Sortkeys = 1;
 
@@ -142,12 +143,14 @@ my $o_names = [
     'input-line=s',
     'list-storage-items',
     'titles',
+    'dump-scanned-docs',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
 
 my $data_desc_struct = {
-    'external_archive_storage_base' => '/gone/root',
+    'external_archive_storage_base' => '/gone/root/raw-afk',
+    'external_archive_storage_timezone' => 'Europe/Moscow',
 
     'input_tsv_fields' => [qw/
         date_of_status
@@ -800,6 +803,67 @@ sub extract_meta_data {
     return $possible_field_labels;
 }
 
+sub read_scanned_docs {
+    my $scanned_docs = {
+        'array' => [],
+        'hash' => {},
+        };
+
+    my $read_dir = sub {
+        my ($dirname) = @_;
+        my $dir_handle;
+        if (!opendir($dir_handle, $dirname)) {
+            Carp::confess("Unable to open directory [" . $dirname . "]: $!");
+        }
+        my $array = [grep {$_ ne "."  && $_ ne ".."} readdir($dir_handle)];
+        close($dir_handle);
+        return $array;
+    };
+    
+    if ($data_desc_struct->{'external_archive_storage_base'}) {
+        $scanned_docs->{'array'} = $read_dir->($data_desc_struct->{'external_archive_storage_base'});
+        
+        foreach my $dir (@{$scanned_docs->{'array'}}) {
+            my $itemdir_name = $data_desc_struct->{'external_archive_storage_base'} . "/" . $dir;
+            
+            # scanned document is a directory
+            next unless -d $itemdir_name;
+
+            my $ftimes = {};
+            my $scan_dir;
+            $scan_dir = sub {
+                my ($dir) = @_;
+
+                my $item_files = $read_dir->($dir);
+
+                foreach my $f (@{$item_files}) {
+                    if (-d $dir . "/" . $f) {
+                        $scan_dir->($dir . "/" . $f);
+                        next;
+                    }
+
+                    my $fstat = [lstat($dir . "/" . $f)];
+
+                    my $time = DateTime->from_epoch("epoch" => $fstat->[9], "time_zone" => $data_desc_struct->{'external_archive_storage_timezone'});
+                    my $day = join("-", $time->year, sprintf("%02d", $time->month), sprintf("%02d", $time->day));
+
+                    $ftimes->{$day} = 0 unless $ftimes->{$day};
+                    $ftimes->{$day}++;
+                }
+            };
+
+            $scan_dir->($itemdir_name);
+
+            $scanned_docs->{'hash'}->{$dir} = [];
+            foreach my $mod_day (sort {$ftimes->{$a} <=> $ftimes->{$b}} keys %{$ftimes}) {
+                push @{$scanned_docs->{'hash'}->{$dir}}, $mod_day;
+            }
+        }
+#        print Data::Dumper::Dumper($scanned_docs);
+    }
+    return $scanned_docs;
+}
+
 sub tsv_read_and_validate {
     my ($input_file, $o) = @_;
 
@@ -957,19 +1021,22 @@ sub tsv_read_and_validate {
         }
     }
 
+    my $scanned_docs = read_scanned_docs;
+
     foreach my $st_gr_id (keys %{$doc_struct->{'by_storage'}}) {
         foreach my $storage_number (sort {$a <=> $b} keys %{$doc_struct->{'by_storage'}->{$st_gr_id}}) {
             my $storage_struct = $doc_struct->{'by_storage'}->{$st_gr_id}->{$storage_number};
 
-            $storage_struct->{'possible_scanned_document_directories'} = [];
-            $storage_struct->{'possible_scanned_document_directories_h'} = {};
+            $storage_struct->{'scanned_document_directories'} = [];
+            $storage_struct->{'scanned_document_directories_h'} = {};
 
             my $push_scanned_doc_dir = sub {
                 my ($dir) = @_;
                 return unless defined($dir) && $dir ne "";
-                return if defined($storage_struct->{'possible_scanned_document_directories_h'}->{$dir});
-                $storage_struct->{'possible_scanned_document_directories_h'}->{$dir} = 1;
-                push @{$storage_struct->{'possible_scanned_document_directories'}}, $dir;
+                return if scalar(@{$scanned_docs->{'array'}}) && !$scanned_docs->{'hash'}->{$dir};
+                return if defined($storage_struct->{'scanned_document_directories_h'}->{$dir});
+                $storage_struct->{'scanned_document_directories_h'}->{$dir} = $scanned_docs->{'hash'}->{$dir};
+                push @{$storage_struct->{'scanned_document_directories'}}, $dir;
             };
 
             if ($data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name'} eq 'Novikova') {
@@ -1011,8 +1078,8 @@ sub tsv_read_and_validate {
                 'dc.subject[ru]' => 'Музейное дело',
                 'dc.title[ru]' => "",
                 'dc.type[en]' => 'Text',
+                'sdm-archive-workflow.date.digitized' => '',
 #                'sdm-archive-workflow.date.cataloged' => '28.01.2012',
-#                'sdm-archive-workflow.date.digitized' => '28.01.2012',
             };
 
             # appends unique value for metadata field,
@@ -1211,6 +1278,12 @@ sub tsv_read_and_validate {
                 } else {
                     $storage_struct->{'status'} = $item->{'by_field_name'}->{'status'};
                     $storage_struct->{'date_of_status'} = $item->{'by_field_name'}->{'date_of_status'};
+                }
+            }
+
+            foreach my $d (keys %{$storage_struct->{'scanned_document_directories_h'}}) {
+                foreach my $d_day (@{$storage_struct->{'scanned_document_directories_h'}->{$d}}) {
+                    $push_metadata_value->('sdm-archive-workflow.date.digitized', $d_day);
                 }
             }
 
@@ -1436,6 +1509,9 @@ if ($o->{'dump-data-desc'}) {
 
     tsv_output_record($tsv_record, {'mode' => 'labels'});
     tsv_output_record($tsv_record, {'mode' => 'values'});
+} elsif ($o->{'dump-scanned-docs'}) {
+    my $scanned_docs = read_scanned_docs();
+    print Data::Dumper::Dumper($scanned_docs);
 } else {
     Carp::confess("Need command line parameter, one of: " . join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n");
 }
