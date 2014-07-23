@@ -361,6 +361,7 @@ my $data_desc_struct = {
                 908 => 'Беляев Михаил Михайлович, переписка',
                 910 => 'Бобринский Николай Алексеевич, переписка',
                 912 => 'Варсанофьева Вера Александровна, переписка',
+                914 => 'Ватагин Василий Алексеевич, переписка',
                 915 => 'Вахромеев Кирилл Альвинович, переписка',
                 921 => 'Волкац Дина Соломоновна, переписка',
                 922 => 'Воронина М., переписка',
@@ -1106,6 +1107,10 @@ sub tsv_read_and_validate {
                         # remove trailing dot
                         if ($metadata_value =~ /\.$/) {
                             $metadata_value = substr($metadata_value, 0, length($metadata_value) - 1);
+                        }
+
+                        if ($metadata_value =~ /^\[(.+)\]$/) {
+                            $metadata_value = $1;
                         }
                     } elsif ($metadata_name eq 'dc.date.created') {
                         if ($metadata_value =~ /^\[(.+)\]$/) {
