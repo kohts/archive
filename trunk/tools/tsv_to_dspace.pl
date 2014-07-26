@@ -121,6 +121,7 @@ use Getopt::Long;
 use Carp;
 use File::Path;
 use Text::CSV;
+use XML::Simple;
 
 # unbuffered output
 $| = 1;
@@ -128,7 +129,7 @@ $| = 1;
 binmode(STDOUT, ':encoding(UTF-8)');
 
 my $o_names = [
-    'input-file=s',
+    'external-csv=s',
     'dump-tsv-raw',
     'dump-tsv-struct',
     'dump-data-desc',
@@ -144,6 +145,10 @@ my $o_names = [
     'list-storage-items',
     'titles',
     'dump-scanned-docs',
+    'dspace-exported-collection=s',
+    'import-bitstream=s',
+    'import-bitstreams',
+    'dump-dspace-exported-item=s',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -151,6 +156,9 @@ Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
 my $data_desc_struct = {
     'external_archive_storage_base' => '/gone/root/raw-afk',
     'external_archive_storage_timezone' => 'Europe/Moscow',
+
+    'dspace.identifier.other[en]-prefix' => 'Storage item',
+    'dspace.identifier.other[ru]-prefix' => 'Место хранения',
 
     'input_tsv_fields' => [qw/
         date_of_status
@@ -330,8 +338,8 @@ my $data_desc_struct = {
     'storage_groups' => {
         1 => {
             'name' => 'Novikova',
-            'name_readable' => 'опись Новиковой Н.А.',
-            'name_readable_en' => 'Novikova N.A.',
+            'name_readable_ru' => 'опись Новиковой Н.А.',
+            'name_readable_en' => 'inventory by Novikova N.A.',
             'funds' => [qw/
                            1237
                            1363 1364 1365 1366 1367 1368
@@ -528,8 +536,8 @@ my $data_desc_struct = {
         },
         2 => {
             'name' => 'Kalacheva',
-            'name_readable' => 'опись Калачевой И.П.',
-            'name_readable_en' => 'Kalacheva I.P.',
+            'name_readable_ru' => 'опись Калачевой И.П.',
+            'name_readable_en' => 'inventory by Kalacheva I.P.',
             'funds' => ['15845'],
             },
         },
@@ -554,6 +562,8 @@ foreach my $st_gr_id (keys %{$data_desc_struct->{'storage_groups'}}) {
         $data_desc_struct->{'storage_groups_by_fund_number'}->{$fund_id} = $st_gr_id;
     }
 }
+
+my $runtime = {};
 
 sub separated_list_to_struct {
     my ($in_string, $opts) = @_;
@@ -804,38 +814,103 @@ sub extract_meta_data {
     return $possible_field_labels;
 }
 
+sub date_from_unixtime {
+    my ($unixtime) = @_;
+
+    Carp::confess("Programmer error: invalid unixtime [" . safe_string($unixtime) . "]")
+        unless $unixtime && $unixtime =~ /^\d+$/;
+    
+    my $time = DateTime->from_epoch("epoch" => $unixtime, "time_zone" => $data_desc_struct->{'external_archive_storage_timezone'});
+    my $day = join("-", $time->year, sprintf("%02d", $time->month), sprintf("%02d", $time->day));
+    return $day;
+}
+
+sub read_file_scalar {
+    my ($fname) = @_;
+    Carp::confess("Programmer error: need filename")
+        unless defined($fname) && $fname ne "";
+
+    my $contents = "";
+    my $fh;
+    open($fh, "<" . $fname) || Carp::confess("Can't open [$fname] for reading");
+    binmode($fh, ':encoding(UTF-8)');
+    while (my $l = <$fh>) {
+        $contents .= $l;
+    }
+    close($fh);
+    return $contents;
+}
+
+sub write_file_scalar {
+    my ($fname, $contents) = @_;
+    Carp::confess("Programmer error: need filename")
+        unless defined($fname) && $fname ne "";
+    $contents = "" unless defined($contents);
+    my $fh;
+    open($fh, ">" . $fname) || Carp::confess("Can't open [$fname] for writing");
+    binmode($fh, ':encoding(UTF-8)');
+    print $fh $contents;
+    close($fh);
+}
+
+sub read_dir {
+    my ($dirname, $o) = @_;
+
+    Carp::confess("Programmer error: dirname parameter must point to existing directory, got [" . safe_string($dirname) . "]")
+        unless $dirname && -d $dirname;
+
+    $o = {} unless $o;
+    $o->{'output-format'} = 'arrayref' unless $o->{'output-format'};
+
+    my $dir_handle;
+    if (!opendir($dir_handle, $dirname)) {
+        Carp::confess("Unable to open directory [" . $dirname . "]: $!");
+    }
+    
+    my $array = [grep {$_ ne "."  && $_ ne ".."} readdir($dir_handle)];
+    close($dir_handle);
+    
+    if ($o->{'output-format'} eq 'arrayref') {
+        return $array;
+    } elsif ($o->{'output-format'} eq 'hashref') {
+        my $h = {};
+        foreach my $i (@{$array}) {
+            $h->{$i} = 1;
+        }
+        return $h;
+    } else {
+        Carp::confess("Unsupported output-format [$o->{'output-format'}]");
+    }
+}
+
 sub read_scanned_docs {
+    # cache
+    return $runtime->{'read_scanned_docs'} if defined($runtime->{'read_scanned_docs'});
+
     my $scanned_docs = {
         'array' => [],
         'hash' => {},
         };
 
-    my $read_dir = sub {
-        my ($dirname) = @_;
-        my $dir_handle;
-        if (!opendir($dir_handle, $dirname)) {
-            Carp::confess("Unable to open directory [" . $dirname . "]: $!");
-        }
-        my $array = [grep {$_ ne "."  && $_ ne ".."} readdir($dir_handle)];
-        close($dir_handle);
-        return $array;
-    };
-    
+    my $files = {};
+
     if ($data_desc_struct->{'external_archive_storage_base'}) {
-        $scanned_docs->{'array'} = $read_dir->($data_desc_struct->{'external_archive_storage_base'});
+        $scanned_docs->{'array'} = read_dir($data_desc_struct->{'external_archive_storage_base'});
         
-        foreach my $dir (@{$scanned_docs->{'array'}}) {
-            my $itemdir_name = $data_desc_struct->{'external_archive_storage_base'} . "/" . $dir;
+        foreach my $item_dir (@{$scanned_docs->{'array'}}) {
+            my $item = $data_desc_struct->{'external_archive_storage_base'} . "/" . $item_dir;
             
             # scanned document is a directory
-            next unless -d $itemdir_name;
+            next unless -d $item;
+
+            $files->{$item_dir} = {};
 
             my $ftimes = {};
             my $scan_dir;
             $scan_dir = sub {
                 my ($dir) = @_;
 
-                my $item_files = $read_dir->($dir);
+                my $item_files = read_dir($dir);
 
                 foreach my $f (@{$item_files}) {
                     if (-d $dir . "/" . $f) {
@@ -845,24 +920,31 @@ sub read_scanned_docs {
 
                     my $fstat = [lstat($dir . "/" . $f)];
 
-                    my $time = DateTime->from_epoch("epoch" => $fstat->[9], "time_zone" => $data_desc_struct->{'external_archive_storage_timezone'});
-                    my $day = join("-", $time->year, sprintf("%02d", $time->month), sprintf("%02d", $time->day));
+                    my $day = date_from_unixtime($fstat->[9]);
 
                     $ftimes->{$day} = 0 unless $ftimes->{$day};
                     $ftimes->{$day}++;
+
+                    $files->{$item_dir}->{$dir . "/" . $f} = 1;
                 }
             };
 
-            $scan_dir->($itemdir_name);
+            $scan_dir->($item);
 
-            $scanned_docs->{'hash'}->{$dir} = [];
+            $scanned_docs->{'hash'}->{$item_dir} = [];
             foreach my $mod_day (sort {$ftimes->{$a} <=> $ftimes->{$b}} keys %{$ftimes}) {
-                push @{$scanned_docs->{'hash'}->{$dir}}, $mod_day;
+                push @{$scanned_docs->{'hash'}->{$item_dir}}, $mod_day;
             }
         }
 #        print Data::Dumper::Dumper($scanned_docs);
     }
-    return $scanned_docs;
+
+    $runtime->{'read_scanned_docs'} = {
+        'scanned_docs' => $scanned_docs,
+        'files' => $files,
+        };
+
+    return $runtime->{'read_scanned_docs'};
 }
 
 sub tsv_read_and_validate {
@@ -1022,7 +1104,9 @@ sub tsv_read_and_validate {
         }
     }
 
-    my $scanned_docs = read_scanned_docs;
+    my $r_struct = read_scanned_docs();
+    my $scanned_docs = $r_struct->{'scanned_docs'};
+    my $today_yyyy_mm_dd = date_from_unixtime(time());
 
     foreach my $st_gr_id (keys %{$doc_struct->{'by_storage'}}) {
         foreach my $storage_number (sort {$a <=> $b} keys %{$doc_struct->{'by_storage'}->{$st_gr_id}}) {
@@ -1059,6 +1143,10 @@ sub tsv_read_and_validate {
             }
 
             my $tsv_struct_helper = {};
+            
+            # $tsv_struct should contain either default or empty values
+            # for all the fields which will be output to csv (empty value
+            # could be further changed to meaningful value)
             my $tsv_struct = {
                 'dc.contributor.author[en]' => "",
                 'dc.contributor.author[ru]' => "",
@@ -1066,12 +1154,17 @@ sub tsv_read_and_validate {
                 'dc.creator[ru]' => "",
                 'dc.date.created' => "",
 #                'dc.date.issued' => '',
+                
+                # this is a "calculated" field which contains information from
+                # a number of other fields (i.e. it should be possible to rebuild
+                # this field at any point in time given other fields)
                 'dc.description[ru]' => "",
-#                    'ОФ-10141/1 "От автора". Введение к тому музейно-методических работ. Полнота: полная. Подлинность: копия. Способ воспроизведения: машинопись. Примечания: Т. I' .
-#                    '||' .
-#                    'НВФ-2116/460 "От автора". Введение к тому музейно-методических работ. Полнота: полная. Подлинность: оригинал. Способ воспроизведения: машинопись. Примечания: Т. I ; 1 экз.основной + 2 экз. редакции (5 лл.,6 лл.)',
+
                 'dc.identifier.other[ru]' => "",
-#                'dc.identifier.uri' => '', # http://hdl.handle.net/123456789/4
+
+                # dc.identifier.uri would be populated during metadata-import 
+                # 'dc.identifier.uri' => '', # http://hdl.handle.net/123456789/4
+
                 'dc.language.iso[en]' => 'ru',
                 'dc.publisher[en]' => 'State Darwin Museum',
                 'dc.publisher[ru]' => 'Государственный Дарвиновский Музей',
@@ -1080,13 +1173,18 @@ sub tsv_read_and_validate {
                 'dc.title[ru]' => "",
                 'dc.type[en]' => 'Text',
                 'sdm-archive-workflow.date.digitized' => '',
-#                'sdm-archive-workflow.date.cataloged' => '28.01.2012',
+                'sdm-archive-workflow.date.cataloged' => $today_yyyy_mm_dd,
             };
 
-            # appends unique value for metadata field,
-            # returns appended value or undef (if
-            # supplied value already was exists
-            # and was not appended therefore)
+            # appends unique value for metadata field (all the metadata fields
+            # are allowed to contain more than value)
+            #
+            # returns appended value (if input $metadata_value was stored)
+            # or undef (if supplied value has already existed and was not
+            # appended therefore)
+            #
+            # does some finegrained cleanup of metadata field values
+            # (depending on the name of populated metadata field)
             my $push_metadata_value = sub {
                 my ($metadata_name, $metadata_value) = @_;
 
@@ -1128,6 +1226,7 @@ sub tsv_read_and_validate {
                 }
 
                 if (defined($tsv_struct_helper->{$metadata_name}->{$metadata_value})) {
+                    # do not add same values several times
                     return undef;
                 } else {
                     $tsv_struct_helper->{$metadata_name}->{$metadata_value} = 1;
@@ -1195,11 +1294,16 @@ sub tsv_read_and_validate {
 
                 $doc_date = $push_metadata_value->('dc.date.created', $doc_date);
 
-
-                $push_metadata_value->('dc.identifier.other[ru]',
-                    'Место хранения ' . $storage_number . ' (' . $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable'} . ')');
-                $push_metadata_value->('dc.identifier.other[en]',
-                    'Storage item ' . $storage_number . ' (' . $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable_en'} . ')');
+                $push_metadata_value->('dc.identifier.other[ru]', storage_id_csv_to_dspace({
+                    'storage-group-id' => $st_gr_id,
+                    'storage-item-id' => $storage_number,
+                    'language' => 'ru',
+                    }));
+                $push_metadata_value->('dc.identifier.other[en]', storage_id_csv_to_dspace({
+                    'storage-group-id' => $st_gr_id,
+                    'storage-item-id' => $storage_number,
+                    'language' => 'en',
+                    }));
 
                 $item->{'by_field_name'}->{'doc_property_full'} =
                     $push_metadata_value->('sdm-archive-workflow.misc.completeness', $item->{'by_field_name'}->{'doc_property_full'});
@@ -1210,6 +1314,7 @@ sub tsv_read_and_validate {
                 $item->{'by_field_name'}->{'archive_date'} =
                     $push_metadata_value->('sdm-archive-workflow.misc.archive-date', $item->{'by_field_name'}->{'archive_date'});
 
+                # prepare 'dc.description[ru]' value
                 my $item_desc = "";
                 if ($item->{'by_field_name'}->{'of_number'}) {
                     $item_desc .= "ОФ-" . $item->{'by_field_name'}->{'of_number'} .
@@ -1255,42 +1360,6 @@ sub tsv_read_and_validate {
                 $push_metadata_value->('dc.description[ru]', $item_desc);
 
                 $push_scanned_doc_dir->($item->{'by_field_name'}->{'scanned_doc_id'});
-
-                if ($storage_struct->{'status'}) {
-                    if ($item->{'by_field_name'}->{'status'} ne $storage_struct->{'status'}) {
-                        if (
-                            $item->{'by_field_name'}->{'status'} eq 'published' ||
-                            (
-                                $item->{'by_field_name'}->{'status'} eq 'docbook' &&
-                                $storage_struct->{'status'} ne 'published'
-                            ) ||
-                            (
-                                $item->{'by_field_name'}->{'status'} eq 'ocr' &&
-                                $storage_struct->{'status'} ne 'published' &&
-                                $storage_struct->{'status'} ne 'docbook'
-                            ) ||
-                            (
-                                $item->{'by_field_name'}->{'status'} eq 'scanned' &&
-                                $storage_struct->{'status'} ne 'published' &&
-                                $storage_struct->{'status'} ne 'docbook' &&
-                                $storage_struct->{'status'} ne 'ocr'
-                            ) ||
-                            (
-                                $item->{'by_field_name'}->{'status'} eq 'scanning' &&
-                                $storage_struct->{'status'} ne 'published' &&
-                                $storage_struct->{'status'} ne 'docbook' &&
-                                $storage_struct->{'status'} ne 'ocr' &&
-                                $storage_struct->{'status'} ne 'scanned'
-                            )
-                            ) {
-                            $storage_struct->{'status'} = $item->{'by_field_name'}->{'status'};
-                            $storage_struct->{'date_of_status'} = $item->{'by_field_name'}->{'date_of_status'};
-                        }
-                    }
-                } else {
-                    $storage_struct->{'status'} = $item->{'by_field_name'}->{'status'};
-                    $storage_struct->{'date_of_status'} = $item->{'by_field_name'}->{'date_of_status'};
-                }
             }
 
             foreach my $d (keys %{$storage_struct->{'scanned_document_directories_h'}}) {
@@ -1299,10 +1368,7 @@ sub tsv_read_and_validate {
                 }
             }
 
-#            if (scalar(@{$storage_struct->{'documents'}}) == 1) {
              $storage_struct->{'tsv_struct'} = $tsv_struct;
-#            }
-#            $storage_struct->{'tsv_struct_helper'} = $tsv_struct_helper;
         }
     }
 
@@ -1344,6 +1410,134 @@ sub tsv_output_record {
     print join(",", @{$out_array}) . "\n";
 }
 
+sub get_storage_item {
+    my ($opts) = @_;
+    
+    $opts = {} unless $opts;
+
+    foreach my $o (qw/external-csv storage-group-id storage-item-id o/) {
+        Carp::confess("get_storage_item: expects [$o]")
+            unless defined($opts->{$o});
+    }
+
+    my $in_doc_struct = tsv_read_and_validate($opts->{'external-csv'}, $opts->{'o'});
+
+    return undef
+        unless defined($in_doc_struct->{'by_storage'}->{$opts->{'storage-group-id'}});
+    return undef
+        unless defined($in_doc_struct->{'by_storage'}->{$opts->{'storage-group-id'}}->{$opts->{'storage-item-id'}});
+
+    return $in_doc_struct->{'by_storage'}->{$opts->{'storage-group-id'}}->{$opts->{'storage-item-id'}};
+}
+
+sub storage_id_csv_to_dspace {
+    my ($opts) = @_;
+    $opts = {} unless $opts;
+    foreach my $i (qw/storage-group-id storage-item-id language/) {
+        Carp::confess("Programmer error: expected [$i]")
+            unless defined($opts->{$i});
+    }
+    
+    Carp::confess("Prefix not defined for language [$opts->{'language'}]")
+        unless defined($data_desc_struct->{'dspace.identifier.other[' . $opts->{'language'} . ']-prefix'});
+    Carp::confess("Nonexistent storage group id [$opts->{'storage-group-id'}]")
+        unless defined($data_desc_struct->{'storage_groups'}->{$opts->{'storage-group-id'}});
+
+    my $dspace_id_string = $data_desc_struct->{'dspace.identifier.other[' . $opts->{'language'} . ']-prefix'} .
+        ' ' . $opts->{'storage-item-id'} . ' (' .
+        $data_desc_struct->{'storage_groups'}->{$opts->{'storage-group-id'}}->{'name_readable_' . $opts->{'language'}} .
+        ')';
+    
+    return $dspace_id_string;
+}
+
+sub storage_id_dspace_to_csv {
+    my ($str, $language) = @_;
+    
+    $language = "en" unless $language;
+
+    Carp::confess("Programmer error: need DSpace identifier.other value")
+        unless $str;
+    Carp::confess("Configuration error: language [$language] doesn't have associated dc.identifier prefx")
+        unless defined($data_desc_struct->{'dspace.identifier.other[' . $language . ']-prefix'});
+
+    my $st_item_id; 
+    foreach my $st_gr_id (keys %{$data_desc_struct->{'storage_groups'}}) {
+        my $pfx = $data_desc_struct->{'dspace.identifier.other[' . $language . ']-prefix'};
+        my $storage_group_txt = $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable_' . $language};
+        my $rx = qr/^${pfx}\s+(\d+)\s+\(${storage_group_txt}\)$/;
+
+#        print $str . "\n" . $rx . "\n"; exit;
+
+        if ($str =~ /$rx/) {
+            return {
+                'storage-group-id' => $st_gr_id,
+                'storage-item-id' => $1,
+                };
+        }
+    }
+
+    return undef;
+}
+
+sub read_dspace_collection {
+    my ($dir) = @_;
+
+    my $dspace_exported_colletion = read_dir($dir);
+    my $invalid_directories = [grep {$_ !~ /^\d+$/ || ! -d $dir . "/" . $_} @{$dspace_exported_colletion}];
+    Carp::confess("--dspace-exported-collection should point to the directory containing DSpace collection in Simple Archive Format")
+        if scalar(@{$dspace_exported_colletion}) == 0;
+    Carp::confess("Unexpected items in DSpace export directory [$dir]: " . join(",", @{$invalid_directories}))
+        if scalar(@{$invalid_directories});
+
+    my $dspace_items = {};
+
+    DSPACE_ITEM: foreach my $seq (sort {$a <=> $b} @{$dspace_exported_colletion}) {
+        my $item_path = $o->{'dspace-exported-collection'} . "/" . $seq;
+        my $item_files = read_dir($item_path, {'output-format' => 'hashref'});
+        
+        foreach my $f (qw/dublin_core.xml contents/) {
+            Carp::confess("Invalid DSpace Simple Archive Format layout in [$item_path], $f doesn't exist")
+                unless defined($item_files->{$f});
+        }
+
+        my $item_dc_xml = XML::Simple::XMLin($item_path . "/dublin_core.xml");
+        Carp::confess("Unknown dublin_core.xml layout")
+            unless $item_dc_xml->{'schema'} &&
+                $item_dc_xml->{'schema'} eq 'dc' &&
+                $item_dc_xml->{'dcvalue'} &&
+                ref($item_dc_xml->{'dcvalue'}) eq 'ARRAY';
+        
+        my $item_struct;
+        DCVALUES: foreach my $dcvalue (@{$item_dc_xml->{'dcvalue'}}) {
+            if ($dcvalue->{'element'} eq 'identifier' &&
+                $dcvalue->{'qualifier'} eq 'other' &&
+                $dcvalue->{'language'} eq 'en') {
+
+                my $st_item = storage_id_dspace_to_csv($dcvalue->{'content'});
+                if ($st_item) {
+                    $dspace_items->{$st_item->{'storage-group-id'}} = {}
+                        unless $dspace_items->{$st_item->{'storage-group-id'}};
+                    $dspace_items->{$st_item->{'storage-group-id'}}->{$st_item->{'storage-item-id'}} = {
+                        'item-path' => $item_path,
+                        'item-path-contents' => $item_files,
+                        'dublin_core.xml' => $item_dc_xml,
+                        };
+
+                    $item_struct = $dspace_items->{$st_item->{'storage-group-id'}}->{$st_item->{'storage-item-id'}};
+
+                    last DCVALUES;
+                }
+            }
+        }
+
+        next unless $item_struct;
+
+        $item_struct->{'contents'} = read_file_scalar($item_path . "/contents");
+    }
+
+    return $dspace_items;
+}
 
 if ($o->{'dump-data-desc'}) {
     print Data::Dumper::Dumper($data_desc_struct);
@@ -1393,30 +1587,33 @@ if ($o->{'dump-data-desc'}) {
         print $ds->{'by_name1'}->{$f} . ": " . $f . "\n";
     }
 } elsif ($o->{'dump-storage-item'}) {
+    Carp::confess("Need --external-csv")
+        unless $o->{'external-csv'};
+
     my ($st_gr_id, $st_number) = split(" ", safe_string($o->{'dump-storage-item'}));
-    Carp::confess("Need storage_group and storage_number")
+    Carp::confess("Need storage_group and storage_number (try --dump-storage-item '1 1')")
         unless $st_gr_id && $st_number;
 
-    Carp::confess("Need --input-file")
-        unless $o->{'input-file'};
+    my $st_item = get_storage_item({
+        'external-csv' => $o->{'external-csv'},
+        'storage-group-id' => $st_gr_id,
+        'storage-item-id' => $st_number,
+        'o' => $o,
+        });
   
-    my $in_doc_struct = tsv_read_and_validate($o->{'input-file'}, $o);
+    Carp::confess("Unable to find [$st_gr_id/$st_number] in csv")
+        unless $st_item;
 
-    Carp::confess("Invalid storage group id specified")
-        unless defined($in_doc_struct->{'by_storage'}->{$st_gr_id});
-    Carp::confess("Invalid storage number  specified")
-        unless defined($in_doc_struct->{'by_storage'}->{$st_gr_id}->{$st_number});
-    
-    print Data::Dumper::Dumper($in_doc_struct->{'by_storage'}->{$st_gr_id}->{$st_number});
+    print Data::Dumper::Dumper($st_item);
 
     if ($o->{'tsv-output'}) {
-        tsv_output_record($in_doc_struct->{'by_storage'}->{$st_gr_id}->{$st_number}->{'tsv_struct'});
+        tsv_output_record($st_item->{'tsv_struct'});
     }
 } elsif ($o->{'list-storage-items'}) {
-    Carp::confess("Need --input-file")
-        unless $o->{'input-file'};
+    Carp::confess("Need --external-csv")
+        unless $o->{'external-csv'};
   
-    my $doc_struct = tsv_read_and_validate($o->{'input-file'}, $o);
+    my $doc_struct = tsv_read_and_validate($o->{'external-csv'}, $o);
 
     foreach my $st_gr_id (keys %{$doc_struct->{'by_storage'}}) {
         foreach my $storage_number (sort {$a <=> $b} keys %{$doc_struct->{'by_storage'}->{$st_gr_id}}) {
@@ -1434,10 +1631,10 @@ if ($o->{'dump-data-desc'}) {
         }
     }
 } elsif ($o->{'dump-tsv-struct'}) {
-    Carp::confess("Need --input-file")
-        unless $o->{'input-file'};
+    Carp::confess("Need --external-csv")
+        unless $o->{'external-csv'};
 
-    my $in_doc_struct = tsv_read_and_validate($o->{'input-file'}, $o);
+    my $in_doc_struct = tsv_read_and_validate($o->{'external-csv'}, $o);
 
     if ($o->{'debug'}) {
         print Data::Dumper::Dumper($in_doc_struct);
@@ -1457,12 +1654,12 @@ if ($o->{'dump-data-desc'}) {
             scalar(keys %{$in_doc_struct->{'storage_items_by_fund_number'}->{$fund_number}}) . " storage items\n";
     }
 } elsif ($o->{'initial-import'}) {
-    Carp::confess("Need --input-file")
-        unless $o->{'input-file'};
+    Carp::confess("Need --external-csv")
+        unless $o->{'external-csv'};
 
     my $target_collection_handle = $o->{'target-collection-handle'} || "123456789/2";
 
-    my $in_doc_struct = tsv_read_and_validate($o->{'input-file'}, $o);
+    my $in_doc_struct = tsv_read_and_validate($o->{'external-csv'}, $o);
 
     my $output_labels;
 
@@ -1475,15 +1672,6 @@ if ($o->{'dump-data-desc'}) {
             my $tsv_record = $in_doc_struct->{'by_storage'}->{$st_gr_id}->{$in_id}->{'tsv_struct'};
             $tsv_record->{'collection'} = $target_collection_handle;
 
-#            my $tsv_record = {
-#                'dc.description[ru]' =>
-#                    'ОФ-10141/1 "От автора". Введение к тому музейно-методических работ. Полнота: полная. Подлинность: копия. Способ воспроизведения: машинопись. Примечания: Т. I' .
-#                    '||' .
-#                    'НВФ-2116/460 "От автора". Введение к тому музейно-методических работ. Полнота: полная. Подлинность: оригинал. Способ воспроизведения: машинопись. Примечания: Т. I ; 1 экз.основной + 2 экз. редакции (5 лл.,6 лл.)',
-#                'sdm-archive-workflow.date.cataloged' => '28.01.2012',
-#                'sdm-archive-workflow.date.digitized' => '28.01.2012',
-#            };
-        
             if (!$output_labels) {
                 tsv_output_record($tsv_record, {'mode' => 'labels'});
                 $output_labels = 1;
@@ -1524,6 +1712,122 @@ if ($o->{'dump-data-desc'}) {
 } elsif ($o->{'dump-scanned-docs'}) {
     my $scanned_docs = read_scanned_docs();
     print Data::Dumper::Dumper($scanned_docs);
+} elsif ($o->{'dump-dspace-exported-item'}) {
+    Carp::confess("--dspace-exported-collection should point to the directory, got [" . safe_string($o->{'dspace-exported-collection'}) . "]")
+        unless $o->{'dspace-exported-collection'} && -d $o->{'dspace-exported-collection'};
+
+    my ($st_gr_id, $st_it_id) = split(" ", safe_string($o->{'dump-dspace-exported-item'}));
+    Carp::confess("Need storage_group and storage_number (try --dump-dspace-exported-item '1 1')")
+        unless $st_gr_id && $st_it_id;
+
+    my $dspace_collection = read_dspace_collection($o->{'dspace-exported-collection'});
+    Carp::confess("Unable to find item in DSpace export")
+        unless defined($dspace_collection->{$st_gr_id}) && defined($dspace_collection->{$st_gr_id}->{$st_it_id});
+
+    print Data::Dumper::Dumper($dspace_collection->{$st_gr_id}->{$st_it_id});
+} elsif ($o->{'import-bitstream'}) {
+    Carp::confess("Need --external-csv")
+        unless $o->{'external-csv'};
+    Carp::confess("--dspace-exported-collection should point to the directory, got [" . safe_string($o->{'dspace-exported-collection'}) . "]")
+        unless $o->{'dspace-exported-collection'} && -d $o->{'dspace-exported-collection'};
+    
+    my ($st_gr_id, $st_it_id) = split(" ", safe_string($o->{'import-bitstream'}));
+    Carp::confess("Need storage_group and storage_number (try --import-bitstream '1 1')")
+        unless $st_gr_id && $st_it_id;
+
+    my $st_item = get_storage_item({
+        'external-csv' => $o->{'external-csv'},
+        'storage-group-id' => $st_gr_id,
+        'storage-item-id' => $st_it_id,
+        'o' => $o,
+        });
+    
+    Carp::confess("Unable to find item [$st_gr_id/$st_it_id] in csv")
+        unless $st_item;
+
+    my $dspace_collection = read_dspace_collection($o->{'dspace-exported-collection'});
+    Carp::confess("Unable to find item in DSpace export")
+        unless defined($dspace_collection->{$st_gr_id}) && defined($dspace_collection->{$st_gr_id}->{$st_it_id});
+
+    my $dspace_collection_item = $dspace_collection->{$st_gr_id}->{$st_it_id};
+    if ($dspace_collection_item->{'contents'} ne '' ) {
+        Carp::confess("Unable to add bitstreams to the item which already has bitstreams (not implemented yet)");
+    }
+
+    my $r_struct = read_scanned_docs();
+
+    foreach my $scan_dir (@{$st_item->{'scanned_document_directories'}}) {
+        next unless defined($r_struct->{'files'}->{$scan_dir});
+
+        foreach my $f (sort keys %{$r_struct->{'files'}->{$scan_dir}}) {
+            my $fname = $f;
+            $fname =~ s/.+\///g;
+
+            my $r = symlink($f, $dspace_collection_item->{'item-path'} . "/" . $fname);
+            if (!$r) {
+                Carp::confess("Error creating symlink from [$f] to [$dspace_collection_item->{'item-path'}/$fname]:" . $!);
+            }
+
+            $dspace_collection_item->{'contents'} .= $fname . "\n";
+        }
+        write_file_scalar($dspace_collection_item->{'item-path'} . "/contents", $dspace_collection_item->{'contents'});
+    }
+
+    print "prepared DSpace item [$dspace_collection_item->{'item-path'}]\n";
+
+    # print Data::Dumper::Dumper($dspace_collection_item);
+    # print Data::Dumper::Dumper($st_item);
+} elsif ($o->{'import-bitstreams'}) {
+    Carp::confess("Need --external-csv")
+        unless $o->{'external-csv'};
+    Carp::confess("--dspace-exported-collection should point to the directory, got [" . safe_string($o->{'dspace-exported-collection'}) . "]")
+        unless $o->{'dspace-exported-collection'} && -d $o->{'dspace-exported-collection'};
+
+    my $in_doc_struct = tsv_read_and_validate($o->{'external-csv'}, $o);
+    my $dspace_collection = read_dspace_collection($o->{'dspace-exported-collection'});
+    my $r_struct = read_scanned_docs();
+
+    foreach my $st_gr_id (sort {$a <=> $b} keys %{$dspace_collection}) {
+        STORAGE_ITEM: foreach my $st_it_id (sort {$a <=> $b} keys %{$dspace_collection->{$st_gr_id}}) {
+            Carp::confess("Can'tfind storage group [$st_gr_id] in incoming data, something is very wrong")
+                unless defined($in_doc_struct->{'by_storage'}->{$st_gr_id});
+            
+            if (!defined($in_doc_struct->{'by_storage'}->{$st_gr_id}->{$st_it_id})) {
+                # silently skip the items which are in DSpace
+                # but which we can't find in incoming tsv
+                next STORAGE_ITEM;
+            }
+        
+            my $st_item = $in_doc_struct->{'by_storage'}->{$st_gr_id}->{$st_it_id};
+            my $dspace_collection_item = $dspace_collection->{$st_gr_id}->{$st_it_id};
+            my $updated_item = 0;
+            foreach my $scan_dir (@{$st_item->{'scanned_document_directories'}}) {
+                next unless defined($r_struct->{'files'}->{$scan_dir});
+
+                foreach my $f (sort keys %{$r_struct->{'files'}->{$scan_dir}}) {
+                    my $fname = $f;
+                    
+                    $fname =~ s/^.+\///;
+                    if ($f =~ m%/(copy[^/]*)/[^/]+$%) {
+                        $fname = $1 . "-" . $fname;
+                    }
+
+                    my $r = symlink($f, $dspace_collection_item->{'item-path'} . "/" . $fname);
+                    if (!$r) {
+                        Carp::confess("Error creating symlink from [$f] to [$dspace_collection_item->{'item-path'}/$fname]:" . $!);
+                    }
+
+                    $dspace_collection_item->{'contents'} .= $fname . "\n";
+                    $updated_item++;
+                }
+                write_file_scalar($dspace_collection_item->{'item-path'} . "/contents", $dspace_collection_item->{'contents'});
+            }
+            if ($updated_item) {
+                print "added [" . $updated_item . "] bitstreams to the item $st_gr_id/$st_it_id, DSpace Archive [$dspace_collection_item->{'item-path'}]\n";
+            }
+        }
+    }
+
 } else {
     Carp::confess("Need command line parameter, one of: " . join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n");
 }
