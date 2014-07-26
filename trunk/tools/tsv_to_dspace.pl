@@ -148,6 +148,7 @@ my $o_names = [
     'dspace-exported-collection=s',
     'import-bitstream=s',
     'import-bitstreams',
+    'dry-run',
     'dump-dspace-exported-item=s',
     ];
 my $o = {};
@@ -1803,6 +1804,11 @@ if ($o->{'dump-data-desc'}) {
             my $updated_item = 0;
             foreach my $scan_dir (@{$st_item->{'scanned_document_directories'}}) {
                 next unless defined($r_struct->{'files'}->{$scan_dir});
+
+                if ($o->{'dry-run'}) {
+                    print "would try to update [$st_gr_id/$st_it_id]\n";
+                    next STORAGE_ITEM;
+                }
 
                 foreach my $f (sort keys %{$r_struct->{'files'}->{$scan_dir}}) {
                     my $fname = $f;
