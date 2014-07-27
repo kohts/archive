@@ -953,6 +953,10 @@ sub read_scanned_docs {
 sub tsv_read_and_validate {
     my ($input_file, $o) = @_;
 
+    if (defined($runtime->{'csv_struct'})) {
+        return $runtime->{'csv_struct'};
+    }
+
     $o = {} unless $o;
 
     my $doc_struct = {
@@ -1119,7 +1123,37 @@ sub tsv_read_and_validate {
             $storage_struct->{'scanned_document_directories_h'} = {};
 
             my $push_scanned_doc_dir = sub {
-                my ($dir) = @_;
+                my ($opts) = @_;
+                $opts = {} unless $opts;
+
+                my $dir;
+                if (safe_string($opts->{'prefix'}) eq 'eh') {
+                    Carp::confess("[n] is the required parameter")
+                        unless defined($opts->{'n'});
+
+                    $dir = "eh-" . sprintf("%04d", $opts->{'n'});
+                } elsif (safe_string($opts->{'prefix'}) eq 'of' ||
+                    safe_string($opts->{'prefix'}) eq 'nvf') {
+
+                    Carp::confess("[n] is the required parameter")
+                        unless defined($opts->{'n'});
+
+                    $dir = $opts->{'prefix'} . "-" . $opts->{'n'};
+                    
+                    if ($opts->{'n2'}) {
+                        if ($opts->{'n2'} =~ /^\d+$/) {
+                            $dir .= "-" . sprintf("%04d", $opts->{'n2'});
+                        } else {
+                            $dir .= "-" . $opts->{'n2'};
+                        }
+                    }
+                } elsif ($opts->{'dir'}) {
+                    $dir = $opts->{'dir'};
+                } else {
+                    Carp::confess("Need prefix to be one of (eh, of, nvf), got [" .
+                        safe_string($opts->{'prefix'}) . "]");
+                }
+
                 return unless defined($dir) && $dir ne "";
                 return if scalar(@{$scanned_docs->{'array'}}) && !$scanned_docs->{'hash'}->{$dir};
                 return if defined($storage_struct->{'scanned_document_directories_h'}->{$dir});
@@ -1127,16 +1161,12 @@ sub tsv_read_and_validate {
                 push @{$storage_struct->{'scanned_document_directories'}}, $dir;
             };
 
+            # always try eh-XXXX
             if ($data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name'} eq 'Novikova') {
-                my $pfx = "";
-                if (length($storage_number) == 3) {
-                    $pfx = "0";
-                } elsif(length($storage_number) == 2) {
-                    $pfx = "00";
-                } elsif(length($storage_number) == 1) {
-                    $pfx = "000";
-                }
-                $push_scanned_doc_dir->("eh-" . $pfx . $storage_number);
+                $push_scanned_doc_dir->({
+                    'prefix' => 'eh',
+                    'n' => $storage_number,
+                    });
             }
 
             my $predefined_storage_struct;
@@ -1324,17 +1354,22 @@ sub tsv_read_and_validate {
                         ($item->{'by_field_name'}->{'number_suffix'} ?
                             "/" . $item->{'by_field_name'}->{'number_suffix'}
                             : "");
-                    $push_scanned_doc_dir->("of-" . $item->{'by_field_name'}->{'of_number'} .
-                            ($item->{'by_field_name'}->{'number_suffix'} ?
-                            "-" . $item->{'by_field_name'}->{'number_suffix'} : ""));
+
+                    $push_scanned_doc_dir->({
+                        'prefix' => 'of',
+                        'n' => $item->{'by_field_name'}->{'of_number'},
+                        'n2' => $item->{'by_field_name'}->{'number_suffix'}
+                        });
                 } else {
                     $item_desc .= "НВФ-" . $item->{'by_field_name'}->{'nvf_number'} .
                         ($item->{'by_field_name'}->{'number_suffix'} ?
                             "/" . $item->{'by_field_name'}->{'number_suffix'}
                             : "");
-                    $push_scanned_doc_dir->("nvf-" . $item->{'by_field_name'}->{'nvf_number'} .
-                            ($item->{'by_field_name'}->{'number_suffix'} ?
-                            "-" . $item->{'by_field_name'}->{'number_suffix'} : ""));
+                    $push_scanned_doc_dir->({
+                        'prefix' => 'nvf',
+                        'n' => $item->{'by_field_name'}->{'nvf_number'},
+                        'n2' => $item->{'by_field_name'}->{'number_suffix'}
+                        });
                 }
 
                 my $desc_elements = [];
@@ -1362,7 +1397,7 @@ sub tsv_read_and_validate {
                 $item_desc .= " " . join (" ", @{$desc_elements});
                 $push_metadata_value->('dc.description[ru]', $item_desc);
 
-                $push_scanned_doc_dir->($item->{'by_field_name'}->{'scanned_doc_id'});
+                $push_scanned_doc_dir->({'dir' => $item->{'by_field_name'}->{'scanned_doc_id'}});
             }
 
             foreach my $d (keys %{$storage_struct->{'scanned_document_directories_h'}}) {
@@ -1375,7 +1410,8 @@ sub tsv_read_and_validate {
         }
     }
 
-    return $doc_struct;
+    $runtime->{'csv_struct'} = $doc_struct;
+    return $runtime->{'csv_struct'};
 }
 
 sub tsv_output_record {
@@ -1423,14 +1459,14 @@ sub get_storage_item {
             unless defined($opts->{$o});
     }
 
-    my $in_doc_struct = tsv_read_and_validate($opts->{'external-csv'}, $opts->{'o'});
+    my $csv_struct = tsv_read_and_validate($opts->{'external-csv'}, $opts->{'o'});
 
     return undef
-        unless defined($in_doc_struct->{'by_storage'}->{$opts->{'storage-group-id'}});
+        unless defined($csv_struct->{'by_storage'}->{$opts->{'storage-group-id'}});
     return undef
-        unless defined($in_doc_struct->{'by_storage'}->{$opts->{'storage-group-id'}}->{$opts->{'storage-item-id'}});
+        unless defined($csv_struct->{'by_storage'}->{$opts->{'storage-group-id'}}->{$opts->{'storage-item-id'}});
 
-    return $in_doc_struct->{'by_storage'}->{$opts->{'storage-group-id'}}->{$opts->{'storage-item-id'}};
+    return $csv_struct->{'by_storage'}->{$opts->{'storage-group-id'}}->{$opts->{'storage-item-id'}};
 }
 
 sub storage_id_csv_to_dspace {
@@ -1534,6 +1570,8 @@ sub read_dspace_collection {
             }
         }
 
+        # not able to identify item directory as belonging
+        # to the previously imported from csv; skip the item.
         next unless $item_struct;
 
         $item_struct->{'contents'} = read_file_scalar($item_path . "/contents");
@@ -1791,25 +1829,45 @@ if ($o->{'dump-data-desc'}) {
     my $r_struct = read_scanned_docs();
 
     foreach my $st_gr_id (sort {$a <=> $b} keys %{$dspace_collection}) {
-        STORAGE_ITEM: foreach my $st_it_id (sort {$a <=> $b} keys %{$dspace_collection->{$st_gr_id}}) {
-            Carp::confess("Can'tfind storage group [$st_gr_id] in incoming data, something is very wrong")
-                unless defined($in_doc_struct->{'by_storage'}->{$st_gr_id});
+
+        Carp::confess("Can't find storage group [$st_gr_id] in incoming data, something is very wrong")
+            unless defined($in_doc_struct->{'by_storage'}->{$st_gr_id});
+        
+        DSPACE_ITEM: foreach my $st_it_id (sort {$a <=> $b} keys %{$dspace_collection->{$st_gr_id}}) {
+
+            my $dspace_collection_item = $dspace_collection->{$st_gr_id}->{$st_it_id};
+
+            # if there are bitstreams in the item, skip it
+            if ($dspace_collection_item->{'contents'}) {
+                print "skipping [$st_gr_id/$st_it_id]\n";
+                next DSPACE_ITEM;
+            }
             
-            if (!defined($in_doc_struct->{'by_storage'}->{$st_gr_id}->{$st_it_id})) {
+            my $st_item = get_storage_item({
+                'external-csv' => $o->{'external-csv'},
+                'storage-group-id' => $st_gr_id,
+                'storage-item-id' => $st_it_id,
+                'o' => $o,
+                });
+            
+            if (!defined($st_item)) {
                 # silently skip the items which are in DSpace
                 # but which we can't find in incoming tsv
-                next STORAGE_ITEM;
+                next DSPACE_ITEM;
             }
         
-            my $st_item = $in_doc_struct->{'by_storage'}->{$st_gr_id}->{$st_it_id};
-            my $dspace_collection_item = $dspace_collection->{$st_gr_id}->{$st_it_id};
             my $updated_item = 0;
             foreach my $scan_dir (@{$st_item->{'scanned_document_directories'}}) {
+                
+                # this shouldn't happen in production as external_archive_storage_base
+                # shouldn't change when this script is run; during tests though
+                # this happened (because upload of archive to the test server
+                # took about several weeks because of the slow network)
                 next unless defined($r_struct->{'files'}->{$scan_dir});
 
                 if ($o->{'dry-run'}) {
                     print "would try to update [$st_gr_id/$st_it_id]\n";
-                    next STORAGE_ITEM;
+                    next DSPACE_ITEM;
                 }
 
                 foreach my $f (sort keys %{$r_struct->{'files'}->{$scan_dir}}) {
