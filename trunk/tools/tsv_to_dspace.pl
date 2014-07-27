@@ -150,6 +150,7 @@ my $o_names = [
     'import-bitstreams',
     'dry-run',
     'dump-dspace-exported-item=s',
+    'bash-completion',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -922,6 +923,9 @@ sub read_scanned_docs {
                     }
 
                     my $fstat = [lstat($dir . "/" . $f)];
+                    if (scalar(@{$fstat}) == 0) {
+                        Carp::confess("Error lstata(" . $dir . "/" . $f . "): $!");
+                    }
 
                     my $day = date_from_unixtime($fstat->[9]);
 
@@ -1580,7 +1584,9 @@ sub read_dspace_collection {
     return $dspace_items;
 }
 
-if ($o->{'dump-data-desc'}) {
+if ($o->{'bash-completion'}) {
+    print join(" ", map {$_ =~ s/=.+$//; "--" . $_} grep {$_ ne 'bash-completion'} @{$o_names}) . "\n";
+} elsif ($o->{'dump-data-desc'}) {
     print Data::Dumper::Dumper($data_desc_struct);
     exit 0;
 } elsif ($o->{'data-split-by-tab'}) {
@@ -1893,7 +1899,6 @@ if ($o->{'dump-data-desc'}) {
             }
         }
     }
-
 } else {
     Carp::confess("Need command line parameter, one of: " . join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n");
 }
