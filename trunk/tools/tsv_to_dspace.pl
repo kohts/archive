@@ -139,7 +139,7 @@ my $o_names = [
     'output-tsv',
     'debug',
     'initial-import', 'target-collection-handle=s',
-    'dump-storage-item=s',
+    'dump-csv-item=s',
     'tsv-output',
     'input-line=s',
     'list-storage-items',
@@ -516,6 +516,7 @@ my $data_desc_struct = {
                 1275 => 'Переписка, Museum of Comparative Zoology at Harvard College',
                 1278 => 'Переписка, Naturwissenschaftliches Fakultat der Universitat Tubingen',
                 1279 => 'Переписка, Naturwissenschaftliches Museum, Coburg',
+                1282 => 'Переписка, Oskar Fritsche, Präparator',
                 1285 => 'Переписка, W.F.H.Rosenberg, Naturalist and Importer of Exotik Zoological Collection',
                 1286 => 'Переписка, The Royal College of Surgeons of England',
                 1287 => 'Переписка, The Royal Geographical Society',
@@ -533,6 +534,7 @@ my $data_desc_struct = {
                 1306 => 'Переписка, Zoological Society of London',
                 1307 => 'Переписка, Zoological Survey of India',
                 1308 => 'Переписка, Zoologicka Zahrada, Praha',
+                1312 => 'Переписка, Zoologisches Museum der Humboldt - Universität zu Berlin, Prof. Dr. Erwin Stresemann',
                 },
         },
         2 => {
@@ -1587,12 +1589,12 @@ if ($o->{'dump-data-desc'}) {
     foreach my $f (@{$ds->{'array'}}) {
         print $ds->{'by_name1'}->{$f} . ": " . $f . "\n";
     }
-} elsif ($o->{'dump-storage-item'}) {
+} elsif ($o->{'dump-csv-item'}) {
     Carp::confess("Need --external-csv")
         unless $o->{'external-csv'};
 
-    my ($st_gr_id, $st_number) = split(" ", safe_string($o->{'dump-storage-item'}));
-    Carp::confess("Need storage_group and storage_number (try --dump-storage-item '1 1')")
+    my ($st_gr_id, $st_number) = split(" ", safe_string($o->{'dump-csv-item'}));
+    Carp::confess("Need storage_group and storage_number (try --dump-csv-item '1 1')")
         unless $st_gr_id && $st_number;
 
     my $st_item = get_storage_item({
