@@ -148,6 +148,7 @@ my $o_names = [
     'dspace-exported-collection=s',
     'import-bitstream=s',
     'import-bitstreams',
+    'limit=s',
     'dry-run',
     'dump-dspace-exported-item=s',
     'bash-completion',
@@ -1829,12 +1830,19 @@ if ($o->{'bash-completion'}) {
         unless $o->{'external-csv'};
     Carp::confess("--dspace-exported-collection should point to the directory, got [" . safe_string($o->{'dspace-exported-collection'}) . "]")
         unless $o->{'dspace-exported-collection'} && -d $o->{'dspace-exported-collection'};
+		if ($o->{'limit'}) {
+				if ($o->{'limit'} !~ /^\d+$/ || $o->{'limit'} == 0) {
+						Carp::confess("--limit N requires N to be positive integer");
+				}
+		}
 
     my $in_doc_struct = tsv_read_and_validate($o->{'external-csv'}, $o);
     my $dspace_collection = read_dspace_collection($o->{'dspace-exported-collection'});
     my $r_struct = read_scanned_docs();
 
-    foreach my $st_gr_id (sort {$a <=> $b} keys %{$dspace_collection}) {
+    my $updated_items = 0;
+
+    DSPACE_COLLECTION: foreach my $st_gr_id (sort {$a <=> $b} keys %{$dspace_collection}) {
 
         Carp::confess("Can't find storage group [$st_gr_id] in incoming data, something is very wrong")
             unless defined($in_doc_struct->{'by_storage'}->{$st_gr_id});
@@ -1895,7 +1903,12 @@ if ($o->{'bash-completion'}) {
                 write_file_scalar($dspace_collection_item->{'item-path'} . "/contents", $dspace_collection_item->{'contents'});
             }
             if ($updated_item) {
+                $updated_items = $updated_items + 1;
                 print "added [" . $updated_item . "] bitstreams to the item $st_gr_id/$st_it_id, DSpace Archive [$dspace_collection_item->{'item-path'}]\n";
+
+                if ($o->{'limit'} && $updated_items == $o->{'limit'}) {
+                		last DSPACE_COLLECTION;
+                }
             }
         }
     }
