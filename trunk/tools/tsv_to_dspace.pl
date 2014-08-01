@@ -120,8 +120,11 @@ use IPC::Cmd;
 use Getopt::Long;
 use Carp;
 use File::Path;
+use Log::Log4perl;
 use Text::CSV;
 use XML::Simple;
+
+init_logging();
 
 # unbuffered output
 $| = 1;
@@ -129,29 +132,31 @@ $| = 1;
 binmode(STDOUT, ':encoding(UTF-8)');
 
 my $o_names = [
-    'external-csv=s',
+    'bash-completion',
+    'data-split-by-comma',
+    'data-split-by-tab',
+    'debug',
+    'descriptor-dump=s',
+    'dry-run',
+    'dspace-exported-collection=s',
+    'dump-data-desc',
+    'dump-dspace-exported-collection',
+    'dump-dspace-exported-item=s',
+    'dump-csv-item=s',
+    'dump-scanned-docs',
     'dump-tsv-raw',
     'dump-tsv-struct',
-    'dump-data-desc',
-    'descriptor-dump=s',
-    'data-split-by-tab',
-    'data-split-by-comma',
-    'output-tsv',
-    'debug',
-    'initial-import', 'target-collection-handle=s',
-    'dump-csv-item=s',
-    'tsv-output',
-    'input-line=s',
-    'list-storage-items',
-    'titles',
-    'dump-scanned-docs',
-    'dspace-exported-collection=s',
+    'external-csv=s',
     'import-bitstream=s',
     'import-bitstreams',
+    'initial-import',
+    'input-line=s',
     'limit=s',
-    'dry-run',
-    'dump-dspace-exported-item=s',
-    'bash-completion',
+    'list-storage-items',
+    'output-tsv',
+    'target-collection-handle=s',
+    'tsv-output',
+    'titles',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -1580,9 +1585,44 @@ sub read_dspace_collection {
         next unless $item_struct;
 
         $item_struct->{'contents'} = read_file_scalar($item_path . "/contents");
+        $item_struct->{'handle'} = trim(read_file_scalar($item_path . "/handle"), " \n");
     }
 
     return $dspace_items;
+}
+
+sub init_logging {
+    my $log_file = "/var/log/dspace-sdm.log";
+    Carp::confess("Unable to write to log file [$log_file], check permissions")
+        unless -w $log_file;
+
+    Log::Log4perl->init_once(\(qq {
+        log4perl.rootLogger = DEBUG, app_screen, app_log_all
+
+        log4perl.appender.app_screen = Log::Log4perl::Appender::Screen
+        log4perl.appender.app_screen.stderr = 0
+        log4perl.appender.app_screen.layout = Log::Log4perl::Layout::PatternLayout
+        log4perl.appender.app_screen.layout.ConversionPattern = %d\t%P\t%X{activity}\t%m%n
+
+        # http://search.cpan.org/~mschilli/Log-Log4perl/lib/Log/Log4perl/Layout/PatternLayout.pm
+        # 
+        # date                    pid     priority MDC->{'activity'} MDC->{'filename'} message            new-line
+        # %d                      %P      %p       %X{activity}      %X{filename}      %m                 %n
+        # 
+
+        log4perl.appender.app_log_all = Log::Log4perl::Appender::File
+        log4perl.appender.app_log_all.filename = $log_file
+        log4perl.appender.app_log_all.layout = Log::Log4perl::Layout::PatternLayout
+        log4perl.appender.app_log_all.layout.ConversionPattern = %d\t%P\t%X{activity}\t%m%n
+        }
+    ));
+    Log::Log4perl::MDC->put("activity", File::Basename::basename($0));
+}
+
+sub do_log {
+    my ($msg) = @_;
+    my $logger = Log::Log4perl::get_logger();
+    $logger->debug($msg);
 }
 
 if ($o->{'bash-completion'}) {
@@ -1760,6 +1800,12 @@ if ($o->{'bash-completion'}) {
 } elsif ($o->{'dump-scanned-docs'}) {
     my $scanned_docs = read_scanned_docs();
     print Data::Dumper::Dumper($scanned_docs);
+} elsif ($o->{'dump-dspace-exported-collection'}) {
+    Carp::confess("--dspace-exported-collection should point to the directory, got [" . safe_string($o->{'dspace-exported-collection'}) . "]")
+        unless $o->{'dspace-exported-collection'} && -d $o->{'dspace-exported-collection'};
+
+    my $dspace_collection = read_dspace_collection($o->{'dspace-exported-collection'});
+    print Data::Dumper::Dumper($dspace_collection);
 } elsif ($o->{'dump-dspace-exported-item'}) {
     Carp::confess("--dspace-exported-collection should point to the directory, got [" . safe_string($o->{'dspace-exported-collection'}) . "]")
         unless $o->{'dspace-exported-collection'} && -d $o->{'dspace-exported-collection'};
@@ -1830,11 +1876,11 @@ if ($o->{'bash-completion'}) {
         unless $o->{'external-csv'};
     Carp::confess("--dspace-exported-collection should point to the directory, got [" . safe_string($o->{'dspace-exported-collection'}) . "]")
         unless $o->{'dspace-exported-collection'} && -d $o->{'dspace-exported-collection'};
-		if ($o->{'limit'}) {
-				if ($o->{'limit'} !~ /^\d+$/ || $o->{'limit'} == 0) {
-						Carp::confess("--limit N requires N to be positive integer");
-				}
-		}
+    if ($o->{'limit'}) {
+        if ($o->{'limit'} !~ /^\d+$/ || $o->{'limit'} == 0) {
+            Carp::confess("--limit N requires N to be positive integer");
+        }
+    }
 
     my $in_doc_struct = tsv_read_and_validate($o->{'external-csv'}, $o);
     my $dspace_collection = read_dspace_collection($o->{'dspace-exported-collection'});
@@ -1904,10 +1950,10 @@ if ($o->{'bash-completion'}) {
             }
             if ($updated_item) {
                 $updated_items = $updated_items + 1;
-                print "added [" . $updated_item . "] bitstreams to the item $st_gr_id/$st_it_id, DSpace Archive [$dspace_collection_item->{'item-path'}]\n";
+                do_log("added [" . $updated_item . "] bitstreams to the item [$st_gr_id/$st_it_id], DSpace Archive [$dspace_collection_item->{'item-path'} $dspace_collection_item->{'handle'}]");
 
                 if ($o->{'limit'} && $updated_items == $o->{'limit'}) {
-                		last DSPACE_COLLECTION;
+                    last DSPACE_COLLECTION;
                 }
             }
         }
