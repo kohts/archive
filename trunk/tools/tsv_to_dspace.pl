@@ -162,6 +162,14 @@ my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
 
 my $data_desc_struct = {
+    
+    # todo: these documents are referenced in different storage items,
+    # they should be either regrouped or maybe combined into one dspace item
+    'allowed_grouped_scanned_documents' => [
+        'nvf-6912-14;15;16',
+        'of-10141-0450',
+        ],
+
     'external_archive_storage_base' => '/gone/root/raw-afk',
     'external_archive_storage_timezone' => 'Europe/Moscow',
 
@@ -977,6 +985,7 @@ sub tsv_read_and_validate {
         'storage_items_by_fund_number' => {},
         'title_line' => {},
         'total_input_lines' => 0,
+        'storage_items_by_scanned_dir' => {},
         };
 
     # read xls output and populate $list
@@ -1165,10 +1174,23 @@ sub tsv_read_and_validate {
                 }
 
                 return unless defined($dir) && $dir ne "";
-                return if scalar(@{$scanned_docs->{'array'}}) && !$scanned_docs->{'hash'}->{$dir};
-                return if defined($storage_struct->{'scanned_document_directories_h'}->{$dir});
+                
+                # check that document exists on the disk
+                if (scalar(@{$scanned_docs->{'array'}}) && !$scanned_docs->{'hash'}->{$dir}) {
+                    return;
+                }
+
+                # do not add documents more than once
+                if (defined($storage_struct->{'scanned_document_directories_h'}->{$dir})) {
+                    return;
+                }
+
                 $storage_struct->{'scanned_document_directories_h'}->{$dir} = $scanned_docs->{'hash'}->{$dir};
                 push @{$storage_struct->{'scanned_document_directories'}}, $dir;
+
+                $doc_struct->{'storage_items_by_scanned_dir'}->{$dir} = []
+                    unless defined($doc_struct->{'storage_items_by_scanned_dir'}->{$dir});
+                push @{$doc_struct->{'storage_items_by_scanned_dir'}->{$dir}}, $storage_struct;
             };
 
             # always try eh-XXXX
@@ -1417,6 +1439,22 @@ sub tsv_read_and_validate {
             }
 
              $storage_struct->{'tsv_struct'} = $tsv_struct;
+             $storage_struct->{'storage-group-id'} = $st_gr_id;
+             $storage_struct->{'storage-number'} = $storage_number;
+        }
+    }
+
+    foreach my $dir (keys %{$doc_struct->{'storage_items_by_scanned_dir'}}) {
+        if (scalar(@{$doc_struct->{'storage_items_by_scanned_dir'}->{$dir}}) > 1) {
+
+            if (grep {$_ eq $dir} @{$data_desc_struct->{'allowed_grouped_scanned_documents'}}) {
+                next;
+            }
+
+            Carp::confess("Scanned directory [$dir] matches several storage items: [" .
+                join(",", map {$_->{'storage-group-id'} . "/" . $_->{'storage-number'}}
+                    @{$doc_struct->{'storage_items_by_scanned_dir'}->{$dir}}) .
+                "]");
         }
     }
 
