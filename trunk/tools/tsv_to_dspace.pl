@@ -116,10 +116,11 @@ $Data::Dumper::Useqq = 1;
     }
 }
 
-use IPC::Cmd;
-use Getopt::Long;
 use Carp;
+use File::Basename;
 use File::Path;
+use Getopt::Long;
+use IPC::Cmd;
 use Log::Log4perl;
 use Text::CSV;
 use XML::Simple;
@@ -133,10 +134,12 @@ binmode(STDOUT, ':encoding(UTF-8)');
 
 my $o_names = [
     'bash-completion',
+    'build-docbook-for-dspace',
     'data-split-by-comma',
     'data-split-by-tab',
     'debug',
     'descriptor-dump=s',
+    'docbook-filename=s',
     'dry-run',
     'dspace-exported-collection=s',
     'dump-data-desc',
@@ -172,6 +175,9 @@ my $data_desc_struct = {
 
     'external_archive_storage_base' => '/gone/root/raw-afk',
     'external_archive_storage_timezone' => 'Europe/Moscow',
+
+    'archive_source_base' => '/var/www/SOURCE/afk-works',
+    'docbook_dspace_out_base' => '/var/www/OUT/afk-works/html-dspace',
 
     'dspace.identifier.other[en]-prefix' => 'Storage item',
     'dspace.identifier.other[ru]-prefix' => 'Место хранения',
@@ -1995,6 +2001,84 @@ if ($o->{'bash-completion'}) {
                 }
             }
         }
+    }
+} elsif ($o->{'build-docbook-for-dspace'}) {
+    Carp::confess("Need --docbook-filename")
+        unless $o->{'docbook-filename'};
+    
+    my $full_docbook_path = $data_desc_struct->{'archive_source_base'} . "/docbook/" . $o->{'docbook-filename'};
+    Carp::confess("--docbook-filename point to nonexistent file (resolved to $full_docbook_path)")
+        unless -e $full_docbook_path;
+
+    my ($filename, $dirs) = File::Basename::fileparse($full_docbook_path);
+    
+    my $entity_name = $filename;
+    $entity_name =~ s/\..+$//g;
+    
+    my $entities = {
+        $entity_name => {'SYSTEM' => $full_docbook_path},
+        
+        # needed only for of-10141-0112.docbook
+        'of-12497-0541' => "",
+        };
+
+    my $dspace_html_docbook_template = qq{<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY liniya "
+<informaltable frame='none' pgwide='1'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry><para>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
+</tgroup></informaltable>
+ ">
+
+  };
+  
+   foreach my $e_name (sort keys %{$entities}) {
+      if (ref($entities->{$e_name})) {
+          $dspace_html_docbook_template .= '<!ENTITY ' . $e_name . ' SYSTEM "' . $entities->{$e_name}->{'SYSTEM'} . '">' . "\n";
+      } else {
+          $dspace_html_docbook_template .= '<!ENTITY ' . $e_name . ' "' . $entities->{$e_name} . '">' . "\n";
+      }
+   }
+   
+   $dspace_html_docbook_template .= qq{
+]>
+
+<article id="} . $entity_name . qq{" lang="ru">
+<articleinfo>
+<author>
+<firstname>Александр</firstname>
+<othername>Федорович</othername>
+<surname>Котс</surname>
+</author>
+</articleinfo>
+
+&} . $entity_name . qq{;
+</article>
+    };
+
+#    print $dspace_html_docbook_template . "\n";
+
+    my $tmp_docbook_name = "/tmp/$entity_name.docbook";
+    write_file_scalar($tmp_docbook_name, $dspace_html_docbook_template);
+
+    my $cmd = 'xsltproc --xinclude ' .
+        '--stringparam base.dir ' . $data_desc_struct->{'docbook_dspace_out_base'} . "/ " .
+        '--stringparam use.id.as.filename 1 ' .
+        '--stringparam root.filename "" ' .
+        $data_desc_struct->{'archive_source_base'} . '/build/docbook-html-dspace.xsl ' .
+        $tmp_docbook_name;
+    my $r = IPC::Cmd::run_forked($cmd);
+    Carp::confess("Error generating DSpace html file, cmd [$cmd]: " . Data::Dumper::Dumper($r))
+        if $r->{'exit_code'} ne 0;
+
+    unlink($tmp_docbook_name);
+
+    if ($r->{'merged'} =~ /Writing\s+?(.+?)\sfor/s) {
+        print "built: " . $1 . "\n";
+    } else {
+        Carp::confess("Unable to extract filename written by DocBook (protocol changed?) from: " . $r->{'merged'});
     }
 } else {
     Carp::confess("Need command line parameter, one of: " . join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n");
