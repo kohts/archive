@@ -146,6 +146,7 @@ my $o_names = [
     'dump-dspace-exported-collection',
     'dump-dspace-exported-item=s',
     'dump-csv-item=s',
+    'dump-ocr-html-docs',
     'dump-scanned-docs',
     'dump-tsv-raw',
     'dump-tsv-struct',
@@ -911,67 +912,93 @@ sub read_scanned_docs {
     # cache
     return $runtime->{'read_scanned_docs'} if defined($runtime->{'read_scanned_docs'});
 
-    my $scanned_docs = {
-        'array' => [],
-        'hash' => {},
-        };
-
-    my $files = {};
-
-    if ($data_desc_struct->{'external_archive_storage_base'}) {
-        $scanned_docs->{'array'} = read_dir($data_desc_struct->{'external_archive_storage_base'});
-        
-        foreach my $item_dir (@{$scanned_docs->{'array'}}) {
-            my $item = $data_desc_struct->{'external_archive_storage_base'} . "/" . $item_dir;
-            
-            # scanned document is a directory
-            next unless -d $item;
-
-            $files->{$item_dir} = {};
-
-            my $ftimes = {};
-            my $scan_dir;
-            $scan_dir = sub {
-                my ($dir) = @_;
-
-                my $item_files = read_dir($dir);
-
-                foreach my $f (@{$item_files}) {
-                    if (-d $dir . "/" . $f) {
-                        $scan_dir->($dir . "/" . $f);
-                        next;
-                    }
-
-                    my $fstat = [lstat($dir . "/" . $f)];
-                    if (scalar(@{$fstat}) == 0) {
-                        Carp::confess("Error lstata(" . $dir . "/" . $f . "): $!");
-                    }
-
-                    my $day = date_from_unixtime($fstat->[9]);
-
-                    $ftimes->{$day} = 0 unless $ftimes->{$day};
-                    $ftimes->{$day}++;
-
-                    $files->{$item_dir}->{$dir . "/" . $f} = 1;
-                }
-            };
-
-            $scan_dir->($item);
-
-            $scanned_docs->{'hash'}->{$item_dir} = [];
-            foreach my $mod_day (sort {$ftimes->{$a} <=> $ftimes->{$b}} keys %{$ftimes}) {
-                push @{$scanned_docs->{'hash'}->{$item_dir}}, $mod_day;
-            }
-        }
-#        print Data::Dumper::Dumper($scanned_docs);
-    }
-
     $runtime->{'read_scanned_docs'} = {
-        'scanned_docs' => $scanned_docs,
-        'files' => $files,
+        'scanned_docs' => {
+            'array' => [],
+            'hash' => {},
+            },
+        'files' => {},
         };
+
+    return $runtime->{'read_scanned_docs'}
+        unless $data_desc_struct->{'external_archive_storage_base'};
+
+
+    $runtime->{'read_scanned_docs'}->{'scanned_docs'}->{'array'} = read_dir($data_desc_struct->{'external_archive_storage_base'});
+    
+    foreach my $item_dir (@{$runtime->{'read_scanned_docs'}->{'scanned_docs'}->{'array'}}) {
+        my $item = $data_desc_struct->{'external_archive_storage_base'} . "/" . $item_dir;
+        
+        # scanned document is a directory
+        next unless -d $item;
+
+        $runtime->{'read_scanned_docs'}->{'files'}->{$item_dir} = {};
+
+        my $ftimes = {};
+        my $scan_dir;
+        $scan_dir = sub {
+            my ($dir) = @_;
+
+            my $item_files = read_dir($dir);
+
+            foreach my $f (@{$item_files}) {
+                if (-d $dir . "/" . $f) {
+                    $scan_dir->($dir . "/" . $f);
+                    next;
+                }
+
+                my $fstat = [lstat($dir . "/" . $f)];
+                if (scalar(@{$fstat}) == 0) {
+                    Carp::confess("Error lstata(" . $dir . "/" . $f . "): $!");
+                }
+
+                my $day = date_from_unixtime($fstat->[9]);
+
+                $ftimes->{$day} = 0 unless $ftimes->{$day};
+                $ftimes->{$day}++;
+
+                $runtime->{'read_scanned_docs'}->{'files'}->{$item_dir}->{$dir . "/" . $f} = 1;
+            }
+        };
+
+        $scan_dir->($item);
+
+        $runtime->{'read_scanned_docs'}->{'scanned_docs'}->{'hash'}->{$item_dir} = [];
+        foreach my $mod_day (sort {$ftimes->{$a} <=> $ftimes->{$b}} keys %{$ftimes}) {
+            push @{$runtime->{'read_scanned_docs'}->{'scanned_docs'}->{'hash'}->{$item_dir}}, $mod_day;
+        }
+    }
+#        print Data::Dumper::Dumper($runtime->{'read_scanned_docs'});
 
     return $runtime->{'read_scanned_docs'};
+}
+
+sub read_ocr_html_docs {
+    # cache
+    return $runtime->{'read_ocr_html_docs'} if defined($runtime->{'read_ocr_html_docs'});
+
+    $runtime->{'read_ocr_html_docs'} = {
+        'ocr_html_files' => {
+            'array' => [],
+            'hash' => {},
+            },
+        };
+
+    return $runtime->{'read_ocr_html_docs'}
+        unless $data_desc_struct->{'docbook_dspace_out_base'};
+
+    $runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'array'} = read_dir($data_desc_struct->{'docbook_dspace_out_base'});
+
+    foreach my $el (@{$runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'array'}}) {
+        my $item = $data_desc_struct->{'docbook_dspace_out_base'} . "/" . $el;
+
+        next unless -f $item;
+        next unless $el =~ /^(.+)\.html$/;
+
+        $runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'hash'}->{$1} = $item;
+    }
+
+    return $runtime->{'read_ocr_html_docs'};
 }
 
 sub tsv_read_and_validate {
@@ -992,6 +1019,7 @@ sub tsv_read_and_validate {
         'title_line' => {},
         'total_input_lines' => 0,
         'storage_items_by_scanned_dir' => {},
+        'storage_items_by_ocr_html' => {},
         };
 
     # read xls output and populate $list
@@ -1137,7 +1165,7 @@ sub tsv_read_and_validate {
     }
 
     my $r_struct = read_scanned_docs();
-    my $scanned_docs = $r_struct->{'scanned_docs'};
+    my $r1_struct = read_ocr_html_docs();
     my $today_yyyy_mm_dd = date_from_unixtime(time());
 
     foreach my $st_gr_id (keys %{$doc_struct->{'by_storage'}}) {
@@ -1146,10 +1174,30 @@ sub tsv_read_and_validate {
 
             $storage_struct->{'scanned_document_directories'} = [];
             $storage_struct->{'scanned_document_directories_h'} = {};
+            $storage_struct->{'ocr_html_document_directories'} = [];
+            $storage_struct->{'ocr_html_document_directories_h'} = {};
 
-            my $push_scanned_doc_dir = sub {
+            # for given storage item checks different combinations
+            # of possible scanned files, ocr documents, etc
+            my $try_external_resource = sub {
                 my ($opts) = @_;
                 $opts = {} unless $opts;
+
+                my $resource_struct;
+                my $resource_tmp_name;
+                my $resource_perm_name;
+
+                if (safe_string($opts->{'resource'}) eq 'scan') {
+                    $resource_struct = $r_struct->{'scanned_docs'};
+                    $resource_tmp_name = 'scanned_document_directories';
+                    $resource_perm_name = 'storage_items_by_scanned_dir';
+                } elsif (safe_string($opts->{'resource'}) eq 'html') {
+                    $resource_struct = $r1_struct->{'ocr_html_files'};
+                    $resource_tmp_name = 'ocr_html_document_directories';
+                    $resource_perm_name = 'storage_items_by_ocr_html';
+                } else {
+                    Carp::confess("Programmer error: resource type must be one of: scan, html");
+                }
 
                 my $dir;
                 if (safe_string($opts->{'prefix'}) eq 'eh') {
@@ -1160,7 +1208,7 @@ sub tsv_read_and_validate {
                 } elsif (safe_string($opts->{'prefix'}) eq 'of' ||
                     safe_string($opts->{'prefix'}) eq 'nvf') {
 
-                    Carp::confess("[n] is the required parameter")
+                    Carp::confess("Programmer error: [n] is mandatory for of/nvf mode")
                         unless defined($opts->{'n'});
 
                     $dir = $opts->{'prefix'} . "-" . $opts->{'n'};
@@ -1175,36 +1223,33 @@ sub tsv_read_and_validate {
                 } elsif ($opts->{'dir'}) {
                     $dir = $opts->{'dir'};
                 } else {
-                    Carp::confess("Need prefix to be one of (eh, of, nvf), got [" .
+                    Carp::confess("Programmer error: prefix must be one of (eh, of, nvf), got [" .
                         safe_string($opts->{'prefix'}) . "]");
                 }
 
                 return unless defined($dir) && $dir ne "";
                 
                 # check that document exists on the disk
-                if (scalar(@{$scanned_docs->{'array'}}) && !$scanned_docs->{'hash'}->{$dir}) {
+                if (scalar(@{$resource_struct->{'array'}}) && !$resource_struct->{'hash'}->{$dir}) {
                     return;
                 }
 
                 # do not add documents more than once
-                if (defined($storage_struct->{'scanned_document_directories_h'}->{$dir})) {
+                if (defined($storage_struct->{$resource_tmp_name . '_h'}->{$dir})) {
                     return;
                 }
 
-                $storage_struct->{'scanned_document_directories_h'}->{$dir} = $scanned_docs->{'hash'}->{$dir};
-                push @{$storage_struct->{'scanned_document_directories'}}, $dir;
+                $storage_struct->{$resource_tmp_name . '_h'}->{$dir} = $resource_struct->{'hash'}->{$dir};
+                push @{$storage_struct->{$resource_tmp_name}}, $dir;
 
-                $doc_struct->{'storage_items_by_scanned_dir'}->{$dir} = []
-                    unless defined($doc_struct->{'storage_items_by_scanned_dir'}->{$dir});
-                push @{$doc_struct->{'storage_items_by_scanned_dir'}->{$dir}}, $storage_struct;
+                $doc_struct->{$resource_perm_name}->{$dir} = []
+                    unless defined($doc_struct->{$resource_perm_name}->{$dir});
+                push @{$doc_struct->{$resource_perm_name}->{$dir}}, $storage_struct;
             };
 
             # always try eh-XXXX
             if ($data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name'} eq 'Novikova') {
-                $push_scanned_doc_dir->({
-                    'prefix' => 'eh',
-                    'n' => $storage_number,
-                    });
+                $try_external_resource->({ 'resource' => 'scan', 'prefix' => 'eh', 'n' => $storage_number, });
             }
 
             my $predefined_storage_struct;
@@ -1393,7 +1438,14 @@ sub tsv_read_and_validate {
                             "/" . $item->{'by_field_name'}->{'number_suffix'}
                             : "");
 
-                    $push_scanned_doc_dir->({
+                    $try_external_resource->({
+                        'resource' => 'scan',
+                        'prefix' => 'of',
+                        'n' => $item->{'by_field_name'}->{'of_number'},
+                        'n2' => $item->{'by_field_name'}->{'number_suffix'}
+                        });
+                    $try_external_resource->({
+                        'resource' => 'html',
                         'prefix' => 'of',
                         'n' => $item->{'by_field_name'}->{'of_number'},
                         'n2' => $item->{'by_field_name'}->{'number_suffix'}
@@ -1403,7 +1455,14 @@ sub tsv_read_and_validate {
                         ($item->{'by_field_name'}->{'number_suffix'} ?
                             "/" . $item->{'by_field_name'}->{'number_suffix'}
                             : "");
-                    $push_scanned_doc_dir->({
+                    $try_external_resource->({
+                        'resource' => 'scan',
+                        'prefix' => 'nvf',
+                        'n' => $item->{'by_field_name'}->{'nvf_number'},
+                        'n2' => $item->{'by_field_name'}->{'number_suffix'}
+                        });
+                    $try_external_resource->({
+                        'resource' => 'html',
                         'prefix' => 'nvf',
                         'n' => $item->{'by_field_name'}->{'nvf_number'},
                         'n2' => $item->{'by_field_name'}->{'number_suffix'}
@@ -1435,7 +1494,10 @@ sub tsv_read_and_validate {
                 $item_desc .= " " . join (" ", @{$desc_elements});
                 $push_metadata_value->('dc.description[ru]', $item_desc);
 
-                $push_scanned_doc_dir->({'dir' => $item->{'by_field_name'}->{'scanned_doc_id'}});
+                $try_external_resource->({
+                    'resource' => 'scan',
+                    'dir' => $item->{'by_field_name'}->{'scanned_doc_id'},
+                    });
             }
 
             foreach my $d (keys %{$storage_struct->{'scanned_document_directories_h'}}) {
@@ -1444,12 +1506,14 @@ sub tsv_read_and_validate {
                 }
             }
 
-             $storage_struct->{'tsv_struct'} = $tsv_struct;
-             $storage_struct->{'storage-group-id'} = $st_gr_id;
-             $storage_struct->{'storage-number'} = $storage_number;
+            $storage_struct->{'tsv_struct'} = $tsv_struct;
+            $storage_struct->{'storage-group-id'} = $st_gr_id;
+            $storage_struct->{'storage-number'} = $storage_number;
         }
     }
 
+    # check that one scanned directory is associated
+    # with severak DSpace items
     foreach my $dir (keys %{$doc_struct->{'storage_items_by_scanned_dir'}}) {
         if (scalar(@{$doc_struct->{'storage_items_by_scanned_dir'}->{$dir}}) > 1) {
 
@@ -1463,6 +1527,10 @@ sub tsv_read_and_validate {
                 "]");
         }
     }
+
+    # TODO:
+    # - check that one html file mathches one item
+    # - check that there are no unmatched scanned directories and html files (!!!)
 
     $runtime->{'csv_struct'} = $doc_struct;
     return $runtime->{'csv_struct'};
@@ -1842,8 +1910,11 @@ if ($o->{'bash-completion'}) {
     tsv_output_record($tsv_record, {'mode' => 'labels'});
     tsv_output_record($tsv_record, {'mode' => 'values'});
 } elsif ($o->{'dump-scanned-docs'}) {
-    my $scanned_docs = read_scanned_docs();
-    print Data::Dumper::Dumper($scanned_docs);
+    my $resources = read_scanned_docs();
+    print Data::Dumper::Dumper($resources);
+} elsif ($o->{'dump-ocr-html-docs'}) {
+    my $resources = read_ocr_html_docs();
+    print Data::Dumper::Dumper($resources);
 } elsif ($o->{'dump-dspace-exported-collection'}) {
     Carp::confess("--dspace-exported-collection should point to the directory, got [" . safe_string($o->{'dspace-exported-collection'}) . "]")
         unless $o->{'dspace-exported-collection'} && -d $o->{'dspace-exported-collection'};
@@ -1894,6 +1965,21 @@ if ($o->{'bash-completion'}) {
 
     my $r_struct = read_scanned_docs();
 
+    foreach my $html_file (@{$st_item->{'ocr_html_document_directories'}}) {
+        my $f = $st_item->{'ocr_html_document_directories_h'}->{$html_file};
+
+        my $fname = $f;
+        $fname =~ s/.+\///g;
+
+        my $r = symlink($f, $dspace_collection_item->{'item-path'} . "/" . $fname);
+        if (!$r) {
+            Carp::confess("Error creating symlink from [$f] to [$dspace_collection_item->{'item-path'}/$fname]:" . $!);
+        }
+        
+        $dspace_collection_item->{'contents'} .= $fname . "\n";
+        write_file_scalar($dspace_collection_item->{'item-path'} . "/contents", $dspace_collection_item->{'contents'});
+    }
+    
     foreach my $scan_dir (@{$st_item->{'scanned_document_directories'}}) {
         next unless defined($r_struct->{'files'}->{$scan_dir});
 
@@ -2083,3 +2169,4 @@ if ($o->{'bash-completion'}) {
 } else {
     Carp::confess("Need command line parameter, one of: " . join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n");
 }
+
