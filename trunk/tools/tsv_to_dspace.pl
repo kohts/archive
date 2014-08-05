@@ -2107,6 +2107,24 @@ if ($o->{'bash-completion'}) {
             }
         
             my $updated_item = 0;
+
+            foreach my $html_file (@{$st_item->{'ocr_html_document_directories'}}) {
+                my $f = $st_item->{'ocr_html_document_directories_h'}->{$html_file};
+
+                my $fname = $f;
+                $fname =~ s/.+\///g;
+
+                my $r = symlink($f, $dspace_collection_item->{'item-path'} . "/" . $fname);
+                if (!$r) {
+                    Carp::confess("Error creating symlink from [$f] to [$dspace_collection_item->{'item-path'}/$fname]:" . $!);
+                }
+                
+                $dspace_collection_item->{'contents'} .= $fname . "\n";
+                write_file_scalar($dspace_collection_item->{'item-path'} . "/contents", $dspace_collection_item->{'contents'});
+
+                $updated_item++;
+            }
+            
             foreach my $scan_dir (@{$st_item->{'scanned_document_directories'}}) {
                 
                 # this shouldn't happen in production as external_archive_storage_base
@@ -2124,7 +2142,7 @@ if ($o->{'bash-completion'}) {
                     my $fname = $f;
                     
                     $fname =~ s/^.+\///;
-                    if ($f =~ m%/(copy[^/]*)/[^/]+$%) {
+                    if ($f =~ m%/$scan_dir/([^/]+)/[^/]+$%) {
                         $fname = $1 . "-" . $fname;
                     }
 
@@ -2138,6 +2156,7 @@ if ($o->{'bash-completion'}) {
                 }
                 write_file_scalar($dspace_collection_item->{'item-path'} . "/contents", $dspace_collection_item->{'contents'});
             }
+
             if ($updated_item) {
                 $updated_items = $updated_items + 1;
                 do_log("added [" . $updated_item . "] bitstreams to the item [$st_gr_id/$st_it_id], DSpace Archive [$dspace_collection_item->{'item-path'} $dspace_collection_item->{'handle'}]");
