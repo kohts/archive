@@ -157,6 +157,7 @@ my $o_names = [
     'input-line=s',
     'limit=s',
     'list-storage-items',
+    'no-xsltproc',
     'output-tsv',
     'target-collection-handle=s',
     'tsv-output',
@@ -1737,6 +1738,65 @@ sub do_log {
     $logger->debug($msg);
 }
 
+sub prepare_docbook_makefile {
+    my ($full_docbook_path) = @_;
+
+    my ($filename, $dirs) = File::Basename::fileparse($full_docbook_path);
+    
+    my $entity_name = $filename;
+    $entity_name =~ s/\..+$//g;
+    
+    my $entities = {
+        $entity_name => {'SYSTEM' => $full_docbook_path},
+        
+        # needed only for of-10141-0112.docbook
+        'of-12497-0541' => "",
+        };
+
+    my $dspace_html_docbook_template = qq{<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
+  <!ENTITY liniya "
+<informaltable frame='none' pgwide='1'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
+<colspec colname='c1'/><tbody><row><entry><para>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
+</tgroup></informaltable>
+ ">
+
+  };
+  
+   foreach my $e_name (sort keys %{$entities}) {
+      if (ref($entities->{$e_name})) {
+          $dspace_html_docbook_template .= '<!ENTITY ' . $e_name . ' SYSTEM "' . $entities->{$e_name}->{'SYSTEM'} . '">' . "\n";
+      } else {
+          $dspace_html_docbook_template .= '<!ENTITY ' . $e_name . ' "' . $entities->{$e_name} . '">' . "\n";
+      }
+   }
+   
+   $dspace_html_docbook_template .= qq{
+]>
+
+<article id="} . $entity_name . qq{" lang="ru">
+<articleinfo>
+<author>
+<firstname>Александр</firstname>
+<othername>Федорович</othername>
+<surname>Котс</surname>
+</author>
+</articleinfo>
+
+&} . $entity_name . qq{;
+</article>
+    };
+
+#    print $dspace_html_docbook_template . "\n";
+
+    my $tmp_docbook_name = "/tmp/$entity_name.docbook";
+    write_file_scalar($tmp_docbook_name, $dspace_html_docbook_template);
+
+    return $tmp_docbook_name;
+}
+
 if ($o->{'bash-completion'}) {
     print join(" ", map {$_ =~ s/=.+$//; "--" . $_} grep {$_ ne 'bash-completion'} @{$o_names}) . "\n";
 } elsif ($o->{'dump-data-desc'}) {
@@ -2096,58 +2156,12 @@ if ($o->{'bash-completion'}) {
     Carp::confess("--docbook-filename point to nonexistent file (resolved to $full_docbook_path)")
         unless -e $full_docbook_path;
 
-    my ($filename, $dirs) = File::Basename::fileparse($full_docbook_path);
-    
-    my $entity_name = $filename;
-    $entity_name =~ s/\..+$//g;
-    
-    my $entities = {
-        $entity_name => {'SYSTEM' => $full_docbook_path},
-        
-        # needed only for of-10141-0112.docbook
-        'of-12497-0541' => "",
-        };
+    my $tmp_docbook_name = prepare_docbook_makefile($full_docbook_path);
 
-    my $dspace_html_docbook_template = qq{<?xml version="1.0" encoding="UTF-8"?>
-
-<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
-  "/usr/share/xml/docbook/schema/dtd/4.4/docbookx.dtd" [
-  <!ENTITY liniya "
-<informaltable frame='none' pgwide='1'><tgroup cols='1' align='center' valign='top' colsep='0' rowsep='0'>
-<colspec colname='c1'/><tbody><row><entry><para>&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</para></entry></row></tbody>
-</tgroup></informaltable>
- ">
-
-  };
-  
-   foreach my $e_name (sort keys %{$entities}) {
-      if (ref($entities->{$e_name})) {
-          $dspace_html_docbook_template .= '<!ENTITY ' . $e_name . ' SYSTEM "' . $entities->{$e_name}->{'SYSTEM'} . '">' . "\n";
-      } else {
-          $dspace_html_docbook_template .= '<!ENTITY ' . $e_name . ' "' . $entities->{$e_name} . '">' . "\n";
-      }
-   }
-   
-   $dspace_html_docbook_template .= qq{
-]>
-
-<article id="} . $entity_name . qq{" lang="ru">
-<articleinfo>
-<author>
-<firstname>Александр</firstname>
-<othername>Федорович</othername>
-<surname>Котс</surname>
-</author>
-</articleinfo>
-
-&} . $entity_name . qq{;
-</article>
-    };
-
-#    print $dspace_html_docbook_template . "\n";
-
-    my $tmp_docbook_name = "/tmp/$entity_name.docbook";
-    write_file_scalar($tmp_docbook_name, $dspace_html_docbook_template);
+    if ($o->{'no-xsltproc'}) {
+        print "prepared docbook file [$tmp_docbook_name]\n";
+        exit 0;
+    }
 
     my $cmd = 'xsltproc --xinclude ' .
         '--stringparam base.dir ' . $data_desc_struct->{'docbook_dspace_out_base'} . "/ " .

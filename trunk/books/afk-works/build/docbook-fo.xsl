@@ -67,6 +67,12 @@ book      toc,title,figure,table,example,equation
   </fo:block>
 </xsl:template>
 
+<!-- afk-works: do not output links to original pages yet;
+this will be replaced with <a name="" /> and <a href="" /> to corresponding
+dzi url -->
+<xsl:template match="ulink[@type='original_page']">
+</xsl:template>
+
 
 <xsl:template match="cihc_age">
 <xsl:if test="(@y) and (@y != '0')">

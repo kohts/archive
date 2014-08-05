@@ -6,19 +6,19 @@
 <!-- effectively defines the output produced by this xsl;
 this one is for chunked XML, which seems to be
 most suitable format for online reading -->
-<xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/html/docbook.xsl"/>
+<xsl:import href="/usr/share/xml/docbook/stylesheet/nwalsh/html/onechunk.xsl"/>
 
 <!-- http://www.sagehill.net/docbookxsl/OutputEncoding.html -->
 <xsl:output method="html" encoding="UTF-8" indent="no"/>
 
 <!-- general documented customization -->
 <!--<xsl:param name="use.id.as.filename" select="1"></xsl:param>-->
-<!--<xsl:param name="chunker.output.encoding" select="'utf-8'"/>-->
-<!--<xsl:param name="toc.section.depth">1</xsl:param>-->
+<xsl:param name="chunker.output.encoding" select="'utf-8'"/>
+<xsl:param name="toc.section.depth">3</xsl:param>
 <xsl:param name="generate.toc">
 appendix  title
 article/appendix  nop
-article   nop
+article   toc,title
 book      toc,title,figure,table,example
 chapter   title
 part      toc,title
