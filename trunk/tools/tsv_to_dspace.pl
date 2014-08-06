@@ -125,13 +125,12 @@ use Log::Log4perl;
 use Text::CSV;
 use XML::Simple;
 
-init_logging();
-
 # unbuffered output
 $| = 1;
 
 binmode(STDOUT, ':encoding(UTF-8)');
 
+my $runtime = {};
 my $o_names = [
     'bash-completion',
     'build-docbook-for-dspace',
@@ -142,7 +141,8 @@ my $o_names = [
     'docbook-filename=s',
     'dry-run',
     'dspace-exported-collection=s',
-    'dump-data-desc',
+    'dump-config',
+    'dump-docbook-sources',
     'dump-dspace-exported-collection',
     'dump-dspace-exported-item=s',
     'dump-csv-item=s',
@@ -158,6 +158,7 @@ my $o_names = [
     'limit=s',
     'list-storage-items',
     'no-xsltproc',
+    'only-by-storage',
     'output-tsv',
     'target-collection-handle=s',
     'tsv-output',
@@ -178,7 +179,7 @@ my $data_desc_struct = {
     'external_archive_storage_base' => '/gone/root/raw-afk',
     'external_archive_storage_timezone' => 'Europe/Moscow',
 
-    'archive_source_base' => '/var/www/SOURCE/afk-works',
+    'docbook_source_base' => '/home/petya/github/kohts/archive/trunk/books/afk-works',
     'docbook_dspace_out_base' => '/var/www/OUT/afk-works/html-dspace',
 
     'dspace.identifier.other[en]-prefix' => 'Storage item',
@@ -569,27 +570,37 @@ my $data_desc_struct = {
         },
     };
 
-$data_desc_struct->{'storage_groups_by_fund_number'} = {};
-$data_desc_struct->{'storage_groups_by_name'} = {};
+sub check_config {
+    $data_desc_struct->{'storage_groups_by_fund_number'} = {};
+    $data_desc_struct->{'storage_groups_by_name'} = {};
 
-foreach my $st_gr_id (keys %{$data_desc_struct->{'storage_groups'}}) {
-    Carp::confess("storage group name must be unique")
-        if $data_desc_struct->{'storage_groups_by_name'}->{$data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name'}};
-    
-    $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'id'} = $st_gr_id;
-    $data_desc_struct->{'storage_groups_by_name'}->{$data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name'}} =
-        $data_desc_struct->{'storage_groups'}->{$st_gr_id};
-    
-    foreach my $fund_id (@{$data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'funds'}}) {
-        if ($data_desc_struct->{'storage_groups_by_fund_number'}->{$fund_id}) {
-            Carp::confess("Fund [$fund_id] used more than once, please fix");
+    foreach my $st_gr_id (keys %{$data_desc_struct->{'storage_groups'}}) {
+        Carp::confess("storage group name must be unique")
+            if $data_desc_struct->{'storage_groups_by_name'}->{$data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name'}};
+        
+        $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'id'} = $st_gr_id;
+        $data_desc_struct->{'storage_groups_by_name'}->{$data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name'}} =
+            $data_desc_struct->{'storage_groups'}->{$st_gr_id};
+        
+        foreach my $fund_id (@{$data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'funds'}}) {
+            if ($data_desc_struct->{'storage_groups_by_fund_number'}->{$fund_id}) {
+                Carp::confess("Configuration error: fond [$fund_id] used more than once, please fix");
+            }
+
+            $data_desc_struct->{'storage_groups_by_fund_number'}->{$fund_id} = $st_gr_id;
         }
-
-        $data_desc_struct->{'storage_groups_by_fund_number'}->{$fund_id} = $st_gr_id;
     }
-}
 
-my $runtime = {};
+    my $r = IPC::Cmd::run_forked("cd " . $data_desc_struct->{'docbook_source_base'} . " && git rev-parse --git-dir");
+    Carp::confess("Configuration error: docbook_source_base must point to valid git repo, but: " . $r->{'merged'})
+        unless $r->{'exit_code'} == 0;
+
+    $r = IPC::Cmd::run_forked("cd " . trim($r->{'stdout'}, " \n") . " && cd .. && pwd");
+    Carp::confess("Configuration error: something went wrong while determinig git top level directory: " . $r->{'merged'})
+        unless $r->{'exit_code'} == 0;
+
+    $runtime->{'docbook_source_git_dir'} = trim($r->{'stdout'}, " \n");
+}
 
 sub separated_list_to_struct {
     my ($in_string, $opts) = @_;
@@ -1002,9 +1013,81 @@ sub read_ocr_html_docs {
     return $runtime->{'read_ocr_html_docs'};
 }
 
+# This subroutine tries to determine the date when docbook file
+# was created in the repository for every file. Which is
+# a rather tricky thing because probably svn2hg worked
+# not very cleanly on renames, consider the excerpt
+# from the git log --follow:
+#
+#   commit 0070e51fa497eb7fc6f33f06ddb459b595d848e4
+#   Author: Petya Kohts <petya@kohts.com>
+#   Date:   Sun Dec 11 18:08:08 2011 +0000
+# 
+#       stubs for articles
+# 
+#   diff --git a/books/ipss/docbook/curves_eng_print.docbook b/books/afk-works/docbook/of-10141-0042.docbook
+#   similarity index 100%
+#   copy from books/ipss/docbook/curves_eng_print.docbook
+#   copy to books/afk-works/docbook/of-10141-0042.docbook
+#
+#
+# For the time I'm determining file creation date as the date
+# when the majority of its content was created; which is fine
+# as of August 2014, but might change in the future (if there is
+# some massive editing of files). Hopefully this code
+# is not used by that time.
+#
+sub read_docbook_sources {
+    # cache
+    return $runtime->{'read_docbook_sources'} if defined($runtime->{'read_docbook_sources'});
+
+    $runtime->{'read_docbook_sources'} = {
+        'docbook_files' => {
+            'array' => [],
+            'hash' => {},
+            },
+        };
+
+    return $runtime->{'read_ocr_html_docs'}
+        unless $data_desc_struct->{'docbook_source_base'};
+
+    $runtime->{'read_docbook_sources'}->{'docbook_files'}->{'array'} = read_dir($data_desc_struct->{'docbook_source_base'} . "/docbook");
+
+    foreach my $el (@{$runtime->{'read_docbook_sources'}->{'docbook_files'}->{'array'}}) {
+        my $item = $data_desc_struct->{'docbook_source_base'} . "/docbook/" . $el;
+
+        next unless -f $item;
+        next unless $el =~ /^of/ || $el =~ /^nvf/;
+        next unless $el =~ /^(.+)\.docbook$/;
+
+        my $docbook_short_name = $1;
+
+#        my $cmd = "cd " . $data_desc_struct->{'docbook_source_base'} . " && git log --date=short --follow $item | grep ^Date | tail -n 1";
+        my $cmd = "cd " . $data_desc_struct->{'docbook_source_base'} .
+            " && " .
+            'git blame --show-name --date=short ' . $item .
+            ' | awk \'{print $5}\' | sort | uniq -c | sort -nr | head -n 1 | awk \'{print $2}\'';
+        my $r = IPC::Cmd::run_forked($cmd);
+        Carp::confess("Error getting item [$item] creation time: " . $r->{'merged'})
+            if $r->{'exit_code'} != 0;
+        
+        my $docbook_creation_date;
+        if ($r->{'stdout'} =~ /(\d\d\d\d-\d\d-\d\d)/s) {
+            $docbook_creation_date = $1;
+        } else {
+            Carp::confess("Unexpected output from [$cmd]: " . $r->{'merged'});
+        }
+
+        $runtime->{'read_docbook_sources'}->{'docbook_files'}->{'hash'}->{$docbook_short_name} = $docbook_creation_date;
+    }
+
+    return $runtime->{'read_docbook_sources'};
+}
+
 sub tsv_read_and_validate {
     my ($input_file, $o) = @_;
 
+    # cache
     if (defined($runtime->{'csv_struct'})) {
         return $runtime->{'csv_struct'};
     }
@@ -1167,6 +1250,8 @@ sub tsv_read_and_validate {
 
     my $r_struct = read_scanned_docs();
     my $r1_struct = read_ocr_html_docs();
+    my $r2_struct = read_docbook_sources();
+
     my $today_yyyy_mm_dd = date_from_unixtime(time());
 
     foreach my $st_gr_id (keys %{$doc_struct->{'by_storage'}}) {
@@ -1177,6 +1262,8 @@ sub tsv_read_and_validate {
             $storage_struct->{'scanned_document_directories_h'} = {};
             $storage_struct->{'ocr_html_document_directories'} = [];
             $storage_struct->{'ocr_html_document_directories_h'} = {};
+            $storage_struct->{'docbook_files_dates'} = [];
+            $storage_struct->{'docbook_files_dates_h'} = {};
 
             # for given storage item checks different combinations
             # of possible scanned files, ocr documents, etc
@@ -1196,6 +1283,10 @@ sub tsv_read_and_validate {
                     $resource_struct = $r1_struct->{'ocr_html_files'};
                     $resource_tmp_name = 'ocr_html_document_directories';
                     $resource_perm_name = 'storage_items_by_ocr_html';
+                } elsif (safe_string($opts->{'resource'}) eq 'docbook') {
+                    $resource_struct = $r2_struct->{'docbook_files'};
+                    $resource_tmp_name = 'docbook_files_dates';
+                    $resource_perm_name = 'storage_items_by_docbook';
                 } else {
                     Carp::confess("Programmer error: resource type must be one of: scan, html");
                 }
@@ -1291,6 +1382,7 @@ sub tsv_read_and_validate {
                 'dc.type[en]' => 'Text',
                 'sdm-archive-workflow.date.digitized' => '',
                 'sdm-archive-workflow.date.cataloged' => $today_yyyy_mm_dd,
+                'sdm-archive-workflow.date.textExtracted' => '',
             };
 
             # appends unique value for metadata field (all the metadata fields
@@ -1443,13 +1535,19 @@ sub tsv_read_and_validate {
                         'resource' => 'scan',
                         'prefix' => 'of',
                         'n' => $item->{'by_field_name'}->{'of_number'},
-                        'n2' => $item->{'by_field_name'}->{'number_suffix'}
+                        'n2' => $item->{'by_field_name'}->{'number_suffix'},
                         });
                     $try_external_resource->({
                         'resource' => 'html',
                         'prefix' => 'of',
                         'n' => $item->{'by_field_name'}->{'of_number'},
-                        'n2' => $item->{'by_field_name'}->{'number_suffix'}
+                        'n2' => $item->{'by_field_name'}->{'number_suffix'},
+                        });
+                    $try_external_resource->({
+                        'resource' => 'docbook',
+                        'prefix' => 'of',
+                        'n' => $item->{'by_field_name'}->{'of_number'},
+                        'n2' => $item->{'by_field_name'}->{'number_suffix'},
                         });
                 } else {
                     $item_desc .= "НВФ-" . $item->{'by_field_name'}->{'nvf_number'} .
@@ -1460,13 +1558,19 @@ sub tsv_read_and_validate {
                         'resource' => 'scan',
                         'prefix' => 'nvf',
                         'n' => $item->{'by_field_name'}->{'nvf_number'},
-                        'n2' => $item->{'by_field_name'}->{'number_suffix'}
+                        'n2' => $item->{'by_field_name'}->{'number_suffix'},
                         });
                     $try_external_resource->({
                         'resource' => 'html',
                         'prefix' => 'nvf',
                         'n' => $item->{'by_field_name'}->{'nvf_number'},
-                        'n2' => $item->{'by_field_name'}->{'number_suffix'}
+                        'n2' => $item->{'by_field_name'}->{'number_suffix'},
+                        });
+                    $try_external_resource->({
+                        'resource' => 'docbook',
+                        'prefix' => 'nvf',
+                        'n' => $item->{'by_field_name'}->{'nvf_number'},
+                        'n2' => $item->{'by_field_name'}->{'number_suffix'},
                         });
                 }
 
@@ -1505,6 +1609,9 @@ sub tsv_read_and_validate {
                 foreach my $d_day (@{$storage_struct->{'scanned_document_directories_h'}->{$d}}) {
                     $push_metadata_value->('sdm-archive-workflow.date.digitized', $d_day);
                 }
+            }
+            foreach my $d (keys %{$storage_struct->{'docbook_files_dates_h'}}) {
+                $push_metadata_value->('sdm-archive-workflow.date.textExtracted', $storage_struct->{'docbook_files_dates_h'}->{$d});
             }
 
             $storage_struct->{'tsv_struct'} = $tsv_struct;
@@ -1797,11 +1904,15 @@ sub prepare_docbook_makefile {
     return $tmp_docbook_name;
 }
 
+
+init_logging();
+check_config();
+
 if ($o->{'bash-completion'}) {
     print join(" ", map {$_ =~ s/=.+$//; "--" . $_} grep {$_ ne 'bash-completion'} @{$o_names}) . "\n";
-} elsif ($o->{'dump-data-desc'}) {
+} elsif ($o->{'dump-config'}) {
     print Data::Dumper::Dumper($data_desc_struct);
-    exit 0;
+    print Data::Dumper::Dumper($runtime);
 } elsif ($o->{'data-split-by-tab'}) {
     my $line_number = 0;
     while (my $l = <STDIN>) {
@@ -1897,7 +2008,11 @@ if ($o->{'bash-completion'}) {
     my $in_doc_struct = tsv_read_and_validate($o->{'external-csv'}, $o);
 
     if ($o->{'debug'}) {
-        print Data::Dumper::Dumper($in_doc_struct);
+        if ($o->{'only-by-storage'}) {
+            print Data::Dumper::Dumper($in_doc_struct->{'by_storage'});
+        } else {
+            print Data::Dumper::Dumper($in_doc_struct);
+        }
     }
 
     print "total input lines: " . $in_doc_struct->{'total_input_lines'} . "\n";
@@ -1974,6 +2089,9 @@ if ($o->{'bash-completion'}) {
     print Data::Dumper::Dumper($resources);
 } elsif ($o->{'dump-ocr-html-docs'}) {
     my $resources = read_ocr_html_docs();
+    print Data::Dumper::Dumper($resources);
+} elsif ($o->{'dump-docbook-sources'}) {
+    my $resources = read_docbook_sources();
     print Data::Dumper::Dumper($resources);
 } elsif ($o->{'dump-dspace-exported-collection'}) {
     Carp::confess("--dspace-exported-collection should point to the directory, got [" . safe_string($o->{'dspace-exported-collection'}) . "]")
@@ -2171,7 +2289,7 @@ if ($o->{'bash-completion'}) {
     Carp::confess("Need --docbook-filename")
         unless $o->{'docbook-filename'};
     
-    my $full_docbook_path = $data_desc_struct->{'archive_source_base'} . "/docbook/" . $o->{'docbook-filename'};
+    my $full_docbook_path = $data_desc_struct->{'docbook_source_base'} . "/docbook/" . $o->{'docbook-filename'};
     Carp::confess("--docbook-filename point to nonexistent file (resolved to $full_docbook_path)")
         unless -e $full_docbook_path;
 
@@ -2186,7 +2304,7 @@ if ($o->{'bash-completion'}) {
         '--stringparam base.dir ' . $data_desc_struct->{'docbook_dspace_out_base'} . "/ " .
         '--stringparam use.id.as.filename 1 ' .
         '--stringparam root.filename "" ' .
-        $data_desc_struct->{'archive_source_base'} . '/build/docbook-html-dspace.xsl ' .
+        $data_desc_struct->{'docbook_source_base'} . '/build/docbook-html-dspace.xsl ' .
         $tmp_docbook_name;
     my $r = IPC::Cmd::run_forked($cmd);
     Carp::confess("Error generating DSpace html file, cmd [$cmd]: " . Data::Dumper::Dumper($r))
@@ -2202,4 +2320,3 @@ if ($o->{'bash-completion'}) {
 } else {
     Carp::confess("Need command line parameter, one of: " . join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n");
 }
-
