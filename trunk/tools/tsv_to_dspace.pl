@@ -1881,10 +1881,11 @@ sub prepare_docbook_makefile {
     
     my $entities = {
         $entity_name => {'SYSTEM' => $full_docbook_path},
-        
-        # needed only for of-10141-0112.docbook
-        'of-12497-0541' => "",
         };
+
+    if ($entity_name eq 'of-10141-0112') {
+        $entities->{'of-12497-0541'} = "";
+    }
 
     my $dspace_html_docbook_template = qq{<?xml version="1.0" encoding="UTF-8"?>
 
