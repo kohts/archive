@@ -380,29 +380,18 @@ my $data_desc_struct = {
                            /],
             'classification_codes' => {
                 '1' => 'Научные работы, исследовательские и научно-популярные труды и рабочие материалы к ним',
-                '1.1' =>  'Исследовательские и научно-популярные работы (статьи, очерки, речи, доклады, лекции)',
-                '1.1A' => 'Исследовательские и научно-популярные работы (статьи, очерки, речи, доклады, лекции)',
-                '1.1B' => 'Исследовательские и научно-популярные работы (статьи, очерки, речи, доклады, лекции)',
-                '1.1C' => 'Исследовательские и научно-популярные работы (статьи, очерки, речи, доклады, лекции)',
-                '1.2' =>  'Рабочие материалы по ГДМ (история музея, сотрудники, тексты экскурсий, материалы по экспозиции)',
-                '1.2A' => 'Рабочие материалы по ГДМ (история музея, сотрудники, тексты экскурсий, материалы по экспозиции)',
-                '1.2B' => 'Рабочие материалы по ГДМ (история музея, сотрудники, тексты экскурсий, материалы по экспозиции)',
+                '1.1' => 'Исследовательские и научно-популярные работы (статьи, очерки, речи, доклады, лекции)',
+                '1.2' => 'Рабочие материалы по ГДМ (история музея, сотрудники, тексты экскурсий, материалы по экспозиции)',
                 '1.3' => 'Материалы по новому зданию ГДМ (на Фрунзенской набережной). Описание залов и схемы распланировки экспонатов в проектируемом здании',
-                '1.4' =>  'Работы по музееведению',
-                '1.4A' => 'Работы по музееведению',
-                '1.4B' => 'Работы по музееведению',
-                '1.5' =>  'Рецензии и отзывы о работе других лиц, некрологи',
-                '1.5A' => 'Рецензии и отзывы о работе других лиц, некрологи',
-                '1.5B' => 'Рецензии и отзывы о работе других лиц, некрологи',
+                '1.4' => 'Работы по музееведению',
+                '1.5' => 'Рецензии и отзывы о работе других лиц, некрологи',
                 '2' => 'Материалы служебной и общественной деятельности',
                 '2.1' => 'Материалы, связанные с руководством и работой в ГДМ',
                 '2.1A' => 'Документы по формированию коллекций музея (счета, договоры, уведомления, накладные и т.п.)',
                 '2.2' => 'Материалы о работе в Зоосаде (21.03.1919-20.09.1923)',
                 '2.3' => 'Материалы о работе в московских госпиталях (1941-1943)',
                 '3' => 'Биографические материалы',
-                '3.1' =>  'Автобиографические и личные документы',
-                '3.1A' => 'Автобиографические и личные документы',
-                '3.1B' => 'Автобиографические и личные документы',
+                '3.1' => 'Автобиографические и личные документы',
                 '3.2' => 'Юбилейная и поздравительная корреспонденция',
                 '3.3' => 'Материалы об А. Ф. Котс (отзывы, воспоминания, характеристики)',
                 '4' => 'Переписка',
@@ -1560,16 +1549,12 @@ sub tsv_read_and_validate {
                     $push_metadata_value->('sdm-archive-workflow.misc.completeness', $item->{'by_field_name'}->{'doc_property_full'});
                 $item->{'by_field_name'}->{'doc_property_genuine'} = 
                     $push_metadata_value->('sdm-archive-workflow.misc.authenticity', $item->{'by_field_name'}->{'doc_property_genuine'});
-                $item->{'by_field_name'}->{'classification_code'} = 
-                    $push_metadata_value->('sdm-archive-workflow.misc.classification-code', $item->{'by_field_name'}->{'classification_code'});
                 $item->{'by_field_name'}->{'archive_date'} =
                     $push_metadata_value->('sdm-archive-workflow.misc.archive-date', $item->{'by_field_name'}->{'archive_date'});
 
                 if ($item->{'by_field_name'}->{'classification_code'} &&
                     defined($data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'})
                     ) {
-
-                    my $found_cc_group;
 
                     foreach my $itcc (split("/", $item->{'by_field_name'}->{'classification_code'})) {
                         $itcc =~ s/[\.,\(\)\s\*]//g;
@@ -1579,6 +1564,7 @@ sub tsv_read_and_validate {
                         $itcc =~ s/В/B/g;
                         $itcc =~ s/С/C/g;
 
+                        my $found_cc_group;
                         foreach my $cc (keys %{$data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}}) {
                             my $tmp_cc = $cc;
                             $tmp_cc =~ s/[\.,\(\)]//g;
@@ -1586,14 +1572,33 @@ sub tsv_read_and_validate {
                             if ($tmp_cc eq $itcc) {
                                 $push_metadata_value->('sdm-archive-workflow.misc.classification-group',
                                     $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}->{$cc});
+                                $push_metadata_value->('sdm-archive-workflow.misc.classification-code',
+                                    $cc);
                                 $found_cc_group = 1;
                             }
                         }
-                    }
 
-                    if (!$found_cc_group) {
-                        Carp::confess("Can't find classification code group for [$item->{'by_field_name'}->{'classification_code'}], item: " .
-                            Data::Dumper::Dumper($storage_struct));
+                        if (!$found_cc_group && substr($itcc, length($itcc) - 1) !~ /[0-9]/) {
+                            $itcc = substr($itcc, 0, length($itcc) - 1);
+
+                            foreach my $cc (keys %{$data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}}) {
+                                my $tmp_cc = $cc;
+                                $tmp_cc =~ s/[\.,\(\)]//g;
+                                
+                                if ($tmp_cc eq $itcc) {
+                                    $push_metadata_value->('sdm-archive-workflow.misc.classification-group',
+                                        $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}->{$cc});
+                                    $push_metadata_value->('sdm-archive-workflow.misc.classification-code',
+                                        $cc);
+                                    $found_cc_group = 1;
+                                }
+                            }
+                        }
+
+                        if (!$found_cc_group) {
+                            Carp::confess("Can't find classification code group for [$item->{'by_field_name'}->{'classification_code'}], item: " .
+                                Data::Dumper::Dumper($storage_struct));
+                        }
                     }
                 }
 
