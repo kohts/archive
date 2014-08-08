@@ -77,6 +77,12 @@ rename standard object names
   </l:l10n>
 </l:i18n>
 
+<!-- afk-works: do not output links to original pages yet;
+this will be replaced with <a name="" /> and <a href="" /> to corresponding
+dzi url -->
+<xsl:template match="ulink[@type='original_page']">
+</xsl:template>
+
 <!--
 make para rendered with smaller font
 -->
