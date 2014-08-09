@@ -163,17 +163,44 @@ my $o_names = [
     'target-collection-handle=s',
     'tsv-output',
     'titles',
+    'validate-csv',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
 
 my $data_desc_struct = {
     
-    # todo: these documents are referenced in different storage items,
-    # they should be either regrouped or maybe combined into one dspace item
-    'allowed_grouped_scanned_documents' => [
+    # These document id(s) are used in different storage items
+    # in "Novikova" storage group.
+    # 
+    # There are several cases:
+    #   (1) one logical item occupies several storage items
+    #       which is the case of nvf-6912-14;15;16
+    #
+    #   (2) one item is present in the one storage item and
+    #       (seemingly) is not present in the other;
+    #       case of of-10141-0450
+    #
+    #   (3) there are two different items which are referenced
+    #       with the same id
+    #   
+    # (2) could either be the result of error during exchange
+    # of documents between storage items (for the reason of more
+    # convenient exploration of the archive)
+    #
+    'known_scanned_documents_included_into_several_storage_items' => [
         'nvf-6912-14;15;16',
-        'of-10141-0450',
+        'of-10141-0450', # storage items 726 and 1162
+        'nvf-2116-0416', # storage items 161 and 320 (contents are different)
+        
+        'of-12497-0168', # August 2014: have to be scanned and checked
+
+        ],
+
+    # documents which are associated with the A.E. Kohts archive
+    # but are not part of it
+    'scanned_documents_without_id' => [
+        'dnevnik-mashinistki', # diary of the typist of A.E. Kohts (as presented by I.P. Kalacheva)
         ],
 
     'external_archive_storage_base' => '/gone/root/raw-afk',
@@ -203,6 +230,7 @@ my $data_desc_struct = {
         doc_date
         doc_desc
         archive_date
+        author_is_aekohts
         /],
 
     'authors_canonical' => {
@@ -1025,15 +1053,17 @@ sub read_ocr_html_docs {
     return $runtime->{'read_ocr_html_docs'}
         unless $data_desc_struct->{'docbook_dspace_out_base'};
 
-    $runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'array'} = read_dir($data_desc_struct->{'docbook_dspace_out_base'});
+    $runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'files_array'} = read_dir($data_desc_struct->{'docbook_dspace_out_base'});
+    $runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'array'} = [];
 
-    foreach my $el (@{$runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'array'}}) {
+    foreach my $el (@{$runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'files_array'}}) {
         my $item = $data_desc_struct->{'docbook_dspace_out_base'} . "/" . $el;
 
         next unless -f $item;
         next unless $el =~ /^(.+)\.html$/;
 
         $runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'hash'}->{$1} = $item;
+        push @{$runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'array'}}, $1;
     }
 
     return $runtime->{'read_ocr_html_docs'};
@@ -1128,7 +1158,11 @@ sub tsv_read_and_validate {
         'storage_items_by_fund_number' => {},
         'title_line' => {},
         'total_input_lines' => 0,
+        
+        # scanned dir -> array of storage_struct items
         'storage_items_by_scanned_dir' => {},
+ 
+        # html -> array of storage_struct items
         'storage_items_by_ocr_html' => {},
         };
 
@@ -1155,6 +1189,12 @@ sub tsv_read_and_validate {
             'by_field_name' => {},
             'orig_line_number' => $doc_struct->{'total_input_lines'},
             };
+
+        if (scalar(@{$line_struct->{'orig_field_values_array'}}) != scalar(@{$data_desc_struct->{'input_tsv_fields'}}) ) {
+            Carp::confess("Invalid file format: expected [" . scalar(@{$data_desc_struct->{'input_tsv_fields'}}) .
+                "] fields, got [" . scalar(@{$line_struct->{'orig_field_values_array'}}) . "] fields at the line " .
+                $doc_struct->{'total_input_lines'});
+        }
 
         my $i = 0;
         foreach my $fvalue (@{$line_struct->{'orig_field_values_array'}}) {
@@ -1274,8 +1314,8 @@ sub tsv_read_and_validate {
         }
     }
 
-    my $r_struct = read_scanned_docs();
-    my $r1_struct = read_ocr_html_docs();
+    my $scanned_dirs = read_scanned_docs();
+    my $html_files = read_ocr_html_docs();
     my $r2_struct = read_docbook_sources();
 
     my $today_yyyy_mm_dd = date_from_unixtime(time());
@@ -1302,11 +1342,11 @@ sub tsv_read_and_validate {
                 my $resource_perm_name;
 
                 if (safe_string($opts->{'resource'}) eq 'scan') {
-                    $resource_struct = $r_struct->{'scanned_docs'};
+                    $resource_struct = $scanned_dirs->{'scanned_docs'};
                     $resource_tmp_name = 'scanned_document_directories';
                     $resource_perm_name = 'storage_items_by_scanned_dir';
                 } elsif (safe_string($opts->{'resource'}) eq 'html') {
-                    $resource_struct = $r1_struct->{'ocr_html_files'};
+                    $resource_struct = $html_files->{'ocr_html_files'};
                     $resource_tmp_name = 'ocr_html_document_directories';
                     $resource_perm_name = 'storage_items_by_ocr_html';
                 } elsif (safe_string($opts->{'resource'}) eq 'docbook') {
@@ -1317,52 +1357,77 @@ sub tsv_read_and_validate {
                     Carp::confess("Programmer error: resource type must be one of: scan, html");
                 }
 
-                my $dir;
+                my $possible_resource_names = [];
                 if (safe_string($opts->{'prefix'}) eq 'eh') {
                     Carp::confess("[n] is the required parameter")
                         unless defined($opts->{'n'});
 
-                    $dir = "eh-" . sprintf("%04d", $opts->{'n'});
+                    push (@{$possible_resource_names}, "eh-" . sprintf("%04d", $opts->{'n'}));
                 } elsif (safe_string($opts->{'prefix'}) eq 'of' ||
                     safe_string($opts->{'prefix'}) eq 'nvf') {
 
                     Carp::confess("Programmer error: [n] is mandatory for of/nvf mode")
                         unless defined($opts->{'n'});
 
-                    $dir = $opts->{'prefix'} . "-" . $opts->{'n'};
-                    
-                    if ($opts->{'n2'}) {
-                        if ($opts->{'n2'} =~ /^\d+$/) {
-                            $dir .= "-" . sprintf("%04d", $opts->{'n2'});
-                        } else {
-                            $dir .= "-" . $opts->{'n2'};
-                        }
+                    if ($opts->{'n'} =~ /^\d+$/) {
+                        push (@{$possible_resource_names}, $opts->{'prefix'} . "-" . $opts->{'n'});
+                        push (@{$possible_resource_names}, $opts->{'prefix'} . "-" . sprintf("%04d", $opts->{'n'}));
+                    } else {
+                        push (@{$possible_resource_names}, $opts->{'prefix'} . "-" . $opts->{'n'});
                     }
-                } elsif ($opts->{'dir'}) {
-                    $dir = $opts->{'dir'};
+
+                    if ($opts->{'n2'}) {
+                        my $new_resources = [];
+                        foreach my $r (@{$possible_resource_names}) {
+                            if ($opts->{'n2'} =~ /^\d+$/) {
+                                push @{$new_resources}, $r . "-" . sprintf("%04d", $opts->{'n2'});
+                                push @{$new_resources}, $r . "-" . $opts->{'n2'};
+                            } else {
+                                push @{$new_resources}, $r . "-" . $opts->{'n2'};
+                            }
+                        }
+                        $possible_resource_names = $new_resources;
+                    }
+
+                    my $new_resources2 = [];
+                    foreach my $r (@{$possible_resource_names}) {
+                        my $tmp_r = $r;
+                        # of-10141-193;478 is the name of the item in csv
+                        # of-10141-193_478 os the name of the corresponding html file
+                        if ($tmp_r =~ /;/) {
+                            $tmp_r =~ s/;/_/;
+                            push (@{$new_resources2}, $tmp_r);
+                        }
+                        push (@{$new_resources2}, $r);
+                    }
+                    $possible_resource_names = $new_resources2;
+                } elsif ($opts->{'resource_name'}) {
+                    push (@{$possible_resource_names}, $opts->{'resource_name'});
                 } else {
                     Carp::confess("Programmer error: prefix must be one of (eh, of, nvf), got [" .
                         safe_string($opts->{'prefix'}) . "]");
                 }
 
-                return unless defined($dir) && $dir ne "";
+                foreach my $resource_name (@{$possible_resource_names}) {
+                    next unless defined($resource_name) && $resource_name ne "";
                 
-                # check that document exists on the disk
-                if (scalar(@{$resource_struct->{'array'}}) && !$resource_struct->{'hash'}->{$dir}) {
-                    return;
+                    # check that document exists on the disk
+                    if (scalar(@{$resource_struct->{'array'}}) && !$resource_struct->{'hash'}->{$resource_name}) {
+                        next;
+                    }
+
+                    # do not add documents more than once
+                    if (defined($storage_struct->{$resource_tmp_name . '_h'}->{$resource_name})) {
+                        next;
+                    }
+
+                    $storage_struct->{$resource_tmp_name . '_h'}->{$resource_name} = $resource_struct->{'hash'}->{$resource_name};
+                    push @{$storage_struct->{$resource_tmp_name}}, $resource_name;
+
+                    $doc_struct->{$resource_perm_name}->{$resource_name} = []
+                        unless defined($doc_struct->{$resource_perm_name}->{$resource_name});
+                    push @{$doc_struct->{$resource_perm_name}->{$resource_name}}, $storage_struct;
                 }
-
-                # do not add documents more than once
-                if (defined($storage_struct->{$resource_tmp_name . '_h'}->{$dir})) {
-                    return;
-                }
-
-                $storage_struct->{$resource_tmp_name . '_h'}->{$dir} = $resource_struct->{'hash'}->{$dir};
-                push @{$storage_struct->{$resource_tmp_name}}, $dir;
-
-                $doc_struct->{$resource_perm_name}->{$dir} = []
-                    unless defined($doc_struct->{$resource_perm_name}->{$dir});
-                push @{$doc_struct->{$resource_perm_name}->{$dir}}, $storage_struct;
             };
 
             # always try eh-XXXX
@@ -1447,11 +1512,14 @@ sub tsv_read_and_validate {
                             $metadata_value = substr($metadata_value, 0, length($metadata_value) - 1);
                         }
 
-                        if ($metadata_value =~ /^\[(.+)\]$/) {
+                        # only remove opening and closing square brackets
+                        # when there are not square brackets inside of the title, e.g.
+                        # [Codtenschein] . [Документ, имеющий отношение к биографии А.Ф.Котса]
+                        if ($metadata_value =~ /^\[([^\[]+)\]$/) {
                             $metadata_value = $1;
                         }
                     } elsif ($metadata_name eq 'dc.date.created') {
-                        if ($metadata_value =~ /^\[(.+)\]$/) {
+                        if ($metadata_value =~ /^\[([^\[]+)\]$/) {
                             $metadata_value = $1;
                         }
                     }
@@ -1680,7 +1748,7 @@ sub tsv_read_and_validate {
 
                 $try_external_resource->({
                     'resource' => 'scan',
-                    'dir' => $item->{'by_field_name'}->{'scanned_doc_id'},
+                    'resource_name' => $item->{'by_field_name'}->{'scanned_doc_id'},
                     });
             }
 
@@ -1699,12 +1767,11 @@ sub tsv_read_and_validate {
         }
     }
 
-    # check that one scanned directory is associated
-    # with severak DSpace items
+    # check scanned directories which are associated with several DSpace (storage) items
     foreach my $dir (keys %{$doc_struct->{'storage_items_by_scanned_dir'}}) {
         if (scalar(@{$doc_struct->{'storage_items_by_scanned_dir'}->{$dir}}) > 1) {
 
-            if (grep {$_ eq $dir} @{$data_desc_struct->{'allowed_grouped_scanned_documents'}}) {
+            if (grep {$_ eq $dir} @{$data_desc_struct->{'known_scanned_documents_included_into_several_storage_items'}}) {
                 next;
             }
 
@@ -1715,9 +1782,35 @@ sub tsv_read_and_validate {
         }
     }
 
-    # TODO:
-    # - check that one html file mathches one item
-    # - check that there are no unmatched scanned directories and html files (!!!)
+    # check that all the scanned dirs were matched with some storage item,
+    # except for some special documents
+    foreach my $sd (@{$scanned_dirs->{'scanned_docs'}->{'array'}}) {
+
+        if (grep {$_ eq $sd} @{$data_desc_struct->{'scanned_documents_without_id'}}) {
+            next;
+        }
+
+        if (!defined($doc_struct->{'storage_items_by_scanned_dir'}->{$sd})) {
+            Carp:confess("Scanned directory [$sd] didn't match any storage item");
+        }
+    }
+
+    # check that one html file matches not more than 1 storage item
+    foreach my $html (keys %{$doc_struct->{'storage_items_by_ocr_html'}}) {
+        if (scalar(@{$doc_struct->{'storage_items_by_ocr_html'}->{$html}}) > 1) {
+            Carp::confess("HTML file [$html] matches several storage items: [" .
+                join(",", map {$_->{'storage-group-id'} . "/" . $_->{'storage-number'}}
+                    @{$doc_struct->{'storage_items_by_ocr_html'}->{$html}}) .
+                "]");
+        }
+    }
+
+    # - check that there are no unmatched html files
+    foreach my $html (@{$html_files->{'ocr_html_files'}->{'array'}}) {
+        if (!defined($doc_struct->{'storage_items_by_ocr_html'}->{$html})) {
+            Carp:confess("HTML file [$html] didn't match any storage item");
+        }
+    }
 
     $runtime->{'csv_struct'} = $doc_struct;
     return $runtime->{'csv_struct'};
@@ -2397,6 +2490,12 @@ if ($o->{'bash-completion'}) {
     } else {
         Carp::confess("Unable to extract filename written by DocBook (protocol changed?) from: " . $r->{'merged'});
     }
+} elsif ($o->{'validate-csv'}) {
+    Carp::confess("Need --external-csv")
+        unless $o->{'external-csv'};
+
+    my $in_doc_struct = tsv_read_and_validate($o->{'external-csv'}, $o);
+    print "$o->{'external-csv'} seems to be ok\n";
 } else {
     Carp::confess("Need command line parameter, one of: " . join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n");
 }
