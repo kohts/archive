@@ -1478,7 +1478,7 @@ sub tsv_read_and_validate {
                 'sdm-archive-workflow.misc.classification-group' => '',
                 'sdm-archive-workflow.misc.completeness' => '',
                 'sdm-archive-workflow.misc.authenticity' => '',
-                'sdm-archive-workflow.misc.archive' => '',
+#                'sdm-archive-workflow.misc.archive' => '',
             };
 
             # appends unique value for metadata field (all the metadata fields
