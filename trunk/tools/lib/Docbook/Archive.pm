@@ -5,7 +5,7 @@ use Yandex::Tools;
 
 sub get_document_directory {
   my ($doc_name) = @_;
-  return "$ENV{'ARCHIVE_HOME'}/SOURCE/$doc_name";
+  return "$ENV{'ARCHIVE_HOME'}/books/$doc_name";
 }
 
 sub is_valid_document {
