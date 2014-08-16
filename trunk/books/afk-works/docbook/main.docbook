@@ -67,6 +67,8 @@
   <!ENTITY of-10141-0079 SYSTEM "of-10141-0079.docbook">
   <!ENTITY of-10141-0080 SYSTEM "of-10141-0080.docbook">
   <!ENTITY of-10141-0081 SYSTEM "of-10141-0081.docbook">
+  <!ENTITY of-10141-0082 SYSTEM "of-10141-0082.docbook">
+  <!ENTITY of-10141-0083 SYSTEM "of-10141-0083.docbook">
   <!ENTITY of-10141-0087 SYSTEM "of-10141-0087.docbook">
   <!ENTITY of-10141-0088 SYSTEM "of-10141-0088.docbook">
   <!ENTITY of-10141-0090 SYSTEM "of-10141-0090.docbook">
@@ -133,6 +135,8 @@
   <!ENTITY of-12497-0541 SYSTEM "of-12497-0541.docbook">
   <!ENTITY of-12497-0589 SYSTEM "of-12497-0589.docbook">
 
+  <!ENTITY of-15845-0001 SYSTEM "of-15845-0001.docbook">
+  <!ENTITY of-15845-0004 SYSTEM "of-15845-0004.docbook">
 ]>
 
 <book id="kohts-works" lang="ru">
@@ -301,7 +305,10 @@
 <chapter id="of-10141-0476">&of-10141-0476;</chapter>
 
 <chapter id="of-10141-0081">&of-10141-0081;</chapter>
+<chapter id="of-10141-0082">&of-10141-0082;</chapter>
+<chapter id="of-10141-0083">&of-10141-0083;</chapter>
 <chapter id="of-10141-0477">&of-10141-0477;</chapter>
+<chapter id="of-15845-0004">&of-15845-0004;</chapter>
 <chapter id="of-10141-193-478">&of-10141-193-478;</chapter>
 <chapter id="of-12430-0029">&of-12430-0029;</chapter>
 
@@ -311,6 +318,8 @@
 <chapter id="of-10141-0630">&of-10141-0630;</chapter>
 <chapter id="of-10141-0631">&of-10141-0631;</chapter>
 <chapter id="of-10141-0632">&of-10141-0632;</chapter>
+
+<chapter id="of-15845-0001">&of-15845-0001;</chapter>
 
 </part>
 
