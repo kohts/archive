@@ -58,12 +58,12 @@
 
 <xsl:param name="chunker.output.encoding" select="'utf-8'"/>
 
-<xsl:param name="toc.section.depth">1</xsl:param>
+<xsl:param name="toc.section.depth">2</xsl:param>
 <xsl:param name="generate.toc">
 appendix  title
 article/appendix  nop
 article   toc,title
-book      toc,title,figure,table,example
+book      toc,title,sect1,figure,table,example
 chapter   toc,title
 part      toc,title
 preface   toc,title
@@ -89,35 +89,35 @@ part      toc,title
   <l:i18n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0">
     <l:l10n language="ru">
 
-	  <l:gentext key="Figure" text="Таблица"/>
-	  <l:gentext key="figure" text="Таблица"/>
+    <l:gentext key="Figure" text="Таблица"/>
+    <l:gentext key="figure" text="Таблица"/>
       <l:gentext key="ListofFigures" text="Список рисунков"/>
       <l:gentext key="listoffigures" text="Список рисунков"/>
       <l:context name="title">
-	    <l:template name="figure" text="Таблица %n. %t"/>
-	  </l:context>
-	  <l:context name="xref-number">
-	    <l:template name="figure" text="Таблица %n"/>
-	  </l:context>
-	  <l:context name="xref-number-and-title">
+      <l:template name="figure" text="Таблица %n. %t"/>
+    </l:context>
+    <l:context name="xref-number">
+      <l:template name="figure" text="Таблица %n"/>
+    </l:context>
+    <l:context name="xref-number-and-title">
         <l:template name="figure" text="Табл. %n"/>
-	  </l:context>
+    </l:context>
 
-	  <l:gentext key="Example" text="Фотоиллюстрация"/>
-	  <l:gentext key="example" text="Фотоиллюстрация"/>
+    <l:gentext key="Example" text="Фотоиллюстрация"/>
+    <l:gentext key="example" text="Фотоиллюстрация"/>
       <l:gentext key="ListofExamples" text="Список фотоиллюстраций"/>
       <l:gentext key="listofexamples" text="Список фотоиллюстраций"/>
-	  <l:context name="title">
+    <l:context name="title">
         <l:template name="example" text="Табл. %n. %t"/>
-	  </l:context>
-	  <l:context name="xref-number">
-	    <l:template name="example" text="Табл. %n"/>
-	  </l:context>
-	  <l:context name="xref-number-and-title">
-	    <l:template name="example" text="Табл. %n"/>
-	  </l:context>
+    </l:context>
+    <l:context name="xref-number">
+      <l:template name="example" text="Табл. %n"/>
+    </l:context>
+    <l:context name="xref-number-and-title">
+      <l:template name="example" text="Табл. %n"/>
+    </l:context>
 
-	</l:l10n>
+  </l:l10n>
   </l:i18n>
   
 </xsl:stylesheet>
