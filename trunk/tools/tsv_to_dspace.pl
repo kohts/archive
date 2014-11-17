@@ -27,7 +27,7 @@
 #       build html bitstream for the requested docbook file (which
 #       should exist in docbook_source_base); this mode should be run
 #       before running --import-bitstreams (which then imports
-#       bitstreams into DSpac)
+#       bitstreams into DSpace)
 #
 #       Usage example:
 #       tsv_to_dspace.pl --build-docbook-for-dspace --docbook-filename of-15845-0004.docbook
