@@ -276,7 +276,7 @@ my $data_desc_struct = {
     'external_archive_storage_timezone' => 'Europe/Moscow',
 
     'docbook_source_base' => '/home/petya/github/kohts/archive/trunk/books/afk-works',
-    'docbook_dspace_out_base' => '/var/www/OUT/afk-works/html-dspace',
+    'docbook_dspace_out_base' => '/var/www/html/OUT/afk-works/html-dspace',
 
     'dspace.identifier.other[en]-prefix' => 'Storage item',
     'dspace.identifier.other[ru]-prefix' => 'Место хранения',
@@ -1044,6 +1044,9 @@ sub read_dir {
 }
 
 sub read_scanned_docs {
+    my ($opts) = @_;
+    $opts = {} unless $opts;
+
     # cache
     return $runtime->{'read_scanned_docs'} if defined($runtime->{'read_scanned_docs'});
 
@@ -1059,6 +1062,7 @@ sub read_scanned_docs {
         unless $data_desc_struct->{'external_archive_storage_base'};
 
 
+    print "reading [$data_desc_struct->{'external_archive_storage_base'}]\n" if $opts->{'debug'};
     $runtime->{'read_scanned_docs'}->{'scanned_docs'}->{'array'} = read_dir($data_desc_struct->{'external_archive_storage_base'});
     
     foreach my $item_dir (@{$runtime->{'read_scanned_docs'}->{'scanned_docs'}->{'array'}}) {
@@ -2302,7 +2306,7 @@ if ($o->{'bash-completion'}) {
         }
     }
 } elsif ($o->{'dump-scanned-docs'}) {
-    my $resources = read_scanned_docs();
+    my $resources = read_scanned_docs({'debug' => $o->{'debug'}});
     print Data::Dumper::Dumper($resources);
 } elsif ($o->{'dump-ocr-html-docs'}) {
     my $resources = read_ocr_html_docs();
