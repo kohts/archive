@@ -974,6 +974,7 @@ sub extract_meta_data {
     return $possible_field_labels;
 }
 
+# returns the day, i.e. 2014-12-25
 sub date_from_unixtime {
     my ($unixtime) = @_;
 
@@ -1013,6 +1014,11 @@ sub write_file_scalar {
     close($fh);
 }
 
+# subset of Yandex::Tools::read_dir
+#
+# by default returns array of short filenames
+# in the given directory (without recursing)
+#
 sub read_dir {
     my ($dirname, $o) = @_;
 
@@ -1052,10 +1058,31 @@ sub read_scanned_docs {
 
     $runtime->{'read_scanned_docs'} = {
         'scanned_docs' => {
-            'array' => [],
-            'hash' => {},
+            'array' => [
+                # array of the filenames (items) in the base archive directory, i.e.
+                #   eh-0716,
+                #   eh-0717,
+                #   etc.
+                ],
+            'hash' => {
+                # hash of the filenames (items) in the base archive directory pointing
+                # to the array of unique modification times sorted (ascending)
+                # by the number of files with the modification day in the item, i.e.
+                #   eh-0716 => ["2013-07-18"]
+                #   eh-0719 => ["2014-10-06"]
+                },
             },
-        'files' => {},
+        'files' => {
+            # each archive file keyd by
+            #   the short item directory name (1st level hash key)
+            #   full item path (2nd level hash key), i.e.
+            #     eh-0716 => {
+            #         /gone/root/raw-afk/eh-0716/eh-0716-001.jpg => 1,
+            #         /gone/root/raw-afk/eh-0716/eh-0716-002.jpg => 1,
+            #     }
+            #     
+            #
+            },
         };
 
     return $runtime->{'read_scanned_docs'}
@@ -1080,16 +1107,15 @@ sub read_scanned_docs {
 
             my $item_files = read_dir($dir);
 
-            foreach my $f (@{$item_files}) {
+            ITEM_ELEMENT: foreach my $f (@{$item_files}) {
                 if (-d $dir . "/" . $f) {
                     $scan_dir->($dir . "/" . $f);
-                    next;
+                    next ITEM_ELEMENT;
                 }
 
                 my $fstat = [lstat($dir . "/" . $f)];
-                if (scalar(@{$fstat}) == 0) {
-                    Carp::confess("Error lstata(" . $dir . "/" . $f . "): $!");
-                }
+                Carp::confess("Error lstata(" . $dir . "/" . $f . "): $!")
+                    if scalar(@{$fstat}) == 0;
 
                 my $day = date_from_unixtime($fstat->[9]);
 
