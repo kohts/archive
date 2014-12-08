@@ -1092,11 +1092,15 @@ sub read_scanned_docs {
     print "reading [$data_desc_struct->{'external_archive_storage_base'}]\n" if $opts->{'debug'};
     $runtime->{'read_scanned_docs'}->{'scanned_docs'}->{'array'} = read_dir($data_desc_struct->{'external_archive_storage_base'});
     
+    my $cleaned_array = [];
+
     foreach my $item_dir (@{$runtime->{'read_scanned_docs'}->{'scanned_docs'}->{'array'}}) {
         my $item = $data_desc_struct->{'external_archive_storage_base'} . "/" . $item_dir;
         
         # scanned document is a directory
         next unless -d $item;
+
+        push @{$cleaned_array}, $item_dir;
 
         $runtime->{'read_scanned_docs'}->{'files'}->{$item_dir} = {};
 
@@ -1133,6 +1137,9 @@ sub read_scanned_docs {
             push @{$runtime->{'read_scanned_docs'}->{'scanned_docs'}->{'hash'}->{$item_dir}}, $mod_day;
         }
     }
+
+    $runtime->{'read_scanned_docs'}->{'scanned_docs'}->{'array'} = $cleaned_array;
+
 #        print Data::Dumper::Dumper($runtime->{'read_scanned_docs'});
 
     return $runtime->{'read_scanned_docs'};
