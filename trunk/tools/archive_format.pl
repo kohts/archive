@@ -17,6 +17,7 @@ use Data::Dumper;
 use File::Spec;
 use File::Basename;
 
+$Data::Dumper::Sortkeys = 1;
 $| = 1;
 
 sub zero_pad {
@@ -123,6 +124,8 @@ my $archive_dir = $ARGV[0];
 if (! -d $archive_dir) {
     Carp::confess("not a directory: [$archive_dir]");
 }
+
+my $dry_run = $ARGV[1];
 
 $main::log_file = File::Spec->catfile($archive_dir, basename($0) . ".log");
 my $d = read_dir($archive_dir);
@@ -303,9 +306,9 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
             # allow underscore in relaxed page name
             # (which is converted below to canonical page id,
             # extracted from document directory name)
-            if ($page !~ /^(of|nvf)[\-\ ](\d+?)[\-\ \_](\d[\d_,;\-\ \.]*?)-([\d_]+?)(\.jpg)$/) {
-                print "skipping invalid page format: [$page]\n";
-                next PAGE;
+            if ($page !~ /^(of|nvf)[\-\ ](\d+?)[\-\ \_](\d[\d_,;\-\ \.]*?)-([\d_]+?)[^\d]?.*?(\.jpg)$/) {
+                print "skipping document [$doc_dir] because of invalid page format: [$page]\n";
+                next DOCUMENT;
             }
 
     #        my ($p_archive_type, $p_delim_1, $p_part, $p_id, $p_number, $p_ext) = ($1, $2, $3, $4, $5, $6);
@@ -395,10 +398,12 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
         next DOCUMENT;
     }
 
-#    if (scalar(keys %{$page_renames->{'old_to_new'}})) {
-#        print Data::Dumper::Dumper($page_renames->{'old_to_new'});
-#    }
     if (scalar(keys %{$page_renames->{'old_to_new'}})) {
+        if ($dry_run) {
+            print "would do following renames: " . Data::Dumper::Dumper($page_renames->{'old_to_new'});
+            next DOCUMENT;
+        }
+
         foreach my $old_path (sort keys %{$page_renames->{'old_to_new'}}) {
             my $old_tmp = $old_path . ".old.$$";
 
