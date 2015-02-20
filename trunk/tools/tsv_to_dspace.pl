@@ -272,7 +272,7 @@ my $data_desc_struct = {
         'dnevnik-mashinistki', # diary of the typist of A.E. Kohts (as presented by I.P. Kalacheva)
         ],
 
-    'external_archive_storage_base' => '/gone/root/raw-afk',
+    'external_archive_storage_base' => '/gone/root2/raw-afk',
     'external_archive_storage_timezone' => 'Europe/Moscow',
 
     'docbook_source_base' => '/home/petya/github/kohts/archive/trunk/books/afk-works',
