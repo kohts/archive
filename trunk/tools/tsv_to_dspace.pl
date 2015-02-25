@@ -2032,6 +2032,26 @@ sub storage_id_dspace_to_csv {
     return undef;
 }
 
+sub read_dspace_xml_schema {
+    my ($o) = @_;
+    Carp::confess("Programmer error: need file_name and schema_name")
+        unless $o && $o->{'file_name'} && $o->{'schema_name'};
+    
+    Carp::confess("File [$o->{'file_name'}] must exist")
+        unless -e $o->{'file_name'};
+
+    my $item_schema_xml = XML::Simple::XMLin($o->{'file_name'});
+
+    Carp::confess("Unknown schema layout in [$o->{'file_name'}]")
+        unless
+            $item_schema_xml->{'schema'} &&
+            $item_schema_xml->{'schema'} eq $o->{'schema_name'} &&
+            $item_schema_xml->{'dcvalue'} &&
+            ref($item_schema_xml->{'dcvalue'}) eq 'ARRAY';
+        
+    return $item_schema_xml;
+}
+
 sub read_dspace_collection {
     my ($dir) = @_;
 
@@ -2053,15 +2073,13 @@ sub read_dspace_collection {
                 unless defined($item_files->{$f});
         }
 
-        my $item_dc_xml = XML::Simple::XMLin($item_path . "/dublin_core.xml");
-        Carp::confess("Unknown dublin_core.xml layout")
-            unless $item_dc_xml->{'schema'} &&
-                $item_dc_xml->{'schema'} eq 'dc' &&
-                $item_dc_xml->{'dcvalue'} &&
-                ref($item_dc_xml->{'dcvalue'}) eq 'ARRAY';
-        
+        my $item_schema_struct = read_dspace_xml_schema({
+            'file_name' => $item_path . "/dublin_core.xml",
+            'schema_name' => 'dc',
+            });
+
         my $item_struct;
-        DCVALUES: foreach my $dcvalue (@{$item_dc_xml->{'dcvalue'}}) {
+        DCVALUES: foreach my $dcvalue (@{$item_schema_struct->{'dcvalue'}}) {
             if ($dcvalue->{'element'} eq 'identifier' &&
                 $dcvalue->{'qualifier'} eq 'other' &&
                 $dcvalue->{'language'} eq 'en') {
@@ -2073,7 +2091,7 @@ sub read_dspace_collection {
                     $dspace_items->{$st_item->{'storage-group-id'}}->{$st_item->{'storage-item-id'}} = {
                         'item-path' => $item_path,
                         'item-path-contents' => $item_files,
-                        'dublin_core.xml' => $item_dc_xml,
+                        'dublin_core.xml' => $item_schema_struct,
                         };
 
                     $item_struct = $dspace_items->{$st_item->{'storage-group-id'}}->{$st_item->{'storage-item-id'}};
@@ -2461,7 +2479,7 @@ if ($o->{'bash-completion'}) {
 
             # if there are bitstreams in the item, skip it
             if ($dspace_collection_item->{'contents'}) {
-                print "skipping [$st_gr_id/$st_it_id]\n";
+                print "skipping [$st_gr_id/$st_it_id] which has already some bitstreams\n";
                 next DSPACE_ITEM;
             }
             
@@ -2530,12 +2548,41 @@ if ($o->{'bash-completion'}) {
             }
 
             if ($updated_item) {
+                # update metadata_sdm-archive-workflow.xml
+                # set sdm-archive-workflow.date.digitized to the current date
+                # TODO: find a method to push metadata value to DSpace (to the existing item)
+                Carp::confess("Archive format error: metadata_sdm-archive-workflow.xml expected in [$dspace_collection_item->{'item-path'}]")
+                    unless -e $dspace_collection_item->{'item-path'} . "/metadata_sdm-archive-workflow.xml";
+
+                my $metadata_sdm_archive_workflow = read_dspace_xml_schema({
+                    'file_name' => $dspace_collection_item->{'item-path'} . "/metadata_sdm-archive-workflow.xml",
+                    'schema_name' => 'sdm-archive-workflow',
+                    });
+
+                my $item_struct;
+                DCVALUES: foreach my $dcvalue (@{$metadata_sdm_archive_workflow->{'dcvalue'}}) {
+                    if ($dcvalue->{'element'} eq 'date' &&
+                        $dcvalue->{'qualifier'} eq 'digitized') {
+                        Carp::confess("Can't add bitstreams to the item which already has been digitized: [$dspace_collection_item->{'item-path'}]");
+                    }
+                }
+                push @{$metadata_sdm_archive_workflow->{'dcvalue'}}, {
+                    'element' => 'date',
+                    'qualifier' => 'digitized',
+                    'content' => date_from_unixtime(time()),
+                    };
+                write_file_scalar($dspace_collection_item->{'item-path'} . "/metadata_sdm-archive-workflow.xml",
+                    XML::Simple::XMLout($metadata_sdm_archive_workflow));
+
                 $updated_items = $updated_items + 1;
                 do_log("added [" . $updated_item . "] bitstreams to the item [$st_gr_id/$st_it_id], DSpace Archive [$dspace_collection_item->{'item-path'} $dspace_collection_item->{'handle'}]");
 
                 if ($o->{'limit'} && $updated_items == $o->{'limit'}) {
                     last DSPACE_COLLECTION;
                 }
+            } else {
+                print "skipping [$st_gr_id/$st_it_id] which has no new bitstreams\n";
+                next DSPACE_ITEM;
             }
         }
     }
