@@ -1514,7 +1514,7 @@ sub tsv_read_and_validate {
                     push (@{$possible_resource_names}, $opts->{'resource_name'});
                 } else {
                     Carp::confess("Programmer error: prefix must be one of (eh, of, nvf), got [" .
-                        safe_string($opts->{'prefix'}) . "]");
+                        safe_string($opts->{'prefix'}) . "]; storage_struct: " . Data::Dumper::Dumper($storage_struct));
                 }
 
                 foreach my $resource_name (@{$possible_resource_names}) {
@@ -1683,6 +1683,10 @@ sub tsv_read_and_validate {
             # - detect and store storage paths here against $data_desc_struct->{'external_archive_storage_base'}
             # - check "scanned" status (should be identical for all the documents in the storage item)
             STORAGE_PLACE_ITEMS: foreach my $item (@{$storage_struct->{'documents'}}) {
+
+                if (safe_string($item->{'by_field_name'}->{'scanned_doc_id'}) eq '') {
+                    Carp::confess("Input TSV invalid format: scanned_doc_id is empty for item " . Data::Dumper::Dumper($item));
+                }
 
                 my $title_struct = extract_authors($item->{'by_field_name'}->{'doc_name'});
                 foreach my $author (@{$title_struct->{'extracted_struct'}}) {
