@@ -19,7 +19,6 @@ TXT_OUTPUT = ${KOHTS_BASE}/OUT/${BOOK_DIR}/${BOOK_NAME}.txt
 
 # html
 HTML_BASE = ${KOHTS_BASE}/OUT/${BOOK_DIR}/html
-HTML_BASE_DSPACE = ${KOHTS_BASE}/OUT/${BOOK_DIR}/html-dspace
 
 # source
 DOCBOOK_BASE = ${SOURCE_BASE}/docbook
@@ -50,16 +49,6 @@ ${STAMPS}/html: docbook-html-chunked.xsl $(DOCBOOK)
 	if [ -e $(DOCBOOK_BASE)/book.css ] ; then cp -f $(DOCBOOK_BASE)/book.css $(HTML_BASE)/book.css ; fi
 	mkdir -p ${STAMPS}
 	touch ${STAMPS}/html
-
-html-dspace: ${STAMPS}/html-dspace
-${STAMPS}/html-dspace: docbook-html-dspace.xsl $(DOCBOOK)
-	mkdir -p ${HTML_BASE_DSPACE}
-	cd ${HTML_BASE}
-	cd ${DOCBOOK_BASE} && xsltproc --xinclude \
-	  --stringparam 'base.dir' ${HTML_BASE_DSPACE}/ \
-	  ${SOURCE_BASE}/build/docbook-html-dspace.xsl ${MASTER}
-	mkdir -p ${STAMPS}
-	touch ${STAMPS}/html-dspace
 
 fo: ${STAMPS}/fo
 ${STAMPS}/fo: docbook-fo.xsl $(DOCBOOK) $(IMAGES_PRINT)

@@ -37,7 +37,7 @@
 #   --import-bitstreams
 #       - read the list of available bitstreams:
 #           * scanned images of documents (external_archive_storage_base)
-#           * html files of documents passed through OCR (docbook_dspace_out_base)
+#           * html files of documents passed through OCR (docbook_dspace_html_out_base)
 #       - match them with items in TSV file
 #       - append the items into DSpace exported collection (which was prepared
 #         with "dspace export").
@@ -276,8 +276,10 @@ my $data_desc_struct = {
     'external_archive_storage_base' => '/gone/root2/raw-afk',
     'external_archive_storage_timezone' => 'Europe/Moscow',
 
+    'docbook_fonts_base' => '/var/www/html/FONTS',
     'docbook_source_base' => '/home/petya/github/kohts/archive/trunk/books/afk-works',
-    'docbook_dspace_out_base' => '/var/www/html/OUT/afk-works/html-dspace',
+    'docbook_dspace_html_out_base' => '/var/www/html/OUT/afk-works/html-dspace',
+    'docbook_dspace_pdf_out_base' => '/var/www/html/OUT/afk-works/pdf-dspace',
 
     'dspace.identifier.other[en]-prefix' => 'Storage item',
     'dspace.identifier.other[ru]-prefix' => 'Место хранения',
@@ -1158,13 +1160,13 @@ sub read_ocr_html_docs {
         };
 
     return $runtime->{'read_ocr_html_docs'}
-        unless $data_desc_struct->{'docbook_dspace_out_base'};
+        unless $data_desc_struct->{'docbook_dspace_html_out_base'};
 
-    $runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'files_array'} = read_dir($data_desc_struct->{'docbook_dspace_out_base'});
+    $runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'files_array'} = read_dir($data_desc_struct->{'docbook_dspace_html_out_base'});
     $runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'array'} = [];
 
     foreach my $el (@{$runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'files_array'}}) {
-        my $item = $data_desc_struct->{'docbook_dspace_out_base'} . "/" . $el;
+        my $item = $data_desc_struct->{'docbook_dspace_html_out_base'} . "/" . $el;
 
         next unless -f $item;
         next unless $el =~ /^(.+)\.html$/;
@@ -2148,7 +2150,7 @@ sub do_log {
 }
 
 sub prepare_docbook_makefile {
-    my ($full_docbook_path) = @_;
+    my ($build_base, $full_docbook_path) = @_;
 
     my ($filename, $dirs) = File::Basename::fileparse($full_docbook_path);
     
@@ -2209,7 +2211,7 @@ sub prepare_docbook_makefile {
 
 #    print $dspace_html_docbook_template . "\n";
 
-    my $tmp_docbook_name = "/tmp/$entity_name.docbook";
+    my $tmp_docbook_name = $build_base . "/$entity_name.docbook";
     write_file_scalar($tmp_docbook_name, $dspace_html_docbook_template);
 
     return $tmp_docbook_name;
@@ -2603,7 +2605,13 @@ if ($o->{'bash-completion'}) {
     Carp::confess("--docbook-filename point to nonexistent file (resolved to $full_docbook_path)")
         unless -e $full_docbook_path;
 
-    my $tmp_docbook_name = prepare_docbook_makefile($full_docbook_path);
+    my $docbook_id = $o->{'docbook-filename'};
+    $docbook_id =~ s/\.docbook$//;
+
+    my $build_base = "/tmp/build-docbook-for-dspace.$$";
+    File::Path::make_path($build_base);
+
+    my $tmp_docbook_name = prepare_docbook_makefile($build_base, $full_docbook_path);
 
     if ($o->{'no-xsltproc'}) {
         print "prepared docbook file [$tmp_docbook_name]\n";
@@ -2611,7 +2619,7 @@ if ($o->{'bash-completion'}) {
     }
 
     my $cmd = 'xsltproc --xinclude ' .
-        '--stringparam base.dir ' . $data_desc_struct->{'docbook_dspace_out_base'} . "/ " .
+        '--stringparam base.dir ' . $data_desc_struct->{'docbook_dspace_html_out_base'} . "/ " .
         '--stringparam use.id.as.filename 1 ' .
         '--stringparam root.filename "" ' .
         $data_desc_struct->{'docbook_source_base'} . '/build/docbook-html-dspace.xsl ' .
@@ -2620,13 +2628,51 @@ if ($o->{'bash-completion'}) {
     Carp::confess("Error generating DSpace html file, cmd [$cmd]: " . Data::Dumper::Dumper($r))
         if $r->{'exit_code'} ne 0;
 
-    unlink($tmp_docbook_name);
-
     if ($r->{'merged'} =~ /Writing\s+?(.+?)\sfor/s) {
         print "built: " . $1 . "\n";
     } else {
         Carp::confess("Unable to extract filename written by DocBook (protocol changed?) from: " . $r->{'merged'});
     }
+
+    my $cmd2 = 'xsltproc -o ' . $tmp_docbook_name . '.fo ' .
+        $data_desc_struct->{'docbook_source_base'} . '/build/docbook-fo.xsl ' .
+        $tmp_docbook_name;
+    my $r2 = IPC::Cmd::run_forked($cmd2);
+    Carp::confess("Error generating DSpace FO file, cmd [$cmd2]: " . Data::Dumper::Dumper($r2))
+        if $r2->{'exit_code'} ne 0;
+
+    Carp::confess("FONTS directory [" . safe_string($data_desc_struct->{'docbook_fonts_base'}) . "] must contain: fop.xconf, fop-hyph.jar and fonts subdirectory with fonts")
+        unless $data_desc_struct->{'docbook_fonts_base'} &&
+            -d $data_desc_struct->{'docbook_fonts_base'} &&
+            -e $data_desc_struct->{'docbook_fonts_base'} . "/fop.xconf" &&
+            -e $data_desc_struct->{'docbook_fonts_base'} . "/fop-hyph.jar" &&
+            -d $data_desc_struct->{'docbook_fonts_base'} . "/fonts";
+
+    foreach my $l (qw/fop.xconf fop-hyph.jar fonts/) {
+        symlink(
+            $data_desc_struct->{'docbook_fonts_base'} . "/" . $l,
+            $build_base . "/" . $l
+            ) ||
+            Carp::confess("Unable to symlink [" .
+                $data_desc_struct->{'docbook_fonts_base'} . "/" . $l .
+                "] to [" .
+                $build_base . "/" . $l .
+                "]: $!");
+    }
+
+    my $cmd3 =
+        'cd ' . $build_base . ' && ' .
+        'export FOP_HYPHENATION_PATH=' . $build_base . '/fop-hyph.jar && ' .
+        'fop -c fop.xconf ' . $tmp_docbook_name . '.fo ' .
+        ' -pdf ' . $data_desc_struct->{'docbook_dspace_pdf_out_base'} . "/" . $docbook_id . ".pdf";
+    my $r3 = IPC::Cmd::run_forked($cmd3);
+    Carp::confess("Error generating DSpace PDF file, cmd [$cmd3]: " . Data::Dumper::Dumper($r3))
+        if $r3->{'exit_code'} ne 0;
+
+    print "built: " . $data_desc_struct->{'docbook_dspace_pdf_out_base'} . "/" . $docbook_id . ".pdf" . "\n";
+
+    File::Path::rmtree($build_base);
+
 } elsif ($o->{'validate-tsv'}) {
     Carp::confess("Need --external-tsv")
         unless $o->{'external-tsv'};
