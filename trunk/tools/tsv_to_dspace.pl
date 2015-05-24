@@ -11,6 +11,7 @@
 #       Usage example (outputs to STDOUT):
 #       tsv_to_dspace.pl --validate-tsv --external-tsv /file/name
 #   
+#
 #   --initial-import
 #       convert tab separated dump (UTF-8 encoded) of contents
 #       of A.E. Kohts archives (which are tracked in KAMIS in SDM,
@@ -2158,6 +2159,14 @@ sub prepare_docbook_makefile {
         $entity_name => {'SYSTEM' => $full_docbook_path},
         };
 
+    # one entity (document) references another one - this was justified
+    # when I was preparing afk-works as a single document, but now when
+    # the focus has changed from one "book" to a digitized archive
+    # such documents should no longer exist.
+    #
+    # basically: add workaround for the documents digitized before 2014,
+    # and don't create cross-referenced documents in the future
+    #
     if ($entity_name eq 'of-10141-0112') {
         $entities->{'of-12497-0541'} = "";
     }
