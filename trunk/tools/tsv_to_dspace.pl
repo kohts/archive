@@ -67,7 +67,7 @@
 #
 #     --dump-csv-item N M - reads whole tsv and outputs single item
 #       (addresed by storage group N and storage item M in it; should be
-#       define in $data_desc_struct). Produces csv output for dspace
+#       defined in $data_desc_struct). Produces csv output for dspace
 #       with --tsv-output or Dumper struct without.
 #       Usage example: tsv_to_dspace.pl --external-tsv afk-status.txt --dump-csv-item '1 1' --tsv-output
 #
@@ -695,6 +695,118 @@ my $data_desc_struct = {
             },
         },
     };
+
+
+sub sync_dspace_item_from_external_storage {
+    my ($o) = @_;
+
+    Carp::confess("Programmer error: external_storage_item required")
+        unless defined($o->{'external_storage_item'});
+    Carp::confess("Programmer error: dspace_collection_item required")
+        unless defined($o->{'dspace_collection_item'});
+
+    my $st_item = $o->{'external_storage_item'};
+    my $dspace_collection_item = $o->{'dspace_collection_item'};
+
+    my $r_struct = read_scanned_docs();
+
+    my $updated_item = 0;
+
+    my $orig_contents = $dspace_collection_item->{'contents'};
+
+    HTML_FILES: foreach my $html_file (@{$st_item->{'ocr_html_document_directories'}}) {
+        if ($o->{'dry-run'}) {
+            print "would try to add HTML document to [$dspace_collection_item->{'storage-group-id'}/$dspace_collection_item->{'storage-item-id'}]\n";
+            last SCAN_DIRS;
+        }
+        
+        my $f = $st_item->{'ocr_html_document_directories_h'}->{$html_file};
+
+        my $fname = $f;
+        $fname =~ s/.+\///g;
+
+        my $r = symlink($f, $dspace_collection_item->{'item-path'} . "/" . $fname);
+        if (!$r) {
+            Carp::confess("Error creating symlink from [$f] to [$dspace_collection_item->{'item-path'}/$fname]:" . $!);
+        }
+        
+        $dspace_collection_item->{'contents'} .= $fname . "\n";
+        write_file_scalar($dspace_collection_item->{'item-path'} . "/contents", $dspace_collection_item->{'contents'});
+
+        $updated_item++;
+    }
+
+    SCAN_DIRS: foreach my $scan_dir (@{$st_item->{'scanned_document_directories'}}) {
+        
+        # this shouldn't happen in production as external_archive_storage_base
+        # shouldn't change when this script is run; during tests though
+        # this happened (because upload of archive to the test server
+        # took about several weeks because of the slow network)
+        next unless defined($r_struct->{'files'}->{$scan_dir});
+
+        if ($o->{'dry-run'}) {
+            print "would try to add HTML document to [$dspace_collection_item->{'storage-group-id'}/$dspace_collection_item->{'storage-item-id'}]\n";
+            last SCAN_DIRS;
+        }
+
+        foreach my $f (sort keys %{$r_struct->{'files'}->{$scan_dir}}) {
+            my $fname = $f;
+            
+            $fname =~ s/^.+\///;
+            if ($f =~ m%/$scan_dir/([^/]+)/[^/]+$%) {
+                $fname = $1 . "-" . $fname;
+            }
+
+            my $r = symlink($f, $dspace_collection_item->{'item-path'} . "/" . $fname);
+            if (!$r) {
+                Carp::confess("Error creating symlink from [$f] to [$dspace_collection_item->{'item-path'}/$fname]:" . $!);
+            }
+
+            $dspace_collection_item->{'contents'} .= $fname . "\n";
+            $updated_item++;
+        }
+        write_file_scalar($dspace_collection_item->{'item-path'} . "/contents", $dspace_collection_item->{'contents'});
+    }
+
+    if ($updated_item) {
+        # update metadata_sdm-archive-workflow.xml
+        # set sdm-archive-workflow.date.digitized to the current date
+        # TODO: find a method to push metadata value to DSpace (to the existing item)
+        Carp::confess("Archive format error: metadata_sdm-archive-workflow.xml expected in [$dspace_collection_item->{'item-path'}]")
+            unless -e $dspace_collection_item->{'item-path'} . "/metadata_sdm-archive-workflow.xml";
+
+        my $metadata_sdm_archive_workflow = read_dspace_xml_schema({
+            'file_name' => $dspace_collection_item->{'item-path'} . "/metadata_sdm-archive-workflow.xml",
+            'schema_name' => 'sdm-archive-workflow',
+            });
+
+        my $item_struct;
+        DCVALUES: foreach my $dcvalue (@{$metadata_sdm_archive_workflow->{'dcvalue'}}) {
+            if ($dcvalue->{'element'} eq 'date' &&
+                $dcvalue->{'qualifier'} eq 'digitized') {
+                
+                if (safe_string($orig_contents) ne '') {
+                    Carp::confess("Can't add bitstreams to the item which already has been digitized: [$dspace_collection_item->{'item-path'}]");
+                }
+                else {
+                    # date.digitized might be set for the item by --initial-import,
+                    # but the item might not have been updated with bitstreams
+                    #
+                    # not a perfect solution, let's think of a better one
+                }
+            }
+        }
+        push @{$metadata_sdm_archive_workflow->{'dcvalue'}}, {
+            'element' => 'date',
+            'qualifier' => 'digitized',
+            'content' => date_from_unixtime(time()),
+            };
+        write_file_scalar($dspace_collection_item->{'item-path'} . "/metadata_sdm-archive-workflow.xml",
+            XML::Simple::XMLout($metadata_sdm_archive_workflow));
+    }
+
+    return $updated_item;
+}
 
 sub check_config {
     $data_desc_struct->{'storage_groups_by_fund_number'} = {};
@@ -1876,7 +1988,7 @@ sub tsv_read_and_validate {
 
             $storage_struct->{'tsv_struct'} = $tsv_struct;
             $storage_struct->{'storage-group-id'} = $st_gr_id;
-            $storage_struct->{'storage-number'} = $storage_number;
+            $storage_struct->{'storage-item-id'} = $storage_number;
         }
     }
 
@@ -1888,7 +2000,7 @@ sub tsv_read_and_validate {
             }
 
             Carp::confess("Scanned directory [$dir] matches several storage items: [" .
-                join(",", map {$_->{'storage-group-id'} . "/" . $_->{'storage-number'}}
+                join(",", map {$_->{'storage-group-id'} . "/" . $_->{'storage-item-id'}}
                     @{$doc_struct->{'storage_items_by_scanned_dir'}->{$dir}}) .
                 "]");
         }
@@ -1910,7 +2022,7 @@ sub tsv_read_and_validate {
     foreach my $html (keys %{$doc_struct->{'storage_items_by_ocr_html'}}) {
         if (scalar(@{$doc_struct->{'storage_items_by_ocr_html'}->{$html}}) > 1) {
             Carp::confess("HTML file [$html] matches several storage items: [" .
-                join(",", map {$_->{'storage-group-id'} . "/" . $_->{'storage-number'}}
+                join(",", map {$_->{'storage-group-id'} . "/" . $_->{'storage-item-id'}}
                     @{$doc_struct->{'storage_items_by_ocr_html'}->{$html}}) .
                 "]");
         }
@@ -2099,6 +2211,8 @@ sub read_dspace_collection {
                         'item-path' => $item_path,
                         'item-path-contents' => $item_files,
                         'dublin_core.xml' => $item_schema_struct,
+                        'storage-group-id' => $st_item->{'storage-group-id'},
+                        'storage-item-id' => $st_item->{'storage-item-id'},
                         };
 
                     $item_struct = $dspace_items->{$st_item->{'storage-group-id'}}->{$st_item->{'storage-item-id'}};
@@ -2350,7 +2464,9 @@ if ($o->{'bash-completion'}) {
     Carp::confess("Need --external-tsv")
         unless $o->{'external-tsv'};
 
-    my $target_collection_handle = $o->{'target-collection-handle'} || "123456789/2";
+    Carp::confess("Need --target-collection-handle")
+        unless $o->{'target-collection-handle'};
+    my $target_collection_handle = $o->{'target-collection-handle'};
 
     my $in_doc_struct = tsv_read_and_validate($o->{'external-tsv'}, $o);
 
@@ -2428,39 +2544,11 @@ if ($o->{'bash-completion'}) {
         Carp::confess("Unable to add bitstreams to the item which already has bitstreams (not implemented yet)");
     }
 
-    my $r_struct = read_scanned_docs();
-
-    foreach my $html_file (@{$st_item->{'ocr_html_document_directories'}}) {
-        my $f = $st_item->{'ocr_html_document_directories_h'}->{$html_file};
-
-        my $fname = $f;
-        $fname =~ s/.+\///g;
-
-        my $r = symlink($f, $dspace_collection_item->{'item-path'} . "/" . $fname);
-        if (!$r) {
-            Carp::confess("Error creating symlink from [$f] to [$dspace_collection_item->{'item-path'}/$fname]:" . $!);
-        }
-        
-        $dspace_collection_item->{'contents'} .= $fname . "\n";
-        write_file_scalar($dspace_collection_item->{'item-path'} . "/contents", $dspace_collection_item->{'contents'});
-    }
-    
-    foreach my $scan_dir (@{$st_item->{'scanned_document_directories'}}) {
-        next unless defined($r_struct->{'files'}->{$scan_dir});
-
-        foreach my $f (sort keys %{$r_struct->{'files'}->{$scan_dir}}) {
-            my $fname = $f;
-            $fname =~ s/.+\///g;
-
-            my $r = symlink($f, $dspace_collection_item->{'item-path'} . "/" . $fname);
-            if (!$r) {
-                Carp::confess("Error creating symlink from [$f] to [$dspace_collection_item->{'item-path'}/$fname]:" . $!);
-            }
-
-            $dspace_collection_item->{'contents'} .= $fname . "\n";
-        }
-        write_file_scalar($dspace_collection_item->{'item-path'} . "/contents", $dspace_collection_item->{'contents'});
-    }
+    my $updated_item = sync_dspace_item_from_external_storage({
+        'external_storage_item' => $st_item,
+        'dspace_collection_item' => $dspace_collection_item,
+        'dry-run' => $o->{'dry-run'},
+        });
 
     print "prepared DSpace item [$dspace_collection_item->{'item-path'}]\n";
 
@@ -2479,13 +2567,12 @@ if ($o->{'bash-completion'}) {
 
     my $in_doc_struct = tsv_read_and_validate($o->{'external-tsv'}, $o);
     my $dspace_collection = read_dspace_collection($o->{'dspace-exported-collection'});
-    my $r_struct = read_scanned_docs();
 
     my $updated_items = 0;
 
     DSPACE_COLLECTION: foreach my $st_gr_id (sort {$a <=> $b} keys %{$dspace_collection}) {
 
-        Carp::confess("Can't find storage group [$st_gr_id] in incoming data, something is very wrong")
+        Carp::confess("Can't find storage group [$st_gr_id] in external-csv [$o->{'external-tsv'}], something is very wrong")
             unless defined($in_doc_struct->{'by_storage'}->{$st_gr_id});
         
         DSPACE_ITEM: foreach my $st_it_id (sort {$a <=> $b} keys %{$dspace_collection->{$st_gr_id}}) {
@@ -2494,7 +2581,7 @@ if ($o->{'bash-completion'}) {
 
             # if there are bitstreams in the item, skip it
             if ($dspace_collection_item->{'contents'}) {
-                print "skipping [$st_gr_id/$st_it_id] which has already some bitstreams\n";
+                #print "skipping [$st_gr_id/$st_it_id] which has already some bitstreams\n";
                 next DSPACE_ITEM;
             }
             
@@ -2511,94 +2598,20 @@ if ($o->{'bash-completion'}) {
                 next DSPACE_ITEM;
             }
         
-            my $updated_item = 0;
-
-            foreach my $html_file (@{$st_item->{'ocr_html_document_directories'}}) {
-                my $f = $st_item->{'ocr_html_document_directories_h'}->{$html_file};
-
-                my $fname = $f;
-                $fname =~ s/.+\///g;
-
-                my $r = symlink($f, $dspace_collection_item->{'item-path'} . "/" . $fname);
-                if (!$r) {
-                    Carp::confess("Error creating symlink from [$f] to [$dspace_collection_item->{'item-path'}/$fname]:" . $!);
-                }
-                
-                $dspace_collection_item->{'contents'} .= $fname . "\n";
-                write_file_scalar($dspace_collection_item->{'item-path'} . "/contents", $dspace_collection_item->{'contents'});
-
-                $updated_item++;
-            }
+            my $updated_item = sync_dspace_item_from_external_storage({
+                'external_storage_item' => $st_item,
+                'dspace_collection_item' => $dspace_collection_item,
+                'dry-run' => $o->{'dry-run'},
+                });
             
-            foreach my $scan_dir (@{$st_item->{'scanned_document_directories'}}) {
-                
-                # this shouldn't happen in production as external_archive_storage_base
-                # shouldn't change when this script is run; during tests though
-                # this happened (because upload of archive to the test server
-                # took about several weeks because of the slow network)
-                next unless defined($r_struct->{'files'}->{$scan_dir});
-
-                if ($o->{'dry-run'}) {
-                    print "would try to update [$st_gr_id/$st_it_id]\n";
-                    next DSPACE_ITEM;
-                }
-
-                foreach my $f (sort keys %{$r_struct->{'files'}->{$scan_dir}}) {
-                    my $fname = $f;
-                    
-                    $fname =~ s/^.+\///;
-                    if ($f =~ m%/$scan_dir/([^/]+)/[^/]+$%) {
-                        $fname = $1 . "-" . $fname;
-                    }
-
-                    my $r = symlink($f, $dspace_collection_item->{'item-path'} . "/" . $fname);
-                    if (!$r) {
-                        Carp::confess("Error creating symlink from [$f] to [$dspace_collection_item->{'item-path'}/$fname]:" . $!);
-                    }
-
-                    $dspace_collection_item->{'contents'} .= $fname . "\n";
-                    $updated_item++;
-                }
-                write_file_scalar($dspace_collection_item->{'item-path'} . "/contents", $dspace_collection_item->{'contents'});
-            }
-
             if ($updated_item) {
-                # update metadata_sdm-archive-workflow.xml
-                # set sdm-archive-workflow.date.digitized to the current date
-                # TODO: find a method to push metadata value to DSpace (to the existing item)
-                Carp::confess("Archive format error: metadata_sdm-archive-workflow.xml expected in [$dspace_collection_item->{'item-path'}]")
-                    unless -e $dspace_collection_item->{'item-path'} . "/metadata_sdm-archive-workflow.xml";
-
-                my $metadata_sdm_archive_workflow = read_dspace_xml_schema({
-                    'file_name' => $dspace_collection_item->{'item-path'} . "/metadata_sdm-archive-workflow.xml",
-                    'schema_name' => 'sdm-archive-workflow',
-                    });
-
-                my $item_struct;
-                DCVALUES: foreach my $dcvalue (@{$metadata_sdm_archive_workflow->{'dcvalue'}}) {
-                    if ($dcvalue->{'element'} eq 'date' &&
-                        $dcvalue->{'qualifier'} eq 'digitized') {
-                        Carp::confess("Can't add bitstreams to the item which already has been digitized: [$dspace_collection_item->{'item-path'}]");
-                    }
-                }
-                push @{$metadata_sdm_archive_workflow->{'dcvalue'}}, {
-                    'element' => 'date',
-                    'qualifier' => 'digitized',
-                    'content' => date_from_unixtime(time()),
-                    };
-                write_file_scalar($dspace_collection_item->{'item-path'} . "/metadata_sdm-archive-workflow.xml",
-                    XML::Simple::XMLout($metadata_sdm_archive_workflow));
-
                 $updated_items = $updated_items + 1;
                 do_log("added [" . $updated_item . "] bitstreams to the item [$st_gr_id/$st_it_id], DSpace Archive [$dspace_collection_item->{'item-path'} $dspace_collection_item->{'handle'}]");
 
                 if ($o->{'limit'} && $updated_items == $o->{'limit'}) {
                     last DSPACE_COLLECTION;
                 }
-            } else {
-                print "skipping [$st_gr_id/$st_it_id] which has no new bitstreams\n";
-                next DSPACE_ITEM;
-            }
+            }    
         }
     }
 } elsif ($o->{'build-docbook-for-dspace'}) {
