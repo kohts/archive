@@ -1672,7 +1672,18 @@ sub tsv_read_and_validate {
                 'dc.contributor.author[ru]' => "",
                 'dc.creator[en]' => "",
                 'dc.creator[ru]' => "",
+
+                # http://dublincore.org/documents/dcmi-terms/#terms-created
+                # Date of creation of the resource.
                 'dc.date.created' => "",
+
+                # http://dublincore.org/documents/dcmi-terms/#terms-issued
+                # Date of formal issuance (e.g., publication) of the resource.
+                #
+                # https://jira.duraspace.org/browse/DS-1481
+                #  By default, "dc.date.issued" is no longer set to [today] when it's empty
+                # (see DS-1745). Therefore, Items deposited via SWORD or bulk upload
+                # will not be assigned a "dc.date.issued" unless specified.
 #                'dc.date.issued' => '',
                 
                 # this is a "calculated" field which contains information from
