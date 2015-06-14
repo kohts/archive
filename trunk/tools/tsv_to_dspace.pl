@@ -18,7 +18,7 @@
 #       part of the archive was tracked in DBX file previously)
 #       into TSV text file ready to be imported into DSpace
 #       (the process relies on custom metadata fields as defined
-#       in sdm-archive-workflow.xml schema)
+#       in sdm-archive.xml schema)
 #
 #       Usage example (outputs to STDOUT):
 #       tsv_to_dspace.pl --initial-import --external-tsv /file/name --target-collection-handle 123456789/2
@@ -769,15 +769,15 @@ sub sync_dspace_item_from_external_storage {
     }
 
     if ($updated_item) {
-        # update metadata_sdm-archive-workflow.xml
-        # set sdm-archive-workflow.date.digitized to the current date
+        # update metadata_sdm-archive-.xml
+        # set sdm-archive.date.digitized to the current date
         # TODO: find a method to push metadata value to DSpace (to the existing item)
-        Carp::confess("Archive format error: metadata_sdm-archive-workflow.xml expected in [$dspace_collection_item->{'item-path'}]")
-            unless -e $dspace_collection_item->{'item-path'} . "/metadata_sdm-archive-workflow.xml";
+        Carp::confess("Archive format error: metadata_sdm-archive.xml expected in [$dspace_collection_item->{'item-path'}]")
+            unless -e $dspace_collection_item->{'item-path'} . "/metadata_sdm-archive.xml";
 
         my $metadata_sdm_archive_workflow = read_dspace_xml_schema({
-            'file_name' => $dspace_collection_item->{'item-path'} . "/metadata_sdm-archive-workflow.xml",
-            'schema_name' => 'sdm-archive-workflow',
+            'file_name' => $dspace_collection_item->{'item-path'} . "/metadata_sdm-archive.xml",
+            'schema_name' => 'sdm-archive',
             });
 
         my $item_struct;
@@ -801,7 +801,7 @@ sub sync_dspace_item_from_external_storage {
             'qualifier' => 'digitized',
             'content' => date_from_unixtime(time()),
             };
-        write_file_scalar($dspace_collection_item->{'item-path'} . "/metadata_sdm-archive-workflow.xml",
+        write_file_scalar($dspace_collection_item->{'item-path'} . "/metadata_sdm-archive.xml",
             XML::Simple::XMLout($metadata_sdm_archive_workflow));
     }
 
@@ -1703,18 +1703,23 @@ sub tsv_read_and_validate {
                 'dc.subject[ru]' => 'Музейное дело',
                 'dc.title[ru]' => "",
                 'dc.type[en]' => 'Text',
-                'sdm-archive-workflow.date.digitized' => '',
-                'sdm-archive-workflow.date.cataloged' => $today_yyyy_mm_dd,
-                'sdm-archive-workflow.date.textExtracted' => '',
-                'sdm-archive-workflow.misc.classification-code' => '',
-                'sdm-archive-workflow.misc.classification-group' => '',
-                'sdm-archive-workflow.misc.completeness' => '',
-                'sdm-archive-workflow.misc.authenticity' => '',
-#                'sdm-archive-workflow.misc.archive' => '',
+                'sdm-archive.date.digitized' => '',
+                'sdm-archive.date.cataloged' => $today_yyyy_mm_dd,
+                'sdm-archive.date.textExtracted' => '',
+                'sdm-archive.misc.classification-code' => '',
+                'sdm-archive.misc.classification-group' => '',
+                'sdm-archive.misc.completeness' => '',
+                'sdm-archive.misc.authenticity' => '',
+                'sdm-archive.misc.inventoryGroup' => $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name'},
+                'sdm-archive.misc.storageItem' => $storage_number,
+                'sdm-archive.misc.fond' => '',
+#                'sdm-archive.misc.archive' => '',
             };
 
-            # appends unique value for metadata field (all the metadata fields
-            # are allowed to contain more than value)
+            # appends value for metadata field, duplicate values
+            # are not appended (all the metadata fields are allowed
+            # to contain more than value - array is used if there's
+            # more than one value for the field)
             #
             # returns appended value (if input $metadata_value was stored)
             # or undef (if supplied value has already existed and was not
@@ -1722,10 +1727,12 @@ sub tsv_read_and_validate {
             #
             # does some finegrained cleanup of metadata field values
             # (depending on the name of populated metadata field)
+            #
             my $push_metadata_value = sub {
                 my ($metadata_name, $metadata_value) = @_;
 
-                $tsv_struct->{$metadata_name} = "" unless defined($tsv_struct->{$metadata_name});
+                $tsv_struct->{$metadata_name} = ""
+                    unless defined($tsv_struct->{$metadata_name});
                 
                 return undef unless defined($metadata_value) && $metadata_value ne "";
 
@@ -1833,8 +1840,8 @@ sub tsv_read_and_validate {
                     $push_metadata_value->('dc.title[ru]', $meta->{'trimmed_input'});
                 }
 
-                $doc_type = $push_metadata_value->('sdm-archive-workflow.misc.document-type', $doc_type);
-                $doc_desc = $push_metadata_value->('sdm-archive-workflow.misc.notes', $doc_desc);
+                $doc_type = $push_metadata_value->('sdm-archive.misc.document-type', $doc_type);
+                $doc_desc = $push_metadata_value->('sdm-archive.misc.notes', $doc_desc);
 
                 $doc_date = $push_metadata_value->('dc.date.created', $doc_date);
 
@@ -1850,11 +1857,11 @@ sub tsv_read_and_validate {
                     }));
 
                 $item->{'by_field_name'}->{'doc_property_full'} =
-                    $push_metadata_value->('sdm-archive-workflow.misc.completeness', $item->{'by_field_name'}->{'doc_property_full'});
+                    $push_metadata_value->('sdm-archive.misc.completeness', $item->{'by_field_name'}->{'doc_property_full'});
                 $item->{'by_field_name'}->{'doc_property_genuine'} = 
-                    $push_metadata_value->('sdm-archive-workflow.misc.authenticity', $item->{'by_field_name'}->{'doc_property_genuine'});
+                    $push_metadata_value->('sdm-archive.misc.authenticity', $item->{'by_field_name'}->{'doc_property_genuine'});
                 $item->{'by_field_name'}->{'archive_date'} =
-                    $push_metadata_value->('sdm-archive-workflow.misc.archive-date', $item->{'by_field_name'}->{'archive_date'});
+                    $push_metadata_value->('sdm-archive.misc.archive-date', $item->{'by_field_name'}->{'archive_date'});
 
                 if ($item->{'by_field_name'}->{'classification_code'} &&
                     defined($data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'})
@@ -1874,9 +1881,9 @@ sub tsv_read_and_validate {
                             $tmp_cc =~ s/[\.,\(\)]//g;
                             
                             if ($tmp_cc eq $itcc) {
-                                $push_metadata_value->('sdm-archive-workflow.misc.classification-group',
+                                $push_metadata_value->('sdm-archive.misc.classification-group',
                                     $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}->{$cc});
-                                $push_metadata_value->('sdm-archive-workflow.misc.classification-code',
+                                $push_metadata_value->('sdm-archive.misc.classification-code',
                                     $cc);
                                 $found_cc_group = 1;
                             }
@@ -1890,9 +1897,9 @@ sub tsv_read_and_validate {
                                 $tmp_cc =~ s/[\.,\(\)]//g;
                                 
                                 if ($tmp_cc eq $itcc) {
-                                    $push_metadata_value->('sdm-archive-workflow.misc.classification-group',
+                                    $push_metadata_value->('sdm-archive.misc.classification-group',
                                         $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}->{$cc});
-                                    $push_metadata_value->('sdm-archive-workflow.misc.classification-code',
+                                    $push_metadata_value->('sdm-archive.misc.classification-code',
                                         $cc);
                                     $found_cc_group = 1;
                                 }
@@ -1909,6 +1916,8 @@ sub tsv_read_and_validate {
                 # prepare 'dc.description[ru]' value
                 my $item_desc = "";
                 if ($item->{'by_field_name'}->{'of_number'}) {
+                    $push_metadata_value->('sdm-archive.misc.fond', "ОФ-" . $item->{'by_field_name'}->{'of_number'});
+
                     $item_desc .= "ОФ-" . $item->{'by_field_name'}->{'of_number'} .
                         ($item->{'by_field_name'}->{'number_suffix'} ?
                             "/" . $item->{'by_field_name'}->{'number_suffix'}
@@ -1933,6 +1942,8 @@ sub tsv_read_and_validate {
                         'n2' => $item->{'by_field_name'}->{'number_suffix'},
                         });
                 } else {
+                    $push_metadata_value->('sdm-archive.misc.fond', "НВФ-" . $item->{'by_field_name'}->{'nvf_number'});
+
                     $item_desc .= "НВФ-" . $item->{'by_field_name'}->{'nvf_number'} .
                         ($item->{'by_field_name'}->{'number_suffix'} ?
                             "/" . $item->{'by_field_name'}->{'number_suffix'}
@@ -1990,11 +2001,11 @@ sub tsv_read_and_validate {
 
             foreach my $d (keys %{$storage_struct->{'scanned_document_directories_h'}}) {
                 foreach my $d_day (@{$storage_struct->{'scanned_document_directories_h'}->{$d}}) {
-                    $push_metadata_value->('sdm-archive-workflow.date.digitized', $d_day);
+                    $push_metadata_value->('sdm-archive.date.digitized', $d_day);
                 }
             }
             foreach my $d (keys %{$storage_struct->{'docbook_files_dates_h'}}) {
-                $push_metadata_value->('sdm-archive-workflow.date.textExtracted', $storage_struct->{'docbook_files_dates_h'}->{$d});
+                $push_metadata_value->('sdm-archive.date.textExtracted', $storage_struct->{'docbook_files_dates_h'}->{$d});
             }
 
             $storage_struct->{'tsv_struct'} = $tsv_struct;
