@@ -1,4 +1,4 @@
-KOHTS_BASE ?= /var/www
+KOHTS_BASE ?= /var/www/html
 
 BOOK_DIR = afk-works
 BOOK_NAME = "kohts - works"

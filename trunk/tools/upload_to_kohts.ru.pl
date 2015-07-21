@@ -6,7 +6,7 @@ use warnings;
 use Getopt::Long;
 use IPC::Cmd;
 
-my $build_base = "/var/www";
+my $build_base = "/var/www/html";
 my $upload_base = 'nit@lenin.ru:/www/www.kohts.ru/html';
 
 my $conf = {

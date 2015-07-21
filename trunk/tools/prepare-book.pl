@@ -31,7 +31,8 @@ my $steps = {
     '2' => { 'filename_stdout_tool' => 'remove_empty_para.pl', },
     '3' => { 'filename_stdout_tool' => 'replace-dash-with-mdash.pl', },
     '4' => { 'filename_stdout_tool' => 'replace-tridot-with-three-dots.pl', },
-    '4' => { 'filename_stdout_tool' => 'fix-ulink-tag.pl', },
+    '5' => { 'filename_stdout_tool' => 'fix-ulink-tag.pl', },
+    '6' => { 'filename_stdout_tool' => 'trim_trailing_space.pl', },
     };
 
 my $children = {};

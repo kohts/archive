@@ -59,6 +59,7 @@
   <!ENTITY of-10141-0062 SYSTEM "of-10141-0062.docbook">
   <!ENTITY of-10141-0064 SYSTEM "of-10141-0064.docbook">
   <!ENTITY of-10141-0065 SYSTEM "of-10141-0065.docbook">
+  <!ENTITY of-10141-0066 SYSTEM "of-10141-0066.docbook">
   <!ENTITY of-10141-0067 SYSTEM "of-10141-0067.docbook">
 
   <!ENTITY of-10141-0073 SYSTEM "of-10141-0073.docbook">
@@ -99,6 +100,7 @@
   <!ENTITY of-10141-0463 SYSTEM "of-10141-0463.docbook">
   <!ENTITY of-10141-0468 SYSTEM "of-10141-0468.docbook">
   <!ENTITY of-10141-0471 SYSTEM "of-10141-0471.docbook">
+  <!ENTITY of-10141-0474 SYSTEM "of-10141-0474.docbook">
   <!ENTITY of-10141-0475 SYSTEM "of-10141-0475.docbook">
   <!ENTITY of-10141-0476 SYSTEM "of-10141-0476.docbook">
   <!ENTITY of-10141-0477 SYSTEM "of-10141-0477.docbook">
@@ -106,7 +108,10 @@
   
   <!ENTITY of-10141-0530 SYSTEM "of-10141-0530.docbook">
   <!ENTITY of-10141-0546 SYSTEM "of-10141-0546.docbook">
+  <!ENTITY of-10141-0556 SYSTEM "of-10141-0556.docbook">
+  <!ENTITY of-10141-0562 SYSTEM "of-10141-0562.docbook">
   <!ENTITY of-10141-0564 SYSTEM "of-10141-0564.docbook">
+  <!ENTITY of-10141-0571 SYSTEM "of-10141-0571.docbook">
   <!ENTITY of-10141-0582 SYSTEM "of-10141-0582.docbook">
 
   <!ENTITY of-10141-0600 SYSTEM "of-10141-0600.docbook">
@@ -123,6 +128,7 @@
   <!ENTITY nvf-2116-0383 SYSTEM "nvf-2116-0383.docbook">
   <!ENTITY nvf-2116-0475 SYSTEM "nvf-2116-0475.docbook">
   <!ENTITY nvf-2116-0498 SYSTEM "nvf-2116-0498.docbook">
+  <!ENTITY nvf-2116-0713 SYSTEM "nvf-2116-0713.docbook">
   
   <!ENTITY of-12430-0007 SYSTEM "of-12430-0007.docbook">
   <!ENTITY of-12430-0014 SYSTEM "of-12430-0014.docbook">
@@ -131,12 +137,16 @@
   <!ENTITY of-12430-0038 SYSTEM "of-12430-0038.docbook">
   <!ENTITY of-12430-0043 SYSTEM "of-12430-0043.docbook">
   <!ENTITY of-12430-0059 SYSTEM "of-12430-0059.docbook">
+  <!ENTITY of-12430-0075 SYSTEM "of-12430-0075.docbook">
 
   <!ENTITY of-12497-0541 SYSTEM "of-12497-0541.docbook">
   <!ENTITY of-12497-0589 SYSTEM "of-12497-0589.docbook">
+  <!ENTITY of-12497-0590 SYSTEM "of-12497-0590.docbook">
+  <!ENTITY of-12497-0591 SYSTEM "of-12497-0591.docbook">
 
   <!ENTITY of-15845-0001 SYSTEM "of-15845-0001.docbook">
   <!ENTITY of-15845-0004 SYSTEM "of-15845-0004.docbook">
+  <!ENTITY of-15845-0018 SYSTEM "of-15845-0018.docbook">
 ]>
 
 <book id="kohts-works" lang="ru">
@@ -216,6 +226,7 @@
 
 <chapter id="of-10141-0065">&of-10141-0065;</chapter>
 <chapter id="of-10141-0530">&of-10141-0530;</chapter>
+<chapter id="of-10141-0066">&of-10141-0066;</chapter>
 
 <chapter id="of-12430-0059">&of-12430-0059;</chapter>
 
@@ -228,6 +239,7 @@
 <chapter id="of-10141-0460">&of-10141-0460;</chapter>
 
 <chapter id="of-10141-0112">&of-10141-0112;</chapter>
+<chapter id="of-10141-0571">&of-10141-0571;</chapter>
 
 <chapter id="of-12430-0043">&of-12430-0043;</chapter>
 <chapter id="of-10141-0076">&of-10141-0076;</chapter>
@@ -264,6 +276,7 @@
 <chapter id="of-10141-0096">&of-10141-0096;</chapter>
 <chapter id="of-10141-0097">&of-10141-0097;</chapter>
 <chapter id="of-10141-98_200">&of-10141-98_200;</chapter>
+<chapter id="of-15845-0018">&of-15845-0018;</chapter>
 <chapter id="of-10141-0023">&of-10141-0023;</chapter>
 <chapter id="of-10141-0100">&of-10141-0100;</chapter>
 <chapter id="of-10141-0107">&of-10141-0107;</chapter>
@@ -283,6 +296,10 @@
 <chapter id="of-10141-0105">&of-10141-0105;</chapter>
 <chapter id="of-10141-0111">&of-10141-0111;</chapter>
 <chapter id="of-12497-0589">&of-12497-0589;</chapter>
+<chapter id="of-12497-0590">&of-12497-0590;</chapter>
+<chapter id="of-12497-0591">&of-12497-0591;</chapter>
+<chapter id="of-10141-0556">&of-10141-0556;</chapter>
+<chapter id="nvf-2116-0713">&nvf-2116-0713;</chapter>
 
 </part>
 
@@ -311,9 +328,11 @@
 <chapter id="of-15845-0004">&of-15845-0004;</chapter>
 <chapter id="of-10141-193-478">&of-10141-193-478;</chapter>
 <chapter id="of-12430-0029">&of-12430-0029;</chapter>
+<chapter id="of-10141-0562">&of-10141-0562;</chapter>
 
 <chapter id="of-10141-0468">&of-10141-0468;</chapter>
 <chapter id="of-10141-0479">&of-10141-0479;</chapter>
+<chapter id="of-10141-0474">&of-10141-0474;</chapter>
 
 <chapter id="of-10141-0630">&of-10141-0630;</chapter>
 <chapter id="of-10141-0631">&of-10141-0631;</chapter>
@@ -332,9 +351,12 @@
 
 </part>
 
-
 <part id="p8"><title>Научная обработка фондовых коллекций Дарвиновского Музея</title>
 <chapter id="nvf-2116-0498">&nvf-2116-0498;</chapter>
+</part>
+
+<part id="p9"><title>Переписка</title>
+<chapter id="of-12430-0075">&of-12430-0075;</chapter>
 </part>
 
 </book>
