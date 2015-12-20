@@ -2185,11 +2185,15 @@ sub read_dspace_xml_schema {
 
     Carp::confess("Unknown schema layout in [$o->{'file_name'}]")
         unless
-            $item_schema_xml->{'schema'} &&
-            $item_schema_xml->{'schema'} eq $o->{'schema_name'} &&
+#            $item_schema_xml->{'schema'} &&
+#            $item_schema_xml->{'schema'} eq $o->{'schema_name'} &&
             $item_schema_xml->{'dcvalue'} &&
             ref($item_schema_xml->{'dcvalue'}) eq 'ARRAY';
         
+    if (!defined($item_schema_xml->{'schema'})) {
+        $item_schema_xml->{'schema'} = $o->{'schema_name'};
+    }
+
     return $item_schema_xml;
 }
 
@@ -2197,7 +2201,7 @@ sub read_dspace_collection {
     my ($dir) = @_;
 
     my $dspace_exported_colletion = read_dir($dir);
-    my $invalid_directories = [grep {$_ !~ /^\d+$/ || ! -d $dir . "/" . $_} @{$dspace_exported_colletion}];
+    my $invalid_directories = [grep {$_ !~ /^(item_)?\d+$/ || ! -d $dir . "/" . $_} @{$dspace_exported_colletion}];
     Carp::confess("--dspace-exported-collection should point to the directory containing DSpace collection in Simple Archive Format")
         if scalar(@{$dspace_exported_colletion}) == 0;
     Carp::confess("Unexpected items in DSpace export directory [$dir]: " . join(",", @{$invalid_directories}))
@@ -2205,7 +2209,7 @@ sub read_dspace_collection {
 
     my $dspace_items = {};
 
-    DSPACE_ITEM: foreach my $seq (sort {$a <=> $b} @{$dspace_exported_colletion}) {
+    DSPACE_ITEM: foreach my $seq (sort {$a cmp $b} @{$dspace_exported_colletion}) {
         my $item_path = $o->{'dspace-exported-collection'} . "/" . $seq;
         my $item_files = read_dir($item_path, {'output-format' => 'hashref'});
         
@@ -2249,7 +2253,11 @@ sub read_dspace_collection {
         next unless $item_struct;
 
         $item_struct->{'contents'} = read_file_scalar($item_path . "/contents");
-        $item_struct->{'handle'} = trim(read_file_scalar($item_path . "/handle"), " \n");
+        
+        # SAFBuilder doesn't produce /handle
+        if (-e $item_path . "/handle") {
+            $item_struct->{'handle'} = trim(read_file_scalar($item_path . "/handle"), " \n");
+        }
     }
 
     return $dspace_items;
@@ -2628,7 +2636,8 @@ if ($o->{'bash-completion'}) {
             
             if ($updated_item) {
                 $updated_items = $updated_items + 1;
-                do_log("added [" . $updated_item . "] bitstreams to the item [$st_gr_id/$st_it_id], DSpace Archive [$dspace_collection_item->{'item-path'} $dspace_collection_item->{'handle'}]");
+                do_log("added [" . $updated_item . "] bitstreams to the item [$st_gr_id/$st_it_id], " .
+                    "DSpace Archive [$dspace_collection_item->{'item-path'} " . (safe_string($dspace_collection_item->{'handle'})) . "]");
 
                 if ($o->{'limit'} && $updated_items == $o->{'limit'}) {
                     last DSPACE_COLLECTION;
