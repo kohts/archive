@@ -189,6 +189,7 @@ $Data::Dumper::Useqq = 1;
 use Carp;
 use File::Basename;
 use File::Path;
+use FindBin;
 use Getopt::Long;
 use IPC::Cmd;
 use Log::Log4perl;
@@ -808,7 +809,28 @@ sub sync_dspace_item_from_external_storage {
     return $updated_item;
 }
 
-sub check_config {
+sub prepare_config {
+    my $current_user = [getpwuid($>)];
+    
+    my $cfg_path = $current_user->[7] . "/.tsv_to_dspace.pl";
+    if (-e $cfg_path) {
+        my $return = do "$cfg_path";
+
+        if (!$return) {
+            Carp::confess("Unable to parse [$cfg_path]: $@") if $@;
+            Carp::confess("Unable to do [$cfg_path]: $!") unless defined($return);
+#            Carp::confess("Unable to run [$IOW::Test::user_config_path]") unless $return;
+        }
+        Carp::confess("Expected hashref output from [$cfg_path], got: " . Data::Dumper::Dumper($return))
+            unless ref($return) eq 'HASH';
+
+        foreach my $k (keys %{$return}) {
+            if (defined($data_desc_struct->{$k})) {
+                $data_desc_struct->{$k} = $return->{$k};
+            }
+        }
+    }
+
     $data_desc_struct->{'storage_groups_by_fund_number'} = {};
     $data_desc_struct->{'storage_groups_by_name'} = {};
 
@@ -829,8 +851,16 @@ sub check_config {
         }
     }
 
+    # try to switch docbook_source_base to the place where the script runs from
+    # (hoping that it might be running from the cloned git repo)
+    #
+    if (! -d $data_desc_struct->{'docbook_source_base'}) {
+        $data_desc_struct->{'docbook_source_base'} = $FindBin::Bin . "/../books/afk-works";
+    }
+    
     my $r = IPC::Cmd::run_forked("cd " . $data_desc_struct->{'docbook_source_base'} . " && git rev-parse --git-dir");
-    Carp::confess("Configuration error: docbook_source_base must point to valid git repo, but: " . $r->{'merged'})
+    Carp::confess("Configuration error: docbook_source_base must point to valid git repo (" .
+        "try running 'git clone https://github.com/kohts/archive.git'); error: " . $r->{'merged'})
         unless $r->{'exit_code'} == 0;
 
     $r = IPC::Cmd::run_forked("cd " . trim($r->{'stdout'}, " \n") . " && cd .. && pwd");
@@ -1200,6 +1230,18 @@ sub read_scanned_docs {
             },
         };
 
+    if ($opts->{'must_exist'}) {
+        if (!defined($data_desc_struct->{'external_archive_storage_base'})) {
+            Carp::confess("Configuration error: external_archive_storage_base must be configured" .
+                " (consider creating ~/.tsv_to_dspace.pl; sample in trunk/tools/.tsv_to_dspace.pl)");
+        }
+        if (! -d $data_desc_struct->{'external_archive_storage_base'}) {
+            Carp::confess("Configuration error: external_archive_storage_base points to non-existent directory [" .
+                $data_desc_struct->{'external_archive_storage_base'} . "]" .
+                " (consider redefining in ~/.tsv_to_dspace.pl; sample in trunk/tools/.tsv_to_dspace.pl)");
+        }
+    }
+
     return $runtime->{'read_scanned_docs'}
         unless $data_desc_struct->{'external_archive_storage_base'};
 
@@ -1261,6 +1303,9 @@ sub read_scanned_docs {
 }
 
 sub read_ocr_html_docs {
+    my ($opts) = @_;
+    $opts = {} unless $opts;
+
     # cache
     return $runtime->{'read_ocr_html_docs'} if defined($runtime->{'read_ocr_html_docs'});
 
@@ -1270,6 +1315,18 @@ sub read_ocr_html_docs {
             'hash' => {},
             },
         };
+
+    if ($opts->{'must_exist'}) {
+        if (!defined($data_desc_struct->{'docbook_dspace_html_out_base'})) {
+            Carp::confess("Configuration error: docbook_dspace_html_out_base must be configured" .
+                " (consider creating ~/.tsv_to_dspace.pl; sample in trunk/tools/.tsv_to_dspace.pl)");
+        }
+        if (! -d $data_desc_struct->{'docbook_dspace_html_out_base'}) {
+            Carp::confess("Configuration error: docbook_dspace_html_out_base points to non-existent directory [" .
+                $data_desc_struct->{'docbook_dspace_html_out_base'} . "]" .
+                " (consider redefining in ~/.tsv_to_dspace.pl; sample in trunk/tools/.tsv_to_dspace.pl)");
+        }
+    }
 
     return $runtime->{'read_ocr_html_docs'}
         unless $data_desc_struct->{'docbook_dspace_html_out_base'};
@@ -1315,6 +1372,9 @@ sub read_ocr_html_docs {
 # is not used by that time.
 #
 sub read_docbook_sources {
+    my ($opts) = @_;
+    $opts = {} unless $opts;
+
     # cache
     return $runtime->{'read_docbook_sources'} if defined($runtime->{'read_docbook_sources'});
 
@@ -1324,6 +1384,18 @@ sub read_docbook_sources {
             'hash' => {},
             },
         };
+
+    if ($opts->{'must_exist'}) {
+        if (!defined($data_desc_struct->{'docbook_source_base'})) {
+            Carp::confess("Configuration error: docbook_source_base must be configured" .
+                " (consider creating ~/.tsv_to_dspace.pl; sample in trunk/tools/.tsv_to_dspace.pl)");
+        }
+        if (! -d $data_desc_struct->{'docbook_source_base'}) {
+            Carp::confess("Configuration error: docbook_source_base points to non-existent directory [" .
+                $data_desc_struct->{'docbook_source_base'} . "]" .
+                " (consider redefining in ~/.tsv_to_dspace.pl; sample in trunk/tools/.tsv_to_dspace.pl)");
+        }
+    }
 
     return $runtime->{'read_ocr_html_docs'}
         unless $data_desc_struct->{'docbook_source_base'};
@@ -1633,7 +1705,10 @@ sub tsv_read_and_validate {
                     next unless defined($resource_name) && $resource_name ne "";
                 
                     # check that document exists on the disk
-                    if (scalar(@{$resource_struct->{'array'}}) && !$resource_struct->{'hash'}->{$resource_name}) {
+                    if (!scalar(@{$resource_struct->{'array'}}) ||
+                        scalar(@{$resource_struct->{'array'}}) &&
+                        !defined($resource_struct->{'hash'}->{$resource_name})) {
+                        
                         next;
                     }
 
@@ -2265,7 +2340,7 @@ sub read_dspace_collection {
 
 sub init_logging {
     my $log_file = "/var/log/dspace-sdm.log";
-    Carp::confess("Unable to write to log file [$log_file], check permissions")
+    Carp::confess("Unable to write to log file [$log_file] (try: touch $log_file, chmod a+w $log_file)")
         unless -w $log_file;
 
     Log::Log4perl->init_once(\(qq {
@@ -2367,7 +2442,7 @@ sub prepare_docbook_makefile {
 
 
 init_logging();
-check_config();
+prepare_config();
 
 if ($o->{'bash-completion'}) {
     print join(" ", map {$_ =~ s/=.+$//; "--" . $_} grep {$_ ne 'bash-completion'} @{$o_names}) . "\n";
@@ -2594,6 +2669,10 @@ if ($o->{'bash-completion'}) {
             Carp::confess("--limit N requires N to be positive integer");
         }
     }
+
+    my $scanned_dirs = read_scanned_docs({'must_exist' => 1});
+    my $html_files = read_ocr_html_docs({'must_exist' => 1});
+    my $r2_struct = read_docbook_sources({'must_exist' => 1});
 
     my $in_doc_struct = tsv_read_and_validate($o->{'external-tsv'}, $o);
     my $dspace_collection = read_dspace_collection($o->{'dspace-exported-collection'});
