@@ -812,8 +812,10 @@ sub sync_dspace_item_from_external_storage {
 sub prepare_config {
     my $current_user = [getpwuid($>)];
     
-    my $cfg_path = $current_user->[7] . "/.tsv_to_dspace.pl";
-    if (-e $cfg_path) {
+    POSSIBLE_CFG_PATH: foreach my $cfg_path ($current_user->[7] . "/.tsv_to_dspace.pl", "/etc/tsv_to_dspace.pl") {
+        next POSSIBLE_CFG_PATH
+            unless -e $cfg_path;
+
         my $return = do "$cfg_path";
 
         if (!$return) {
@@ -1238,7 +1240,7 @@ sub read_scanned_docs {
         if (! -d $data_desc_struct->{'external_archive_storage_base'}) {
             Carp::confess("Configuration error: external_archive_storage_base points to non-existent directory [" .
                 $data_desc_struct->{'external_archive_storage_base'} . "]" .
-                " (consider redefining in ~/.tsv_to_dspace.pl; sample in trunk/tools/.tsv_to_dspace.pl)");
+                " (consider redefining in ~/.tsv_to_dspace.pl or /etc/tsv_to_dspace.pl; sample in trunk/tools/.tsv_to_dspace.pl)");
         }
     }
 
@@ -1324,7 +1326,7 @@ sub read_ocr_html_docs {
         if (! -d $data_desc_struct->{'docbook_dspace_html_out_base'}) {
             Carp::confess("Configuration error: docbook_dspace_html_out_base points to non-existent directory [" .
                 $data_desc_struct->{'docbook_dspace_html_out_base'} . "]" .
-                " (consider redefining in ~/.tsv_to_dspace.pl; sample in trunk/tools/.tsv_to_dspace.pl)");
+                " (consider redefining in ~/.tsv_to_dspace.pl or /etc/tsv_to_dspace.pl; sample in trunk/tools/.tsv_to_dspace.pl)");
         }
     }
 
@@ -1393,7 +1395,7 @@ sub read_docbook_sources {
         if (! -d $data_desc_struct->{'docbook_source_base'}) {
             Carp::confess("Configuration error: docbook_source_base points to non-existent directory [" .
                 $data_desc_struct->{'docbook_source_base'} . "]" .
-                " (consider redefining in ~/.tsv_to_dspace.pl; sample in trunk/tools/.tsv_to_dspace.pl)");
+                " (consider redefining in ~/.tsv_to_dspace.pl or /etc/tsv_to_dspace.pl; sample in trunk/tools/.tsv_to_dspace.pl)");
         }
     }
 
