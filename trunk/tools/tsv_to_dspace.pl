@@ -781,29 +781,36 @@ sub sync_dspace_item_from_external_storage {
             'schema_name' => 'sdm-archive',
             });
 
+        my $has_date_digitized;
         my $item_struct;
         DCVALUES: foreach my $dcvalue (@{$metadata_sdm_archive_workflow->{'dcvalue'}}) {
             if ($dcvalue->{'element'} eq 'date' &&
                 $dcvalue->{'qualifier'} eq 'digitized') {
                 
+                $has_date_digitized = 1;
+
                 if (safe_string($orig_contents) ne '') {
                     Carp::confess("Can't add bitstreams to the item which already has been digitized: [$dspace_collection_item->{'item-path'}]");
                 }
                 else {
-                    # date.digitized might be set for the item by --initial-import,
+                    # date.digitized might have been set for the item by --initial-import
+                    # (which sets this date to the date when the item was originally scanned),
                     # but the item might not have been updated with bitstreams
-                    #
-                    # not a perfect solution, let's think of a better one
                 }
             }
         }
-        push @{$metadata_sdm_archive_workflow->{'dcvalue'}}, {
-            'element' => 'date',
-            'qualifier' => 'digitized',
-            'content' => date_from_unixtime(time()),
-            };
-        write_file_scalar($dspace_collection_item->{'item-path'} . "/metadata_sdm-archive.xml",
-            XML::Simple::XMLout($metadata_sdm_archive_workflow));
+        
+        # only append date.digitized to the items which do not have it
+        if (!$has_date_digitized) {
+            push @{$metadata_sdm_archive_workflow->{'dcvalue'}}, {
+                'element' => 'date',
+                'qualifier' => 'digitized',
+                'content' => date_from_unixtime(time()),
+                };
+        
+            write_file_scalar($dspace_collection_item->{'item-path'} . "/metadata_sdm-archive.xml",
+                XML::Simple::XMLout($metadata_sdm_archive_workflow));
+        }
     }
 
     return $updated_item;
