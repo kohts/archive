@@ -248,6 +248,8 @@ my $o_names = [
     'preprocess-book',
     'book-name=s',
     'filename-filter=s',
+    'validate-pagination',
+    'autoincrement-duplicate-page-number',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -574,6 +576,23 @@ sub date_from_unixtime {
     my $time = DateTime->from_epoch("epoch" => $unixtime, "time_zone" => $data_desc_struct->{'external_archive_storage_timezone'});
     my $day = join("-", $time->year, sprintf("%02d", $time->month), sprintf("%02d", $time->day));
     return $day;
+}
+
+# read file, each line is an array element
+#
+sub read_file_array {
+  my ($filename, $opts) = @_;
+  $opts = {} unless $opts;
+
+  my $arr = [];
+  my $t = undef;
+  
+  if (-e $filename || $opts->{'mandatory'}) {
+    $t = read_file_scalar($filename);
+    @{$arr} = split(/\n/so, $t);
+  }
+
+  return $arr;
 }
 
 sub read_file_scalar {
@@ -2444,6 +2463,47 @@ elsif ($o->{'preprocess-book'}) {
     }
 
     $wait_free_resource->(0);
+}
+elsif ($o->{'validate-pagination'}) {
+    Carp::confess("Need --docbook-filename")
+        unless $o->{'docbook-filename'};
+    
+    my $full_docbook_path = $data_desc_struct->{'docbook_source_base'} . "/docbook/" . $o->{'docbook-filename'};
+    Carp::confess("--docbook-filename points to nonexistent file (resolved to $full_docbook_path)")
+        unless -e $full_docbook_path;
+
+    my $pages = {};
+
+    my $f = read_file_array($full_docbook_path);
+
+    my $previous_page_number;
+     
+    my $i = 0;
+    foreach my $l (@{$f}) {
+        $i++;
+
+        if ($l =~ /original_page" url="(.+?)"/) {
+            my $page_number = $1;
+
+            if ($pages->{$page_number}) {
+                if ($o->{'autoincrement-duplicate-page-number'}) {
+                    $page_number++;
+                    $l =~ s/url=".+?"/url="$page_number"/;
+                }
+                else {
+                    Carp::confess("Page [$page_number] defined twice (line $pages->{$page_number} and line $i)");
+                }
+            }
+            if ($previous_page_number && $page_number < $previous_page_number) {
+                Carp::confess("Page [$page_number] goes after [$previous_page_number]");
+            }
+
+            $pages->{$page_number} = $i;
+            $previous_page_number = $page_number;
+        }
+
+        print $l . "\n";
+    }
 }
 else {
     Carp::confess("Need command line parameter, one of: " . join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n");
