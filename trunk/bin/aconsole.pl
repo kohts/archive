@@ -244,7 +244,10 @@ my $o_names = [
     'tsv-output',
     'titles',
     'validate-tsv',
-    'create-kohtsae-community-and-collection'
+    'create-kohtsae-community-and-collection',
+    'preprocess-book',
+    'book-name=s',
+    'filename-filter=s',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -601,41 +604,6 @@ sub write_file_scalar {
     close($fh);
 }
 
-# subset of Yandex::Tools::read_dir
-#
-# by default returns array of short filenames
-# in the given directory (without recursing)
-#
-sub read_dir {
-    my ($dirname, $o) = @_;
-
-    Carp::confess("Programmer error: dirname parameter must point to existing directory, got [" . safe_string($dirname) . "]")
-        unless $dirname && -d $dirname;
-
-    $o = {} unless $o;
-    $o->{'output-format'} = 'arrayref' unless $o->{'output-format'};
-
-    my $dir_handle;
-    if (!opendir($dir_handle, $dirname)) {
-        Carp::confess("Unable to open directory [" . $dirname . "]: $!");
-    }
-    
-    my $array = [grep {$_ ne "."  && $_ ne ".."} readdir($dir_handle)];
-    close($dir_handle);
-    
-    if ($o->{'output-format'} eq 'arrayref') {
-        return $array;
-    } elsif ($o->{'output-format'} eq 'hashref') {
-        my $h = {};
-        foreach my $i (@{$array}) {
-            $h->{$i} = 1;
-        }
-        return $h;
-    } else {
-        Carp::confess("Unsupported output-format [$o->{'output-format'}]");
-    }
-}
-
 sub read_scanned_docs {
     my ($opts) = @_;
     $opts = {} unless $opts;
@@ -690,7 +658,8 @@ sub read_scanned_docs {
 
 
     print "reading [$data_desc_struct->{'external_archive_storage_base'}]\n" if $opts->{'debug'};
-    $SDM::Archive::runtime->{'read_scanned_docs'}->{'scanned_docs'}->{'array'} = read_dir($data_desc_struct->{'external_archive_storage_base'});
+    $SDM::Archive::runtime->{'read_scanned_docs'}->{'scanned_docs'}->{'array'} =
+        Yandex::Tools::read_dir($data_desc_struct->{'external_archive_storage_base'});
     
     my $cleaned_array = [];
 
@@ -709,7 +678,7 @@ sub read_scanned_docs {
         $scan_dir = sub {
             my ($dir) = @_;
 
-            my $item_files = read_dir($dir);
+            my $item_files = Yandex::Tools::read_dir($dir);
 
             ITEM_ELEMENT: foreach my $f (@{$item_files}) {
                 if (-d $dir . "/" . $f) {
@@ -774,7 +743,8 @@ sub read_ocr_html_docs {
     return $SDM::Archive::runtime->{'read_ocr_html_docs'}
         unless $data_desc_struct->{'docbook_dspace_html_out_base'};
 
-    $SDM::Archive::runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'files_array'} = read_dir($data_desc_struct->{'docbook_dspace_html_out_base'});
+    $SDM::Archive::runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'files_array'} =
+        Yandex::Tools::read_dir($data_desc_struct->{'docbook_dspace_html_out_base'});
     $SDM::Archive::runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'array'} = [];
 
     foreach my $el (@{$SDM::Archive::runtime->{'read_ocr_html_docs'}->{'ocr_html_files'}->{'files_array'}}) {
@@ -844,7 +814,8 @@ sub read_docbook_sources {
     return $SDM::Archive::runtime->{'read_ocr_html_docs'}
         unless $data_desc_struct->{'docbook_source_base'};
 
-    $SDM::Archive::runtime->{'read_docbook_sources'}->{'docbook_files'}->{'array'} = read_dir($data_desc_struct->{'docbook_source_base'} . "/docbook");
+    $SDM::Archive::runtime->{'read_docbook_sources'}->{'docbook_files'}->{'array'} =
+        Yandex::Tools::read_dir($data_desc_struct->{'docbook_source_base'} . "/docbook");
 
     foreach my $el (@{$SDM::Archive::runtime->{'read_docbook_sources'}->{'docbook_files'}->{'array'}}) {
         my $item = $data_desc_struct->{'docbook_source_base'} . "/docbook/" . $el;
@@ -1719,7 +1690,7 @@ sub read_dspace_xml_schema {
 sub read_dspace_collection {
     my ($dir) = @_;
 
-    my $dspace_exported_colletion = read_dir($dir);
+    my $dspace_exported_colletion = Yandex::Tools::read_dir($dir);
     my $invalid_directories = [grep {$_ !~ /^(item_)?\d+$/ || ! -d $dir . "/" . $_} @{$dspace_exported_colletion}];
     Carp::confess("--dspace-exported-collection should point to the directory containing DSpace collection in Simple Archive Format")
         if scalar(@{$dspace_exported_colletion}) == 0;
@@ -1730,7 +1701,7 @@ sub read_dspace_collection {
 
     DSPACE_ITEM: foreach my $seq (sort {$a cmp $b} @{$dspace_exported_colletion}) {
         my $item_path = $o->{'dspace-exported-collection'} . "/" . $seq;
-        my $item_files = read_dir($item_path, {'output-format' => 'hashref'});
+        my $item_files = Yandex::Tools::read_dir($item_path, {'output-format' => 'hashref'});
         
         foreach my $f (qw/dublin_core.xml contents/) {
             Carp::confess("Invalid DSpace Simple Archive Format layout in [$item_path], $f doesn't exist")
@@ -2151,7 +2122,7 @@ elsif ($o->{'build-docbook-for-dspace'}) {
         unless $o->{'docbook-filename'};
     
     my $full_docbook_path = $data_desc_struct->{'docbook_source_base'} . "/docbook/" . $o->{'docbook-filename'};
-    Carp::confess("--docbook-filename point to nonexistent file (resolved to $full_docbook_path)")
+    Carp::confess("--docbook-filename points to nonexistent file (resolved to $full_docbook_path)")
         unless -e $full_docbook_path;
 
     my $docbook_id = $o->{'docbook-filename'};
@@ -2389,6 +2360,90 @@ elsif ($o->{'create-kohtsae-community-and-collection'}) {
     }
 
     print "target collection:\n" . Data::Dumper::Dumper($target_collection);
+}
+elsif ($o->{'preprocess-book'}) {
+    Carp::confess("Need --book-name")
+        unless defined($o->{'book-name'});
+
+    my $full_book_path = $ENV{'ARCHIVE_ROOT'} . "/books/" . $o->{'book-name'};
+    Carp::confess("--book-name points to nonexistent directory (resolved to $full_book_path)")
+        unless -e $full_book_path;
+
+    my $filename_filter;
+    if (defined($o->{'filename-filter'})) {
+        $filename_filter = $o->{'filename-filter'};
+    }
+
+    my $steps = {
+        '1' => { 'filename_stdout_tool' => 'iod/fix_blockqoute_in_para.pl', },
+        '2' => { 'filename_stdout_tool' => 'remove_empty_para.pl', },
+        '3' => { 'filename_stdout_tool' => 'replace-dash-with-mdash.pl', },
+        '4' => { 'filename_stdout_tool' => 'replace-tridot-with-three-dots.pl', },
+        '5' => { 'filename_stdout_tool' => 'fix-ulink-tag.pl', },
+        '6' => { 'filename_stdout_tool' => 'trim_trailing_space.pl', },
+        };
+
+    my $children = {};
+
+    my $wait_free_resource = sub {
+        my ($max_children) = @_;
+        $max_children //= 3;
+        while (scalar(keys %{$children}) > $max_children) {
+            foreach my $cpid (keys %{$children}) {
+                if (waitpid($cpid, POSIX::WNOHANG) == -1) {
+                    delete ($children->{$cpid});
+                }
+            }
+            Time::HiRes::usleep(100_000);
+        }
+    };
+
+    foreach my $stepnumber (sort keys %{$steps}) {
+        my $step = $steps->{$stepnumber};  
+
+        next unless $step->{'filename_stdout_tool'};
+        
+        my $tool_path = $ENV{'ARCHIVE_ROOT'} . "/tools/filters/" . $step->{'filename_stdout_tool'};
+        if (! -x $tool_path) {
+            Carp::confess("Invalid processing tool: $tool_path");
+        }
+
+        my $docbook_files = Yandex::Tools::read_dir($full_book_path . "/docbook", {'output_type' => 'hashref'});
+
+        foreach my $docbook_file (keys %{$docbook_files}) {
+            if ($filename_filter && $docbook_file !~ /$filename_filter/) {
+                next;
+            }
+
+            $wait_free_resource->();
+
+            my $child_pid = fork();
+            if ($child_pid) {
+                $children->{$child_pid} = 1;
+            } elsif (defined($child_pid)) {
+
+                my $v = $docbook_files->{$docbook_file};
+                
+                my $before_processing = Yandex::Tools::read_file_scalar($v->{'absolute_name'});
+                my $processed = IPC::Cmd::run_forked("$tool_path \"$v->{'absolute_name'}\"");
+                if ($processed->{'exit_code'} ne 0 || $processed->{'stderr'} ne '') {
+                    Carp::confess("Error processing file [$v->{'absolute_name'}]: " . $processed->{'err_msg'});
+                }
+
+                if ($before_processing ne $processed->{'stdout'}) {
+                    if (!Yandex::Tools::write_file_scalar($v->{'absolute_name'}, $processed->{'stdout'})) {
+                        Carp::confess("Unable to write step output to [$v->{'absolute_name'}]");
+                    }
+                    print "updated: $docbook_file\n";
+                }
+                exit 0;
+            } else {
+                Carp::confess("unable to fork: $!");
+            }
+        }
+    }
+
+    $wait_free_resource->(0);
 }
 else {
     Carp::confess("Need command line parameter, one of: " . join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n");
