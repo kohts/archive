@@ -250,6 +250,7 @@ my $o_names = [
     'filename-filter=s',
     'validate-pagination',
     'autoincrement-duplicate-page-number',
+    'ignore-duplicate-fund-id',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -1530,10 +1531,12 @@ sub tsv_read_and_validate {
                 next;
             }
 
-            Carp::confess("Scanned directory [$dir] matches several storage items: [" .
-                join(",", map {$_->{'storage-group-id'} . "/" . $_->{'storage-item-id'}}
-                    @{$doc_struct->{'storage_items_by_scanned_dir'}->{$dir}}) .
-                "]");
+            if (!defined($o->{'ignore-duplicate-fund-id'})) {
+                Carp::confess("Scanned directory [$dir] matches several storage items: [" .
+                    join(",", map {$_->{'storage-group-id'} . "/" . $_->{'storage-item-id'}}
+                        @{$doc_struct->{'storage_items_by_scanned_dir'}->{$dir}}) .
+                    "]");
+            }
         }
     }
 
@@ -1545,7 +1548,7 @@ sub tsv_read_and_validate {
         }
 
         if (!defined($doc_struct->{'storage_items_by_scanned_dir'}->{$sd})) {
-            Carp:confess("Scanned directory [$sd] didn't match any storage item");
+            Carp::confess("Scanned directory [$sd] (external_archive_storage_base in config file) didn't match any storage item");
         }
     }
 
