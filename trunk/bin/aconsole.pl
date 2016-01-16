@@ -1723,7 +1723,7 @@ sub read_dspace_collection {
 
     DSPACE_ITEM: foreach my $seq (sort {$a cmp $b} @{$dspace_exported_colletion}) {
         my $item_path = $o->{'dspace-exported-collection'} . "/" . $seq;
-        my $item_files = Yandex::Tools::read_dir($item_path, {'output-format' => 'hashref'});
+        my $item_files = Yandex::Tools::read_dir($item_path, {'output_type' => 'hashref'});
         
         foreach my $f (qw/dublin_core.xml contents/) {
             Carp::confess("Invalid DSpace Simple Archive Format layout in [$item_path], $f doesn't exist")
