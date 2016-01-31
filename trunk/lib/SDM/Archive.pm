@@ -36,6 +36,8 @@ use Time::HiRes;
 use XML::Simple;
 use Yandex::Tools;
 
+use SDM::Archive::DSpace;
+
 use Exporter 'import';
 our @EXPORT = qw(
   trim
@@ -48,7 +50,9 @@ $| = 1;
 binmode(STDIN, ':encoding(UTF-8)');
 binmode(STDOUT, ':encoding(UTF-8)');
 
-our $runtime = {};
+our $runtime = {
+    'dspace_rest' => {},
+    };
 our $data_desc_struct = {
     
     # These document id(s) are used in different storage items
@@ -662,74 +666,6 @@ sub prepare_config {
         unless $r->{'exit_code'} == 0;
 
     $runtime->{'docbook_source_git_dir'} = trim($r->{'stdout'}, " \n");
-}
-
-
-sub dspace_rest_call {
-    my ($o) = @_;
-
-    $o = {} unless $o;
-
-    Carp::confess("Programmer error: need action or link, verb (get or post), request_type (json or xml)")
-        unless ($o->{'action'} || $o->{'link'}) && $o->{'verb'} && $o->{'request_type'};
-
-    my $ua = LWP::UserAgent->new;
-    $ua->default_header('accept' => "application/" . $o->{'request_type'});
-    $ua->default_header('Content-Type' => "application/" . $o->{'request_type'} . ";charset=utf-8");
-
-    if ($o->{'dspace_token'}) {
-        $ua->default_header('rest-dspace-token' => $o->{'dspace_token'});
-    }
-
-    my $req;
-    my $dspace_server = $data_desc_struct->{'dspace_rest_url'};
-    if ($dspace_server =~ m%(http://[^/]+)%) {
-        $dspace_server = $1;
-    }
-    
-    if ($o->{'verb'} eq 'post') {
-        if ($o->{'action'}) {
-            $req = HTTP::Request->new('POST' => $data_desc_struct->{'dspace_rest_url'} . "/" . $o->{'action'});
-        }
-        else {
-            $req = HTTP::Request->new('POST' => $dspace_server . $o->{'link'});
-        }
-        
-        if ($o->{'request'}) {
-            $req->content(Encode::encode_utf8($o->{'request'}));
-        }
-        else {
-            $req->content();
-        }
-    }
-    else {
-        if ($o->{'action'}) {
-            $req = HTTP::Request->new('GET' => $data_desc_struct->{'dspace_rest_url'} . "/" . $o->{'action'});
-        }
-        else {
-            $req = HTTP::Request->new('GET' => $dspace_server . $o->{'link'});
-        }
-
-        if ($o->{'request'}) {
-            $req->content(Encode::encode_utf8($o->{'request'}));
-        }
-        else {
-            $req->content();
-        }
-    }
-
-    my $r = $ua->request($req);
-
-    if (!$r->is_success || $r->code ne 200) {
-        if ($o->{'ignore_error'}) {
-            Carp::carp("Unable to get data while doing [" . Data::Dumper::Dumper($o) . "] from [$data_desc_struct->{'dspace_rest_url'}]: " . $r->status_line);
-        }
-        else {
-            Carp::confess("Unable to get data while doing [" . Data::Dumper::Dumper($o) . "] from [$data_desc_struct->{'dspace_rest_url'}]: " . $r->status_line);
-        }
-    }
-    
-    return $r->content;
 }
 
 init_logging();

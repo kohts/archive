@@ -245,6 +245,8 @@ my $o_names = [
     'titles',
     'validate-tsv',
     'create-kohtsae-community-and-collection',
+    'rest-test',
+    'rest-add-bitstreams',
     'preprocess-book',
     'book-name=s',
     'filename-filter=s',
@@ -1535,7 +1537,7 @@ sub tsv_read_and_validate {
                 Carp::confess("Scanned directory [$dir] matches several storage items: [" .
                     join(",", map {$_->{'storage-group-id'} . "/" . $_->{'storage-item-id'}}
                         @{$doc_struct->{'storage_items_by_scanned_dir'}->{$dir}}) .
-                    "]");
+                    "]; maybe use --ignore-duplicate-fund-id?");
             }
         }
     }
@@ -2223,166 +2225,6 @@ elsif ($o->{'validate-tsv'}) {
     my $in_doc_struct = tsv_read_and_validate($o->{'external-tsv'}, $o);
     print "$o->{'external-tsv'} seems to be ok\n";
 }
-elsif ($o->{'create-kohtsae-community-and-collection'}) {
-    Carp::confess("Need dspace_rest_url configuration option in /etc/aconsole.pl")    
-        unless defined($data_desc_struct->{'dspace_rest_url'});
-    Carp::confess("Need dspace_upload_user_email configuration option in /etc/aconsole.pl")    
-        unless defined($data_desc_struct->{'dspace_upload_user_email'});
-    Carp::confess("Need dspace_upload_user_pass configuration option in /etc/aconsole.pl")    
-        unless defined($data_desc_struct->{'dspace_upload_user_pass'});
-
-    my $login_token = SDM::Archive::dspace_rest_call({
-        'verb' => 'post',
-        'action' => 'login',
-        'request' => '{"email": "' . $data_desc_struct->{'dspace_upload_user_email'} .
-            '", "password": "' . $data_desc_struct->{'dspace_upload_user_pass'} . '"}',
-        'request_type' => 'json',
-        'dspace_token' => '',
-        });
-    Carp::confess("Unable to login: $!")
-        if !$login_token;
-    
-    #print $login_token . "\n";
-
-    my $communities = SDM::Archive::dspace_rest_call({
-        'verb' => 'get',
-        'action' => 'communities',
-        'request' => '{}',
-        'request_type' => 'json',
-        'dspace_token' => $login_token,
-        });
-
-    my $comm_struct;
-    eval {
-        $comm_struct = JSON::decode_json($communities);
-    };
-    if ($@) {
-        Carp::confess("Error parsing json: " . $@);
-    }
-
-    my $target_community;
-    foreach my $c (@{$comm_struct}) {
-        if ($c->{'name'} eq 'Архив') {
-            $target_community = $c;
-        }
-    }
-
-    if (!$target_community) {
-        my $new_comm = SDM::Archive::dspace_rest_call({
-            'verb' => 'post',
-            'action' => 'communities',
-            'request' => '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<community>
-    <name>Архив</name>
-    <copyrightText>Государственный Дарвиновский Музей</copyrightText>
-    <introductoryText></introductoryText>
-    <shortDescription></shortDescription>
-    <sidebarText></sidebarText>
-</community>
-',
-            'request_type' => 'xml',
-            'dspace_token' => $login_token,
-            });
-
-        $communities = SDM::Archive::dspace_rest_call({
-            'verb' => 'get',
-            'action' => 'communities',
-            'request' => '{}',
-            'request_type' => 'json',
-            'dspace_token' => $login_token,
-            });
-
-        my $comm_struct;
-        eval {
-            $comm_struct = JSON::decode_json($communities);
-        };
-        if ($@) {
-            Carp::confess("Error parsing json: " . $@);
-        }
-
-        foreach my $c (@{$comm_struct}) {
-            if ($c->{'name'} eq 'Архив') {
-                $target_community = $c;
-            }
-        }
-        
-        if (!$target_community) {
-            Carp::confess("Community [Архив] doesn't exist and unable to create");
-        }
-    }
-
-#    print Data::Dumper::Dumper($target_community);
-    
-    my $collections = SDM::Archive::dspace_rest_call({
-        'verb' => 'get',
-        'link' => $target_community->{'link'} . "/collections",
-        'request' => '{}',
-        'request_type' => 'json',
-        'dspace_token' => $login_token,
-        });
-    my $coll_struct;
-    eval {
-        $coll_struct = JSON::decode_json($collections);
-    };
-    if ($@) {
-        Carp::confess("Error parsing json: " . $@);
-    }
-
-#    print Data::Dumper::Dumper($coll_struct);
-    my $target_collection;
-    foreach my $c (@{$coll_struct}) {
-        if ($c->{'name'} eq 'Архив А.Ф. Котс') {
-            $target_collection = $c;
-        }
-    }
-
-    if (!$target_collection) {
-        my $new_comm = SDM::Archive::dspace_rest_call({
-            'verb' => 'post',
-            'link' => $target_community->{'link'} . "/collections",
-            'request' => '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<collection>
-  <name>Архив А.Ф. Котс</name>
-  <type></type>
-  <copyrightText></copyrightText>
-  <introductoryText></introductoryText>
-  <shortDescription></shortDescription>
-  <sidebarText></sidebarText>
-</collection>
-
-',
-            'request_type' => 'xml',
-            'dspace_token' => $login_token,
-            });
-
-        $collections = SDM::Archive::dspace_rest_call({
-            'verb' => 'get',
-            'link' => $target_community->{'link'} . "/collections",
-            'request' => '{}',
-            'request_type' => 'json',
-            'dspace_token' => $login_token,
-            });
-        my $coll_struct;
-        eval {
-            $coll_struct = JSON::decode_json($collections);
-        };
-        if ($@) {
-            Carp::confess("Error parsing json: " . $@);
-        }
-
-        foreach my $c (@{$coll_struct}) {
-            if ($c->{'name'} eq 'Архив А.Ф. Котс') {
-                $target_collection = $c;
-            }
-        }
-
-        if (!$target_collection) {
-            Carp::confess("Collection [Архив А.Ф. Котс] doesn't exist and unable to create");
-        }
-    }
-
-    print "target collection:\n" . Data::Dumper::Dumper($target_collection);
-}
 elsif ($o->{'preprocess-book'}) {
     Carp::confess("Need --book-name")
         unless defined($o->{'book-name'});
@@ -2507,6 +2349,104 @@ elsif ($o->{'validate-pagination'}) {
 
         print $l . "\n";
     }
+}
+elsif ($o->{'create-kohtsae-community-and-collection'}) {
+    my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+    if (!$target_community) {
+        my $new_comm = SDM::Archive::DSpace::rest_call({
+            'verb' => 'post',
+            'action' => 'communities',
+            'request' => '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<community>
+    <name>Архив</name>
+    <copyrightText>Государственный Дарвиновский Музей</copyrightText>
+    <introductoryText></introductoryText>
+    <shortDescription></shortDescription>
+    <sidebarText></sidebarText>
+</community>
+',
+            'request_type' => 'xml',
+            });
+
+        $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+        if (!$target_community) {
+            Carp::confess("Community [Архив] doesn't exist and unable to create");
+        }
+    }
+
+    my $target_collection = SDM::Archive::DSpace::get_collection({
+        'community_obj' => $target_community,
+        'collection_name' => 'Архив А.Ф. Котс',
+        });
+    if (!$target_collection) {
+        my $new_comm = SDM::Archive::DSpace::rest_call({
+            'verb' => 'post',
+            'link' => $target_community->{'link'} . "/collections",
+            'request' => '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<collection>
+  <name>Архив А.Ф. Котс</name>
+  <type></type>
+  <copyrightText></copyrightText>
+  <introductoryText></introductoryText>
+  <shortDescription></shortDescription>
+  <sidebarText></sidebarText>
+</collection>
+
+',
+            'request_type' => 'xml',
+            });
+
+        $target_collection = SDM::Archive::DSpace::get_collection({
+            'community_obj' => $target_community,
+            'collection_name' => 'Архив А.Ф. Котс',
+            });
+        if (!$target_collection) {
+            Carp::confess("Collection [Архив А.Ф. Котс] doesn't exist and unable to create");
+        }
+    }
+
+    print "target collection:\n" . Data::Dumper::Dumper($target_collection);
+}
+elsif ($o->{'rest-add-bitstreams'}) {
+    my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+    my $target_collection = SDM::Archive::DSpace::get_collection({
+        'community_obj' => $target_community,
+        'collection_name' => 'Архив А.Ф. Котс',
+        });
+    my $target_item = SDM::Archive::DSpace::get_item({
+        'collection_obj' => $target_collection,
+        'storage_group' => 1,
+        'storage_item' => 77,
+        });
+    Carp::confess("Unable to find target item")
+        unless $target_item;
+
+    my $target_item_full = SDM::Archive::DSpace::get_item({
+        'collection_obj' => $target_collection,
+        'item_id' => $target_item->{'id'},
+        });
+    print Data::Dumper::Dumper($target_item_full);
+
+    if (scalar(@{$target_item_full->{'bitstreams'}})) {
+        Carp::confess("Adding bitstreams to the items with bitstreams not implemented yet");
+    }
+
+}
+elsif ($o->{'rest-test'}) {
+    my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+    print Data::Dumper::Dumper($target_community);
+
+    my $target_collection = SDM::Archive::DSpace::get_collection({
+        'community_obj' => $target_community,
+        'collection_name' => 'Архив А.Ф. Котс',
+        });
+#    my $target_collection = SDM::Archive::DSpace::get_collection_by_name("Архив А.Ф. Котс");
+    print Data::Dumper::Dumper($target_collection);
+
+    my $coll_items = SDM::Archive::DSpace::get_collection_items({
+        'collection_obj' => $target_collection,
+        });
+    print Data::Dumper::Dumper($coll_items);
 }
 else {
     Carp::confess("Need command line parameter, one of: " . join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n");
