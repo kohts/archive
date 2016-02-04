@@ -599,14 +599,23 @@ sub read_file_array {
 }
 
 sub read_file_scalar {
-    my ($fname) = @_;
+    my ($fname, $opts) = @_;
     Carp::confess("Programmer error: need filename")
         unless defined($fname) && $fname ne "";
 
+    $opts = {} unless $opts;
+    
     my $contents = "";
     my $fh;
     open($fh, "<" . $fname) || Carp::confess("Can't open [$fname] for reading");
-    binmode($fh, ':encoding(UTF-8)');
+
+    if ($opts->{'binary'}) {
+        binmode($fh);
+    }
+    else {
+        binmode($fh, ':encoding(UTF-8)');
+    }
+
     while (my $l = <$fh>) {
         $contents .= $l;
     }
@@ -2431,6 +2440,14 @@ elsif ($o->{'rest-add-bitstreams'}) {
         Carp::confess("Adding bitstreams to the items with bitstreams not implemented yet");
     }
 
+    my $bitstream_data = read_file_scalar("/_gdm/raw-afk/of-15845-0137/of-15845-0137-001.jpg", {'binary' => 1});
+    my $bitstream_add_result = SDM::Archive::DSpace::rest_call({
+        'verb' => 'post',
+        'link' => $target_item_full->{'link'} . "/bitstreams/?name=of-15845-0137-001.jpg",
+        'request_binary' => $bitstream_data,
+        'request_type' => 'json',
+        });
+    print Data::Dumper::Dumper($bitstream_add_result);
 }
 elsif ($o->{'rest-test'}) {
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");

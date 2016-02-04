@@ -18,6 +18,10 @@ sub rest_call {
     Carp::confess("Need dspace_upload_user_pass configuration option in /etc/aconsole.pl")    
         unless defined($SDM::Archive::data_desc_struct->{'dspace_upload_user_pass'});
 
+    Carp::confess("verb must be one of [get,post]; got [" . safe_string($o->{'verb'}) . "]")
+        unless $o->{'verb'} eq "get" || $o->{'verb'} eq 'post';
+    $o->{'verb'} = uc($o->{'verb'});
+
     my $ua = LWP::UserAgent->new;
     $ua->default_header('accept' => "application/" . $o->{'request_type'});
     $ua->default_header('Content-Type' => "application/" . $o->{'request_type'} . ";charset=utf-8");
@@ -52,35 +56,21 @@ sub rest_call {
         $dspace_server = $1;
     }
     
-    if ($o->{'verb'} eq 'post') {
-        if ($o->{'action'}) {
-            $req = HTTP::Request->new('POST' => $SDM::Archive::data_desc_struct->{'dspace_rest_url'} . "/" . $o->{'action'});
-        }
-        else {
-            $req = HTTP::Request->new('POST' => $dspace_server . $o->{'link'});
-        }
-        
-        if ($o->{'request'}) {
-            $req->content(Encode::encode_utf8($o->{'request'}));
-        }
-        else {
-            $req->content();
-        }
+    if ($o->{'action'}) {
+        $req = HTTP::Request->new($o->{'verb'} => $SDM::Archive::data_desc_struct->{'dspace_rest_url'} . "/" . $o->{'action'});
     }
     else {
-        if ($o->{'action'}) {
-            $req = HTTP::Request->new('GET' => $SDM::Archive::data_desc_struct->{'dspace_rest_url'} . "/" . $o->{'action'});
-        }
-        else {
-            $req = HTTP::Request->new('GET' => $dspace_server . $o->{'link'});
-        }
-
-        if ($o->{'request'}) {
-            $req->content(Encode::encode_utf8($o->{'request'}));
-        }
-        else {
-            $req->content();
-        }
+        $req = HTTP::Request->new($o->{'verb'} => $dspace_server . $o->{'link'});
+    }
+    
+    if ($o->{'request'}) {
+        $req->content(Encode::encode_utf8($o->{'request'}));
+    }
+    elsif ($o->{'request_binary'}) {
+        $req->content($o->{'request_binary'});
+    }
+    else {
+        $req->content();
     }
 
     my $r = $ua->request($req);
