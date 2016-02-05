@@ -680,7 +680,7 @@ sub read_scanned_docs {
         if (! -d $data_desc_struct->{'external_archive_storage_base'}) {
             Carp::confess("Configuration error: external_archive_storage_base points to non-existent directory [" .
                 $data_desc_struct->{'external_archive_storage_base'} . "]" .
-                " (consider redefining in ~/.aconsole.pl or /etc/aconsole.pl; sample in trunk/tools/.aconsole.pl)");
+                " (consider redefining in ~/.aconsole.pl or /etc/aconsole-config.pl; sample in trunk/tools/.aconsole.pl)");
         }
     }
 
@@ -767,7 +767,7 @@ sub read_ocr_html_docs {
         if (! -d $data_desc_struct->{'docbook_dspace_html_out_base'}) {
             Carp::confess("Configuration error: docbook_dspace_html_out_base points to non-existent directory [" .
                 $data_desc_struct->{'docbook_dspace_html_out_base'} . "]" .
-                " (consider redefining in ~/.aconsole.pl or /etc/aconsole.pl; sample in trunk/tools/.aconsole.pl)");
+                " (consider redefining in ~/.aconsole.pl or /etc/aconsole-config.pl; sample in trunk/tools/.aconsole.pl)");
         }
     }
 
@@ -838,7 +838,7 @@ sub read_docbook_sources {
         if (! -d $data_desc_struct->{'docbook_source_base'}) {
             Carp::confess("Configuration error: docbook_source_base points to non-existent directory [" .
                 $data_desc_struct->{'docbook_source_base'} . "]" .
-                " (consider redefining in ~/.aconsole.pl or /etc/aconsole.pl; sample in trunk/tools/.aconsole.pl)");
+                " (consider redefining in ~/.aconsole.pl or /etc/aconsole-config.pl; sample in trunk/tools/.aconsole.pl)");
         }
     }
 

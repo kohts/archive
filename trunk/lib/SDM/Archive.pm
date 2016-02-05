@@ -608,7 +608,8 @@ sub do_log {
 sub prepare_config {
     my $current_user = [getpwuid($>)];
     
-    POSSIBLE_CFG_PATH: foreach my $cfg_path ($current_user->[7] . "/.aconsole.pl", "/etc/aconsole.pl") {
+    my $previously_defined = {};
+    POSSIBLE_CFG_PATH: foreach my $cfg_path ($current_user->[7] . "/.aconsole.pl", "/etc/aconsole-config.pl") {
         next POSSIBLE_CFG_PATH
             unless -e $cfg_path;
 
@@ -623,8 +624,9 @@ sub prepare_config {
             unless ref($return) eq 'HASH';
 
         foreach my $k (keys %{$return}) {
-            if (defined($data_desc_struct->{$k})) {
+            if (defined($data_desc_struct->{$k}) && !defined($previously_defined->{$k})) {
                 $data_desc_struct->{$k} = $return->{$k};
+                $previously_defined->{$k} = 1;
             }
         }
     }
