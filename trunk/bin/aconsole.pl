@@ -277,7 +277,7 @@ sub sync_dspace_item_from_external_storage {
     HTML_FILES: foreach my $html_file (@{$st_item->{'ocr_html_document_directories'}}) {
         if ($o->{'dry-run'}) {
             print "would try to add HTML document to [$dspace_collection_item->{'storage-group-id'}/$dspace_collection_item->{'storage-item-id'}]\n";
-            last SCAN_DIRS;
+            last HTML_FILES;
         }
         
         my $f = $st_item->{'ocr_html_document_directories_h'}->{$html_file};
@@ -296,6 +296,28 @@ sub sync_dspace_item_from_external_storage {
         $updated_item++;
     }
 
+    PDF_FILES: foreach my $pdf_file (@{$st_item->{'ocr_pdf_document_directories'}}) {
+        if ($o->{'dry-run'}) {
+            print "would try to add PDF document to [$dspace_collection_item->{'storage-group-id'}/$dspace_collection_item->{'storage-item-id'}]\n";
+            last PDF_FILES;
+        }
+        
+        my $f = $st_item->{'ocr_pdf_document_directories_h'}->{$pdf_file};
+
+        my $fname = $f;
+        $fname =~ s/.+\///g;
+
+        my $r = symlink($f, $dspace_collection_item->{'item-path'} . "/" . $fname);
+        if (!$r) {
+            Carp::confess("Error creating symlink from [$f] to [$dspace_collection_item->{'item-path'}/$fname]:" . $!);
+        }
+        
+        $dspace_collection_item->{'contents'} .= $fname . "\n";
+        write_file_scalar($dspace_collection_item->{'item-path'} . "/contents", $dspace_collection_item->{'contents'});
+
+        $updated_item++;
+    }
+    
     SCAN_DIRS: foreach my $scan_dir (@{$st_item->{'scanned_document_directories'}}) {
         
         # this shouldn't happen in production as external_archive_storage_base
@@ -305,7 +327,7 @@ sub sync_dspace_item_from_external_storage {
         next unless defined($r_struct->{'files'}->{$scan_dir});
 
         if ($o->{'dry-run'}) {
-            print "would try to add HTML document to [$dspace_collection_item->{'storage-group-id'}/$dspace_collection_item->{'storage-item-id'}]\n";
+            print "would try to add SCAN to [$dspace_collection_item->{'storage-group-id'}/$dspace_collection_item->{'storage-item-id'}]\n";
             last SCAN_DIRS;
         }
 
@@ -791,6 +813,53 @@ sub read_ocr_html_docs {
     return $SDM::Archive::runtime->{'read_ocr_html_docs'};
 }
 
+sub read_ocr_pdf_docs {
+    my ($opts) = @_;
+    $opts = {} unless $opts;
+
+    # cache
+    return $SDM::Archive::runtime->{'read_ocr_pdf_docs'} if defined($SDM::Archive::runtime->{'read_ocr_pdf_docs'});
+
+    $SDM::Archive::runtime->{'read_ocr_pdf_docs'} = {
+        'ocr_pdf_files' => {
+            'array' => [],
+            'hash' => {},
+            },
+        };
+
+    if ($opts->{'must_exist'}) {
+        if (!defined($data_desc_struct->{'docbook_dspace_pdf_out_base'})) {
+            Carp::confess("Configuration error: docbook_dspace_pdf_out_base must be configured" .
+                " (consider creating ~/.aconsole.pl; sample in trunk/tools/.aconsole.pl)");
+        }
+        if (! -d $data_desc_struct->{'docbook_dspace_pdf_out_base'}) {
+            Carp::confess("Configuration error: docbook_dspace_pdf_out_base points to non-existent directory [" .
+                $data_desc_struct->{'docbook_dspace_pdf_out_base'} . "]" .
+                " (consider redefining in ~/.aconsole.pl or /etc/aconsole-config.pl; sample in trunk/tools/.aconsole.pl)");
+        }
+    }
+
+    return $SDM::Archive::runtime->{'read_ocr_pdf_docs'}
+        unless $data_desc_struct->{'docbook_dspace_pdf_out_base'};
+
+    $SDM::Archive::runtime->{'read_ocr_pdf_docs'}->{'ocr_pdf_files'}->{'files_array'} =
+        Yandex::Tools::read_dir($data_desc_struct->{'docbook_dspace_pdf_out_base'});
+    $SDM::Archive::runtime->{'read_ocr_pdf_docs'}->{'ocr_pdf_files'}->{'array'} = [];
+
+    foreach my $el (@{$SDM::Archive::runtime->{'read_ocr_pdf_docs'}->{'ocr_pdf_files'}->{'files_array'}}) {
+        my $item = $data_desc_struct->{'docbook_dspace_pdf_out_base'} . "/" . $el;
+
+        next unless -f $item;
+        next unless $el =~ /^(.+)\.pdf$/;
+
+        $SDM::Archive::runtime->{'read_ocr_pdf_docs'}->{'ocr_pdf_files'}->{'hash'}->{$1} = $item;
+        push @{$SDM::Archive::runtime->{'read_ocr_pdf_docs'}->{'ocr_pdf_files'}->{'array'}}, $1;
+    }
+
+    return $SDM::Archive::runtime->{'read_ocr_pdf_docs'};
+}
+
+
 # This subroutine tries to determine the date when docbook file
 # was created in the repository for every file. Which is
 # a rather tricky thing because probably svn2hg worked
@@ -842,7 +911,7 @@ sub read_docbook_sources {
         }
     }
 
-    return $SDM::Archive::runtime->{'read_ocr_html_docs'}
+    return $SDM::Archive::runtime->{'read_docbook_sources'}
         unless $data_desc_struct->{'docbook_source_base'};
 
     $SDM::Archive::runtime->{'read_docbook_sources'}->{'docbook_files'}->{'array'} =
@@ -903,6 +972,9 @@ sub tsv_read_and_validate {
  
         # html -> array of storage_struct items
         'storage_items_by_ocr_html' => {},
+
+        # html -> array of storage_struct items
+        'storage_items_by_ocr_pdf' => {},
         };
 
     # read xls output and populate $list
@@ -1055,6 +1127,7 @@ sub tsv_read_and_validate {
 
     my $scanned_dirs = read_scanned_docs();
     my $html_files = read_ocr_html_docs();
+    my $pdf_files = read_ocr_pdf_docs();
     my $r2_struct = read_docbook_sources();
 
     my $today_yyyy_mm_dd = date_from_unixtime(time());
@@ -1067,6 +1140,8 @@ sub tsv_read_and_validate {
             $storage_struct->{'scanned_document_directories_h'} = {};
             $storage_struct->{'ocr_html_document_directories'} = [];
             $storage_struct->{'ocr_html_document_directories_h'} = {};
+            $storage_struct->{'ocr_pdf_document_directories'} = [];
+            $storage_struct->{'ocr_pdf_document_directories_h'} = {};
             $storage_struct->{'docbook_files_dates'} = [];
             $storage_struct->{'docbook_files_dates_h'} = {};
 
@@ -1084,16 +1159,24 @@ sub tsv_read_and_validate {
                     $resource_struct = $scanned_dirs->{'scanned_docs'};
                     $resource_tmp_name = 'scanned_document_directories';
                     $resource_perm_name = 'storage_items_by_scanned_dir';
-                } elsif (safe_string($opts->{'resource'}) eq 'html') {
+                }
+                elsif (safe_string($opts->{'resource'}) eq 'html') {
                     $resource_struct = $html_files->{'ocr_html_files'};
                     $resource_tmp_name = 'ocr_html_document_directories';
                     $resource_perm_name = 'storage_items_by_ocr_html';
-                } elsif (safe_string($opts->{'resource'}) eq 'docbook') {
+                }
+                elsif (safe_string($opts->{'resource'}) eq 'pdf') {
+                    $resource_struct = $pdf_files->{'ocr_pdf_files'};
+                    $resource_tmp_name = 'ocr_pdf_document_directories';
+                    $resource_perm_name = 'storage_items_by_ocr_pdf';
+                }
+                elsif (safe_string($opts->{'resource'}) eq 'docbook') {
                     $resource_struct = $r2_struct->{'docbook_files'};
                     $resource_tmp_name = 'docbook_files_dates';
                     $resource_perm_name = 'storage_items_by_docbook';
-                } else {
-                    Carp::confess("Programmer error: resource type must be one of: scan, html");
+                }
+                else {
+                    Carp::confess("Programmer error: resource type must be one of: scan, html, pdf, docbook");
                 }
 
                 my $possible_resource_names = [];
@@ -1132,7 +1215,7 @@ sub tsv_read_and_validate {
                     foreach my $r (@{$possible_resource_names}) {
                         my $tmp_r = $r;
                         # of-10141-193;478 is the name of the item in csv
-                        # of-10141-193_478 os the name of the corresponding html file
+                        # of-10141-193_478 is the name of the corresponding html file
                         if ($tmp_r =~ /;/) {
                             $tmp_r =~ s/;/_/;
                             push (@{$new_resources2}, $tmp_r);
@@ -1457,12 +1540,19 @@ sub tsv_read_and_validate {
                         'n2' => $item->{'by_field_name'}->{'number_suffix'},
                         });
                     $try_external_resource->({
+                        'resource' => 'pdf',
+                        'prefix' => 'of',
+                        'n' => $item->{'by_field_name'}->{'of_number'},
+                        'n2' => $item->{'by_field_name'}->{'number_suffix'},
+                        });
+                    $try_external_resource->({
                         'resource' => 'docbook',
                         'prefix' => 'of',
                         'n' => $item->{'by_field_name'}->{'of_number'},
                         'n2' => $item->{'by_field_name'}->{'number_suffix'},
                         });
-                } else {
+                }
+                else {
                     $push_metadata_value->('sdm-archive.misc.fond', "НВФ-" . $item->{'by_field_name'}->{'nvf_number'});
 
                     $item_desc .= "НВФ-" . $item->{'by_field_name'}->{'nvf_number'} .
@@ -1477,6 +1567,12 @@ sub tsv_read_and_validate {
                         });
                     $try_external_resource->({
                         'resource' => 'html',
+                        'prefix' => 'nvf',
+                        'n' => $item->{'by_field_name'}->{'nvf_number'},
+                        'n2' => $item->{'by_field_name'}->{'number_suffix'},
+                        });
+                    $try_external_resource->({
+                        'resource' => 'pdf',
                         'prefix' => 'nvf',
                         'n' => $item->{'by_field_name'}->{'nvf_number'},
                         'n2' => $item->{'by_field_name'}->{'number_suffix'},
@@ -1572,11 +1668,26 @@ sub tsv_read_and_validate {
                 "]");
         }
     }
+    # check that one pdf file matches not more than 1 storage item
+    foreach my $pdf (keys %{$doc_struct->{'storage_items_by_ocr_pdf'}}) {
+        if (scalar(@{$doc_struct->{'storage_items_by_ocr_pdf'}->{$pdf}}) > 1) {
+            Carp::confess("PDF file [$pdf] matches several storage items: [" .
+                join(",", map {$_->{'storage-group-id'} . "/" . $_->{'storage-item-id'}}
+                    @{$doc_struct->{'storage_items_by_ocr_pdf'}->{$pdf}}) .
+                "]");
+        }
+    }
 
     # - check that there are no unmatched html files
     foreach my $html (@{$html_files->{'ocr_html_files'}->{'array'}}) {
         if (!defined($doc_struct->{'storage_items_by_ocr_html'}->{$html})) {
-            Carp:confess("HTML file [$html] didn't match any storage item");
+            Carp::confess("HTML file [$html] didn't match any storage item");
+        }
+    }
+    # - check that there are no unmatched pdf files
+    foreach my $pdf (@{$pdf_files->{'ocr_pdf_files'}->{'array'}}) {
+        if (!defined($doc_struct->{'storage_items_by_ocr_pdf'}->{$pdf})) {
+            Carp::confess("PDF file [$pdf] didn't match any storage item");
         }
     }
 
@@ -2019,6 +2130,10 @@ elsif ($o->{'dump-ocr-html-docs'}) {
     my $resources = read_ocr_html_docs();
     print Data::Dumper::Dumper($resources);
 }
+elsif ($o->{'dump-ocr-pdf-docs'}) {
+    my $resources = read_ocr_pdf_docs();
+    print Data::Dumper::Dumper($resources);
+}
 elsif ($o->{'dump-docbook-sources'}) {
     my $resources = read_docbook_sources();
     print Data::Dumper::Dumper($resources);
@@ -2097,6 +2212,7 @@ elsif ($o->{'import-bitstreams'}) {
 
     my $scanned_dirs = read_scanned_docs({'must_exist' => 1});
     my $html_files = read_ocr_html_docs({'must_exist' => 1});
+    my $pdf_files = read_ocr_pdf_docs({'must_exist' => 1});
     my $r2_struct = read_docbook_sources({'must_exist' => 1});
 
     my $in_doc_struct = tsv_read_and_validate($o->{'external-tsv'}, $o);
