@@ -2581,6 +2581,29 @@ elsif ($o->{'rest-test'}) {
         });
     print Data::Dumper::Dumper($coll_items);
 }
+elsif ($o->{'scan-list-without-ocr'}) {
+    # list by unset metadata field, which one?
+}
+elsif ($o->{'scan-list-without-scan'}) {
+    # list by unset metadata field, which one?
+}
+elsif ($o->{'scan-schedule-scan'}) {
+    # input: 1 item; which metadata field to set?
+}
+elsif ($o->{'scan-schedule-ocr'}) {
+    # input: 1 item; which metadata field to set?
+}
+elsif ($o->{'scan-list-scheduled-for-scan'}) {
+}
+elsif ($o->{'scan-list-scheduled-for-ocr'}) {
+}
+elsif ($o->{'scan-add-scans'}) {
+    # one item, identified by directory with bitstreams
+    # which metadata field to set?
+}
+elsif ($o->{'scan-add-ocr'}) {
+    # which metadata field(s) to set?
+}
 else {
     Carp::confess("Need command line parameter, one of: " . join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n");
 }
