@@ -253,6 +253,8 @@ my $o_names = [
     'validate-pagination',
     'autoincrement-duplicate-page-number',
     'ignore-duplicate-fund-id',
+    'scan-list-without-ocr',
+    'rest-get-item',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -2565,6 +2567,18 @@ elsif ($o->{'rest-add-bitstreams'}) {
         });
     print Data::Dumper::Dumper($bitstream_add_result);
 }
+elsif ($o->{'rest-get-item'}) {
+    my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+    my $target_collection = SDM::Archive::DSpace::get_collection({
+        'community_obj' => $target_community,
+        'collection_name' => 'Архив А.Ф. Котс',
+        });
+    my $target_item_full = SDM::Archive::DSpace::get_item({
+        'collection_obj' => $target_collection,
+        'item_id' => 2,
+        });
+    print Data::Dumper::Dumper($target_item_full);
+}
 elsif ($o->{'rest-test'}) {
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     print Data::Dumper::Dumper($target_community);
@@ -2582,7 +2596,51 @@ elsif ($o->{'rest-test'}) {
     print Data::Dumper::Dumper($coll_items);
 }
 elsif ($o->{'scan-list-without-ocr'}) {
-    # list by unset metadata field, which one?
+    my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+#    print Data::Dumper::Dumper($target_community);
+
+    my $target_collection = SDM::Archive::DSpace::get_collection({
+        'community_obj' => $target_community,
+        'collection_name' => 'Архив А.Ф. Котс',
+        });
+#    my $target_collection = SDM::Archive::DSpace::get_collection_by_name("Архив А.Ф. Котс");
+#    print Data::Dumper::Dumper($target_collection);
+
+    my $coll_items = SDM::Archive::DSpace::get_collection_items({
+        'collection_obj' => $target_collection,
+        'expand' => 'bitstreams',
+        'limit' => 4000,
+        });
+
+    ITEMS: foreach my $item (@{$coll_items}) {
+        my $has_ocr;
+        if (scalar(@{$item->{'bitstreams'}})) {
+            BITSTREAMS: foreach my $bitstream (@{$item->{'bitstreams'}}) {
+                if ($bitstream->{'mimeType'} eq 'text/html' ||
+                    $bitstream->{'mimeType'} eq 'application/pdf') {
+
+                    $has_ocr = 1;
+                    last BITSTREAMS;
+                }
+            }
+        }
+
+        if (!$has_ocr) {
+            my $target_item_full = SDM::Archive::DSpace::get_item({
+                'collection_obj' => $target_collection,
+                'item_id' => $item->{'id'},
+                });
+
+            my $desc = SDM::Archive::DSpace::get_metadata_by_key($target_item_full->{'metadata'}, 'dc.description');
+            if (ref($desc) eq 'ARRAY') {
+                my $id = SDM::Archive::DSpace::get_metadata_by_key($target_item_full->{'metadata'}, 'dc.identifier.other', {'language' => 'ru'});
+                print $id->{'value'} . "\n";
+            }
+            else {
+                print $desc->{'value'} . "\n";
+            }
+        }
+    }
 }
 elsif ($o->{'scan-list-without-scan'}) {
     # list by unset metadata field, which one?

@@ -209,9 +209,15 @@ sub get_collection_items {
     Carp::confess("Programmer error: need collection_obj")
         unless defined($o->{'collection_obj'});
 
+    my $expand_key = "metadata";
+    if ($o->{'expand'}) {
+        $expand_key = $o->{'expand'};
+    }
+    my $limit = $o->{'limit'} || 100;
+
     my $items = SDM::Archive::DSpace::rest_call({
         'verb' => 'get',
-        'link' => $o->{'collection_obj'}->{'link'} . "/items/?expand=metadata",
+        'link' => $o->{'collection_obj'}->{'link'} . "/items/?expand=" . $expand_key . "&limit=" . $limit,
         'request' => '{}',
         'request_type' => 'json',
         });
@@ -234,6 +240,11 @@ sub get_metadata_by_key {
     my $out_values;
     foreach my $m (@{$metadata_array}) {
         next unless $m->{'key'} eq $key;
+
+        if ($o->{'language'} && $m->{'language'} &&
+            $o->{'language'} ne $m->{'language'}) {
+            next;
+        }
 
         if ($out_values) {
             if (defined($o->{'unique-values'})) {
