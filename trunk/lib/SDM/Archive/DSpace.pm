@@ -210,14 +210,23 @@ sub get_collection_items {
         unless defined($o->{'collection_obj'});
 
     my $expand_key = "metadata";
-    if ($o->{'expand'}) {
+    if (defined($o->{'expand'})) {
         $expand_key = $o->{'expand'};
     }
     my $limit = $o->{'limit'} || 100;
 
+    my $get_params = [];
+    if ($expand_key) {
+        push @{$get_params}, "expand=" . $expand_key;
+    }
+    if ($limit) {
+        push @{$get_params}, "limit=" . $limit;
+    }
+
     my $items = SDM::Archive::DSpace::rest_call({
         'verb' => 'get',
-        'link' => $o->{'collection_obj'}->{'link'} . "/items/?expand=" . $expand_key . "&limit=" . $limit,
+        'link' => $o->{'collection_obj'}->{'link'} . "/items/" .
+            (scalar(@{$get_params}) ? "?" . join("&", @{$get_params}) : ""),
         'request' => '{}',
         'request_type' => 'json',
         });
@@ -310,5 +319,62 @@ sub get_item {
         Carp::confess("Programmer error: need item parameters");
     }
 }
+
+sub get_item_by_handle {
+    my ($o) = @_;
+
+    $o = {} unless $o;
+
+    Carp::confess("Programmer error: need collection object")
+        unless $o->{'collection'};
+    Carp::confess("Programmer error: need collection object")
+        unless $o->{'handle'};
+
+    my $coll_items = SDM::Archive::DSpace::get_collection_items({
+        'collection_obj' => $o->{'collection'},
+        'limit' => $o->{'limit'} || 4000,
+        'expand' => '',
+        });
+
+    ITEMS: foreach my $item (@{$coll_items}) {
+        if ($item->{'handle'} eq $o->{'handle'}) {
+            return $item;
+        }
+    }
+
+    return undef;
+}
+
+sub add_item_metadata {
+    my ($o) = @_;
+
+    $o = {} unless $o;
+
+    Carp::confess("Programmer error: need item")
+        unless $o->{'item'};
+    Carp::confess("Programmer error: need metadata struct")
+        unless
+            $o->{'metadata'} &&
+            ref($o->{'metadata'}) eq 'HASH' &&
+            defined($o->{'metadata'}->{'key'}) &&
+            defined($o->{'metadata'}->{'value'}) &&
+            defined($o->{'metadata'}->{'language'});
+
+    my $res = SDM::Archive::DSpace::rest_call({
+        'verb' => 'post',
+        'action' => 'items/' . $o->{'item'}->{'id'} . "/metadata",
+        'request' => '[
+              {"key": "' . $o->{'metadata'}->{'key'} .
+              '", "value": "' . $o->{'metadata'}->{'value'} .
+              '", "language": "' . SDM::Archive::safe_string($o->{'metadata'}->{'language'}) .
+              '"}
+            ]',
+        'request_type' => 'json',
+        });
+    print Data::Dumper::Dumper($res);
+
+    return $res;
+}
+
 
 return 1;

@@ -213,7 +213,7 @@ use SDM::Archive;
 
 my $data_desc_struct;
 my $o_names = [
-    'bash-completion-list',
+    'command-list',
     'build-docbook-for-dspace',
     'data-split-by-comma',
     'data-split-by-tab',
@@ -255,7 +255,8 @@ my $o_names = [
     'ignore-duplicate-fund-id',
     'scan-list-without-ocr',
     'scan-list-without-scan',
-    'rest-get-item',
+    'rest-get-item=s',
+    'scan-schedule-scan=s',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -2208,7 +2209,7 @@ elsif ($o->{'import-bitstreams'}) {
     Carp::confess("--dspace-exported-collection should point to the directory, got [" . safe_string($o->{'dspace-exported-collection'}) . "]")
         unless $o->{'dspace-exported-collection'} && -d $o->{'dspace-exported-collection'};
     if ($o->{'limit'}) {
-        if (!SDM::Archive::is_integer($o->{'limit'}, {'positive-only' => 1})) {
+        if (!SDM::Archive::Utils::is_integer($o->{'limit'}, {'positive-only' => 1})) {
             Carp::confess("--limit N requires N to be positive integer");
         }
     }
@@ -2569,14 +2570,35 @@ elsif ($o->{'rest-add-bitstreams'}) {
     print Data::Dumper::Dumper($bitstream_add_result);
 }
 elsif ($o->{'rest-get-item'}) {
+    Carp::confess("Please specify item id")
+        unless defined($o->{'rest-get-item'});
+
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
         'collection_name' => 'Архив А.Ф. Котс',
         });
+
+    my $id;
+    if (SDM::Archive::Utils::is_integer($o->{'rest-get-item'})) {
+        $id = $o->{'rest-get-item'};
+    }
+    elsif ($o->{'rest-get-item'} =~ /^\d+\/\d+$/) {
+        my $item = SDM::Archive::DSpace::get_item_by_handle({
+            'collection' => $target_collection,
+            'handle' => $o->{'rest-get-item'}
+            });
+        Carp::confess("Invalid handle [$o->{'rest-get-item'}]")
+            unless $item;
+        $id = $item->{'id'};
+    }
+    else {
+        Carp::confess("Not implemented yet: got id [$o->{'rest-get-item'}]");
+    }
+
     my $target_item_full = SDM::Archive::DSpace::get_item({
         'collection_obj' => $target_collection,
-        'item_id' => 2,
+        'item_id' => $id,
         });
     print Data::Dumper::Dumper($target_item_full);
 }
@@ -2598,17 +2620,13 @@ elsif ($o->{'rest-test'}) {
 }
 elsif ($o->{'scan-list-without-ocr'}) {
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
-#    print Data::Dumper::Dumper($target_community);
-
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
         'collection_name' => 'Архив А.Ф. Котс',
         });
-#    my $target_collection = SDM::Archive::DSpace::get_collection_by_name("Архив А.Ф. Котс");
-#    print Data::Dumper::Dumper($target_collection);
 
     if ($o->{'limit'}) {
-        if (!SDM::Archive::is_integer($o->{'limit'}, {'positive-only' => 1})) {
+        if (!SDM::Archive::Utils::is_integer($o->{'limit'}, {'positive-only' => 1})) {
             Carp::confess("--limit N requires N to be positive integer, got [$o->{'limit'}]");
         }
     }
@@ -2656,7 +2674,7 @@ elsif ($o->{'scan-list-without-scan'}) {
         'collection_name' => 'Архив А.Ф. Котс',
         });
     if ($o->{'limit'}) {
-        if (!SDM::Archive::is_integer($o->{'limit'}, {'positive-only' => 1})) {
+        if (!SDM::Archive::Utils::is_integer($o->{'limit'}, {'positive-only' => 1})) {
             Carp::confess("--limit N requires N to be positive integer, got [$o->{'limit'}]");
         }
     }
@@ -2684,18 +2702,45 @@ elsif ($o->{'scan-list-without-scan'}) {
                 'item_id' => $item->{'id'},
                 });
 
+            my $scanScheduled = SDM::Archive::DSpace::get_metadata_by_key($target_item_full->{'metadata'}, 'sdm-archive.date.scanScheduled');
+            if ($scanScheduled) {
+                next ITEMS;
+            }
+            
             my $desc = SDM::Archive::DSpace::get_metadata_by_key($target_item_full->{'metadata'}, 'dc.description');
             if (ref($desc) eq 'ARRAY') {
                 my $id = SDM::Archive::DSpace::get_metadata_by_key($target_item_full->{'metadata'}, 'dc.identifier.other', {'language' => 'ru'});
-                print $id->{'value'} . "\n";
+                print $target_item_full->{'id'} . " " . $id->{'value'} . "\n";
             }
             else {
-                print $desc->{'value'} . "\n";
+                print $target_item_full->{'id'} . " " . $desc->{'value'} . "\n";
             }
         }
     }
 }
 elsif ($o->{'scan-schedule-scan'}) {
+    my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+    my $target_collection = SDM::Archive::DSpace::get_collection({
+        'community_obj' => $target_community,
+        'collection_name' => 'Архив А.Ф. Котс',
+        });
+    my $target_item_full = SDM::Archive::DSpace::get_item({
+        'collection_obj' => $target_collection,
+        'item_id' => $o->{'scan-schedule-scan'},
+        });
+
+
+    my $now = SDM::Archive::Utils::get_time();
+
+    my $res = SDM::Archive::DSpace::add_item_metadata({
+        'item' => $target_item_full,
+        'metadata' => {
+            'key' => 'sdm-archive.date.scanScheduled',
+            'value' => join("-", $now->{'year'}, $now->{'month_padded'}, $now->{'mday_padded'}),
+            'language' => '',
+            },
+        });
+
     # input: 1 item; which metadata field to set?
 }
 elsif ($o->{'scan-schedule-ocr'}) {
@@ -2712,6 +2757,9 @@ elsif ($o->{'scan-add-scans'}) {
 elsif ($o->{'scan-add-ocr'}) {
     # which metadata field(s) to set?
 }
+elsif ($o->{'command-list'}) {
+    print join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n";
+}
 else {
-    Carp::confess("Need command line parameter, one of: " . join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n");
+    Carp::confess("\nNeed command line parameter (run aconsole.pl --command-list to get full list)\n");
 }
