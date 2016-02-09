@@ -254,6 +254,7 @@ my $o_names = [
     'autoincrement-duplicate-page-number',
     'ignore-duplicate-fund-id',
     'scan-list-without-ocr',
+    'scan-list-without-scan',
     'rest-get-item',
     ];
 my $o = {};
@@ -2207,7 +2208,7 @@ elsif ($o->{'import-bitstreams'}) {
     Carp::confess("--dspace-exported-collection should point to the directory, got [" . safe_string($o->{'dspace-exported-collection'}) . "]")
         unless $o->{'dspace-exported-collection'} && -d $o->{'dspace-exported-collection'};
     if ($o->{'limit'}) {
-        if ($o->{'limit'} !~ /^\d+$/ || $o->{'limit'} == 0) {
+        if (!SDM::Archive::is_integer($o->{'limit'}, {'positive-only' => 1})) {
             Carp::confess("--limit N requires N to be positive integer");
         }
     }
@@ -2606,10 +2607,16 @@ elsif ($o->{'scan-list-without-ocr'}) {
 #    my $target_collection = SDM::Archive::DSpace::get_collection_by_name("Архив А.Ф. Котс");
 #    print Data::Dumper::Dumper($target_collection);
 
+    if ($o->{'limit'}) {
+        if (!SDM::Archive::is_integer($o->{'limit'}, {'positive-only' => 1})) {
+            Carp::confess("--limit N requires N to be positive integer, got [$o->{'limit'}]");
+        }
+    }
+
     my $coll_items = SDM::Archive::DSpace::get_collection_items({
         'collection_obj' => $target_collection,
         'expand' => 'bitstreams',
-        'limit' => 4000,
+        'limit' => $o->{'limit'} || 4000,
         });
 
     ITEMS: foreach my $item (@{$coll_items}) {
@@ -2643,7 +2650,50 @@ elsif ($o->{'scan-list-without-ocr'}) {
     }
 }
 elsif ($o->{'scan-list-without-scan'}) {
-    # list by unset metadata field, which one?
+    my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+    my $target_collection = SDM::Archive::DSpace::get_collection({
+        'community_obj' => $target_community,
+        'collection_name' => 'Архив А.Ф. Котс',
+        });
+    if ($o->{'limit'}) {
+        if (!SDM::Archive::is_integer($o->{'limit'}, {'positive-only' => 1})) {
+            Carp::confess("--limit N requires N to be positive integer, got [$o->{'limit'}]");
+        }
+    }
+
+    my $coll_items = SDM::Archive::DSpace::get_collection_items({
+        'collection_obj' => $target_collection,
+        'expand' => 'bitstreams',
+        'limit' => $o->{'limit'} || 4000,
+        });
+
+    ITEMS: foreach my $item (@{$coll_items}) {
+        my $has_scans;
+        if (scalar(@{$item->{'bitstreams'}})) {
+            BITSTREAMS: foreach my $bitstream (@{$item->{'bitstreams'}}) {
+                if ($bitstream->{'mimeType'} eq 'image/jpeg') {
+                    $has_scans = 1;
+                    last BITSTREAMS;
+                }
+            }
+        }
+
+        if (!$has_scans) {
+            my $target_item_full = SDM::Archive::DSpace::get_item({
+                'collection_obj' => $target_collection,
+                'item_id' => $item->{'id'},
+                });
+
+            my $desc = SDM::Archive::DSpace::get_metadata_by_key($target_item_full->{'metadata'}, 'dc.description');
+            if (ref($desc) eq 'ARRAY') {
+                my $id = SDM::Archive::DSpace::get_metadata_by_key($target_item_full->{'metadata'}, 'dc.identifier.other', {'language' => 'ru'});
+                print $id->{'value'} . "\n";
+            }
+            else {
+                print $desc->{'value'} . "\n";
+            }
+        }
+    }
 }
 elsif ($o->{'scan-schedule-scan'}) {
     # input: 1 item; which metadata field to set?

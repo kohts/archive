@@ -670,6 +670,21 @@ sub prepare_config {
     $runtime->{'docbook_source_git_dir'} = trim($r->{'stdout'}, " \n");
 }
 
+sub is_integer {
+    my ($text, $opts) = @_;
+
+    return undef unless defined($text);
+
+    $text =~ s/\.0+$//;
+
+    if ($opts && $opts->{'positive-only'}) {
+        return $text =~ /^\d+$/;
+    }
+    else {
+        return $text =~ /^\-?\d+$/;
+    }
+}
+
 init_logging();
 
 
