@@ -259,6 +259,8 @@ my $o_names = [
     'rest-get-items=s',
     'scan-schedule-scan=s',
     'scan-list-scheduled-for-scan',
+    'scan-add-scans=s',
+    'from=s',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -2581,26 +2583,9 @@ elsif ($o->{'rest-get-item'}) {
         'collection_name' => 'Архив А.Ф. Котс',
         });
 
-    my $id;
-    if (SDM::Archive::Utils::is_integer($o->{'rest-get-item'})) {
-        $id = $o->{'rest-get-item'};
-    }
-    elsif ($o->{'rest-get-item'} =~ /^\d+\/\d+$/) {
-        my $item = SDM::Archive::DSpace::get_item_by_handle({
-            'collection' => $target_collection,
-            'handle' => $o->{'rest-get-item'}
-            });
-        Carp::confess("Invalid handle [$o->{'rest-get-item'}]")
-            unless $item;
-        $id = $item->{'id'};
-    }
-    else {
-        Carp::confess("Not implemented yet: got id [$o->{'rest-get-item'}]");
-    }
-
     my $target_item_full = SDM::Archive::DSpace::get_item({
         'collection_obj' => $target_collection,
-        'item_id' => $id,
+        'item_id' => $o->{'rest-get-item'},
         });
     print Data::Dumper::Dumper($target_item_full);
 }
@@ -2617,24 +2602,15 @@ elsif ($o->{'rest-get-items'}) {
     my $ids = [split(",", $o->{'rest-get-items'})];
 
     foreach my $id (@{$ids}) {
-        if (SDM::Archive::Utils::is_integer($id)) {
-        }
-        elsif ($id =~ /^\d+\/\d+$/) {
-            my $item = SDM::Archive::DSpace::get_item_by_handle({
-                'collection' => $target_collection,
-                'handle' => $id
-                });
-            Carp::confess("Invalid handle [$id]")
-                unless $item;
-            $id = $item->{'id'};
-        }
-        else {
-            Carp::confess("Not implemented yet: got id [$id]");
-        }
+        # silently process handles (and maybe more)
+        my $item = SDM::Archive::DSpace::get_item({
+            'collection_obj' => $target_collection,
+            'item_id' => $id,
+            });
     
         SDM::Archive::DSpace::item_list_print({
             'collection_obj' => $target_collection,
-            'item_id' => $id,
+            'item_id' => $item->{'id'},
             });
     }
 }
@@ -2761,21 +2737,6 @@ elsif ($o->{'scan-schedule-scan'}) {
 
     my $ids = [split(",", $o->{'scan-schedule-scan'})];
     foreach my $id (@{$ids}) {
-        if (SDM::Archive::Utils::is_integer($id)) {
-        }
-        elsif ($id =~ /^\d+\/\d+$/) {
-            my $item = SDM::Archive::DSpace::get_item_by_handle({
-                'collection' => $target_collection,
-                'handle' => $id,
-                });
-            Carp::confess("Invalid handle [$o->{'rest-get-item'}]")
-                unless $item;
-            $id = $item->{'id'};
-        }
-        else {
-            Carp::confess("Not implemented yet: got id [$id]");
-        }
-    
         my $item = SDM::Archive::DSpace::get_item({
             'collection_obj' => $target_collection,
             'item_id' => $id,
@@ -2840,8 +2801,73 @@ elsif ($o->{'scan-list-scheduled-for-scan'}) {
     }
 }
 elsif ($o->{'scan-add-scans'}) {
-    # one item, identified by directory with bitstreams
-    # which metadata field to set?
+    Carp::confess("Need item_id")
+        unless SDM::Archive::Utils::is_integer($o->{'scan-add-scans'}, {'positive-only' => 1});
+    Carp::confess("Need --from /path")
+        unless defined($o->{'from'}) && -d $o->{'from'};
+
+    my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+    my $target_collection = SDM::Archive::DSpace::get_collection({
+        'community_obj' => $target_community,
+        'collection_name' => 'Архив А.Ф. Котс',
+        });
+    my $target_item = SDM::Archive::DSpace::get_item({
+        'collection_obj' => $target_collection,
+        'item_id' => $o->{'scan-add-scans'},
+        });
+    Carp::confess("Unable to find target item")
+        unless $target_item;
+
+    my $i = SDM::Archive::DSpace::get_item({
+        'collection_obj' => $target_collection,
+        'item_id' => $target_item->{'id'},
+        });
+
+    my $now = SDM::Archive::Utils::get_time();
+    my $digitized;
+    my $textExtracted;
+
+    my $new_bitstreams = Yandex::Tools::read_dir($o->{'from'});
+    ITEM_ELEMENT: foreach my $f (@{$new_bitstreams}) {
+        if (! -f $o->{'from'} . "/" . $f) {
+            Carp::confess("Unexpected element [" . $o->{'from'} . "/" . $f . "]");
+        }
+        if ($f !~ /\.jpg$/) {
+            Carp::confess("Unexpected element [" . $o->{'from'} . "/" . $f . "]");
+        }
+
+        if (scalar(@{$i->{'bitstreams'}})) {
+            foreach my $bs (@{$i->{'bitstreams'}}) {
+                if ($bs->{'name'} eq $f) {
+                    Carp::confess("Bitstream named [$bs->{'name'}] already exists in item [$i->{'id'} $i->{'handle'}]");
+                }
+            }
+        }
+
+        $digitized = 1;
+        my $bitstream_data = read_file_scalar($o->{'from'} . "/" . $f, {'binary' => 1});
+        my $bitstream_add_result = SDM::Archive::DSpace::rest_call({
+            'verb' => 'post',
+            'link' => $i->{'link'} . "/bitstreams/?name=" . $f,
+            'request_binary' => $bitstream_data,
+            'request_type' => 'json',
+            });
+
+        SDM::Archive::do_log("added [" . $f . "] to the item [$i->{'id'} $i->{'handle'}]");
+    }
+
+    if ($digitized) {
+        my $now_date = join("-", $now->{'year'}, $now->{'month_padded'}, $now->{'mday_padded'});
+        my $res = SDM::Archive::DSpace::add_item_metadata({
+            'item' => $i,
+            'metadata' => {
+                'key' => 'sdm-archive.date.digitized',
+                'value' => $now_date,
+                'language' => '',
+                },
+            });
+        SDM::Archive::do_log("item [$i->{'id'} $i->{'handle'}] digitized on [$now_date]");
+    }
 }
 elsif ($o->{'scan-schedule-ocr'}) {
     # input: 1 item; which metadata field to set?

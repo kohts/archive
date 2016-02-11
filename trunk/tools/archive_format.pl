@@ -424,5 +424,4 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
             do_log("renamed $rename_struct->{'old_path'} -> $rename_struct->{'new_path'}");
         }
     }
-
 }

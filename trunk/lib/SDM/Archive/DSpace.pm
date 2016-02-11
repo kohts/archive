@@ -311,11 +311,23 @@ sub get_item {
         }
     }
     elsif (defined($o->{'item_id'})) {
+        my $item_id = $o->{'item_id'};
+        
+        if ($item_id =~ /^\d+\/\d+$/) {
+            my $item = SDM::Archive::DSpace::get_item_by_handle({
+                'collection' => $o->{'collection_obj'},
+                'handle' => $item_id,
+                });
+            Carp::confess("Invalid handle [$item_id]")
+                unless $item;
+            $item_id = $item->{'id'};
+        }
+
         my $rest_top = $o->{'collection_obj'}->{'link'};
         $rest_top =~ s/\/collections\/.+$//;
         my $item = SDM::Archive::DSpace::rest_call({
             'verb' => 'get',
-            'link' => $rest_top . '/items/' . $o->{'item_id'} . "/?expand=all",
+            'link' => $rest_top . '/items/' . $item_id . "/?expand=all",
             'request' => '{}',
             'request_type' => 'json',
             });
