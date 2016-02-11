@@ -223,13 +223,27 @@ sub get_collection_items {
         push @{$get_params}, "limit=" . $limit;
     }
 
-    my $items = SDM::Archive::DSpace::rest_call({
-        'verb' => 'get',
-        'link' => $o->{'collection_obj'}->{'link'} . "/items/" .
-            (scalar(@{$get_params}) ? "?" . join("&", @{$get_params}) : ""),
-        'request' => '{}',
-        'request_type' => 'json',
-        });
+    my $link = $o->{'collection_obj'}->{'link'} . "/items/" .
+            (scalar(@{$get_params}) ? "?" . join("&", @{$get_params}) : "");
+
+    $SDM::Archive::runtime->{'dspace_rest'}->{'full_collections'} = {}
+        unless defined($SDM::Archive::runtime->{'dspace_rest'}->{'full_collections'});
+
+    my $items;
+    if (defined($SDM::Archive::runtime->{'dspace_rest'}->{'full_collections'}->{$link}) &&
+        !defined($o->{'refresh-cache'})) {
+        $items = $SDM::Archive::runtime->{'dspace_rest'}->{'full_collections'}->{$link};
+    }
+    else {
+        $items = SDM::Archive::DSpace::rest_call({
+            'verb' => 'get',
+            'link' => $link,
+            'request' => '{}',
+            'request_type' => 'json',
+            });
+        $SDM::Archive::runtime->{'dspace_rest'}->{'full_collections'}->{$link} = $items;
+    }
+        
     my $items_struct;
     eval {
         $items_struct = JSON::decode_json($items);
@@ -374,6 +388,29 @@ sub add_item_metadata {
     print Data::Dumper::Dumper($res);
 
     return $res;
+}
+
+sub item_list_print {
+    my ($o) = @_;
+
+    $o = {} unless $o;
+
+    Carp::confess("Programmer error: need collection_obj and item_id")
+        unless $o->{'collection_obj'} && $o->{'item_id'};
+
+    my $item = SDM::Archive::DSpace::get_item({
+        'collection_obj' => $o->{'collection_obj'},
+        'item_id' => $o->{'item_id'},
+        });
+    
+    my $desc = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'dc.description');
+    if (ref($desc) eq 'ARRAY') {
+        my $id = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'dc.identifier.other', {'language' => 'ru'});
+        print join(" ", $item->{'id'}, $item->{'handle'}, $id->{'value'}) . "\n";
+    }
+    else {
+        print join(" ", $item->{'id'}, $item->{'handle'}, $desc->{'value'}) . "\n";
+    }
 }
 
 

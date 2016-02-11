@@ -256,7 +256,9 @@ my $o_names = [
     'scan-list-without-ocr',
     'scan-list-without-scan',
     'rest-get-item=s',
+    'rest-get-items=s',
     'scan-schedule-scan=s',
+    'scan-list-scheduled-for-scan',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -2602,6 +2604,40 @@ elsif ($o->{'rest-get-item'}) {
         });
     print Data::Dumper::Dumper($target_item_full);
 }
+elsif ($o->{'rest-get-items'}) {
+    Carp::confess("Please specify item ids")
+        unless defined($o->{'rest-get-items'});
+
+    my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+    my $target_collection = SDM::Archive::DSpace::get_collection({
+        'community_obj' => $target_community,
+        'collection_name' => 'Архив А.Ф. Котс',
+        });
+
+    my $ids = [split(",", $o->{'rest-get-items'})];
+
+    foreach my $id (@{$ids}) {
+        if (SDM::Archive::Utils::is_integer($id)) {
+        }
+        elsif ($id =~ /^\d+\/\d+$/) {
+            my $item = SDM::Archive::DSpace::get_item_by_handle({
+                'collection' => $target_collection,
+                'handle' => $id
+                });
+            Carp::confess("Invalid handle [$id]")
+                unless $item;
+            $id = $item->{'id'};
+        }
+        else {
+            Carp::confess("Not implemented yet: got id [$id]");
+        }
+    
+        SDM::Archive::DSpace::item_list_print({
+            'collection_obj' => $target_collection,
+            'item_id' => $id,
+            });
+    }
+}
 elsif ($o->{'rest-test'}) {
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     print Data::Dumper::Dumper($target_community);
@@ -2707,14 +2743,10 @@ elsif ($o->{'scan-list-without-scan'}) {
                 next ITEMS;
             }
             
-            my $desc = SDM::Archive::DSpace::get_metadata_by_key($target_item_full->{'metadata'}, 'dc.description');
-            if (ref($desc) eq 'ARRAY') {
-                my $id = SDM::Archive::DSpace::get_metadata_by_key($target_item_full->{'metadata'}, 'dc.identifier.other', {'language' => 'ru'});
-                print $target_item_full->{'id'} . " " . $id->{'value'} . "\n";
-            }
-            else {
-                print $target_item_full->{'id'} . " " . $desc->{'value'} . "\n";
-            }
+            SDM::Archive::DSpace::item_list_print({
+                'collection_obj' => $target_collection,
+                'item_id' => $item->{'id'},
+                });
         }
     }
 }
@@ -2724,35 +2756,97 @@ elsif ($o->{'scan-schedule-scan'}) {
         'community_obj' => $target_community,
         'collection_name' => 'Архив А.Ф. Котс',
         });
-    my $target_item_full = SDM::Archive::DSpace::get_item({
-        'collection_obj' => $target_collection,
-        'item_id' => $o->{'scan-schedule-scan'},
-        });
-
 
     my $now = SDM::Archive::Utils::get_time();
 
-    my $res = SDM::Archive::DSpace::add_item_metadata({
-        'item' => $target_item_full,
-        'metadata' => {
-            'key' => 'sdm-archive.date.scanScheduled',
-            'value' => join("-", $now->{'year'}, $now->{'month_padded'}, $now->{'mday_padded'}),
-            'language' => '',
-            },
-        });
+    my $ids = [split(",", $o->{'scan-schedule-scan'})];
+    foreach my $id (@{$ids}) {
+        if (SDM::Archive::Utils::is_integer($id)) {
+        }
+        elsif ($id =~ /^\d+\/\d+$/) {
+            my $item = SDM::Archive::DSpace::get_item_by_handle({
+                'collection' => $target_collection,
+                'handle' => $id,
+                });
+            Carp::confess("Invalid handle [$o->{'rest-get-item'}]")
+                unless $item;
+            $id = $item->{'id'};
+        }
+        else {
+            Carp::confess("Not implemented yet: got id [$id]");
+        }
+    
+        my $item = SDM::Archive::DSpace::get_item({
+            'collection_obj' => $target_collection,
+            'item_id' => $id,
+            });
 
-    # input: 1 item; which metadata field to set?
-}
-elsif ($o->{'scan-schedule-ocr'}) {
-    # input: 1 item; which metadata field to set?
+        my $scanScheduled = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'sdm-archive.date.scanScheduled');
+        if (!$scanScheduled) {
+            my $res = SDM::Archive::DSpace::add_item_metadata({
+                'item' => $item,
+                'metadata' => {
+                    'key' => 'sdm-archive.date.scanScheduled',
+                    'value' => join("-", $now->{'year'}, $now->{'month_padded'}, $now->{'mday_padded'}),
+                    'language' => '',
+                    },
+                });
+        }
+    }
 }
 elsif ($o->{'scan-list-scheduled-for-scan'}) {
-}
-elsif ($o->{'scan-list-scheduled-for-ocr'}) {
+    my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+    my $target_collection = SDM::Archive::DSpace::get_collection({
+        'community_obj' => $target_community,
+        'collection_name' => 'Архив А.Ф. Котс',
+        });
+    if ($o->{'limit'}) {
+        if (!SDM::Archive::Utils::is_integer($o->{'limit'}, {'positive-only' => 1})) {
+            Carp::confess("--limit N requires N to be positive integer, got [$o->{'limit'}]");
+        }
+    }
+
+    my $coll_items = SDM::Archive::DSpace::get_collection_items({
+        'collection_obj' => $target_collection,
+        'expand' => 'metadata',
+        'limit' => $o->{'limit'} || 4000,
+        });
+    ITEMS: foreach my $item (@{$coll_items}) {
+        my $scanScheduled = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'sdm-archive.date.scanScheduled');
+        if ($scanScheduled) {
+            my $item_w_bitstreams = SDM::Archive::DSpace::get_item({
+                'collection_obj' => $target_collection,
+                'item_id' => $item->{'id'},
+                });
+            
+            my $has_scans;
+            if (scalar(@{$item_w_bitstreams->{'bitstreams'}})) {
+                BITSTREAMS: foreach my $bitstream (@{$item_w_bitstreams->{'bitstreams'}}) {
+                    if ($bitstream->{'mimeType'} eq 'image/jpeg') {
+                        $has_scans = 1;
+                        last BITSTREAMS;
+                    }
+                }
+            }
+
+            # TODO: add check of metadata field filled in when new scans are added to the archive
+            if (!$has_scans) {
+                SDM::Archive::DSpace::item_list_print({
+                    'collection_obj' => $target_collection,
+                    'item_id' => $item->{'id'},
+                    });
+            }
+        }
+    }
 }
 elsif ($o->{'scan-add-scans'}) {
     # one item, identified by directory with bitstreams
     # which metadata field to set?
+}
+elsif ($o->{'scan-schedule-ocr'}) {
+    # input: 1 item; which metadata field to set?
+}
+elsif ($o->{'scan-list-scheduled-for-ocr'}) {
 }
 elsif ($o->{'scan-add-ocr'}) {
     # which metadata field(s) to set?
