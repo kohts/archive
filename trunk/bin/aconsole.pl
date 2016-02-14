@@ -2608,10 +2608,11 @@ elsif ($o->{'rest-get-items'}) {
             'item_id' => $id,
             });
     
-        SDM::Archive::DSpace::item_list_print({
+        my $res = SDM::Archive::DSpace::item_list_print({
             'collection_obj' => $target_collection,
             'item_id' => $item->{'id'},
             });
+        print $res . "\n";
     }
 }
 elsif ($o->{'rest-test'}) {
@@ -2719,10 +2720,11 @@ elsif ($o->{'scan-list-without-scan'}) {
                 next ITEMS;
             }
             
-            SDM::Archive::DSpace::item_list_print({
+            my $res = SDM::Archive::DSpace::item_list_print({
                 'collection_obj' => $target_collection,
                 'item_id' => $item->{'id'},
                 });
+            print $res . "\n";
         }
     }
 }
@@ -2735,12 +2737,23 @@ elsif ($o->{'scan-schedule-scan'}) {
 
     my $now = SDM::Archive::Utils::get_time();
 
+    my $scan_requested = [];
+
     my $ids = [split(",", $o->{'scan-schedule-scan'})];
-    foreach my $id (@{$ids}) {
+    ID: foreach my $id (@{$ids}) {
         my $item = SDM::Archive::DSpace::get_item({
             'collection_obj' => $target_collection,
             'item_id' => $id,
             });
+
+        if (scalar(@{$item->{'bitstreams'}})) {
+            Carp::carp(
+                "SKIPPED: item [$item->{'id'} $item->{'handle'}] already has " .
+                scalar(@{$item->{'bitstreams'}}) .
+                " bistreams, specify --rescan to request another scan round"
+                );
+            next ID;
+        }
 
         my $scanScheduled = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'sdm-archive.date.scanScheduled');
         if (!$scanScheduled) {
@@ -2752,8 +2765,26 @@ elsif ($o->{'scan-schedule-scan'}) {
                     'language' => '',
                     },
                 });
+            push @{$scan_requested}, $item;
+        }
+        else {
+            Carp::carp("SKIPPED: item [$item->{'id'} $item->{'handle'}] has already been requested to be scanned on $scanScheduled");
+            next ID;
         }
     }
+
+    my $i = 0;
+    my $mail_text = "\n\n";
+    foreach my $item (@{$scan_requested}) {
+        $i++;
+        my $res = SDM::Archive::DSpace::item_list_print({
+            'collection_obj' => $target_collection,
+            'item_id' => $item->{'id'},
+            });
+        $res =~ s/(^[^\s]+\s+[^\s]+\s+)//;
+        $mail_text .= $i . ") " . $res . "\n";
+    }
+    print $mail_text;
 }
 elsif ($o->{'scan-list-scheduled-for-scan'}) {
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
@@ -2792,10 +2823,11 @@ elsif ($o->{'scan-list-scheduled-for-scan'}) {
 
             # TODO: add check of metadata field filled in when new scans are added to the archive
             if (!$has_scans) {
-                SDM::Archive::DSpace::item_list_print({
+                my $res = SDM::Archive::DSpace::item_list_print({
                     'collection_obj' => $target_collection,
                     'item_id' => $item->{'id'},
                     });
+                print $res . "\n";
             }
         }
     }
@@ -2866,7 +2898,6 @@ elsif ($o->{'scan-add-scans'}) {
                 'language' => '',
                 },
             });
-        SDM::Archive::do_log("item [$i->{'id'} $i->{'handle'}] digitized on [$now_date]");
     }
 }
 elsif ($o->{'scan-schedule-ocr'}) {

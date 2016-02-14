@@ -397,7 +397,10 @@ sub add_item_metadata {
             ]',
         'request_type' => 'json',
         });
-    print Data::Dumper::Dumper($res);
+    
+    SDM::Archive::do_log(
+        "item [" . $o->{'item'}->{'id'} . " " . $o->{'item'}->{'handle'} .
+        "] metadata [" . $o->{'metadata'}->{'key'} . "] set to [" . $o->{'metadata'}->{'value'} . "]");
 
     return $res;
 }
@@ -415,14 +418,18 @@ sub item_list_print {
         'item_id' => $o->{'item_id'},
         });
     
+    my $res;
+
     my $desc = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'dc.description');
     if (ref($desc) eq 'ARRAY') {
         my $id = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'dc.identifier.other', {'language' => 'ru'});
-        print join(" ", $item->{'id'}, $item->{'handle'}, $id->{'value'}) . "\n";
+        $res = join(" ", $item->{'id'}, $item->{'handle'}, $id->{'value'});
     }
     else {
-        print join(" ", $item->{'id'}, $item->{'handle'}, $desc->{'value'}) . "\n";
+        $res = join(" ", $item->{'id'}, $item->{'handle'}, $desc->{'value'});
     }
+
+    return $res;
 }
 
 
