@@ -79,6 +79,12 @@
   <dc-type>
     <schema>sdm-archive</schema>
     <element>misc</element>
+    <qualifier>storageItemEqualized</qualifier>
+    <scope_note>For sorting purposes; should be equal to storageItem except for leading zeros</scope_note>
+  </dc-type>
+  <dc-type>
+    <schema>sdm-archive</schema>
+    <element>misc</element>
     <qualifier>fond</qualifier>
     <scope_note></scope_note>
   </dc-type>

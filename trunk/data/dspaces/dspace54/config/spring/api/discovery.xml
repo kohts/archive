@@ -95,9 +95,16 @@
         <!--Which sidebar facets are to be displayed-->
         <property name="sidebarFacets">
             <list>
-                <ref bean="searchFilterAuthor" />
-                <ref bean="searchFilterSubject" />
+				<ref bean="searchFilterInventoryGroup" />
+				<ref bean="searchFilterFond" />			
+				<ref bean="searchFilterClassificationGroup" />
+				<ref bean="searchFilterAuthor" />
+<!--                <ref bean="searchFilterSubject" /> -->
                 <ref bean="searchFilterIssued" />
+				<ref bean="searchFilterDateDigitized" />
+				<ref bean="searchFilterDocumentType" />
+				<ref bean="searchFilterCompleteness" />
+				<ref bean="searchFilterAuthenticity" />
             </list>
         </property>
         <!-- Set TagCloud configuration per discovery configuration -->
@@ -109,6 +116,13 @@
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
+				<ref bean="searchFilterDateDigitized" />
+                <ref bean="searchFilterFond" />			
+				<ref bean="searchFilterInventoryGroup" />
+				<ref bean="searchFilterClassificationGroup" />
+				<ref bean="searchFilterDocumentType" />
+				<ref bean="searchFilterCompleteness" />
+				<ref bean="searchFilterAuthenticity" />
             </list>
         </property>
         <!--The sort filters for the discovery search-->
@@ -119,7 +133,9 @@
                 <property name="defaultSortOrder" value="desc"/>
                 <property name="sortFields">
                     <list>
-                        <ref bean="sortTitle" />
+						<ref bean="sortStorageItem" />
+						<ref bean="sortDateDigitized" />
+						<ref bean="sortTitle" />
                         <ref bean="sortDateIssued" />
                     </list>
                 </property>
@@ -200,9 +216,16 @@
         <!--Which sidebar facets are to be displayed (same as defaultConfiguration above)-->
         <property name="sidebarFacets">
             <list>
+				<ref bean="searchFilterInventoryGroup" />
+                <ref bean="searchFilterFond" />			
                 <ref bean="searchFilterAuthor" />
-                <ref bean="searchFilterSubject" />
+<!--                <ref bean="searchFilterSubject" /> -->
                 <ref bean="searchFilterIssued" />
+				<ref bean="searchFilterDateDigitized" />
+				<ref bean="searchFilterClassificationGroup" />
+				<ref bean="searchFilterDocumentType" />
+				<ref bean="searchFilterCompleteness" />
+				<ref bean="searchFilterAuthenticity" />
             </list>
         </property>
         <!-- Set TagCloud configuration per discovery configuration -->
@@ -214,6 +237,13 @@
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
+				<ref bean="searchFilterDateDigitized" />
+                <ref bean="searchFilterFond" />			
+				<ref bean="searchFilterInventoryGroup" />
+				<ref bean="searchFilterClassificationGroup" />
+				<ref bean="searchFilterDocumentType" />
+				<ref bean="searchFilterCompleteness" />
+ 				<ref bean="searchFilterAuthenticity" />
             </list>
         </property>
         <!--The sort filters for the discovery search (same as defaultConfiguration above)-->
@@ -224,6 +254,8 @@
                 <property name="defaultSortOrder" value="desc"/>
                 <property name="sortFields">
                     <list>
+						<ref bean="sortStorageItem" />
+						<ref bean="sortDateDigitized" />
                         <ref bean="sortTitle" />
                         <ref bean="sortDateIssued" />
                     </list>
@@ -279,7 +311,7 @@
                 <ref bean="searchFilterSubject" />
             </list>
         </property>
-    </bean>
+    </bean>    
     
      <!--TagCloud configuration bean for default discovery configuration-->
     <bean id="defaultTagCloudFacetConfiguration" class="org.dspace.discovery.configuration.TagCloudFacetConfiguration">
@@ -405,6 +437,89 @@
         <property name="sortOrder" value="VALUE"/>
     </bean>
 
+    <bean id="searchFilterDateDigitized" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="dateDigitized"/>
+        <property name="metadataFields">
+            <list>
+                <value>sdm-archive.date.digitized</value>
+            </list>
+        </property>
+        <property name="type" value="date"/>
+        <property name="sortOrder" value="VALUE"/>
+    </bean>
+
+    <bean id="searchFilterFond" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
+        <property name="indexFieldName" value="Fond"/>
+        <property name="metadataFields">
+            <list>
+                <value>sdm-archive.misc.fond</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="10"/>
+        <property name="sortOrder" value="COUNT"/>
+        <property name="splitter" value="::"/>
+    </bean>
+	
+    <bean id="searchFilterInventoryGroup" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
+        <property name="indexFieldName" value="InventoryGroup"/>
+        <property name="metadataFields">
+            <list>
+                <value>sdm-archive.misc.inventoryGroup</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="10"/>
+        <property name="sortOrder" value="COUNT"/>
+        <property name="splitter" value="::"/>
+    </bean>
+
+    <bean id="searchFilterClassificationGroup" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
+        <property name="indexFieldName" value="ClassificationGroup"/>
+        <property name="metadataFields">
+            <list>
+                <value>sdm-archive.misc.classification-group</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="10"/>
+        <property name="sortOrder" value="COUNT"/>
+        <property name="splitter" value="::"/>
+    </bean>
+
+    <bean id="searchFilterDocumentType" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
+        <property name="indexFieldName" value="DocumentType"/>
+        <property name="metadataFields">
+            <list>
+                <value>sdm-archive.misc.document-type</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="10"/>
+        <property name="sortOrder" value="COUNT"/>
+        <property name="splitter" value="::"/>
+    </bean>
+
+    <bean id="searchFilterCompleteness" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
+        <property name="indexFieldName" value="Completeness"/>
+        <property name="metadataFields">
+            <list>
+                <value>sdm-archive.misc.completeness</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="10"/>
+        <property name="sortOrder" value="COUNT"/>
+        <property name="splitter" value="::"/>
+    </bean>
+
+    <bean id="searchFilterAuthenticity" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
+        <property name="indexFieldName" value="Authenticity"/>
+        <property name="metadataFields">
+            <list>
+                <value>sdm-archive.misc.authenticity</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="10"/>
+        <property name="sortOrder" value="COUNT"/>
+        <property name="splitter" value="::"/>
+    </bean>
+	
     <!--Sort properties-->
     <bean id="sortTitle" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
         <property name="metadataField" value="dc.title"/>
@@ -413,6 +528,15 @@
     <bean id="sortDateIssued" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
         <property name="metadataField" value="dc.date.issued"/>
         <property name="type" value="date"/>
+    </bean>
+
+    <bean id="sortDateDigitized" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
+        <property name="metadataField" value="sdm-archive.date.digitized"/>
+        <property name="type" value="date"/>
+    </bean>
+
+    <bean id="sortStorageItem" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
+        <property name="metadataField" value="sdm-archive.misc.storageItemEqualized"/>
     </bean>
     
 </beans>

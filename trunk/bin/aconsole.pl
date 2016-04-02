@@ -261,6 +261,7 @@ my $o_names = [
     'scan-list-scheduled-for-scan',
     'scan-add-scans=s',
     'dspace-update-date-accesioned-with-scanned',
+    'dspace-update-storageItemEqualized',
     'from=s',
     ];
 my $o = {};
@@ -2944,14 +2945,39 @@ elsif ($o->{'dspace-update-date-accesioned-with-scanned'}) {
                 next ITEMS;
             }
 
-#            print Data::Dumper::Dumper($item);
-#            print Data::Dumper::Dumper($dateDigitized);
-#            print Data::Dumper::Dumper($dateAccesioned);
             my $res = SDM::Archive::DSpace::update_item_metadata({
                 'item' => $item,
                 'metadata' => {
                     'key' => 'dc.date.accessioned',
                     'value' => $lastDigitizedDate,
+                    'language' => '',
+                    },
+                });
+        }
+    }
+}
+elsif ($o->{'dspace-update-storageItemEqualized'}) {
+    my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+    my $target_collection = SDM::Archive::DSpace::get_collection({
+        'community_obj' => $target_community,
+        'collection_name' => 'Архив А.Ф. Котс',
+        });
+
+    my $coll_items = SDM::Archive::DSpace::get_collection_items({
+        'collection_obj' => $target_collection,
+        'expand' => 'metadata',
+        'limit' => $o->{'limit'} || 4000,
+        });
+    ITEMS: foreach my $item (@{$coll_items}) {
+        my $storageItem = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'sdm-archive.misc.storageItem');
+        my $storageItemEqualized = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'sdm-archive.misc.storageItemEqualized');
+
+        if (!$storageItemEqualized || sprintf("%04d", $storageItem->{'value'}) ne $storageItemEqualized->{'value'}) {
+            my $res = SDM::Archive::DSpace::update_item_metadata({
+                'item' => $item,
+                'metadata' => {
+                    'key' => 'sdm-archive.misc.storageItemEqualized',
+                    'value' => sprintf("%04d", $storageItem->{'value'}),
                     'language' => '',
                     },
                 });
