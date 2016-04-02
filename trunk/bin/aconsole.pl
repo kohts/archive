@@ -2900,7 +2900,7 @@ elsif ($o->{'scan-add-scans'}) {
                 },
             });
         $res = SDM::Archive::DSpace::update_item_metadata({
-            'item' => $item,
+            'item' => $i,
             'metadata' => {
                 'key' => 'dc.date.accessioned',
                 'value' => $now_date,
