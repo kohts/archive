@@ -8,7 +8,7 @@ sub rest_call {
 
     $o = {} unless $o;
 
-    Carp::confess("Programmer error: need action or link, verb (get or post), request_type (json or xml)")
+    Carp::confess("Programmer error: need action or link, verb (get, post or put), request_type (json or xml)")
         unless ($o->{'action'} || $o->{'link'}) && $o->{'verb'} && $o->{'request_type'};
 
     Carp::confess("Need dspace_rest_url configuration option in /etc/aconsole.pl")    
@@ -18,8 +18,8 @@ sub rest_call {
     Carp::confess("Need dspace_upload_user_pass configuration option in /etc/aconsole.pl")    
         unless defined($SDM::Archive::data_desc_struct->{'dspace_upload_user_pass'});
 
-    Carp::confess("verb must be one of [get,post]; got [" . safe_string($o->{'verb'}) . "]")
-        unless $o->{'verb'} eq "get" || $o->{'verb'} eq 'post';
+    Carp::confess("verb must be one of [get,post,put]; got [" . safe_string($o->{'verb'}) . "]")
+        unless $o->{'verb'} eq "get" || $o->{'verb'} eq 'post' || $o->{'verb'} eq 'put';
     $o->{'verb'} = uc($o->{'verb'});
 
     my $ua = LWP::UserAgent->new;
@@ -54,6 +54,10 @@ sub rest_call {
     my $dspace_server = $SDM::Archive::data_desc_struct->{'dspace_rest_url'};
     if ($dspace_server =~ m%(http://[^/]+)%) {
         $dspace_server = $1;
+    }
+
+    if (!$SDM::Archive::runtime->{'dspace_rest'}->{'dspace_server'}) {
+        $SDM::Archive::runtime->{'dspace_rest'}->{'dspace_server'} = $dspace_server;
     }
     
     if ($o->{'action'}) {
@@ -275,7 +279,12 @@ sub get_metadata_by_key {
                     Data::Dumper::Dumper($metadata_array));
             }
 
-            $out_values = [$out_values, $m];
+            if (ref($out_values) eq 'ARRAY') {
+                $out_values = [@{$out_values}, $m];
+            }
+            else {
+                $out_values = [$out_values, $m];
+            }
         }
         else {
             $out_values = $m;
@@ -371,10 +380,13 @@ sub get_item_by_handle {
     return undef;
 }
 
-sub add_item_metadata {
-    my ($o) = @_;
+sub change_item_metadata {
+    my ($action, $o) = @_;
 
     $o = {} unless $o;
+
+    Carp::confess("Programmer error: action should be either update or append, got [" . SDM::Archive::safe_string($action) . "]")
+        unless $action && ($action eq 'update' || $action eq 'append');
 
     Carp::confess("Programmer error: need item")
         unless $o->{'item'};
@@ -385,9 +397,12 @@ sub add_item_metadata {
             defined($o->{'metadata'}->{'key'}) &&
             defined($o->{'metadata'}->{'value'}) &&
             defined($o->{'metadata'}->{'language'});
+    Carp::confess("Programmer error: got perl structure [" . ref($o->{'metadata'}->{'value'}) .
+        "] instead of scalar as metadata value")
+        if ref($o->{'metadata'}->{'value'}) ne '';
 
     my $res = SDM::Archive::DSpace::rest_call({
-        'verb' => 'post',
+        'verb' => ($action eq 'append' ? 'post' : 'put'),
         'action' => 'items/' . $o->{'item'}->{'id'} . "/metadata",
         'request' => '[
               {"key": "' . $o->{'metadata'}->{'key'} .
@@ -399,10 +414,21 @@ sub add_item_metadata {
         });
     
     SDM::Archive::do_log(
+        "dspace server [" . $SDM::Archive::runtime->{'dspace_rest'}->{'dspace_server'} . "] " .
         "item [" . $o->{'item'}->{'id'} . " " . $o->{'item'}->{'handle'} .
-        "] metadata [" . $o->{'metadata'}->{'key'} . "] set to [" . $o->{'metadata'}->{'value'} . "]");
+        "] metadata [" . $o->{'metadata'}->{'key'} . "] " .
+        ($action eq 'append' ? 'appended' : 'updated') .
+        " with [" . $o->{'metadata'}->{'value'} . "]");
 
     return $res;
+}
+
+sub add_item_metadata {
+    return change_item_metadata("append", @_);
+}
+
+sub update_item_metadata {
+    return change_item_metadata("update", @_);
 }
 
 sub item_list_print {

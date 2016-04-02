@@ -260,6 +260,7 @@ my $o_names = [
     'scan-schedule-scan=s',
     'scan-list-scheduled-for-scan',
     'scan-add-scans=s',
+    'dspace-update-date-accesioned-with-scanned',
     'from=s',
     ];
 my $o = {};
@@ -2898,6 +2899,63 @@ elsif ($o->{'scan-add-scans'}) {
                 'language' => '',
                 },
             });
+        $res = SDM::Archive::DSpace::update_item_metadata({
+            'item' => $item,
+            'metadata' => {
+                'key' => 'dc.date.accessioned',
+                'value' => $now_date,
+                'language' => '',
+                },
+            });
+    }
+}
+elsif ($o->{'dspace-update-date-accesioned-with-scanned'}) {
+    my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+    my $target_collection = SDM::Archive::DSpace::get_collection({
+        'community_obj' => $target_community,
+        'collection_name' => 'Архив А.Ф. Котс',
+        });
+
+    my $coll_items = SDM::Archive::DSpace::get_collection_items({
+        'collection_obj' => $target_collection,
+        'expand' => 'metadata',
+        'limit' => $o->{'limit'} || 4000,
+        });
+
+    ITEMS: foreach my $item (@{$coll_items}) {
+        my $dateDigitized = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'sdm-archive.date.digitized');
+        my $dateAccesioned = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'dc.date.accessioned');
+
+        if ($dateDigitized) {
+            my $lastDigitizedDate;
+
+            if (ref($dateDigitized) eq 'ARRAY') {
+                foreach my $ddate (@{$dateDigitized}) {
+                    if (!$lastDigitizedDate || $lastDigitizedDate lt $ddate->{'value'}) {
+                        $lastDigitizedDate = $ddate->{'value'};
+                    }
+                }
+            }
+            else {
+                $lastDigitizedDate = $dateDigitized->{'value'};
+            }
+
+            if ($dateAccesioned->{'value'} eq $lastDigitizedDate) {
+                next ITEMS;
+            }
+
+#            print Data::Dumper::Dumper($item);
+#            print Data::Dumper::Dumper($dateDigitized);
+#            print Data::Dumper::Dumper($dateAccesioned);
+            my $res = SDM::Archive::DSpace::update_item_metadata({
+                'item' => $item,
+                'metadata' => {
+                    'key' => 'dc.date.accessioned',
+                    'value' => $lastDigitizedDate,
+                    'language' => '',
+                    },
+                });
+        }
     }
 }
 elsif ($o->{'scan-schedule-ocr'}) {
