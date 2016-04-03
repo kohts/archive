@@ -2887,7 +2887,10 @@ elsif ($o->{'scan-add-scans'}) {
             'request_type' => 'json',
             });
 
-        SDM::Archive::do_log("added [" . $f . "] to the item [$i->{'id'} $i->{'handle'}]");
+        SDM::Archive::do_log(
+            "dspace server [" . $SDM::Archive::runtime->{'dspace_rest'}->{'dspace_server'} . "] " .
+            "added [" . $f . "] to the item [$i->{'id'} $i->{'handle'}]"
+            );
     }
 
     if ($digitized) {
