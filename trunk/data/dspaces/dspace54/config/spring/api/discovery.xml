@@ -102,6 +102,7 @@
 <!--                <ref bean="searchFilterSubject" /> -->
                 <ref bean="searchFilterIssued" />
 				<ref bean="searchFilterDateDigitized" />
+				<ref bean="searchFilterDateOCR" />
 				<ref bean="searchFilterDocumentType" />
 				<ref bean="searchFilterCompleteness" />
 				<ref bean="searchFilterAuthenticity" />
@@ -117,6 +118,7 @@
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
 				<ref bean="searchFilterDateDigitized" />
+				<ref bean="searchFilterDateOCR" />
                 <ref bean="searchFilterFond" />			
 				<ref bean="searchFilterInventoryGroup" />
 				<ref bean="searchFilterClassificationGroup" />
@@ -222,6 +224,7 @@
 <!--                <ref bean="searchFilterSubject" /> -->
                 <ref bean="searchFilterIssued" />
 				<ref bean="searchFilterDateDigitized" />
+				<ref bean="searchFilterDateOCR" />
 				<ref bean="searchFilterClassificationGroup" />
 				<ref bean="searchFilterDocumentType" />
 				<ref bean="searchFilterCompleteness" />
@@ -238,6 +241,7 @@
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
 				<ref bean="searchFilterDateDigitized" />
+				<ref bean="searchFilterDateOCR" />
                 <ref bean="searchFilterFond" />			
 				<ref bean="searchFilterInventoryGroup" />
 				<ref bean="searchFilterClassificationGroup" />
@@ -448,6 +452,17 @@
         <property name="sortOrder" value="VALUE"/>
     </bean>
 
+    <bean id="searchFilterDateOCR" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="dateOCR"/>
+        <property name="metadataFields">
+            <list>
+                <value>sdm-archive.date.textExtracted</value>
+            </list>
+        </property>
+        <property name="type" value="date"/>
+        <property name="sortOrder" value="VALUE"/>
+    </bean>
+	
     <bean id="searchFilterFond" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
         <property name="indexFieldName" value="Fond"/>
         <property name="metadataFields">

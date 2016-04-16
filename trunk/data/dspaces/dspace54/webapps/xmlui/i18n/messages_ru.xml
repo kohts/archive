@@ -2479,6 +2479,7 @@ Translated by Ekaterina Chubich
 	
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.Fond">Фонд</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.dateDigitized">Дата оцифровки</message>
+	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.dateOCR">Дата распознавания</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.InventoryGroup">Группа инвентаризации</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.ClassificationGroup">Группа классификации</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.DocumentType">Способ воспроизведения</message>
@@ -2487,6 +2488,7 @@ Translated by Ekaterina Chubich
 	
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_Fond">Фонд</message>
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dateDigitized">Дата оцифровки</message>
+	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dateOCR">Дата распознавания</message>
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_InventoryGroup">Группа инвентаризации</message>
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_ClassificationGroup">Группа классификации</message>
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_DocumentType">Способ воспроизведения</message>
@@ -2495,6 +2497,7 @@ Translated by Ekaterina Chubich
 	
 	<message key="xmlui.Discovery.AbstractSearch.type_Fond">Фонд</message>
 	<message key="xmlui.Discovery.AbstractSearch.type_dateDigitized">Дата оцифровки</message>
+	<message key="xmlui.Discovery.AbstractSearch.type_dateOCR">Дата распознавания</message>
 	<message key="xmlui.Discovery.AbstractSearch.type_InventoryGroup">Группа инвентаризации</message>
 	<message key="xmlui.Discovery.AbstractSearch.type_ClassificationGroup">Группа классификации</message>
 	<message key="xmlui.Discovery.AbstractSearch.type_DocumentType">Способ воспроизведения</message>
