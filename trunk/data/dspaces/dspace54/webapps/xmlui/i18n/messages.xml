@@ -2504,7 +2504,7 @@
 
 
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.Fond">Fond</message>
-	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.dateDigitized">Date digitized</message>
+	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.dateDigitized">Date scanned</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.dateOCR">Date of OCR</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.InventoryGroup">Inventory group</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.ClassificationGroup">Classification group</message>
@@ -2513,7 +2513,7 @@
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.Authenticity">Authenticity</message>
 	
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_Fond">Fond</message>
-	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dateDigitized">Date digitized</message>
+	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dateDigitized">Date scanned</message>
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dateOCR">Date of OCR</message>
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_InventoryGroup">Inventory group</message>
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_ClassificationGroup">Classification group</message>
@@ -2522,7 +2522,7 @@
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_Authenticity">Authenticity</message>
 	
 	<message key="xmlui.Discovery.AbstractSearch.type_Fond">Fond</message>
-	<message key="xmlui.Discovery.AbstractSearch.type_dateDigitized">Date digitized</message>
+	<message key="xmlui.Discovery.AbstractSearch.type_dateDigitized">Date scanned</message>
 	<message key="xmlui.Discovery.AbstractSearch.type_dateOCR">Date of OCR</message>
 	<message key="xmlui.Discovery.AbstractSearch.type_InventoryGroup">Inventory group</message>
 	<message key="xmlui.Discovery.AbstractSearch.type_ClassificationGroup">Classification group</message>
@@ -2532,7 +2532,14 @@
 	
 	<message key="xmlui.Discovery.AbstractSearch.sort_by.sdm-archive.misc.storageItemEqualized_sort_asc">Storage item asc.</message>
 	<message key="xmlui.Discovery.AbstractSearch.sort_by.sdm-archive.misc.storageItemEqualized_sort_desc">Storage item desc.</message>
-	<message key="xmlui.Discovery.AbstractSearch.sort_by.sdm-archive.date.digitized_dt_asc">Date digitized asc.</message>
-	<message key="xmlui.Discovery.AbstractSearch.sort_by.sdm-archive.date.digitized_dt_desc">Date digitized desc.</message>
+	<message key="xmlui.Discovery.AbstractSearch.sort_by.sdm-archive.date.digitized_dt_asc">Date scanned asc.</message>
+	<message key="xmlui.Discovery.AbstractSearch.sort_by.sdm-archive.date.digitized_dt_desc">Date scanned desc.</message>
 	
+	<message key="xmlui.dri2xhtml.structural.head-subtitle">SDM Electronic Archive</message>
+	<message key="xmlui.sdm.news.title">Introduction</message>
+	<message key="xmlui.sdm.news.p1"></message>
+	<message key="xmlui.sdm.news.p2"></message>
+	<message key="xmlui.sdm.news.p3"></message>
+	<message key="xmlui.sdm.news.p4"></message>
+
 </catalogue>

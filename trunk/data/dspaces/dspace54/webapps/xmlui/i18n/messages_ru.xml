@@ -2478,7 +2478,7 @@ Translated by Ekaterina Chubich
 
 	
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.Fond">Фонд</message>
-	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.dateDigitized">Дата оцифровки</message>
+	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.dateDigitized">Дата сканирования</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.dateOCR">Дата распознавания</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.InventoryGroup">Группа инвентаризации</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.ClassificationGroup">Группа классификации</message>
@@ -2487,7 +2487,7 @@ Translated by Ekaterina Chubich
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.Authenticity">Подлинность</message>
 	
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_Fond">Фонд</message>
-	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dateDigitized">Дата оцифровки</message>
+	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dateDigitized">Дата сканирования</message>
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dateOCR">Дата распознавания</message>
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_InventoryGroup">Группа инвентаризации</message>
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_ClassificationGroup">Группа классификации</message>
@@ -2496,7 +2496,7 @@ Translated by Ekaterina Chubich
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_Authenticity">Подлинность</message>
 	
 	<message key="xmlui.Discovery.AbstractSearch.type_Fond">Фонд</message>
-	<message key="xmlui.Discovery.AbstractSearch.type_dateDigitized">Дата оцифровки</message>
+	<message key="xmlui.Discovery.AbstractSearch.type_dateDigitized">Дата сканирования</message>
 	<message key="xmlui.Discovery.AbstractSearch.type_dateOCR">Дата распознавания</message>
 	<message key="xmlui.Discovery.AbstractSearch.type_InventoryGroup">Группа инвентаризации</message>
 	<message key="xmlui.Discovery.AbstractSearch.type_ClassificationGroup">Группа классификации</message>
@@ -2506,7 +2506,15 @@ Translated by Ekaterina Chubich
 
 	<message key="xmlui.Discovery.AbstractSearch.sort_by.sdm-archive.misc.storageItemEqualized_sort_asc">Место хранения по возр.</message>
 	<message key="xmlui.Discovery.AbstractSearch.sort_by.sdm-archive.misc.storageItemEqualized_sort_desc">Место хранения по убыв.</message>
-	<message key="xmlui.Discovery.AbstractSearch.sort_by.sdm-archive.date.digitized_dt_asc">Дата оцифровки по возр.</message>
-	<message key="xmlui.Discovery.AbstractSearch.sort_by.sdm-archive.date.digitized_dt_desc">Дата оцифровки по убыв.</message>
+	<message key="xmlui.Discovery.AbstractSearch.sort_by.sdm-archive.date.digitized_dt_asc">Дата сканирования по возр.</message>
+	<message key="xmlui.Discovery.AbstractSearch.sort_by.sdm-archive.date.digitized_dt_desc">Дата сканирования по убыв.</message>
+
+	<message key="xmlui.dri2xhtml.structural.head-subtitle">Электронный архив ГДМ</message>
+	<message key="xmlui.sdm.news.title">Вступительное слово</message>
+	<message key="xmlui.sdm.news.p1"></message>
+	<message key="xmlui.sdm.news.p2"></message>
+	<message key="xmlui.sdm.news.p3"></message>
+	<message key="xmlui.sdm.news.p4"></message>
+
 	
 </catalogue>
