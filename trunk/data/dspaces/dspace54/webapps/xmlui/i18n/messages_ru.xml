@@ -2062,7 +2062,6 @@ Translated by Ekaterina Chubich
 <message key="xmlui.dri2xhtml.structural.contact-link">Контакты</message>
 <message key="xmlui.dri2xhtml.structural.feedback-link">Отправить отзыв</message>
 
-<message key="xmlui.dri2xhtml.structural.head-subtitle">Репозиторий Dspace</message>
 
 <message key="xmlui.dri2xhtml.structural.profile">Профиль:</message>
 <message key="xmlui.dri2xhtml.structural.logout">Выйти</message>
@@ -2476,6 +2475,8 @@ Translated by Ekaterina Chubich
 
     <message key="xmlui.Discovery.SimpleSearch.did_you_mean">Может быть, вы имели в виду: </message>
 
+
+	<message key="xmlui.dri2xhtml.structural.head-subtitle">Репозиторий Dspace</message>
 	
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.Fond">Фонд</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.dateDigitized">Дата сканирования</message>
@@ -2511,10 +2512,28 @@ Translated by Ekaterina Chubich
 
 	<message key="xmlui.dri2xhtml.structural.head-subtitle">Электронный архив ГДМ</message>
 	<message key="xmlui.sdm.news.title">Вступительное слово</message>
-	<message key="xmlui.sdm.news.p1"></message>
-	<message key="xmlui.sdm.news.p2"></message>
-	<message key="xmlui.sdm.news.p3"></message>
-	<message key="xmlui.sdm.news.p4"></message>
+	<message key="xmlui.sdm.news.p1">В электронном архиве Александра Фёдоровича Котса (1880—1964) собраны документы
+	основателя и первого директора Государственного Дарвиновского музея в Москве.</message>
+	<message key="xmlui.sdm.news.p2">Архив можно условно разделить на три тематические группы: автобиографические и личные документы,
+	рабочие материалы по Государственному Дарвиновскому музею, методические статьи и материалы по музееведению.</message>
+	<message key="xmlui.sdm.news.p3">В личный архив Александра Фёдоровича входят письма, открытки конца XIX, начала ХХ века,
+	фотографии, конспекты научных работ, записки лекций, дневники и черновики.</message>
+	<message key="xmlui.sdm.news.p4">Государственный Дарвиновский музей был основан при Московских высших
+	женских курсах (ныне Педагогический университет) и много лет ютился на небольших площадях. А.Ф. Котс
+	всю свою жизнь добивался строительства собственного здания для музея. Рабочие материалы по ГДМ содержат
+	переписку с организациями и учреждениями, материалы по истории музея и
+	комплектованию коллекций, счета, накладные, книги поступлений, материалы о сотрудниках музея.
+	Мечтая создать музей массового типа, доступный абсолютно для всех, А. Ф. Котс писал методические статьи
+	о своём видении массового музея, о работе с посетителями, о строительстве экспозиции. Более чем вековая история
+	Дарвиновского музея тесно переплетена с непростой историей нашей страны в ХХ веке. В годы войн,
+	тяжелые послевоенные годы, годы разрухи и репрессий, Александр Фёдорович Котс сумел не только
+	сохранить коллекцию музея, но и огромное количество ценных документальных материалов.</message>
+	<message key="xmlui.sdm.news.p5">Продолжая дело Александра Фёдоровича Котса по хранению документов,
+	мы надеемся, что архив будет полезен всем тем, кто изучает историю науки и становление музейного дела в России.</message>
+	<message key="xmlui.sdm.news.p6">Пожалуйста, ставьте ссылку на архив при использовании наших материалов.</message>
+	<message key="xmlui.sdm.news.p7">По вопросам коммерческого использования материалов, а также по другим вопросам,
+	обращайтесь к администраторам архива по электронной почте dspacesdm@googlegroups.com</message>
+	<message key="xmlui.sdm.news.search_help">Помощь по поиску в архиве</message>
+	<message key="xmlui.sdm.news.search_help_link">https://github.com/kohts/archive/wiki/Navigating-Archive-(Russian)</message>
 
-	
 </catalogue>

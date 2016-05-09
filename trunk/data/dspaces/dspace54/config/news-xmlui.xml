@@ -2,14 +2,15 @@
 <document xmlns="http://di.tamu.edu/DRI/1.0/" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" version="1.1">
 <body>
 <div id="file.news.div.news" n="news" rend="primary">
-
 <head><i18n:text>xmlui.sdm.news.title</i18n:text></head>
 <p style="text-align:justify"><i18n:text>xmlui.sdm.news.p1</i18n:text></p>
 <p style="text-align:justify"><i18n:text>xmlui.sdm.news.p2</i18n:text></p>
 <p style="text-align:justify"><i18n:text>xmlui.sdm.news.p3</i18n:text></p>
 <p style="text-align:justify"><i18n:text>xmlui.sdm.news.p4</i18n:text></p>
-
-
+<p style="text-align:justify"><i18n:text>xmlui.sdm.news.p5</i18n:text></p>
+<p style="text-align:justify"><i18n:text>xmlui.sdm.news.p6</i18n:text></p>
+<p style="text-align:justify"><i18n:text>xmlui.sdm.news.p7</i18n:text></p>
+<p><xref target="https://github.com/kohts/archive/wiki/Navigating-Archive"><i18n:text>xmlui.sdm.news.search_help</i18n:text></xref></p>
 </div>
 </body>
 <options/>
