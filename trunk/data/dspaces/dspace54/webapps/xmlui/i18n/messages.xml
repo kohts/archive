@@ -2537,30 +2537,30 @@
 
 	<message key="xmlui.dri2xhtml.structural.head-subtitle">SDM Electronic Archive</message>
 	<message key="xmlui.sdm.news.title">Introduction</message>
-	<message key="xmlui.sdm.news.p1">Electronic archive of Alexander Erich Kohts (Coates), 1880—1964,
-	contains documents of the founder and the first directory of the State Darwin Museum in Moscow.</message>
-	<message key="xmlui.sdm.news.p2">Documents are divided into three groups: autobiographical
-	and personal documents, working materials related to the operation of the State Darwin Museum,
-	methodological museological articles.</message>
-	<message key="xmlui.sdm.news.p3">Personal archive of Alexander Kohts contains letters and postcards
-	from the end of the 19th, beginning of the 20th centuries, photos, abstracts of lectures,
+	<message key="xmlui.sdm.news.p1">The electronic archive of Alexander Erich Kohts (1880—1964)
+	includes documents of the founder and the first director of the State Darwin Museum in Moscow.</message>
+	<message key="xmlui.sdm.news.p2">The archive can be divided into three groups: autobiographical
+	and personal documents, working materials of the State Darwin Museum and methodological
+	as well as museological articles.</message>
+	<message key="xmlui.sdm.news.p3">The personal archive of Alexander Kohts includes letters and postcards
+	(late 19th - early 20th centuries), photos, abstracts of scientific papers and lectures,
 	journals and drafts.</message>
-	<message key="xmlui.sdm.news.p4">The State Darwin Museum was founded under the auspices of the
-	Moscow Higher Women's Courses (Moscow State Pedagogical University currently) and for many years
-	occupied very small area. Alexander Kohts struggled to get a separate building for the museum
-	for all his life. Working materials contain correspondence with different organizations,
-	documents related to the history of the museum and gathering of collections, bills, invoices,
-	materials about employees of the museum. Dreaming of the mass museum, accessible for everyone,
-	Alexander Kohts wrote methodological articles about his vision of a mass museum, about
-	working with visitors, about building the exposition. More than a hundred year history
-	of the museum is strongly bound to the twisted history of Russia during the 20th century.
-	During the World War II, during the uneasy postwar years Alexander Kohts managed
-	to retain not only museum collections, but also a lot of valueable documents.</message>
-	<message key="xmlui.sdm.news.p5">Following in the footsteps of Alexander Kohts
-	we hope that this archive would be helpful to everyone interested in the history of science
-	and museology in Russia.</message>
-	<message key="xmlui.sdm.news.p6">Please link to the archive if you use our materials.</message>
-	<message key="xmlui.sdm.news.p7">Feel free to direct all your inqueries to dspacesdm@googlegroups.com</message>
+	<message key="xmlui.sdm.news.p4">The State Darwin Museum was established under the auspices
+	of the Moscow Higher Women's Courses (currently Moscow State Pedagogical University).
+	The museum occupied a very small area for many years. Alexander Kohts spent his entire life
+	struggling for a building for the State Darwin Museum. The working materials include
+	correspondence with different organizations and establishments, documents related
+	to gathering of collections and the history of the museum, bills, invoices, materials about
+	employees. Dreaming of a mass museum which would be accessible to everyone, Alexander Kohts wrote
+    methodological articles expressing his vision of such a museum, ideas of working with visitors and
+    creating expositions. The history of over a hundred years old museum is closely connected to the
+	complicated history of Russia in the 20th century. During the Great Patriotic War, difficult postwar years,
+	long years of devastation and repressions, Alexander Kohts managed to protect not only the museum’s
+	collections, but also a large number of invaluable documents.</message>
+	<message key="xmlui.sdm.news.p5">We continued the legacy of Alexander Kohts in hopes of this archive
+	being useful to everyone interested in the history of science and museology in Russia.</message>
+	<message key="xmlui.sdm.news.p6">Please put a link to the archive if you use the materials.</message>
+	<message key="xmlui.sdm.news.p7">Feel free to contact us if you have any questions: dspacesdm@googlegroups.com</message>
 	<message key="xmlui.sdm.news.search_help">Instructions on using the archive</message>
 	<message key="xmlui.sdm.news.search_help_link">https://github.com/kohts/archive/wiki/Navigating-Archive-(English)</message>
 
