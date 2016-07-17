@@ -2508,6 +2508,38 @@
   <message key="xmlui.XMLWorkflow.scoreReview.scoreReviewStep">Score review</message>
   <!-- End XMLWorkflow -->  
   
-  
+	<message key="xmlui.dri2xhtml.structural.head-subtitle">SDM elektronischen Archiv</message>
+	<message key="xmlui.sdm.news.title">Vorwort</message>
+	<message key="xmlui.sdm.news.p1">Im elektronischen Archiv von Alexander Erich (Fjodorowitsch) Kohts (1880-1964)
+	sind Dokumente des Gründers und des ersten Direktors des Staatlichen Darwin-Museums in Moskau gesammelt.</message>
+	<message key="xmlui.sdm.news.p2">Das Archiv kann in drei thematische Gruppen unterteilt werden:
+	autobiographische und persönliche Dokumente; Arbeitsmaterialien für das Staatliche Darwin-Museum;
+	methodische Artikel und Forschungsmaterialien.</message>
+	<message key="xmlui.sdm.news.p3">Zum persönlichen Archiv von A.E. Kohts gehören Briefe und Postkarten,
+	die vom Ende des 19. und Anfang des 20. Jahrhunderts stammen, sowie Bilder, Zusammenfassungen
+	der wissenschaftlichen Arbeiten, Kolleghefte, Tagebücher und Entwürfe.</message>
+	<message key="xmlui.sdm.news.p4">Staatliches Darwin-Museum wurde bei den Moskauer Frauenkursen
+	(heute Pädagogische Hochschule) gegründet, es hatte viele Jahre lang wenig Platz zur Verfügung,
+	und A. E. Kohts bemühte sich sein ganzes Leben lang um den Bau eines eigenen Museumsgebäudes. 
+	Unterlagen des Museums sind: Korrespondenz mit Organisationen und Institutionen, Materialien
+	zur Geschichte des Museums und Komplettierung von Sammlungen, Konten und Rechnungen, Akzessionsbücher,
+	Quittungen, Infos über die Mitarbeiter des Museums. A. E. Kohts träumte vom Massenmuseum,
+	das für jederman verfügbar wäre, und schrieb Artikel über seine Vision des Massenmuseums,
+	über die Arbeit mit den Besuchern, die Einrichtung von Ausstellungen. Die mehr als hundertjährige
+	Geschichte des Darwin-Museums ist eng mit der Geschichte unseres Landes verbunden.
+	Während des Krieges, in den schwierigen Jahren der Nachkriegszeit, der Zerstörung und Repressalien
+	gelang es Alexander Kohts nicht nur die Sammlung des Museums, sondern auch eine große Anzahl
+	von wertvollen dokumentarischen Materialien zu erhalten.
+	</message>
+	<message key="xmlui.sdm.news.p5">Wir setzen die Arbeit von Alexander Erich Kohts fort und
+	bewahren die Dokumenten auf in der Hoffnuing, dass das Archiv nützlich sein wird für all diejenigen,
+	die die Geschichte der Wissenschaft studieren und sich für Entwicklung des Museumswesens
+	in Russland interessieren.</message>
+	<message key="xmlui.sdm.news.p6">Bitte zeigen Sie die Quelle an, wenn Sie die Materialien unseres Archivs verwenden.</message>
+	<message key="xmlui.sdm.news.p7">Bezüglich der kommerziellen Nutzung von Materialien sowie bei anderen Fragen
+	wenden Sie sich bitte an die Administratoren des Archivs per dspacesdm@googlegroups.com</message>
+	<message key="xmlui.sdm.news.search_help">Anweisungen zur Verwendung des Archiv</message>
+	<message key="xmlui.sdm.news.search_help_link">https://github.com/kohts/archive/wiki/Navigating-Archive-(English)</message>
+
   
 </catalogue>
