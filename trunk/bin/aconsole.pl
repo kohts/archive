@@ -2866,14 +2866,15 @@ elsif ($o->{'scan-add-scans'}) {
         if (! -f $o->{'from'} . "/" . $f) {
             Carp::confess("Unexpected element [" . $o->{'from'} . "/" . $f . "]");
         }
-        if ($f !~ /\.jpg$/) {
+        if ($f !~ /\.(jpg|txt)$/) {
             Carp::confess("Unexpected element [" . $o->{'from'} . "/" . $f . "]");
         }
 
         if (scalar(@{$i->{'bitstreams'}})) {
             foreach my $bs (@{$i->{'bitstreams'}}) {
                 if ($bs->{'name'} eq $f) {
-                    Carp::confess("Bitstream named [$bs->{'name'}] already exists in item [$i->{'id'} $i->{'handle'}]");
+                    Carp::carp("Bitstream named [$bs->{'name'}] already exists in item [$i->{'id'} $i->{'handle'}]");
+                    next ITEM_ELEMENT;
                 }
             }
         }
