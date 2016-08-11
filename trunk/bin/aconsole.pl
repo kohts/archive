@@ -263,6 +263,7 @@ my $o_names = [
     'dspace-update-date-accesioned-with-scanned',
     'dspace-update-storageItemEqualized',
     'from=s',
+    'oracle-parse-dump',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -2995,6 +2996,72 @@ elsif ($o->{'scan-list-scheduled-for-ocr'}) {
 }
 elsif ($o->{'scan-add-ocr'}) {
     # which metadata field(s) to set?
+}
+elsif ($o->{'oracle-parse-dump'}) {
+    #
+    # - reads SQL developer produced table dump
+    # - splits into statements
+    # - prepares perl structures which could be further manipulated
+    #
+
+    my $current_window = "";
+    my $current_record;
+    my $rec = 0;
+    while (my $l = <STDIN>) {
+        $current_window .= $l;
+
+        if (length($current_window) > 32768) {
+            Carp::confess("Got record bigger than 32K or unknown format; current_window follows: " . $current_window);
+        }
+
+        if ($current_window =~ /^(.*?)(Insert into.+?)\n(Insert into.+)$/s) {
+            $rec++;
+
+            $current_record = $2;
+            $current_window = $3;
+
+            if ($current_record =~ /Insert into\s([^\s]+?)\s*?\(([^\)]+?)\)\s*values\s*\((.+)\);/) {
+                my ($table_name, $field_list, $value_list) = ($1, $2, $3);
+
+                my $record = {
+                    'field_position_by_name' => {},
+                    'field_name_by_position' => {},
+                    'values_by_field_name' => {},
+                    };
+
+                my $i = 0;
+                foreach my $f (split(",", $field_list, -1)) {
+                    $record->{'field_position_by_name'}->{$f} = $i;
+                    $record->{'field_name_by_position'}->{$i} = $f;
+                    $i++;
+                }
+
+                $i = 0;
+                my $values = [];
+                $value_list =~ s/''/___single_quote___/g;
+                while ($value_list =~ /^,?(null|'([^']+?)')(.*)$/) {
+                    my ($value, $left_values) = ($1, $3);
+                    $value =~ s/^\'//;
+                    $value =~ s/\'$//;
+
+                    if (!defined($record->{'field_name_by_position'}->{$i})) {
+                        Carp::confess("Record [$rec], field number [$i] exists in value list, but is not found in the fields list; current_record: $current_record");
+                    }
+
+                    if ($value ne 'null') {
+                        $value =~ s/___single_quote___/'/g;
+                        $record->{'values_by_field_name'}->{$record->{'field_name_by_position'}->{$i}} = $value;
+                    }
+
+                    $value_list = $left_values;
+                    $i++;
+                }
+
+                print Data::Dumper::Dumper($record->{'values_by_field_name'});
+            }
+        }
+    }
+
 }
 elsif ($o->{'command-list'}) {
     print join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n";
