@@ -263,7 +263,11 @@ my $o_names = [
     'dspace-update-date-accesioned-with-scanned',
     'dspace-update-storageItemEqualized',
     'from=s',
-    'oracle-parse-dump',
+    'oracle-parse',
+    'dump',
+    'generate-mysql-table-def',
+    'oracle-dump-file=s',
+    'fill-local-mysql',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -2997,71 +3001,225 @@ elsif ($o->{'scan-list-scheduled-for-ocr'}) {
 elsif ($o->{'scan-add-ocr'}) {
     # which metadata field(s) to set?
 }
-elsif ($o->{'oracle-parse-dump'}) {
+elsif ($o->{'oracle-parse'}) {
     #
     # - reads SQL developer produced table dump
     # - splits into statements
     # - prepares perl structures which could be further manipulated
     #
+    # create database kamis_import DEFAULT CHARACTER SET utf8;
+    # create table PAINTS
+    #
 
-    my $current_window = "";
-    my $current_record;
-    my $rec = 0;
-    while (my $l = <STDIN>) {
-        $current_window .= $l;
+	Carp::confess("Need --oracle-dump-file to parse, got [" . safe_string($o->{'oracle-dump-file'}) . "]")
+	    unless $o->{'oracle-dump-file'};
 
-        if (length($current_window) > 32768) {
-            Carp::confess("Got record bigger than 32K or unknown format; current_window follows: " . $current_window);
-        }
+	my $stats_cache_filename = $o->{'oracle-dump-file'} . ".stats.nfreeze";
 
-        if ($current_window =~ /^(.*?)(Insert into.+?)\n(Insert into.+)$/s) {
-            $rec++;
+	my $stats = {
+	  'table_name' => undef,
+	  'max-f-length' => {},
+	  'only-digits' => {},
+	};
 
-            $current_record = $2;
-            $current_window = $3;
+	if (-e $stats_cache_filename) {
+		my $stats_tmp = Storable::thaw(IOW::File::read_file_scalar($stats_cache_filename));
+		my $old_version;
+		foreach my $k (keys %{$stats}) {
+			if (! exists($stats_tmp->{$k})) {
+				$old_version = 1;
+				last;
+			}
+		}
+		foreach my $k (keys %{$stats_tmp}) {
+			if (! exists($stats->{$k})) {
+				$old_version = 1;
+				last;
+			}
+		}
+		if (!$old_version) {
+			$stats = $stats_tmp;
+		}
+	}
 
-            if ($current_record =~ /Insert into\s([^\s]+?)\s*?\(([^\)]+?)\)\s*values\s*\((.+)\);/) {
-                my ($table_name, $field_list, $value_list) = ($1, $2, $3);
+	my $mysql_table;
+	if (defined($stats->{'table_name'})) {
+		print Data::Dumper::Dumper($stats);
 
-                my $record = {
-                    'field_position_by_name' => {},
-                    'field_name_by_position' => {},
-                    'values_by_field_name' => {},
-                    };
+		$mysql_table = {
+		    'table_name' => $stats->{'table_name'},
+		    'data_type' => {},
+		};
+		$mysql_table->{'table_name'} =~ s/\./_/g;
 
-                my $i = 0;
-                foreach my $f (split(",", $field_list, -1)) {
-                    $record->{'field_position_by_name'}->{$f} = $i;
-                    $record->{'field_name_by_position'}->{$i} = $f;
-                    $i++;
-                }
+		my $rec_ok;
+		my $text_fields_needed = 0;
+		while (!$rec_ok) {
+			my $record_size = 0;
+			my $text_fields_created = 0;
 
-                $i = 0;
-                my $values = [];
-                $value_list =~ s/''/___single_quote___/g;
-                while ($value_list =~ /^,?(null|'([^']+?)')(.*)$/) {
-                    my ($value, $left_values) = ($1, $3);
-                    $value =~ s/^\'//;
-                    $value =~ s/\'$//;
+			foreach my $field_name (
+			    sort { $stats->{'max-f-length'}->{$b} <=> $stats->{'max-f-length'}->{$a} }
+			    keys %{$stats->{'max-f-length'}}
+			    ) {
 
-                    if (!defined($record->{'field_name_by_position'}->{$i})) {
-                        Carp::confess("Record [$rec], field number [$i] exists in value list, but is not found in the fields list; current_record: $current_record");
-                    }
+				if ($stats->{'only-digits'}->{$field_name}) {
+					$mysql_table->{'data_type'}->{$field_name} = "int";
+					$record_size += 8;
+				} else {
+			                if ($text_fields_created < $text_fields_needed) {
+						$mysql_table->{'data_type'}->{$field_name} = "text";
+						$text_fields_created++;			                	
+			                } else {
+						my $size = 2**(int(log($stats->{'max-f-length'}->{$field_name})/log(2))+1);
+						$mysql_table->{'data_type'}->{$field_name} = "varchar(" . $size . ")";
+						$record_size += $size * 3;
+					}
+				}
+			}
 
-                    if ($value ne 'null') {
-                        $value =~ s/___single_quote___/'/g;
-                        $record->{'values_by_field_name'}->{$record->{'field_name_by_position'}->{$i}} = $value;
-                    }
+			if ($record_size < 65000) {
+				$rec_ok = 1;
+			} else {
+				$text_fields_needed++;
+				print "record too large: $record_size, changing $text_fields_needed longest fields to text\n";
+			}
+		}
+		print Data::Dumper::Dumper($mysql_table);
 
-                    $value_list = $left_values;
-                    $i++;
-                }
+		if ($o->{'generate-mysql-table-def'}) {
+			my $def = "create table " . $mysql_table->{'table_name'} . " (\n";
+			foreach my $field_name (sort keys %{$mysql_table->{'data_type'}}) {
+				$def .= "  " . $field_name . " " .
+				        $mysql_table->{'data_type'}->{$field_name} .
+				        ",\n";
+			}
+			chop($def);
+			chop($def);
+			$def .= "\n);";
 
-                print Data::Dumper::Dumper($record->{'values_by_field_name'});
-            }
-        }
-    }
+			print "\n" . $def . "\n";
+		}
 
+		if (!$o->{'fill-local-mysql'} && !$o->{'dump'}) {
+			exit;
+		}
+	}
+
+	my $current_window = "";
+	my $current_record;
+	my $rec = 0;
+    
+        my $dbh = SDM::Archive::DB::get_kamis_db();
+
+        my $fh;
+        open($fh, "<" . $o->{'oracle-dump-file'}) || Carp::confess("Unable to read from [" . safe_string($o->{'oracle-dump-file'}) . "]");
+	binmode($fh, ':encoding(UTF-8)');
+	while (my $l = <$fh>) {
+		
+		$current_window .= $l;
+
+		if (length($current_window) > 32768) {
+			Carp::confess("Got record bigger than 32K or unknown format; current_window follows: " . $current_window);
+		}
+
+		if ($current_window =~ /^(.*?)(Insert into.+?)\n(Insert into.+)$/s) {
+			$rec++;
+
+			$current_record = $2;
+			$current_window = $3;
+
+			if ($current_record =~ /Insert into\s([^\s]+?)\s*?\(([^\)]+?)\)\s*values\s*\((.+)\);/) {
+                		my ($table_name, $field_list, $value_list) = ($1, $2, $3);
+
+				if ($stats->{'table_name'} && $stats->{'table_name'} ne $table_name) {
+					Carp::confess("at least two different tables ($stats->{'table_name'}, $table_name) are populated in the file, please split");
+				}
+				if (!$stats->{'table_name'}) {
+					$stats->{'table_name'} = $table_name;
+				}
+
+				my $record = {
+				  'field_position_by_name' => {},
+				  'field_name_by_position' => {},
+				  'values_by_field_name' => {},
+				};
+
+				my $i = 0;
+				foreach my $f (split(",", $field_list, -1)) {
+					$record->{'field_position_by_name'}->{$f} = $i;
+					$record->{'field_name_by_position'}->{$i} = $f;
+					$i++;
+				}
+
+				$i = 0;
+				my $values = [];
+				$value_list =~ s/''/___single_quote___/g;
+				while ($value_list =~ /^,?(null|'([^']+?)')(.*)$/) {
+					my ($value, $left_values) = ($1, $3);
+					$value =~ s/^\'//;
+					$value =~ s/\'$//;
+
+					if (!defined($record->{'field_name_by_position'}->{$i})) {
+						Carp::confess("Record [$rec], field number [$i] exists in value list, but is not found in the fields list; current_record: $current_record");
+					}
+
+					if ($value ne 'null') {
+						$value =~ s/___single_quote___/'/g;
+						$record->{'values_by_field_name'}->{$record->{'field_name_by_position'}->{$i}} = $value;
+
+						if (!defined($stats->{'max-f-length'}->{$record->{'field_name_by_position'}->{$i}}) ||
+						    $stats->{'max-f-length'}->{$record->{'field_name_by_position'}->{$i}} < length($value)) {
+							$stats->{'max-f-length'}->{$record->{'field_name_by_position'}->{$i}} = length($value);
+    						}
+    
+    						if (!defined($stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}}) ||
+    						    $stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}}
+    						   ) {
+    							if ($value !~ /^\d+$/) {
+    								$stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}} = 0;
+    							}
+							else {
+    								$stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}} = 1;
+							}
+        					}
+    					} else {
+    						if (!defined($stats->{'max-f-length'}->{$record->{'field_name_by_position'}->{$i}})) {
+    							$stats->{'max-f-length'}->{$record->{'field_name_by_position'}->{$i}} = 0;
+    						}
+    						if (!defined($stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}})) {
+    							$stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}} = 1;
+    						}
+    					}
+
+					$value_list = $left_values;
+					$i++;
+                		}
+
+    				if ($o->{'dump'}) {
+					print Data::Dumper::Dumper($record->{'values_by_field_name'});
+    				}
+				if ($o->{'fill-local-mysql'}) {
+					my $fields = join(",", sort keys %{$record->{'values_by_field_name'}});
+					my $values_q = join(",", map {"?"} sort keys %{$record->{'values_by_field_name'}});
+					my $sth = SDM::Archive::DB::execute_statement({
+					       'dbh' => \$dbh,
+					       'sql' => "insert into $mysql_table->{'table_name'} ($fields) values ($values_q)",
+    					       'bound_values' => [
+    					           map {
+    					               $record->{'values_by_field_name'}->{$_}
+    					           }
+    					           sort keys %{$record->{'values_by_field_name'}}],
+					});
+				}
+			}
+    		}
+	}
+	close($fh);
+
+	print Data::Dumper::Dumper($stats);
+	IOW::File::write_file_scalar($stats_cache_filename, Storable::nfreeze($stats));
+	print "written table [$stats->{'table_name'}] stats into $stats_cache_filename; rerun to proceed\n";
 }
 elsif ($o->{'command-list'}) {
     print join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n";

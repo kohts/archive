@@ -82,4 +82,28 @@ sub is_integer {
     }
 }
 
+sub is_datetime {
+    my ($in) = @_;
+
+    if ($in && $in =~ /(\d\d\d\d)[\-\/ \:](\d\d)[\-\/\ \:](\d\d)[\-\/\ \:](\d\d)[\-\/\ \:](\d\d)[\-\/\ \:](\d\d)/) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+sub datetime_to_unixtime {
+    my ($date) = @_;
+
+    Carp::confess("Programmer error: expected YYYY-MM-DD-HH-MM-SS")
+        unless is_datetime($date);
+
+    $date =~ /^(\d\d\d\d)[\-\/\ \:](\d\d)[\-\/\ \:](\d\d)[\-\/\ \:](\d\d)[\-\/\ \:](\d\d)[\-\/\ \:](\d\d)$/;
+    my ($year, $month, $day, $hour, $minute, $second) = ($1, $2, $3, $4, $5, $6);
+
+    my $unixtime = Time::Local::timegm($second, $minute, $hour, $day, $month - 1, $year);
+
+    return $unixtime;
+}
+
 1;
