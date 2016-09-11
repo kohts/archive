@@ -3003,12 +3003,18 @@ elsif ($o->{'scan-add-ocr'}) {
 }
 elsif ($o->{'oracle-parse'}) {
     #
+    # create database kamis_import DEFAULT CHARACTER SET utf8;
+    #
+    # aconsole.pl --oracle-dump-file MEDIA_DATA_TABLE.sql --oracle-parse
     # - reads SQL developer produced table dump
     # - splits into statements
-    # - prepares perl structures which could be further manipulated
+    # - caches stats into .stats.nfreeze
     #
-    # create database kamis_import DEFAULT CHARACTER SET utf8;
-    # create table PAINTS
+    # aconsole.pl --oracle-dump-file MEDIA_DATA_TABLE.sql --oracle-parse --generate-mysql-table-def
+    # - produces ready to be used table definition for mysql (based on stats from the previous step)
+    #
+    # aconsole.pl --oracle-dump-file MEDIA_DATA_TABLE.sql --oracle-parse --fill-local-mysql
+    # - populates mysql table (created at the previous step)
     #
 
 	Carp::confess("Need --oracle-dump-file to parse, got [" . safe_string($o->{'oracle-dump-file'}) . "]")
