@@ -327,6 +327,8 @@ our $data_desc_struct = {
                 '4.2A' => 'Переписка с частными корреспондентами',
                 '4.2B' => 'Переписка с государственным учреждениями и частными предприятиями (фирмами, магазинами и т.д.)',
                 '5' => 'Материалы других лиц (рукописи статей, отзывы, письма)',
+                '5.1' => 'Материалы отечественных корреспондентов',
+                '5.2' => 'Материалы зарубежных корреспондентов',
                 },
             'storage_items' => {
                 19 => '"Война и школа" (Как методически связать арену боя с классной комнатой ?). Речь на Конференции педагогов Свердловского р-на г.Москвы 6 января 1945 года.',
@@ -599,6 +601,8 @@ sub init_logging {
         log4perl.appender.app_log_all.filename = $log_file
         log4perl.appender.app_log_all.layout = Log::Log4perl::Layout::PatternLayout
         log4perl.appender.app_log_all.layout.ConversionPattern = %d\t%P\t%X{activity}\t%m%n
+        
+        log4perl.appender.app_log_all.utf8 = 1
         }
     ));
     Log::Log4perl::MDC->put("activity", File::Basename::basename($0));
@@ -673,6 +677,29 @@ sub prepare_config {
         unless $r->{'exit_code'} == 0;
 
     $runtime->{'docbook_source_git_dir'} = trim($r->{'stdout'}, " \n");
+}
+
+sub match_classification_group_by_code {
+	my ($itcc) = @_;
+
+	$itcc =~ s/[\.,\(\)\s\*]//g;
+
+	# replace russian with latin (just in case)
+	$itcc =~ s/А/A/g;
+	$itcc =~ s/В/B/g;
+	$itcc =~ s/С/C/g;
+
+	my $found_cc_group;
+	foreach my $cc (keys %{$data_desc_struct->{'storage_groups'}->{'1'}->{'classification_codes'}}) {
+		my $tmp_cc = $cc;
+		$tmp_cc =~ s/[\.,\(\)]//g;
+                            
+		if ($tmp_cc eq $itcc) {
+			return $cc;
+		}
+	}
+
+	return undef;
 }
 
 init_logging();

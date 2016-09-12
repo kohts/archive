@@ -255,8 +255,8 @@ my $o_names = [
     'ignore-duplicate-fund-id',
     'scan-list-without-ocr',
     'scan-list-without-scan',
-    'rest-get-item=s',
-    'rest-get-items=s',
+    'dspace-rest-get-item=s',
+    'dspace-rest-get-items=s',
     'scan-schedule-scan=s',
     'scan-list-scheduled-for-scan',
     'scan-add-scans=s',
@@ -268,6 +268,7 @@ my $o_names = [
     'generate-mysql-table-def',
     'oracle-dump-file=s',
     'fill-local-mysql',
+    'dspace-update-classification-groups-from-kamis-15845',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -1487,41 +1488,28 @@ sub tsv_read_and_validate {
                     ) {
 
                     foreach my $itcc (split("/", $item->{'by_field_name'}->{'classification_code'})) {
-                        $itcc =~ s/[\.,\(\)\s\*]//g;
-                        
-                        # replace russian with latin (just in case)
-                        $itcc =~ s/А/A/g;
-                        $itcc =~ s/В/B/g;
-                        $itcc =~ s/С/C/g;
-
                         my $found_cc_group;
-                        foreach my $cc (keys %{$data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}}) {
-                            my $tmp_cc = $cc;
-                            $tmp_cc =~ s/[\.,\(\)]//g;
-                            
-                            if ($tmp_cc eq $itcc) {
-                                $push_metadata_value->('sdm-archive.misc.classification-group',
-                                    $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}->{$cc});
-                                $push_metadata_value->('sdm-archive.misc.classification-code',
-                                    $cc);
-                                $found_cc_group = 1;
-                            }
+                        my $cc;
+
+                        $cc = SDM::Archive::match_classification_group_by_code($itcc);
+                        if ($cc) {
+                            $push_metadata_value->('sdm-archive.misc.classification-group',
+                                $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}->{$cc});
+                            $push_metadata_value->('sdm-archive.misc.classification-code',
+                                $cc);
+                            $found_cc_group = 1;
                         }
 
                         if (!$found_cc_group && substr($itcc, length($itcc) - 1) !~ /[0-9]/) {
                             $itcc = substr($itcc, 0, length($itcc) - 1);
 
-                            foreach my $cc (keys %{$data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}}) {
-                                my $tmp_cc = $cc;
-                                $tmp_cc =~ s/[\.,\(\)]//g;
-                                
-                                if ($tmp_cc eq $itcc) {
-                                    $push_metadata_value->('sdm-archive.misc.classification-group',
-                                        $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}->{$cc});
-                                    $push_metadata_value->('sdm-archive.misc.classification-code',
-                                        $cc);
-                                    $found_cc_group = 1;
-                                }
+                            $cc = SDM::Archive::match_classification_group_by_code($itcc);
+                            if ($cc) {
+                               $push_metadata_value->('sdm-archive.misc.classification-group',
+                                    $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}->{$cc});
+                                $push_metadata_value->('sdm-archive.misc.classification-code',
+                                    $cc);
+                                $found_cc_group = 1;
                             }
                         }
 
@@ -2580,9 +2568,9 @@ elsif ($o->{'rest-add-bitstreams'}) {
         });
     print Data::Dumper::Dumper($bitstream_add_result);
 }
-elsif ($o->{'rest-get-item'}) {
+elsif ($o->{'dspace-rest-get-item'}) {
     Carp::confess("Please specify item id")
-        unless defined($o->{'rest-get-item'});
+        unless defined($o->{'dspace-rest-get-item'});
 
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     my $target_collection = SDM::Archive::DSpace::get_collection({
@@ -2592,13 +2580,13 @@ elsif ($o->{'rest-get-item'}) {
 
     my $target_item_full = SDM::Archive::DSpace::get_item({
         'collection_obj' => $target_collection,
-        'item_id' => $o->{'rest-get-item'},
+        'item_id' => $o->{'dspace-rest-get-item'},
         });
     print Data::Dumper::Dumper($target_item_full);
 }
-elsif ($o->{'rest-get-items'}) {
+elsif ($o->{'dspace-rest-get-items'}) {
     Carp::confess("Please specify item ids")
-        unless defined($o->{'rest-get-items'});
+        unless defined($o->{'dspace-rest-get-items'});
 
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     my $target_collection = SDM::Archive::DSpace::get_collection({
@@ -2606,7 +2594,7 @@ elsif ($o->{'rest-get-items'}) {
         'collection_name' => 'А.Ф. Котс',
         });
 
-    my $ids = [split(",", $o->{'rest-get-items'})];
+    my $ids = [split(",", $o->{'dspace-rest-get-items'})];
 
     foreach my $id (@{$ids}) {
         # silently process handles (and maybe more)
@@ -3016,6 +3004,8 @@ elsif ($o->{'oracle-parse'}) {
     # aconsole.pl --oracle-dump-file MEDIA_DATA_TABLE.sql --oracle-parse --fill-local-mysql
     # - populates mysql table (created at the previous step)
     #
+    # alter table DARVIN_KLASS add index id_bas (id_bas);
+    # alter table DARVIN_PAI_KLA add index PAICODE (PAICODE);
 
 	Carp::confess("Need --oracle-dump-file to parse, got [" . safe_string($o->{'oracle-dump-file'}) . "]")
 	    unless $o->{'oracle-dump-file'};
@@ -3226,6 +3216,114 @@ elsif ($o->{'oracle-parse'}) {
 	print Data::Dumper::Dumper($stats);
 	IOW::File::write_file_scalar($stats_cache_filename, Storable::nfreeze($stats));
 	print "written table [$stats->{'table_name'}] stats into $stats_cache_filename; rerun to proceed\n";
+}
+elsif ($o->{'dspace-update-classification-groups-from-kamis-15845'}) {
+        my $kamis_groups = {};
+
+	my $dbh = SDM::Archive::DB::get_kamis_db();
+	my $sth = SDM::Archive::DB::execute_statement({
+	  'dbh' => \$dbh,
+	  'sql' => "
+	    select NOMKP, DARVIN_KLASS.ALLNAMES
+	    from
+	      DARVIN_PAINTS
+	        inner join
+	      DARVIN_PAI_KLA on DARVIN_PAI_KLA.PAICODE = DARVIN_PAINTS.ID_BAS
+	        inner join
+	      DARVIN_KLASS on DARVIN_KLASS.ID_BAS = DARVIN_PAI_KLA.KLASCOD
+	    where
+	      status=1 AND
+	      fond=16 and
+	      txran=1 and
+	      instr(nomkp, '15845') and
+	      DARVIN_KLASS.id_kl = 86
+	    order
+	      by NOMKP, DARVIN_KLASS.ID_KL",
+	  'bound_values' => [],
+	});
+	while (my $row = $sth->fetchrow_hashref()) {
+		if ($row->{'NOMKP'} !~ /^([^\s]+)\s([^\/]+)\/(.+)$/) {
+			Carp::confess("Unknown NOMKP format: " . Data::Dumper::Dumper($row));
+		}
+		my ($fond, $storage_item) = ($2, $3);
+
+		if ($row->{'ALLNAMES'} !~ /^([^\s]+).*$/) {
+			Carp::confess("Unknown ALLNAMES format: " . Data::Dumper::Dumper($row));
+		}
+		my $classification_group = $1;
+		$classification_group =~ s/А/A/g;
+		$classification_group =~ s/Б/B/g;
+		$classification_group =~ s/В/C/g;
+
+		my $cc = SDM::Archive::match_classification_group_by_code($classification_group);
+		Carp::confess("Unable to find classification group for [$classification_group]: " . Data::Dumper::Dumper($row))
+			unless $cc;
+
+		$kamis_groups->{$fond . "/". $storage_item} = $cc;
+#		print $fond . " " . $storage_item . " " . $cc . "\n";
+	}
+
+	my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+	my $target_collection = SDM::Archive::DSpace::get_collection({
+	    'community_obj' => $target_community,
+	    'collection_name' => 'А.Ф. Котс',
+	});
+
+	my $coll_items = SDM::Archive::DSpace::get_collection_items({
+	    'collection_obj' => $target_collection,
+	    'expand' => 'metadata',
+	    'limit' => $o->{'limit'} || 4000,
+	});
+
+	ITEMS: foreach my $item (@{$coll_items}) {
+		my $dspace_fond = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'sdm-archive.misc.fond');
+		my $dspace_st_item = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'sdm-archive.misc.storageItem');
+
+		if (!$dspace_fond) {
+			Carp::confess("sdm-archive.misc.fond not defined for item: " . Data::Dumper::Dumper($item));
+		}
+		if (ref($dspace_fond) ne 'HASH') {
+		        # doesn't happen for 15845 items
+			next ITEMS;
+		}
+		if (!$dspace_st_item) {
+			Carp::confess("sdm-archive.misc.storageItem not defined for item: " . Data::Dumper::Dumper($item));
+		}
+		if (ref($dspace_st_item) ne 'HASH') {
+		        # doesn't happen for 15845 items
+			next ITEMS;
+		}
+
+		if (!$kamis_groups->{$dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'}}) {
+			next ITEMS;
+		}
+
+		my $cc_code = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'sdm-archive.misc.classification-code');
+		if ($cc_code) {
+			print "classification code for [" . $dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'} . "] already defined, skipping\n";
+			next ITEMS;
+		}
+
+#		print $dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'} . ": setting sdm-archive.misc.classification-code to [" .
+#		    $kamis_groups->{$dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'}} . "]\n";
+		my $res;
+		$res = SDM::Archive::DSpace::update_item_metadata({
+		    'item' => $item,
+		    'metadata' => {
+		        'key' => 'sdm-archive.misc.classification-code',
+		        'value' => $kamis_groups->{$dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'}},
+		        'language' => '',
+		    },
+		});
+		$res = SDM::Archive::DSpace::update_item_metadata({
+		    'item' => $item,
+		    'metadata' => {
+		        'key' => 'sdm-archive.misc.classification-group',
+		        'value' => $data_desc_struct->{'storage_groups'}->{'1'}->{'classification_codes'}->{$kamis_groups->{$dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'}}},
+		        'language' => '',
+		    },
+		});
+	}
 }
 elsif ($o->{'command-list'}) {
     print join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n";
