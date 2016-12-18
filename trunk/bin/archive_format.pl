@@ -251,89 +251,100 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
 
         # check page names inside document directory
         my $pages = read_dir($current_document->{'full_document_path'});
+        my $total_pages;
         my $i = 0;
         
-        PAGE: foreach my $page (@{$pages}) {
+        foreach my $mode (qw/count rename/) {
+            if ($mode eq 'rename') {
+                $total_pages = $i;
+                $i = 0;
+            }        
+            
+            PAGE: foreach my $page (@{$pages}) {
+                my $full_page_path = File::Spec->catfile($current_document->{'full_document_path'}, $page);
 
-            my $full_page_path = File::Spec->catfile($current_document->{'full_document_path'}, $page);
-
-            # remove temporary files
-            if ($page eq "Thumbs.db") {
-                unlink($full_page_path);
-                do_log("removed garbage $full_page_path");
-                next;
-            }
-
-            # skip non-files
-            next PAGE unless -f $full_page_path;
-
-            # special processing for description files
-            if ($full_page_path =~ /\.txt$/) {
-                
-                # remove double extension (.txt.txt)
-                if ($full_page_path =~ /\.txt\.txt/) {
-                    my $new_full_page_path = $full_page_path;
-                    $new_full_page_path =~ s/\.txt//;
-                    rename ($full_page_path, $new_full_page_path) || Carp::confess("unable to rename [$full_page_path] to [$new_full_page_path]: $!");
-                    do_log("fixing $full_page_path -> $new_full_page_path");
-                    $full_page_path = $new_full_page_path;
-                    $page =~ s/\.txt//;
+                # remove temporary files
+                if ($page eq "Thumbs.db") {
+                    unlink($full_page_path);
+                    do_log("removed garbage $full_page_path");
+                    next;
                 }
 
-                # give description file canonical name
-                my ($name, $ext) = ($page =~ /^(.+)(\..+)$/);
+                # skip non-files
+                next PAGE unless -f $full_page_path;
 
-
-                if ($name ne canonical_document_name($current_document)) {
-                    my $new_desc_name = canonical_document_name($current_document) . $ext;
-                    my $new_full_page_path = File::Spec->catfile($current_document->{'full_document_path'}, $new_desc_name);
-
-                    if (-f $new_full_page_path) {
-                        print "more than one txt file in document: [$current_document->{'full_document_path'}]\n";
-                        next PAGE;
+                # special processing for description files
+                if ($full_page_path =~ /\.txt$/) {
+                    
+                    # remove double extension (.txt.txt)
+                    if ($full_page_path =~ /\.txt\.txt/) {
+                        my $new_full_page_path = $full_page_path;
+                        $new_full_page_path =~ s/\.txt//;
+                        rename ($full_page_path, $new_full_page_path) || Carp::confess("unable to rename [$full_page_path] to [$new_full_page_path]: $!");
+                        do_log("fixing $full_page_path -> $new_full_page_path");
+                        $full_page_path = $new_full_page_path;
+                        $page =~ s/\.txt//;
                     }
 
-                    do_log("fixing $full_page_path -> $new_full_page_path");
+                    # give description file canonical name
+                    my ($name, $ext) = ($page =~ /^(.+)(\..+)$/);
 
-                    rename ($full_page_path, $new_full_page_path) || Carp::confess("unable to rename [$full_page_path] to [$new_full_page_path]");
-                    $full_page_path = $new_full_page_path;
-                    $page = $new_desc_name;
+
+                    if ($name ne canonical_document_name($current_document)) {
+                        my $new_desc_name = canonical_document_name($current_document) . $ext;
+                        my $new_full_page_path = File::Spec->catfile($current_document->{'full_document_path'}, $new_desc_name);
+
+                        if (-f $new_full_page_path) {
+                            print "more than one txt file in document: [$current_document->{'full_document_path'}]\n";
+                            next PAGE;
+                        }
+
+                        do_log("fixing $full_page_path -> $new_full_page_path");
+
+                        rename ($full_page_path, $new_full_page_path) || Carp::confess("unable to rename [$full_page_path] to [$new_full_page_path]");
+                        $full_page_path = $new_full_page_path;
+                        $page = $new_desc_name;
+                    }
+
+                    next PAGE;
+                }
+                
+                # allow underscore in relaxed page name
+                # (which is converted below to canonical page id,
+                # extracted from document directory name)
+                if ($page !~ /^(of|nvf)[\-\ ]{1,2}(\d+?)[\-\ \_](\d[\d_,;\-\ \.]*?)-([\d_]+?)[^\d]?.*?(\.jpg)$/) {
+                    print "skipping document [$doc_dir] because of invalid page format: [$page]\n";
+                    next DOCUMENT;
                 }
 
-                next PAGE;
-            }
-            
-            # allow underscore in relaxed page name
-            # (which is converted below to canonical page id,
-            # extracted from document directory name)
-            if ($page !~ /^(of|nvf)[\-\ ]{1,2}(\d+?)[\-\ \_](\d[\d_,;\-\ \.]*?)-([\d_]+?)[^\d]?.*?(\.jpg)$/) {
-                print "skipping document [$doc_dir] because of invalid page format: [$page]\n";
-                next DOCUMENT;
-            }
+        #        my ($p_archive_type, $p_delim_1, $p_part, $p_id, $p_number, $p_ext) = ($1, $2, $3, $4, $5, $6);
+                my $p_parsed = {
+                    'archive_type' => $1,
+                    'part' => $2,
+                    'id' => $3,
+                    'number' => $4,
+                    'ext' => $5,
+                    };
 
-    #        my ($p_archive_type, $p_delim_1, $p_part, $p_id, $p_number, $p_ext) = ($1, $2, $3, $4, $5, $6);
-            my $p_parsed = {
-                'archive_type' => $1,
-                'part' => $2,
-                'id' => $3,
-                'number' => $4,
-                'ext' => $5,
-                };
+                # this is a valid page, increment page counter
+                $i = $i + 1;
 
-            # this is a valid page, increment page counter
-            $i = $i + 1;
+                if ($mode eq 'rename') {
+                    my $int_p_number = int($p_parsed->{'number'});
 
-            my $int_p_number = int($p_parsed->{'number'});
-
-            my $new_page = canonical_document_name($current_document) . "-" . zero_pad($i, 3) . $p_parsed->{'ext'};
-            
-            # update page filename if its canonical name doesn't match its current name
-            if ($new_page ne $page) {
-                $push_page_rename->({
-                    'current_document_path' => $current_document->{'full_document_path'},
-                    'current_page_path' => $full_page_path,
-                    'new_page_name' => $new_page,
-                    });
+                    my $new_page = canonical_document_name($current_document) . "-" .
+                        zero_pad($i, length($total_pages) > 3 ? length($total_pages) : 3) .
+                        $p_parsed->{'ext'};
+                    
+                    # update page filename if its canonical name doesn't match its current name
+                    if ($new_page ne $page) {
+                        $push_page_rename->({
+                            'current_document_path' => $current_document->{'full_document_path'},
+                            'current_page_path' => $full_page_path,
+                            'new_page_name' => $new_page,
+                            });
+                    }
+                }
             }
         }
     } elsif ($doc_dir =~ /^eh-(\d+)$/) {
