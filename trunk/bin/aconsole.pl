@@ -2828,6 +2828,9 @@ elsif ($o->{'scan-list-scheduled-for-scan'}) {
     }
 }
 elsif ($o->{'scan-add-scans'}) {
+    #
+    # can update items with newly added bitstreams (can't replace bitstreams)
+    #
     Carp::confess("Need item_id")
         unless SDM::Archive::Utils::is_integer($o->{'scan-add-scans'}, {'positive-only' => 1});
     Carp::confess("Need --from /path")
