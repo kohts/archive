@@ -20,6 +20,10 @@ use File::Basename;
 $Data::Dumper::Sortkeys = 1;
 $| = 1;
 
+my $archive_dir = $ARGV[0];
+my $dry_run;
+my $gdm_format;
+
 sub zero_pad {
     my ($v, $length) = @_;
 
@@ -113,19 +117,37 @@ sub do_log {
 
 sub canonical_document_name {
     my ($d) = @_;
-    return $d->{'archive_type'} . "-" . $d->{'archive_id'} . "-" . $d->{'document_id'};
+    if ($gdm_format) {
+        my $archive_type;
+        if ($d->{'archive_type'} eq 'of' || $d->{'archive_type'} eq 'ОФ') {
+            $archive_type = "ОФ";
+        }
+        if ($d->{'archive_type'} eq 'nvf' || $d->{'archive_type'} eq 'НВФ') {
+            $archive_type = "НВФ";
+        }
+        return $archive_type . " " . $d->{'archive_id'} . "_" . $d->{'document_id'};
+    }
+    else {
+        return $d->{'archive_type'} . "-" . $d->{'archive_id'} . "-" . $d->{'document_id'};
+    }
 }
 
 if (!$ARGV[0]) {
     Carp::confess("need archive directory\n");
 }
 
-my $archive_dir = $ARGV[0];
 if (! -d $archive_dir) {
     Carp::confess("not a directory: [$archive_dir]");
 }
 
-my $dry_run = $ARGV[1];
+if ($ARGV[1] && $ARGV[1] eq '--dry-run') {
+  $dry_run = 1;
+  shift @ARGV;
+}
+if ($ARGV[1] && $ARGV[1] eq '--gdm-format') {
+  $gdm_format = 1;
+  shift @ARGV;
+}
 
 $main::log_file = File::Spec->catfile($archive_dir, basename($0) . ".log");
 my $d = read_dir($archive_dir);
@@ -158,12 +180,12 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
         $page_renames->{'new_from_old'}->{$new_full_page_path} = $o->{'current_page_path'};
     };
 
-    if ($doc_dir =~ /^(of|nvf)[\-\ \_](\d+?)[\-\ \_](\d[\d_,;\-\ \.]*)$/) {
+    if ($doc_dir =~ /^(of|nvf|ОФ|НВФ)[\-\ \_](\d+?)[\-\ \_](\d[\d_,;\-\ \.]*)$/) {
         my ($archive_type, $part, $id) = ($1, $2, $3);
 
         $current_document = {
             'archive_dir' => $archive_dir,
-            'archive_type' => $archive_type,
+            'archive_type' => $archive_type, # of/nvf
             'archive_id' => $part,
             'document_id' => $id,
             'full_document_path' => $full_doc_dir,
@@ -174,6 +196,11 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
             $opts = {} unless $opts;
             Carp::confess("Need document") unless $opts->{'document'};
             Carp::confess("Need new path") unless $opts->{'new_path'};
+
+            if ($dry_run) {
+                print "would rename: " . $opts->{'document'}->{'full_document_path'} . " to " . $opts->{'new_path'} . "\n";
+                return;
+            }
 
             if (-d $opts->{'new_path'}) {
                 Carp::confess("unable to rename [$opts->{'document'}->{'full_document_path'}] to new name: directory [$opts->{'new_path'}] exists!");
@@ -191,7 +218,12 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
             $opts = {} unless $opts;
             Carp::confess("Need document") unless $opts->{'document'};
             Carp::confess("Need new id") unless $opts->{'new_id'};
-          
+
+            if ($dry_run) {
+                print "would rename: " . Data::Dumper::Dumper($opts->{'document'}) . " to " . $opts->{'new_id'};
+                return;
+            }
+            
             my $new_doc_dir = File::Spec->catfile(
                 $opts->{'document'}->{'archive_dir'},
                 canonical_document_name({
@@ -312,7 +344,7 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
                 # allow underscore in relaxed page name
                 # (which is converted below to canonical page id,
                 # extracted from document directory name)
-                if ($page !~ /^(of|nvf)[\-\ ]{1,2}(\d+?)[\-\ \_](\d[\d_,;\-\ \.]*?)-([\d_]+?)[^\d]?.*?(\.jpg)$/) {
+                if ($page !~ /^(of|nvf|ОФ|НВФ)[\-\ ]{1,2}(\d+?)[\-\ \_](\d[\d_,;\-\ \.]*?)[-_]([\d_]+?)[^\d]?.*?(\.jpg)$/) {
                     print "skipping document [$doc_dir] because of invalid page format: [$page]\n";
                     next DOCUMENT;
                 }
@@ -332,7 +364,15 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
                 if ($mode eq 'rename') {
                     my $int_p_number = int($p_parsed->{'number'});
 
-                    my $new_page = canonical_document_name($current_document) . "-" .
+                    my $page_delimiter;
+                    if ($gdm_format) {
+                        $page_delimiter = "_";
+                    }
+                    else {
+                        $page_delimiter = "-";
+                    }
+
+                    my $new_page = canonical_document_name($current_document) . $page_delimiter .
                         zero_pad($i, length($total_pages) > 3 ? length($total_pages) : 3) .
                         $p_parsed->{'ext'};
                     
@@ -423,7 +463,7 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
                 'new_path' => $page_renames->{'old_to_new'}->{$old_path}
                 };
             
-            rename($old_path, $old_tmp) || Carp::confess("unable to rename [$old_path] to [$old_tmp]");
+            rename($old_path, $old_tmp) || Carp::confess("unable to rename [$old_path] to [$old_tmp]: $!");
         }
         foreach my $old_path_tmp (sort keys %{$page_renames->{'tmp_old_to_new'}}) {
             my $rename_struct = $page_renames->{'tmp_old_to_new'}->{$old_path_tmp};
