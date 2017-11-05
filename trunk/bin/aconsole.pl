@@ -245,6 +245,7 @@ my $o_names = [
     'titles',
     'validate-tsv',
     'create-kohtsae-community-and-collection',
+    'create-kohtsnn-collection',
     'rest-test',
     'rest-add-bitstreams',
     'preprocess-book',
@@ -2098,6 +2099,11 @@ elsif ($o->{'dump-tsv-struct'}) {
     }
 }
 elsif ($o->{'initial-import'}) {
+#
+# original data used for A.E. Kohts archive: data/kohts-initial-in.txt
+# tsv file imported into dspace: data/kohts-initial-out.csv
+#
+    
     Carp::confess("Need --external-tsv")
         unless $o->{'external-tsv'};
 
@@ -2477,6 +2483,63 @@ elsif ($o->{'validate-pagination'}) {
 
         print $l . "\n";
     }
+}
+elsif ($o->{'create-kohtsnn-collection'}) {
+    my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+    if (!$target_community) {
+        my $new_comm = SDM::Archive::DSpace::rest_call({
+            'verb' => 'post',
+            'action' => 'communities',
+            'request' => '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<community>
+    <name>Архив</name>
+    <copyrightText>Государственный Дарвиновский Музей</copyrightText>
+    <introductoryText></introductoryText>
+    <shortDescription></shortDescription>
+    <sidebarText></sidebarText>
+</community>
+',
+            'request_type' => 'xml',
+            });
+
+        $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+        if (!$target_community) {
+            Carp::confess("Community [Архив] doesn't exist and unable to create");
+        }
+    }
+
+    my $target_collection = SDM::Archive::DSpace::get_collection({
+        'community_obj' => $target_community,
+        'collection_name' => 'Н.Н. Ладыгина-Котс',
+        });
+    if (!$target_collection) {
+        my $new_comm = SDM::Archive::DSpace::rest_call({
+            'verb' => 'post',
+            'link' => $target_community->{'link'} . "/collections",
+            'request' => '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<collection>
+  <name>Н.Н. Ладыгина-Котс</name>
+  <type></type>
+  <copyrightText></copyrightText>
+  <introductoryText></introductoryText>
+  <shortDescription></shortDescription>
+  <sidebarText></sidebarText>
+</collection>
+
+',
+            'request_type' => 'xml',
+            });
+
+        $target_collection = SDM::Archive::DSpace::get_collection({
+            'community_obj' => $target_community,
+            'collection_name' => 'Н.Н. Ладыгина-Котс',
+            });
+        if (!$target_collection) {
+            Carp::confess("Collection [Н.Н. Ладыгина-Котс] doesn't exist and unable to create");
+        }
+    }
+
+    print "target collection:\n" . Data::Dumper::Dumper($target_collection);
 }
 elsif ($o->{'create-kohtsae-community-and-collection'}) {
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
