@@ -268,8 +268,11 @@ my $o_names = [
     'dump',
     'generate-mysql-table-def',
     'oracle-dump-file=s',
+    'local-mysql-target-tablename',
     'fill-local-mysql',
     'dspace-update-classification-groups-from-kamis-15845',
+    'browse-kamis-local-mysql-15111',
+    'missing-items',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -3067,6 +3070,8 @@ elsif ($o->{'oracle-parse'}) {
     # aconsole.pl --oracle-dump-file MEDIA_DATA_TABLE.sql --oracle-parse --generate-mysql-table-def
     # - produces ready to be used table definition for mysql (based on stats from the previous step)
     #
+    # manually create the table (copy/paste)
+    #
     # aconsole.pl --oracle-dump-file MEDIA_DATA_TABLE.sql --oracle-parse --fill-local-mysql
     # - populates mysql table (created at the previous step)
     #
@@ -3113,6 +3118,10 @@ elsif ($o->{'oracle-parse'}) {
 		    'data_type' => {},
 		};
 		$mysql_table->{'table_name'} =~ s/\./_/g;
+
+    if (defined($o->{'local-mysql-target-tablename'})) {
+        $mysql_table->{'table_name'} = $o->{'local-mysql-target-tablename'};
+    }
 
 		my $rec_ok;
 		my $text_fields_needed = 0;
@@ -3172,27 +3181,14 @@ elsif ($o->{'oracle-parse'}) {
 	my $current_record;
 	my $rec = 0;
     
-        my $dbh = SDM::Archive::DB::get_kamis_db();
+  my $dbh = SDM::Archive::DB::get_kamis_db();
 
-        my $fh;
-        open($fh, "<" . $o->{'oracle-dump-file'}) || Carp::confess("Unable to read from [" . safe_string($o->{'oracle-dump-file'}) . "]");
-	binmode($fh, ':encoding(UTF-8)');
-	while (my $l = <$fh>) {
-		
-		$current_window .= $l;
+  my $process_record = sub {
+      my ($current_record) = @_;
 
-		if (length($current_window) > 32768) {
-			Carp::confess("Got record bigger than 32K or unknown format; current_window follows: " . $current_window);
-		}
+      if ($current_record =~ /Insert into\s([^\s]+?)\s*?\(([^\)]+?)\)\s*values\s*\((.+)\);/s) {
 
-		if ($current_window =~ /^(.*?)(Insert into.+?)\n(Insert into.+)$/s) {
-			$rec++;
-
-			$current_record = $2;
-			$current_window = $3;
-
-			if ($current_record =~ /Insert into\s([^\s]+?)\s*?\(([^\)]+?)\)\s*values\s*\((.+)\);/) {
-                		my ($table_name, $field_list, $value_list) = ($1, $2, $3);
+        my ($table_name, $field_list, $value_list) = ($1, $2, $3);
 
 				if ($stats->{'table_name'} && $stats->{'table_name'} ne $table_name) {
 					Carp::confess("at least two different tables ($stats->{'table_name'}, $table_name) are populated in the file, please split");
@@ -3208,7 +3204,7 @@ elsif ($o->{'oracle-parse'}) {
 				};
 
 				my $i = 0;
-				foreach my $f (split(",", $field_list, -1)) {
+				foreach my $f (split(/,/s, $field_list, -1)) {
 					$record->{'field_position_by_name'}->{$f} = $i;
 					$record->{'field_name_by_position'}->{$i} = $f;
 					$i++;
@@ -3217,7 +3213,7 @@ elsif ($o->{'oracle-parse'}) {
 				$i = 0;
 				my $values = [];
 				$value_list =~ s/''/___single_quote___/g;
-				while ($value_list =~ /^,?(null|'([^']+?)')(.*)$/) {
+				while ($value_list =~ /^,?(null|'([^']+?)')(.*)$/s) {
 					my ($value, $left_values) = ($1, $3);
 					$value =~ s/^\'//;
 					$value =~ s/\'$//;
@@ -3256,11 +3252,11 @@ elsif ($o->{'oracle-parse'}) {
 
 					$value_list = $left_values;
 					$i++;
-                		}
+        }
 
-    				if ($o->{'dump'}) {
+    		if ($o->{'dump'}) {
 					print Data::Dumper::Dumper($record->{'values_by_field_name'});
-    				}
+    		}
 				if ($o->{'fill-local-mysql'}) {
 					my $fields = join(",", sort keys %{$record->{'values_by_field_name'}});
 					my $values_q = join(",", map {"?"} sort keys %{$record->{'values_by_field_name'}});
@@ -3274,10 +3270,35 @@ elsif ($o->{'oracle-parse'}) {
     					           sort keys %{$record->{'values_by_field_name'}}],
 					});
 				}
+
 			}
-    		}
+  };
+
+  my $fh;
+  open($fh, "<" . $o->{'oracle-dump-file'}) || Carp::confess("Unable to read from [" . safe_string($o->{'oracle-dump-file'}) . "]");
+	binmode($fh, ':encoding(UTF-8)');
+
+	while (my $l = <$fh>) {
+		
+    $current_window .= $l;
+
+	  if (length($current_window) > 32768) {
+	    Carp::confess("Got record bigger than 32K or unknown format; current_window follows: " . $current_window);
+    }
+
+    if ($current_window =~ /^(.*?)(Insert into.+?)\n(Insert into.+)$/s) {
+			$rec++;
+
+			$current_record = $2;
+			$current_window = $3;
+
+      $process_record->($current_record);
+    }
 	}
 	close($fh);
+  
+  # process last record
+  $process_record->($current_window);
 
 	print Data::Dumper::Dumper($stats);
 	IOW::File::write_file_scalar($stats_cache_filename, Storable::nfreeze($stats));
@@ -3290,7 +3311,7 @@ elsif ($o->{'dspace-update-classification-groups-from-kamis-15845'}) {
 	my $sth = SDM::Archive::DB::execute_statement({
 	  'dbh' => \$dbh,
 	  'sql' => "
-	    select NOMKP, DARVIN_KLASS.ALLNAMES
+	    select DARVIN_PAINTS.NOMKP, DARVIN_KLASS.ALLNAMES
 	    from
 	      DARVIN_PAINTS
 	        inner join
@@ -3298,13 +3319,13 @@ elsif ($o->{'dspace-update-classification-groups-from-kamis-15845'}) {
 	        inner join
 	      DARVIN_KLASS on DARVIN_KLASS.ID_BAS = DARVIN_PAI_KLA.KLASCOD
 	    where
-	      status=1 AND
-	      fond=16 and
-	      txran=1 and
-	      instr(nomkp, '15845') and
+	      DARVIN_PAINTS.status=1 AND
+	      DARVIN_PAINTS.fond=16 and
+	      DARVIN_PAINTS.txran=1 and
+	      instr(DARVIN_PAINTS.nomkp, '15845') and
 	      DARVIN_KLASS.id_kl = 86
 	    order
-	      by NOMKP, DARVIN_KLASS.ID_KL",
+	      by DARVIN_PAINTS.NOMKP, DARVIN_KLASS.ID_KL",
 	  'bound_values' => [],
 	});
 	while (my $row = $sth->fetchrow_hashref()) {
@@ -3390,6 +3411,63 @@ elsif ($o->{'dspace-update-classification-groups-from-kamis-15845'}) {
 		    },
 		});
 	}
+}
+elsif ($o->{'browse-kamis-local-mysql-15111'}) {
+    my $dbh = SDM::Archive::DB::get_kamis_db();
+    my $sth = SDM::Archive::DB::execute_statement({
+        'dbh' => \$dbh,
+        'sql' => "
+            select
+                *
+            from
+                DARVIN_PAINTS
+            where
+                instr(DARVIN_PAINTS.nomkp, '15111')
+            ",
+#                NOMKP, FOND, FOND_TXRAN, DATKP, ENDAT, DOPPOL, ALLNAMES_1
+        'bound_values' => [],
+        });
+#      where
+#	      DARVIN_PAINTS.status=1 AND
+#	      DARVIN_PAINTS.fond=16 and
+#	      DARVIN_PAINTS.txran=1 and
+#	      instr(DARVIN_PAINTS.nomkp, '15845') and
+#	      DARVIN_KLASS.id_kl = 86
+	  
+    my $data = {
+      'max-NOMK2' => 0,
+      };
+    while (my $row = $sth->fetchrow_hashref()) {
+        if ($o->{'missing-items'}) {
+            if (!defined($row->{'NOMK2'})) {
+                print Data::Dumper::Dumper("NOMK2 not defined: ", $row);
+                next;
+            }
+
+            $data->{'by_NOMK2'}->{$row->{'NOMK2'}} = $row;
+            
+            if ($data->{'max-NOMK2'} < $row->{'NOMK2'}) {
+                $data->{'max-NOMK2'} = $row->{'NOMK2'};
+            }
+        } else {
+            my $row_clean;
+            foreach my $k (keys %{$row}) {
+                if (defined($row->{$k})) {
+                    $row_clean->{$k} = $row->{$k};
+                }
+            }
+            print Data::Dumper::Dumper($row_clean);
+        }
+    }
+
+    if (defined($data->{'by_NOMK2'})) {
+        print "max NOMK2: " . $data->{'max-NOMK2'} . "\n";
+        for (my $i = 1; $i <= $data->{'max-NOMK2'}; $i++) {
+            if (!defined($data->{'by_NOMK2'}->{$i})) {
+                print "missing: $i\n";
+            }
+        }
+    }
 }
 elsif ($o->{'command-list'}) {
     print join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n";
