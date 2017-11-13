@@ -272,7 +272,7 @@ my $o_names = [
     'fill-local-mysql',
     'dspace-update-classification-groups-from-kamis-15845',
     'browse-kamis-local-mysql-15111',
-    'missing-items',
+    'analyze',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -450,116 +450,6 @@ sub separated_list_to_struct {
     $out->{'number_of_elements'} = $i;
     
     return $out;
-}
-
-sub find_author {
-    my ($author) = @_;
-
-    my $doc_authors = [];
-
-    my $push_found_author = sub {
-        my ($author_canonical) = @_;
-
-        Carp::confess("Invalid canonical author name [$author_canonical]")
-            unless defined($data_desc_struct->{'authors_canonical'}->{$author_canonical});
-
-        if (scalar (@{$data_desc_struct->{'authors_canonical'}->{$author_canonical}}) == 0) {
-            push @{$doc_authors}, {"name" => $author_canonical, "lang" => "ru"};
-
-            if (length($author) > length($author_canonical)) {
-                Carp::confess("Please include [$author] into [$author_canonical]");
-            }
-        } else {
-            foreach my $a_struct (@{$data_desc_struct->{'authors_canonical'}->{$author_canonical}}) {
-                if (ref($a_struct) eq '') {
-                    push @{$doc_authors}, {"name" => $a_struct, "lang" => "ru"};
-
-                    if (length($author) > length($a_struct)) {
-                        Carp::confess("Please include [$author] into [$author_canonical]");
-                    }
-                } else {
-                    push @{$doc_authors}, $a_struct;
-                }
-            }
-        }
-    };
-   
-    if (defined($data_desc_struct->{'authors_canonical'}->{$author})) {
-        $push_found_author->($author);
-    } else {
-        my $canonical_search_author = "";
-        if ($author =~ /^(.+)\s(.+)\s(.+)$/) {
-            my ($lastname, $firstname, $middlename) = ($1, $2, $3);
-            $canonical_search_author = $lastname . substr($firstname, 0, 1) . substr($middlename, 0, 1);
-        } elsif ($author =~ /^(.+)\s(.+)$/) {
-            my ($lastname, $firstname) = ($1, $2);
-            $canonical_search_author = $lastname . substr($firstname, 0, 1);
-        }
-
-        foreach my $author_short (keys %{$data_desc_struct->{'authors_canonical'}}) {
-            my ($tmp1, $tmp2) = ($author_short, $canonical_search_author);
-            $tmp1 =~ s/[,\.\s]//g;
-            $tmp2 =~ s/[,\.\s]//g;
-            if ($tmp1 eq $tmp2 || $author eq $author_short) {
-                $push_found_author->($author_short);
-            }
-              
-            foreach my $author_struct (@{$data_desc_struct->{'authors_canonical'}->{$author_short}}) {
-                my $check = [];
-                if (ref($author_struct) eq '') {
-                    push @{$check}, $author_struct;
-                } else {
-                    push @{$check}, $author_struct->{'name'};
-                }
-
-                foreach my $a (@{$check}) {
-                    my ($tmp1, $tmp2) = ($a, $author);
-                    $tmp1 =~ s/[,\.\s]//g;
-                    $tmp2 =~ s/[,\.\s]//g;
-                    if ($tmp1 eq $tmp2) {
-                        $push_found_author->($author_short);
-                    }
-                }
-            }
-        }
-    }
-
-    if (scalar(@{$doc_authors}) == 0) {
-        Carp::confess("Unable to find canonical author for [$author]");
-    }
-
-    return $doc_authors;
-}
-
-sub extract_authors {
-    my ($text) = @_;
-
-    my $doc_authors = [];
-    
-    $text =~ s/Автор: Ладыгина. Котс/Автор: Ладыгина-Котс/;
-    $text =~ s/Автор: Ладыгина - Котс/Автор: Ладыгина-Котс/;
-
-    while ($text && $text =~ /^\s*Автор:\s([Нн]еизвестный\sавтор|Ладыгина\s*?\-\s*?Котс\s?Н.\s?Н.|[^\s]+?\s+?([^\s]?\.?\s?[^\s]?\.?|))(\s|,)(.+)$/) {
-        my $author = $1;
-        $text = $4;
-
-        my $doc_authors1 = find_author($author);
-        push @{$doc_authors}, @{$doc_authors1};
-    }
-
-    $text = trim($text);
-    if ($text && $text =~ /^и др\.(.+)/) {
-        $text = $1;
-    }
-
-    if (!scalar(@{$doc_authors})) {
-        push @{$doc_authors}, {"name" => "Котс, Александр Федорович", "lang" => "ru"}, {"name" => "Kohts (Coates), Alexander Erich", "lang" => "en"};
-    }
-
-    return {
-        'extracted_struct' => $doc_authors,
-        'trimmed_input' => $text,
-        };
 }
 
 sub extract_meta_data {
@@ -1425,7 +1315,7 @@ sub tsv_read_and_validate {
                 if ($predefined_storage_struct =~ /^(.+), переписка$/) {
                     $extracted_author = $1;
                 
-                    my $doc_authors1 = find_author($extracted_author);
+                    my $doc_authors1 = SDM::Archive::find_author($extracted_author);
                     foreach my $author (@{$doc_authors1}) {
                         $push_metadata_value->('dc.contributor.author[' . $author->{'lang'} . ']', $author->{'name'});
                         $push_metadata_value->('dc.creator[' . $author->{'lang'} . ']', $author->{'name'});
@@ -1442,7 +1332,10 @@ sub tsv_read_and_validate {
                     Carp::confess("Input TSV invalid format: scanned_doc_id is empty for item " . Data::Dumper::Dumper($item));
                 }
 
-                my $title_struct = extract_authors($item->{'by_field_name'}->{'doc_name'});
+                my $title_struct = SDM::Archive::extract_authors($item->{'by_field_name'}->{'doc_name'}, {
+                    'default_author' => {"name" => "Котс, Александр Федорович", "lang" => "ru"}, {"name" => "Kohts (Coates), Alexander Erich", "lang" => "en"},
+                    'archive' => 'afk',
+                    });
                 foreach my $author (@{$title_struct->{'extracted_struct'}}) {
                     $push_metadata_value->('dc.contributor.author[' . $author->{'lang'} . ']', $author->{'name'});
                     $push_metadata_value->('dc.creator[' . $author->{'lang'} . ']', $author->{'name'});
@@ -3077,6 +2970,11 @@ elsif ($o->{'oracle-parse'}) {
     #
     # alter table DARVIN_KLASS add index id_bas (id_bas);
     # alter table DARVIN_PAI_KLA add index PAICODE (PAICODE);
+    # alter table DARVIN_KLROL add index id_bas (id_bas);
+    # alter table DARVIN_ARTIST add index id_bas (id_bas);
+    # alter table DARVIN_PAINTS add index id_bas (ID_BAS);
+    # alter table DARVIN_PAINTS add index ntxran_nomkp (NTXRAN, NOMKP);
+    #
 
 	Carp::confess("Need --oracle-dump-file to parse, got [" . safe_string($o->{'oracle-dump-file'}) . "]")
 	    unless $o->{'oracle-dump-file'};
@@ -3422,7 +3320,8 @@ elsif ($o->{'browse-kamis-local-mysql-15111'}) {
             from
                 DARVIN_PAINTS
             where
-                instr(DARVIN_PAINTS.nomkp, '15111')
+                instr(DARVIN_PAINTS.NOMKP, '15111') and
+                NTXRAN = 'ОФ'
             ",
 #                NOMKP, FOND, FOND_TXRAN, DATKP, ENDAT, DOPPOL, ALLNAMES_1
         'bound_values' => [],
@@ -3435,12 +3334,14 @@ elsif ($o->{'browse-kamis-local-mysql-15111'}) {
 #	      DARVIN_KLASS.id_kl = 86
 	  
     my $data = {
+      'min-NOMK2' => 3000,
       'max-NOMK2' => 0,
+      'AVTOR_unique' => {},
       };
     while (my $row = $sth->fetchrow_hashref()) {
-        if ($o->{'missing-items'}) {
+        if ($o->{'analyze'}) {
             if (!defined($row->{'NOMK2'})) {
-                print Data::Dumper::Dumper("NOMK2 not defined: ", $row);
+                print Data::Dumper::Dumper("NOMK2 not defined: ", SDM::Archive::DB::non_null_fields($row));
                 next;
             }
 
@@ -3449,25 +3350,42 @@ elsif ($o->{'browse-kamis-local-mysql-15111'}) {
             if ($data->{'max-NOMK2'} < $row->{'NOMK2'}) {
                 $data->{'max-NOMK2'} = $row->{'NOMK2'};
             }
-        } else {
-            my $row_clean;
-            foreach my $k (keys %{$row}) {
-                if (defined($row->{$k})) {
-                    $row_clean->{$k} = $row->{$k};
-                }
+            if ($data->{'min-NOMK2'} > $row->{'NOMK2'}) {
+                $data->{'min-NOMK2'} = $row->{'NOMK2'};
             }
-            print Data::Dumper::Dumper($row_clean);
+        } else {
+            print Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row));
+        }
+        if (defined($row->{'AVTOR'})) {
+            my $authors = SDM::Archive::extract_authors($row->{'AVTOR'}, {'archive' => 'nn', 'do_not_die' => 0});
+            foreach my $a (@{$authors->{'extracted_struct'}}) {
+                $data->{'AVTOR_unique'}->{$a->{'name'}} = 1;
+            }
         }
     }
 
     if (defined($data->{'by_NOMK2'})) {
+        print "min NOMK2: " . $data->{'min-NOMK2'} . "\n";
         print "max NOMK2: " . $data->{'max-NOMK2'} . "\n";
-        for (my $i = 1; $i <= $data->{'max-NOMK2'}; $i++) {
+        print "total entries: " . scalar(keys %{$data->{'by_NOMK2'}}) . "\n";
+
+        for (my $i = $data->{'min-NOMK2'}; $i <= $data->{'max-NOMK2'}; $i++) {
             if (!defined($data->{'by_NOMK2'}->{$i})) {
                 print "missing: $i\n";
             }
         }
+
+        print Data::Dumper::Dumper($data->{'AVTOR_unique'});
     }
+
+    my $kamis_paint_to_dspace_mapping = {
+        'dc.contributor.author[ru]' => 'AVTOR',
+        };
+    # 
+    #         'dc.contributor.author[en]' => "",
+    #            'dc.creator[en]' => "",
+    #            'dc.creator[ru]' => "",
+
 }
 elsif ($o->{'command-list'}) {
     print join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n";

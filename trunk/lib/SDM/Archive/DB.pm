@@ -281,4 +281,16 @@ sub execute_statement {
 }
 
 
+sub non_null_fields {
+    my ($full_row) = @_;
+    my $row_clean;
+    foreach my $k (keys %{$full_row}) {
+        if (defined($full_row->{$k})) {
+            $row_clean->{$k} = $full_row->{$k};
+        }
+    }
+    return $row_clean;
+}
+
+
 1;
