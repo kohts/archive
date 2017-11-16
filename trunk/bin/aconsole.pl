@@ -272,7 +272,7 @@ my $o_names = [
     'fill-local-mysql',
     'dspace-update-classification-groups-from-kamis-15845',
     'browse-kamis-local-mysql-15111',
-    'analyze',
+    'browse-kamis-by-fond-number=s',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -2974,6 +2974,7 @@ elsif ($o->{'oracle-parse'}) {
     # alter table DARVIN_ARTIST add index id_bas (id_bas);
     # alter table DARVIN_PAINTS add index id_bas (ID_BAS);
     # alter table DARVIN_PAINTS add index ntxran_nomkp (NTXRAN, NOMKP);
+    # alter table DARVIN_PAINTS add index ntxran_nomk1 (NTXRAN, NOMK1);
     #
 
 	Carp::confess("Need --oracle-dump-file to parse, got [" . safe_string($o->{'oracle-dump-file'}) . "]")
@@ -3310,6 +3311,81 @@ elsif ($o->{'dspace-update-classification-groups-from-kamis-15845'}) {
 		});
 	}
 }
+elsif ($o->{'browse-kamis-by-fond-number'}) {
+    my ($of_nvf, $fond_num) = split("\/", $o->{'browse-kamis-by-fond-number'});
+
+    if ($of_nvf eq 'of') {
+        $of_nvf = 'ОФ';
+    }
+    if ($of_nvf eq 'nvf') {
+        $of_nvf = 'НВФ';
+    }
+
+    my $dbh = SDM::Archive::DB::get_kamis_db();
+    my $sth = SDM::Archive::DB::execute_statement({
+        'dbh' => \$dbh,
+        'sql' => "
+            select
+                *
+            from
+                DARVIN_PAINTS
+            where
+                NOMK1 = ? AND
+                NTXRAN = ?
+            ",
+        'bound_values' => [$fond_num, $of_nvf],
+        });
+
+    my $huge_data = {
+        'distribution_by_number_of_pages' => {},
+        };
+    my $data = {
+        'total_documents' => 0,
+        'total_pages' => 0,
+        };
+    while (my $row = $sth->fetchrow_hashref()) {
+        
+        $data->{'total_documents'} ++;
+
+        if (defined($row->{'KOLLIST'})) {
+            my $num = $row->{'KOLLIST'};
+            $num =~ s/[^\d\+]//g;
+            $num = eval($num);
+            $data->{'total_pages'} += $num;
+
+            $huge_data->{'distribution_by_number_of_pages'}->{$num} = 0
+                unless defined($huge_data->{'distribution_by_number_of_pages'}->{$num});
+            $huge_data->{'distribution_by_number_of_pages'}->{$num} ++;
+        }
+
+        if ($o->{'dump'}) {
+            print Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row));
+        }
+    }
+
+    print join("\t", "N", "DocPgs", "Docs", "TotPages") . "\n";
+    my $output_lines = 0;
+    my $output_pages = 0;
+    foreach my $k (sort {
+        $huge_data->{'distribution_by_number_of_pages'}->{$b} <=>
+        $huge_data->{'distribution_by_number_of_pages'}->{$a} 
+        } keys %{$huge_data->{'distribution_by_number_of_pages'}})  {
+        
+        $output_lines ++;
+        $output_pages += $huge_data->{'distribution_by_number_of_pages'}->{$k} * $k;
+        next if $output_pages >= $data->{'total_pages'} ;
+        
+        print join("\t",
+          $output_lines,
+          $k,
+          $huge_data->{'distribution_by_number_of_pages'}->{$k},
+          $output_pages) . "\n";
+    }
+
+    $data->{'average_pages_per_document'} = $data->{'total_pages'} / $data->{'total_documents'};
+
+    print Data::Dumper::Dumper($data);
+}
 elsif ($o->{'browse-kamis-local-mysql-15111'}) {
     my $dbh = SDM::Archive::DB::get_kamis_db();
     my $sth = SDM::Archive::DB::execute_statement({
@@ -3320,9 +3396,10 @@ elsif ($o->{'browse-kamis-local-mysql-15111'}) {
             from
                 DARVIN_PAINTS
             where
-                instr(DARVIN_PAINTS.NOMKP, '15111') and
+                NOMK1 = 15111 AND
                 NTXRAN = 'ОФ'
             ",
+#                instr(DARVIN_PAINTS.NOMKP, '15111') and
 #                NOMKP, FOND, FOND_TXRAN, DATKP, ENDAT, DOPPOL, ALLNAMES_1
         'bound_values' => [],
         });
@@ -3333,58 +3410,95 @@ elsif ($o->{'browse-kamis-local-mysql-15111'}) {
 #	      instr(DARVIN_PAINTS.nomkp, '15845') and
 #	      DARVIN_KLASS.id_kl = 86
 	  
+    my $huge_data = {
+        'by_NOMK2' => {},
+        'distribution_by_number_of_pages' => {},
+        };
     my $data = {
       'min-NOMK2' => 3000,
       'max-NOMK2' => 0,
       'AVTOR_unique' => {},
+      'total_pages' => 0,
       };
     while (my $row = $sth->fetchrow_hashref()) {
-        if ($o->{'analyze'}) {
-            if (!defined($row->{'NOMK2'})) {
-                print Data::Dumper::Dumper("NOMK2 not defined: ", SDM::Archive::DB::non_null_fields($row));
-                next;
-            }
-
-            $data->{'by_NOMK2'}->{$row->{'NOMK2'}} = $row;
-            
-            if ($data->{'max-NOMK2'} < $row->{'NOMK2'}) {
-                $data->{'max-NOMK2'} = $row->{'NOMK2'};
-            }
-            if ($data->{'min-NOMK2'} > $row->{'NOMK2'}) {
-                $data->{'min-NOMK2'} = $row->{'NOMK2'};
-            }
-        } else {
-            print Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row));
+        if (!defined($row->{'NOMK2'})) {
+            print Data::Dumper::Dumper("NOMK2 not defined: ", SDM::Archive::DB::non_null_fields($row));
+            next;
         }
+
+        $huge_data->{'by_NOMK2'}->{$row->{'NOMK2'}} = $row;
+        
+        if ($data->{'max-NOMK2'} < $row->{'NOMK2'}) {
+            $data->{'max-NOMK2'} = $row->{'NOMK2'};
+        }
+        if ($data->{'min-NOMK2'} > $row->{'NOMK2'}) {
+            $data->{'min-NOMK2'} = $row->{'NOMK2'};
+        }
+
         if (defined($row->{'AVTOR'})) {
             my $authors = SDM::Archive::extract_authors($row->{'AVTOR'}, {'archive' => 'nn', 'do_not_die' => 0});
             foreach my $a (@{$authors->{'extracted_struct'}}) {
-                $data->{'AVTOR_unique'}->{$a->{'name'}} = 1;
+                $data->{'AVTOR_unique'}->{$a->{'name'}} = 0
+                    unless defined($data->{'AVTOR_unique'}->{$a->{'name'}});
+                $data->{'AVTOR_unique'}->{$a->{'name'}} += 1;
             }
+        }
+
+        if (defined($row->{'KOLLIST'})) {
+            my $num = $row->{'KOLLIST'};
+            $num =~ s/[^\d\+]//g;
+            $num = eval($num);
+            $data->{'total_pages'} += $num;
+
+            $huge_data->{'distribution_by_number_of_pages'}->{$num} = 0
+                unless defined($huge_data->{'distribution_by_number_of_pages'}->{$num});
+            $huge_data->{'distribution_by_number_of_pages'}->{$num} ++;
+        }
+
+        if ($o->{'dump'}) {
+            print Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row));
         }
     }
 
-    if (defined($data->{'by_NOMK2'})) {
-        print "min NOMK2: " . $data->{'min-NOMK2'} . "\n";
-        print "max NOMK2: " . $data->{'max-NOMK2'} . "\n";
-        print "total entries: " . scalar(keys %{$data->{'by_NOMK2'}}) . "\n";
+    if (defined($huge_data->{'by_NOMK2'})) {
+        print "total entries: " . scalar(keys %{$huge_data->{'by_NOMK2'}}) . "\n";
 
         for (my $i = $data->{'min-NOMK2'}; $i <= $data->{'max-NOMK2'}; $i++) {
-            if (!defined($data->{'by_NOMK2'}->{$i})) {
+            if (!defined($huge_data->{'by_NOMK2'}->{$i})) {
                 print "missing: $i\n";
             }
         }
+        my $printed = 0;
+        foreach my $k (sort {
+            $huge_data->{'distribution_by_number_of_pages'}->{$b} <=>
+            $huge_data->{'distribution_by_number_of_pages'}->{$a} 
+            } keys %{$huge_data->{'distribution_by_number_of_pages'}})  {
+            
+            next if $printed > 100;
+            
+            print $k . ": " . $huge_data->{'distribution_by_number_of_pages'}->{$k} . "\n";
+            $printed++;
+        }
 
-        print Data::Dumper::Dumper($data->{'AVTOR_unique'});
+        $data->{'average_pages_per_document'} = $data->{'total_pages'} / $data->{'total_documents'};
+
+        print Data::Dumper::Dumper($data);
     }
 
     my $kamis_paint_to_dspace_mapping = {
         'dc.contributor.author[ru]' => 'AVTOR',
+        'dc.contributor.author[en]' => 'AVTOR',
+        'dc.creator[en]' => 'AVTOR',
+        'dc.creator[ru]' => 'AVTOR',
+        'dc.date.created' => 'CREAT',
+        'dc.description[ru]' => 'ALLNAMES',
+        'dc.identifier.other[ru]' => 'DOPPOL',
+        'dc.language.iso[en]' => 'ru',
+        'dc.publisher[en]' => 'State Darwin Museum',
+        'dc.publisher[ru]' => 'Государственный Дарвиновский Музей',
+        'dc.title[ru]' => 'ALLNAMES_1',
+        'dc.type[en]' => 'Text',
         };
-    # 
-    #         'dc.contributor.author[en]' => "",
-    #            'dc.creator[en]' => "",
-    #            'dc.creator[ru]' => "",
 
 }
 elsif ($o->{'command-list'}) {
