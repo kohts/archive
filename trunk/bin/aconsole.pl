@@ -273,6 +273,8 @@ my $o_names = [
     'dspace-update-classification-groups-from-kamis-15845',
     'browse-kamis-local-mysql-15111',
     'browse-kamis-by-fond-number=s',
+    'browse-kamis-klass',
+    'browse-kamis-get-paints-by-id=s',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -1176,139 +1178,13 @@ sub tsv_read_and_validate {
                 $predefined_storage_struct = $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'storage_items'}->{$storage_number};                
             }
 
-            my $tsv_struct_helper = {};
-            
-            # $tsv_struct should contain either default or empty values
-            # for all the fields which will be output to csv (empty value
-            # could be further changed to meaningful value)
-            my $tsv_struct = {
-                'dc.contributor.author[en]' => "",
-                'dc.contributor.author[ru]' => "",
-                'dc.creator[en]' => "",
-                'dc.creator[ru]' => "",
-
-                # http://dublincore.org/documents/dcmi-terms/#terms-created
-                # Date of creation of the resource.
-                'dc.date.created' => "",
-
-                # http://dublincore.org/documents/dcmi-terms/#terms-issued
-                # Date of formal issuance (e.g., publication) of the resource.
-                #
-                # https://jira.duraspace.org/browse/DS-1481
-                #  By default, "dc.date.issued" is no longer set to [today] when it's empty
-                # (see DS-1745). Therefore, Items deposited via SWORD or bulk upload
-                # will not be assigned a "dc.date.issued" unless specified.
-#                'dc.date.issued' => '',
-                
-                # this is a "calculated" field which contains information from
-                # a number of other fields (i.e. it should be possible to rebuild
-                # this field at any point in time given other fields)
-                'dc.description[ru]' => "",
-
-                'dc.identifier.other[ru]' => "",
-
-                # dc.identifier.uri would be populated during metadata-import 
-                # 'dc.identifier.uri' => '', # http://hdl.handle.net/123456789/4
-
-                'dc.language.iso[en]' => 'ru',
-                'dc.publisher[en]' => 'State Darwin Museum',
-                'dc.publisher[ru]' => 'Государственный Дарвиновский Музей',
+            my $tsv_struct = SDM::Archive::tsv_struct_init({
                 'dc.subject[en]' => 'Museology',
                 'dc.subject[ru]' => 'Музейное дело',
-                'dc.title[ru]' => "",
-                'dc.type[en]' => 'Text',
-                'sdm-archive.date.digitized' => '',
                 'sdm-archive.date.cataloged' => $today_yyyy_mm_dd,
-                'sdm-archive.date.textExtracted' => '',
-                'sdm-archive.misc.classification-code' => '',
-                'sdm-archive.misc.classification-group' => '',
-                'sdm-archive.misc.completeness' => '',
-                'sdm-archive.misc.authenticity' => '',
                 'sdm-archive.misc.inventoryGroup' => $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name'},
                 'sdm-archive.misc.storageItem' => $storage_number,
-                'sdm-archive.misc.fond' => '',
-#                'sdm-archive.misc.archive' => '',
-            };
-
-            # appends value for metadata field, duplicate values
-            # are not appended (all the metadata fields are allowed
-            # to contain more than value - array is used if there's
-            # more than one value for the field)
-            #
-            # returns appended value (if input $metadata_value was stored)
-            # or undef (if supplied value has already existed and was not
-            # appended therefore)
-            #
-            # does some finegrained cleanup of metadata field values
-            # (depending on the name of populated metadata field)
-            #
-            my $push_metadata_value = sub {
-                my ($metadata_name, $metadata_value) = @_;
-
-                $tsv_struct->{$metadata_name} = ""
-                    unless defined($tsv_struct->{$metadata_name});
-                
-                return undef unless defined($metadata_value) && $metadata_value ne "";
-
-                my $cleanup_done;
-                while (!$cleanup_done) {
-                    my $orig_value = $metadata_value;
-
-                    if ($metadata_name eq 'dc.title[ru]') {
-                        # remove start-end double-quotes
-                        if ($metadata_value =~ /^"(.+)"$/) {
-                            $metadata_value = $1;
-                        }
-
-                        # remove trailing dot
-                        if ($metadata_value =~ /\.$/) {
-                            $metadata_value = substr($metadata_value, 0, length($metadata_value) - 1);
-                        }
-
-                        # only remove opening and closing square brackets
-                        # when there are not square brackets inside of the title, e.g.
-                        # [Codtenschein] . [Документ, имеющий отношение к биографии А.Ф.Котса]
-                        if ($metadata_value =~ /^\[([^\[]+)\]$/) {
-                            $metadata_value = $1;
-                        }
-                    } elsif ($metadata_name eq 'dc.date.created') {
-                        if ($metadata_value =~ /^\[([^\[]+)\]$/) {
-                            $metadata_value = $1;
-                        }
-                    }
-
-                    if ($orig_value eq $metadata_value) {
-                        $cleanup_done = 1;
-                    }
-                }
-
-                if (!defined($tsv_struct_helper->{$metadata_name})) {
-                    $tsv_struct_helper->{$metadata_name} = {};
-                }
-
-                if (defined($tsv_struct_helper->{$metadata_name}->{$metadata_value})) {
-                    # do not add same values several times
-                    return undef;
-                } else {
-                    $tsv_struct_helper->{$metadata_name}->{$metadata_value} = 1;
-
-                    if (!defined($tsv_struct->{$metadata_name})) {
-                        $tsv_struct->{$metadata_name} = $metadata_value;
-                    } else {
-                        if (ref($tsv_struct->{$metadata_name}) eq '') {
-                            if ($tsv_struct->{$metadata_name} eq '') {
-                                $tsv_struct->{$metadata_name} = $metadata_value;
-                            } else {
-                                $tsv_struct->{$metadata_name} = [$tsv_struct->{$metadata_name}, $metadata_value];
-                            }
-                        } else {
-                            push @{$tsv_struct->{$metadata_name}}, $metadata_value;
-                        }
-                    }
-
-                    return $metadata_value;
-                }
-            };
+                });
 
             if ($predefined_storage_struct) {
                 my $extracted_author;
@@ -1317,11 +1193,11 @@ sub tsv_read_and_validate {
                 
                     my $doc_authors1 = SDM::Archive::find_author($extracted_author);
                     foreach my $author (@{$doc_authors1}) {
-                        $push_metadata_value->('dc.contributor.author[' . $author->{'lang'} . ']', $author->{'name'});
-                        $push_metadata_value->('dc.creator[' . $author->{'lang'} . ']', $author->{'name'});
+                        SDM::Archive::push_metadata_value($tsv_struct, 'dc.contributor.author[' . $author->{'lang'} . ']', $author->{'name'});
+                        SDM::Archive::push_metadata_value($tsv_struct, 'dc.creator[' . $author->{'lang'} . ']', $author->{'name'});
                     }
                 }
-                $push_metadata_value->('dc.title[ru]', $predefined_storage_struct);
+                SDM::Archive::push_metadata_value($tsv_struct, 'dc.title[ru]', $predefined_storage_struct);
             }
 
             # - detect and store storage paths here against $data_desc_struct->{'external_archive_storage_base'}
@@ -1337,8 +1213,8 @@ sub tsv_read_and_validate {
                     'archive' => 'afk',
                     });
                 foreach my $author (@{$title_struct->{'extracted_struct'}}) {
-                    $push_metadata_value->('dc.contributor.author[' . $author->{'lang'} . ']', $author->{'name'});
-                    $push_metadata_value->('dc.creator[' . $author->{'lang'} . ']', $author->{'name'});
+                    SDM::Archive::push_metadata_value($tsv_struct, 'dc.contributor.author[' . $author->{'lang'} . ']', $author->{'name'});
+                    SDM::Archive::push_metadata_value($tsv_struct, 'dc.creator[' . $author->{'lang'} . ']', $author->{'name'});
                 }
 
                 my $meta = extract_meta_data($title_struct->{'trimmed_input'});
@@ -1354,31 +1230,31 @@ sub tsv_read_and_validate {
                 my $doc_desc = $meta->{'doc_desc'} ? $meta->{'doc_desc'}->{'value'} : $item->{'by_field_name'}->{'doc_desc'};
 
                 if (!defined($predefined_storage_struct)) {
-                    $push_metadata_value->('dc.title[ru]', $meta->{'trimmed_input'});
+                    SDM::Archive::push_metadata_value($tsv_struct, 'dc.title[ru]', $meta->{'trimmed_input'});
                 }
 
-                $doc_type = $push_metadata_value->('sdm-archive.misc.document-type', $doc_type);
-                $doc_desc = $push_metadata_value->('sdm-archive.misc.notes', $doc_desc);
+                $doc_type = SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.document-type', $doc_type);
+                $doc_desc = SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.notes', $doc_desc);
 
-                $doc_date = $push_metadata_value->('dc.date.created', $doc_date);
+                $doc_date = SDM::Archive::push_metadata_value($tsv_struct, 'dc.date.created', $doc_date);
 
-                $push_metadata_value->('dc.identifier.other[ru]', storage_id_csv_to_dspace({
+                SDM::Archive::push_metadata_value($tsv_struct, 'dc.identifier.other[ru]', storage_id_csv_to_dspace({
                     'storage-group-id' => $st_gr_id,
                     'storage-item-id' => $storage_number,
                     'language' => 'ru',
                     }));
-                $push_metadata_value->('dc.identifier.other[en]', storage_id_csv_to_dspace({
+                SDM::Archive::push_metadata_value($tsv_struct, 'dc.identifier.other[en]', storage_id_csv_to_dspace({
                     'storage-group-id' => $st_gr_id,
                     'storage-item-id' => $storage_number,
                     'language' => 'en',
                     }));
 
                 $item->{'by_field_name'}->{'doc_property_full'} =
-                    $push_metadata_value->('sdm-archive.misc.completeness', $item->{'by_field_name'}->{'doc_property_full'});
+                    SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.completeness', $item->{'by_field_name'}->{'doc_property_full'});
                 $item->{'by_field_name'}->{'doc_property_genuine'} = 
-                    $push_metadata_value->('sdm-archive.misc.authenticity', $item->{'by_field_name'}->{'doc_property_genuine'});
+                    SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.authenticity', $item->{'by_field_name'}->{'doc_property_genuine'});
                 $item->{'by_field_name'}->{'archive_date'} =
-                    $push_metadata_value->('sdm-archive.misc.archive-date', $item->{'by_field_name'}->{'archive_date'});
+                    SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.archive-date', $item->{'by_field_name'}->{'archive_date'});
 
                 if ($item->{'by_field_name'}->{'classification_code'} &&
                     defined($data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'})
@@ -1390,9 +1266,9 @@ sub tsv_read_and_validate {
 
                         $cc = SDM::Archive::match_classification_group_by_code($itcc);
                         if ($cc) {
-                            $push_metadata_value->('sdm-archive.misc.classification-group',
+                            SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.classification-group',
                                 $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}->{$cc});
-                            $push_metadata_value->('sdm-archive.misc.classification-code',
+                            SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.classification-code',
                                 $cc);
                             $found_cc_group = 1;
                         }
@@ -1402,9 +1278,9 @@ sub tsv_read_and_validate {
 
                             $cc = SDM::Archive::match_classification_group_by_code($itcc);
                             if ($cc) {
-                               $push_metadata_value->('sdm-archive.misc.classification-group',
+                               SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.classification-group',
                                     $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}->{$cc});
-                                $push_metadata_value->('sdm-archive.misc.classification-code',
+                                SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.classification-code',
                                     $cc);
                                 $found_cc_group = 1;
                             }
@@ -1420,7 +1296,7 @@ sub tsv_read_and_validate {
                 # prepare 'dc.description[ru]' value
                 my $item_desc = "";
                 if ($item->{'by_field_name'}->{'of_number'}) {
-                    $push_metadata_value->('sdm-archive.misc.fond', "ОФ-" . $item->{'by_field_name'}->{'of_number'});
+                    SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.fond', "ОФ-" . $item->{'by_field_name'}->{'of_number'});
 
                     $item_desc .= "ОФ-" . $item->{'by_field_name'}->{'of_number'} .
                         ($item->{'by_field_name'}->{'number_suffix'} ?
@@ -1453,7 +1329,7 @@ sub tsv_read_and_validate {
                         });
                 }
                 else {
-                    $push_metadata_value->('sdm-archive.misc.fond', "НВФ-" . $item->{'by_field_name'}->{'nvf_number'});
+                    SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.fond', "НВФ-" . $item->{'by_field_name'}->{'nvf_number'});
 
                     $item_desc .= "НВФ-" . $item->{'by_field_name'}->{'nvf_number'} .
                         ($item->{'by_field_name'}->{'number_suffix'} ?
@@ -1508,7 +1384,7 @@ sub tsv_read_and_validate {
                     $push_desc_el->("Примечания: " . $doc_desc);
                 }
                 $item_desc .= " " . join (" ", @{$desc_elements});
-                $push_metadata_value->('dc.description[ru]', $item_desc);
+                SDM::Archive::push_metadata_value($tsv_struct, 'dc.description[ru]', $item_desc);
 
                 $try_external_resource->({
                     'resource' => 'scan',
@@ -1518,11 +1394,11 @@ sub tsv_read_and_validate {
 
             foreach my $d (keys %{$storage_struct->{'scanned_document_directories_h'}}) {
                 foreach my $d_day (@{$storage_struct->{'scanned_document_directories_h'}->{$d}}) {
-                    $push_metadata_value->('sdm-archive.date.digitized', $d_day);
+                    SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.date.digitized', $d_day);
                 }
             }
             foreach my $d (keys %{$storage_struct->{'docbook_files_dates_h'}}) {
-                $push_metadata_value->('sdm-archive.date.textExtracted', $storage_struct->{'docbook_files_dates_h'}->{$d});
+                SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.date.textExtracted', $storage_struct->{'docbook_files_dates_h'}->{$d});
             }
 
             $storage_struct->{'tsv_struct'} = $tsv_struct;
@@ -1598,9 +1474,11 @@ sub tsv_read_and_validate {
 # outputs tsv record for ADDITION into DSpace (with plus sign
 # as the DSpace id of the item)
 #
-# expects hashref with names of the output record as the keys
-# of the hash and values of the output record as the values
-# of the hash.
+# expects hashref
+#   - with the names of fields of the output record as the keys of the hash
+#   - and the values of the output record as the values of the hash
+#   - all the hash references are ignored (see _helper struct created by
+#     tsv_struct_push_metadata_value function)
 #
 sub tsv_output_record {
     my ($tsv_record, $o) = @_;
@@ -1610,10 +1488,18 @@ sub tsv_output_record {
 
     my $out_array = [];
 
+    my $clean_tsv_record = {};
+    foreach my $k (keys %{$tsv_record}) {
+        # as of Nov 2017 skips only _help struct
+        next if ref($tsv_record->{$k}) eq 'HASH';
+
+        $clean_tsv_record->{$k} = $tsv_record->{$k};
+    }
+
     if ($o->{'mode'} eq 'labels') {
         # id must be the _first_ column in tsv:
         # https://github.com/DSpace/DSpace/blob/master/dspace-api/src/main/java/org/dspace/app/bulkedit/DSpaceCSV.java#L522
-        my $labels = ["id", sort(keys %{$tsv_record})];
+        my $labels = ["id", sort(keys %{$clean_tsv_record})];
     
         $out_array = [];
         foreach my $v (@{$labels}) {
@@ -1622,8 +1508,8 @@ sub tsv_output_record {
         }
     } elsif ($o->{'mode'} eq 'values') {
         $out_array = ["+"];
-        foreach my $field_name (sort keys %{$tsv_record}) {
-            my $field_value = $tsv_record->{$field_name};
+        foreach my $field_name (sort keys %{$clean_tsv_record}) {
+            my $field_value = $clean_tsv_record->{$field_name};
             
             if (ref($field_value) eq 'ARRAY') {
                 $field_value = join("||", @{$field_value});
@@ -3343,8 +3229,8 @@ elsif ($o->{'browse-kamis-by-fond-number'}) {
         'total_documents' => 0,
         'total_pages' => 0,
         };
+
     while (my $row = $sth->fetchrow_hashref()) {
-        
         $data->{'total_documents'} ++;
 
         if (defined($row->{'KOLLIST'})) {
@@ -3382,11 +3268,65 @@ elsif ($o->{'browse-kamis-by-fond-number'}) {
           $output_pages) . "\n";
     }
 
-    $data->{'average_pages_per_document'} = $data->{'total_pages'} / $data->{'total_documents'};
+    $data->{'average_pages_per_document'} = $data->{'total_pages'} / ($data->{'total_documents'} ? $data->{'total_documents'} : 1);
 
     print Data::Dumper::Dumper($data);
 }
+elsif ($o->{'browse-kamis-klass'}) {
+    my $dbh = SDM::Archive::DB::get_kamis_db();
+    my $sth = SDM::Archive::DB::execute_statement({
+        'dbh' => \$dbh,
+        'sql' => "
+            select
+                *
+            from
+                DARVIN_KLASS
+            ",
+        'bound_values' => [],
+        });
+    while (my $row = $sth->fetchrow_hashref()) {
+        if ($o->{'dump'}) {
+            print Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row));
+        }
+    }
+}
 elsif ($o->{'browse-kamis-local-mysql-15111'}) {
+    #
+    # DARVIN_PAINTS - main documents/objects list 
+    # DARVIN_PAINTS.ID_BAS - unique document identifier
+    #
+    #
+    # DARVIN_PAI_KLA - options of documents/objects
+    # (additional to those contained in DARVIN_PAINTS fields)
+    #   - DARVIN_PAINTS -- one to many DARVIN_PAI_KLA
+    #     DARVIN_PAI_KLA.PAICODE = DARVIN_PAINTS.ID_BAS
+    #   - DARVIN_KLASS -- one to many DARVIN_PAI_KLA
+    #     DARVIN_PAI_KLA.KLASCOD = DARVIN_KLASS.ID_BAS
+    # 
+    #
+
+    my $today_yyyy_mm_dd = date_from_unixtime(time());
+    my $kamis_paint_to_dspace_mapping = {
+        'dc.contributor.author[ru]' => 'AVTOR',
+        'dc.contributor.author[en]' => 'AVTOR',
+        'dc.creator[en]' => 'AVTOR',
+        'dc.creator[ru]' => 'AVTOR',
+        'dc.date.created' => 'CREAT',
+        'dc.description[ru]' => 'ALLNAMES',
+        'dc.identifier.other[ru]' => 'DOPPOL',
+        'dc.language.iso[en]' => 'ru',
+        'dc.publisher[en]' => 'State Darwin Museum',
+        'dc.publisher[ru]' => 'Государственный Дарвиновский Музей',
+        'dc.title[ru]' => 'ALLNAMES_1',
+        'dc.type[en]' => 'Text',
+
+        'sdm-archive.date.digitized' => '',
+        'sdm-archive.date.cataloged' => $today_yyyy_mm_dd,
+        'sdm-archive.date.textExtracted' => '',
+
+        'sdm-archive.misc.classification-code' => '',
+        };
+
     my $dbh = SDM::Archive::DB::get_kamis_db();
     my $sth = SDM::Archive::DB::execute_statement({
         'dbh' => \$dbh,
@@ -3399,41 +3339,49 @@ elsif ($o->{'browse-kamis-local-mysql-15111'}) {
                 NOMK1 = 15111 AND
                 NTXRAN = 'ОФ'
             ",
-#                instr(DARVIN_PAINTS.NOMKP, '15111') and
-#                NOMKP, FOND, FOND_TXRAN, DATKP, ENDAT, DOPPOL, ALLNAMES_1
         'bound_values' => [],
         });
-#      where
-#	      DARVIN_PAINTS.status=1 AND
-#	      DARVIN_PAINTS.fond=16 and
-#	      DARVIN_PAINTS.txran=1 and
-#	      instr(DARVIN_PAINTS.nomkp, '15845') and
-#	      DARVIN_KLASS.id_kl = 86
 	  
     my $huge_data = {
-        'by_NOMK2' => {},
+        'by_NOMK' => {},
         'distribution_by_number_of_pages' => {},
+        'tsv_struct' => {},
         };
     my $data = {
-      'min-NOMK2' => 3000,
-      'max-NOMK2' => 0,
+      'min' => {},
+      'max' => {},
       'AVTOR_unique' => {},
       'total_pages' => 0,
+      'total_documents' => 0,
       };
     while (my $row = $sth->fetchrow_hashref()) {
+
+        $data->{'total_documents'} ++;
+
         if (!defined($row->{'NOMK2'})) {
             print Data::Dumper::Dumper("NOMK2 not defined: ", SDM::Archive::DB::non_null_fields($row));
             next;
         }
 
-        $huge_data->{'by_NOMK2'}->{$row->{'NOMK2'}} = $row;
+        $huge_data->{'by_NOMK'}->{$row->{'NOMK1'}}->{$row->{'NOMK2'}}->{'__db_row'} = $row;
         
-        if ($data->{'max-NOMK2'} < $row->{'NOMK2'}) {
-            $data->{'max-NOMK2'} = $row->{'NOMK2'};
+        $data->{'min'}->{$row->{'NOMK1'}} = 99999999
+            unless defined($data->{'min'}->{$row->{'NOMK1'}});
+        $data->{'max'}->{$row->{'NOMK1'}} = 0
+            unless defined($data->{'max'}->{$row->{'NOMK1'}});
+
+        if ($data->{'max'}->{$row->{'NOMK1'}} < $row->{'NOMK2'}) {
+            $data->{'max'}->{$row->{'NOMK1'}} = $row->{'NOMK2'};
         }
-        if ($data->{'min-NOMK2'} > $row->{'NOMK2'}) {
-            $data->{'min-NOMK2'} = $row->{'NOMK2'};
+        if ($data->{'min'}->{$row->{'NOMK1'}} > $row->{'NOMK2'}) {
+            $data->{'min'}->{$row->{'NOMK1'}} = $row->{'NOMK2'};
         }
+
+        my $tsv_struct = SDM::Archive::tsv_struct_init({
+            'sdm-archive.date.cataloged' => $today_yyyy_mm_dd,
+#            'sdm-archive.misc.storageItem' => $storage_number,
+            'dc.title[ru]' => $row->{'PNAM'},
+            });
 
         if (defined($row->{'AVTOR'})) {
             my $authors = SDM::Archive::extract_authors($row->{'AVTOR'}, {'archive' => 'nn', 'do_not_die' => 0});
@@ -3441,6 +3389,9 @@ elsif ($o->{'browse-kamis-local-mysql-15111'}) {
                 $data->{'AVTOR_unique'}->{$a->{'name'}} = 0
                     unless defined($data->{'AVTOR_unique'}->{$a->{'name'}});
                 $data->{'AVTOR_unique'}->{$a->{'name'}} += 1;
+
+                SDM::Archive::push_metadata_value($tsv_struct, 'dc.contributor.author[' . $a->{'lang'} . ']', $a->{'name'});
+                SDM::Archive::push_metadata_value($tsv_struct, 'dc.creator[' . $a->{'lang'} . ']', $a->{'name'});
             }
         }
 
@@ -3455,51 +3406,64 @@ elsif ($o->{'browse-kamis-local-mysql-15111'}) {
             $huge_data->{'distribution_by_number_of_pages'}->{$num} ++;
         }
 
+        my $klass = SDM::Archive::DB::kamis_get_paint_klass_by_paints_id_bas($row->{'ID_BAS'});
+        foreach my $e (@{$klass}) {
+            if ($e->{'ID_KL'} eq '11') {
+                SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.document-type', $e->{'NAME'});
+            }
+        }
+
         if ($o->{'dump'}) {
             print Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row));
+            print Data::Dumper::Dumper($tsv_struct);
         }
+
+        $huge_data->{'by_NOMK'}->{$row->{'NOMK1'}}->{$row->{'NOMK2'}}->{'tsv_struct'} = $tsv_struct;
     }
 
-    if (defined($huge_data->{'by_NOMK2'})) {
-        print "total entries: " . scalar(keys %{$huge_data->{'by_NOMK2'}}) . "\n";
+    print "total documents: " . $data->{'total_documents'} . "\n";
 
-        for (my $i = $data->{'min-NOMK2'}; $i <= $data->{'max-NOMK2'}; $i++) {
-            if (!defined($huge_data->{'by_NOMK2'}->{$i})) {
+    print "top 10 documents by the number of pages \n";
+    foreach my $nomk1 (keys %{$data->{'min'}}) {
+        for (my $i = $data->{'min'}->{$nomk1}; $i <= $data->{'max'}->{$nomk1}; $i++) {
+            if (!defined($huge_data->{'by_NOMK'}->{$nomk1}->{$i})) {
                 print "missing: $i\n";
             }
         }
-        my $printed = 0;
-        foreach my $k (sort {
-            $huge_data->{'distribution_by_number_of_pages'}->{$b} <=>
-            $huge_data->{'distribution_by_number_of_pages'}->{$a} 
-            } keys %{$huge_data->{'distribution_by_number_of_pages'}})  {
-            
-            next if $printed > 100;
-            
-            print $k . ": " . $huge_data->{'distribution_by_number_of_pages'}->{$k} . "\n";
-            $printed++;
-        }
-
-        $data->{'average_pages_per_document'} = $data->{'total_pages'} / $data->{'total_documents'};
-
-        print Data::Dumper::Dumper($data);
     }
 
-    my $kamis_paint_to_dspace_mapping = {
-        'dc.contributor.author[ru]' => 'AVTOR',
-        'dc.contributor.author[en]' => 'AVTOR',
-        'dc.creator[en]' => 'AVTOR',
-        'dc.creator[ru]' => 'AVTOR',
-        'dc.date.created' => 'CREAT',
-        'dc.description[ru]' => 'ALLNAMES',
-        'dc.identifier.other[ru]' => 'DOPPOL',
-        'dc.language.iso[en]' => 'ru',
-        'dc.publisher[en]' => 'State Darwin Museum',
-        'dc.publisher[ru]' => 'Государственный Дарвиновский Музей',
-        'dc.title[ru]' => 'ALLNAMES_1',
-        'dc.type[en]' => 'Text',
-        };
+    my $printed = 0;
+    foreach my $k (sort {
+        $huge_data->{'distribution_by_number_of_pages'}->{$b} <=>
+        $huge_data->{'distribution_by_number_of_pages'}->{$a} 
+        } keys %{$huge_data->{'distribution_by_number_of_pages'}})  {
+        
+        next if $printed > 10;
+        
+        print $k . ": " . $huge_data->{'distribution_by_number_of_pages'}->{$k} . "\n";
+        $printed++;
+    }
 
+    $data->{'average_pages_per_document'} = $data->{'total_pages'} / $data->{'total_documents'};
+
+    print Data::Dumper::Dumper($data);
+
+}
+elsif ($o->{'browse-kamis-get-paints-by-id'}) {
+    my $dbh = SDM::Archive::DB::get_kamis_db();
+    my $sth = SDM::Archive::DB::execute_statement({
+        'dbh' => \$dbh,
+        'sql' => "select * from DARVIN_PAINTS where ID_BAS = ?",
+        'bound_values' => [$o->{'browse-kamis-get-paints-by-id'}],
+        });
+    while (my $row = $sth->fetchrow_hashref()) {
+        print Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row));
+
+        my $klass = SDM::Archive::DB::kamis_get_paint_klass_by_paints_id_bas($row->{'ID_BAS'});
+        foreach my $e (@{$klass}) {
+            print Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($e));
+        }
+    }
 }
 elsif ($o->{'command-list'}) {
     print join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n";

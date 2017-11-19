@@ -941,6 +941,161 @@ sub match_classification_group_by_code {
 	return undef;
 }
 
+# returns new tsv_record struct with SDM default field values
+sub tsv_struct_init {
+    my ($initial_fields) = @_;
+
+    # $tsv_struct should contain either default or empty values
+    # for all the fields which will be output to csv (empty value
+    # could be further changed to meaningful value)
+    my $tsv_struct = {
+        'dc.contributor.author[en]' => "",
+        'dc.contributor.author[ru]' => "",
+        'dc.creator[en]' => "",
+        'dc.creator[ru]' => "",
+
+        # http://dublincore.org/documents/dcmi-terms/#terms-created
+        # Date of creation of the resource.
+        'dc.date.created' => "",
+
+        # http://dublincore.org/documents/dcmi-terms/#terms-issued
+        # Date of formal issuance (e.g., publication) of the resource.
+        #
+        # https://jira.duraspace.org/browse/DS-1481
+        #  By default, "dc.date.issued" is no longer set to [today] when it's empty
+        # (see DS-1745). Therefore, Items deposited via SWORD or bulk upload
+        # will not be assigned a "dc.date.issued" unless specified.
+        # 'dc.date.issued' => '',
+        
+        # this is a "calculated" field which contains information from
+        # a number of other fields (i.e. it should be possible to rebuild
+        # this field at any point in time given other fields)
+        'dc.description[ru]' => "",
+
+        'dc.identifier.other[ru]' => "",
+
+        # dc.identifier.uri would be populated during metadata-import 
+        # 'dc.identifier.uri' => '', # http://hdl.handle.net/123456789/4
+
+        'dc.language.iso[en]' => 'ru',
+        'dc.publisher[en]' => 'State Darwin Museum',
+        'dc.publisher[ru]' => 'Государственный Дарвиновский Музей',
+        'dc.title[ru]' => "",
+        'dc.type[en]' => 'Text',
+        'sdm-archive.date.digitized' => '',
+        'sdm-archive.date.textExtracted' => '',
+        'sdm-archive.misc.classification-code' => '',
+        'sdm-archive.misc.classification-group' => '',
+        'sdm-archive.misc.completeness' => '',
+        'sdm-archive.misc.authenticity' => '',
+        'sdm-archive.misc.fond' => '',
+        # 'sdm-archive.misc.archive' => '',
+    };
+
+    if ($initial_fields && ref($initial_fields) eq 'HASH') {
+        foreach my $k (keys %{$initial_fields}) {
+            $tsv_struct->{$k} = $initial_fields->{$k};
+        }
+    }
+
+    return $tsv_struct;
+}
+
+# operates on an entry of tsv dump - part of the process
+# of preperation of tsv list for the initial import of catalog
+#
+#
+# appends value for metadata field, duplicate values
+# are not appended (all the metadata fields are allowed
+# to contain more than value - array is used if there's
+# more than one value for the field)
+#
+# returns appended value (if input $metadata_value was stored)
+# or undef (if supplied value has already existed and was not
+# appended therefore)
+#
+# does some finegrained cleanup of metadata field values
+# (depending on the name of populated metadata field)
+#
+#
+sub push_metadata_value {
+    my ($tsv_struct, $metadata_name, $metadata_value) = @_;
+
+    $tsv_struct->{$metadata_name} = ""
+        unless defined($tsv_struct->{$metadata_name});
+    $tsv_struct->{'_helper'} = {
+        'existing_metadata_values' => {},
+        }
+        unless defined($tsv_struct->{'_helper'});
+
+    # do not store empty values
+    return undef unless defined($metadata_value) && $metadata_value ne "";
+
+    # clean up known metadata issues
+    my $cleanup_done;
+    while (!$cleanup_done) {
+        my $orig_value = $metadata_value;
+
+        if ($metadata_name eq 'dc.title[ru]') {
+            # remove start-end double-quotes
+            if ($metadata_value =~ /^"(.+)"$/) {
+                $metadata_value = $1;
+            }
+
+            # remove trailing dot
+            if ($metadata_value =~ /\.$/) {
+                $metadata_value = substr($metadata_value, 0, length($metadata_value) - 1);
+            }
+
+            # only remove opening and closing square brackets
+            # when there are not square brackets inside of the title, e.g.
+            # [Codtenschein] . [Документ, имеющий отношение к биографии А.Ф.Котса]
+            if ($metadata_value =~ /^\[([^\[]+)\]$/) {
+                $metadata_value = $1;
+            }
+        } elsif ($metadata_name eq 'dc.date.created') {
+            if ($metadata_value =~ /^\[([^\[]+)\]$/) {
+                $metadata_value = $1;
+            }
+        }
+
+        if ($orig_value eq $metadata_value) {
+            $cleanup_done = 1;
+        }
+    }
+
+    if (!defined($tsv_struct->{'_helper'}->{'existing_metadata_values'}->{$metadata_name})) {
+        $tsv_struct->{'_helper'}->{'existing_metadata_values'}->{$metadata_name} = {};
+    }
+
+    if (defined($tsv_struct->{'_helper'}->{'existing_metadata_values'}->{$metadata_name}->{$metadata_value})) {
+        # do not add same values several times
+        return undef;
+    } else {
+        $tsv_struct->{'_helper'}->{'existing_metadata_values'}->{$metadata_name}->{$metadata_value} = 1;
+
+        if (!defined($tsv_struct->{$metadata_name})) {
+            $tsv_struct->{$metadata_name} = $metadata_value;
+        } else {
+            if (ref($tsv_struct->{$metadata_name}) eq '') {
+                if ($tsv_struct->{$metadata_name} eq '') {
+                    $tsv_struct->{$metadata_name} = $metadata_value;
+                } else {
+                    $tsv_struct->{$metadata_name} = [$tsv_struct->{$metadata_name}, $metadata_value];
+                }
+            } else {
+                push @{$tsv_struct->{$metadata_name}}, $metadata_value;
+            }
+        }
+
+        return $metadata_value;
+    }
+
+    # return value of the function is not checked by anyone as of November 2017
+    return undef;
+}
+
+
 init_logging();
 
 

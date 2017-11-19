@@ -292,5 +292,31 @@ sub non_null_fields {
     return $row_clean;
 }
 
+sub kamis_get_paint_klass_by_paints_id_bas {
+    my ($paints_id_bas) = @_;
+    
+    my $struct = [];
+
+    my $dbh = SDM::Archive::DB::get_kamis_db();
+    my $sth = SDM::Archive::DB::execute_statement({
+        'dbh' => \$dbh,
+        'sql' => "
+        select
+            DARVIN_KLASS.*
+        from
+            DARVIN_PAI_KLA
+            inner join
+            DARVIN_KLASS on DARVIN_KLASS.ID_BAS = DARVIN_PAI_KLA.KLASCOD
+        where
+            DARVIN_PAI_KLA.PAICODE = ?
+            ",
+        'bound_values' => [$paints_id_bas],
+      });
+    while (my $row = $sth->fetchrow_hashref()) {
+        push @{$struct}, $row;
+    }
+
+    return $struct;
+}
 
 1;
