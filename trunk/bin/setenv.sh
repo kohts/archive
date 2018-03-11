@@ -90,6 +90,9 @@ else
     fi
     export PATH
 
+    export ORACLE_HOME=/home/kohts/instantclient_12_2
+    export LD_LIBRARY_PATH=/home/kohts/instantclient_12_2
+
     print_current_environment
 
     export SETENV_BASHRC=1

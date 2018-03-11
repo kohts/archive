@@ -210,6 +210,7 @@ use warnings;
 use utf8;
 
 use SDM::Archive;
+use DBD::Oracle;
 
 my $data_desc_struct;
 my $o_names = [
@@ -275,6 +276,7 @@ my $o_names = [
     'browse-kamis-by-fond-number=s',
     'browse-kamis-klass',
     'browse-kamis-get-paints-by-id=s',
+    'oracle-test',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -3464,6 +3466,35 @@ elsif ($o->{'browse-kamis-get-paints-by-id'}) {
             print Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($e));
         }
     }
+}
+elsif ($o->{'oracle-test'}) {
+    my $dbh = DBI->connect(
+        'dbi:Oracle:host=localhost;sid=ORCL;port=1521',
+        'darvin',
+        'd', {
+            RaiseError => 1,
+            AutoCommit => 0,
+            LongReadLen => 1000000,
+        })
+        || Carp::confess($DBI::errstr);
+#    my $sth = $dbh->prepare("SELECT * from MEDIA where id_bas = 477380")
+#        || Carp::confess ("Couldn't prepare 1st statement: " . $dbh->errstr);
+
+#    my $sth = $dbh->prepare("SELECT * from PAINTS where id_bas = 295634")
+#        || Carp::confess ("Couldn't prepare 1st statement: " . $dbh->errstr);
+
+    my $sth = $dbh->prepare("SELECT * from MEDIA_FILE where MEDCODE = 477379")
+        || Carp::confess ("Couldn't prepare 1st statement: " . $dbh->errstr);
+
+    $sth->execute;
+    while (my $row = $sth->fetchrow_hashref()) {
+        print join(" ", $row->{'MEDCODE'}, $row->{'PART_NAME'}, length($row->{'BIN'})) . "\n";
+#        print Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row));
+        File::Path::make_path("/tmp/" . $row->{'MEDCODE'});
+        IOW::File::write_file_scalar("/tmp/" . $row->{'MEDCODE'} . "/" . $row->{'PART_NAME'} . ".jpg", $row->{'BIN'});
+    }
+    $sth->finish;
+    $dbh->disconnect;
 }
 elsif ($o->{'command-list'}) {
     print join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n";
