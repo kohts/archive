@@ -2706,6 +2706,10 @@ elsif ($o->{'scan-add-scans'}) {
 
     my $new_bitstreams = Yandex::Tools::read_dir($o->{'from'});
     ITEM_ELEMENT: foreach my $f (@{$new_bitstreams}) {
+
+        # skip hidden files
+        next if $f =~ /^\./;
+
         if (! -f $o->{'from'} . "/" . $f) {
             Carp::confess("Unexpected element [" . $o->{'from'} . "/" . $f . "]");
         }
