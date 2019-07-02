@@ -2869,342 +2869,347 @@ elsif ($o->{'oracle-parse'}) {
     # alter table DARVIN_PAINTS add index ntxran_nomk1 (NTXRAN, NOMK1);
     #
 
-	Carp::confess("Need --oracle-dump-file to parse, got [" . safe_string($o->{'oracle-dump-file'}) . "]")
-	    unless $o->{'oracle-dump-file'};
+    Carp::confess("Need --oracle-dump-file to parse, got [" . safe_string($o->{'oracle-dump-file'}) . "]")
+        unless $o->{'oracle-dump-file'};
 
-	my $stats_cache_filename = $o->{'oracle-dump-file'} . ".stats.nfreeze";
+    my $stats_cache_filename = $o->{'oracle-dump-file'} . ".stats.nfreeze";
 
-	my $stats = {
-	  'table_name' => undef,
-	  'max-f-length' => {},
-	  'only-digits' => {},
-	};
+    my $stats = {
+        'table_name' => undef,
+        'max-f-length' => {},
+        'only-digits' => {},
+        };
 
-	if (-e $stats_cache_filename) {
-		my $stats_tmp = Storable::thaw(IOW::File::read_file_scalar($stats_cache_filename));
-		my $old_version;
-		foreach my $k (keys %{$stats}) {
-			if (! exists($stats_tmp->{$k})) {
-				$old_version = 1;
-				last;
-			}
-		}
-		foreach my $k (keys %{$stats_tmp}) {
-			if (! exists($stats->{$k})) {
-				$old_version = 1;
-				last;
-			}
-		}
-		if (!$old_version) {
-			$stats = $stats_tmp;
-		}
-	}
-
-	my $mysql_table;
-	if (defined($stats->{'table_name'})) {
-		print Data::Dumper::Dumper($stats);
-
-		$mysql_table = {
-		    'table_name' => $stats->{'table_name'},
-		    'data_type' => {},
-		};
-		$mysql_table->{'table_name'} =~ s/\./_/g;
-
-    if (defined($o->{'local-mysql-target-tablename'})) {
-        $mysql_table->{'table_name'} = $o->{'local-mysql-target-tablename'};
+    if (-e $stats_cache_filename) {
+        my $stats_tmp = Storable::thaw(IOW::File::read_file_scalar($stats_cache_filename));
+        my $old_version;
+        foreach my $k (keys %{$stats}) {
+            if (! exists($stats_tmp->{$k})) {
+                $old_version = 1;
+                last;
+            }
+        }
+        foreach my $k (keys %{$stats_tmp}) {
+            if (! exists($stats->{$k})) {
+                $old_version = 1;
+                last;
+            }
+        }
+        if (!$old_version) {
+            $stats = $stats_tmp;
+        }
     }
 
-		my $rec_ok;
-		my $text_fields_needed = 0;
-		while (!$rec_ok) {
-			my $record_size = 0;
-			my $text_fields_created = 0;
+    my $mysql_table;
+    if (defined($stats->{'table_name'})) {
+        print Data::Dumper::Dumper($stats);
 
-			foreach my $field_name (
-			    sort { $stats->{'max-f-length'}->{$b} <=> $stats->{'max-f-length'}->{$a} }
-			    keys %{$stats->{'max-f-length'}}
-			    ) {
+        $mysql_table = {
+            'table_name' => $stats->{'table_name'},
+            'data_type' => {},
+        };
+        $mysql_table->{'table_name'} =~ s/\./_/g;
 
-				if ($stats->{'only-digits'}->{$field_name}) {
-					$mysql_table->{'data_type'}->{$field_name} = "int";
-					$record_size += 8;
-				} else {
-			                if ($text_fields_created < $text_fields_needed) {
-						$mysql_table->{'data_type'}->{$field_name} = "text";
-						$text_fields_created++;			                	
-			                } else {
-						my $size = 2**(int(log($stats->{'max-f-length'}->{$field_name})/log(2))+1);
-						$mysql_table->{'data_type'}->{$field_name} = "varchar(" . $size . ")";
-						$record_size += $size * 3;
-					}
-				}
-			}
+        if (defined($o->{'local-mysql-target-tablename'})) {
+            $mysql_table->{'table_name'} = $o->{'local-mysql-target-tablename'};
+        }
 
-			if ($record_size < 65000) {
-				$rec_ok = 1;
-			} else {
-				$text_fields_needed++;
-				print "record too large: $record_size, changing $text_fields_needed longest fields to text\n";
-			}
-		}
-		print Data::Dumper::Dumper($mysql_table);
+        my $rec_ok;
+        my $text_fields_needed = 0;
+        
+        while (!$rec_ok) {
+            my $record_size = 0;
+            my $text_fields_created = 0;
 
-		if ($o->{'generate-mysql-table-def'}) {
-			my $def = "create table " . $mysql_table->{'table_name'} . " (\n";
-			foreach my $field_name (sort keys %{$mysql_table->{'data_type'}}) {
-				$def .= "  " . $field_name . " " .
-				        $mysql_table->{'data_type'}->{$field_name} .
-				        ",\n";
-			}
-			chop($def);
-			chop($def);
-			$def .= "\n);";
+            foreach my $field_name (
+                sort { $stats->{'max-f-length'}->{$b} <=> $stats->{'max-f-length'}->{$a} }
+                keys %{$stats->{'max-f-length'}}
+                ) {
 
-			print "\n" . $def . "\n";
-		}
+                if ($stats->{'only-digits'}->{$field_name}) {
+                    $mysql_table->{'data_type'}->{$field_name} = "int";
+                    $record_size += 8;
+                } else {
+                    if ($text_fields_created < $text_fields_needed) {
+                        $mysql_table->{'data_type'}->{$field_name} = "text";
+                        $text_fields_created++;                       
+                    } else {
+                        my $size = 2**(int(log($stats->{'max-f-length'}->{$field_name})/log(2))+1);
+                        $mysql_table->{'data_type'}->{$field_name} = "varchar(" . $size . ")";
+                        $record_size += $size * 3;
+                    }
+                }
+            }
 
-		if (!$o->{'fill-local-mysql'} && !$o->{'dump'}) {
-			exit;
-		}
-	}
+            if ($record_size < 65000) {
+                $rec_ok = 1;
+            } else {
+                $text_fields_needed++;
+                print "record too large: $record_size, changing $text_fields_needed longest fields to text\n";
+            }
+        }
+        print Data::Dumper::Dumper($mysql_table);
 
-	my $current_window = "";
-	my $current_record;
-	my $rec = 0;
+        if ($o->{'generate-mysql-table-def'}) {
+            my $def = "create table " . $mysql_table->{'table_name'} . " (\n";
     
-  my $dbh = SDM::Archive::DB::get_kamis_db();
+            foreach my $field_name (sort keys %{$mysql_table->{'data_type'}}) {
+                $def .= "  " . $field_name . " " .
+                    $mysql_table->{'data_type'}->{$field_name} .
+                    ",\n";
+            }
+            chop($def);
+            chop($def);
+            $def .= "\n);";
 
-  my $process_record = sub {
+            print "\n" . $def . "\n";
+        }
+
+        if (!$o->{'fill-local-mysql'} && !$o->{'dump'}) {
+            exit;
+        }
+    }
+
+    my $current_window = "";
+    my $current_record;
+    my $rec = 0;
+    
+    my $dbh = SDM::Archive::DB::get_kamis_db();
+
+    my $process_record = sub {
       my ($current_record) = @_;
 
       if ($current_record =~ /Insert into\s([^\s]+?)\s*?\(([^\)]+?)\)\s*values\s*\((.+)\);/s) {
 
         my ($table_name, $field_list, $value_list) = ($1, $2, $3);
 
-				if ($stats->{'table_name'} && $stats->{'table_name'} ne $table_name) {
-					Carp::confess("at least two different tables ($stats->{'table_name'}, $table_name) are populated in the file, please split");
-				}
-				if (!$stats->{'table_name'}) {
-					$stats->{'table_name'} = $table_name;
-				}
-
-				my $record = {
-				  'field_position_by_name' => {},
-				  'field_name_by_position' => {},
-				  'values_by_field_name' => {},
-				};
-
-				my $i = 0;
-				foreach my $f (split(/,/s, $field_list, -1)) {
-					$record->{'field_position_by_name'}->{$f} = $i;
-					$record->{'field_name_by_position'}->{$i} = $f;
-					$i++;
-				}
-
-				$i = 0;
-				my $values = [];
-				$value_list =~ s/''/___single_quote___/g;
-				while ($value_list =~ /^,?(null|'([^']+?)')(.*)$/s) {
-					my ($value, $left_values) = ($1, $3);
-					$value =~ s/^\'//;
-					$value =~ s/\'$//;
-
-					if (!defined($record->{'field_name_by_position'}->{$i})) {
-						Carp::confess("Record [$rec], field number [$i] exists in value list, but is not found in the fields list; current_record: $current_record");
-					}
-
-					if ($value ne 'null') {
-						$value =~ s/___single_quote___/'/g;
-						$record->{'values_by_field_name'}->{$record->{'field_name_by_position'}->{$i}} = $value;
-
-						if (!defined($stats->{'max-f-length'}->{$record->{'field_name_by_position'}->{$i}}) ||
-						    $stats->{'max-f-length'}->{$record->{'field_name_by_position'}->{$i}} < length($value)) {
-							$stats->{'max-f-length'}->{$record->{'field_name_by_position'}->{$i}} = length($value);
-    						}
-    
-    						if (!defined($stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}}) ||
-    						    $stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}}
-    						   ) {
-    							if ($value !~ /^\d+$/) {
-    								$stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}} = 0;
-    							}
-							else {
-    								$stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}} = 1;
-							}
-        					}
-    					} else {
-    						if (!defined($stats->{'max-f-length'}->{$record->{'field_name_by_position'}->{$i}})) {
-    							$stats->{'max-f-length'}->{$record->{'field_name_by_position'}->{$i}} = 0;
-    						}
-    						if (!defined($stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}})) {
-    							$stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}} = 1;
-    						}
-    					}
-
-					$value_list = $left_values;
-					$i++;
+        if ($stats->{'table_name'} && $stats->{'table_name'} ne $table_name) {
+          Carp::confess("at least two different tables ($stats->{'table_name'}, $table_name) are populated in the file, please split");
+        }
+        if (!$stats->{'table_name'}) {
+          $stats->{'table_name'} = $table_name;
         }
 
-    		if ($o->{'dump'}) {
-					print Data::Dumper::Dumper($record->{'values_by_field_name'});
-    		}
-				if ($o->{'fill-local-mysql'}) {
-					my $fields = join(",", sort keys %{$record->{'values_by_field_name'}});
-					my $values_q = join(",", map {"?"} sort keys %{$record->{'values_by_field_name'}});
-					my $sth = SDM::Archive::DB::execute_statement({
-					       'dbh' => \$dbh,
-					       'sql' => "insert into $mysql_table->{'table_name'} ($fields) values ($values_q)",
-    					       'bound_values' => [
-    					           map {
-    					               $record->{'values_by_field_name'}->{$_}
-    					           }
-    					           sort keys %{$record->{'values_by_field_name'}}],
-					});
-				}
+        my $record = {
+          'field_position_by_name' => {},
+          'field_name_by_position' => {},
+          'values_by_field_name' => {},
+        };
 
-			}
-  };
+        my $i = 0;
+        foreach my $f (split(/,/s, $field_list, -1)) {
+          $record->{'field_position_by_name'}->{$f} = $i;
+          $record->{'field_name_by_position'}->{$i} = $f;
+          $i++;
+        }
 
-  my $fh;
-  open($fh, "<" . $o->{'oracle-dump-file'}) || Carp::confess("Unable to read from [" . safe_string($o->{'oracle-dump-file'}) . "]");
-	binmode($fh, ':encoding(UTF-8)');
+        $i = 0;
+        my $values = [];
+        $value_list =~ s/''/___single_quote___/g;
+        while ($value_list =~ /^,?(null|'([^']+?)')(.*)$/s) {
+          my ($value, $left_values) = ($1, $3);
+          $value =~ s/^\'//;
+          $value =~ s/\'$//;
 
-	while (my $l = <$fh>) {
-		
-    $current_window .= $l;
+          if (!defined($record->{'field_name_by_position'}->{$i})) {
+            Carp::confess("Record [$rec], field number [$i] exists in value list, but is not found in the fields list; current_record: $current_record");
+          }
 
-	  if (length($current_window) > 32768) {
-	    Carp::confess("Got record bigger than 32K or unknown format; current_window follows: " . $current_window);
+          if ($value ne 'null') {
+            $value =~ s/___single_quote___/'/g;
+            $record->{'values_by_field_name'}->{$record->{'field_name_by_position'}->{$i}} = $value;
+
+            if (!defined($stats->{'max-f-length'}->{$record->{'field_name_by_position'}->{$i}}) ||
+                $stats->{'max-f-length'}->{$record->{'field_name_by_position'}->{$i}} < length($value)) {
+              $stats->{'max-f-length'}->{$record->{'field_name_by_position'}->{$i}} = length($value);
+                }
+    
+                if (!defined($stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}}) ||
+                    $stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}}
+                   ) {
+                  if ($value !~ /^\d+$/) {
+                    $stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}} = 0;
+                  }
+              else {
+                    $stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}} = 1;
+              }
+                  }
+              } else {
+                if (!defined($stats->{'max-f-length'}->{$record->{'field_name_by_position'}->{$i}})) {
+                  $stats->{'max-f-length'}->{$record->{'field_name_by_position'}->{$i}} = 0;
+                }
+                if (!defined($stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}})) {
+                  $stats->{'only-digits'}->{$record->{'field_name_by_position'}->{$i}} = 1;
+                }
+              }
+
+          $value_list = $left_values;
+          $i++;
+        }
+
+        if ($o->{'dump'}) {
+          print Data::Dumper::Dumper($record->{'values_by_field_name'});
+        }
+        if ($o->{'fill-local-mysql'}) {
+          my $fields = join(",", sort keys %{$record->{'values_by_field_name'}});
+          my $values_q = join(",", map {"?"} sort keys %{$record->{'values_by_field_name'}});
+          my $sth = SDM::Archive::DB::execute_statement({
+                 'dbh' => \$dbh,
+                 'sql' => "insert into $mysql_table->{'table_name'} ($fields) values ($values_q)",
+                     'bound_values' => [
+                         map {
+                             $record->{'values_by_field_name'}->{$_}
+                         }
+                         sort keys %{$record->{'values_by_field_name'}}],
+          });
+        }
+
+      }
+    };
+
+    my $fh;
+    open($fh, "<" . $o->{'oracle-dump-file'}) || Carp::confess("Unable to read from [" . safe_string($o->{'oracle-dump-file'}) . "]");
+    binmode($fh, ':encoding(UTF-8)');
+
+    while (my $l = <$fh>) {
+    
+        $current_window .= $l;
+
+        if (length($current_window) > 32768) {
+            Carp::confess("Got record bigger than 32K or unknown format; current_window follows: " . $current_window);
+        }
+
+        if ($current_window =~ /^(.*?)(Insert into.+?)\n(Insert into.+)$/s) {
+            $rec++;
+
+            $current_record = $2;
+            $current_window = $3;
+
+            $process_record->($current_record);
+        }
     }
-
-    if ($current_window =~ /^(.*?)(Insert into.+?)\n(Insert into.+)$/s) {
-			$rec++;
-
-			$current_record = $2;
-			$current_window = $3;
-
-      $process_record->($current_record);
-    }
-	}
-	close($fh);
+    close($fh);
   
-  # process last record
-  $process_record->($current_window);
+    # process last record
+    $process_record->($current_window);
 
-	print Data::Dumper::Dumper($stats);
-	IOW::File::write_file_scalar($stats_cache_filename, Storable::nfreeze($stats));
-	print "written table [$stats->{'table_name'}] stats into $stats_cache_filename; rerun to proceed\n";
+    print Data::Dumper::Dumper($stats);
+    IOW::File::write_file_scalar($stats_cache_filename, Storable::nfreeze($stats));
+    print "written table [$stats->{'table_name'}] stats into $stats_cache_filename; rerun to proceed\n";
 }
 elsif ($o->{'dspace-update-classification-groups-from-kamis-15845'}) {
         my $kamis_groups = {};
 
-	my $dbh = SDM::Archive::DB::get_kamis_db();
-	my $sth = SDM::Archive::DB::execute_statement({
-	  'dbh' => \$dbh,
-	  'sql' => "
-	    select DARVIN_PAINTS.NOMKP, DARVIN_KLASS.ALLNAMES
-	    from
-	      DARVIN_PAINTS
-	        inner join
-	      DARVIN_PAI_KLA on DARVIN_PAI_KLA.PAICODE = DARVIN_PAINTS.ID_BAS
-	        inner join
-	      DARVIN_KLASS on DARVIN_KLASS.ID_BAS = DARVIN_PAI_KLA.KLASCOD
-	    where
-	      DARVIN_PAINTS.status=1 AND
-	      DARVIN_PAINTS.fond=16 and
-	      DARVIN_PAINTS.txran=1 and
-	      instr(DARVIN_PAINTS.nomkp, '15845') and
-	      DARVIN_KLASS.id_kl = 86
-	    order
-	      by DARVIN_PAINTS.NOMKP, DARVIN_KLASS.ID_KL",
-	  'bound_values' => [],
-	});
-	while (my $row = $sth->fetchrow_hashref()) {
-		if ($row->{'NOMKP'} !~ /^([^\s]+)\s([^\/]+)\/(.+)$/) {
-			Carp::confess("Unknown NOMKP format: " . Data::Dumper::Dumper($row));
-		}
-		my ($fond, $storage_item) = ($2, $3);
+  my $dbh = SDM::Archive::DB::get_kamis_db();
+  my $sth = SDM::Archive::DB::execute_statement({
+    'dbh' => \$dbh,
+    'sql' => "
+      select DARVIN_PAINTS.NOMKP, DARVIN_KLASS.ALLNAMES
+      from
+        DARVIN_PAINTS
+          inner join
+        DARVIN_PAI_KLA on DARVIN_PAI_KLA.PAICODE = DARVIN_PAINTS.ID_BAS
+          inner join
+        DARVIN_KLASS on DARVIN_KLASS.ID_BAS = DARVIN_PAI_KLA.KLASCOD
+      where
+        DARVIN_PAINTS.status=1 AND
+        DARVIN_PAINTS.fond=16 and
+        DARVIN_PAINTS.txran=1 and
+        instr(DARVIN_PAINTS.nomkp, '15845') and
+        DARVIN_KLASS.id_kl = 86
+      order
+        by DARVIN_PAINTS.NOMKP, DARVIN_KLASS.ID_KL",
+    'bound_values' => [],
+  });
+  while (my $row = $sth->fetchrow_hashref()) {
+    if ($row->{'NOMKP'} !~ /^([^\s]+)\s([^\/]+)\/(.+)$/) {
+      Carp::confess("Unknown NOMKP format: " . Data::Dumper::Dumper($row));
+    }
+    my ($fond, $storage_item) = ($2, $3);
 
-		if ($row->{'ALLNAMES'} !~ /^([^\s]+).*$/) {
-			Carp::confess("Unknown ALLNAMES format: " . Data::Dumper::Dumper($row));
-		}
-		my $classification_group = $1;
-		$classification_group =~ s/А/A/g;
-		$classification_group =~ s/Б/B/g;
-		$classification_group =~ s/В/C/g;
+    if ($row->{'ALLNAMES'} !~ /^([^\s]+).*$/) {
+      Carp::confess("Unknown ALLNAMES format: " . Data::Dumper::Dumper($row));
+    }
+    my $classification_group = $1;
+    $classification_group =~ s/А/A/g;
+    $classification_group =~ s/Б/B/g;
+    $classification_group =~ s/В/C/g;
 
-		my $cc = SDM::Archive::match_classification_group_by_code($classification_group);
-		Carp::confess("Unable to find classification group for [$classification_group]: " . Data::Dumper::Dumper($row))
-			unless $cc;
+    my $cc = SDM::Archive::match_classification_group_by_code($classification_group);
+    Carp::confess("Unable to find classification group for [$classification_group]: " . Data::Dumper::Dumper($row))
+      unless $cc;
 
-		$kamis_groups->{$fond . "/". $storage_item} = $cc;
-#		print $fond . " " . $storage_item . " " . $cc . "\n";
-	}
+    $kamis_groups->{$fond . "/". $storage_item} = $cc;
+#   print $fond . " " . $storage_item . " " . $cc . "\n";
+  }
 
-	my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
-	my $target_collection = SDM::Archive::DSpace::get_collection({
-	    'community_obj' => $target_community,
-	    'collection_name' => 'А.Ф. Котс',
-	});
+  my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+  my $target_collection = SDM::Archive::DSpace::get_collection({
+      'community_obj' => $target_community,
+      'collection_name' => 'А.Ф. Котс',
+  });
 
-	my $coll_items = SDM::Archive::DSpace::get_collection_items({
-	    'collection_obj' => $target_collection,
-	    'expand' => 'metadata',
-	    'limit' => $o->{'limit'} || 4000,
-	});
+  my $coll_items = SDM::Archive::DSpace::get_collection_items({
+      'collection_obj' => $target_collection,
+      'expand' => 'metadata',
+      'limit' => $o->{'limit'} || 4000,
+  });
 
-	ITEMS: foreach my $item (@{$coll_items}) {
-		my $dspace_fond = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'sdm-archive.misc.fond');
-		my $dspace_st_item = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'sdm-archive.misc.storageItem');
+  ITEMS: foreach my $item (@{$coll_items}) {
+    my $dspace_fond = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'sdm-archive.misc.fond');
+    my $dspace_st_item = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'sdm-archive.misc.storageItem');
 
-		if (!$dspace_fond) {
-			Carp::confess("sdm-archive.misc.fond not defined for item: " . Data::Dumper::Dumper($item));
-		}
-		if (ref($dspace_fond) ne 'HASH') {
-		        # doesn't happen for 15845 items
-			next ITEMS;
-		}
-		if (!$dspace_st_item) {
-			Carp::confess("sdm-archive.misc.storageItem not defined for item: " . Data::Dumper::Dumper($item));
-		}
-		if (ref($dspace_st_item) ne 'HASH') {
-		        # doesn't happen for 15845 items
-			next ITEMS;
-		}
+    if (!$dspace_fond) {
+      Carp::confess("sdm-archive.misc.fond not defined for item: " . Data::Dumper::Dumper($item));
+    }
+    if (ref($dspace_fond) ne 'HASH') {
+            # doesn't happen for 15845 items
+      next ITEMS;
+    }
+    if (!$dspace_st_item) {
+      Carp::confess("sdm-archive.misc.storageItem not defined for item: " . Data::Dumper::Dumper($item));
+    }
+    if (ref($dspace_st_item) ne 'HASH') {
+            # doesn't happen for 15845 items
+      next ITEMS;
+    }
 
-		if (!$kamis_groups->{$dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'}}) {
-			next ITEMS;
-		}
+    if (!$kamis_groups->{$dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'}}) {
+      next ITEMS;
+    }
 
-		my $cc_code = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'sdm-archive.misc.classification-code');
-		if ($cc_code) {
-			print "classification code for [" . $dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'} . "] already defined, skipping\n";
-			next ITEMS;
-		}
+    my $cc_code = SDM::Archive::DSpace::get_metadata_by_key($item->{'metadata'}, 'sdm-archive.misc.classification-code');
+    if ($cc_code) {
+      print "classification code for [" . $dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'} . "] already defined, skipping\n";
+      next ITEMS;
+    }
 
-#		print $dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'} . ": setting sdm-archive.misc.classification-code to [" .
-#		    $kamis_groups->{$dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'}} . "]\n";
-		my $res;
-		$res = SDM::Archive::DSpace::update_item_metadata({
-		    'item' => $item,
-		    'metadata' => {
-		        'key' => 'sdm-archive.misc.classification-code',
-		        'value' => $kamis_groups->{$dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'}},
-		        'language' => '',
-		    },
-		});
-		$res = SDM::Archive::DSpace::update_item_metadata({
-		    'item' => $item,
-		    'metadata' => {
-		        'key' => 'sdm-archive.misc.classification-group',
-		        'value' => $data_desc_struct->{'storage_groups'}->{'1'}->{'classification_codes'}->{$kamis_groups->{$dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'}}},
-		        'language' => '',
-		    },
-		});
-	}
+#   print $dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'} . ": setting sdm-archive.misc.classification-code to [" .
+#       $kamis_groups->{$dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'}} . "]\n";
+    my $res;
+    $res = SDM::Archive::DSpace::update_item_metadata({
+        'item' => $item,
+        'metadata' => {
+            'key' => 'sdm-archive.misc.classification-code',
+            'value' => $kamis_groups->{$dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'}},
+            'language' => '',
+        },
+    });
+    $res = SDM::Archive::DSpace::update_item_metadata({
+        'item' => $item,
+        'metadata' => {
+            'key' => 'sdm-archive.misc.classification-group',
+            'value' => $data_desc_struct->{'storage_groups'}->{'1'}->{'classification_codes'}->{$kamis_groups->{$dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'}}},
+            'language' => '',
+        },
+    });
+  }
 }
 elsif ($o->{'browse-kamis-by-fond-number'}) {
     my ($of_nvf, $fond_num) = split("\/", $o->{'browse-kamis-by-fond-number'});
+
+    Carp::confess("Usage: --browse-kamis-by-fond-number of/9627")
+        unless $of_nvf && $fond_num;
 
     if ($of_nvf eq 'of') {
         $of_nvf = 'ОФ';
@@ -3347,7 +3352,7 @@ elsif ($o->{'browse-kamis-local-mysql-15111'}) {
             ",
         'bound_values' => [],
         });
-	  
+    
     my $huge_data = {
         'by_NOMK' => {},
         'distribution_by_number_of_pages' => {},
@@ -3422,6 +3427,9 @@ elsif ($o->{'browse-kamis-local-mysql-15111'}) {
         if ($o->{'dump'}) {
             print Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row));
             print Data::Dumper::Dumper($tsv_struct);
+            foreach my $e (@{$klass}) {
+                print Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($e));
+            }
         }
 
         $huge_data->{'by_NOMK'}->{$row->{'NOMK1'}}->{$row->{'NOMK2'}}->{'tsv_struct'} = $tsv_struct;
