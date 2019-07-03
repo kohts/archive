@@ -7,11 +7,16 @@ use SDM::Archive;
 our $db_cache = {};
 
 sub get_kamis_db {
+    my ($opts) = @_;
+
+    $opts = {} unless $opts;
+    $opts->{'dbname'} = 'kamis_import' unless $opts->{'dbname'};
+
     my $dbh = SDM::Archive::DB::get_db({
         'host' => 'localhost',
         'user' => 'root',
         'pass' => '',
-        'dbname' => 'kamis_import',
+        'dbname' => $opts->{'dbname'},
         });
     Carp::confess("Unable to connect to kamis_import database: " . $DBI::errstr)
         unless $dbh;

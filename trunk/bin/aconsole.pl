@@ -13,15 +13,21 @@
 #   
 #
 #   --initial-import
-#       convert tab separated dump (UTF-8 encoded) of contents
-#       of A.E. Kohts archives (which are tracked in KAMIS in SDM,
-#       part of the archive was tracked in DBX file previously)
-#       into TSV text file ready to be imported into DSpace
-#       (the process relies on custom metadata fields as defined
-#       in sdm-archive.xml schema)
+#       At around 2016 this was used solelly to convert tab separated dump (UTF-8 encoded)
+#       of contents of A.E. Kohts archives (which has been tracked in KAMIS in SDM,
+#       part of the archive was tracked in DBX file previously) into TSV text file
+#       ready to be imported into DSpace (the process relies on custom metadata fields
+#       as defined in sdm-archive.xml schema).
 #
-#       Usage example (outputs to STDOUT):
+#       In 2019 I've added support of reading data from local mysql database with contents
+#       of KAMIS Oracle database to import data of N.N Ladygina-Kohts archive. Similar to 2016 mode
+#       it still generates TSV text file ready to be imported into DSpace.
+#
+#       A.E. archive (2016) usage example (outputs to STDOUT):
 #       aconsole.pl --initial-import --external-tsv /file/name --target-collection-handle 123456789/2
+#
+#       N.N. archive (2019) usage example:
+#       aconsole.pl --initial-import --kamis-database db_name --target-collection-handle 123456789/2
 #
 #
 #   --build-docbook-for-dspace
@@ -243,6 +249,7 @@ my $o_names = [
     'only-by-storage',
     'target-collection-handle=s',
     'tsv-output',
+    'kamis-database',
     'titles',
     'validate-tsv',
     'create-kohtsae-community-and-collection',
@@ -862,6 +869,11 @@ sub read_docbook_sources {
     return $SDM::Archive::runtime->{'read_docbook_sources'};
 }
 
+sub read_nn_archive_from_kamis {
+    my ($kamis_database, $o) = @_;
+
+}
+
 sub tsv_read_and_validate {
     my ($input_file, $o) = @_;
 
@@ -875,7 +887,7 @@ sub tsv_read_and_validate {
     my $doc_struct = {
         'array' => [],
         'by_line_number' => {},
-        'by_storage' => {},
+        'by_storage_group' => {},
         'funds' => {},
         'storage_items_by_fund_number' => {},
         'title_line' => {},
@@ -1011,14 +1023,14 @@ sub tsv_read_and_validate {
             Carp::confess("Unable to find storage group for the line [$doc_struct->{'total_input_lines'}]");
         } else {
             Carp::confess("Invalid storage group id [$st_gr_id]")
-                unless defined($data_desc_struct->{'storage_groups'}->{$st_gr_id});
+                unless defined($data_desc_struct->{'AE'}->{'storage_groups'}->{$st_gr_id});
 
-            $doc_struct->{'by_storage'}->{$st_gr_id} = {}
-                unless $doc_struct->{'by_storage'}->{$st_gr_id};
+            $doc_struct->{'by_storage_group'}->{$st_gr_id} = {}
+                unless $doc_struct->{'by_storage_group'}->{$st_gr_id};
         }
 
         my $st_id;
-        if ($data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name'} eq 'Novikova') {
+        if ($data_desc_struct->{'AE'}->{'storage_groups'}->{$st_gr_id}->{'name'} eq 'Novikova') {
             $st_id = $line_struct->{'by_field_name'}->{'storage_number'};
         } else {
             $st_id = $line_struct->{'by_field_name'}->{'number_suffix'};
@@ -1028,9 +1040,9 @@ sub tsv_read_and_validate {
             Carp::confess("Unable to detect storage_number for line [$doc_struct->{'total_input_lines'}]");
         }
 
-        my $storage_struct = $doc_struct->{'by_storage'}->{$st_gr_id}->{$st_id} // {'documents' => []};
+        my $storage_struct = $doc_struct->{'by_storage_group'}->{$st_gr_id}->{$st_id} // {'documents' => []};
         push @{$storage_struct->{'documents'}}, $line_struct;
-        $doc_struct->{'by_storage'}->{$st_gr_id}->{$st_id} = $storage_struct;
+        $doc_struct->{'by_storage_group'}->{$st_gr_id}->{$st_id} = $storage_struct;
     
         if ($fund_number) {
             $doc_struct->{'storage_items_by_fund_number'}->{$fund_number} = {}
@@ -1046,9 +1058,9 @@ sub tsv_read_and_validate {
 
     my $today_yyyy_mm_dd = date_from_unixtime(time());
 
-    foreach my $st_gr_id (keys %{$doc_struct->{'by_storage'}}) {
-        foreach my $storage_number (sort {$a <=> $b} keys %{$doc_struct->{'by_storage'}->{$st_gr_id}}) {
-            my $storage_struct = $doc_struct->{'by_storage'}->{$st_gr_id}->{$storage_number};
+    foreach my $st_gr_id (keys %{$doc_struct->{'by_storage_group'}}) {
+        foreach my $storage_number (sort {$a <=> $b} keys %{$doc_struct->{'by_storage_group'}->{$st_gr_id}}) {
+            my $storage_struct = $doc_struct->{'by_storage_group'}->{$st_gr_id}->{$storage_number};
 
             $storage_struct->{'scanned_document_directories'} = [];
             $storage_struct->{'scanned_document_directories_h'} = {};
@@ -1170,21 +1182,21 @@ sub tsv_read_and_validate {
             };
 
             # always try eh-XXXX
-            if ($data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name'} eq 'Novikova') {
+            if ($data_desc_struct->{'AE'}->{'storage_groups'}->{$st_gr_id}->{'name'} eq 'Novikova') {
                 $try_external_resource->({ 'resource' => 'scan', 'prefix' => 'eh', 'n' => $storage_number, });
             }
 
             my $predefined_storage_struct;
-            if (defined($data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'storage_items'}) &&
-                defined($data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'storage_items'}->{$storage_number})) {
-                $predefined_storage_struct = $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'storage_items'}->{$storage_number};                
+            if (defined($data_desc_struct->{'AE'}->{'storage_groups'}->{$st_gr_id}->{'storage_items'}) &&
+                defined($data_desc_struct->{'AE'}->{'storage_groups'}->{$st_gr_id}->{'storage_items'}->{$storage_number})) {
+                $predefined_storage_struct = $data_desc_struct->{'AE'}->{'storage_groups'}->{$st_gr_id}->{'storage_items'}->{$storage_number};                
             }
 
             my $tsv_struct = SDM::Archive::tsv_struct_init({
                 'dc.subject[en]' => 'Museology',
                 'dc.subject[ru]' => 'Музейное дело',
                 'sdm-archive.date.cataloged' => $today_yyyy_mm_dd,
-                'sdm-archive.misc.inventoryGroup' => $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name'},
+                'sdm-archive.misc.inventoryGroup' => $data_desc_struct->{'AE'}->{'storage_groups'}->{$st_gr_id}->{'name'},
                 'sdm-archive.misc.storageItem' => $storage_number,
                 });
 
@@ -1259,7 +1271,7 @@ sub tsv_read_and_validate {
                     SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.archive-date', $item->{'by_field_name'}->{'archive_date'});
 
                 if ($item->{'by_field_name'}->{'classification_code'} &&
-                    defined($data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'})
+                    defined($data_desc_struct->{'AE'}->{'storage_groups'}->{$st_gr_id}->{'classification_codes'})
                     ) {
 
                     foreach my $itcc (split("/", $item->{'by_field_name'}->{'classification_code'})) {
@@ -1269,7 +1281,7 @@ sub tsv_read_and_validate {
                         $cc = SDM::Archive::match_classification_group_by_code($itcc);
                         if ($cc) {
                             SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.classification-group',
-                                $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}->{$cc});
+                                $data_desc_struct->{'AE'}->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}->{$cc});
                             SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.classification-code',
                                 $cc);
                             $found_cc_group = 1;
@@ -1281,7 +1293,7 @@ sub tsv_read_and_validate {
                             $cc = SDM::Archive::match_classification_group_by_code($itcc);
                             if ($cc) {
                                SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.classification-group',
-                                    $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}->{$cc});
+                                    $data_desc_struct->{'AE'}->{'storage_groups'}->{$st_gr_id}->{'classification_codes'}->{$cc});
                                 SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.classification-code',
                                     $cc);
                                 $found_cc_group = 1;
@@ -1538,11 +1550,11 @@ sub get_storage_item {
     my $csv_struct = tsv_read_and_validate($opts->{'external-tsv'}, $opts->{'o'});
 
     return undef
-        unless defined($csv_struct->{'by_storage'}->{$opts->{'storage-group-id'}});
+        unless defined($csv_struct->{'by_storage_group'}->{$opts->{'storage-group-id'}});
     return undef
-        unless defined($csv_struct->{'by_storage'}->{$opts->{'storage-group-id'}}->{$opts->{'storage-item-id'}});
+        unless defined($csv_struct->{'by_storage_group'}->{$opts->{'storage-group-id'}}->{$opts->{'storage-item-id'}});
 
-    return $csv_struct->{'by_storage'}->{$opts->{'storage-group-id'}}->{$opts->{'storage-item-id'}};
+    return $csv_struct->{'by_storage_group'}->{$opts->{'storage-group-id'}}->{$opts->{'storage-item-id'}};
 }
 
 sub storage_id_csv_to_dspace {
@@ -1556,11 +1568,11 @@ sub storage_id_csv_to_dspace {
     Carp::confess("Prefix not defined for language [$opts->{'language'}]")
         unless defined($data_desc_struct->{'dspace.identifier.other[' . $opts->{'language'} . ']-prefix'});
     Carp::confess("Nonexistent storage group id [$opts->{'storage-group-id'}]")
-        unless defined($data_desc_struct->{'storage_groups'}->{$opts->{'storage-group-id'}});
+        unless defined($data_desc_struct->{'AE'}->{'storage_groups'}->{$opts->{'storage-group-id'}});
 
     my $dspace_id_string = $data_desc_struct->{'dspace.identifier.other[' . $opts->{'language'} . ']-prefix'} .
         ' ' . $opts->{'storage-item-id'} . ' (' .
-        $data_desc_struct->{'storage_groups'}->{$opts->{'storage-group-id'}}->{'name_readable_' . $opts->{'language'}} .
+        $data_desc_struct->{'AE'}->{'storage_groups'}->{$opts->{'storage-group-id'}}->{'name_readable_' . $opts->{'language'}} .
         ')';
     
     return $dspace_id_string;
@@ -1577,9 +1589,9 @@ sub storage_id_dspace_to_csv {
         unless defined($data_desc_struct->{'dspace.identifier.other[' . $language . ']-prefix'});
 
     my $st_item_id; 
-    foreach my $st_gr_id (keys %{$data_desc_struct->{'storage_groups'}}) {
+    foreach my $st_gr_id (keys %{$data_desc_struct->{'AE'}->{'storage_groups'}}) {
         my $pfx = $data_desc_struct->{'dspace.identifier.other[' . $language . ']-prefix'};
-        my $storage_group_txt = $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable_' . $language};
+        my $storage_group_txt = $data_desc_struct->{'AE'}->{'storage_groups'}->{$st_gr_id}->{'name_readable_' . $language};
         my $rx = qr/^${pfx}\s+(\d+)\s+\(${storage_group_txt}\)$/;
 
 #        print $str . "\n" . $rx . "\n"; exit;
@@ -1838,17 +1850,17 @@ elsif ($o->{'list-storage-items'}) {
   
     my $doc_struct = tsv_read_and_validate($o->{'external-tsv'}, $o);
 
-    foreach my $st_gr_id (keys %{$doc_struct->{'by_storage'}}) {
-        foreach my $storage_number (sort {$a <=> $b} keys %{$doc_struct->{'by_storage'}->{$st_gr_id}}) {
-            my $storage_struct = $doc_struct->{'by_storage'}->{$st_gr_id}->{$storage_number};
+    foreach my $st_gr_id (keys %{$doc_struct->{'by_storage_group'}}) {
+        foreach my $storage_number (sort {$a <=> $b} keys %{$doc_struct->{'by_storage_group'}->{$st_gr_id}}) {
+            my $storage_struct = $doc_struct->{'by_storage_group'}->{$st_gr_id}->{$storage_number};
 
             if ($o->{'titles'}) {
                 print
-                    "storage group (" . $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable_en'} . ") " .
+                    "storage group (" . $data_desc_struct->{'AE'}->{'storage_groups'}->{$st_gr_id}->{'name_readable_en'} . ") " .
                     "storage item " . $storage_number . ": " . $storage_struct->{'tsv_struct'}->{'dc.title[ru]'} . "\n";
             } else {
                 print
-                    "storage group (" . $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable_en'} . ") " .
+                    "storage group (" . $data_desc_struct->{'AE'}->{'storage_groups'}->{$st_gr_id}->{'name_readable_en'} . ") " .
                     "storage item " . $storage_number . ": " . scalar(@{$storage_struct->{'documents'}}) . " items\n";
             }
         }
@@ -1862,7 +1874,7 @@ elsif ($o->{'dump-tsv-struct'}) {
 
     if ($o->{'debug'}) {
         if ($o->{'only-by-storage'}) {
-            print Data::Dumper::Dumper($in_doc_struct->{'by_storage'});
+            print Data::Dumper::Dumper($in_doc_struct->{'by_storage_group'});
         } else {
             print Data::Dumper::Dumper($in_doc_struct);
         }
@@ -1870,11 +1882,11 @@ elsif ($o->{'dump-tsv-struct'}) {
 
     print "total input lines: " . $in_doc_struct->{'total_input_lines'} . "\n";
     print "total data lines: " . scalar(@{$in_doc_struct->{'array'}}) . "\n";
-    foreach my $st_gr_id (sort keys %{$in_doc_struct->{'by_storage'}}) {
+    foreach my $st_gr_id (sort keys %{$in_doc_struct->{'by_storage_group'}}) {
         print
             "total items in storage group [$st_gr_id] (" .
-            $data_desc_struct->{'storage_groups'}->{$st_gr_id}->{'name_readable_en'} .
-            "): " . scalar(keys %{$in_doc_struct->{'by_storage'}->{$st_gr_id}}) . "\n";
+            $data_desc_struct->{'AE'}->{'storage_groups'}->{$st_gr_id}->{'name_readable_en'} .
+            "): " . scalar(keys %{$in_doc_struct->{'by_storage_group'}->{$st_gr_id}}) . "\n";
     }
 
     foreach my $fund_number (sort {$a <=> $b} keys %{$in_doc_struct->{'storage_items_by_fund_number'}}) {
@@ -1888,23 +1900,29 @@ elsif ($o->{'initial-import'}) {
 # tsv file imported into dspace: data/kohts-initial-out.csv
 #
     
-    Carp::confess("Need --external-tsv")
-        unless $o->{'external-tsv'};
+    Carp::confess("Need either --external-tsv or --kamis-database")
+        unless $o->{'external-tsv'} && $o->{'kamis-database'};
 
     Carp::confess("Need --target-collection-handle")
         unless $o->{'target-collection-handle'};
     my $target_collection_handle = $o->{'target-collection-handle'};
 
-    my $in_doc_struct = tsv_read_and_validate($o->{'external-tsv'}, $o);
+    my $in_doc_struct;
+    if ($o->{'external-tsv'}) {
+        $in_doc_struct = tsv_read_and_validate($o->{'external-tsv'}, $o);
+    }
+    else {
+        $in_doc_struct = read_nn_archive_from_kamis($o->{'kamis-database'}, $o);
+    }
 
     my $output_labels;
-    foreach my $st_gr_id (sort keys %{$in_doc_struct->{'by_storage'}}) {
-        foreach my $in_id (sort {$a <=> $b} keys %{$in_doc_struct->{'by_storage'}->{$st_gr_id}}) {
+    foreach my $st_gr_id (sort keys %{$in_doc_struct->{'by_storage_group'}}) {
+        foreach my $in_id (sort {$a <=> $b} keys %{$in_doc_struct->{'by_storage_group'}->{$st_gr_id}}) {
             # print $st_gr_id . ":" . $in_id . "\n";
             
-            next unless defined($in_doc_struct->{'by_storage'}->{$st_gr_id}->{$in_id}->{'tsv_struct'});
+            next unless defined($in_doc_struct->{'by_storage_group'}->{$st_gr_id}->{$in_id}->{'tsv_struct'});
 
-            my $tsv_record = $in_doc_struct->{'by_storage'}->{$st_gr_id}->{$in_id}->{'tsv_struct'};
+            my $tsv_record = $in_doc_struct->{'by_storage_group'}->{$st_gr_id}->{$in_id}->{'tsv_struct'};
             $tsv_record->{'collection'} = $target_collection_handle;
 
             if (!$output_labels) {
@@ -2016,7 +2034,7 @@ elsif ($o->{'import-bitstreams'}) {
     DSPACE_COLLECTION: foreach my $st_gr_id (sort {$a <=> $b} keys %{$dspace_collection}) {
 
         Carp::confess("Can't find storage group [$st_gr_id] in external-csv [$o->{'external-tsv'}], something is very wrong")
-            unless defined($in_doc_struct->{'by_storage'}->{$st_gr_id});
+            unless defined($in_doc_struct->{'by_storage_group'}->{$st_gr_id});
         
         DSPACE_ITEM: foreach my $st_it_id (sort {$a <=> $b} keys %{$dspace_collection->{$st_gr_id}}) {
 
@@ -3199,7 +3217,7 @@ elsif ($o->{'dspace-update-classification-groups-from-kamis-15845'}) {
         'item' => $item,
         'metadata' => {
             'key' => 'sdm-archive.misc.classification-group',
-            'value' => $data_desc_struct->{'storage_groups'}->{'1'}->{'classification_codes'}->{$kamis_groups->{$dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'}}},
+            'value' => $data_desc_struct->{'AE'}->{'storage_groups'}->{'1'}->{'classification_codes'}->{$kamis_groups->{$dspace_fond->{'value'} . "/" . $dspace_st_item->{'value'}}},
             'language' => '',
         },
     });
