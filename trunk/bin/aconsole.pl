@@ -236,7 +236,6 @@ my $o_names = [
     'dump-csv-item=s',
     'dump-ocr-html-docs',
     'dump-scanned-docs',
-    'dump-tsv-raw',
     'dump-tsv-struct',
     'external-tsv=s',
     'import-bitstream=s',
@@ -249,7 +248,7 @@ my $o_names = [
     'only-by-storage',
     'target-collection-handle=s',
     'tsv-output',
-    'kamis-database',
+    'kamis-database=s',
     'titles',
     'validate-tsv',
     'create-kohtsae-community-and-collection',
@@ -872,6 +871,61 @@ sub read_docbook_sources {
 sub read_nn_archive_from_kamis {
     my ($kamis_database, $o) = @_;
 
+    $o = {} unless $o;
+
+    my $today_yyyy_mm_dd = date_from_unixtime(time());
+
+    my $doc_struct = {
+        'array' => [],
+        'by_line_number' => {},
+        'by_storage_group' => {},
+        'funds' => {},
+        'storage_items_by_fund_number' => {},
+
+        'total_documents' => 0,
+        'total_pages' => 0,
+        };
+
+    my $dbh = SDM::Archive::DB::get_kamis_db({'dbname' => $kamis_database});
+    
+    foreach my $fund_number_str (@{$data_desc_struct->{'NN'}->{'archive_funds'}}) {
+        my ($of_nvf, $fund_number) = split(/\-/, $fund_number_str);
+        Carp::confess("Wrong fund number format: [$fund_number_str]")
+            unless $of_nvf && $fund_number;
+
+        $of_nvf =~ s/OF/ОФ/;
+        $of_nvf =~ s/NVF/НВФ/;
+            
+        my $sth = SDM::Archive::DB::execute_statement({
+            'dbh' => \$dbh,
+            'sql' => "select * from DARVIN_PAINTS where NOMK1 = ? AND NTXRAN = ?",
+            'bound_values' => [$fund_number, $of_nvf],
+            });
+    
+        while (my $row = $sth->fetchrow_hashref()) {
+            $doc_struct->{'total_documents'} = $doc_struct->{'total_documents'} + 1;
+
+            # NOMK2 is defined for e.g. OF-15111/1, but not defined for OF-15067 (without sub-numbers)
+            #if (!defined($row->{'NOMK2'})) {
+            #    Carp::confess("NOMK2 not defined: " . Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row)));
+            #    next;
+            #}
+
+            if ($o->{'dump'}) {
+                print Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row));
+            }
+
+            my $tsv_struct = SDM::Archive::tsv_struct_init({
+                'dc.title[ru]' => $row->{'PNAM'},
+                'dc.subject[en]' => 'Animal psychology',
+                'dc.subject[ru]' => 'Зоопсихология',
+                'sdm-archive.date.cataloged' => $today_yyyy_mm_dd,
+                });
+
+        }
+    }
+
+    return $doc_struct;
 }
 
 sub tsv_read_and_validate {
@@ -963,7 +1017,7 @@ sub tsv_read_and_validate {
             $i++;
         }
 
-        if ($o->{'dump-tsv-raw'}) {
+        if ($o->{'dump'}) {
             print Data::Dumper::Dumper($line_struct);
             next TSV_LINE;
         }
@@ -1901,7 +1955,7 @@ elsif ($o->{'initial-import'}) {
 #
     
     Carp::confess("Need either --external-tsv or --kamis-database")
-        unless $o->{'external-tsv'} && $o->{'kamis-database'};
+        unless $o->{'external-tsv'} || $o->{'kamis-database'};
 
     Carp::confess("Need --target-collection-handle")
         unless $o->{'target-collection-handle'};

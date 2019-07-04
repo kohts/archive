@@ -375,7 +375,28 @@ our $data_desc_struct = {
         author_is_aekohts
         /],
 
+    # as per "Обзор арх.ф. Ладыгиной.doc" as prepared by Kalacheva,
+    # archive of N.N. consists of the funds below. JFTR, multiple
+    # documents per fund number (all else are one document per fund):
+    #     OF-9627/1 through OF-9627/122
+    #     OF-11137/1 through OF-11137/262
+    #     OF-15111/1 through OF-15111/2660
+    #     NVF-2655/1 through NVF-2655/45
+    #
+    #     TODO: check
+    #     OF-1126 КП ОФ-1126 Пч-4048 Чучело  Курица породы Виандот куропатчатый
+    #
     'NN' => {
+        'archive_funds' => [qw/
+            OF-9627
+            OF-11137
+            OF-15067
+            OF-15068
+            OF-15111
+            NVF-600
+            NVF-605
+            NVF-2655
+            /],
         },
     'AE' => {
         'storage_groups' => {
