@@ -917,10 +917,19 @@ sub read_nn_archive_from_kamis {
 
             my $tsv_struct = SDM::Archive::tsv_struct_init({
                 'dc.title[ru]' => $row->{'PNAM'},
+                # https://lccn.loc.gov/sh85005227
                 'dc.subject[en]' => 'Animal psychology',
                 'dc.subject[ru]' => 'Зоопсихология',
                 'sdm-archive.date.cataloged' => $today_yyyy_mm_dd,
                 });
+
+            if (defined($row->{'AVTOR'})) {
+                my $authors = SDM::Archive::extract_authors($row->{'AVTOR'}, {'archive' => 'nn', 'do_not_die' => 1});
+                foreach my $a (@{$authors->{'extracted_struct'}}) {
+                    SDM::Archive::push_metadata_value($tsv_struct, 'dc.contributor.author[' . $a->{'lang'} . ']', $a->{'name'});
+                    SDM::Archive::push_metadata_value($tsv_struct, 'dc.creator[' . $a->{'lang'} . ']', $a->{'name'});
+                }
+            }
 
         }
     }
@@ -1825,6 +1834,7 @@ $data_desc_struct = $SDM::Archive::data_desc_struct;
 if ($o->{'dump-config'}) {
     print Data::Dumper::Dumper($data_desc_struct);
     print Data::Dumper::Dumper($SDM::Archive::runtime);
+    print Data::Dumper::Dumper($SDM::Archive::authors_canonical);
 }
 elsif ($o->{'data-split-by-tab'}) {
     my $line_number = 0;
