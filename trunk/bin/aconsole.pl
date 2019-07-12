@@ -908,7 +908,6 @@ sub read_nn_archive_from_kamis {
             # NOMK2 is defined for e.g. OF-15111/1, but not defined for OF-15067 (without sub-numbers)
             #if (!defined($row->{'NOMK2'})) {
             #    Carp::confess("NOMK2 not defined: " . Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row)));
-            #    next;
             #}
 
             if ($o->{'dump'}) {
@@ -921,16 +920,95 @@ sub read_nn_archive_from_kamis {
                 'dc.subject[en]' => 'Animal psychology',
                 'dc.subject[ru]' => 'Зоопсихология',
                 'sdm-archive.date.cataloged' => $today_yyyy_mm_dd,
+                'sdm-archive.misc.notes' => '',
                 });
 
             if (defined($row->{'AVTOR'})) {
-                my $authors = SDM::Archive::extract_authors($row->{'AVTOR'}, {'archive' => 'nn', 'do_not_die' => 1});
+                my $authors = SDM::Archive::extract_authors($row->{'AVTOR'}, {'archive' => 'nn', 'do_not_die' => 0});
                 foreach my $a (@{$authors->{'extracted_struct'}}) {
                     SDM::Archive::push_metadata_value($tsv_struct, 'dc.contributor.author[' . $a->{'lang'} . ']', $a->{'name'});
                     SDM::Archive::push_metadata_value($tsv_struct, 'dc.creator[' . $a->{'lang'} . ']', $a->{'name'});
                 }
             }
+            if (defined($row->{'DOPPOL'})) {
+                SDM::Archive::push_metadata_value($tsv_struct, 'dc.identifier.other[ru]', $row->{'DOPPOL'});
+            }
+            if (defined($row->{'CREAT'})) {
+                SDM::Archive::push_metadata_value($tsv_struct, 'dc.date.created', $row->{'DOPPOL'});
+            }
+            
+            my $document_type = [];
+            my $misc_notes = [];
 
+            if (defined($row->{'KOLLIST'})) {
+                my $num = $row->{'KOLLIST'};
+                $num =~ s/[^\d\+]//g;
+                $num = eval($num);
+                
+                if ($num > 0) {
+                    push (@{$misc_notes}, $num . " лл.");
+                }
+            }
+            
+            my $klass = SDM::Archive::DB::kamis_get_paint_klass_by_paints_id_bas($row->{'ID_BAS'});
+            foreach my $e (sort {$a->{'ID_KL'} cmp $b->{'ID_KL'}} @{$klass}) {
+
+                if (
+                    $e->{'ID_KL'} eq '10' ||
+                    $e->{'ID_KL'} eq '11'
+                    ) {
+                    push (@{$document_type}, trim($e->{'ALLNAMES'}));
+                }
+
+                if ($e->{'ID_KL'} eq '88') {
+                    SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.authenticity', $e->{'ALLNAMES'});
+                }
+
+                if ($e->{'ID_KL'} eq '45') {
+                    # https://www.loc.gov/standards/iso639-2/php/code_list.php
+                    my $lmap = {
+                        'английский' => 'en',
+                        'русский' => 'ru',
+                        'французский' => 'fr',
+                        'немецкий' => 'de',
+                        'латинский' => 'la',
+                        'чешский' => 'cs',
+                        'итальянский' => 'it',
+                        'испанский' => 'es',
+                        };
+                    
+                    if (!defined($lmap->{$e->{'ALLNAMES'}})) {
+                        Carp::confess("Undefined language: " .
+                            Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row)) .
+                            Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($e))
+                            );
+                    }
+
+                    SDM::Archive::push_metadata_value($tsv_struct, 'dc.language.iso[en]', $lmap->{$e->{'ALLNAMES'}});
+                }
+
+                if ($e->{'ID_KL'} eq '87') {
+                    SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.completeness', $e->{'ALLNAMES'});
+                }
+
+                if (
+                    $e->{'ID_KL'} eq '16' ||
+                    $e->{'ID_KL'} eq '21' ||
+                    $e->{'ID_KL'} eq '24'
+                    ) {
+                    push (@{$misc_notes}, trim($e->{'ALLNAMES'}));
+                }
+                if ($e->{'ID_KL'} eq '86') {
+                    SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.classification-group', $e->{'ALLNAMES'});
+                }
+            }
+
+            SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.document-type', join(", ", @{$document_type}));
+            SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.notes', join(", ", @{$misc_notes}));
+
+            if ($o->{'dump'}) {
+                print Data::Dumper::Dumper($tsv_struct);
+            }
         }
     }
 

@@ -1130,7 +1130,10 @@ sub push_metadata_value {
             if ($metadata_value =~ /^\[([^\[]+)\]$/) {
                 $metadata_value = $1;
             }
+        } elsif ($metadata_name eq 'sdm-archive.misc.classification-group') {
+            $metadata_value =~ s/\s\s/ /g;
         }
+        $metadata_value = trim($metadata_value);
 
         if ($orig_value eq $metadata_value) {
             $cleanup_done = 1;
