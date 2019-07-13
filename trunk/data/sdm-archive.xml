@@ -123,7 +123,7 @@
     <schema>sdm-archive</schema>
     <element>misc</element>
     <qualifier>archive-date</qualifier>
-    <scope_note></scope_note>
+    <scope_note>Date when an item is formally accepted into museum's collection (populated from DATARCH or DATKP Kamis fields)</scope_note>
   </dc-type>
   <dc-type>
     <schema>sdm-archive</schema>

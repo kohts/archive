@@ -278,7 +278,7 @@ my $o_names = [
     'local-mysql-target-tablename',
     'fill-local-mysql',
     'dspace-update-classification-groups-from-kamis-15845',
-    'browse-kamis-local-mysql-15111',
+    'browse-kamis-local-summary=s',
     'browse-kamis-by-fond-number=s',
     'browse-kamis-klass',
     'browse-kamis-get-paints-by-id=s',
@@ -923,18 +923,28 @@ sub read_nn_archive_from_kamis {
                 'sdm-archive.misc.notes' => '',
                 });
 
-            if (defined($row->{'AVTOR'})) {
-                my $authors = SDM::Archive::extract_authors($row->{'AVTOR'}, {'archive' => 'nn', 'do_not_die' => 0});
+            my $authors;
+            my $authors_extracted;
+            $authors = $row->{'AVTOR'} if defined($row->{'AVTOR'});
+            $authors = "Неизвестный автор" unless $authors;
+
+            if ($authors) {
+                my $authors = SDM::Archive::extract_authors($authors, {'archive' => 'nn', 'do_not_die' => 0});
                 foreach my $a (@{$authors->{'extracted_struct'}}) {
                     SDM::Archive::push_metadata_value($tsv_struct, 'dc.contributor.author[' . $a->{'lang'} . ']', $a->{'name'});
                     SDM::Archive::push_metadata_value($tsv_struct, 'dc.creator[' . $a->{'lang'} . ']', $a->{'name'});
+                    $authors_extracted = 1;
                 }
             }
+            if (!$authors_extracted) {
+                Carp::confess("Can't extract author from: " . Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row)));
+            }
+
             if (defined($row->{'DOPPOL'})) {
                 SDM::Archive::push_metadata_value($tsv_struct, 'dc.identifier.other[ru]', $row->{'DOPPOL'});
             }
             if (defined($row->{'CREAT'})) {
-                SDM::Archive::push_metadata_value($tsv_struct, 'dc.date.created', $row->{'DOPPOL'});
+                SDM::Archive::push_metadata_value($tsv_struct, 'dc.date.created', $row->{'CREAT'});
             }
             
             my $document_type = [];
@@ -975,6 +985,11 @@ sub read_nn_archive_from_kamis {
                         'чешский' => 'cs',
                         'итальянский' => 'it',
                         'испанский' => 'es',
+                        'китайский' => 'zh',
+                        'польский' => 'pl',
+                        'венгерский' => 'hu',
+                        'японский' => 'ja',
+                        'норвежский' => 'no',
                         };
                     
                     if (!defined($lmap->{$e->{'ALLNAMES'}})) {
@@ -992,9 +1007,21 @@ sub read_nn_archive_from_kamis {
                 }
 
                 if (
-                    $e->{'ID_KL'} eq '16' ||
+                    $e->{'ID_KL'} eq '14' ||
+                    $e->{'ID_KL'} eq '16'
+                    ) {
+                    if (defined($e->{'NAMEK'})) {
+                        push (@{$misc_notes}, join(" ", trim($e->{'NAMEK'}), trim($e->{'NAME'})));
+                    }
+                    else {
+                        push (@{$misc_notes}, trim($e->{'ALLNAMES'}));
+                    }
+                }
+
+                if (
                     $e->{'ID_KL'} eq '21' ||
-                    $e->{'ID_KL'} eq '24'
+                    $e->{'ID_KL'} eq '24' ||
+                    $e->{'ID_KL'} eq '84'
                     ) {
                     push (@{$misc_notes}, trim($e->{'ALLNAMES'}));
                 }
@@ -1005,6 +1032,45 @@ sub read_nn_archive_from_kamis {
 
             SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.document-type', join(", ", @{$document_type}));
             SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.notes', join(", ", @{$misc_notes}));
+
+            Carp::confess("NOMKP not defined: " . Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row)))
+                if !defined($row->{'NOMKP'});
+            Carp::confess("PNAM and VFORM not defined: " . Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row)))
+                if !defined($row->{'PNAM'}) && !defined($row->{'VFORM'});
+
+            if (defined($row->{'DATARCH'})) {
+                SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.archive-date', $row->{'DATARCH'});
+            }
+            if (defined($row->{'DATKP'})) {
+                SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.archive-date', $row->{'DATKP'});
+            }
+
+            SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.fond', $row->{'NTXRAN'} . "-" . $row->{'NOMK1'});
+
+            my $desc = [];
+            my $nomkp = $row->{'NOMKP'};
+            $nomkp =~ s/^КП//;
+            
+            foreach my $f (qw/PNAM VFORM PRINAUCH SAFS/){
+                push (@{$desc}, $row->{$f}) if defined($row->{$f});
+            }
+
+            my $tarr;
+            $tarr = SDM::Archive::get_metadata_values($tsv_struct, 'dc.date.created');
+            print Data::Dumper::Dumper($tarr);
+            push @{$desc}, "Время создания: " . join(", ", @{$tarr}) if scalar(@{$tarr});
+            $tarr = SDM::Archive::get_metadata_values($tsv_struct, 'sdm-archive.misc.completeness');
+            push @{$desc}, "Полнота: " . join(", ", @{$tarr}) if scalar(@{$tarr});
+            $tarr = SDM::Archive::get_metadata_values($tsv_struct, 'sdm-archive.misc.authenticity');
+            push @{$desc}, "Подлинность: " . join(", ", @{$tarr}) if scalar(@{$tarr});
+            $tarr = SDM::Archive::get_metadata_values($tsv_struct, 'sdm-archive.misc.document-type');
+            push @{$desc}, "Способ воспроизведения: " . join(", ", @{$tarr}) if scalar(@{$tarr});
+            $tarr = SDM::Archive::get_metadata_values($tsv_struct, 'dc.identifier.other[ru]');
+            push @{$desc}, "Хранение: " . join(", ", @{$tarr}) if scalar(@{$tarr});
+            $tarr = SDM::Archive::get_metadata_values($tsv_struct, 'sdm-archive.misc.notes');
+            push @{$desc}, "Примечания: " . join(", ", @{$tarr}) if scalar(@{$tarr});
+
+            SDM::Archive::push_metadata_value($tsv_struct, 'dc.description[ru]', $nomkp . " " . join(". ", @{$desc}));
 
             if ($o->{'dump'}) {
                 print Data::Dumper::Dumper($tsv_struct);
@@ -3366,9 +3432,9 @@ elsif ($o->{'dspace-update-classification-groups-from-kamis-15845'}) {
   }
 }
 elsif ($o->{'browse-kamis-by-fond-number'}) {
-    my ($of_nvf, $fond_num) = split("\/", $o->{'browse-kamis-by-fond-number'});
+    my ($of_nvf, $fond_num) = split("-", $o->{'browse-kamis-by-fond-number'});
 
-    Carp::confess("Usage: --browse-kamis-by-fond-number of/9627")
+    Carp::confess("Usage: --browse-kamis-by-fond-number of-9627")
         unless $of_nvf && $fond_num;
 
     if ($of_nvf eq 'of') {
@@ -3461,7 +3527,7 @@ elsif ($o->{'browse-kamis-klass'}) {
         }
     }
 }
-elsif ($o->{'browse-kamis-local-mysql-15111'}) {
+elsif ($o->{'browse-kamis-local-summary'}) {
     #
     # DARVIN_PAINTS - main documents/objects list 
     # DARVIN_PAINTS.ID_BAS - unique document identifier
@@ -3475,153 +3541,120 @@ elsif ($o->{'browse-kamis-local-mysql-15111'}) {
     #     DARVIN_PAI_KLA.KLASCOD = DARVIN_KLASS.ID_BAS
     # 
     #
-
-    my $today_yyyy_mm_dd = date_from_unixtime(time());
-    my $kamis_paint_to_dspace_mapping = {
-        'dc.contributor.author[ru]' => 'AVTOR',
-        'dc.contributor.author[en]' => 'AVTOR',
-        'dc.creator[en]' => 'AVTOR',
-        'dc.creator[ru]' => 'AVTOR',
-        'dc.date.created' => 'CREAT',
-        'dc.description[ru]' => 'ALLNAMES',
-        'dc.identifier.other[ru]' => 'DOPPOL',
-        'dc.language.iso[en]' => 'ru',
-        'dc.publisher[en]' => 'State Darwin Museum',
-        'dc.publisher[ru]' => 'Государственный Дарвиновский Музей',
-        'dc.title[ru]' => 'ALLNAMES_1',
-        'dc.type[en]' => 'Text',
-
-        'sdm-archive.date.digitized' => '',
-        'sdm-archive.date.cataloged' => $today_yyyy_mm_dd,
-        'sdm-archive.date.textExtracted' => '',
-
-        'sdm-archive.misc.classification-code' => '',
+    my $data2 = {
+        'total_documents' => 0,
+        'unique_field_samples' => {},
+        'unique_klass_field_values' => {},
         };
 
     my $dbh = SDM::Archive::DB::get_kamis_db();
-    my $sth = SDM::Archive::DB::execute_statement({
-        'dbh' => \$dbh,
-        'sql' => "
-            select
-                *
-            from
-                DARVIN_PAINTS
-            where
-                NOMK1 = 15111 AND
-                NTXRAN = 'ОФ'
-            ",
-        'bound_values' => [],
-        });
-    
-    my $huge_data = {
-        'by_NOMK' => {},
-        'distribution_by_number_of_pages' => {},
-        'tsv_struct' => {},
-        };
-    my $data = {
-      'min' => {},
-      'max' => {},
-      'AVTOR_unique' => {},
-      'total_pages' => 0,
-      'total_documents' => 0,
-      };
-    while (my $row = $sth->fetchrow_hashref()) {
 
-        $data->{'total_documents'} ++;
+    foreach my $i (split(" ", $o->{'browse-kamis-local-summary'})) {
 
-        if (!defined($row->{'NOMK2'})) {
-            print Data::Dumper::Dumper("NOMK2 not defined: ", SDM::Archive::DB::non_null_fields($row));
-            next;
-        }
+        my ($of_nvf, $fund_number) = split(/\-/, $i);
+        Carp::confess("Usage: --browse-kamis-local-summary 'of-9627 of-9628'")
+            unless $of_nvf && $fund_number;
 
-        $huge_data->{'by_NOMK'}->{$row->{'NOMK1'}}->{$row->{'NOMK2'}}->{'__db_row'} = $row;
-        
-        $data->{'min'}->{$row->{'NOMK1'}} = 99999999
-            unless defined($data->{'min'}->{$row->{'NOMK1'}});
-        $data->{'max'}->{$row->{'NOMK1'}} = 0
-            unless defined($data->{'max'}->{$row->{'NOMK1'}});
-
-        if ($data->{'max'}->{$row->{'NOMK1'}} < $row->{'NOMK2'}) {
-            $data->{'max'}->{$row->{'NOMK1'}} = $row->{'NOMK2'};
-        }
-        if ($data->{'min'}->{$row->{'NOMK1'}} > $row->{'NOMK2'}) {
-            $data->{'min'}->{$row->{'NOMK1'}} = $row->{'NOMK2'};
-        }
-
-        my $tsv_struct = SDM::Archive::tsv_struct_init({
-            'sdm-archive.date.cataloged' => $today_yyyy_mm_dd,
-#            'sdm-archive.misc.storageItem' => $storage_number,
-            'dc.title[ru]' => $row->{'PNAM'},
+        $of_nvf =~ s/OF/ОФ/i;
+        $of_nvf =~ s/NVF/НВФ/i;
+            
+        my $sth = SDM::Archive::DB::execute_statement({
+            'dbh' => \$dbh,
+            'sql' => "select * from DARVIN_PAINTS where NOMK1 = ? AND NTXRAN = ?",
+            'bound_values' => [$fund_number, $of_nvf],
             });
 
-        if (defined($row->{'AVTOR'})) {
-            my $authors = SDM::Archive::extract_authors($row->{'AVTOR'}, {'archive' => 'nn', 'do_not_die' => 0});
-            foreach my $a (@{$authors->{'extracted_struct'}}) {
-                $data->{'AVTOR_unique'}->{$a->{'name'}} = 0
-                    unless defined($data->{'AVTOR_unique'}->{$a->{'name'}});
-                $data->{'AVTOR_unique'}->{$a->{'name'}} += 1;
+        my $huge_data = {
+            'by_NOMK' => {},
+            'distribution_by_number_of_pages' => {},
+            'tsv_struct' => {},
+            };
+        my $data = {
+          'min' => {},
+          'max' => {},
+          'AVTOR_unique' => {},
+          'total_pages' => 0,
+          'total_documents' => 0,
+          };
+        while (my $row = $sth->fetchrow_hashref()) {
 
-                SDM::Archive::push_metadata_value($tsv_struct, 'dc.contributor.author[' . $a->{'lang'} . ']', $a->{'name'});
-                SDM::Archive::push_metadata_value($tsv_struct, 'dc.creator[' . $a->{'lang'} . ']', $a->{'name'});
+            my $row_clean = SDM::Archive::DB::non_null_fields($row);
+            foreach my $f (keys %{$row_clean}) {
+                $data2->{'unique_field_samples'}->{$f} = $row_clean->{$f}
+                    unless defined($data2->{'unique_field_samples'}->{$f});
             }
-        }
+            
+            $data2->{'total_documents'} ++;
 
-        if (defined($row->{'KOLLIST'})) {
-            my $num = $row->{'KOLLIST'};
-            $num =~ s/[^\d\+]//g;
-            $num = eval($num);
-            $data->{'total_pages'} += $num;
+            $data->{'total_documents'} ++;
 
-            $huge_data->{'distribution_by_number_of_pages'}->{$num} = 0
-                unless defined($huge_data->{'distribution_by_number_of_pages'}->{$num});
-            $huge_data->{'distribution_by_number_of_pages'}->{$num} ++;
-        }
-
-        my $klass = SDM::Archive::DB::kamis_get_paint_klass_by_paints_id_bas($row->{'ID_BAS'});
-        foreach my $e (@{$klass}) {
-            if ($e->{'ID_KL'} eq '11') {
-                SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.document-type', $e->{'NAME'});
+            if (!defined($row->{'NOMK2'})) {
+                print Data::Dumper::Dumper("NOMK2 not defined: ", SDM::Archive::DB::non_null_fields($row));
+                next;
             }
-        }
 
-        if ($o->{'dump'}) {
-            print Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row));
-            print Data::Dumper::Dumper($tsv_struct);
+            $huge_data->{'by_NOMK'}->{$row->{'NOMK1'}}->{$row->{'NOMK2'}}->{'__db_row'} = $row;
+            
+            $data->{'min'}->{$row->{'NOMK1'}} = 99999999
+                unless defined($data->{'min'}->{$row->{'NOMK1'}});
+            $data->{'max'}->{$row->{'NOMK1'}} = 0
+                unless defined($data->{'max'}->{$row->{'NOMK1'}});
+
+            if ($data->{'max'}->{$row->{'NOMK1'}} < $row->{'NOMK2'}) {
+                $data->{'max'}->{$row->{'NOMK1'}} = $row->{'NOMK2'};
+            }
+            if ($data->{'min'}->{$row->{'NOMK1'}} > $row->{'NOMK2'}) {
+                $data->{'min'}->{$row->{'NOMK1'}} = $row->{'NOMK2'};
+            }
+
+            my $klass = SDM::Archive::DB::kamis_get_paint_klass_by_paints_id_bas($row->{'ID_BAS'});
             foreach my $e (@{$klass}) {
-                print Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($e));
+                $data2->{'unique_klass_field_values'}->{$e->{'ID_KL'}} = {}
+                    unless defined($data2->{'unique_klass_field_values'}->{$e->{'ID_KL'}});
+
+                $data2->{'unique_klass_field_values'}->{$e->{'ID_KL'}}->{$e->{'NAME'}} = 1
+                    unless defined($data2->{'unique_klass_field_values'}->{$e->{'ID_KL'}}->{$e->{'NAME'}});
+
+                $data2->{'unique_klass_field_values'}->{$e->{'ID_KL'}}->{$e->{'NAME'}} ++;
+            }
+
+            if ($o->{'dump'}) {
+                print Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row));
+                foreach my $e (@{$klass}) {
+                    print Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($e));
+                }
             }
         }
 
-        $huge_data->{'by_NOMK'}->{$row->{'NOMK1'}}->{$row->{'NOMK2'}}->{'tsv_struct'} = $tsv_struct;
-    }
+        print "total documents: " . $data->{'total_documents'} . "\n";
 
-    print "total documents: " . $data->{'total_documents'} . "\n";
-
-    print "top 10 documents by the number of pages \n";
-    foreach my $nomk1 (keys %{$data->{'min'}}) {
-        for (my $i = $data->{'min'}->{$nomk1}; $i <= $data->{'max'}->{$nomk1}; $i++) {
-            if (!defined($huge_data->{'by_NOMK'}->{$nomk1}->{$i})) {
-                print "missing: $i\n";
+        print "top 10 documents by the number of pages \n";
+        foreach my $nomk1 (keys %{$data->{'min'}}) {
+            for (my $i = $data->{'min'}->{$nomk1}; $i <= $data->{'max'}->{$nomk1}; $i++) {
+                if (!defined($huge_data->{'by_NOMK'}->{$nomk1}->{$i})) {
+                    print "missing: $i\n";
+                }
             }
         }
+
+        my $printed = 0;
+        foreach my $k (sort {
+            $huge_data->{'distribution_by_number_of_pages'}->{$b} <=>
+            $huge_data->{'distribution_by_number_of_pages'}->{$a} 
+            } keys %{$huge_data->{'distribution_by_number_of_pages'}})  {
+            
+            next if $printed > 10;
+            
+            print $k . ": " . $huge_data->{'distribution_by_number_of_pages'}->{$k} . "\n";
+            $printed++;
+        }
+
+        $data->{'average_pages_per_document'} = $data->{'total_pages'} / $data->{'total_documents'};
+
+        print Data::Dumper::Dumper($data);
     }
-
-    my $printed = 0;
-    foreach my $k (sort {
-        $huge_data->{'distribution_by_number_of_pages'}->{$b} <=>
-        $huge_data->{'distribution_by_number_of_pages'}->{$a} 
-        } keys %{$huge_data->{'distribution_by_number_of_pages'}})  {
-        
-        next if $printed > 10;
-        
-        print $k . ": " . $huge_data->{'distribution_by_number_of_pages'}->{$k} . "\n";
-        $printed++;
-    }
-
-    $data->{'average_pages_per_document'} = $data->{'total_pages'} / $data->{'total_documents'};
-
-    print Data::Dumper::Dumper($data);
-
+    
+    print Data::Dumper::Dumper($data2);
 }
 elsif ($o->{'browse-kamis-get-paints-by-id'}) {
     my $dbh = SDM::Archive::DB::get_kamis_db();

@@ -2506,6 +2506,7 @@
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.Fond">Fond</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.dateDigitized">Date scanned</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.dateOCR">Date of OCR</message>
+	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.dateArchive">Date of Archiving</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.InventoryGroup">Inventory group</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.ClassificationGroup">Classification group</message>
 	<message key="xmlui.ArtifactBrowser.SimpleSearch.filter.DocumentType">Document type</message>
@@ -2515,6 +2516,7 @@
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_Fond">Fond</message>
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dateDigitized">Date scanned</message>
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dateOCR">Date of OCR</message>
+	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dateArchive">Date of Archiving</message>
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_InventoryGroup">Inventory group</message>
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_ClassificationGroup">Classification group</message>
 	<message key="xmlui.ArtifactBrowser.AdvancedSearch.type_DocumentType">Document type</message>
@@ -2524,6 +2526,7 @@
 	<message key="xmlui.Discovery.AbstractSearch.type_Fond">Fond</message>
 	<message key="xmlui.Discovery.AbstractSearch.type_dateDigitized">Date scanned</message>
 	<message key="xmlui.Discovery.AbstractSearch.type_dateOCR">Date of OCR</message>
+	<message key="xmlui.Discovery.AbstractSearch.type_dateArchive">Date of Archiving</message>
 	<message key="xmlui.Discovery.AbstractSearch.type_InventoryGroup">Inventory group</message>
 	<message key="xmlui.Discovery.AbstractSearch.type_ClassificationGroup">Classification group</message>
 	<message key="xmlui.Discovery.AbstractSearch.type_DocumentType">Document type</message>

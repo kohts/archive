@@ -106,6 +106,7 @@
 				<ref bean="searchFilterDocumentType" />
 				<ref bean="searchFilterCompleteness" />
 				<ref bean="searchFilterAuthenticity" />
+				<ref bean="searchFilterMiscArchiveDate" />
             </list>
         </property>
         <!-- Set TagCloud configuration per discovery configuration -->
@@ -125,6 +126,7 @@
 				<ref bean="searchFilterDocumentType" />
 				<ref bean="searchFilterCompleteness" />
 				<ref bean="searchFilterAuthenticity" />
+				<ref bean="searchFilterMiscArchiveDate" />
             </list>
         </property>
         <!--The sort filters for the discovery search-->
@@ -229,6 +231,7 @@
 				<ref bean="searchFilterDocumentType" />
 				<ref bean="searchFilterCompleteness" />
 				<ref bean="searchFilterAuthenticity" />
+				<ref bean="searchFilterMiscArchiveDate" />
             </list>
         </property>
         <!-- Set TagCloud configuration per discovery configuration -->
@@ -242,12 +245,13 @@
                 <ref bean="searchFilterIssued" />
 				<ref bean="searchFilterDateDigitized" />
 				<ref bean="searchFilterDateOCR" />
-                <ref bean="searchFilterFond" />			
+				<ref bean="searchFilterFond" />	
 				<ref bean="searchFilterInventoryGroup" />
 				<ref bean="searchFilterClassificationGroup" />
 				<ref bean="searchFilterDocumentType" />
 				<ref bean="searchFilterCompleteness" />
  				<ref bean="searchFilterAuthenticity" />
+				<ref bean="searchFilterMiscArchiveDate" />
             </list>
         </property>
         <!--The sort filters for the discovery search (same as defaultConfiguration above)-->
@@ -462,7 +466,18 @@
         <property name="type" value="date"/>
         <property name="sortOrder" value="VALUE"/>
     </bean>
-	
+
+    <bean id="searchFilterMiscArchiveDate" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="dateArchive"/>
+        <property name="metadataFields">
+            <list>
+                <value>sdm-archive.misc.archive-date</value>
+            </list>
+        </property>
+        <property name="type" value="date"/>
+        <property name="sortOrder" value="VALUE"/>
+    </bean>
+
     <bean id="searchFilterFond" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
         <property name="indexFieldName" value="Fond"/>
         <property name="metadataFields">
@@ -474,7 +489,7 @@
         <property name="sortOrder" value="COUNT"/>
         <property name="splitter" value="::"/>
     </bean>
-	
+
     <bean id="searchFilterInventoryGroup" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
         <property name="indexFieldName" value="InventoryGroup"/>
         <property name="metadataFields">

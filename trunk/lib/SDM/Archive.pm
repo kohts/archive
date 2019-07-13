@@ -1018,9 +1018,13 @@ sub match_classification_group_by_code {
 sub tsv_struct_init {
     my ($initial_fields) = @_;
 
-    # $tsv_struct should contain either default or empty values
-    # for all the fields which will be output to csv (empty value
-    # could be further changed to meaningful value)
+    # $tsv_struct should contain empty values for all the fields
+    # which will be output to csv (empty value could be further changed
+    # to meaningful value)
+    #
+    # default non-empty values should be added
+    # via push_metadata_value() to avoid duplicate values
+    #
     my $tsv_struct = {
         'dc.contributor.author[en]' => "",
         'dc.contributor.author[ru]' => "",
@@ -1050,7 +1054,6 @@ sub tsv_struct_init {
         # dc.identifier.uri would be populated during metadata-import 
         # 'dc.identifier.uri' => '', # http://hdl.handle.net/123456789/4
 
-        'dc.language.iso[en]' => 'ru',
         'dc.publisher[en]' => 'State Darwin Museum',
         'dc.publisher[ru]' => 'Государственный Дарвиновский Музей',
         'dc.title[ru]' => "",
@@ -1064,10 +1067,11 @@ sub tsv_struct_init {
         'sdm-archive.misc.fond' => '',
         # 'sdm-archive.misc.archive' => '',
     };
+    SDM::Archive::push_metadata_value($tsv_struct, 'dc.language.iso[en]', 'ru');
 
     if ($initial_fields && ref($initial_fields) eq 'HASH') {
         foreach my $k (keys %{$initial_fields}) {
-            $tsv_struct->{$k} = $initial_fields->{$k};
+            SDM::Archive::push_metadata_value($tsv_struct, $k, $initial_fields->{$k});
         }
     }
 
@@ -1130,9 +1134,10 @@ sub push_metadata_value {
             if ($metadata_value =~ /^\[([^\[]+)\]$/) {
                 $metadata_value = $1;
             }
-        } elsif ($metadata_name eq 'sdm-archive.misc.classification-group') {
-            $metadata_value =~ s/\s\s/ /g;
+        #} elsif ($metadata_name eq 'sdm-archive.misc.classification-group') {
         }
+
+        $metadata_value =~ s/\s\s/ /g;
         $metadata_value = trim($metadata_value);
 
         if ($orig_value eq $metadata_value) {
@@ -1171,6 +1176,26 @@ sub push_metadata_value {
     return undef;
 }
 
+sub get_metadata_values {
+    my ($tsv_struct, $metadata_name) = @_;
+    my $out = [];
+
+    if (defined($tsv_struct->{$metadata_name})) {
+        if (ref($tsv_struct->{$metadata_name}) eq '') {
+            if ($tsv_struct->{$metadata_name} ne '') {
+                push @{$out}, $tsv_struct->{$metadata_name};
+            }
+        }
+        elsif (ref($tsv_struct->{$metadata_name} eq 'ARRAY')) {
+            push @{$out}, @{$tsv_struct->{$metadata_name}};
+        }
+        else {
+            Carp::confess("Unexpected data structure: " . Data::Dumper::Dumper($tsv_struct));
+        }
+    }
+
+    return $out;
+}
 
 init_logging();
 
