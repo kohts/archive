@@ -876,14 +876,10 @@ sub read_nn_archive_from_kamis {
     my $today_yyyy_mm_dd = date_from_unixtime(time());
 
     my $doc_struct = {
-        'array' => [],
-        'by_line_number' => {},
-        'by_storage_group' => {},
-        'funds' => {},
-        'storage_items_by_fund_number' => {},
-
+        'by_storage_group' => {
+            '1' => {},
+            },
         'total_documents' => 0,
-        'total_pages' => 0,
         };
 
     my $dbh = SDM::Archive::DB::get_kamis_db({'dbname' => $kamis_database});
@@ -961,13 +957,20 @@ sub read_nn_archive_from_kamis {
             }
             
             my $klass = SDM::Archive::DB::kamis_get_paint_klass_by_paints_id_bas($row->{'ID_BAS'});
-            foreach my $e (sort {$a->{'ID_KL'} cmp $b->{'ID_KL'}} @{$klass}) {
+            
+            # sort order is cosmetically important here: it puts location
+            # at the end of sdm-archive.misc.notes (and doesn't really influences
+            # other fields)
+            foreach my $e (sort {$b->{'ID_KL'} cmp $a->{'ID_KL'}} @{$klass}) {
 
                 if (
                     $e->{'ID_KL'} eq '10' ||
                     $e->{'ID_KL'} eq '11'
                     ) {
-                    push (@{$document_type}, trim($e->{'ALLNAMES'}));
+                    
+                    foreach my $dt (split("/[\,\+]/", trim($e->{'ALLNAMES'}))) {
+                        SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.document-type', $dt);
+                    }
                 }
 
                 if ($e->{'ID_KL'} eq '88') {
@@ -1030,7 +1033,6 @@ sub read_nn_archive_from_kamis {
                 }
             }
 
-            SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.document-type', join(", ", @{$document_type}));
             SDM::Archive::push_metadata_value($tsv_struct, 'sdm-archive.misc.notes', join(", ", @{$misc_notes}));
 
             Carp::confess("NOMKP not defined: " . Data::Dumper::Dumper(SDM::Archive::DB::non_null_fields($row)))
@@ -1057,7 +1059,6 @@ sub read_nn_archive_from_kamis {
 
             my $tarr;
             $tarr = SDM::Archive::get_metadata_values($tsv_struct, 'dc.date.created');
-            print Data::Dumper::Dumper($tarr);
             push @{$desc}, "Время создания: " . join(", ", @{$tarr}) if scalar(@{$tarr});
             $tarr = SDM::Archive::get_metadata_values($tsv_struct, 'sdm-archive.misc.completeness');
             push @{$desc}, "Полнота: " . join(", ", @{$tarr}) if scalar(@{$tarr});
@@ -1075,6 +1076,10 @@ sub read_nn_archive_from_kamis {
             if ($o->{'dump'}) {
                 print Data::Dumper::Dumper($tsv_struct);
             }
+
+            $doc_struct->{'by_storage_group'}->{'1'}->{$row->{'ID_BAS'}} = {
+                'tsv_struct' => $tsv_struct,
+                };
         }
     }
 

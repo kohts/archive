@@ -1025,11 +1025,18 @@ sub tsv_struct_init {
     # default non-empty values should be added
     # via push_metadata_value() to avoid duplicate values
     #
+    # tsv_output_record assumes labels from the first record in the list,
+    # so it can't reliably work if some of the records have differing
+    # set of fields (so generating empty [de] values below in order
+    # to work around)
+    #
     my $tsv_struct = {
         'dc.contributor.author[en]' => "",
         'dc.contributor.author[ru]' => "",
+        'dc.contributor.author[de]' => "",
         'dc.creator[en]' => "",
         'dc.creator[ru]' => "",
+        'dc.creator[de]' => "",
 
         # http://dublincore.org/documents/dcmi-terms/#terms-created
         # Date of creation of the resource.
@@ -1065,7 +1072,7 @@ sub tsv_struct_init {
         'sdm-archive.misc.completeness' => '',
         'sdm-archive.misc.authenticity' => '',
         'sdm-archive.misc.fond' => '',
-        # 'sdm-archive.misc.archive' => '',
+        'sdm-archive.misc.archive-date' => '',
     };
     SDM::Archive::push_metadata_value($tsv_struct, 'dc.language.iso[en]', 'ru');
 
@@ -1186,7 +1193,7 @@ sub get_metadata_values {
                 push @{$out}, $tsv_struct->{$metadata_name};
             }
         }
-        elsif (ref($tsv_struct->{$metadata_name} eq 'ARRAY')) {
+        elsif (ref($tsv_struct->{$metadata_name}) eq 'ARRAY') {
             push @{$out}, @{$tsv_struct->{$metadata_name}};
         }
         else {

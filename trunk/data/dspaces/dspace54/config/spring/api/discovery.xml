@@ -100,7 +100,7 @@
 				<ref bean="searchFilterClassificationGroup" />
 				<ref bean="searchFilterAuthor" />
 <!--                <ref bean="searchFilterSubject" /> -->
-                <ref bean="searchFilterIssued" />
+				<ref bean="searchFilterIssued" />
 				<ref bean="searchFilterDateDigitized" />
 				<ref bean="searchFilterDateOCR" />
 				<ref bean="searchFilterDocumentType" />
@@ -118,15 +118,15 @@
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
-				<ref bean="searchFilterDateDigitized" />
-				<ref bean="searchFilterDateOCR" />
-                <ref bean="searchFilterFond" />			
-				<ref bean="searchFilterInventoryGroup" />
-				<ref bean="searchFilterClassificationGroup" />
-				<ref bean="searchFilterDocumentType" />
-				<ref bean="searchFilterCompleteness" />
-				<ref bean="searchFilterAuthenticity" />
-				<ref bean="searchFilterMiscArchiveDate" />
+		<ref bean="searchFilterDateDigitized" />
+		<ref bean="searchFilterDateOCR" />
+		<ref bean="searchFilterFond" />	
+		<ref bean="searchFilterInventoryGroup" />
+		<ref bean="searchFilterClassificationGroup" />
+		<ref bean="searchFilterDocumentType" />
+		<ref bean="searchFilterCompleteness" />
+		<ref bean="searchFilterAuthenticity" />
+		<ref bean="searchFilterMiscArchiveDate" />
             </list>
         </property>
         <!--The sort filters for the discovery search-->
@@ -220,18 +220,18 @@
         <!--Which sidebar facets are to be displayed (same as defaultConfiguration above)-->
         <property name="sidebarFacets">
             <list>
-				<ref bean="searchFilterInventoryGroup" />
+		<ref bean="searchFilterInventoryGroup" />
                 <ref bean="searchFilterFond" />			
                 <ref bean="searchFilterAuthor" />
 <!--                <ref bean="searchFilterSubject" /> -->
                 <ref bean="searchFilterIssued" />
-				<ref bean="searchFilterDateDigitized" />
-				<ref bean="searchFilterDateOCR" />
-				<ref bean="searchFilterClassificationGroup" />
-				<ref bean="searchFilterDocumentType" />
-				<ref bean="searchFilterCompleteness" />
-				<ref bean="searchFilterAuthenticity" />
-				<ref bean="searchFilterMiscArchiveDate" />
+		<ref bean="searchFilterDateDigitized" />
+		<ref bean="searchFilterDateOCR" />
+		<ref bean="searchFilterClassificationGroup" />
+		<ref bean="searchFilterDocumentType" />
+		<ref bean="searchFilterCompleteness" />
+		<ref bean="searchFilterAuthenticity" />
+		<ref bean="searchFilterMiscArchiveDate" />
             </list>
         </property>
         <!-- Set TagCloud configuration per discovery configuration -->
@@ -243,15 +243,15 @@
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
-				<ref bean="searchFilterDateDigitized" />
-				<ref bean="searchFilterDateOCR" />
-				<ref bean="searchFilterFond" />	
-				<ref bean="searchFilterInventoryGroup" />
-				<ref bean="searchFilterClassificationGroup" />
-				<ref bean="searchFilterDocumentType" />
-				<ref bean="searchFilterCompleteness" />
- 				<ref bean="searchFilterAuthenticity" />
-				<ref bean="searchFilterMiscArchiveDate" />
+		<ref bean="searchFilterDateDigitized" />
+		<ref bean="searchFilterDateOCR" />
+		<ref bean="searchFilterFond" />	
+		<ref bean="searchFilterInventoryGroup" />
+		<ref bean="searchFilterClassificationGroup" />
+		<ref bean="searchFilterDocumentType" />
+		<ref bean="searchFilterCompleteness" />
+		<ref bean="searchFilterAuthenticity" />
+		<ref bean="searchFilterMiscArchiveDate" />
             </list>
         </property>
         <!--The sort filters for the discovery search (same as defaultConfiguration above)-->
