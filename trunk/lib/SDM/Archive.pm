@@ -423,6 +423,7 @@ our $data_desc_struct = {
     #                 
     #
     'NN' => {
+        'dspace-collection-name' => 'Н.Н. Ладыгина-Котс',
         'archive_funds' => [qw/
             OF-9627
             OF-11137
@@ -436,6 +437,7 @@ our $data_desc_struct = {
             /],
         },
     'AE' => {
+        'dspace-collection-name' => 'А.Ф. Котс',
         'storage_groups' => {
             1 => {
                 'name' => 'Novikova',

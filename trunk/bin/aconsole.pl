@@ -266,6 +266,7 @@ my $o_names = [
     'dspace-rest-get-item=s',
     'dspace-rest-get-items=s',
     'scan-schedule-scan=s',
+    'target-collection=s',
     'scan-list-scheduled-for-scan',
     'scan-add-scans=s',
     'dspace-update-date-accesioned-with-scanned',
@@ -2525,7 +2526,7 @@ elsif ($o->{'create-kohtsnn-collection'}) {
 
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
-        'collection_name' => 'Н.Н. Ладыгина-Котс',
+        'collection_name' => $data_desc_struct->{'NN'}->{'dspace-collection-name'},
         });
     if (!$target_collection) {
         my $new_comm = SDM::Archive::DSpace::rest_call({
@@ -2533,7 +2534,7 @@ elsif ($o->{'create-kohtsnn-collection'}) {
             'link' => $target_community->{'link'} . "/collections",
             'request' => '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <collection>
-  <name>Н.Н. Ладыгина-Котс</name>
+  <name>' . $data_desc_struct->{'NN'}->{'dspace-collection-name'} . '</name>
   <type></type>
   <copyrightText></copyrightText>
   <introductoryText></introductoryText>
@@ -2547,10 +2548,12 @@ elsif ($o->{'create-kohtsnn-collection'}) {
 
         $target_collection = SDM::Archive::DSpace::get_collection({
             'community_obj' => $target_community,
-            'collection_name' => 'Н.Н. Ладыгина-Котс',
+            'collection_name' => $data_desc_struct->{'NN'}->{'dspace-collection-name'},
             });
         if (!$target_collection) {
-            Carp::confess("Collection [Н.Н. Ладыгина-Котс] doesn't exist and unable to create");
+            Carp::confess("Collection [' .
+              $data_desc_struct->{'NN'}->{'dspace-collection-name'} .
+              '] doesn't exist and unable to create");
         }
     }
 
@@ -2582,7 +2585,7 @@ elsif ($o->{'create-kohtsae-community-and-collection'}) {
 
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
-        'collection_name' => 'А.Ф. Котс',
+        'collection_name' => $data_desc_struct->{'AE'}->{'dspace-collection-name'},
         });
     if (!$target_collection) {
         my $new_comm = SDM::Archive::DSpace::rest_call({
@@ -2590,7 +2593,7 @@ elsif ($o->{'create-kohtsae-community-and-collection'}) {
             'link' => $target_community->{'link'} . "/collections",
             'request' => '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <collection>
-  <name>А.Ф. Котс</name>
+  <name>' . $data_desc_struct->{'AE'}->{'dspace-collection-name'} . '</name>
   <type></type>
   <copyrightText></copyrightText>
   <introductoryText></introductoryText>
@@ -2604,10 +2607,12 @@ elsif ($o->{'create-kohtsae-community-and-collection'}) {
 
         $target_collection = SDM::Archive::DSpace::get_collection({
             'community_obj' => $target_community,
-            'collection_name' => 'А.Ф. Котс',
+            'collection_name' => $data_desc_struct->{'AE'}->{'dspace-collection-name'},
             });
         if (!$target_collection) {
-            Carp::confess("Collection [А.Ф. Котс] doesn't exist and unable to create");
+            Carp::confess("Collection [" .
+                $data_desc_struct->{'AE'}->{'dspace-collection-name'} .
+                "] doesn't exist and unable to create");
         }
     }
 
@@ -2617,7 +2622,7 @@ elsif ($o->{'rest-add-bitstreams'}) {
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
-        'collection_name' => 'А.Ф. Котс',
+        'collection_name' => $data_desc_struct->{'AE'}->{'dspace-collection-name'},
         });
     my $target_item = SDM::Archive::DSpace::get_item({
         'collection_obj' => $target_collection,
@@ -2653,7 +2658,7 @@ elsif ($o->{'dspace-rest-get-item'}) {
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
-        'collection_name' => 'А.Ф. Котс',
+        'collection_name' => $data_desc_struct->{'AE'}->{'dspace-collection-name'},
         });
 
     my $target_item_full = SDM::Archive::DSpace::get_item({
@@ -2669,7 +2674,7 @@ elsif ($o->{'dspace-rest-get-items'}) {
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
-        'collection_name' => 'А.Ф. Котс',
+        'collection_name' => $data_desc_struct->{'AE'}->{'dspace-collection-name'},
         });
 
     my $ids = [split(",", $o->{'dspace-rest-get-items'})];
@@ -2694,9 +2699,8 @@ elsif ($o->{'rest-test'}) {
 
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
-        'collection_name' => 'А.Ф. Котс',
+        'collection_name' => $data_desc_struct->{'AE'}->{'dspace-collection-name'},
         });
-#    my $target_collection = SDM::Archive::DSpace::get_collection_by_name("Архив А.Ф. Котс");
     print Data::Dumper::Dumper($target_collection);
 
     my $coll_items = SDM::Archive::DSpace::get_collection_items({
@@ -2708,7 +2712,7 @@ elsif ($o->{'scan-list-without-ocr'}) {
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
-        'collection_name' => 'А.Ф. Котс',
+        'collection_name' => $data_desc_struct->{'AE'}->{'dspace-collection-name'},
         });
 
     if ($o->{'limit'}) {
@@ -2757,7 +2761,7 @@ elsif ($o->{'scan-list-without-scan'}) {
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
-        'collection_name' => 'А.Ф. Котс',
+        'collection_name' => $data_desc_struct->{'AE'}->{'dspace-collection-name'},
         });
     if ($o->{'limit'}) {
         if (!SDM::Archive::Utils::is_integer($o->{'limit'}, {'positive-only' => 1})) {
@@ -2802,10 +2806,23 @@ elsif ($o->{'scan-list-without-scan'}) {
     }
 }
 elsif ($o->{'scan-schedule-scan'}) {
+    my $target_collection_name;
+
+    if (!$o->{'target-collection'}) {
+        $target_collection_name = $data_desc_struct->{'AE'}->{'dspace-collection-name'};
+    }
+    else {
+        if (!defined($data_desc_struct->{$o->{'target-collection'}})) {
+            Carp::confess("Non-existent collection: " . $o->{'target-collection'});
+        }
+
+        $target_collection_name = $data_desc_struct->{$o->{'target-collection'}}->{'dspace-collection-name'};
+    }
+
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
-        'collection_name' => 'А.Ф. Котс',
+        'collection_name' => $target_collection_name,
         });
 
     my $now = SDM::Archive::Utils::get_time();
@@ -2863,7 +2880,7 @@ elsif ($o->{'scan-list-scheduled-for-scan'}) {
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
-        'collection_name' => 'А.Ф. Котс',
+        'collection_name' => $data_desc_struct->{'AE'}->{'dspace-collection-name'},
         });
     if ($o->{'limit'}) {
         if (!SDM::Archive::Utils::is_integer($o->{'limit'}, {'positive-only' => 1})) {
@@ -2917,7 +2934,7 @@ elsif ($o->{'scan-add-scans'}) {
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
-        'collection_name' => 'А.Ф. Котс',
+        'collection_name' => $data_desc_struct->{'AE'}->{'dspace-collection-name'},
         });
     my $target_item = SDM::Archive::DSpace::get_item({
         'collection_obj' => $target_collection,
@@ -2996,7 +3013,7 @@ elsif ($o->{'dspace-update-date-accesioned-with-scanned'}) {
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
-        'collection_name' => 'А.Ф. Котс',
+        'collection_name' => $data_desc_struct->{'AE'}->{'dspace-collection-name'},
         });
 
     my $coll_items = SDM::Archive::DSpace::get_collection_items({
@@ -3042,7 +3059,7 @@ elsif ($o->{'dspace-update-storageItemEqualized'}) {
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
-        'collection_name' => 'А.Ф. Котс',
+        'collection_name' => $data_desc_struct->{'AE'}->{'dspace-collection-name'},
         });
 
     my $coll_items = SDM::Archive::DSpace::get_collection_items({
@@ -3377,7 +3394,7 @@ elsif ($o->{'dspace-update-classification-groups-from-kamis-15845'}) {
   my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
   my $target_collection = SDM::Archive::DSpace::get_collection({
       'community_obj' => $target_community,
-      'collection_name' => 'А.Ф. Котс',
+      'collection_name' => $data_desc_struct->{'AE'}->{'dspace-collection-name'},
   });
 
   my $coll_items = SDM::Archive::DSpace::get_collection_items({

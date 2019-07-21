@@ -154,11 +154,11 @@ sub get_collection {
     #    print Data::Dumper::Dumper($coll_struct);
         my $target_collection;
         foreach my $c (@{$coll_struct}) {
-            if ($target_collection) {
-                Carp::confess("More than one collection matches name [" . $o->{'collection_name'} . "]");
-            }
-
             if ($c->{'name'} eq $o->{'collection_name'}) {
+                if ($target_collection) {
+                    Carp::confess("More than one collection matches name [" . $o->{'collection_name'} . "]");
+                }
+
                 $target_collection = $c;
             }
         }
