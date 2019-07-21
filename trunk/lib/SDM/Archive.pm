@@ -416,13 +416,17 @@ our $data_desc_struct = {
     #     OF-15111/1 through OF-15111/2660
     #     NVF-2655/1 through NVF-2655/45
     #
-    #     TODO: check
-    #     OF-1126 КП ОФ-1126 Пч-4048 Чучело  Курица породы Виандот куропатчатый
+    #     Kalacheva's review of N.N. archive contains typo - it lists OF-1126
+    #     as part of the archive, which is not a document, but in fact a stuffed chicken:
+    #         OF-1126 КП ОФ-1126 Пч-4048 Чучело  Курица породы Виандот куропатчатый;
+    #     As discovered with Varvara Mironova - OF-1126 should most probably read as OF-11261.
+    #                 
     #
     'NN' => {
         'archive_funds' => [qw/
             OF-9627
             OF-11137
+            OF-11261
             OF-15067
             OF-15068
             OF-15111
