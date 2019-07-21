@@ -117,8 +117,9 @@ sub do_log {
 
 sub canonical_document_name {
     my ($d) = @_;
+    my $archive_type;
+    
     if ($gdm_format) {
-        my $archive_type;
         if ($d->{'archive_type'} eq 'of' || $d->{'archive_type'} eq 'ОФ') {
             $archive_type = "ОФ";
         }
@@ -128,7 +129,13 @@ sub canonical_document_name {
         return $archive_type . " " . $d->{'archive_id'} . "_" . $d->{'document_id'};
     }
     else {
-        return $d->{'archive_type'} . "-" . $d->{'archive_id'} . "-" . $d->{'document_id'};
+        if ($d->{'archive_type'} eq 'of' || $d->{'archive_type'} eq 'ОФ') {
+            $archive_type = "of";
+        }
+        if ($d->{'archive_type'} eq 'nvf' || $d->{'archive_type'} eq 'НВФ') {
+            $archive_type = "nvf";
+        }
+        return $archive_type . "-" . $d->{'archive_id'} . "-" . $d->{'document_id'};
     }
 }
 

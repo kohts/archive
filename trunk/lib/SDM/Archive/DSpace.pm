@@ -322,7 +322,7 @@ sub get_item {
     elsif (defined($o->{'item_id'})) {
         my $item_id = $o->{'item_id'};
         
-        if ($item_id =~ /^\d+\/\d+$/) {
+        if (SDM::Archive::DSpace::is_handle($item_id)) {
             my $item = SDM::Archive::DSpace::get_item_by_handle({
                 'collection' => $o->{'collection_obj'},
                 'handle' => $item_id,
@@ -458,5 +458,9 @@ sub item_list_print {
     return $res;
 }
 
+sub is_handle {
+    my ($s) = @_;
+    return ($s && $s =~ /^\d+\/\d+$/);
+}
 
 return 1;

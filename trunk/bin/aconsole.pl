@@ -2926,15 +2926,33 @@ elsif ($o->{'scan-add-scans'}) {
     #
     # can update items with newly added bitstreams (can't replace bitstreams)
     #
-    Carp::confess("Need item_id")
-        unless SDM::Archive::Utils::is_integer($o->{'scan-add-scans'}, {'positive-only' => 1});
+
+    
+    my $target_collection_name;
+
+    if (!$o->{'target-collection'}) {
+        $target_collection_name = $data_desc_struct->{'AE'}->{'dspace-collection-name'};
+    }
+    else {
+        if (!defined($data_desc_struct->{$o->{'target-collection'}})) {
+            Carp::confess("Non-existent collection: " . $o->{'target-collection'});
+        }
+
+        $target_collection_name = $data_desc_struct->{$o->{'target-collection'}}->{'dspace-collection-name'};
+    }
+
+    Carp::confess("Need item_id (either internal DSpace id or Handle")
+        unless
+            SDM::Archive::Utils::is_integer($o->{'scan-add-scans'}, {'positive-only' => 1}) ||
+            SDM::Archive::DSpace::is_handle($o->{'scan-add-scans'})
+            ;
     Carp::confess("Need --from /path")
         unless defined($o->{'from'}) && -d $o->{'from'};
 
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
-        'collection_name' => $data_desc_struct->{'AE'}->{'dspace-collection-name'},
+        'collection_name' => $target_collection_name,
         });
     my $target_item = SDM::Archive::DSpace::get_item({
         'collection_obj' => $target_collection,
@@ -2968,7 +2986,7 @@ elsif ($o->{'scan-add-scans'}) {
         if (scalar(@{$i->{'bitstreams'}})) {
             foreach my $bs (@{$i->{'bitstreams'}}) {
                 if ($bs->{'name'} eq $f) {
-                    Carp::carp("Bitstream named [$bs->{'name'}] already exists in item [$i->{'id'} $i->{'handle'}]");
+                    Carp::carp("Bitstream named [$bs->{'name'}] already exists in item [$i->{'id'} $i->{'handle'}], skipping");
                     next ITEM_ELEMENT;
                 }
             }
