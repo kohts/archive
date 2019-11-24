@@ -126,7 +126,8 @@ sub canonical_document_name {
         if ($d->{'archive_type'} eq 'nvf' || $d->{'archive_type'} eq 'НВФ') {
             $archive_type = "НВФ";
         }
-        return $archive_type . " " . $d->{'archive_id'} . "_" . $d->{'document_id'};
+        return $archive_type . " " . $d->{'archive_id'} .
+            ($d->{'document_id'} ? "_" . $d->{'document_id'} : '');
     }
     else {
         if ($d->{'archive_type'} eq 'of' || $d->{'archive_type'} eq 'ОФ') {
@@ -135,7 +136,8 @@ sub canonical_document_name {
         if ($d->{'archive_type'} eq 'nvf' || $d->{'archive_type'} eq 'НВФ') {
             $archive_type = "nvf";
         }
-        return $archive_type . "-" . $d->{'archive_id'} . "-" . $d->{'document_id'};
+        return $archive_type . "-" . $d->{'archive_id'} .
+            ($d->{'document_id'} ? "-" . $d->{'document_id'} : '');
     }
 }
 
@@ -187,7 +189,12 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
         $page_renames->{'new_from_old'}->{$new_full_page_path} = $o->{'current_page_path'};
     };
 
-    if ($doc_dir =~ /^(of|nvf|ОФ|НВФ)[\-\ \_](\d+?)[\-\ \_](\d[\d_,;\-\ \.]*)$/) {
+    if (
+        # of-15111-1
+        $doc_dir =~ /^(of|nvf|ОФ|НВФ)[\-\ \_](\d+?)[\-\ \_](\d[\d_,;\-\ \.]*)$/ ||
+        # of-11261
+        $doc_dir =~ /^(of|nvf|ОФ|НВФ)[\-\ \_](\d+?)$/
+        ) {
         my ($archive_type, $part, $id) = ($1, $2, $3);
 
         $current_document = {
@@ -247,41 +254,49 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
             $opts->{'document'}->{'document_id'} = $opts->{'new_id'};
         };
 
-        # remove trailing minus
-        if ($current_document->{'document_id'} =~ /\-$/) {
-            my $new_id = $current_document->{'document_id'};
-            $new_id =~ s/\-$//;
-            $change_document_id->({
-                'document' => $current_document,
-                'new_id' => $new_id,
-                });
-        }
-
-        # make canonical document directory name
-        if (length($current_document->{'document_id'}) < 4) {
-            my $new_id = "";
-            for(my $i = length($current_document->{'document_id'}); $i < 4; $i++) {
-                $new_id = "0" . $new_id;
+        if ($current_document->{'document_id'}) {
+            # remove trailing minus
+            if ($current_document->{'document_id'} =~ /\-$/) {
+                my $new_id = $current_document->{'document_id'};
+                $new_id =~ s/\-$//;
+                $change_document_id->({
+                    'document' => $current_document,
+                    'new_id' => $new_id,
+                    });
             }
-            $new_id = $new_id . $current_document->{'document_id'};
-            $change_document_id->({
-                'document' => $current_document,
-                'new_id' => $new_id,
-                });
-        }
 
-        # canonical delimiters in id
-        if ($current_document->{'document_id'} =~ /,/) {
-            my $t_id = $current_document->{'document_id'};
-            $t_id =~ s/,/;/g;
-            $change_document_id->({
-                'document' => $current_document,
-                'new_id' => $t_id,
-                });
+            # make canonical document directory name
+            if (length($current_document->{'document_id'}) < 4) {
+                my $new_id = "";
+                for(my $i = length($current_document->{'document_id'}); $i < 4; $i++) {
+                    $new_id = "0" . $new_id;
+                }
+                $new_id = $new_id . $current_document->{'document_id'};
+                $change_document_id->({
+                    'document' => $current_document,
+                    'new_id' => $new_id,
+                    });
+            }
+
+            # canonical delimiters in id
+            if ($current_document->{'document_id'} =~ /,/) {
+                my $t_id = $current_document->{'document_id'};
+                $t_id =~ s/,/;/g;
+                $change_document_id->({
+                    'document' => $current_document,
+                    'new_id' => $t_id,
+                    });
+            }
         }
 
         # canonical delimiters between document identification parts
-        if (File::Spec->catfile($current_document->{'archive_dir'}, canonical_document_name($current_document)) ne $current_document->{'full_document_path'}) {
+        if (
+            File::Spec->catfile(
+                $current_document->{'archive_dir'},
+                canonical_document_name($current_document)
+                ) ne
+            $current_document->{'full_document_path'}) {
+            
             $change_document_path->({
                 'document' => $current_document,
                 'new_path' => File::Spec->catfile($current_document->{'archive_dir'}, canonical_document_name($current_document)),
@@ -351,7 +366,14 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
                 # allow underscore in relaxed page name
                 # (which is converted below to canonical page id,
                 # extracted from document directory name)
-                if ($page !~ /^(of|nvf|ОФ|НВФ)[\-\ ]{1,2}(\d+?)[\-\ \_](\d[\d_,;\-\ \.]*?)[-_]([\d_]+?)[^\d]?.*?(\.jpg)$/) {
+                if (
+                    $current_document->{'document_id'} &&
+                    $page !~ /^(of|nvf|ОФ|НВФ)[\-\ ]{1,2}(\d+?)[\-\ \_](\d[\d_,;\-\ \.]*?)[-_]([\d_]+?)[^\d]?.*?(\.jpg)$/ ||
+
+                    !$current_document->{'document_id'} &&
+                    $page !~ /^(of|nvf|ОФ|НВФ)[\-\ ]{1,2}(\d+?)[\-\ \_](\d+?)[\-\_]?(\d+)?(\.jpg)$/
+                    ) {
+                    
                     print "skipping document [$doc_dir] because of invalid page format: [$page]\n";
                     next DOCUMENT;
                 }
@@ -364,7 +386,7 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
                     'number' => $4,
                     'ext' => $5,
                     };
-
+                
                 # this is a valid page, increment page counter
                 $i = $i + 1;
 
