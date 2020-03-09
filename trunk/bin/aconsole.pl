@@ -227,7 +227,8 @@ my $o_names = [
     'debug',
     'descriptor-dump=s',
     'docbook-filename=s',
-    'dry-run',
+    # --dry-run disabled -- disabled dry run
+    'dry-run=s',
     'dspace-exported-collection=s',
     'dump-config',
     'dump-docbook-sources',
@@ -265,6 +266,9 @@ my $o_names = [
     'scan-list-without-scan',
     'dspace-rest-get-item=s',
     'dspace-rest-get-items=s',
+    'dspace-rest-delete-bitstreams=s',
+    'from=s',
+    'to=s',
     'scan-schedule-scan=s',
     'target-collection=s',
     'scan-list-scheduled-for-scan',
@@ -306,7 +310,7 @@ sub sync_dspace_item_from_external_storage {
     my $orig_contents = $dspace_collection_item->{'contents'};
 
     HTML_FILES: foreach my $html_file (@{$st_item->{'ocr_html_document_directories'}}) {
-        if ($o->{'dry-run'}) {
+        if (!defined($o->{'dry-run'}) || $o->{'dry-run'} ne "disabled") {
             print "would try to add HTML document to [$dspace_collection_item->{'storage-group-id'}/$dspace_collection_item->{'storage-item-id'}]\n";
             last HTML_FILES;
         }
@@ -328,7 +332,7 @@ sub sync_dspace_item_from_external_storage {
     }
 
     PDF_FILES: foreach my $pdf_file (@{$st_item->{'ocr_pdf_document_directories'}}) {
-        if ($o->{'dry-run'}) {
+        if (!defined($o->{'dry-run'}) || $o->{'dry-run'} ne "disabled") {
             print "would try to add PDF document to [$dspace_collection_item->{'storage-group-id'}/$dspace_collection_item->{'storage-item-id'}]\n";
             last PDF_FILES;
         }
@@ -357,7 +361,7 @@ sub sync_dspace_item_from_external_storage {
         # took about several weeks because of the slow network)
         next unless defined($r_struct->{'files'}->{$scan_dir});
 
-        if ($o->{'dry-run'}) {
+        if (!defined($o->{'dry-run'}) || $o->{'dry-run'} ne "disabled") {
             print "would try to add SCAN to [$dspace_collection_item->{'storage-group-id'}/$dspace_collection_item->{'storage-item-id'}]\n";
             last SCAN_DIRS;
         }
@@ -2216,7 +2220,7 @@ elsif ($o->{'import-bitstream'}) {
     my $updated_item = sync_dspace_item_from_external_storage({
         'external_storage_item' => $st_item,
         'dspace_collection_item' => $dspace_collection_item,
-        'dry-run' => $o->{'dry-run'},
+        'dry-run' => (!defined($o->{'dry-run'}) || $o->{'dry-run'} ne "disabled"),
         });
 
     print "prepared DSpace item [$dspace_collection_item->{'item-path'}]\n";
@@ -2276,7 +2280,7 @@ elsif ($o->{'import-bitstreams'}) {
             my $updated_item = sync_dspace_item_from_external_storage({
                 'external_storage_item' => $st_item,
                 'dspace_collection_item' => $dspace_collection_item,
-                'dry-run' => $o->{'dry-run'},
+                'dry-run' => (!defined($o->{'dry-run'}) || $o->{'dry-run'} ne "disabled"),
                 });
             
             if ($updated_item) {
@@ -2651,14 +2655,85 @@ elsif ($o->{'rest-add-bitstreams'}) {
         });
     print Data::Dumper::Dumper($bitstream_add_result);
 }
-elsif ($o->{'dspace-rest-get-item'}) {
+elsif ($o->{'dspace-rest-delete-bitstreams'}) {
     Carp::confess("Please specify item id")
-        unless defined($o->{'dspace-rest-get-item'});
+        unless defined($o->{'dspace-rest-delete-bitstreams'});
+    Carp::confess("--from and --to are required (border items are deleted)")
+        unless defined($o->{'from'}) && defined($o->{'to'});
+
+    my $target_collection_default = "AE";
+    $target_collection_default = $o->{'target-collection'}
+        if defined($o->{'target-collection'});
+    Carp::confess("Wrong collection [$target_collection_default]")
+        unless defined($data_desc_struct->{$target_collection_default});
 
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
-        'collection_name' => $data_desc_struct->{'AE'}->{'dspace-collection-name'},
+        'collection_name' => $data_desc_struct->{$target_collection_default}->{'dspace-collection-name'},
+        });
+
+    my $target_item_full = SDM::Archive::DSpace::get_item({
+        'collection_obj' => $target_collection,
+        'item_id' => $o->{'dspace-rest-delete-bitstreams'},
+        });
+
+    my ($found_from, $found_to);
+    foreach my $bitstream (sort {$a->{'name'} cmp $b->{'name'}} @{$target_item_full->{'bitstreams'}}) {
+        $found_from = 1
+            if $bitstream->{'name'} eq $o->{'from'};
+        $found_to = 1
+            if $bitstream->{'name'} eq $o->{'to'};
+    }
+    Carp::confess("Didn't find [$o->{'from'}]: must be existing bistream")
+        unless $found_from;
+    Carp::confess("Didn't find [$o->{'to'}]: must be existing bistream")
+        unless $found_to;
+
+    my $in_range;
+    foreach my $bitstream (sort {$a->{'name'} cmp $b->{'name'}} @{$target_item_full->{'bitstreams'}}) {
+        if ($bitstream->{'name'} eq $o->{'from'}) {
+            $in_range = 1;
+        }
+        
+        if ($in_range) {
+            if (!defined($o->{'dry-run'}) || $o->{'dry-run'} ne "disabled") {
+                print "would delete: " . $bitstream->{'name'} . " (" . $bitstream->{'id'} . ")\n";
+            }
+            else {
+                my $bsr = SDM::Archive::DSpace::rest_call({
+                    'verb' => 'delete',
+                    'link' => $bitstream->{'link'},
+                    'request_type' => 'json',
+                    });
+
+                SDM::Archive::do_log(
+                    "dspace server [" . $SDM::Archive::runtime->{'dspace_rest'}->{'dspace_server'} . "] " .
+                    "deleted bitstream $bitstream->{'name'} [" . $bitstream->{'id'}  .
+                        "] from the item [$target_item_full->{'id'} $target_item_full->{'handle'}]"
+                    );
+            }
+        }
+
+        if ($bitstream->{'name'} eq $o->{'to'}) {
+            $in_range = 0;
+        }
+    }
+}
+elsif ($o->{'dspace-rest-get-item'}) {
+    Carp::confess("Please specify item id")
+        unless defined($o->{'dspace-rest-get-item'});
+
+    my $target_collection_default = "AE";
+    $target_collection_default = $o->{'target-collection'}
+        if defined($o->{'target-collection'});
+    Carp::confess("Wrong collection [$target_collection_default]")
+        unless defined($data_desc_struct->{$target_collection_default});
+
+    my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+    my $target_collection = SDM::Archive::DSpace::get_collection({
+        'community_obj' => $target_community,
+        'collection_name' => $data_desc_struct->{$target_collection_default}->{'dspace-collection-name'},
         });
 
     my $target_item_full = SDM::Archive::DSpace::get_item({

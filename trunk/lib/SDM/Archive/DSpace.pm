@@ -18,8 +18,8 @@ sub rest_call {
     Carp::confess("Need dspace_upload_user_pass configuration option in /etc/aconsole.pl")    
         unless defined($SDM::Archive::data_desc_struct->{'dspace_upload_user_pass'});
 
-    Carp::confess("verb must be one of [get,post,put]; got [" . safe_string($o->{'verb'}) . "]")
-        unless $o->{'verb'} eq "get" || $o->{'verb'} eq 'post' || $o->{'verb'} eq 'put';
+    Carp::confess("verb must be one of [get,post,put,delete]; got [" . safe_string($o->{'verb'}) . "]")
+        unless $o->{'verb'} eq "get" || $o->{'verb'} eq 'post' || $o->{'verb'} eq 'put' || $o->{'verb'} eq 'delete';
     $o->{'verb'} = uc($o->{'verb'});
 
     my $ua = LWP::UserAgent->new;
