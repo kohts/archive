@@ -2952,10 +2952,23 @@ elsif ($o->{'scan-schedule-scan'}) {
     print $mail_text;
 }
 elsif ($o->{'scan-list-scheduled-for-scan'}) {
+    my $target_collection_name;
+
+    if (!$o->{'target-collection'}) {
+        $target_collection_name = $data_desc_struct->{'AE'}->{'dspace-collection-name'};
+    }
+    else {
+        if (!defined($data_desc_struct->{$o->{'target-collection'}})) {
+            Carp::confess("Non-existent collection: " . $o->{'target-collection'});
+        }
+
+        $target_collection_name = $data_desc_struct->{$o->{'target-collection'}}->{'dspace-collection-name'};
+    }
+
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     my $target_collection = SDM::Archive::DSpace::get_collection({
         'community_obj' => $target_community,
-        'collection_name' => $data_desc_struct->{'AE'}->{'dspace-collection-name'},
+        'collection_name' => $target_collection_name,
         });
     if ($o->{'limit'}) {
         if (!SDM::Archive::Utils::is_integer($o->{'limit'}, {'positive-only' => 1})) {
