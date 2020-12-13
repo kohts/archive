@@ -120,7 +120,7 @@ sub canonical_document_name {
     my $archive_type;
     
     if ($gdm_format) {
-        if ($d->{'archive_type'} eq 'of' || $d->{'archive_type'} eq 'ОФ') {
+        if ($d->{'archive_type'} eq 'of' || $d->{'archive_type'} eq 'OF' || $d->{'archive_type'} eq 'ОФ') {
             $archive_type = "ОФ";
         }
         if ($d->{'archive_type'} eq 'nvf' || $d->{'archive_type'} eq 'НВФ') {
@@ -130,7 +130,7 @@ sub canonical_document_name {
             ($d->{'document_id'} ? "_" . $d->{'document_id'} : '');
     }
     else {
-        if ($d->{'archive_type'} eq 'of' || $d->{'archive_type'} eq 'ОФ') {
+        if ($d->{'archive_type'} eq 'of' || $d->{'archive_type'} eq 'OF' || $d->{'archive_type'} eq 'ОФ') {
             $archive_type = "of";
         }
         if ($d->{'archive_type'} eq 'nvf' || $d->{'archive_type'} eq 'НВФ') {
@@ -191,9 +191,9 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
 
     if (
         # of-15111-1
-        $doc_dir =~ /^(of|nvf|ОФ|НВФ)[\-\ \_](\d+?)[\-\ \_](\d[\d_,;\-\ \.]*)$/ ||
+        $doc_dir =~ /^(of|nvf|ОФ|НВФ|OF)[\-\ \_](\d+?)[\-\ \_](\d[\d_,;\-\ \.]*)$/ ||
         # of-11261
-        $doc_dir =~ /^(of|nvf|ОФ|НВФ)[\-\ \_](\d+?)$/
+        $doc_dir =~ /^(of|nvf|ОФ|НВФ|OF)[\-\ \_](\d+?)$/
         ) {
         my ($archive_type, $part, $id) = ($1, $2, $3);
 
@@ -368,10 +368,10 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
                 # extracted from document directory name)
                 if (
                     $current_document->{'document_id'} &&
-                    $page !~ /^(of|nvf|ОФ|НВФ)[\-\ ]{1,2}(\d+?)[\-\ \_](\d[\d_,;\-\ \.]*?)[-_]([\d_]+?)[^\d]?.*?(\.jpg)$/ ||
+                    $page !~ /^(OF|of|nvf|ОФ|НВФ)[\-\ ]{1,2}(\d+?)[\-\ \_](\d[\d_,;\-\ \.]*?)[-_]([\d_]+?)[^\d]?.*?(\.jpg)$/ ||
 
                     !$current_document->{'document_id'} &&
-                    $page !~ /^(of|nvf|ОФ|НВФ)[\-\ ]{1,2}(\d+?)[\-\ \_](\d+?)[\-\_]?(\d+)?(\.jpg)$/
+                    $page !~ /^(OF|of|nvf|ОФ|НВФ)[\-\ ]{1,2}(\d+?)[\-\ \_](\d+?)[\-\_]?(\d+)?(\.jpg)$/
                     ) {
                     
                     print "skipping document [$doc_dir] because of invalid page format: [$page]\n";
