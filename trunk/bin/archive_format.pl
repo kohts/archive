@@ -368,10 +368,10 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
                 # extracted from document directory name)
                 if (
                     $current_document->{'document_id'} &&
-                    $page !~ /^(OF|of|nvf|ОФ|НВФ)[\-\ ]{1,2}(\d+?)[\-\ \_](\d[\d_,;\-\ \.]*?)[-_]([\d_]+?)[^\d]?.*?(\.jpg)$/ ||
+                    $page !~ /^(OF|of|NVF|nvf|ОФ|НВФ)[\-\ ]{1,2}(\d+?)[\-\ \_](\d[\d_,;\-\ \.]*?)[-_]([\d_]+?)[^\d]?.*?(\.jpg)$/ ||
 
                     !$current_document->{'document_id'} &&
-                    $page !~ /^(OF|of|nvf|ОФ|НВФ)[\-\ ]{1,2}(\d+?)[\-\ \_](\d+?)[\-\_]?(\d+)?(\.jpg)$/
+                    $page !~ /^(OF|of|NVF|nvf|ОФ|НВФ)[\-\ ]{1,2}(\d+?)[\-\ \_](\d+?)[\-\_]?(\d+)?(\.jpg)$/
                     ) {
                     
                     print "skipping document [$doc_dir] because of invalid page format: [$page]\n";
