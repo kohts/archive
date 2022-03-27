@@ -216,7 +216,12 @@ use warnings;
 use utf8;
 
 use SDM::Archive;
-use DBD::Oracle;
+
+# commented out in 2022 - there's no Oracle since about 2016
+# (kamis moved to cloud platform), so --oracle-test no longer works,
+# but we don't need it anyway
+#
+#use DBD::Oracle;
 
 my $data_desc_struct;
 my $o_names = [
@@ -2672,11 +2677,14 @@ elsif ($o->{'dspace-rest-delete-bitstreams'}) {
         'community_obj' => $target_community,
         'collection_name' => $data_desc_struct->{$target_collection_default}->{'dspace-collection-name'},
         });
+#    print Data::Dumper::Dumper($target_community);
+#    print Data::Dumper::Dumper($target_collection);
 
     my $target_item_full = SDM::Archive::DSpace::get_item({
         'collection_obj' => $target_collection,
         'item_id' => $o->{'dspace-rest-delete-bitstreams'},
         });
+#    print Data::Dumper::Dumper($target_item_full);
 
     my ($found_from, $found_to);
     foreach my $bitstream (sort {$a->{'name'} cmp $b->{'name'}} @{$target_item_full->{'bitstreams'}}) {
