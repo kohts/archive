@@ -293,6 +293,7 @@ my $o_names = [
     'browse-kamis-klass',
     'browse-kamis-get-paints-by-id=s',
     'oracle-test',
+    'bundle=s',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -2663,8 +2664,8 @@ elsif ($o->{'rest-add-bitstreams'}) {
 elsif ($o->{'dspace-rest-delete-bitstreams'}) {
     Carp::confess("Please specify item id")
         unless defined($o->{'dspace-rest-delete-bitstreams'});
-    Carp::confess("--from and --to are required (border items are deleted)")
-        unless defined($o->{'from'}) && defined($o->{'to'});
+    Carp::confess("either --from and --to are required (border items are deleted) or --bundle or both")
+        if !(defined($o->{'from'}) && defined($o->{'to'})) && !defined($o->{'bundle'});
 
     my $target_collection_default = "AE";
     $target_collection_default = $o->{'target-collection'}
@@ -2686,55 +2687,74 @@ elsif ($o->{'dspace-rest-delete-bitstreams'}) {
         });
 #    print Data::Dumper::Dumper($target_item_full);
 
-    my ($found_from, $found_to);
-    foreach my $bitstream (sort {$a->{'name'} cmp $b->{'name'}} @{$target_item_full->{'bitstreams'}}) {
-        $found_from = 1
-            if $bitstream->{'name'} eq $o->{'from'};
-        $found_to = 1
-            if $bitstream->{'name'} eq $o->{'to'};
+    if (defined($o->{'from'})) {
+        my ($found_from, $found_to);
+        foreach my $bitstream (sort {$a->{'name'} cmp $b->{'name'}} @{$target_item_full->{'bitstreams'}}) {
+            $found_from = 1
+                if
+                    $bitstream->{'name'} eq $o->{'from'} &&
+                    (defined($o->{'bundle'}) && $o->{'bundle'} eq $bitstream->{'bundleName'} || !defined($o->{'bundle'}))
+                    ;
+            $found_to = 1
+                if
+                    $bitstream->{'name'} eq $o->{'to'} &&
+                    (defined($o->{'bundle'}) && $o->{'bundle'} eq $bitstream->{'bundleName'} || !defined($o->{'bundle'}))
+                ;
+        }
+        Carp::confess("Didn't find [$o->{'from'}]: must be existing bistream")
+            unless $found_from;
+        Carp::confess("Didn't find [$o->{'to'}]: must be existing bistream")
+            unless $found_to;
     }
-    Carp::confess("Didn't find [$o->{'from'}]: must be existing bistream")
-        unless $found_from;
-    Carp::confess("Didn't find [$o->{'to'}]: must be existing bistream")
-        unless $found_to;
 
     my $in_range;
     foreach my $bitstream (sort {$a->{'name'} cmp $b->{'name'}} @{$target_item_full->{'bitstreams'}}) {
-        if ($bitstream->{'name'} eq $o->{'from'}) {
-            $in_range = 1;
-        }
+        my $delete_bitstream_sub = sub {
+                if (!defined($o->{'dry-run'}) || $o->{'dry-run'} ne "disabled") {
+                    print "would delete: " . $bitstream->{'name'} . " (" . $bitstream->{'id'} . ")\n";
+                }
+                else {
+                    my $bsr = SDM::Archive::DSpace::rest_call({
+                        'verb' => 'delete',
+                        'link' => $bitstream->{'link'},
+                        'request_type' => 'json',
+                        });
+
+                    SDM::Archive::do_log(
+                        "dspace server [" . $SDM::Archive::runtime->{'dspace_rest'}->{'dspace_server'} . "] " .
+                        "deleted bitstream $bitstream->{'name'} [" . $bitstream->{'id'}  .
+                            "] from the item [$target_item_full->{'id'} $target_item_full->{'handle'}]"
+                        );
+                }
+        };
+
+        if (defined($o->{'from'})) {
+            if ($bitstream->{'name'} eq $o->{'from'}) {
+                $in_range = 1;
+            }
         
-        if ($in_range) {
-            if (!defined($o->{'dry-run'}) || $o->{'dry-run'} ne "disabled") {
-                print "would delete: " . $bitstream->{'name'} . " (" . $bitstream->{'id'} . ")\n";
+            if ($in_range &&
+              (defined($o->{'bundle'}) && $o->{'bundle'} eq $bitstream->{'bundleName'} || !defined($o->{'bundle'})) 
+              ) {
+              $delete_bitstream_sub->();
             }
-            else {
-                my $bsr = SDM::Archive::DSpace::rest_call({
-                    'verb' => 'delete',
-                    'link' => $bitstream->{'link'},
-                    'request_type' => 'json',
-                    });
 
-                SDM::Archive::do_log(
-                    "dspace server [" . $SDM::Archive::runtime->{'dspace_rest'}->{'dspace_server'} . "] " .
-                    "deleted bitstream $bitstream->{'name'} [" . $bitstream->{'id'}  .
-                        "] from the item [$target_item_full->{'id'} $target_item_full->{'handle'}]"
-                    );
+            if ($bitstream->{'name'} eq $o->{'to'}) {
+                $in_range = 0;
             }
         }
-
-        if ($bitstream->{'name'} eq $o->{'to'}) {
-            $in_range = 0;
+        elsif (defined($o->{'bundle'}) && $o->{'bundle'} eq $bitstream->{'bundleName'}) {
+            $delete_bitstream_sub->();
         }
     }
 }
 elsif ($o->{'dspace-rest-get-item'}) {
     Carp::confess("Please specify item id")
         unless defined($o->{'dspace-rest-get-item'});
+    Carp::confess("Please specify target collection, one of: [AE,NN]")
+        unless defined($o->{'target-collection'});
 
-    my $target_collection_default = "AE";
-    $target_collection_default = $o->{'target-collection'}
-        if defined($o->{'target-collection'});
+    my $target_collection_default = $o->{'target-collection'};
     Carp::confess("Wrong collection [$target_collection_default]")
         unless defined($data_desc_struct->{$target_collection_default});
 
