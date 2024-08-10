@@ -17,7 +17,9 @@ def fix_image_rotation_canny_hough(image_path, args):
     gaussian2 = hasattr(args, 'canny_gaussian2') and args.canny_gaussian2 or 71
     threshold1 = hasattr(args, 'canny_threshold1') and args.canny_threshold1 or 10
     threshold2 = hasattr(args, 'canny_threshold2') and args.canny_threshold2 or 1
-    padding = hasattr(args, 'canny_padding') and args.canny_padding or 50    
+    padding = hasattr(args, 'canny_padding') and args.canny_padding or 50
+
+    hough_threshold = hasattr(args, 'hough_threshold') and args.hough_threshold or 400
 
     print (str(datetime.datetime.now()) + " " + fr"fixing rotation (canny + hough) on {image_path}")
     print (str(datetime.datetime.now()) + " " + fr"    gaussian blur {gaussian1}/{gaussian2}")
@@ -54,50 +56,121 @@ def fix_image_rotation_canny_hough(image_path, args):
         print(fr"     DEBUG: saved edges to: " + out_fn)
 
     # Find the lines in the image using the Hough transform
-    lines = cv2.HoughLines(edges, 1, np.pi / 180, 4000)
+    #
+    # Output vector of lines.
+    # Each line is represented by a 2 or 3 element vector (ρ,θ) or (ρ,θ,votes),
+    # where ρ is the distance from the coordinate origin (0,0) (top-left corner of the image),
+    # θ is the line rotation angle in radians ( 0∼vertical line,π/2∼horizontal line ),
+    # and votes is the value of accumulator.
+    #
+    lines = cv2.HoughLines(edges, 0.9, np.pi / 180, hough_threshold)
+
     if args.hough_debug:
         print(fr"     DEBUG: detected lines: " + str(lines is not None and len(lines) or 0))
+    
+    avg_deviation = 0
 
-        if lines is not None:
-            for i in range(0, len(lines)):
-                rho = lines[i][0][0]
-                theta = lines[i][0][1]
-                a = math.cos(theta)
-                b = math.sin(theta)
-                x0 = a * rho
-                y0 = b * rho
-                pt1 = (int(x0 + 1000*(-b)), int(y0 + 1000*(a)))
-                pt2 = (int(x0 - 1000*(-b)), int(y0 - 1000*(a)))
-                cv2.line(edges, pt1, pt2, (255,0,0), 10)
+    if lines is not None:
 
+        img_lines = cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)
+
+        min_rho = lines[0][0][0]
+        min_rho_i = 0
+        max_rho = lines[0][0][0]
+        max_rho_i = 0
+        for i in range(0, len(lines)):
+            if lines[i][0][0] < min_rho:
+                min_rho = lines[i][0][0]
+                min_rho_i = i
+            if lines[i][0][0] > max_rho:
+                max_rho = lines[i][0][0]
+                max_rho_i = i
+
+        j = 0
+        for i in range(0, len(lines)):
+            j = j + 1
+            rho = lines[i][0][0]
+            theta = lines[i][0][1]
+
+            line_deviation = 0
+            if theta <= (math.pi / 4): # <45°
+                line_deviation = theta - 0
+                if args.hough_debug:
+                    print(fr"     DEBUG: line {i} is closer to vertical")
+            elif theta <= (math.pi / 2): # between 45° and 90°
+                line_deviation = math.pi / 2 - theta
+                if args.hough_debug:
+                    print(fr"     DEBUG: line {i} is closer to horizontal")
+            elif theta <= (3 * math.pi / 4): # between 90° and 135°
+                line_deviation = theta - math.pi / 2
+                if args.hough_debug:
+                    print(fr"     DEBUG: line {i} is closer to horizontal")
+            else: # between 135° and 180°
+                line_deviation = math.pi - theta
+                if args.hough_debug:
+                    print(fr"     DEBUG: line {i} is closer to vertical")
+
+            if line_deviation == 0:
+                if args.hough_debug:
+                    print(fr"     DEBUG: line {i} is vertical, excluding from avg_deviation calculation")
+            elif line_deviation == math.pi / 2:
+                if args.hough_debug:
+                    print(fr"     DEBUG: line {i} is horizontal, excluding from avg_deviation calculation")
+            else:
+                avg_deviation = (avg_deviation + line_deviation) / j
+
+            if args.hough_debug:
+                print(fr"     DEBUG: line {i}: distance from (0,0) - {rho}, angle (rad) - {theta}")
+                print(fr"     DEBUG: line {i} angle deviation from vert/horiz - {line_deviation}, avg_deviation - {avg_deviation}")
+
+            a = math.cos(theta)
+            b = math.sin(theta)
+            x0 = a * rho
+            y0 = b * rho
+            pt1 = (int(x0 + 3*hough_threshold*(-b)), int(y0 + 3*hough_threshold*(a)))
+            pt2 = (int(x0 - 3*hough_threshold*(-b)), int(y0 - 3*hough_threshold*(a)))
+            cv2.line(img_lines, pt1, pt2, (0,0,255), 10)
+
+        if args.hough_debug:
             out_fn = re.sub(r"\.jpg", "_canny_04_lines.jpg", input_filename)
-            cv2.imwrite(out_fn, edges)
+            cv2.imwrite(out_fn, img_lines)
             print(fr"     DEBUG: saved lines to: " + out_fn)
-
-    if lines is None:
+    else:
         return img
-
-    # Calculate the average angle of the lines
-    angles = [line[0][1] for line in lines]
-    avg_angle = np.mean(angles)
 
     # Rotate the image by the average angle
     rows, cols = img.shape[:2]
-    rotation_matrix = cv2.getRotationMatrix2D((cols / 2, rows / 2), np.rad2deg(avg_angle), 1)
-    rotated_image = cv2.warpAffine(img, rotation_matrix, (cols, rows))
+    rotation_matrix = cv2.getRotationMatrix2D((cols / 2, rows / 2), np.rad2deg(avg_deviation), 1)
+    rotated_image = cv2.warpAffine(
+        src = img,
+        M = rotation_matrix,
+        dsize = (cols, rows),
+        borderMode = cv2.BORDER_WRAP)
+
+    if args.hough_debug:
+        out_fn = re.sub(r"\.jpg", "_canny_05_rotated.jpg", input_filename)
+        cv2.imwrite(out_fn, rotated_image)
+        print(fr"     DEBUG: saved rotated to: " + out_fn)
 
     return rotated_image
 
 
-def remove_empty_space_edge_detection_canny(image_path, args):
+def remove_empty_space_edge_detection_canny(image_path, img_data, args, dbg_imgn = 0):
     threshold1 = hasattr(args, 'canny_threshold1') and args.canny_threshold1 or 380
     threshold2 = hasattr(args, 'canny_threshold2') and args.canny_threshold2 or 380
-    padding = hasattr(args, 'canny_padding') and args.canny_padding or 30    
+    padding = hasattr(args, 'canny_padding') and args.canny_padding or 30
 
-    print (fr"removing empty space (canny) on {image_path}, threshold1/threshold2/padding {threshold1}/{threshold2}/{padding}")
+    if img_data is not None:
+        print (fr"removing empty space (canny) from {image_path} (binary image data), threshold1/threshold2/padding {threshold1}/{threshold2}/{padding}")
 
-    # Read the image
-    img = cv2.imread(image_path)
+        # Reuse previously generated image data
+        img = img_data
+    else:
+        print (fr"removing empty space (canny) from {image_path}, threshold1/threshold2/padding {threshold1}/{threshold2}/{padding}")
+
+        # Read the image from the file
+        img = cv2.imread(image_path)
+
 
     if args.canny_debug:
         print(fr"     DEBUG: image dimensions: " + str(img.shape))
@@ -106,7 +179,8 @@ def remove_empty_space_edge_detection_canny(image_path, args):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     if args.canny_debug:
-        out_fn = re.sub(r"\.jpg", "_canny_01_grayscale.jpg", input_filename)
+        dbg_imgn += 1
+        out_fn = re.sub(r"\.jpg", fr"_canny_{dbg_imgn:02d}_grayscale.jpg", input_filename)
         cv2.imwrite(out_fn, gray)
         print(fr"     DEBUG: saved grayscale to: " + out_fn)
     
@@ -118,7 +192,8 @@ def remove_empty_space_edge_detection_canny(image_path, args):
         ), 0)
     
     if args.canny_debug:
-        out_fn = re.sub(r"\.jpg", "_canny_02_blurred.jpg", input_filename)
+        dbg_imgn += 1
+        out_fn = re.sub(r"\.jpg", fr"_canny_{dbg_imgn:02d}_blurred.jpg", input_filename)
         cv2.imwrite(out_fn, blurred)
         print(fr"     DEBUG: saved blurred to: " + out_fn)
     
@@ -126,7 +201,8 @@ def remove_empty_space_edge_detection_canny(image_path, args):
     edges = cv2.Canny(blurred, threshold1, threshold2)
 
     if args.canny_debug:
-        out_fn = re.sub(r"\.jpg", "_canny_03_edges.jpg", input_filename)
+        dbg_imgn += 1
+        out_fn = re.sub(r"\.jpg", fr"_canny_{dbg_imgn:02d}_edges.jpg", input_filename)
         cv2.imwrite(out_fn, edges)
         print(fr"     DEBUG: saved edges to: " + out_fn)
     
@@ -261,6 +337,7 @@ if __name__ == "__main__":
     parser.add_argument('--torch-threshold', type=int)
     parser.add_argument('--torch-padding', type=int)
     parser.add_argument('--hough-debug', type=bool)
+    parser.add_argument('--hough-threshold', type=int)
 
     args = parser.parse_args()
 
@@ -272,8 +349,9 @@ if __name__ == "__main__":
 
     print (str(datetime.datetime.now()) + " " + fr"working on {input_filename}")
 
+    # --run canny --canny-threshold1 10 --canny-threshold2 1 --canny-gaussian1 71 --canny-gaussian2 71 --canny-padding 50 --filename 'Z:\of-15111-2247\OF 15111_2247_001.jpg'
     if hasattr(args, 'run') and args.run == r"canny":
-        cropped_image = remove_empty_space_edge_detection_canny(input_filename, args)
+        cropped_image = remove_empty_space_edge_detection_canny(image_path = input_filename, img_data = None, args = args)
         output_filename = re.sub(r"\.jpg", "_canny_cropped.jpg", input_filename)
         cv2.imwrite(output_filename, cropped_image)
         print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
@@ -284,8 +362,14 @@ if __name__ == "__main__":
         cropped_image.save(output_filename)
         print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
 
+    # --run fix-rotation --canny-threshold1 10 --canny-threshold2 1 --canny-gaussian1 71 --canny-gaussian2 71 --canny-padding 50  --filename 'Z:\of-15111-2247\OF 15111_2247_001.jpg'
     if hasattr(args, 'run') and args.run == r"fix-rotation":
-        cropped_image = fix_image_rotation_canny_hough(input_filename, args)
+        rotated_image = fix_image_rotation_canny_hough(input_filename, args)
+        cropped_image = remove_empty_space_edge_detection_canny(
+            image_path = input_filename,
+            img_data = rotated_image,
+            args = args,
+            dbg_imgn = 5)
         output_filename = re.sub(r"\.jpg", "_fixed_rotation.jpg", input_filename)
         cv2.imwrite(output_filename, cropped_image)
         print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
