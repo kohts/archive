@@ -1,5 +1,6 @@
 import sys
 import os.path
+from pathlib import Path
 import argparse
 import re
 import datetime
@@ -12,7 +13,35 @@ import cv2
 import numpy as np
 import math
 
-def fix_image_rotation_canny_hough(image_path, args):
+def write_jpeg(filename, filedata):
+    cv2.imwrite(filename, filedata, [cv2.IMWRITE_JPEG_QUALITY, 80])
+
+def calc_line_deviation(theta):
+    line_deviation = 0
+    if theta <= (math.pi / 4): # <45°
+        line_deviation = theta - 0
+        if args.hough_debug:
+            print(fr"     DEBUG: angle " + str(math.degrees(theta)) + "° is closer to vertical")
+    elif theta <= (math.pi / 2): # between 45° and 90°
+        line_deviation = math.pi / 2 - theta
+        if args.hough_debug:
+            print(fr"     DEBUG: angle " + str(math.degrees(theta)) + "° is closer to horizontal")
+    elif theta <= (3 * math.pi / 4): # between 90° and 135°
+        line_deviation = theta - math.pi / 2
+        if args.hough_debug:
+            print(fr"     DEBUG: angle " + str(math.degrees(theta)) + "° is closer to horizontal")
+    else: # between 135° and 180°
+        line_deviation = math.pi - theta
+        if args.hough_debug:
+            print(fr"     DEBUG: angle " + str(math.degrees(theta))
+                   + "° is closer to vertical")
+
+    return line_deviation
+
+def fix_image_rotation_canny_hough(
+        image_path,
+        destination_dir,
+        args):
     gaussian1 = hasattr(args, 'canny_gaussian1') and args.canny_gaussian1 or 71
     gaussian2 = hasattr(args, 'canny_gaussian2') and args.canny_gaussian2 or 71
     threshold1 = hasattr(args, 'canny_threshold1') and args.canny_threshold1 or 10
@@ -20,6 +49,11 @@ def fix_image_rotation_canny_hough(image_path, args):
     padding = hasattr(args, 'canny_padding') and args.canny_padding or 50
 
     hough_threshold = hasattr(args, 'hough_threshold') and args.hough_threshold or 400
+
+    if destination_dir is not None:
+        dbg_destination = destination_dir
+    else:
+        dbg_destination = os.path.dirname(image_path)
 
     print (str(datetime.datetime.now()) + " " + fr"fixing rotation (canny + hough) on {image_path}")
     print (str(datetime.datetime.now()) + " " + fr"    gaussian blur {gaussian1}/{gaussian2}")
@@ -35,24 +69,24 @@ def fix_image_rotation_canny_hough(image_path, args):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     if args.canny_debug:
-        out_fn = re.sub(r"\.jpg", "_canny_01_grayscale.jpg", input_filename)
-        cv2.imwrite(out_fn, gray)
+        out_fn = re.sub(r"\.jpg", "_canny_01_grayscale.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
+        write_jpeg(out_fn, gray)
         print(fr"     DEBUG: saved grayscale to: " + out_fn)
 
     # Apply Gaussian blur to reduce noise
     blurred = cv2.GaussianBlur(gray, (gaussian1, gaussian2), 0)
 
     if args.canny_debug:
-        out_fn = re.sub(r"\.jpg", "_canny_02_blurred.jpg", input_filename)
-        cv2.imwrite(out_fn, blurred)
+        out_fn = re.sub(r"\.jpg", "_canny_02_blurred.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
+        write_jpeg(out_fn, blurred)
         print(fr"     DEBUG: saved blurred to: " + out_fn)
 
     # Perform Canny edge detection
     edges = cv2.Canny(blurred, threshold1, threshold2)
 
     if args.canny_debug:
-        out_fn = re.sub(r"\.jpg", "_canny_03_edges.jpg", input_filename)
-        cv2.imwrite(out_fn, edges)
+        out_fn = re.sub(r"\.jpg", "_canny_03_edges.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
+        write_jpeg(out_fn, edges)
         print(fr"     DEBUG: saved edges to: " + out_fn)
 
     # Find the lines in the image using the Hough transform
@@ -75,16 +109,21 @@ def fix_image_rotation_canny_hough(image_path, args):
         img_lines = cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)
 
         min_rho = lines[0][0][0]
-        min_rho_i = 0
+        min_rho_i = -1
         max_rho = lines[0][0][0]
-        max_rho_i = 0
+        max_rho_i = -1
         for i in range(0, len(lines)):
-            if lines[i][0][0] < min_rho:
-                min_rho = lines[i][0][0]
-                min_rho_i = i
-            if lines[i][0][0] > max_rho:
-                max_rho = lines[i][0][0]
-                max_rho_i = i
+            if args.hough_debug:
+                print(fr"     DEBUG: line {i} angle: " + str(math.degrees(lines[i][0][1])) + "°")
+
+            if (math.degrees(calc_line_deviation(lines[i][0][1])) < 10 and
+                math.degrees(calc_line_deviation(lines[i][0][1])) > -10):
+                if lines[i][0][0] < min_rho:
+                    min_rho = lines[i][0][0]
+                    min_rho_i = i
+                if lines[i][0][0] > max_rho:
+                    max_rho = lines[i][0][0]
+                    max_rho_i = i
 
         j = 0
         for i in range(0, len(lines)):
@@ -92,23 +131,7 @@ def fix_image_rotation_canny_hough(image_path, args):
             rho = lines[i][0][0]
             theta = lines[i][0][1]
 
-            line_deviation = 0
-            if theta <= (math.pi / 4): # <45°
-                line_deviation = theta - 0
-                if args.hough_debug:
-                    print(fr"     DEBUG: line {i} is closer to vertical")
-            elif theta <= (math.pi / 2): # between 45° and 90°
-                line_deviation = math.pi / 2 - theta
-                if args.hough_debug:
-                    print(fr"     DEBUG: line {i} is closer to horizontal")
-            elif theta <= (3 * math.pi / 4): # between 90° and 135°
-                line_deviation = theta - math.pi / 2
-                if args.hough_debug:
-                    print(fr"     DEBUG: line {i} is closer to horizontal")
-            else: # between 135° and 180°
-                line_deviation = math.pi - theta
-                if args.hough_debug:
-                    print(fr"     DEBUG: line {i} is closer to vertical")
+            line_deviation = calc_line_deviation(theta)
 
             if line_deviation == 0:
                 if args.hough_debug:
@@ -116,6 +139,9 @@ def fix_image_rotation_canny_hough(image_path, args):
             elif line_deviation == math.pi / 2:
                 if args.hough_debug:
                     print(fr"     DEBUG: line {i} is horizontal, excluding from avg_deviation calculation")
+            elif line_deviation > 10 or line_deviation < -10:
+                if args.hough_debug:
+                    print(fr"     DEBUG: line {i} is too inclined, excluding from avg_deviation calculation")
             else:
                 avg_deviation = (avg_deviation + line_deviation) / j
 
@@ -132,8 +158,8 @@ def fix_image_rotation_canny_hough(image_path, args):
             cv2.line(img_lines, pt1, pt2, (0,0,255), 10)
 
         if args.hough_debug:
-            out_fn = re.sub(r"\.jpg", "_canny_04_lines.jpg", input_filename)
-            cv2.imwrite(out_fn, img_lines)
+            out_fn = re.sub(r"\.jpg", "_canny_04_lines.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
+            write_jpeg(out_fn, img_lines)
             print(fr"     DEBUG: saved lines to: " + out_fn)
     else:
         return img
@@ -148,17 +174,29 @@ def fix_image_rotation_canny_hough(image_path, args):
         borderMode = cv2.BORDER_WRAP)
 
     if args.hough_debug:
-        out_fn = re.sub(r"\.jpg", "_canny_05_rotated.jpg", input_filename)
-        cv2.imwrite(out_fn, rotated_image)
+        out_fn = re.sub(r"\.jpg", "_canny_05_rotated.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
+        write_jpeg(out_fn, rotated_image)
         print(fr"     DEBUG: saved rotated to: " + out_fn)
 
     return rotated_image
 
 
-def remove_empty_space_edge_detection_canny(image_path, img_data, args, dbg_imgn = 0):
+def remove_empty_space_edge_detection_canny(
+        image_path,
+        img_data,
+        destination_dir,
+        args,
+        dbg_imgn = 0
+        ):
+    
     threshold1 = hasattr(args, 'canny_threshold1') and args.canny_threshold1 or 380
     threshold2 = hasattr(args, 'canny_threshold2') and args.canny_threshold2 or 380
     padding = hasattr(args, 'canny_padding') and args.canny_padding or 30
+
+    if destination_dir is not None:
+        dbg_destination = destination_dir
+    else:
+        dbg_destination = os.path.dirname(image_path)
 
     if img_data is not None:
         print (fr"removing empty space (canny) from {image_path} (binary image data), threshold1/threshold2/padding {threshold1}/{threshold2}/{padding}")
@@ -171,7 +209,6 @@ def remove_empty_space_edge_detection_canny(image_path, img_data, args, dbg_imgn
         # Read the image from the file
         img = cv2.imread(image_path)
 
-
     if args.canny_debug:
         print(fr"     DEBUG: image dimensions: " + str(img.shape))
     
@@ -180,8 +217,8 @@ def remove_empty_space_edge_detection_canny(image_path, img_data, args, dbg_imgn
 
     if args.canny_debug:
         dbg_imgn += 1
-        out_fn = re.sub(r"\.jpg", fr"_canny_{dbg_imgn:02d}_grayscale.jpg", input_filename)
-        cv2.imwrite(out_fn, gray)
+        out_fn = re.sub(r"\.jpg", fr"_canny_{dbg_imgn:02d}_grayscale.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
+        write_jpeg(out_fn, gray)
         print(fr"     DEBUG: saved grayscale to: " + out_fn)
     
     # Apply Gaussian blur to reduce noise
@@ -193,8 +230,8 @@ def remove_empty_space_edge_detection_canny(image_path, img_data, args, dbg_imgn
     
     if args.canny_debug:
         dbg_imgn += 1
-        out_fn = re.sub(r"\.jpg", fr"_canny_{dbg_imgn:02d}_blurred.jpg", input_filename)
-        cv2.imwrite(out_fn, blurred)
+        out_fn = re.sub(r"\.jpg", fr"_canny_{dbg_imgn:02d}_blurred.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
+        write_jpeg(out_fn, blurred)
         print(fr"     DEBUG: saved blurred to: " + out_fn)
     
     # Perform Canny edge detection
@@ -202,8 +239,8 @@ def remove_empty_space_edge_detection_canny(image_path, img_data, args, dbg_imgn
 
     if args.canny_debug:
         dbg_imgn += 1
-        out_fn = re.sub(r"\.jpg", fr"_canny_{dbg_imgn:02d}_edges.jpg", input_filename)
-        cv2.imwrite(out_fn, edges)
+        out_fn = re.sub(r"\.jpg", fr"_canny_{dbg_imgn:02d}_edges.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
+        write_jpeg(out_fn, edges)
         print(fr"     DEBUG: saved edges to: " + out_fn)
     
     # Find contours from the edges
@@ -327,6 +364,8 @@ def remove_empty_space_torch(image_path, args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--filename', type=str)
+    parser.add_argument('--source-dir', type=str)
+    parser.add_argument('--destination-dir', type=str)
     parser.add_argument('--run', type=str)
     parser.add_argument('--canny-threshold1', type=int)
     parser.add_argument('--canny-threshold2', type=int)
@@ -338,38 +377,119 @@ if __name__ == "__main__":
     parser.add_argument('--torch-padding', type=int)
     parser.add_argument('--hough-debug', type=bool)
     parser.add_argument('--hough-threshold', type=int)
-
+   
     args = parser.parse_args()
 
-    input_filename = hasattr(args, 'filename') and args.filename or ""
-    if (not os.path.isfile(input_filename)):
-        print("\n" fr"Need an image file to proceed, got: [{input_filename}]" "\n")
+    source_dir = args.source_dir if hasattr(args, 'source_dir') else None
+    destination_dir = args.destination_dir if hasattr(args, 'destination_dir') else None
+    input_filename = args.filename if hasattr(args, 'filename') else None
+    run = hasattr(args, 'run') and args.run or None
+
+    if (run != "trim-canny" and run != "trim-torch" and run != "fix-rotation"):
         parser.print_help()
+        print("\n" fr"Need --run with one of: trim-canny, trim-torch, fix-rotation" "\n")
         sys.exit(2)
 
-    print (str(datetime.datetime.now()) + " " + fr"working on {input_filename}")
+    if (source_dir is not None and input_filename is not None):
+        parser.print_help()
+        print("\n" fr"Choose either --filename (to process one file) or --source-dir (to process a directory), not both!" "\n")
+        sys.exit(2)
+    elif (source_dir is not None):
+        if (destination_dir is None):
+            parser.print_help()
+            print("\n" fr"Specifying --source-dir implies specifying --destination-dir!" "\n")
+            sys.exit(2)
 
-    # --run canny --canny-threshold1 10 --canny-threshold2 1 --canny-gaussian1 71 --canny-gaussian2 71 --canny-padding 50 --filename 'Z:\of-15111-2247\OF 15111_2247_001.jpg'
-    if hasattr(args, 'run') and args.run == r"canny":
-        cropped_image = remove_empty_space_edge_detection_canny(image_path = input_filename, img_data = None, args = args)
-        output_filename = re.sub(r"\.jpg", "_canny_cropped.jpg", input_filename)
-        cv2.imwrite(output_filename, cropped_image)
-        print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
+        if (not os.path.isdir(destination_dir)):
+            directory = Path(destination_dir)
+            try:
+                directory.mkdir(parents=True, exist_ok=True)
+            except Exception as e:
+                print(fr"An error occurred while creating directory {destination_dir}: {e}")
 
-    if hasattr(args, 'run') and args.run == r"torch":
-        cropped_image = remove_empty_space_torch(input_filename, args)
-        output_filename = re.sub(r"\.jpg", "_torch.jpg", input_filename)
-        cropped_image.save(output_filename)
-        print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
+        if (os.path.isdir(source_dir)):
+            print (str(datetime.datetime.now()) + " " + fr"working on {source_dir}")
+            for afn in os.listdir(source_dir):
+                print (str(datetime.datetime.now()) + "     working on " + os.path.join(source_dir, afn))
 
-    # --run fix-rotation --canny-threshold1 10 --canny-threshold2 1 --canny-gaussian1 71 --canny-gaussian2 71 --canny-padding 50  --filename 'Z:\of-15111-2247\OF 15111_2247_001.jpg'
-    if hasattr(args, 'run') and args.run == r"fix-rotation":
-        rotated_image = fix_image_rotation_canny_hough(input_filename, args)
-        cropped_image = remove_empty_space_edge_detection_canny(
-            image_path = input_filename,
-            img_data = rotated_image,
-            args = args,
-            dbg_imgn = 5)
-        output_filename = re.sub(r"\.jpg", "_fixed_rotation.jpg", input_filename)
-        cv2.imwrite(output_filename, cropped_image)
-        print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
+                if hasattr(args, 'run') and args.run == r"trim-canny":
+                    cropped_image = remove_empty_space_edge_detection_canny(
+                        image_path = os.path.join(source_dir, afn),
+                        img_data = None,
+                        args = args,
+                        destination_dir = destination_dir)
+                    output_filename = re.sub(r"\.jpg", "_canny_cropped.jpg", os.path.join(destination_dir, afn))
+                    write_jpeg(output_filename, cropped_image)
+                    print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
+
+                if hasattr(args, 'run') and args.run == r"fix-rotation":
+                    rotated_image = fix_image_rotation_canny_hough(
+                        image_path = os.path.join(source_dir, afn),
+                        args = args,
+                        destination_dir = destination_dir)
+                    cropped_image = remove_empty_space_edge_detection_canny(
+                        image_path = input_filename,
+                        img_data = rotated_image,
+                        args = args,
+                        dbg_imgn = 5,
+                        destination_dir = destination_dir)
+                    output_filename = re.sub(r"\.jpg", "_fixed_rotation.jpg", os.path.join(destination_dir, afn))
+                    write_jpeg(output_filename, cropped_image)
+                    print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
+
+
+        else:
+            parser.print_help()
+            print("\n" fr"Non-existent directory specified: [{source_dir}]" "\n")
+            sys.exit(2)
+    elif (input_filename is not None):
+        if(os.path.isfile(input_filename)):
+            print (str(datetime.datetime.now()) + " " + fr"working on {input_filename}")
+
+            if destination_dir is not None:
+                tmp_destination = destination_dir
+            else:
+                tmp_destination = os.path.dirname(input_filename)
+
+            # --run canny --canny-threshold1 10 --canny-threshold2 1 --canny-gaussian1 71 --canny-gaussian2 71 --canny-padding 50 --filename 'Z:\of-15111-2247\OF 15111_2247_001.jpg'
+            if hasattr(args, 'run') and args.run == r"trim-canny":
+                cropped_image = remove_empty_space_edge_detection_canny(
+                    image_path = input_filename,
+                    img_data = None,
+                    args = args,
+                    destination_dir = tmp_destination)
+                output_filename = re.sub(r"\.jpg", "_canny_cropped.jpg", os.path.join(tmp_destination, os.path.basename(input_filename)))
+                write_jpeg(output_filename, cropped_image)
+                print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
+
+            if hasattr(args, 'run') and args.run == r"trim-torch":
+                cropped_image = remove_empty_space_torch(input_filename, args)
+                output_filename = re.sub(r"\.jpg", "_torch.jpg", input_filename)
+                cropped_image.save(output_filename)
+                print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
+
+            # --run fix-rotation --canny-threshold1 10 --canny-threshold2 1 --canny-gaussian1 71 --canny-gaussian2 71 --canny-padding 50  --filename 'Z:\of-15111-2247\OF 15111_2247_001.jpg'
+            if hasattr(args, 'run') and args.run == r"fix-rotation":
+                rotated_image = fix_image_rotation_canny_hough(
+                    image_path = input_filename,
+                    args = args,
+                    destination_dir = tmp_destination)
+                cropped_image = remove_empty_space_edge_detection_canny(
+                    image_path = input_filename,
+                    img_data = rotated_image,
+                    args = args,
+                    dbg_imgn = 5,
+                    destination_dir = tmp_destination)
+                output_filename = re.sub(r"\.jpg", "_fixed_rotation.jpg", os.path.join(tmp_destination, os.path.basename(input_filename)))
+                write_jpeg(output_filename, cropped_image)
+                print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
+
+        else:
+            parser.print_help()
+            print("\n" fr"Need an image file to proceed, got: [{input_filename}]" "\n")
+            sys.exit(2)
+    else:
+        parser.print_help()
+        print("\n" fr"Need either --filename (to process one file) or --source-dir (to process a directory), got none!" "\n")
+        sys.exit(2)
+
