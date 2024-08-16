@@ -5,6 +5,7 @@ import argparse
 import re
 import datetime
 import shutil
+import random
 
 #import torch
 #import torchvision.transforms as transforms
@@ -17,7 +18,7 @@ import math
 def write_jpeg(filename, filedata):
     cv2.imwrite(filename, filedata, [cv2.IMWRITE_JPEG_QUALITY, 80])
 
-def calc_line_deviation(theta, args):
+def hough_calc_line_deviation(theta, args):
     line_deviation = 0
     if theta <= (math.pi / 4): # <45°
         line_deviation = theta - 0
@@ -36,8 +37,41 @@ def calc_line_deviation(theta, args):
         if args.hough_debug:
             print(fr"     DEBUG: angle {theta} (" + str(math.degrees(theta))
                    + "°) is closer to vertical")
-
     return line_deviation
+
+def hough_filter_lines (lines, args):
+    """Filter out vertical, horizontal and too inclined lines"""
+
+    if lines is None:
+        return None
+
+    tmp_lines = None
+
+    for i in range(0, len(lines)):
+        rho = lines[i][0][0]
+        theta = lines[i][0][1]
+
+        line_deviation = hough_calc_line_deviation(theta, args)
+
+        if line_deviation == 0:
+            if args.hough_debug:
+                print(fr"     DEBUG hough_filter_lines: line {i} is vertical, excluding from sum_deviation calculation")
+        elif line_deviation == math.pi / 2:
+            if args.hough_debug:
+                print(fr"     DEBUG hough_filter_lines: line {i} is horizontal, excluding from sum_deviation calculation")
+        elif math.degrees(line_deviation) > 10 or math.degrees(line_deviation) < -10:
+            if args.hough_debug:
+                print(fr"     DEBUG hough_filter_lines: line {i} is too inclined, excluding from sum_deviation calculation")
+        else:
+            if tmp_lines is None:
+                tmp_lines = []
+
+            if args.hough_debug:
+                print(fr"     DEBUG hough_filter_lines: line {i} - passed ")
+
+            tmp_lines.append(lines[i])
+
+    return tmp_lines
 
 def fix_image_rotation_canny_hough(
         image_path,
@@ -49,10 +83,18 @@ def fix_image_rotation_canny_hough(
     threshold2 = hasattr(args, 'canny_threshold2') and args.canny_threshold2 or 1
     padding = hasattr(args, 'canny_padding') and args.canny_padding or 50
 
-    hough_threshold = hasattr(args, 'hough_threshold') and args.hough_threshold or 400
+    hough_threshold_initial = hasattr(args, 'hough_threshold_initial') and args.hough_threshold_initial or 650
+    hough_threshold_minimal = hasattr(args, 'hough_threshold_minimal') and args.hough_threshold_minimal or 500
+    if hough_threshold_initial < hough_threshold_minimal:
+        hough_threshold_initial = hough_threshold_minimal
+
     hough_theta_resolution_degrees = float(hasattr(args, 'hough_theta_resolution_degrees') and args.hough_theta_resolution_degrees or 1)
     hough_theta_resolution_rad = math.radians(hough_theta_resolution_degrees)
+
     hough_rho_resolution_pixels = float(hasattr(args, 'hough_rho_resolution_pixels') and args.hough_rho_resolution_pixels or 1)
+    hough_rho_resolution_pixels_max = float(hasattr(args, 'hough_rho_resolution_pixels_max') and args.hough_rho_resolution_pixels_max or 2)
+    if hough_rho_resolution_pixels > hough_rho_resolution_pixels_max:
+        hough_rho_resolution_pixels = hough_rho_resolution_pixels_max
 
     if destination_dir is not None:
         dbg_destination = destination_dir
@@ -63,7 +105,8 @@ def fix_image_rotation_canny_hough(
     print (str(datetime.datetime.now()) + " " + fr"    gaussian blur {gaussian1}/{gaussian2}")
     print (str(datetime.datetime.now()) + " " + fr"    canny threshold1/threshold2/padding {threshold1}/{threshold2}/{padding}")
     print (str(datetime.datetime.now()) + " " + fr"    hough theta_resolution deg/rad {hough_theta_resolution_degrees}/{hough_theta_resolution_rad}")
-    print (str(datetime.datetime.now()) + " " + fr"    hough rho_resolution pixels {hough_rho_resolution_pixels}")
+    print (str(datetime.datetime.now()) + " " + fr"    hough rho_resolution min/max {hough_rho_resolution_pixels}/{hough_rho_resolution_pixels_max}")
+    print (str(datetime.datetime.now()) + " " + fr"    hough threshold initial/minimal: {hough_threshold_initial}/{hough_threshold_minimal}")
 
     # Read the image
     img = cv2.imread(image_path)
@@ -95,91 +138,102 @@ def fix_image_rotation_canny_hough(
         write_jpeg(out_fn, edges)
         print(fr"     DEBUG: saved edges to: " + out_fn)
 
-    # https://docs.opencv.org/3.4/d9/db0/tutorial_hough_lines.html
-    # https://stackoverflow.com/questions/4709725/explain-hough-transformation
-    #
-    # Find the lines in the image using the Hough transform
-    #
-    # Output vector of lines.
-    # Each line is represented by a 2 or 3 element vector (ρ,θ) or (ρ,θ,votes),
-    # where ρ is the distance from the coordinate origin (0,0) (top-left corner of the image),
-    # θ is the line rotation angle in radians ( 0∼vertical line,π/2∼horizontal line ),
-    # and votes is the value of accumulator.
-    #
-    lines = cv2.HoughLines(edges, hough_rho_resolution_pixels, hough_theta_resolution_rad, hough_threshold)
+    lines = None
+    hough_threshold = hough_threshold_initial
+    hough_rho = hough_rho_resolution_pixels
 
-    if args.hough_debug:
-        print(fr"     DEBUG hough: detected lines: " + str(lines is not None and len(lines) or 0))
-    
-    avg_deviation = 0
+    random.seed()
+    # find lines within the image, relaxing parameters
+    #
+    while lines is None and \
+        (hough_threshold >= hough_threshold_minimal or \
+        hough_rho <= hough_rho_resolution_pixels_max):
+
+        # https://docs.opencv.org/3.4/d9/db0/tutorial_hough_lines.html
+        # https://stackoverflow.com/questions/4709725/explain-hough-transformation
+        #
+        # Find the lines in the image using the Hough transform
+        #
+        # Output vector of lines.
+        # Each line is represented by a 2 or 3 element vector (ρ,θ) or (ρ,θ,votes),
+        # where ρ is the distance from the coordinate origin (0,0) (top-left corner of the image),
+        # θ is the line rotation angle in radians ( 0∼vertical line,π/2∼horizontal line ),
+        # and votes is the value of accumulator.
+        #
+        lines = cv2.HoughLines(edges, hough_rho, hough_theta_resolution_rad, hough_threshold)
+
+        if args.hough_debug:
+            print(fr"     DEBUG hough: detected lines: " + str(lines is not None and len(lines) or 0))
+
+        lines = hough_filter_lines(lines, args)
+
+        if lines is None:
+            if random.randint(1, 2) == 1:
+                if hough_threshold >= hough_threshold_minimal:
+                    hough_threshold = hough_threshold - 10
+                    print (str(datetime.datetime.now()) + " " + fr"    decreased threshold to {hough_threshold}")
+                else:
+                    print (str(datetime.datetime.now()) + " " + fr"    threshold below min {hough_threshold_minimal}, won't decrease anymore")
+            else:
+                if hough_rho <= hough_rho_resolution_pixels_max:
+                    print (str(datetime.datetime.now()) + " " + fr"    increased rho to {hough_rho}")
+                    hough_rho = hough_rho + 0.1
+                else:
+                    print (str(datetime.datetime.now()) + " " + fr"    rho above max {hough_rho_resolution_pixels_max}, won't increase anymore")
+
+    sum_lines = 0
+    sum_deviation = 0
 
     if lines is not None:
 
         img_lines = cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)
+        lines = hough_filter_lines(lines, args)
 
-        min_rho = lines[0][0][0]
-        min_rho_i = -1
-        max_rho = lines[0][0][0]
-        max_rho_i = -1
-        for i in range(0, len(lines)):
-            if args.hough_debug:
-                print(fr"     DEBUG hough select min/max: line {i} angle: " + str(math.degrees(lines[i][0][1])) + "°")
-
-            if (math.degrees(calc_line_deviation(lines[i][0][1], args)) < 10 and
-                math.degrees(calc_line_deviation(lines[i][0][1], args)) > -10):
-                if lines[i][0][0] < min_rho:
-                    min_rho = lines[i][0][0]
-                    min_rho_i = i
-                if lines[i][0][0] > max_rho:
-                    max_rho = lines[i][0][0]
-                    max_rho_i = i
-
-        j = 0
         for i in range(0, len(lines)):
             rho = lines[i][0][0]
             theta = lines[i][0][1]
 
-            line_deviation = calc_line_deviation(theta, args)
+            line_deviation = hough_calc_line_deviation(theta, args)
 
-            if line_deviation == 0:
-                if args.hough_debug:
-                    print(fr"     DEBUG hough avg deviation: line {i} is vertical, excluding from avg_deviation calculation")
-            elif line_deviation == math.pi / 2:
-                if args.hough_debug:
-                    print(fr"     DEBUG hough avg deviation: line {i} is horizontal, excluding from avg_deviation calculation")
-            elif math.degrees(line_deviation) > 10 or math.degrees(line_deviation) < -10:
-                if args.hough_debug:
-                    print(fr"     DEBUG hough avg deviation: line {i} is too inclined, excluding from avg_deviation calculation")
-            else:
-                if args.hough_debug:
-                    print(fr"     DEBUG hough avg deviation: line {i}: avg_deviation before, line_deviation - {avg_deviation}, {line_deviation}")
+            if args.hough_debug:
+                print(fr"     DEBUG hough avg deviation: line {i}: sum_deviation before, line_deviation - {sum_deviation}, {line_deviation}")
 
-                j = j + 1
-                avg_deviation = (avg_deviation + line_deviation) / 2
-                if args.hough_debug:
-                    print(fr"     DEBUG hough avg deviation: line {i}: avg_deviation after, j - {avg_deviation}, {j}")
+            sum_lines = sum_lines + 1
+            sum_deviation = sum_deviation + line_deviation
+
+            if args.hough_debug:
+                print(fr"     DEBUG hough avg deviation: line {i}: sum_deviation after, sum_lines - {sum_deviation}, {sum_lines}")
 
             if args.hough_debug:
                 print(fr"     DEBUG hough avg deviation: line {i}: rho - {rho}, theta (deg) - " + str(math.degrees(theta)))
-                print(fr"     DEBUG hough avg deviation: line {i} angle deviation - " + str(math.degrees(line_deviation)) + ", avg_deviation - " + str(math.degrees(avg_deviation)))
+                print(fr"     DEBUG hough avg deviation: line {i} angle deviation - " + str(math.degrees(line_deviation)) + ", sum_deviation - " + str(math.degrees(sum_deviation)))
+
+            h, w, *_ = img_lines.shape
+            max_dim = h
+            if (w > max_dim):
+                max_dim = w
 
             a = math.cos(theta)
             b = math.sin(theta)
             x0 = a * rho
             y0 = b * rho
-            pt1 = (int(x0 + 3*hough_threshold*(-b)), int(y0 + 3*hough_threshold*(a)))
-            pt2 = (int(x0 - 3*hough_threshold*(-b)), int(y0 - 3*hough_threshold*(a)))
+            pt1 = (int(x0 + max_dim*(-b)), int(y0 + max_dim*(a)))
+            pt2 = (int(x0 - max_dim*(-b)), int(y0 - max_dim*(a)))
             cv2.line(img_lines, pt1, pt2, (0,0,255), 1)
 
+            if args.hough_debug:
+                print(fr"     DEBUG hough: line {i}: pt1 <-> pt2: {pt1} <-> {pt2}")
+
         if args.hough_debug:
-            out_fn = re.sub(r"\.jpg", "_canny_05_lines.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
+            out_fn = re.sub(r"\.jpg", "_canny_04_lines.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
             write_jpeg(out_fn, img_lines)
             print(fr"     DEBUG: saved lines to: " + out_fn)
     else:
         return img
 
+    avg_deviation = sum_deviation / sum_lines
     if args.hough_debug:
-        print(fr"     DEBUG hough rotating by avg_deviation " + str(math.degrees(avg_deviation)) + " " + str(np.rad2deg(avg_deviation)))
+        print(fr"     DEBUG hough rotating by avg_deviation " + str(np.rad2deg(avg_deviation)))
     # Rotate the image by the average angle
     rows, cols = img.shape[:2]
     rotation_matrix = cv2.getRotationMatrix2D((cols / 2, rows / 2), np.rad2deg(avg_deviation), 1)
@@ -190,7 +244,7 @@ def fix_image_rotation_canny_hough(
         borderMode = cv2.BORDER_WRAP)
 
     if args.hough_debug:
-        out_fn = re.sub(r"\.jpg", "_canny_04_rotated.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
+        out_fn = re.sub(r"\.jpg", "_canny_05_rotated.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
         write_jpeg(out_fn, rotated_image)
         print(fr"     DEBUG: saved rotated to: " + out_fn)
 
@@ -401,9 +455,12 @@ def main():
     parser.add_argument('--torch-padding', type=int)
     parser.add_argument('--hough-debug', type=bool)
     parser.add_argument('--hough-theta-resolution-degrees', type=float)
-    parser.add_argument('--hough-rho-resolution-pixels', type=float)
-    parser.add_argument('--hough-threshold', type=int)
+    parser.add_argument('--hough-rho-resolution-pixels', type=float, help='width of the detected line - min')
+    parser.add_argument('--hough-rho-resolution-pixels-max', type=float, help='width of the detected line - max')
+    parser.add_argument('--hough-threshold-initial', type=int, help='number of points in a line required to detect a line - max')
+    parser.add_argument('--hough-threshold-minimal', type=int, help='number of points in a line required to detect a line - min')
     parser.add_argument('--copy-source-to-destination', type=bool)
+    parser.add_argument('--skip-existing', type=bool, help='if transformed file exists, do not rerun transformation')
    
     args = parser.parse_args()
 
@@ -431,6 +488,7 @@ def main():
 
         if (os.path.isdir(source_dir)):
             print (str(datetime.datetime.now()) + " " + fr"working on {source_dir}")
+            
             for afn in os.listdir(source_dir):
                 print (str(datetime.datetime.now()) + "     working on " + os.path.join(source_dir, afn))
 
@@ -448,17 +506,23 @@ def main():
                     print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
 
                 if hasattr(args, 'run') and args.run == r"fix-rotation":
+                    output_filename = re.sub(r"\.jpg", "_fixed_rotation_cropped.jpg", os.path.join(destination_dir, afn))
+                    
+                    if hasattr(args, 'skip_existing') and args.skip_existing and (os.path.isfile(output_filename)):
+                        print(fr"skipping existing {output_filename}")
+                        continue
+
                     rotated_image = fix_image_rotation_canny_hough(
                         image_path = os.path.join(source_dir, afn),
                         args = args,
                         destination_dir = destination_dir)
                     cropped_image = remove_empty_space_edge_detection_canny(
-                        image_path = input_filename,
+                        image_path = os.path.join(source_dir, afn),
                         img_data = rotated_image,
                         args = args,
                         dbg_imgn = 5,
                         destination_dir = destination_dir)
-                    output_filename = re.sub(r"\.jpg", "_fixed_rotation.jpg", os.path.join(destination_dir, afn))
+                    
                     write_jpeg(output_filename, cropped_image)
                     print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
 
@@ -482,36 +546,46 @@ def main():
 
             # --run canny --canny-threshold1 10 --canny-threshold2 1 --canny-gaussian1 71 --canny-gaussian2 71 --canny-padding 50 --filename 'Z:\of-15111-2247\OF 15111_2247_001.jpg'
             if hasattr(args, 'run') and args.run == r"trim-canny":
-                cropped_image = remove_empty_space_edge_detection_canny(
-                    image_path = input_filename,
-                    img_data = None,
-                    args = args,
-                    destination_dir = tmp_destination)
                 output_filename = re.sub(r"\.jpg", "_canny_cropped.jpg", os.path.join(tmp_destination, os.path.basename(input_filename)))
-                write_jpeg(output_filename, cropped_image)
-                print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
+
+                if hasattr(args, 'skip_existing') and args.skip_existing and (os.path.isfile(output_filename)):
+                    print(fr"skipping existing {output_filename}")
+                else:
+                    cropped_image = remove_empty_space_edge_detection_canny(
+                        image_path = input_filename,
+                        img_data = None,
+                        args = args,
+                        destination_dir = tmp_destination)
+                    write_jpeg(output_filename, cropped_image)
+                    print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
 
             if hasattr(args, 'run') and args.run == r"trim-torch":
-                cropped_image = remove_empty_space_torch(input_filename, args)
                 output_filename = re.sub(r"\.jpg", "_torch.jpg", input_filename)
-                cropped_image.save(output_filename)
-                print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
+                if hasattr(args, 'skip_existing') and args.skip_existing and (os.path.isfile(output_filename)):
+                    print(fr"skipping existing {output_filename}")
+                else:
+                    cropped_image = remove_empty_space_torch(input_filename, args)
+                    cropped_image.save(output_filename)
+                    print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
 
             # --run fix-rotation --canny-threshold1 10 --canny-threshold2 1 --canny-gaussian1 71 --canny-gaussian2 71 --canny-padding 50  --filename 'Z:\of-15111-2247\OF 15111_2247_001.jpg'
             if hasattr(args, 'run') and args.run == r"fix-rotation":
-                rotated_image = fix_image_rotation_canny_hough(
-                    image_path = input_filename,
-                    args = args,
-                    destination_dir = tmp_destination)
-                cropped_image = remove_empty_space_edge_detection_canny(
-                    image_path = input_filename,
-                    img_data = rotated_image,
-                    args = args,
-                    dbg_imgn = 5,
-                    destination_dir = tmp_destination)
                 output_filename = re.sub(r"\.jpg", "_fixed_rotation_cropped.jpg", os.path.join(tmp_destination, os.path.basename(input_filename)))
-                write_jpeg(output_filename, cropped_image)
-                print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
+                if hasattr(args, 'skip_existing') and args.skip_existing and (os.path.isfile(output_filename)):
+                    print(fr"skipping existing {output_filename}")
+                else:
+                    rotated_image = fix_image_rotation_canny_hough(
+                        image_path = input_filename,
+                        args = args,
+                        destination_dir = tmp_destination)
+                    cropped_image = remove_empty_space_edge_detection_canny(
+                        image_path = input_filename,
+                        img_data = rotated_image,
+                        args = args,
+                        dbg_imgn = 5,
+                        destination_dir = tmp_destination)
+                    write_jpeg(output_filename, cropped_image)
+                    print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
 
         else:
             parser.print_help()
