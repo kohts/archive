@@ -15,8 +15,199 @@ import cv2
 import numpy as np
 import math
 
+from scipy.spatial import distance_matrix
+
 def write_jpeg(filename, filedata):
     cv2.imwrite(filename, filedata, [cv2.IMWRITE_JPEG_QUALITY, 80])
+
+def remove_artifacts(
+        image_path,
+        img_data,
+        destination_dir,
+        args,
+        dbg_imgn = 0
+        ):
+
+    threshold1 = hasattr(args, 'canny_threshold1') and args.canny_threshold1 or 380
+    threshold2 = hasattr(args, 'canny_threshold2') and args.canny_threshold2 or 380
+
+    if destination_dir is not None:
+        dbg_destination = destination_dir
+    else:
+        dbg_destination = os.path.dirname(image_path)
+
+    if img_data is not None:
+        print (fr"removing artifacts from {image_path} (image data)")
+
+        # Reuse previously generated image data
+        img = img_data
+    else:
+        print (fr"removing artifacts from {image_path}")
+
+        # Read the image from the file
+        img = cv2.imread(image_path)
+
+    # Convert to grayscale
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+    # Apply Gaussian blur to reduce noise
+    blurred = cv2.GaussianBlur(gray,
+        (
+            hasattr(args, 'canny_gaussian1') and args.canny_gaussian1 or 5,
+            hasattr(args, 'canny_gaussian2') and args.canny_gaussian2 or 5
+        ), 0)
+
+    if args.canny_debug:
+        dbg_imgn += 1
+        out_fn = re.sub(r"\.jpg", fr"_canny_{dbg_imgn:02d}_blurred.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
+        write_jpeg(out_fn, blurred)
+        print(fr"     DEBUG: saved blurred to: " + out_fn)
+
+    # Perform Canny edge detection
+    edges = cv2.Canny(blurred, threshold1, threshold2)
+
+    if args.canny_debug:
+        dbg_imgn += 1
+        out_fn = re.sub(r"\.jpg", fr"_canny_{dbg_imgn:02d}_edges.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
+        write_jpeg(out_fn, edges)
+        print(fr"     DEBUG: saved edges to: " + out_fn)
+
+    i = 0
+    height, width = edges.shape
+    print(fr"height / width: {height} / {width}")
+    for y in range(height):
+        for x in range(width):
+            i = i + 1
+            pixel_value = edges[y, x]
+            #print(fr"Pixel at ({x}, {y}): {pixel_value}")
+
+    print(fr"extracted {i} lit points directly from image")
+
+    # Find contours from the edges
+    contours, _ = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    i = 0
+    lit_points = []
+    for contour in contours:
+        for j, point in enumerate(contour):
+            i = i + 1
+            # Each point is a 1x2 array, so we need to flatten it
+            x, y = point[0]
+            lit_points.append((x,y))
+
+    print(fr"found " + str(len(contours)) + " contours")
+    print(fr"found {i} lit points in contours")
+
+    if args.artifacts_debug:
+        dbg_imgn += 1
+        out_fn = re.sub(r"\.jpg", fr"_artifacts_{dbg_imgn:02d}_contours.txt", os.path.join(dbg_destination, os.path.basename(image_path)))
+        print(fr"     DEBUG: saving contours to: " + out_fn)
+        with open(out_fn, "w") as f:
+            for contour in contours:
+                print(contour, file=f)
+
+        dbg_imgn += 1
+        out_fn = re.sub(r"\.jpg", fr"_artifacts_{dbg_imgn:02d}_points.txt", os.path.join(dbg_destination, os.path.basename(image_path)))
+        print(fr"     DEBUG: saving points to: " + out_fn)
+        with open(out_fn, "w") as f:
+            for p in edges:
+                print(p, file=f)
+
+    if len(contours) == 0:
+        return img
+
+    # Extract centroids of all contours
+    centroids = []
+    centroids_with_annotations = []
+    for i in range(len(contours)):
+        M = cv2.moments(contours[i])
+
+        # M['m00'] can be zero in a few scenarios:
+        #   1. Empty contour: If the contour has no points or is empty, all moments including M['m00'] will be zero.
+        #   2. Very small contour: For extremely small contours (e.g., a single pixel), numerical precision issues might lead to M['m00'] being computed as zero.
+        #   3. Non-contour input: If the input to cv2.moments() is not a valid contour (e.g., an all-zero array), it may result in zero moments.
+        #   4. Binary image with all zeros: If the contour is extracted from a binary image that contains all zeros, M['m00'] will be zero.
+        #
+        # It's important to note that M['m00'] represents the 0th order moment, which is equivalent
+        # to the area of the contour. In most practical cases with valid contours, M['m00'] should be positive.
+        # When using moments for further calculations (like finding centroids), it's a good practice
+        # to check if M['m00'] is zero to avoid division by zero errors.
+
+        if M['m00'] != 0:
+            cx = int(M['m10'] / M['m00'])
+            cy = int(M['m01'] / M['m00'])
+
+            centroids.append((cx, cy))
+
+            # 0: {'centroid': (3266, 5983)}
+            # 1: {'centroid': (1578, 4523)}
+            # 6: {'centroid': (1590, 4522)}
+            # 7: {'centroid': (1593, 4515)}
+            # 8: {'centroid': (1561, 4515)}
+            centroids_with_annotations.append({
+                'centroid': (cx,cy),
+                'contour_n': i,
+                'centroid_n': len(centroids) - 1
+                })
+
+    print(fr"got " + str(len(centroids_with_annotations)) + " centroids from " + str(len(contours)) + " contours")
+
+    if len(centroids) < 2:
+        return 0  # Not enough contours to calculate distance
+
+    # Calculate pairwise distances between all centroids
+    dist_matrix = distance_matrix(centroids, centroids)
+
+    # For each centroid, calculate the sum of distances to all other centroids
+    for i in range(len(centroids)):
+        distances = dist_matrix[i]
+        centroids_with_annotations[i]['sum_distances'] = np.round(np.sum(distances))
+
+    if args.artifacts_debug:
+        dbg_imgn += 1
+        out_fn = re.sub(r"\.jpg", fr"_artifacts_{dbg_imgn:02d}_centroids.txt", os.path.join(dbg_destination, os.path.basename(image_path)))
+        print(fr"     DEBUG: saving centroids to: " + out_fn)
+        with open(out_fn, "w") as f:
+            for i in range(len(centroids_with_annotations)):
+                print(str(i) + ": " + str(centroids_with_annotations[i]), file=f)
+
+    if args.artifacts_debug:
+        dbg_imgn += 1
+        out_fn = re.sub(r"\.jpg", fr"_artifacts_{dbg_imgn:02d}_centroids_distances.txt", os.path.join(dbg_destination, os.path.basename(image_path)))
+        print(fr"     DEBUG: saving centroids_distances to: " + out_fn)
+        with open(out_fn, "w") as f:
+            print("centroid_n,contour_n,sum_measure,x,y"
+                , file=f)
+            for i in range(len(centroids_with_annotations)):
+                print(str(i) + 
+                      "," + str(centroids_with_annotations[i]['contour_n']) + 
+                      "," + str(centroids_with_annotations[i]['sum_distances']) +
+                      "," + str(centroids_with_annotations[i]['centroid'][0]) +
+                      "," + str(centroids_with_annotations[i]['centroid'][1]),
+                      file=f)
+
+    centroids_distances_sorted = sorted(centroids_with_annotations, key=lambda x: x['sum_distances'])
+
+    print(fr"     DEBUG: working on the 1% of the biggest areas, from {j} to " + str(len(centroids_distances_sorted)))
+    _, j = math.modf(len(centroids_distances_sorted) * 0.99)
+
+    prev_distance = None
+    jump_centroid = None
+    for i in range(int(j), len(centroids_distances_sorted)):
+        if prev_distance is None:
+            prev_distance = centroids_distances_sorted[i]['sum_distances']
+        else:
+            if jump_centroid is None:
+                if (centroids_distances_sorted[i]['sum_distances'] - prev_distance) / prev_distance > 0.15:
+                    jump_centroid = i
+
+        print(fr"{i}: " +
+              str(centroids_distances_sorted[i]['sum_distances']) +
+              ("" if jump_centroid is None else " - JUMP"))
+
+
+    return
+
 
 def hough_calc_line_deviation(theta, args):
     line_deviation = 0
@@ -209,9 +400,7 @@ def fix_image_rotation_canny_hough(
                 print(fr"     DEBUG hough avg deviation: line {i} angle deviation - " + str(math.degrees(line_deviation)) + ", sum_deviation - " + str(math.degrees(sum_deviation)))
 
             h, w, *_ = img_lines.shape
-            max_dim = h
-            if (w > max_dim):
-                max_dim = w
+            max_dim = max(h, w)
 
             a = math.cos(theta)
             b = math.sin(theta)
@@ -250,7 +439,6 @@ def fix_image_rotation_canny_hough(
 
     return rotated_image
 
-
 def remove_empty_space_edge_detection_canny(
         image_path,
         img_data,
@@ -269,7 +457,7 @@ def remove_empty_space_edge_detection_canny(
         dbg_destination = os.path.dirname(image_path)
 
     if img_data is not None:
-        print (fr"removing empty space (canny) from {image_path} (binary image data), threshold1/threshold2/padding {threshold1}/{threshold2}/{padding}")
+        print (fr"removing empty space (canny) from {image_path} (image data), threshold1/threshold2/padding {threshold1}/{threshold2}/{padding}")
 
         # Reuse previously generated image data
         img = img_data
@@ -329,7 +517,7 @@ def remove_empty_space_edge_detection_canny(
         y_min = min(y_min, y)
         x_max = max(x_max, x + w)
         y_max = max(y_max, y + h)
-    
+
     # Add padding
     x_min = max(0, x_min - padding)
     y_min = max(0, y_min - padding)
@@ -444,34 +632,34 @@ def main():
     parser.add_argument('--filename', type=str)
     parser.add_argument('--source-dir', type=str)
     parser.add_argument('--destination-dir', type=str)
-    parser.add_argument('--run', type=str)
+    parser.add_argument('--run', type=str, default='', help='mandatory, mode of operation. one of: trim-canny, fix-rotation, remove-artifacts')
     parser.add_argument('--canny-threshold1', type=int)
     parser.add_argument('--canny-threshold2', type=int)
     parser.add_argument('--canny-gaussian1', type=int)
     parser.add_argument('--canny-gaussian2', type=int)
     parser.add_argument('--canny-padding', type=int)
-    parser.add_argument('--canny-debug', type=bool)
+    parser.add_argument('--canny-debug', type=bool, default=False)
     parser.add_argument('--torch-threshold', type=int)
     parser.add_argument('--torch-padding', type=int)
-    parser.add_argument('--hough-debug', type=bool)
+    parser.add_argument('--hough-debug', type=bool, default=False)
     parser.add_argument('--hough-theta-resolution-degrees', type=float)
     parser.add_argument('--hough-rho-resolution-pixels', type=float, help='width of the detected line - min')
     parser.add_argument('--hough-rho-resolution-pixels-max', type=float, help='width of the detected line - max')
     parser.add_argument('--hough-threshold-initial', type=int, help='number of points in a line required to detect a line - max')
     parser.add_argument('--hough-threshold-minimal', type=int, help='number of points in a line required to detect a line - min')
-    parser.add_argument('--copy-source-to-destination', type=bool)
-    parser.add_argument('--skip-existing', type=bool, help='if transformed file exists, do not rerun transformation')
+    parser.add_argument('--copy-source-to-destination', type=bool, default=False)
+    parser.add_argument('--skip-existing', type=bool, default=False, help='if destination  exists, do not overwrite')
+    parser.add_argument('--artifacts-debug', type=bool, default=False)
    
     args = parser.parse_args()
 
     source_dir = args.source_dir if hasattr(args, 'source_dir') else None
     destination_dir = args.destination_dir if hasattr(args, 'destination_dir') else None
     input_filename = args.filename if hasattr(args, 'filename') else None
-    run = hasattr(args, 'run') and args.run or None
 
-    if (run != "trim-canny" and run != "trim-torch" and run != "fix-rotation"):
+    if (args.run not in ["trim-canny", "trim-torch", "fix-rotation", "remove-artifacts"]):
         parser.print_help()
-        print("\n" fr"Need --run with one of: trim-canny, trim-torch, fix-rotation" "\n")
+        print("\n" fr"Need --run with one of: trim-canny, trim-torch, fix-rotation, remove-artifacts" "\n")
         sys.exit(2)
 
     if (source_dir is not None and input_filename is not None):
@@ -525,8 +713,6 @@ def main():
                     
                     write_jpeg(output_filename, cropped_image)
                     print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
-
-
         else:
             parser.print_help()
             print("\n" fr"Non-existent directory specified: [{source_dir}]" "\n")
@@ -545,7 +731,7 @@ def main():
                 shutil.copy2(input_filename, tmp_destination)
 
             # --run canny --canny-threshold1 10 --canny-threshold2 1 --canny-gaussian1 71 --canny-gaussian2 71 --canny-padding 50 --filename 'Z:\of-15111-2247\OF 15111_2247_001.jpg'
-            if hasattr(args, 'run') and args.run == r"trim-canny":
+            if args.run == r"trim-canny":
                 output_filename = re.sub(r"\.jpg", "_canny_cropped.jpg", os.path.join(tmp_destination, os.path.basename(input_filename)))
 
                 if hasattr(args, 'skip_existing') and args.skip_existing and (os.path.isfile(output_filename)):
@@ -559,7 +745,7 @@ def main():
                     write_jpeg(output_filename, cropped_image)
                     print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
 
-            if hasattr(args, 'run') and args.run == r"trim-torch":
+            if args.run == r"trim-torch":
                 output_filename = re.sub(r"\.jpg", "_torch.jpg", input_filename)
                 if hasattr(args, 'skip_existing') and args.skip_existing and (os.path.isfile(output_filename)):
                     print(fr"skipping existing {output_filename}")
@@ -569,7 +755,7 @@ def main():
                     print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
 
             # --run fix-rotation --canny-threshold1 10 --canny-threshold2 1 --canny-gaussian1 71 --canny-gaussian2 71 --canny-padding 50  --filename 'Z:\of-15111-2247\OF 15111_2247_001.jpg'
-            if hasattr(args, 'run') and args.run == r"fix-rotation":
+            if args.run == r"fix-rotation":
                 output_filename = re.sub(r"\.jpg", "_fixed_rotation_cropped.jpg", os.path.join(tmp_destination, os.path.basename(input_filename)))
                 if hasattr(args, 'skip_existing') and args.skip_existing and (os.path.isfile(output_filename)):
                     print(fr"skipping existing {output_filename}")
@@ -586,10 +772,21 @@ def main():
                         destination_dir = tmp_destination)
                     write_jpeg(output_filename, cropped_image)
                     print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
-
+            
+            if args.run == r"remove-artifacts":
+                output_filename = re.sub(r"\.jpg", "_removed_artifacts.jpg", os.path.join(tmp_destination, os.path.basename(input_filename)))
+                if args.skip_existing and (os.path.isfile(output_filename)):
+                    print(fr"skipping existing {output_filename}")
+                else:
+                    image_without_artifacts = remove_artifacts(
+                        image_path = input_filename,
+                        img_data = None,
+                        args = args,
+                        destination_dir = tmp_destination,
+                        dbg_imgn = 0)
         else:
             parser.print_help()
-            print("\n" fr"Need an image file to proceed, got: [{input_filename}]" "\n")
+            print("\n" fr"Need an image file to proceed, got: [{input_filename}] (check if it exists)" "\n")
             sys.exit(2)
     else:
         parser.print_help()
