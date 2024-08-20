@@ -75,28 +75,11 @@ def remove_artifacts(
     i = 0
     height, width = edges.shape
     print(fr"height / width: {height} / {width}")
-    for y in range(height):
-        for x in range(width):
-            i = i + 1
-            pixel_value = edges[y, x]
-            #print(fr"Pixel at ({x}, {y}): {pixel_value}")
-
-    print(fr"extracted {i} lit points directly from image")
 
     # Find contours from the edges
     contours, _ = cv2.findContours(edges, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-    i = 0
-    lit_points = []
-    for contour in contours:
-        for j, point in enumerate(contour):
-            i = i + 1
-            # Each point is a 1x2 array, so we need to flatten it
-            x, y = point[0]
-            lit_points.append((x,y))
-
     print(fr"found " + str(len(contours)) + " contours")
-    print(fr"found {i} lit points in contours")
 
     if args.artifacts_debug:
         dbg_imgn += 1
@@ -188,25 +171,64 @@ def remove_artifacts(
 
     centroids_distances_sorted = sorted(centroids_with_annotations, key=lambda x: x['sum_distances'])
 
-    print(fr"     DEBUG: working on the 1% of the biggest areas, from {j} to " + str(len(centroids_distances_sorted)))
     _, j = math.modf(len(centroids_distances_sorted) * 0.99)
+    print(fr"     DEBUG: working on the 1% of the biggest areas, from {j} to " + str(len(centroids_distances_sorted)))
+
+
+    # Find the bounding rectangle of all contours except artifacts
+    x_min, y_min, x_max, y_max = float('inf'), float('inf'), 0, 0
+
+    # find the biggest bounding rect without artifacts (TODO: replace with nearby contours without artifacts)
+    x1_left, y1_top, x2_right, y2_bottom = 0, 0, width, height
 
     prev_distance = None
     jump_centroid = None
-    for i in range(int(j), len(centroids_distances_sorted)):
-        if prev_distance is None:
-            prev_distance = centroids_distances_sorted[i]['sum_distances']
+    for i in range(len(centroids_distances_sorted)):
+        if i < j:
+            # can't be an artifact - by definition
+            x, y, w, h = cv2.boundingRect(contours[centroids_distances_sorted[i]['contour_n']])
+            x_min = min(x_min, x)
+            y_min = min(y_min, y)
+            x_max = max(x_max, x + w)
+            y_max = max(y_max, y + h)        
         else:
-            if jump_centroid is None:
-                if (centroids_distances_sorted[i]['sum_distances'] - prev_distance) / prev_distance > 0.15:
-                    jump_centroid = i
+            # 1% - potential artifacts
+            if prev_distance is None:
+                prev_distance = centroids_distances_sorted[i]['sum_distances']
+            else:
+                if jump_centroid is None:
+                    if (centroids_distances_sorted[i]['sum_distances'] - prev_distance) / prev_distance > 0.15:
+                        jump_centroid = i
+                    else:
+                        # not an artifact
+                        x, y, w, h = cv2.boundingRect(contours[centroids_distances_sorted[i]['contour_n']])
+                        x_min = min(x_min, x)
+                        y_min = min(y_min, y)
+                        x_max = max(x_max, x + w)
+                        y_max = max(y_max, y + h)
 
-        print(fr"{i}: " +
-              str(centroids_distances_sorted[i]['sum_distances']) +
-              ("" if jump_centroid is None else " - JUMP"))
+                if jump_centroid:
+                    x, y, w, h = cv2.boundingRect(contours[centroids_distances_sorted[i]['contour_n']])
+                    if x + w < x_min:
+                        x1_left = max(x + w, x1_left)
+                    if x > x_max:
+                        x2_right = min(x, x2_right)
+                    if y + h < y_min:
+                        y1_top = max(y + h, y1_top)
+                    if y > y_max:
+                        y2_bottom = min(y, y2_bottom)
 
+            print(fr"{i}: " +
+                str(centroids_distances_sorted[i]['sum_distances']) +
+                ("" if jump_centroid is None else " - JUMP"))
 
-    return
+    print(fr'DEBUG: main picture rect - x_min,x_max,y_min,y_max: {x_min},{x_max},{y_min},{y_max}')
+    print(fr'DEBUG: main picture rect w/o artifacts - y1_top:y2_bottom, x1_left:x2_right: {y1_top},{y2_bottom},{x1_left},{x2_right}')
+
+    # Crop the image
+    cropped = img[y1_top:y2_bottom, x1_left:x2_right]
+
+    return cropped
 
 
 def hough_calc_line_deviation(theta, args):
@@ -266,8 +288,10 @@ def hough_filter_lines (lines, args):
 
 def fix_image_rotation_canny_hough(
         image_path,
+        img_data,
         destination_dir,
         args):
+    
     gaussian1 = hasattr(args, 'canny_gaussian1') and args.canny_gaussian1 or 71
     gaussian2 = hasattr(args, 'canny_gaussian2') and args.canny_gaussian2 or 71
     threshold1 = hasattr(args, 'canny_threshold1') and args.canny_threshold1 or 10
@@ -275,7 +299,7 @@ def fix_image_rotation_canny_hough(
     padding = hasattr(args, 'canny_padding') and args.canny_padding or 50
 
     hough_threshold_initial = hasattr(args, 'hough_threshold_initial') and args.hough_threshold_initial or 650
-    hough_threshold_minimal = hasattr(args, 'hough_threshold_minimal') and args.hough_threshold_minimal or 500
+    hough_threshold_minimal = hasattr(args, 'hough_threshold_minimal') and args.hough_threshold_minimal or 450
     if hough_threshold_initial < hough_threshold_minimal:
         hough_threshold_initial = hough_threshold_minimal
 
@@ -283,7 +307,7 @@ def fix_image_rotation_canny_hough(
     hough_theta_resolution_rad = math.radians(hough_theta_resolution_degrees)
 
     hough_rho_resolution_pixels = float(hasattr(args, 'hough_rho_resolution_pixels') and args.hough_rho_resolution_pixels or 1)
-    hough_rho_resolution_pixels_max = float(hasattr(args, 'hough_rho_resolution_pixels_max') and args.hough_rho_resolution_pixels_max or 2)
+    hough_rho_resolution_pixels_max = float(hasattr(args, 'hough_rho_resolution_pixels_max') and args.hough_rho_resolution_pixels_max or 3)
     if hough_rho_resolution_pixels > hough_rho_resolution_pixels_max:
         hough_rho_resolution_pixels = hough_rho_resolution_pixels_max
 
@@ -292,15 +316,19 @@ def fix_image_rotation_canny_hough(
     else:
         dbg_destination = os.path.dirname(image_path)
 
-    print (str(datetime.datetime.now()) + " " + fr"fixing rotation (canny + hough) on {image_path}")
+    print (str(datetime.datetime.now()) + " " + fr"fixing rotation (canny + hough) on {image_path}" + (" (image data)" if img_data is not None else ""))
     print (str(datetime.datetime.now()) + " " + fr"    gaussian blur {gaussian1}/{gaussian2}")
     print (str(datetime.datetime.now()) + " " + fr"    canny threshold1/threshold2/padding {threshold1}/{threshold2}/{padding}")
     print (str(datetime.datetime.now()) + " " + fr"    hough theta_resolution deg/rad {hough_theta_resolution_degrees}/{hough_theta_resolution_rad}")
     print (str(datetime.datetime.now()) + " " + fr"    hough rho_resolution min/max {hough_rho_resolution_pixels}/{hough_rho_resolution_pixels_max}")
     print (str(datetime.datetime.now()) + " " + fr"    hough threshold initial/minimal: {hough_threshold_initial}/{hough_threshold_minimal}")
 
-    # Read the image
-    img = cv2.imread(image_path)
+    if img_data is not None:
+        # Reuse previously generated image data
+        img = img_data
+    else:
+        # Read the image from the file
+        img = cv2.imread(image_path)
 
     if args.canny_debug:
         print(fr"     DEBUG: image dimensions: " + str(img.shape))
@@ -524,6 +552,9 @@ def remove_empty_space_edge_detection_canny(
     x_max = min(img.shape[1], x_max + padding)
     y_max = min(img.shape[0], y_max + padding)
     
+    if args.canny_debug:
+        print(fr'DEBUG: main picture rect - x_min,x_max,y_min,y_max: {x_min},{x_max},{y_min},{y_max}')
+
     # Crop the image
     cropped = img[y_min:y_max, x_min:x_max]
     
@@ -632,7 +663,7 @@ def main():
     parser.add_argument('--filename', type=str)
     parser.add_argument('--source-dir', type=str)
     parser.add_argument('--destination-dir', type=str)
-    parser.add_argument('--run', type=str, default='', help='mandatory, mode of operation. one of: trim-canny, fix-rotation, remove-artifacts')
+    parser.add_argument('--run', type=str, default='', help='mandatory, mode of operation. one of: trim-canny, fix-rotation, remove-artifacts, clean-all')
     parser.add_argument('--canny-threshold1', type=int)
     parser.add_argument('--canny-threshold2', type=int)
     parser.add_argument('--canny-gaussian1', type=int)
@@ -657,9 +688,9 @@ def main():
     destination_dir = args.destination_dir if hasattr(args, 'destination_dir') else None
     input_filename = args.filename if hasattr(args, 'filename') else None
 
-    if (args.run not in ["trim-canny", "trim-torch", "fix-rotation", "remove-artifacts"]):
+    if (args.run not in ["trim-canny", "trim-torch", "fix-rotation", "remove-artifacts", "clean-all"]):
         parser.print_help()
-        print("\n" fr"Need --run with one of: trim-canny, trim-torch, fix-rotation, remove-artifacts" "\n")
+        print("\n" fr"Need --run with one of: trim-canny, trim-torch, fix-rotation, remove-artifacts, clean-all" "\n")
         sys.exit(2)
 
     if (source_dir is not None and input_filename is not None):
@@ -680,20 +711,26 @@ def main():
             for afn in os.listdir(source_dir):
                 print (str(datetime.datetime.now()) + "     working on " + os.path.join(source_dir, afn))
 
-                if hasattr(args, 'copy_source_to_destination') and args.copy_source_to_destination:
+                if hasattr(args, 'copy_source_to_destination') and args.copy_source_to_destination and \
+                    not os.path.samefile(source_dir, destination_dir):
                     shutil.copy2(os.path.join(source_dir, afn), destination_dir)
 
-                if hasattr(args, 'run') and args.run == r"trim-canny":
+                if args.run == r"trim-canny":
+                    output_filename = re.sub(r"\.jpg", "_canny_cropped.jpg", os.path.join(destination_dir, afn))
+
+                    if hasattr(args, 'skip_existing') and args.skip_existing and (os.path.isfile(output_filename)):
+                        print(fr"skipping existing {output_filename}")
+                        continue
+
                     cropped_image = remove_empty_space_edge_detection_canny(
                         image_path = os.path.join(source_dir, afn),
                         img_data = None,
                         args = args,
                         destination_dir = destination_dir)
-                    output_filename = re.sub(r"\.jpg", "_canny_cropped.jpg", os.path.join(destination_dir, afn))
                     write_jpeg(output_filename, cropped_image)
                     print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
 
-                if hasattr(args, 'run') and args.run == r"fix-rotation":
+                if args.run == r"fix-rotation":
                     output_filename = re.sub(r"\.jpg", "_fixed_rotation_cropped.jpg", os.path.join(destination_dir, afn))
                     
                     if hasattr(args, 'skip_existing') and args.skip_existing and (os.path.isfile(output_filename)):
@@ -713,6 +750,34 @@ def main():
                     
                     write_jpeg(output_filename, cropped_image)
                     print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
+                
+                if args.run == r"clean-all":
+                    output_filename = re.sub(r"\.jpg", "_clean_all.jpg", os.path.join(destination_dir, afn))
+
+                    if hasattr(args, 'skip_existing') and args.skip_existing and (os.path.isfile(output_filename)):
+                        print(fr"skipping existing {output_filename}")
+                        continue
+
+                    image_without_artifacts = remove_artifacts(
+                        image_path = os.path.join(source_dir, afn),
+                        img_data = None,
+                        args = args,
+                        destination_dir = destination_dir,
+                        dbg_imgn = 0)
+                    rotated_image = fix_image_rotation_canny_hough(
+                        image_path = input_filename,
+                        img_data = image_without_artifacts,
+                        args = args,
+                        destination_dir = destination_dir)
+                    cropped_image = remove_empty_space_edge_detection_canny(
+                        image_path = input_filename,
+                        img_data = rotated_image,
+                        args = args,
+                        dbg_imgn = 5,
+                        destination_dir = destination_dir)
+                    write_jpeg(output_filename, cropped_image)
+                    print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
+
         else:
             parser.print_help()
             print("\n" fr"Non-existent directory specified: [{source_dir}]" "\n")
@@ -727,7 +792,8 @@ def main():
             else:
                 tmp_destination = os.path.dirname(input_filename)
 
-            if hasattr(args, 'copy_source_to_destination') and args.copy_source_to_destination:
+            if hasattr(args, 'copy_source_to_destination') and args.copy_source_to_destination and \
+                not os.path.samefile(os.path.dirname(input_filename), tmp_destination):
                 shutil.copy2(input_filename, tmp_destination)
 
             # --run canny --canny-threshold1 10 --canny-threshold2 1 --canny-gaussian1 71 --canny-gaussian2 71 --canny-padding 50 --filename 'Z:\of-15111-2247\OF 15111_2247_001.jpg'
@@ -784,6 +850,33 @@ def main():
                         args = args,
                         destination_dir = tmp_destination,
                         dbg_imgn = 0)
+                    write_jpeg(output_filename, image_without_artifacts)
+                    print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
+
+            if args.run == r"clean-all":
+                output_filename = re.sub(r"\.jpg", "_clean_all.jpg", os.path.join(tmp_destination, os.path.basename(input_filename)))
+                if hasattr(args, 'skip_existing') and args.skip_existing and (os.path.isfile(output_filename)):
+                    print(fr"skipping existing {output_filename}")
+                else:
+                    image_without_artifacts = remove_artifacts(
+                        image_path = input_filename,
+                        img_data = None,
+                        args = args,
+                        destination_dir = tmp_destination,
+                        dbg_imgn = 0)
+                    rotated_image = fix_image_rotation_canny_hough(
+                        image_path = input_filename,
+                        img_data = image_without_artifacts,
+                        args = args,
+                        destination_dir = tmp_destination)
+                    cropped_image = remove_empty_space_edge_detection_canny(
+                        image_path = input_filename,
+                        img_data = rotated_image,
+                        args = args,
+                        dbg_imgn = 5,
+                        destination_dir = tmp_destination)
+                    write_jpeg(output_filename, cropped_image)
+                    print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
         else:
             parser.print_help()
             print("\n" fr"Need an image file to proceed, got: [{input_filename}] (check if it exists)" "\n")
