@@ -17,8 +17,33 @@ import math
 
 from scipy.spatial import distance_matrix
 
+import exifread
+
+def estimate_jpeg_quality(image):
+    """
+    Estimate the JPEG quality of an image.
+    
+    Args:
+        image (np.ndarray): The input image.
+        
+    Returns:
+        int: The estimated JPEG quality (0-100).
+    """
+    if image.dtype != np.uint8:
+        raise ValueError("Input image must be of type np.uint8")
+    
+    # Compute the variance of the image
+    variance = np.var(image)
+    
+    # Estimate the JPEG quality based on the variance
+    quality = 100 - (variance / 255) * 100
+    
+    return int(np.clip(quality, 0, 100))
+
+
+
 def write_jpeg(filename, filedata):
-    cv2.imwrite(filename, filedata, [cv2.IMWRITE_JPEG_QUALITY, 80])
+    cv2.imwrite(filename, filedata, [cv2.IMWRITE_JPEG_QUALITY, 85])
 
 def remove_artifacts(
         image_path,
@@ -28,22 +53,19 @@ def remove_artifacts(
         dbg_imgn = 0
         ):
 
-    threshold1 = hasattr(args, 'canny_threshold1') and args.canny_threshold1 or 380
-    threshold2 = hasattr(args, 'canny_threshold2') and args.canny_threshold2 or 380
-
     if destination_dir is not None:
         dbg_destination = destination_dir
     else:
         dbg_destination = os.path.dirname(image_path)
 
-    if img_data is not None:
-        print (fr"removing artifacts from {image_path} (image data)")
+    print (str(datetime.datetime.now()) + " " + fr"removing artifacts from {image_path}" + (" (image data)" if img_data is not None else ""))
+    print (str(datetime.datetime.now()) + " " + fr"     args.artifacts_discontinuity_threshold: {args.artifacts_discontinuity_threshold}")
+    print (str(datetime.datetime.now()) + " " + fr"     args.artifacts_majority_threshold: {args.artifacts_majority_threshold}")
 
+    if img_data is not None:
         # Reuse previously generated image data
         img = img_data
     else:
-        print (fr"removing artifacts from {image_path}")
-
         # Read the image from the file
         img = cv2.imread(image_path)
 
@@ -51,24 +73,20 @@ def remove_artifacts(
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     # Apply Gaussian blur to reduce noise
-    blurred = cv2.GaussianBlur(gray,
-        (
-            hasattr(args, 'canny_gaussian1') and args.canny_gaussian1 or 5,
-            hasattr(args, 'canny_gaussian2') and args.canny_gaussian2 or 5
-        ), 0)
+    blurred = cv2.GaussianBlur(gray, (args.canny_gaussian1, args.canny_gaussian2), 0)
 
-    if args.canny_debug:
+    if args.artifacts_debug:
         dbg_imgn += 1
-        out_fn = re.sub(r"\.jpg", fr"_canny_{dbg_imgn:02d}_blurred.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
+        out_fn = re.sub(r"\.jpg", fr"_artifacts_{dbg_imgn:02d}_blurred.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
         write_jpeg(out_fn, blurred)
         print(fr"     DEBUG: saved blurred to: " + out_fn)
 
     # Perform Canny edge detection
-    edges = cv2.Canny(blurred, threshold1, threshold2)
+    edges = cv2.Canny(blurred, args.canny_threshold1, args.canny_threshold2)
 
-    if args.canny_debug:
+    if args.artifacts_debug:
         dbg_imgn += 1
-        out_fn = re.sub(r"\.jpg", fr"_canny_{dbg_imgn:02d}_edges.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
+        out_fn = re.sub(r"\.jpg", fr"_artifacts_{dbg_imgn:02d}_edges.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
         write_jpeg(out_fn, edges)
         print(fr"     DEBUG: saved edges to: " + out_fn)
 
@@ -81,6 +99,9 @@ def remove_artifacts(
 
     print(fr"found " + str(len(contours)) + " contours")
 
+    if len(contours) == 0:
+        return img
+
     if args.artifacts_debug:
         dbg_imgn += 1
         out_fn = re.sub(r"\.jpg", fr"_artifacts_{dbg_imgn:02d}_contours.txt", os.path.join(dbg_destination, os.path.basename(image_path)))
@@ -88,16 +109,6 @@ def remove_artifacts(
         with open(out_fn, "w") as f:
             for contour in contours:
                 print(contour, file=f)
-
-        dbg_imgn += 1
-        out_fn = re.sub(r"\.jpg", fr"_artifacts_{dbg_imgn:02d}_points.txt", os.path.join(dbg_destination, os.path.basename(image_path)))
-        print(fr"     DEBUG: saving points to: " + out_fn)
-        with open(out_fn, "w") as f:
-            for p in edges:
-                print(p, file=f)
-
-    if len(contours) == 0:
-        return img
 
     # Extract centroids of all contours
     centroids = []
@@ -136,7 +147,7 @@ def remove_artifacts(
     print(fr"got " + str(len(centroids_with_annotations)) + " centroids from " + str(len(contours)) + " contours")
 
     if len(centroids) < 2:
-        return 0  # Not enough contours to calculate distance
+        return 0  # Not enough centroids to calculate artifact measure
 
     # Calculate pairwise distances between all centroids
     dist_matrix = distance_matrix(centroids, centroids)
@@ -154,26 +165,29 @@ def remove_artifacts(
             for i in range(len(centroids_with_annotations)):
                 print(str(i) + ": " + str(centroids_with_annotations[i]), file=f)
 
-    if args.artifacts_debug:
-        dbg_imgn += 1
-        out_fn = re.sub(r"\.jpg", fr"_artifacts_{dbg_imgn:02d}_centroids_distances.txt", os.path.join(dbg_destination, os.path.basename(image_path)))
-        print(fr"     DEBUG: saving centroids_distances to: " + out_fn)
-        with open(out_fn, "w") as f:
-            print("centroid_n,contour_n,sum_measure,x,y"
-                , file=f)
-            for i in range(len(centroids_with_annotations)):
-                print(str(i) + 
-                      "," + str(centroids_with_annotations[i]['contour_n']) + 
-                      "," + str(centroids_with_annotations[i]['sum_distances']) +
-                      "," + str(centroids_with_annotations[i]['centroid'][0]) +
-                      "," + str(centroids_with_annotations[i]['centroid'][1]),
-                      file=f)
-
     centroids_distances_sorted = sorted(centroids_with_annotations, key=lambda x: x['sum_distances'])
 
-    _, j = math.modf(len(centroids_distances_sorted) * 0.99)
-    print(fr"     DEBUG: working on the 1% of the biggest areas, from {j} to " + str(len(centroids_distances_sorted)))
+    if args.artifacts_debug:
+        dbg_imgn += 1
+        out_fn = re.sub(r"\.jpg", fr"_artifacts_{dbg_imgn:02d}_centroids_distances_sorted.txt", os.path.join(dbg_destination, os.path.basename(image_path)))
+        print(fr"     DEBUG: saving centroids_distances_sorted to: " + out_fn)
+        with open(out_fn, "w") as f:
+            # header
+            print("centroid_n,contour_n,sum_measure,x,y", file=f)
 
+            # data
+            for i in range(len(centroids_distances_sorted)):
+                print(str(i) + 
+                      "," + str(centroids_distances_sorted[i]['contour_n']) + 
+                      "," + str(centroids_distances_sorted[i]['sum_distances']) +
+                      "," + str(centroids_distances_sorted[i]['centroid'][0]) +
+                      "," + str(centroids_distances_sorted[i]['centroid'][1]),
+                      file=f)
+
+    _, j = math.modf(len(centroids_distances_sorted) * args.artifacts_majority_threshold)
+    if args.artifacts_debug:
+        print(fr"     DEBUG: working on the " + str(1 - args.artifacts_majority_threshold) +
+              fr" of the biggest areas, from {j} to " + str(len(centroids_distances_sorted) - 1))
 
     # Find the bounding rectangle of all contours except artifacts
     x_min, y_min, x_max, y_max = float('inf'), float('inf'), 0, 0
@@ -197,7 +211,7 @@ def remove_artifacts(
                 prev_distance = centroids_distances_sorted[i]['sum_distances']
             else:
                 if jump_centroid is None:
-                    if (centroids_distances_sorted[i]['sum_distances'] - prev_distance) / prev_distance > 0.15:
+                    if (centroids_distances_sorted[i]['sum_distances'] - prev_distance) / prev_distance > args.artifacts_discontinuity_threshold:
                         jump_centroid = i
                     else:
                         # not an artifact
@@ -218,15 +232,21 @@ def remove_artifacts(
                     if y > y_max:
                         y2_bottom = min(y, y2_bottom)
 
-            print(fr"{i}: " +
-                str(centroids_distances_sorted[i]['sum_distances']) +
-                ("" if jump_centroid is None else " - JUMP"))
-
-    print(fr'DEBUG: main picture rect - x_min,x_max,y_min,y_max: {x_min},{x_max},{y_min},{y_max}')
-    print(fr'DEBUG: main picture rect w/o artifacts - y1_top:y2_bottom, x1_left:x2_right: {y1_top},{y2_bottom},{x1_left},{x2_right}')
+            if args.artifacts_debug:
+                print(fr"{i}: " +
+                    str(centroids_distances_sorted[i]['sum_distances']) +
+                    ("" if jump_centroid is None else " - JUMP"))
 
     # Crop the image
     cropped = img[y1_top:y2_bottom, x1_left:x2_right]
+
+    if args.artifacts_debug:
+        print(fr'DEBUG: main picture rect - x_min,x_max,y_min,y_max: {x_min},{x_max},{y_min},{y_max}')
+        print(fr'DEBUG: main picture rect w/o artifacts - y1_top:y2_bottom, x1_left:x2_right: {y1_top},{y2_bottom},{x1_left},{x2_right}')
+        dbg_imgn += 1
+        out_fn = re.sub(r"\.jpg", fr"_artifacts_{dbg_imgn:02d}_no_artifacts.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
+        write_jpeg(out_fn, cropped)
+        print(fr"     DEBUG: saved image without artifacts to: " + out_fn)
 
     return cropped
 
@@ -317,7 +337,7 @@ def fix_image_rotation_canny_hough(
         dbg_destination = os.path.dirname(image_path)
 
     print (str(datetime.datetime.now()) + " " + fr"fixing rotation (canny + hough) on {image_path}" + (" (image data)" if img_data is not None else ""))
-    print (str(datetime.datetime.now()) + " " + fr"    gaussian blur {gaussian1}/{gaussian2}")
+    print (str(datetime.datetime.now()) + " " + fr"    gaussian blur {args.canny_gaussian1}/{args.canny_gaussian2}")
     print (str(datetime.datetime.now()) + " " + fr"    canny threshold1/threshold2/padding {threshold1}/{threshold2}/{padding}")
     print (str(datetime.datetime.now()) + " " + fr"    hough theta_resolution deg/rad {hough_theta_resolution_degrees}/{hough_theta_resolution_rad}")
     print (str(datetime.datetime.now()) + " " + fr"    hough rho_resolution min/max {hough_rho_resolution_pixels}/{hough_rho_resolution_pixels_max}")
@@ -342,7 +362,7 @@ def fix_image_rotation_canny_hough(
         print(fr"     DEBUG: saved grayscale to: " + out_fn)
 
     # Apply Gaussian blur to reduce noise
-    blurred = cv2.GaussianBlur(gray, (gaussian1, gaussian2), 0)
+    blurred = cv2.GaussianBlur(gray, (args.canny_gaussian1, args.canny_gaussian2), 0)
 
     if args.canny_debug:
         out_fn = re.sub(r"\.jpg", "_canny_02_blurred.jpg", os.path.join(dbg_destination, os.path.basename(image_path)))
@@ -387,24 +407,25 @@ def fix_image_rotation_canny_hough(
         lines = hough_filter_lines(lines, args)
 
         if lines is None:
-            if random.randint(1, 2) == 1:
-                if hough_threshold >= hough_threshold_minimal:
-                    hough_threshold = hough_threshold - 10
-                    print (str(datetime.datetime.now()) + " " + fr"    decreased threshold to {hough_threshold}")
-                else:
-                    print (str(datetime.datetime.now()) + " " + fr"    threshold below min {hough_threshold_minimal}, won't decrease anymore")
-            else:
-                if hough_rho <= hough_rho_resolution_pixels_max:
-                    print (str(datetime.datetime.now()) + " " + fr"    increased rho to {hough_rho}")
-                    hough_rho = hough_rho + 0.1
-                else:
-                    print (str(datetime.datetime.now()) + " " + fr"    rho above max {hough_rho_resolution_pixels_max}, won't increase anymore")
+            tmp_random = random.randint(1, 2)
+
+            if (hough_threshold >= hough_threshold_minimal and tmp_random == 1) or \
+                (hough_threshold >= hough_threshold_minimal and not(hough_rho <= hough_rho_resolution_pixels_max)):
+                hough_threshold = hough_threshold - 10
+                print (str(datetime.datetime.now()) + " " + fr"    decreased threshold to {hough_threshold}")
+            elif (hough_rho <= hough_rho_resolution_pixels_max and tmp_random == 2) or \
+                (hough_rho <= hough_rho_resolution_pixels_max and not (hough_threshold >= hough_threshold_minimal)):
+                print (str(datetime.datetime.now()) + " " + fr"    increased rho to {hough_rho}")
+                hough_rho = hough_rho + 0.1
+
+            if not(hough_rho <= hough_rho_resolution_pixels_max) and not (hough_threshold >= hough_threshold_minimal):
+                print (str(datetime.datetime.now()) + " " + fr"both hough_threshold is below {hough_threshold_minimal} and " +
+                       fr"hough_rho above {hough_rho_resolution_pixels_max}, can't continue searching")
 
     sum_lines = 0
     sum_deviation = 0
 
     if lines is not None:
-
         img_lines = cv2.cvtColor(edges, cv2.COLOR_GRAY2BGR)
         lines = hough_filter_lines(lines, args)
 
@@ -475,8 +496,6 @@ def remove_empty_space_edge_detection_canny(
         dbg_imgn = 0
         ):
     
-    threshold1 = hasattr(args, 'canny_threshold1') and args.canny_threshold1 or 380
-    threshold2 = hasattr(args, 'canny_threshold2') and args.canny_threshold2 or 380
     padding = hasattr(args, 'canny_padding') and args.canny_padding or 30
 
     if destination_dir is not None:
@@ -484,14 +503,14 @@ def remove_empty_space_edge_detection_canny(
     else:
         dbg_destination = os.path.dirname(image_path)
 
-    if img_data is not None:
-        print (fr"removing empty space (canny) from {image_path} (image data), threshold1/threshold2/padding {threshold1}/{threshold2}/{padding}")
+    print (str(datetime.datetime.now()) + " " + fr"removing empty space (canny) on {image_path}" + (" (image data)" if img_data is not None else ""))
+    print (str(datetime.datetime.now()) + " " + fr"    gaussian blur {args.canny_gaussian1}/{args.canny_gaussian2}")
+    print (str(datetime.datetime.now()) + " " + fr"    canny threshold1/threshold2/padding {args.canny_threshold1}/{args.canny_threshold2}/{padding}")
 
+    if img_data is not None:
         # Reuse previously generated image data
         img = img_data
     else:
-        print (fr"removing empty space (canny) from {image_path}, threshold1/threshold2/padding {threshold1}/{threshold2}/{padding}")
-
         # Read the image from the file
         img = cv2.imread(image_path)
 
@@ -508,11 +527,7 @@ def remove_empty_space_edge_detection_canny(
         print(fr"     DEBUG: saved grayscale to: " + out_fn)
     
     # Apply Gaussian blur to reduce noise
-    blurred = cv2.GaussianBlur(gray,
-        (
-            hasattr(args, 'canny_gaussian1') and args.canny_gaussian1 or 5,
-            hasattr(args, 'canny_gaussian2') and args.canny_gaussian2 or 5
-        ), 0)
+    blurred = cv2.GaussianBlur(gray, (args.canny_gaussian1, args.canny_gaussian2), 0)
     
     if args.canny_debug:
         dbg_imgn += 1
@@ -521,7 +536,7 @@ def remove_empty_space_edge_detection_canny(
         print(fr"     DEBUG: saved blurred to: " + out_fn)
     
     # Perform Canny edge detection
-    edges = cv2.Canny(blurred, threshold1, threshold2)
+    edges = cv2.Canny(blurred, args.canny_threshold1, args.canny_threshold2)
 
     if args.canny_debug:
         dbg_imgn += 1
@@ -536,6 +551,14 @@ def remove_empty_space_edge_detection_canny(
     
     if len(contours) == 0:
         return img
+
+    if args.canny_debug:
+        dbg_imgn += 1
+        out_fn = re.sub(r"\.jpg", fr"_canny_{dbg_imgn:02d}_contours.txt", os.path.join(dbg_destination, os.path.basename(image_path)))
+        print(fr"     DEBUG: saving contours to: " + out_fn)
+        with open(out_fn, "w") as f:
+            for contour in contours:
+                print(contour, file=f)
 
     # Find the bounding rectangle of all contours
     x_min, y_min, x_max, y_max = float('inf'), float('inf'), 0, 0
@@ -557,42 +580,6 @@ def remove_empty_space_edge_detection_canny(
 
     # Crop the image
     cropped = img[y_min:y_max, x_min:x_max]
-    
-    return cropped
-
-def remove_non_uniform_empty_space_otsu(image_path, threshold=0):
-    # Read the image
-    img = cv2.imread(image_path)
-    
-    # Convert to grayscale
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    
-    # Apply Gaussian blur to reduce noise
-    blurred = cv2.GaussianBlur(gray, (5, 5), 0)
-    
-    # Use Otsu's method for thresholding
-    _, thresh = cv2.threshold(blurred, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-    
-    # Find contours
-    contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    
-    # Find the largest contour (assumed to be the main content)
-    main_contour = max(contours, key=cv2.contourArea)
-    
-    # Get bounding rectangle
-    x, y, w, h = cv2.boundingRect(main_contour)
-    
-    # Add some padding
-    padding = threshold
-    x = max(0, x - padding)
-    y = max(0, y - padding)
-    w = min(img.shape[1] - x, w + 2*padding)
-    h = min(img.shape[0] - y, h + 2*padding)
-
-    print(fr"Largest contour: x {x}, y {y}, w {w}, h {h}")
-    
-    # Crop the image
-    cropped = img[y:y+h, x:x+w]
     
     return cropped
 
@@ -663,11 +650,11 @@ def main():
     parser.add_argument('--filename', type=str)
     parser.add_argument('--source-dir', type=str)
     parser.add_argument('--destination-dir', type=str)
-    parser.add_argument('--run', type=str, default='', help='mandatory, mode of operation. one of: trim-canny, fix-rotation, remove-artifacts, clean-all')
-    parser.add_argument('--canny-threshold1', type=int)
-    parser.add_argument('--canny-threshold2', type=int)
-    parser.add_argument('--canny-gaussian1', type=int)
-    parser.add_argument('--canny-gaussian2', type=int)
+    parser.add_argument('--run', type=str, default='', help='mandatory, mode of operation. one of: trim-canny, fix-rotation, remove-artifacts, clean-all, image-info')
+    parser.add_argument('--canny-threshold1', type=int, default=10)
+    parser.add_argument('--canny-threshold2', type=int, default=1)
+    parser.add_argument('--canny-gaussian1', type=int, default=71)
+    parser.add_argument('--canny-gaussian2', type=int, default=71)
     parser.add_argument('--canny-padding', type=int)
     parser.add_argument('--canny-debug', type=bool, default=False)
     parser.add_argument('--torch-threshold', type=int)
@@ -680,17 +667,18 @@ def main():
     parser.add_argument('--hough-threshold-minimal', type=int, help='number of points in a line required to detect a line - min')
     parser.add_argument('--copy-source-to-destination', type=bool, default=False)
     parser.add_argument('--skip-existing', type=bool, default=False, help='if destination  exists, do not overwrite')
-    parser.add_argument('--artifacts-debug', type=bool, default=False)
-   
+    parser.add_argument('--artifacts-debug', type=bool, default=False)   
+    parser.add_argument('--artifacts-majority-threshold', type=float, default=0.99, help='% of centroids by artifact measure not considered artifacts')
+    parser.add_argument('--artifacts-discontinuity-threshold', type=float, default=0.15, help='% of measure jump considered discontinuity')
     args = parser.parse_args()
 
     source_dir = args.source_dir if hasattr(args, 'source_dir') else None
     destination_dir = args.destination_dir if hasattr(args, 'destination_dir') else None
     input_filename = args.filename if hasattr(args, 'filename') else None
 
-    if (args.run not in ["trim-canny", "trim-torch", "fix-rotation", "remove-artifacts", "clean-all"]):
+    if (args.run not in ["trim-canny", "trim-torch", "fix-rotation", "remove-artifacts", "clean-all", "image-info"]):
         parser.print_help()
-        print("\n" fr"Need --run with one of: trim-canny, trim-torch, fix-rotation, remove-artifacts, clean-all" "\n")
+        print("\n" fr"Need --run with one of: trim-canny, trim-torch, fix-rotation, remove-artifacts, clean-all, image-info" "\n")
         sys.exit(2)
 
     if (source_dir is not None and input_filename is not None):
@@ -718,8 +706,8 @@ def main():
                 if args.run == r"trim-canny":
                     output_filename = re.sub(r"\.jpg", "_canny_cropped.jpg", os.path.join(destination_dir, afn))
 
-                    if hasattr(args, 'skip_existing') and args.skip_existing and (os.path.isfile(output_filename)):
-                        print(fr"skipping existing {output_filename}")
+                    if args.skip_existing and (os.path.isfile(output_filename)):
+                        print(str(datetime.datetime.now()) + fr"     skipping existing {output_filename}")
                         continue
 
                     cropped_image = remove_empty_space_edge_detection_canny(
@@ -733,8 +721,8 @@ def main():
                 if args.run == r"fix-rotation":
                     output_filename = re.sub(r"\.jpg", "_fixed_rotation_cropped.jpg", os.path.join(destination_dir, afn))
                     
-                    if hasattr(args, 'skip_existing') and args.skip_existing and (os.path.isfile(output_filename)):
-                        print(fr"skipping existing {output_filename}")
+                    if args.skip_existing and (os.path.isfile(output_filename)):
+                        print(str(datetime.datetime.now()) + fr"     skipping existing {output_filename}")
                         continue
 
                     rotated_image = fix_image_rotation_canny_hough(
@@ -754,8 +742,8 @@ def main():
                 if args.run == r"clean-all":
                     output_filename = re.sub(r"\.jpg", "_clean_all.jpg", os.path.join(destination_dir, afn))
 
-                    if hasattr(args, 'skip_existing') and args.skip_existing and (os.path.isfile(output_filename)):
-                        print(fr"skipping existing {output_filename}")
+                    if args.skip_existing and (os.path.isfile(output_filename)):
+                        print(str(datetime.datetime.now()) + fr"     skipping existing {output_filename}")
                         continue
 
                     image_without_artifacts = remove_artifacts(
@@ -765,12 +753,12 @@ def main():
                         destination_dir = destination_dir,
                         dbg_imgn = 0)
                     rotated_image = fix_image_rotation_canny_hough(
-                        image_path = input_filename,
+                        image_path = os.path.join(source_dir, afn),
                         img_data = image_without_artifacts,
                         args = args,
                         destination_dir = destination_dir)
                     cropped_image = remove_empty_space_edge_detection_canny(
-                        image_path = input_filename,
+                        image_path = os.path.join(source_dir, afn),
                         img_data = rotated_image,
                         args = args,
                         dbg_imgn = 5,
@@ -877,6 +865,18 @@ def main():
                         destination_dir = tmp_destination)
                     write_jpeg(output_filename, cropped_image)
                     print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
+
+            if args.run == r"image-info":
+                with open(input_filename, 'rb') as f:
+                    # Read the EXIF data
+                    tags = exifread.process_file(f)
+
+                    print(tags)
+
+                img = cv2.imread(input_filename)
+                jpeg_quality = estimate_jpeg_quality(img)
+                print(f"Estimated JPEG quality: {jpeg_quality}%")
+
         else:
             parser.print_help()
             print("\n" fr"Need an image file to proceed, got: [{input_filename}] (check if it exists)" "\n")
