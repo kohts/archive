@@ -189,7 +189,7 @@ def remove_artifacts(
         print(fr"     DEBUG: working on the " + str(1 - args.artifacts_majority_threshold) +
               fr" of the biggest areas, from {j} to " + str(len(centroids_distances_sorted) - 1))
 
-    # Find the bounding rectangle of all contours except artifacts
+    # Find the bounding rectangle of all centroids except artifacts
     x_min, y_min, x_max, y_max = float('inf'), float('inf'), 0, 0
 
     # find the biggest bounding rect without artifacts (TODO: replace with nearby contours without artifacts)
@@ -206,7 +206,7 @@ def remove_artifacts(
             x_max = max(x_max, x + w)
             y_max = max(y_max, y + h)        
         else:
-            # 1% - potential artifacts
+            # artifacts_discontinuity_threshold - potential artifacts
             if prev_distance is None:
                 prev_distance = centroids_distances_sorted[i]['sum_distances']
             else:
@@ -493,7 +493,8 @@ def remove_empty_space_edge_detection_canny(
         img_data,
         destination_dir,
         args,
-        dbg_imgn = 0
+        dbg_imgn = 0,
+        empty_space_detection = "contours"
         ):
     
     padding = hasattr(args, 'canny_padding') and args.canny_padding or 30
@@ -560,14 +561,149 @@ def remove_empty_space_edge_detection_canny(
             for contour in contours:
                 print(contour, file=f)
 
-    # Find the bounding rectangle of all contours
+    # Find the bounding rectangle of all contours or centroids except artifacts (depending on the method)
     x_min, y_min, x_max, y_max = float('inf'), float('inf'), 0, 0
-    for contour in contours:
-        x, y, w, h = cv2.boundingRect(contour)
-        x_min = min(x_min, x)
-        y_min = min(y_min, y)
-        x_max = max(x_max, x + w)
-        y_max = max(y_max, y + h)
+
+    if args.canny_debug:
+        print(fr"empty space detection method: {empty_space_detection}")
+
+    if empty_space_detection == 'contours':
+        # Find the bounding rectangle of all contours
+        for contour in contours:
+            x, y, w, h = cv2.boundingRect(contour)
+            x_min = min(x_min, x)
+            y_min = min(y_min, y)
+            x_max = max(x_max, x + w)
+            y_max = max(y_max, y + h)
+    elif empty_space_detection == 'centroids':
+        height, width = edges.shape
+        print(fr"height / width: {height} / {width}")
+
+        # Extract centroids of all contours
+        centroids = []
+        centroids_with_annotations = []
+        for i in range(len(contours)):
+            M = cv2.moments(contours[i])
+
+            # M['m00'] can be zero in a few scenarios:
+            #   1. Empty contour: If the contour has no points or is empty, all moments including M['m00'] will be zero.
+            #   2. Very small contour: For extremely small contours (e.g., a single pixel), numerical precision issues might lead to M['m00'] being computed as zero.
+            #   3. Non-contour input: If the input to cv2.moments() is not a valid contour (e.g., an all-zero array), it may result in zero moments.
+            #   4. Binary image with all zeros: If the contour is extracted from a binary image that contains all zeros, M['m00'] will be zero.
+            #
+            # It's important to note that M['m00'] represents the 0th order moment, which is equivalent
+            # to the area of the contour. In most practical cases with valid contours, M['m00'] should be positive.
+            # When using moments for further calculations (like finding centroids), it's a good practice
+            # to check if M['m00'] is zero to avoid division by zero errors.
+
+            if M['m00'] != 0:
+                cx = int(M['m10'] / M['m00'])
+                cy = int(M['m01'] / M['m00'])
+
+                centroids.append((cx, cy))
+
+                # 0: {'centroid': (3266, 5983)}
+                # 1: {'centroid': (1578, 4523)}
+                # 6: {'centroid': (1590, 4522)}
+                # 7: {'centroid': (1593, 4515)}
+                # 8: {'centroid': (1561, 4515)}
+                centroids_with_annotations.append({
+                    'centroid': (cx,cy),
+                    'contour_n': i,
+                    'centroid_n': len(centroids) - 1
+                    })
+
+        print(fr"got " + str(len(centroids_with_annotations)) + " centroids from " + str(len(contours)) + " contours")
+
+        if len(centroids) < 2:
+            return 0  # Not enough centroids to calculate artifact measure
+
+        # Calculate pairwise distances between all centroids
+        dist_matrix = distance_matrix(centroids, centroids)
+
+        # For each centroid, calculate the sum of distances to all other centroids
+        for i in range(len(centroids)):
+            distances = dist_matrix[i]
+            centroids_with_annotations[i]['sum_distances'] = np.round(np.sum(distances))
+
+        if args.artifacts_debug:
+            dbg_imgn += 1
+            out_fn = re.sub(r"\.jpg", fr"_artifacts_{dbg_imgn:02d}_centroids.txt", os.path.join(dbg_destination, os.path.basename(image_path)))
+            print(fr"     DEBUG: saving centroids to: " + out_fn)
+            with open(out_fn, "w") as f:
+                for i in range(len(centroids_with_annotations)):
+                    print(str(i) + ": " + str(centroids_with_annotations[i]), file=f)
+
+        centroids_distances_sorted = sorted(centroids_with_annotations, key=lambda x: x['sum_distances'])
+
+        if args.artifacts_debug:
+            dbg_imgn += 1
+            out_fn = re.sub(r"\.jpg", fr"_artifacts_{dbg_imgn:02d}_centroids_distances_sorted.txt", os.path.join(dbg_destination, os.path.basename(image_path)))
+            print(fr"     DEBUG: saving centroids_distances_sorted to: " + out_fn)
+            with open(out_fn, "w") as f:
+                # header
+                print("centroid_n,contour_n,sum_measure,x,y", file=f)
+
+                # data
+                for i in range(len(centroids_distances_sorted)):
+                    print(str(i) + 
+                        "," + str(centroids_distances_sorted[i]['contour_n']) + 
+                        "," + str(centroids_distances_sorted[i]['sum_distances']) +
+                        "," + str(centroids_distances_sorted[i]['centroid'][0]) +
+                        "," + str(centroids_distances_sorted[i]['centroid'][1]),
+                        file=f)
+
+        _, j = math.modf(len(centroids_distances_sorted) * args.artifacts_majority_threshold)
+        if args.artifacts_debug:
+            print(fr"     DEBUG: working on the " + str(1 - args.artifacts_majority_threshold) +
+                fr" of the biggest areas, from {j} to " + str(len(centroids_distances_sorted) - 1))
+
+        # find the biggest bounding rect without artifacts (TODO: replace with nearby contours without artifacts)
+        x1_left, y1_top, x2_right, y2_bottom = 0, 0, width, height
+
+        prev_distance = None
+        jump_centroid = None
+        for i in range(len(centroids_distances_sorted)):
+            if i < j:
+                # can't be an artifact - by definition
+                x, y, w, h = cv2.boundingRect(contours[centroids_distances_sorted[i]['contour_n']])
+                x_min = min(x_min, x)
+                y_min = min(y_min, y)
+                x_max = max(x_max, x + w)
+                y_max = max(y_max, y + h)        
+            else:
+                # artifacts_discontinuity_threshold - potential artifacts
+                if prev_distance is None:
+                    prev_distance = centroids_distances_sorted[i]['sum_distances']
+                else:
+                    if jump_centroid is None:
+                        if (centroids_distances_sorted[i]['sum_distances'] - prev_distance) / prev_distance > args.artifacts_discontinuity_threshold:
+                            jump_centroid = i
+                        else:
+                            # not an artifact
+                            x, y, w, h = cv2.boundingRect(contours[centroids_distances_sorted[i]['contour_n']])
+                            x_min = min(x_min, x)
+                            y_min = min(y_min, y)
+                            x_max = max(x_max, x + w)
+                            y_max = max(y_max, y + h)
+
+                    if jump_centroid:
+                        x, y, w, h = cv2.boundingRect(contours[centroids_distances_sorted[i]['contour_n']])
+                        if x + w < x_min:
+                            x1_left = max(x + w, x1_left)
+                        if x > x_max:
+                            x2_right = min(x, x2_right)
+                        if y + h < y_min:
+                            y1_top = max(y + h, y1_top)
+                        if y > y_max:
+                            y2_bottom = min(y, y2_bottom)
+
+                if args.artifacts_debug:
+                    print(fr"{i}: " +
+                        str(centroids_distances_sorted[i]['sum_distances']) +
+                        ("" if jump_centroid is None else " - JUMP"))
+    else:
+        raise ValueError("Invalid empty space detection method")
 
     # Add padding
     x_min = max(0, x_min - padding)
@@ -655,7 +791,7 @@ def main():
     parser.add_argument('--canny-threshold2', type=int, default=1)
     parser.add_argument('--canny-gaussian1', type=int, default=71)
     parser.add_argument('--canny-gaussian2', type=int, default=71)
-    parser.add_argument('--canny-padding', type=int)
+    parser.add_argument('--canny-padding', type=int, default=100)
     parser.add_argument('--canny-debug', type=bool, default=False)
     parser.add_argument('--torch-threshold', type=int)
     parser.add_argument('--torch-padding', type=int)
@@ -762,7 +898,8 @@ def main():
                         img_data = rotated_image,
                         args = args,
                         dbg_imgn = 5,
-                        destination_dir = destination_dir)
+                        destination_dir = destination_dir,
+                        empty_space_detection = "centroids")
                     write_jpeg(output_filename, cropped_image)
                     print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
 
@@ -862,7 +999,8 @@ def main():
                         img_data = rotated_image,
                         args = args,
                         dbg_imgn = 5,
-                        destination_dir = tmp_destination)
+                        destination_dir = tmp_destination,
+                        empty_space_detection = "centroids")
                     write_jpeg(output_filename, cropped_image)
                     print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
 
