@@ -29,7 +29,7 @@ class ScannedPage:
                  args = defaultdict(lambda:None)
                  ):
         if not os.path.isfile(filename):
-            raise ValueError("Need an image file to proceed, got: [{filename}] (check if it exists)")
+            raise ValueError(fr"Need an image file to proceed, got: [{filename}] (check if it exists)")
 
         # filename with original scan
         self.filename = filename
@@ -39,6 +39,9 @@ class ScannedPage:
 
         # image transformations
         self.transforms = defaultdict(lambda:None)
+
+        # written images
+        self.written_images = defaultdict(lambda:None)
 
         self.args = args
 
@@ -57,16 +60,25 @@ class ScannedPage:
         self.debug_print(fr"reading {self.filename}")
         self.images['original'] = cv2.imread(self.filename)
 
-    def write(self, image_type):
+    def write(self, image_type, image_suffix = None):
+        if self.written_images[image_type] is not None:
+            raise ValueError(fr"Image type [{image_type}] has already been written into " + str(self.written_images[image_type]))
+
         if self.images[image_type] is None:
             raise ValueError(fr"Requested to write non-existent image type '{image_type}'")
 
-        output_filename = re.sub(r"\.jpg", fr"_{image_type}.jpg", os.path.join(self.destination_path, os.path.basename(self.filename)))
+        if image_suffix is None:
+            image_suffix = image_type
+
+        output_filename = re.sub(r"\.jpg",
+                                 fr"_{image_suffix}.jpg",
+                                 os.path.join(self.destination_path, os.path.basename(self.filename)))
 
         self.debug_print(fr"writing {image_type} to {output_filename}")
         write_jpeg(output_filename, self.images[image_type])
+        self.written_images[image_type] = output_filename
 
-    def remove_artifacts(self):
+    def prepare_edges(self):
         if self.images['original'] is None:
             self.read()
 
@@ -95,16 +107,13 @@ class ScannedPage:
             if self.args.debug:
                 self.write('original_gray_blurred_edges')
 
+    def prepare_edge_contours(self):
         if self.transforms['original_gray_blurred_edges_contours'] is None:
             contours, _ = cv2.findContours(self.images['original_gray_blurred_edges'], cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
             self.transforms['original_gray_blurred_edges_contours'] = contours
+            self.debug_print(fr"Got [" + str(len(self.transforms['original_gray_blurred_edges_contours'])) + "] contours from edges")
 
-            # can't continue the transform
-            if len(contours) == 0:
-                return self.images['original']
-
-            self.debug_print(fr"prepared contours from edges")
-
+    def prepare_edge_contours_centroids(self):
         if self.transforms['original_gray_blurred_edges_contours_centroids'] is None:
             # Extract centroids of all contours
             centroids = []
@@ -143,15 +152,34 @@ class ScannedPage:
             self.transforms['original_gray_blurred_edges_contours_centroids'] = centroids
             self.transforms['original_gray_blurred_edges_contours_centroids_annotations'] = centroids_with_annotations
 
-            self.debug_print(fr"prepared centroids from contours")
+            self.debug_print(fr"prepared [" + str(len(centroids)) + "] centroids from [" + 
+                             str(len(self.transforms['original_gray_blurred_edges_contours'])) +
+                             "] contours")
+
+    def detect_artifacts(self):
+        self.prepare_edges()
+        self.prepare_edge_contours()
+
+        # can't continue the transform
+        if len(self.transforms['original_gray_blurred_edges_contours']) == 0:
+            return {
+                'error': "Can't find contours in the picture",
+                'image': self.images['original']
+            }
+
+        self.prepare_edge_contours_centroids()
+
+        if len(self.transforms['original_gray_blurred_edges_contours_centroids']) < 2:
+            return {
+                'error': "Can't find enough centroids to calculate artifact measure",
+                'image': self.images['original']
+            }
 
         if self.transforms['original_gray_blurred_edges_contours_centroids_artifact_measure'] is None:
             centroids = self.transforms['original_gray_blurred_edges_contours_centroids']
             centroids_with_annotations = self.transforms['original_gray_blurred_edges_contours_centroids_annotations']
 
-            if len(centroids) < 2:
-                return self.images['original']  # Not enough centroids to calculate artifact measure
-
+            self.debug_print(fr"generating distance matrix")
             # time consuming if > 20,000 centroids
             dist_matrix = distance_matrix(centroids, centroids)
 
@@ -168,7 +196,10 @@ class ScannedPage:
 
             # there should be at least one centroid considered the subject of an image
             if j < 1:
-                raise ValueError(fr"{self.args.artifacts_majority_threshold} is too low, try increasing")
+                return {
+                    'error': fr"{self.args.artifacts_majority_threshold} is too low, try increasing",
+                    'image': self.images['original']
+                }
 
             # Find the bounding rectangle of all centroids except artifacts
             x_min, y_min, x_max, y_max = float('inf'), float('inf'), 0, 0
@@ -216,35 +247,88 @@ class ScannedPage:
                         if y > y_max:
                             y2_bottom = min(y, y2_bottom)
 
+                    self.debug_print(
+                        fr"{i}: " + str(centroids_distances_sorted[i]['sum_distances']) + ("" if jump_centroid is None else " - JUMP")
+                    )
+
                 prev_distance = centroids_distances_sorted[i]['sum_distances']
 
             self.transforms['original_gray_blurred_edges_contours_centroids_artifact_measure'] = centroids_distances_sorted
 
-            self.transforms['original_gray_blurred_edges_subject_with_space'] = {
+            self.transforms['original_gray_blurred_edges_subject_max_space_centroids'] = {
                 'x_min': x1_left,
                 'x_max': x2_right,
                 'y_min': y1_top,
                 'y_max': y2_bottom
             }
-            self.transforms['original_gray_blurred_edges_subject_without_space'] = {
+            self.transforms['original_gray_blurred_edges_subject_min_space_centroids'] = {
                 'x_min': x_min,
                 'x_max': x_max,
                 'y_min': y_min,
                 'y_max': y_max
             }
 
-            self.images['original_subject_only'] = self.images['original'][
-                self.transforms['original_gray_blurred_edges_subject_without_space']['y_min']:self.transforms['original_gray_blurred_edges_subject_without_space']['y_max'],
-                self.transforms['original_gray_blurred_edges_subject_without_space']['x_min']:self.transforms['original_gray_blurred_edges_subject_without_space']['x_max']
+            self.images['original_subject_min_space'] = self.images['original'][
+                self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['y_min']: \
+                    self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['y_max'],
+                self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['x_min']: \
+                    self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['x_max']
                 ]
 
             self.images['original_subject_max_space'] = self.images['original'][
-                self.transforms['original_gray_blurred_edges_subject_with_space']['y_min']:self.transforms['original_gray_blurred_edges_subject_with_space']['y_max'],
-                self.transforms['original_gray_blurred_edges_subject_with_space']['x_min']:self.transforms['original_gray_blurred_edges_subject_with_space']['x_max']
+                self.transforms['original_gray_blurred_edges_subject_max_space_centroids']['y_min']: \
+                    self.transforms['original_gray_blurred_edges_subject_max_space_centroids']['y_max'],
+                self.transforms['original_gray_blurred_edges_subject_max_space_centroids']['x_min']: \
+                    self.transforms['original_gray_blurred_edges_subject_max_space_centroids']['x_max']
                 ]
 
-        #self.write('original_subject_only')
-        #self.write('original_subject_max_space')
+        return {
+            'error': False,
+            'image': self.images['original_subject_max_space']
+        }
+
+    def detect_empty_space_edge_detection_canny(self, empty_space_detection = "contours"):
+        self.debug_print(fr"empty space detection method: {empty_space_detection}")
+
+        x_min, y_min, x_max, y_max = float('inf'), float('inf'), 0, 0
+
+        if empty_space_detection == 'contours':
+            self.prepare_edges()
+            self.prepare_edge_contours()
+
+            # Find the bounding rectangle of all contours
+            for contour in self.transforms['original_gray_blurred_edges_contours']:
+                x, y, w, h = cv2.boundingRect(contour)
+                x_min = min(x_min, x)
+                y_min = min(y_min, y)
+                x_max = max(x_max, x + w)
+                y_max = max(y_max, y + h)
+
+        elif empty_space_detection == 'centroids':
+            res = self.detect_artifacts()
+            if res['error']:
+                return res
+
+            x_min = self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['x_min']
+            x_max = self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['x_max']
+            y_min = self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['y_min']
+            y_max = self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['y_max']
+        else:
+            raise ValueError(fr"Invalid empty space detection method")
+
+        # Add padding
+        x_min = max(0, x_min - self.args.canny_padding)
+        y_min = max(0, y_min - self.args.canny_padding)
+        x_max = min(self.images['original'].shape[1], x_max + self.args.canny_padding)
+        y_max = min(self.images['original'].shape[0], y_max + self.args.canny_padding)
+
+        self.images['original_subject_min_space_padded'] = self.images['original'][y_min:y_max,x_min:x_max]
+
+        return {
+            'error': False,
+            'image': self.images['original_subject_min_space_padded']
+        }
+
 
 def estimate_jpeg_quality(image):
     """
@@ -257,7 +341,7 @@ def estimate_jpeg_quality(image):
         int: The estimated JPEG quality (0-100).
     """
     if image.dtype != np.uint8:
-        raise ValueError("Input image must be of type np.uint8")
+        raise ValueError(fr"Input image must be of type np.uint8")
     
     # Compute the variance of the image
     variance = np.var(image)
@@ -936,7 +1020,7 @@ def remove_empty_space_edge_detection_canny(
                         str(centroids_distances_sorted[i]['sum_distances']) +
                         ("" if jump_centroid is None else " - JUMP"))
     else:
-        raise ValueError("Invalid empty space detection method")
+        raise ValueError(fr"Invalid empty space detection method")
 
     # Add padding
     x_min = max(0, x_min - padding)
@@ -951,60 +1035,6 @@ def remove_empty_space_edge_detection_canny(
     cropped = img[y_min:y_max, x_min:x_max]
     
     return cropped
-
-def remove_empty_space_torch(image_path, args):
-    threshold = hasattr(args, 'torch_threshold') and args.torch_threshold or 30
-    padding = hasattr(args, 'torch_padding') and args.torch_padding or 10
-
-    print (fr"running torch on {image_path}, threshold/padding {threshold}/{padding}")
-
-    # Load the image
-    image = Image.open(image_path)
-    
-    # Convert to PyTorch tensor
-    to_tensor = transforms.ToTensor()
-    img_tensor = to_tensor(image).unsqueeze(0)  # Add batch dimension
-
-    # Convert to grayscale
-    grayscale = torch.mean(img_tensor, dim=1, keepdim=True)
-
-    # Compute gradients (simple edge detection)
-    sobel_x = torch.tensor([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]).float().view(1, 1, 3, 3)
-    sobel_y = torch.tensor([[-1, -2, -1], [0, 0, 0], [1, 2, 1]]).float().view(1, 1, 3, 3)
-
-    edges_x = torch.abs(torch.nn.functional.conv2d(grayscale, sobel_x, padding=1))
-    edges_y = torch.abs(torch.nn.functional.conv2d(grayscale, sobel_y, padding=1))
-    edges = torch.sqrt(edges_x**2 + edges_y**2)
-
-    # Threshold the edges
-    edges_binary = (edges > threshold).float()
-
-    # Find non-zero indices
-    non_zero = torch.nonzero(edges_binary.squeeze())
-
-    print (fr"non zero indices found: " + str(len(non_zero)))
-    
-    if len(non_zero) == 0:
-        return image  # Return original if no edges found
-
-    # Compute bounding box
-    y_min, x_min = torch.min(non_zero, dim=0).values
-    y_max, x_max = torch.max(non_zero, dim=0).values
-
-    # Add padding
-    x_min = max(0, x_min - padding)
-    y_min = max(0, y_min - padding)
-    x_max = min(img_tensor.shape[3] - 1, x_max + padding)
-    y_max = min(img_tensor.shape[2] - 1, y_max + padding)
-
-    # Crop the image tensor
-    cropped_tensor = img_tensor[:, :, y_min:y_max+1, x_min:x_max+1]
-
-    # Convert back to PIL Image
-    to_pil = transforms.ToPILImage()
-    cropped_image = to_pil(cropped_tensor.squeeze(0))
-
-    return cropped_image
 
 def check_and_create_destination(destination_dir):
     if (not os.path.isdir(destination_dir)):
@@ -1026,8 +1056,6 @@ def main():
     parser.add_argument('--canny-gaussian2', type=int, default=71)
     parser.add_argument('--canny-padding', type=int, default=100)
     parser.add_argument('--canny-debug', type=bool, default=False)
-    parser.add_argument('--torch-threshold', type=int)
-    parser.add_argument('--torch-padding', type=int)
     parser.add_argument('--hough-debug', type=bool, default=False)
     parser.add_argument('--hough-theta-resolution-degrees', type=float)
     parser.add_argument('--hough-rho-resolution-pixels', type=float, help='width of the detected line - min')
@@ -1048,9 +1076,9 @@ def main():
     destination_dir = args.destination_dir if hasattr(args, 'destination_dir') else None
     input_filename = args.filename if hasattr(args, 'filename') else None
 
-    if (args.run not in ["trim-canny", "trim-torch", "fix-rotation", "remove-artifacts", "clean-all", "image-info"]):
+    if (args.run not in ["trim-canny", "fix-rotation", "remove-artifacts", "clean-all", "image-info"]):
         parser.print_help()
-        print("\n" fr"Need --run with one of: trim-canny, trim-torch, fix-rotation, remove-artifacts, clean-all, image-info" "\n")
+        print("\n" fr"Need --run with one of: trim-canny, fix-rotation, remove-artifacts, clean-all, image-info" "\n")
         sys.exit(2)
 
     if (source_dir is not None and input_filename is not None):
@@ -1149,7 +1177,18 @@ def main():
             ascan = ScannedPage(input_filename, args = args)
 
             if args.run == r"remove-artifacts":
-                ascan.remove_artifacts()
+                res = ascan.detect_artifacts()
+                if res['error']:
+                    raise ValueError(res['error'])
+                else:
+                    ascan.write('original_subject_max_space')
+            if args.run == r"trim-canny":
+                res = ascan.detect_empty_space_edge_detection_canny(empty_space_detection = "centroids")
+                if (res['error']):
+                    raise ValueError(res['error'])
+                else:
+                    ascan.write('original_subject_min_space_padded')
+
         else:
             if(os.path.isfile(input_filename)):
                 print (str(datetime.datetime.now()) + " " + fr"working on {input_filename}")
@@ -1176,15 +1215,6 @@ def main():
                             args = args,
                             destination_dir = tmp_destination)
                         write_jpeg(output_filename, cropped_image)
-                        print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
-
-                if args.run == r"trim-torch":
-                    output_filename = re.sub(r"\.jpg", "_torch.jpg", input_filename)
-                    if args.skip_existing and (os.path.isfile(output_filename)):
-                        print(fr"skipping existing {output_filename}")
-                    else:
-                        cropped_image = remove_empty_space_torch(input_filename, args)
-                        cropped_image.save(output_filename)
                         print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
 
                 # --run fix-rotation --canny-threshold1 10 --canny-threshold2 1 --canny-gaussian1 71 --canny-gaussian2 71 --canny-padding 50  --filename 'Z:\of-15111-2247\OF 15111_2247_001.jpg'
