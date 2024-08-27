@@ -26,10 +26,11 @@ class ScannedPage:
 
     def __init__(self,
                  filename,
-                 args = defaultdict(lambda:None)
+                 args = defaultdict(lambda:None),
+                 variant = 0
                  ):
         if not os.path.isfile(filename):
-            raise ValueError(fr"Need an image file to proceed, got: [{filename}] (check if it exists)")
+            raise ValueError(r"Need an image file to proceed, got: [{}] (check if it exists)".format(filename))
 
         # filename with original scan
         self.filename = filename
@@ -51,27 +52,35 @@ class ScannedPage:
                 try:
                     directory.mkdir(parents=True, exist_ok=True)
                 except Exception as e:
-                    raise ValueError(fr"An error occurred while creating directory {args.destination_dir}: {e}")
+                    raise ValueError(r"An error occurred while creating directory {}: ".format(args.destination_dir) + str(e))
             self.destination_path = args.destination_dir
         else:
             self.destination_path = os.path.dirname(self.filename)
 
+        if args.copy_source_to_destination and not os.path.samefile(os.path.dirname(self.filename), self.destination_path):
+            shutil.copy2(self.filename, self.destination_path)
+            self.debug_print(fr"copied original [{self.filename}] to [{self.destination_path}]")
+
+        # multiple original scans with different transformations
+        self.variant = variant
+
     def read(self):
-        self.debug_print(fr"reading {self.filename}")
-        self.images['original'] = cv2.imread(self.filename)
+        if self.images['original'] is None:
+            self.debug_print(fr"reading {self.filename}")
+            self.images['original'] = cv2.imread(self.filename)
 
     def write(self, image_type, image_suffix = None):
         if self.written_images[image_type] is not None:
-            raise ValueError(fr"Image type [{image_type}] has already been written into " + str(self.written_images[image_type]))
+            raise ValueError(r"Image type [{}] has already been written into ".format(image_type) + str(self.written_images[image_type]))
 
         if self.images[image_type] is None:
-            raise ValueError(fr"Requested to write non-existent image type '{image_type}'")
+            raise ValueError("Requested to write non-existent image type '{}'".format(image_type))
 
         if image_suffix is None:
-            image_suffix = image_type
+            image_suffix = "_" + str(image_type)
 
         output_filename = re.sub(r"\.jpg",
-                                 fr"_{image_suffix}.jpg",
+                                 fr"{image_suffix}.jpg",
                                  os.path.join(self.destination_path, os.path.basename(self.filename)))
 
         self.debug_print(fr"writing {image_type} to {output_filename}")
@@ -86,7 +95,8 @@ class ScannedPage:
         if self.images['original_gray'] is None:
             self.images['original_gray'] = cv2.cvtColor(self.images["original"], cv2.COLOR_BGR2GRAY)
             if self.args.debug:
-                self.write('original_gray')
+                n = self.variant * 4 + 1
+                self.write('original_gray', '__' + fr"{n:02d}" + '_gray')
 
         # Original image converted to grayscale and blurred
         if self.images['original_gray_blurred'] is None:
@@ -96,7 +106,8 @@ class ScannedPage:
                 (self.args.canny_gaussian1, self.args.canny_gaussian2),
                 0)
             if self.args.debug:
-                self.write('original_gray_blurred')
+                n = self.variant * 4 + 2
+                self.write('original_gray_blurred', '__' + fr"{n:02d}" + '_gray_blurred')
 
         if self.images['original_gray_blurred_edges'] is None:
             # Perform Canny edge detection
@@ -105,7 +116,8 @@ class ScannedPage:
                 self.args.canny_threshold1,
                 self.args.canny_threshold2)
             if self.args.debug:
-                self.write('original_gray_blurred_edges')
+                n = self.variant * 4 + 3
+                self.write('original_gray_blurred_edges', '__' + fr"{n:02d}" + '_gray_blurred_edges')
 
     def prepare_edge_contours(self):
         if self.transforms['original_gray_blurred_edges_contours'] is None:
@@ -329,6 +341,138 @@ class ScannedPage:
             'image': self.images['original_subject_min_space_padded']
         }
 
+    def detect_image_rotation_canny_hough(self):
+        hough_threshold_initial = hasattr(self.args, 'hough_threshold_initial') and self.args.hough_threshold_initial or 650
+        hough_threshold_minimal = hasattr(self.args, 'hough_threshold_minimal') and self.args.hough_threshold_minimal or 450
+        if hough_threshold_initial < hough_threshold_minimal:
+            raise ValueError(
+                fr"Hough threshold initial can't be below minimal, " +
+                "got initial [{hough_threshold_initial}], minimal {hough_threshold_minimal}")
+
+        hough_theta_resolution_degrees = float(hasattr(self.args, 'hough_theta_resolution_degrees') and
+                                               self.args.hough_theta_resolution_degrees or 1)
+        hough_theta_resolution_rad = math.radians(hough_theta_resolution_degrees)
+
+        hough_rho_resolution_pixels = float(hasattr(self.args, 'hough_rho_resolution_pixels') and
+                                            self.args.hough_rho_resolution_pixels or 1)
+        hough_rho_resolution_pixels_max = float(hasattr(self.args, 'hough_rho_resolution_pixels_max') and
+                                                self.args.hough_rho_resolution_pixels_max or 3)
+        if hough_rho_resolution_pixels > hough_rho_resolution_pixels_max:
+            raise ValueError(
+                fr"hough_rho_resolution_pixels can't be above hough_rho_resolution_pixels_max, " +
+                "got initial [{hough_rho_resolution_pixels}], max {hough_rho_resolution_pixels_max}")
+
+        self.prepare_edges()
+
+        lines = None
+        hough_threshold = hough_threshold_initial
+        hough_rho = hough_rho_resolution_pixels
+
+        random.seed()
+
+        # search for lines within the image, trying relaxing parameters a bit if none found
+        #
+        while lines is None and \
+            (hough_threshold >= hough_threshold_minimal or \
+             hough_rho <= hough_rho_resolution_pixels_max):
+
+            # https://docs.opencv.org/3.4/d9/db0/tutorial_hough_lines.html
+            # https://stackoverflow.com/questions/4709725/explain-hough-transformation
+            #
+            # Find the lines in the image using the Hough transform
+            #
+            # Output vector of lines.
+            # Each line is represented by a 2 or 3 element vector (ρ,θ) or (ρ,θ,votes),
+            # where ρ is the distance from the coordinate origin (0,0) (top-left corner of the image),
+            # θ is the line rotation angle in radians ( 0∼vertical line,π/2∼horizontal line ),
+            # and votes is the value of accumulator.
+            #
+            lines = cv2.HoughLines(
+                self.images['original_gray_blurred_edges'],
+                hough_rho, hough_theta_resolution_rad,
+                hough_threshold)
+
+            lines = hough_filter_lines(lines, self.args)
+
+            if lines is None:
+                tmp_random = random.randint(1, 2)
+
+                if (hough_threshold >= hough_threshold_minimal and tmp_random == 1) or \
+                    (hough_threshold >= hough_threshold_minimal and not(hough_rho <= hough_rho_resolution_pixels_max)):
+                    hough_threshold = hough_threshold - 10
+                    self.debug_print(fr"selecting Hough parameters: decreased threshold to {hough_threshold}")
+                elif (hough_rho <= hough_rho_resolution_pixels_max and tmp_random == 2) or \
+                    (hough_rho <= hough_rho_resolution_pixels_max and not (hough_threshold >= hough_threshold_minimal)):
+                    hough_rho = hough_rho + 0.1
+                    self.debug_print(fr"selecting Hough parameters: increased rho to {hough_rho}")
+
+                if not(hough_rho <= hough_rho_resolution_pixels_max) and not (hough_threshold >= hough_threshold_minimal):
+                    self.debug_print(fr"both hough_threshold is below {hough_threshold_minimal} and " +
+                        fr"hough_rho above {hough_rho_resolution_pixels_max}, can't continue searching")
+
+        sum_lines = 0
+        sum_deviation = 0
+
+        if lines is None:
+            return {
+                'error': "Can't find lines in the scan",
+                'image': self.images['original']
+            }
+
+        # edges pictures allowing colored lines
+        img_lines = cv2.cvtColor(self.images['original_gray_blurred_edges'], cv2.COLOR_GRAY2BGR)
+
+        for i in range(0, len(lines)):
+            rho = lines[i][0][0]
+            theta = lines[i][0][1]
+
+            line_deviation = hough_calc_line_deviation(theta)
+
+            sum_lines = sum_lines + 1
+            sum_deviation = sum_deviation + line_deviation
+
+            self.debug_print(fr"hough avg deviation: line {i}: rho - {rho}, theta (deg) - " + str(math.degrees(theta)))
+            self.debug_print(fr"hough avg deviation: line {i} angle deviation - " + str(math.degrees(line_deviation)) + ", sum_deviation - " + str(math.degrees(sum_deviation)))
+
+            h, w, *_ = img_lines.shape
+            max_dim = max(h, w)
+
+            a = math.cos(theta)
+            b = math.sin(theta)
+            x0 = a * rho
+            y0 = b * rho
+            pt1 = (int(x0 + max_dim*(-b)), int(y0 + max_dim*(a)))
+            pt2 = (int(x0 - max_dim*(-b)), int(y0 - max_dim*(a)))
+            cv2.line(img_lines, pt1, pt2, (0,0,255), 1)
+
+            self.debug_print(fr"hough: line {i}: pt1 <-> pt2: {pt1} <-> {pt2}")
+
+        self.images['original_gray_blurred_edges_lines'] = img_lines
+        if self.args.debug:
+            n = self.variant * 4 + 4
+            self.write('original_gray_blurred_edges_lines', '__' + fr"{n:02d}" + '_gray_blurred_edges_lines')
+
+        self.transforms['inclination_angle_radians'] = sum_deviation / sum_lines
+        self.debug_print(
+            fr"hough rotating by avg_deviation " +
+            str(np.rad2deg(self.transforms['inclination_angle_radians'])) +
+            " degrees")
+
+        # Rotate the image by the selected angled
+        rows, cols = self.images['original'].shape[:2]
+        rotation_matrix = cv2.getRotationMatrix2D((cols / 2, rows / 2), np.rad2deg(self.transforms['inclination_angle_radians']), 1)
+
+        self.images['original_rotated'] = cv2.warpAffine(
+            src = self.images['original'],
+            M = rotation_matrix,
+            dsize = (cols, rows),
+            borderMode = cv2.BORDER_WRAP)
+
+        return {
+            'error': False,
+            'image': self.images['original_rotated']
+        }
+
 
 def estimate_jpeg_quality(image):
     """
@@ -341,7 +485,7 @@ def estimate_jpeg_quality(image):
         int: The estimated JPEG quality (0-100).
     """
     if image.dtype != np.uint8:
-        raise ValueError(fr"Input image must be of type np.uint8")
+        raise ValueError(r"Input image must be of type np.uint8")
     
     # Compute the variance of the image
     variance = np.var(image)
@@ -565,25 +709,16 @@ def remove_artifacts(
     return cropped
 
 
-def hough_calc_line_deviation(theta, args):
+def hough_calc_line_deviation(theta):
     line_deviation = 0
     if theta <= (math.pi / 4): # <45°
         line_deviation = theta - 0
-        if args.hough_debug:
-            print(fr"     DEBUG: angle {theta} (" + str(math.degrees(theta)) + "°) is closer to vertical")
     elif theta <= (math.pi / 2): # between 45° and 90°
         line_deviation = theta - math.pi / 2
-        if args.hough_debug:
-            print(fr"     DEBUG: angle {theta} (" + str(math.degrees(theta)) + "°) is closer to horizontal")
     elif theta <= (3 * math.pi / 4): # between 90° and 135°
         line_deviation = theta - math.pi / 2
-        if args.hough_debug:
-            print(fr"     DEBUG: angle {theta} (" + str(math.degrees(theta)) + "°) is closer to horizontal")
     else: # between 135° and 180°
         line_deviation = theta - math.pi
-        if args.hough_debug:
-            print(fr"     DEBUG: angle {theta} (" + str(math.degrees(theta))
-                   + "°) is closer to vertical")
     return line_deviation
 
 def hough_filter_lines (lines, args):
@@ -598,7 +733,7 @@ def hough_filter_lines (lines, args):
         rho = lines[i][0][0]
         theta = lines[i][0][1]
 
-        line_deviation = hough_calc_line_deviation(theta, args)
+        line_deviation = hough_calc_line_deviation(theta)
 
         if line_deviation == 0:
             if args.hough_debug:
@@ -612,9 +747,6 @@ def hough_filter_lines (lines, args):
         else:
             if tmp_lines is None:
                 tmp_lines = []
-
-            if args.hough_debug:
-                print(fr"     DEBUG hough_filter_lines: line {i} - passed ")
 
             tmp_lines.append(lines[i])
 
@@ -747,7 +879,7 @@ def fix_image_rotation_canny_hough(
             rho = lines[i][0][0]
             theta = lines[i][0][1]
 
-            line_deviation = hough_calc_line_deviation(theta, args)
+            line_deviation = hough_calc_line_deviation(theta)
 
             if args.hough_debug:
                 print(fr"     DEBUG hough avg deviation: line {i}: sum_deviation before, line_deviation - {sum_deviation}, {line_deviation}")
@@ -1020,7 +1152,7 @@ def remove_empty_space_edge_detection_canny(
                         str(centroids_distances_sorted[i]['sum_distances']) +
                         ("" if jump_centroid is None else " - JUMP"))
     else:
-        raise ValueError(fr"Invalid empty space detection method")
+        raise ValueError(r"Invalid empty space detection method")
 
     # Add padding
     x_min = max(0, x_min - padding)
@@ -1081,7 +1213,15 @@ def main():
         print("\n" fr"Need --run with one of: trim-canny, fix-rotation, remove-artifacts, clean-all, image-info" "\n")
         sys.exit(2)
 
-    if (source_dir is not None and input_filename is not None):
+    if args.run == r"image-info":
+        with open(input_filename, 'rb') as f:
+            # Read the EXIF data
+            tags = exifread.process_file(f)
+            print(tags)
+        img = cv2.imread(input_filename)
+        jpeg_quality = estimate_jpeg_quality(img)
+        print(f"Estimated JPEG quality: {jpeg_quality}%")
+    elif (source_dir is not None and input_filename is not None):
         parser.print_help()
         print("\n" fr"Choose either --filename (to process one file) or --source-dir (to process a directory), not both!" "\n")
         sys.exit(2)
@@ -1171,126 +1311,44 @@ def main():
             print("\n" fr"Non-existent directory specified: [{source_dir}]" "\n")
             sys.exit(2)
     elif (input_filename is not None):
-        if args.classfull:
-            print (str(datetime.datetime.now()) + " " + fr"working on {input_filename}")
+        print (str(datetime.datetime.now()) + " " + fr"working on {input_filename}")
 
-            ascan = ScannedPage(input_filename, args = args)
+        ascan = ScannedPage(input_filename, args = args)
 
-            if args.run == r"remove-artifacts":
-                res = ascan.detect_artifacts()
-                if res['error']:
-                    raise ValueError(res['error'])
-                else:
-                    ascan.write('original_subject_max_space')
-            if args.run == r"trim-canny":
-                res = ascan.detect_empty_space_edge_detection_canny(empty_space_detection = "centroids")
-                if (res['error']):
-                    raise ValueError(res['error'])
-                else:
-                    ascan.write('original_subject_min_space_padded')
-
-        else:
-            if(os.path.isfile(input_filename)):
-                print (str(datetime.datetime.now()) + " " + fr"working on {input_filename}")
-
-                if destination_dir is not None:
-                    check_and_create_destination(destination_dir)
-                    tmp_destination = destination_dir
-                else:
-                    tmp_destination = os.path.dirname(input_filename)
-
-                if args.copy_source_to_destination and not os.path.samefile(os.path.dirname(input_filename), tmp_destination):
-                    shutil.copy2(input_filename, tmp_destination)
-
-                # --run canny --canny-threshold1 10 --canny-threshold2 1 --canny-gaussian1 71 --canny-gaussian2 71 --canny-padding 50 --filename 'Z:\of-15111-2247\OF 15111_2247_001.jpg'
-                if args.run == r"trim-canny":
-                    output_filename = re.sub(r"\.jpg", "_canny_cropped.jpg", os.path.join(tmp_destination, os.path.basename(input_filename)))
-
-                    if args.skip_existing and (os.path.isfile(output_filename)):
-                        print(fr"skipping existing {output_filename}")
-                    else:
-                        cropped_image = remove_empty_space_edge_detection_canny(
-                            image_path = input_filename,
-                            img_data = None,
-                            args = args,
-                            destination_dir = tmp_destination)
-                        write_jpeg(output_filename, cropped_image)
-                        print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
-
-                # --run fix-rotation --canny-threshold1 10 --canny-threshold2 1 --canny-gaussian1 71 --canny-gaussian2 71 --canny-padding 50  --filename 'Z:\of-15111-2247\OF 15111_2247_001.jpg'
-                if args.run == r"fix-rotation":
-                    output_filename = re.sub(r"\.jpg", "_fixed_rotation_cropped.jpg", os.path.join(tmp_destination, os.path.basename(input_filename)))
-                    if args.skip_existing and (os.path.isfile(output_filename)):
-                        print(fr"skipping existing {output_filename}")
-                    else:
-                        rotated_image = fix_image_rotation_canny_hough(
-                            image_path = input_filename,
-                            args = args,
-                            destination_dir = tmp_destination)
-                        cropped_image = remove_empty_space_edge_detection_canny(
-                            image_path = input_filename,
-                            img_data = rotated_image,
-                            args = args,
-                            dbg_imgn = 5,
-                            destination_dir = tmp_destination)
-                        write_jpeg(output_filename, cropped_image)
-                        print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
-
-                if args.run == r"remove-artifacts":
-                    output_filename = re.sub(r"\.jpg", "_removed_artifacts.jpg", os.path.join(tmp_destination, os.path.basename(input_filename)))
-                    if args.skip_existing and (os.path.isfile(output_filename)):
-                        print(fr"skipping existing {output_filename}")
-                    else:
-                        image_without_artifacts = remove_artifacts(
-                            image_path = input_filename,
-                            img_data = None,
-                            args = args,
-                            destination_dir = tmp_destination,
-                            dbg_imgn = 0)
-                        write_jpeg(output_filename, image_without_artifacts)
-                        print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
-
-                if args.run == r"clean-all":
-                    output_filename = re.sub(r"\.jpg", "_clean_all.jpg", os.path.join(tmp_destination, os.path.basename(input_filename)))
-                    if hasattr(args, 'skip_existing') and args.skip_existing and (os.path.isfile(output_filename)):
-                        print(fr"skipping existing {output_filename}")
-                    else:
-                        image_without_artifacts = remove_artifacts(
-                            image_path = input_filename,
-                            img_data = None,
-                            args = args,
-                            destination_dir = tmp_destination,
-                            dbg_imgn = 0)
-                        rotated_image = fix_image_rotation_canny_hough(
-                            image_path = input_filename,
-                            img_data = image_without_artifacts,
-                            args = args,
-                            destination_dir = tmp_destination)
-                        cropped_image = remove_empty_space_edge_detection_canny(
-                            image_path = input_filename,
-                            img_data = rotated_image,
-                            args = args,
-                            dbg_imgn = 5,
-                            destination_dir = tmp_destination,
-                            empty_space_detection = "centroids")
-                        write_jpeg(output_filename, cropped_image)
-                        print (str(datetime.datetime.now()) + " " + fr"written to {output_filename}")
-
-                if args.run == r"image-info":
-                    with open(input_filename, 'rb') as f:
-                        # Read the EXIF data
-                        tags = exifread.process_file(f)
-
-                        print(tags)
-
-                    img = cv2.imread(input_filename)
-                    jpeg_quality = estimate_jpeg_quality(img)
-                    print(f"Estimated JPEG quality: {jpeg_quality}%")
-
+        if args.run == r"remove-artifacts":
+            res = ascan.detect_artifacts()
+            if res['error']:
+                raise ValueError(res['error'])
             else:
-                parser.print_help()
-                print("\n" fr"Need an image file to proceed, got: [{input_filename}] (check if it exists)" "\n")
-                sys.exit(2)
+                ascan.write('original_subject_max_space')
+        if args.run == r"trim-canny":
+            res = ascan.detect_empty_space_edge_detection_canny(empty_space_detection = "centroids")
+            if (res['error']):
+                raise ValueError(res['error'])
+            else:
+                ascan.write('original_subject_min_space_padded')
+        if args.run == r"fix-rotation":
+            res = ascan.detect_image_rotation_canny_hough()
+            if (res['error']):
+                raise ValueError(res['error'])
+            else:
+                ascan.write('original_rotated')
+        if args.run == r"clean-all":
+            # rotate (TBD: extend empty padding before rotation)
+            res = ascan.detect_image_rotation_canny_hough()
+            if (res['error']):
+                raise ValueError(res['error'])
+
+            # treated rotated image as original
+            ascan_transformed = ScannedPage(input_filename, args = args, variant = 1)
+            ascan_transformed.images['original'] = ascan.images['original_rotated']
+
+            # trim rotate image using centroids with artifact detection
+            res = ascan_transformed.detect_empty_space_edge_detection_canny(empty_space_detection = "centroids")
+            if (res['error']):
+                raise ValueError(res['error'])
+            else:
+                ascan_transformed.write('original_subject_min_space_padded', "_formatted")
     else:
         parser.print_help()
         print("\n" fr"Need either --filename (to process one file) or --source-dir (to process a directory), got none!" "\n")
