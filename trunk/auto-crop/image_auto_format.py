@@ -69,6 +69,15 @@ class ScannedPage:
             self.debug_print(fr"reading {self.filename}")
             self.images['original'] = cv2.imread(self.filename)
 
+    def output_filename(self, image_type, image_suffix = None):
+        if image_suffix is None:
+            image_suffix = "_" + str(image_type)
+
+        output_filename = re.sub(r"\.jpg",
+                                 fr"{image_suffix}.jpg",
+                                 os.path.join(self.destination_path, os.path.basename(self.filename)))
+        return output_filename
+
     def write(self, image_type, image_suffix = None):
         if self.written_images[image_type] is not None:
             raise ValueError(r"Image type [{}] has already been written into ".format(image_type) + str(self.written_images[image_type]))
@@ -76,12 +85,7 @@ class ScannedPage:
         if self.images[image_type] is None:
             raise ValueError("Requested to write non-existent image type '{}'".format(image_type))
 
-        if image_suffix is None:
-            image_suffix = "_" + str(image_type)
-
-        output_filename = re.sub(r"\.jpg",
-                                 fr"{image_suffix}.jpg",
-                                 os.path.join(self.destination_path, os.path.basename(self.filename)))
+        output_filename = self.output_filename(image_type, image_suffix)
 
         self.debug_print(fr"writing {image_type} to {output_filename}")
         write_jpeg(output_filename, self.images[image_type])
@@ -568,7 +572,7 @@ def main():
     parser.add_argument('--hough-threshold-initial', type=int, help='number of points in a line required to detect a line - max')
     parser.add_argument('--hough-threshold-minimal', type=int, help='number of points in a line required to detect a line - min')
     parser.add_argument('--copy-source-to-destination', type=bool, default=False)
-    parser.add_argument('--skip-existing', type=bool, default=False, help='if destination  exists, do not overwrite')
+    parser.add_argument('--skip-existing', type=bool, default=False, help='if destination exists, do not overwrite')
     parser.add_argument('--artifacts-debug', type=bool, default=False)   
     parser.add_argument('--artifacts-majority-threshold', type=float, default=0.99, help="%% of centroids by artifact measure not considered artifacts")
     parser.add_argument('--artifacts-discontinuity-threshold', type=float, default=0.15, help="%% of measure jump considered discontinuity")
@@ -627,29 +631,45 @@ def main():
 
         check_and_create_destination(args.destination_dir)
 
-        print (str(datetime.datetime.now()) + " " + fr"working on {input_filename}, saving to args.destination_dir")
+        print (str(datetime.datetime.now()) + " " + fr"working on {input_filename}, saving to {args.destination_dir}")
 
         ascan = ScannedPage(input_filename, args = args)
 
         if args.run == r"remove-artifacts":
+            if args.skip_existing and os.path.isfile(ascan.output_filename('original_subject_max_space')):
+                print(str(datetime.datetime.now()) + fr" skipping existing " + str(ascan.output_filename('original_subject_max_space')))
+                continue
+
             res = ascan.detect_artifacts()
             if res['error']:
                 raise ValueError(res['error'])
             else:
                 ascan.write('original_subject_max_space')
         if args.run == r"trim-canny":
+            if args.skip_existing and os.path.isfile(ascan.output_filename('original_subject_min_space_padded')):
+                print(str(datetime.datetime.now()) + fr" skipping existing " + str(ascan.output_filename('original_subject_min_space_padded')))
+                continue
+
             res = ascan.detect_empty_space_edge_detection_canny(empty_space_detection = "centroids")
             if (res['error']):
                 raise ValueError(res['error'])
             else:
                 ascan.write('original_subject_min_space_padded')
         if args.run == r"fix-rotation":
+            if args.skip_existing and os.path.isfile(ascan.output_filename('original_rotated')):
+                print(str(datetime.datetime.now()) + fr" skipping existing " + str(ascan.output_filename('original_rotated')))
+                continue
+
             res = ascan.detect_image_rotation_canny_hough()
             if (res['error']):
                 raise ValueError(res['error'])
             else:
                 ascan.write('original_rotated')
         if args.run == r"clean-all":
+            if args.skip_existing and os.path.isfile(ascan.output_filename('original_subject_min_space_padded',  "_formatted")):
+                print(str(datetime.datetime.now()) + fr" skipping existing " + str(ascan.output_filename('original_subject_min_space_padded',  "_formatted")))
+                continue
+
             # rotate (TBD: extend empty padding before rotation)
             res = ascan.detect_image_rotation_canny_hough()
             if (res['error']):
