@@ -19,10 +19,129 @@ from scipy.spatial import distance_matrix
 
 import exifread
 
+from skimage.feature import local_binary_pattern
+from sklearn.decomposition import PCA
+from sklearn.svm import SVC
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+import pickle
+
+
+def extract_features(filename):
+    image = cv2.imread(filename)
+
+    # Convert to grayscale
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+    # Apply LBP
+    radius = 3
+    n_points = 8 * radius
+    lbp = local_binary_pattern(gray, n_points, radius, method='uniform')
+
+    # Compute histogram of LBP
+    hist, _ = np.histogram(lbp.ravel(), bins=np.arange(0, n_points + 3), range=(0, n_points + 2))
+
+    # Normalize histogram
+    hist = hist.astype("float")
+    hist /= (hist.sum() + 1e-7)
+
+    return hist
+
+def predict_orientation(image_path, pca, svm):
+    features = extract_features(image_path)
+    features_pca = pca.transform([features])
+    prob = svm.predict_proba(features_pca)[0]
+    return "upright" if prob[1] > 0.5 else "upside down", max(prob)
+
+def train_orientation_model(features, labels):
+    X = np.array(features)
+    y = np.array(labels)
+
+    # Apply PCA
+    pca = PCA(n_components=0.95)
+    X_pca = pca.fit_transform(X)
+
+    # Split data
+    X_train, X_test, y_train, y_test = train_test_split(X_pca, y, test_size=0.2, random_state=42)
+
+    # Train SVM
+    svm = SVC(kernel='rbf', probability=True)
+    svm.fit(X_train, y_train)
+
+    # Evaluate
+    y_pred = svm.predict(X_test)
+    accuracy = accuracy_score(y_test, y_pred)
+    print(f"Model accuracy: {accuracy}")
+
+    return pca, svm
+
+
+class TrainingSet:
+    def debug_print(self, astr):
+        if self.args.debug:
+            print (
+                str(datetime.datetime.now()) +
+                " " +
+                astr
+                )
+
+    def __init__(self, path, label, args):
+        if not os.path.exists(path):
+            raise ValueError('Need existing path, got [' + str(path) + ']')
+        self.path = path
+        self.args = args
+        self.label = label
+
+    def extract_features(self):
+        features = []
+        labels = []
+
+        for afn in os.listdir(self.path):
+            filename = os.path.join(self.path, afn)
+
+            if re.search(r"\.features\.pickle$", filename):
+                continue
+
+            features_filename = os.path.join(self.path, str(afn + '.features.pickle'))
+
+            features_data = None
+            if os.path.exists(features_filename):
+                self.debug_print(fr"reading caches features from {features_filename}")
+                try:
+                    with open(features_filename, 'rb') as f:
+                        features_data = pickle.load(f)
+                        if features_data['hist'] is None:
+                            raise ValueError('invalid feature file format')
+                except Exception as e:
+                    os.remove(features_filename)
+                    self.debug_print(fr"broken feature file {features_filename}, removed")
+
+            if features_data is None:
+                self.debug_print(fr"extracting features from {filename}")
+
+                features_data = {
+                    'hist': extract_features(filename)
+                }
+                with open(features_filename, 'wb') as f:
+                    pickle.dump(features_data, f)
+                self.debug_print(f"Features cached to {features_filename}")
+
+            features.append(features_data['hist'])
+            labels.append(self.label)
+
+        self.features = features
+        self.labels = labels
+
 class ScannedPage:
     def debug_print(self, astr):
         if self.args.debug:
-            print (str(datetime.datetime.now()) + " " + astr)
+            print (
+                str(datetime.datetime.now()) +
+                " [" +
+                self.filename_without_ext +
+                "] " +
+                astr
+                )
 
     def __init__(self,
                  filename,
@@ -34,6 +153,12 @@ class ScannedPage:
 
         # filename with original scan
         self.filename = filename
+
+        # filename without extension
+        if s := re.search(r"^(.+)\.[^\.]+$", os.path.basename(self.filename)):
+            self.filename_without_ext = s[1]
+        else:
+            self.filename_without_ext = self.filename
 
         # image representations (including original)
         self.images = defaultdict(lambda:None)
@@ -56,6 +181,13 @@ class ScannedPage:
             self.destination_path = args.destination_dir
         else:
             self.destination_path = os.path.dirname(self.filename)
+
+        if args.clean_existing:
+            for afn in os.listdir(self.destination_path):
+                if afn == os.path.basename(self.filename) or \
+                   re.search(str(r"^" + self.filename_without_ext + r"__.+"), afn):
+                    os.remove(os.path.join(self.destination_path, afn))
+                    self.debug_print(fr"cleaned up [" + os.path.join(self.destination_path, afn) + fr"]")
 
         if args.copy_source_to_destination and not os.path.samefile(os.path.dirname(self.filename), self.destination_path):
             shutil.copy2(self.filename, self.destination_path)
@@ -303,7 +435,7 @@ class ScannedPage:
             'image': self.images['original_subject_max_space']
         }
 
-    def detect_empty_space_edge_detection_canny(self, empty_space_detection = "contours"):
+    def detect_empty_space_edge_detection_canny(self, empty_space_detection = "centroids"):
         self.debug_print(fr"empty space detection method: {empty_space_detection}")
 
         x_min, y_min, x_max, y_max = float('inf'), float('inf'), 0, 0
@@ -339,11 +471,29 @@ class ScannedPage:
         y_max = min(self.images['original'].shape[0], y_max + self.args.canny_padding)
 
         self.images['original_subject_min_space_padded'] = self.images['original'][y_min:y_max,x_min:x_max]
+        self.transforms['original_subject_min_space'] = {
+            'x_min': max(0, x_min),
+            'y_min': max(0, y_min),
+            'x_max': min(self.images['original'].shape[1], x_max),
+            'y_max': min(self.images['original'].shape[0], y_max)
+        }
 
         return {
             'error': False,
             'image': self.images['original_subject_min_space_padded']
         }
+
+    def subject_touches_frames(self):
+        if self.transforms['original_subject_min_space'] is None:
+            raise ValueError("subject_touches_frames requires detect_empty_space_edge_detection_canny to be run first")
+
+        if self.transforms['original_subject_min_space']['x_min'] == 0 or \
+           self.transforms['original_subject_min_space']['x_max'] == self.images['original'].shape[1] or \
+           self.transforms['original_subject_min_space']['y_min'] == 0 or \
+           self.transforms['original_subject_min_space']['y_max'] == self.images['original'].shape[0]:
+            return True
+        else:
+            return False
 
     def detect_image_rotation_canny_hough(self):
         hough_threshold_initial = hasattr(self.args, 'hough_threshold_initial') and self.args.hough_threshold_initial or 650
@@ -573,16 +723,42 @@ def main():
     parser.add_argument('--hough-threshold-minimal', type=int, help='number of points in a line required to detect a line - min')
     parser.add_argument('--copy-source-to-destination', type=bool, default=False)
     parser.add_argument('--skip-existing', type=bool, default=False, help='if destination exists, do not overwrite')
+    parser.add_argument('--clean-existing', type=bool, default=False, help='if destination image and/or related debug exists, clean it')
     parser.add_argument('--artifacts-debug', type=bool, default=False)   
     parser.add_argument('--artifacts-majority-threshold', type=float, default=0.99, help="%% of centroids by artifact measure not considered artifacts")
     parser.add_argument('--artifacts-discontinuity-threshold', type=float, default=0.15, help="%% of measure jump considered discontinuity")
     parser.add_argument('--debug', type=bool, default=False)
+    parser.add_argument('--train-path-up', type=str, default='')
+    parser.add_argument('--train-path-down', type=str, default='')
+    parser.add_argument('--check-orientation', type=str, default='')
     args = parser.parse_args()
 
-    if (args.run not in ["trim-canny", "fix-rotation", "remove-artifacts", "clean-all", "image-info"]):
+    if (args.run not in [
+        "trim-canny", "fix-rotation", "remove-artifacts", "clean-all",
+        "image-info",
+        "train-model"
+        ]):
         parser.print_help()
         print("\n" fr"Need --run with one of: trim-canny, fix-rotation, remove-artifacts, clean-all, image-info" "\n")
         sys.exit(2)
+
+    if args.run == r"train-model":
+        ats_up, ats_down = None, None
+        if args.train_path_up:
+            ats_up = TrainingSet(args.train_path_up, "up", args)
+            ats_up.extract_features()
+        if args.train_path_down:
+            ats_down = TrainingSet(args.train_path_down, "down", args)
+            ats_down.extract_features()
+
+        features = ats_up.features + ats_down.features
+        labels = ats_up.labels + ats_down.labels
+        pca, svm = train_orientation_model(features, labels)
+
+        orientation, confidence = predict_orientation(args.check_orientation, pca, svm)
+        print(f"The image {args.check_orientation} is likely {orientation} with {confidence:.2f} confidence.")
+
+        sys.exit(0)
 
     if args.run == r"image-info":
         with open(args.filename, 'rb') as f:
@@ -650,7 +826,7 @@ def main():
                 print(str(datetime.datetime.now()) + fr" skipping existing " + str(ascan.output_filename('original_subject_min_space_padded')))
                 continue
 
-            res = ascan.detect_empty_space_edge_detection_canny(empty_space_detection = "centroids")
+            res = ascan.detect_empty_space_edge_detection_canny()
             if (res['error']):
                 raise ValueError(res['error'])
             else:
@@ -670,21 +846,31 @@ def main():
                 print(str(datetime.datetime.now()) + fr" skipping existing " + str(ascan.output_filename('original_subject_min_space_padded',  "_formatted")))
                 continue
 
-            # rotate (TBD: extend empty padding before rotation)
-            res = ascan.detect_image_rotation_canny_hough()
+            # check if the original image subject "touches" side of the picture - can't rotate
+            res = ascan.detect_empty_space_edge_detection_canny()
             if (res['error']):
                 raise ValueError(res['error'])
 
-            # treated rotated image as original
-            ascan_transformed = ScannedPage(input_filename, args = args, variant = 1)
-            ascan_transformed.images['original'] = ascan.images['original_rotated']
+            if not ascan.subject_touches_frames():
+                ascan.debug_print(fr"subject doesn't touch the frame, can apply rotation")
 
-            # trim rotate image using centroids with artifact detection
-            res = ascan_transformed.detect_empty_space_edge_detection_canny(empty_space_detection = "centroids")
-            if (res['error']):
-                raise ValueError(res['error'])
-            else:
-                ascan_transformed.write('original_subject_min_space_padded', "_formatted")
+                # rotate (TBD: extend empty padding before rotation)
+                res = ascan.detect_image_rotation_canny_hough()
+                if (res['error']):
+                    raise ValueError(res['error'])
+
+                # treated rotated image as original
+                ascan_transformed = ScannedPage(input_filename, args = args, variant = 1)
+                ascan_transformed.images['original'] = ascan.images['original_rotated']
+
+                # trim rotate image using centroids with artifact detection
+                res = ascan_transformed.detect_empty_space_edge_detection_canny()
+                if (res['error']):
+                    raise ValueError(res['error'])
+
+                ascan = ascan_transformed
+
+            ascan.write('original_subject_min_space_padded', "_formatted")
 
 if __name__ == "__main__":
     main()
