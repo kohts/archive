@@ -25,7 +25,7 @@ from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 import pickle
-
+import hashlib
 
 def extract_features(filename):
     image = cv2.imread(filename)
@@ -45,11 +45,18 @@ def extract_features(filename):
     hist = hist.astype("float")
     hist /= (hist.sum() + 1e-7)
 
-    return hist
+    img_bytes = image.tobytes()
+    md5_hash = hashlib.md5(img_bytes).hexdigest()
+
+    return {
+        'hist': hist,
+        'filename': filename,
+        'md5': md5_hash
+    }
 
 def predict_orientation(image_path, pca, svm):
     features = extract_features(image_path)
-    features_pca = pca.transform([features])
+    features_pca = pca.transform([features['hist']])
     prob = svm.predict_proba(features_pca)[0]
     return "upright" if prob[1] > 0.5 else "upside down", max(prob)
 
@@ -110,18 +117,19 @@ class TrainingSet:
                 try:
                     with open(features_filename, 'rb') as f:
                         features_data = pickle.load(f)
-                        if features_data['hist'] is None:
-                            raise ValueError('invalid feature file format')
+                        for el in ('hist', 'md5', 'filename'):
+                            if features_data[el] is None:
+                                raise ValueError(r"invalid feature file format: no [{}] element".format(el))
                 except Exception as e:
+                    features_data = None
                     os.remove(features_filename)
-                    self.debug_print(fr"broken feature file {features_filename}, removed")
+                    self.debug_print(fr"broken feature file {features_filename}: {e.args[0]}, removed")
 
             if features_data is None:
                 self.debug_print(fr"extracting features from {filename}")
 
-                features_data = {
-                    'hist': extract_features(filename)
-                }
+                features_data = extract_features(filename)
+
                 with open(features_filename, 'wb') as f:
                     pickle.dump(features_data, f)
                 self.debug_print(f"Features cached to {features_filename}")
@@ -494,6 +502,19 @@ class ScannedPage:
             return True
         else:
             return False
+        
+    def enough_space_to_rotate(self):
+        if self.transforms['original_subject_min_space'] is None:
+            raise ValueError("enough_space_to_rotate requires detect_empty_space_edge_detection_canny to be run first")
+
+        longest_side = max(
+            self.transforms['original_subject_min_space']['x_max'] - self.transforms['original_subject_min_space']['x_min'],
+            self.transforms['original_subject_min_space']['y_max'] - self.transforms['original_subject_min_space']['y_min']
+        )
+
+        if self.transforms['original_subject_min_space']['x_max'] + longest_side > self.images['original'].shape[1]:
+            self.debug_print("extending to the right by 1 pixel")
+            self.images['temp'] = np.c_[self.images['original'], self.images['original'][:, 0:1]]
 
     def detect_image_rotation_canny_hough(self):
         hough_threshold_initial = hasattr(self.args, 'hough_threshold_initial') and self.args.hough_threshold_initial or 650
@@ -734,8 +755,8 @@ def main():
     args = parser.parse_args()
 
     if (args.run not in [
-        "trim-canny", "fix-rotation", "remove-artifacts", "clean-all",
-        "image-info",
+        "trim-canny", "fix-rotation", "remove-artifacts", "clean-all", "enough-space-to-rotate",
+        "image-info", "",
         "train-model"
         ]):
         parser.print_help()
@@ -811,6 +832,16 @@ def main():
 
         ascan = ScannedPage(input_filename, args = args)
 
+        if args.run == r"enough-space-to-rotate":
+            res = ascan.detect_empty_space_edge_detection_canny()
+            if (res['error']):
+                raise ValueError(res['error'])
+            
+            res = ascan.enough_space_to_rotate()
+            if (res['error']):
+                raise ValueError(res['error'])
+
+            ascan.write('temp')
         if args.run == r"remove-artifacts":
             if args.skip_existing and os.path.isfile(ascan.output_filename('original_subject_max_space')):
                 print(str(datetime.datetime.now()) + fr" skipping existing " + str(ascan.output_filename('original_subject_max_space')))
@@ -846,7 +877,8 @@ def main():
                 print(str(datetime.datetime.now()) + fr" skipping existing " + str(ascan.output_filename('original_subject_min_space_padded',  "_formatted")))
                 continue
 
-            # check if the original image subject "touches" side of the picture - can't rotate
+            # check if the original image subject "touches" side of the picture:
+            # if it doest - can't rotate it
             res = ascan.detect_empty_space_edge_detection_canny()
             if (res['error']):
                 raise ValueError(res['error'])
