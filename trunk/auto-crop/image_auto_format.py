@@ -472,6 +472,13 @@ class ScannedPage:
         else:
             raise ValueError(fr"Invalid empty space detection method")
 
+        self.transforms['original_subject_min_space'] = {
+            'x_min': max(0, x_min),
+            'y_min': max(0, y_min),
+            'x_max': min(self.images['original'].shape[1], x_max),
+            'y_max': min(self.images['original'].shape[0], y_max)
+        }
+
         # Add padding
         x_min = max(0, x_min - self.args.canny_padding)
         y_min = max(0, y_min - self.args.canny_padding)
@@ -479,12 +486,6 @@ class ScannedPage:
         y_max = min(self.images['original'].shape[0], y_max + self.args.canny_padding)
 
         self.images['original_subject_min_space_padded'] = self.images['original'][y_min:y_max,x_min:x_max]
-        self.transforms['original_subject_min_space'] = {
-            'x_min': max(0, x_min),
-            'y_min': max(0, y_min),
-            'x_max': min(self.images['original'].shape[1], x_max),
-            'y_max': min(self.images['original'].shape[0], y_max)
-        }
 
         return {
             'error': False,
@@ -513,8 +514,29 @@ class ScannedPage:
         )
 
         if self.transforms['original_subject_min_space']['x_max'] + longest_side > self.images['original'].shape[1]:
-            self.debug_print("extending to the right by 1 pixel")
-            self.images['temp'] = np.c_[self.images['original'], self.images['original'][:, 0:1]]
+
+            diff = self.transforms['original_subject_min_space']['x_max'] + longest_side - self.images['original'].shape[1]
+
+            self.images['temp'] = self.images['original']
+            while self.images['temp'].shape[1] < self.images['original'].shape[1] + diff:
+                cut_cols = min(
+                    self.images['original'].shape[1] + diff - self.images['temp'].shape[1],
+                    self.transforms['original_subject_min_space']['x_min']
+                    )
+
+                self.debug_print(fr"extending to the right by {cut_cols} pixel(s)")
+
+                # cut out the first {cut_cols} columns, returned as 3D array
+                # (Y ranges from 0 to height, X ranges from 0 to {cut_cols}, all 3 color channels))
+                first_cols_3d = np.fliplr(self.images['original'][:,0:cut_cols,:])
+
+                # extend original image with the required number of columns
+                self.images['temp'] = np.hstack((self.images['temp'], first_cols_3d))
+
+            return {
+                'error': False,
+                'image': self.images['temp']
+            }
 
     def detect_image_rotation_canny_hough(self):
         hough_threshold_initial = hasattr(self.args, 'hough_threshold_initial') and self.args.hough_threshold_initial or 650
