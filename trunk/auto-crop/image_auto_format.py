@@ -82,6 +82,20 @@ def train_orientation_model(features, labels):
 
     return pca, svm
 
+def average_color(img):
+    # Calculate the number of pixels
+    num_pixels = np.prod(img.shape[:2], dtype=np.int64)
+
+    # Calculate the sum of each channel
+    channel_sums = np.sum(img, axis=(0, 1), dtype=np.int64)
+
+    # Calculate the average
+    average_color = channel_sums / num_pixels
+
+    # Round to integers
+    average_color = np.round(average_color).astype(int)
+
+    return (average_color, num_pixels)
 
 class TrainingSet:
     def debug_print(self, astr):
@@ -424,6 +438,7 @@ class ScannedPage:
                 'y_max': y_max
             }
 
+            # rectangle with the minimum "empty" space around the subject of the image
             self.images['original_subject_min_space'] = self.images['original'][
                 self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['y_min']: \
                     self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['y_max'],
@@ -431,6 +446,7 @@ class ScannedPage:
                     self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['x_max']
                 ]
 
+            # rectangle with the maximum "empty" space around the subject of the image
             self.images['original_subject_max_space'] = self.images['original'][
                 self.transforms['original_gray_blurred_edges_subject_max_space_centroids']['y_min']: \
                     self.transforms['original_gray_blurred_edges_subject_max_space_centroids']['y_max'],
@@ -459,7 +475,6 @@ class ScannedPage:
                 y_min = min(y_min, y)
                 x_max = max(x_max, x + w)
                 y_max = max(y_max, y + h)
-
         elif empty_space_detection == 'centroids':
             res = self.detect_artifacts()
             if res['error']:
@@ -504,21 +519,73 @@ class ScannedPage:
         else:
             return False
         
+    def empty_space_average_weighted_color(self):
+        if self.transforms['original_gray_blurred_edges_subject_max_space_centroids'] is None:
+            raise ValueError("requires detect_empty_space_edge_detection_canny to be run first in centroids mode")
+        if self.transforms['original_gray_blurred_edges_subject_min_space_centroids'] is None:
+            raise ValueError("requires detect_empty_space_edge_detection_canny to be run first in centroids mode")
+
+        min_space = self.transforms['original_gray_blurred_edges_subject_min_space_centroids']
+        max_space = self.transforms['original_gray_blurred_edges_subject_max_space_centroids']
+
+        self.debug_print("min_space: " + str(min_space))
+        self.debug_print("max_space: " + str(max_space))
+
+        space_top    = self.images['original'][max_space['y_min']:min_space['y_min'],:,:]
+        space_bottom = self.images['original'][min_space['y_max']:max_space['y_max'],:,:]
+        space_left   = self.images['original'][:,max_space['x_min']:min_space['x_min'],:]
+        space_right  = self.images['original'][:,min_space['x_max']:max_space['x_max'],:]
+
+        self.images['original_subject_removed'] = self.images['original']
+        self.images['original_subject_removed'][min_space['y_min']:min_space['y_max'],min_space['x_min']:min_space['x_max']] = [0,0,0]
+
+        s1 = average_color(space_top)
+        s2 = average_color(space_bottom)
+        s3 = average_color(space_left)
+        s4 = average_color(space_right)
+
+        s_pixels = s1[1] + s2[1] + s3[1] + s4[1]
+
+        b_avg = np.floor(0.5 +
+            s1[0][0] * (s1[1] / s_pixels) + s2[0][0] * (s2[1] / s_pixels) + s3[0][0] * (s3[1] / s_pixels) + s4[0][0] * (s4[1] / s_pixels)
+        )
+        g_avg = np.floor(0.5 +
+            s1[0][1] * (s1[1] / s_pixels) + s2[0][1] * (s2[1] / s_pixels) + s3[0][1] * (s3[1] / s_pixels) + s4[0][1] * (s4[1] / s_pixels)
+        )
+        r_avg = np.floor(0.5 +
+            s1[0][2] * (s1[1] / s_pixels) + s2[0][2] * (s2[1] / s_pixels) + s3[0][2] * (s3[1] / s_pixels) + s4[0][2] * (s4[1] / s_pixels)
+        )
+
+        self.debug_print(fr"BGR avg: {b_avg} {g_avg} {r_avg}")
+
+        self.debug_print(r"space_top" + str(average_color(space_top)))
+        self.debug_print(r"space_bottom_avg" + str(average_color(space_bottom)))
+        self.debug_print(r"space_left_avg" + str(average_color(space_left)))
+        self.debug_print(r"space_right_avg" + str(average_color(space_right)))
+
+        self.images['space_left'] = space_left
+
+        return {
+            'error': None
+        }
+
     def enough_space_to_rotate(self):
         if self.transforms['original_subject_min_space'] is None:
             raise ValueError("enough_space_to_rotate requires detect_empty_space_edge_detection_canny to be run first")
 
-        longest_side = max(
-            self.transforms['original_subject_min_space']['x_max'] - self.transforms['original_subject_min_space']['x_min'],
-            self.transforms['original_subject_min_space']['y_max'] - self.transforms['original_subject_min_space']['y_min']
-        )
+        longest_path = math.ceil(math.sqrt(
+            (self.transforms['original_subject_min_space']['x_max'] - self.transforms['original_subject_min_space']['x_min'])**2 +
+            (self.transforms['original_subject_min_space']['y_max'] - self.transforms['original_subject_min_space']['y_min'])**2
+        ))
 
-        if self.transforms['original_subject_min_space']['x_max'] + longest_side > self.images['original'].shape[1]:
+        if self.transforms['original_subject_min_space']['x_max'] + longest_path > self.images['original'].shape[1]:
 
-            diff = self.transforms['original_subject_min_space']['x_max'] + longest_side - self.images['original'].shape[1]
+            diff = self.transforms['original_subject_min_space']['x_max'] + longest_path - self.images['original'].shape[1]
 
             self.images['temp'] = self.images['original']
+            i = 0
             while self.images['temp'].shape[1] < self.images['original'].shape[1] + diff:
+                i = i + 1
                 cut_cols = min(
                     self.images['original'].shape[1] + diff - self.images['temp'].shape[1],
                     self.transforms['original_subject_min_space']['x_min']
@@ -526,11 +593,31 @@ class ScannedPage:
 
                 self.debug_print(fr"extending to the right by {cut_cols} pixel(s)")
 
-                # cut out the first {cut_cols} columns, returned as 3D array
-                # (Y ranges from 0 to height, X ranges from 0 to {cut_cols}, all 3 color channels))
-                first_cols_3d = np.fliplr(self.images['original'][:,0:cut_cols,:])
+                if i % 2 == 1:
+                    cut_cols_left = max(
+                        self.transforms['original_subject_min_space']['x_min'] - \
+                            (self.images['original'].shape[1] + diff - self.images['temp'].shape[1]),
+                        0
+                    )
+                    cut_cols_right = self.transforms['original_subject_min_space']['x_min']
 
-                # extend original image with the required number of columns
+                    # cut out the first {cut_cols} columns, returned as 3D array
+                    # (Y ranges from 0 to height, X ranges from 0 to {cut_cols}, all 3 color channels))
+                    #
+                    # reverse order each odd iterations
+                    first_cols_3d = np.fliplr(self.images['original'][:,cut_cols_left:cut_cols_right,:])
+                else:
+                    cut_cols_left = 0
+                    cut_cols_right = min(
+                        self.images['original'].shape[1] + diff - self.images['temp'].shape[1],
+                        self.transforms['original_subject_min_space']['x_min']
+                    )
+
+                    # do not reverse order during even iterations
+                    first_cols_3d = self.images['original'][:,cut_cols_left:cut_cols_right,:]
+
+                # extend original image (or original image previously extended)
+                # with the slice of required length
                 self.images['temp'] = np.hstack((self.images['temp'], first_cols_3d))
 
             return {
@@ -859,11 +946,13 @@ def main():
             if (res['error']):
                 raise ValueError(res['error'])
             
-            res = ascan.enough_space_to_rotate()
+            res = ascan.empty_space_average_weighted_color()
             if (res['error']):
                 raise ValueError(res['error'])
 
-            ascan.write('temp')
+            ascan.write('original_subject_removed')
+            ascan.write('space_left')
+            #ascan.write('temp')
         if args.run == r"remove-artifacts":
             if args.skip_existing and os.path.isfile(ascan.output_filename('original_subject_max_space')):
                 print(str(datetime.datetime.now()) + fr" skipping existing " + str(ascan.output_filename('original_subject_max_space')))
