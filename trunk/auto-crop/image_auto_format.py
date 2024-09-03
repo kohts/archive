@@ -251,6 +251,7 @@ class ScannedPage:
 
         # Original image converted to grayscale
         if self.images['original_gray'] is None:
+            self.debug_print('original dtype: ' + str(self.images["original"].dtype))
             self.images['original_gray'] = cv2.cvtColor(self.images["original"], cv2.COLOR_BGR2GRAY)
             if self.args.debug:
                 n = self.variant * 4 + 1
@@ -531,12 +532,12 @@ class ScannedPage:
         self.debug_print("min_space: " + str(min_space))
         self.debug_print("max_space: " + str(max_space))
 
-        space_top    = self.images['original'][max_space['y_min']:min_space['y_min'],:,:]
         space_bottom = self.images['original'][min_space['y_max']:max_space['y_max'],:,:]
+        space_top    = self.images['original'][max_space['y_min']:min_space['y_min'],:,:]
         space_left   = self.images['original'][:,max_space['x_min']:min_space['x_min'],:]
         space_right  = self.images['original'][:,min_space['x_max']:max_space['x_max'],:]
 
-        self.images['original_subject_removed'] = self.images['original']
+        self.images['original_subject_removed'] = self.images['original'].copy()
         self.images['original_subject_removed'][min_space['y_min']:min_space['y_max'],min_space['x_min']:min_space['x_max']] = [0,0,0]
 
         s1 = average_color(space_top)
@@ -563,7 +564,52 @@ class ScannedPage:
         self.debug_print(r"space_left_avg" + str(average_color(space_left)))
         self.debug_print(r"space_right_avg" + str(average_color(space_right)))
 
-        self.images['space_left'] = space_left
+        avg_bg_color = np.array([b_avg, g_avg, r_avg], dtype=np.uint8)
+
+        longest_path = math.ceil(math.sqrt(
+            (self.transforms['original_subject_min_space']['x_max'] - self.transforms['original_subject_min_space']['x_min'])**2 +
+            (self.transforms['original_subject_min_space']['y_max'] - self.transforms['original_subject_min_space']['y_min'])**2
+        ))
+
+        self.images['original_extended'] = np.copy(self.images['original']).astype(np.uint8)
+        self.transforms['original_extended_subject_min_space'] = self.transforms['original_subject_min_space']
+
+        if self.transforms['original_subject_min_space']['x_max'] + longest_path > self.images['original'].shape[1]:
+            diff = self.transforms['original_subject_min_space']['x_max'] + longest_path - self.images['original'].shape[1]
+            right_extension = np.empty((self.images['original'].shape[0], diff, 3))
+            right_extension[:,:] = avg_bg_color
+            self.images['original_extended'] = np.hstack((self.images['original_extended'], right_extension)).astype(np.uint8)
+            self.debug_print(fr"extended on the right by {diff} pixels")
+        
+        if self.transforms['original_subject_min_space']['x_min'] - longest_path < 0:
+            diff = longest_path - self.transforms['original_subject_min_space']['x_min']
+            left_extension = np.empty((self.images['original'].shape[0], diff, 3))
+            left_extension[:,:] = avg_bg_color
+            self.images['original_extended'] = np.hstack((left_extension, self.images['original_extended'])).astype(np.uint8)
+            self.transforms['original_extended_subject_min_space']['x_min'] += diff
+            self.transforms['original_extended_subject_min_space']['x_max'] += diff
+            self.debug_print(fr"extended on the left by {diff} pixels")
+
+        if self.transforms['original_subject_min_space']['y_max'] + longest_path > self.images['original'].shape[0]:
+            diff = self.transforms['original_subject_min_space']['y_max'] + longest_path - self.images['original'].shape[0]
+            bottom_extension = np.empty((diff, self.images['original_extended'].shape[1], 3))
+            bottom_extension[:,:] = avg_bg_color
+            self.images['original_extended'] = np.vstack((self.images['original_extended'], bottom_extension)).astype(np.uint8)
+            self.debug_print(fr"extended at the bottom by {diff} pixels")
+
+        if self.transforms['original_subject_min_space']['y_min'] - longest_path < 0:
+            diff = longest_path - self.transforms['original_subject_min_space']['y_min']
+            top_extension = np.empty((diff, self.images['original_extended'].shape[1], 3))
+            top_extension[:,:] = avg_bg_color
+            self.images['original_extended'] = np.vstack((top_extension, self.images['original_extended'])).astype(np.uint8)
+            self.transforms['original_extended_subject_min_space']['y_min'] += diff
+            self.transforms['original_extended_subject_min_space']['y_max'] += diff
+            self.debug_print(fr"extended at the top by {diff} pixels")
+
+        self.images['original_extended'][:self.transforms['original_extended_subject_min_space']['y_min'],:] = avg_bg_color
+        self.images['original_extended'][self.transforms['original_extended_subject_min_space']['y_max']:,:] = avg_bg_color
+        self.images['original_extended'][:,:self.transforms['original_extended_subject_min_space']['x_min']] = avg_bg_color
+        self.images['original_extended'][:,self.transforms['original_extended_subject_min_space']['x_max']:] = avg_bg_color
 
         return {
             'error': None
@@ -951,7 +997,7 @@ def main():
                 raise ValueError(res['error'])
 
             ascan.write('original_subject_removed')
-            ascan.write('space_left')
+            ascan.write('original_extended')
             #ascan.write('temp')
         if args.run == r"remove-artifacts":
             if args.skip_existing and os.path.isfile(ascan.output_filename('original_subject_max_space')):
@@ -993,25 +1039,33 @@ def main():
             res = ascan.detect_empty_space_edge_detection_canny()
             if (res['error']):
                 raise ValueError(res['error'])
+            
+            res = ascan.empty_space_average_weighted_color()
+            if (res['error']):
+                raise ValueError(res['error'])
 
-            if not ascan.subject_touches_frames():
-                ascan.debug_print(fr"subject doesn't touch the frame, can apply rotation")
+            ascan_extended = ScannedPage(input_filename, args = args, variant = 1)
+            ascan_extended.images['original'] = ascan.images['original_extended']
 
-                # rotate (TBD: extend empty padding before rotation)
-                res = ascan.detect_image_rotation_canny_hough()
-                if (res['error']):
-                    raise ValueError(res['error'])
+            # TBD: check if no empty space has been found at all 
+            #
+#            if not ascan.subject_touches_frames():
+#               ascan.debug_print(fr"subject doesn't touch the frame, can apply rotation")
 
-                # treated rotated image as original
-                ascan_transformed = ScannedPage(input_filename, args = args, variant = 1)
-                ascan_transformed.images['original'] = ascan.images['original_rotated']
+            res = ascan_extended.detect_image_rotation_canny_hough()
+            if (res['error']):
+                raise ValueError(res['error'])
 
-                # trim rotate image using centroids with artifact detection
-                res = ascan_transformed.detect_empty_space_edge_detection_canny()
-                if (res['error']):
-                    raise ValueError(res['error'])
+            # treated rotated image as original
+            ascan_transformed = ScannedPage(input_filename, args = args, variant = 2)
+            ascan_transformed.images['original'] = ascan_extended.images['original_rotated']
 
-                ascan = ascan_transformed
+            # trim rotate image using centroids with artifact detection
+            res = ascan_transformed.detect_empty_space_edge_detection_canny()
+            if (res['error']):
+                raise ValueError(res['error'])
+ 
+            ascan = ascan_transformed
 
             ascan.write('original_subject_min_space_padded', "_formatted")
 
