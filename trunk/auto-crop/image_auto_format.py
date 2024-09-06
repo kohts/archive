@@ -27,6 +27,8 @@ from sklearn.metrics import accuracy_score
 import pickle
 import hashlib
 
+MAX_ROTATION_ANGLE_DEGREES=10
+
 def extract_features(filename):
     image = cv2.imread(filename)
 
@@ -158,15 +160,29 @@ class ScannedPage:
 
     cleaned_files = defaultdict(lambda:None)
 
-    def debug_print(self, astr):
-        if self.args.debug:
-            print (
-                str(datetime.datetime.now()) +
-                " [" +
-                self.filename_without_ext +
-                "] " +
-                astr
+    def batch_log(self, msg):
+        if not hasattr(self, 'destination_path'):
+            raise ValueError('object has not been initialized as expected: destination_path is not defined')
+        with open(os.path.join(self.destination_path, '__conversion.log'), 'a') as f:
+            f.write(
+                str(datetime.datetime.now()) + " [" +
+                self.filename_without_ext + "] " +
+                str(msg) + '\n'
                 )
+        self.debug_print(msg)
+
+    def debug_print(self, astr):
+        if not hasattr(self, 'destination_path'):
+            raise ValueError('object has not been initialized as expected: destination_path is not defined')
+
+        dbg_msg = str(datetime.datetime.now()) + " [" + self.filename_without_ext + "] " + astr
+
+        if self.args.debug_log:
+            with open(os.path.join(self.destination_path, '__debug.log'), 'a') as f:
+                f.write(dbg_msg + '\n')
+
+        if self.args.debug:
+            print (dbg_msg)
 
     def __init__(self,
                  filename,
@@ -241,6 +257,9 @@ class ScannedPage:
 
     def write(self, image_type, image_suffix = None, debug = True):
         if debug:
+            if self.args.debug_no_intermediate_images:
+                return
+
             debug_suffix = '__' + fr"{self.debug_counter:02d}"
             self.debug_counter += 1
             if image_suffix is not None:
@@ -346,10 +365,9 @@ class ScannedPage:
         self.prepare_edge_contours()
 
         # can't continue the transform
-        if len(self.transforms['original_gray_blurred_edges_contours']) == 0:
+        if len(self.transforms['original_gray_blurred_edges_contours']) < 55:
             return {
-                'error': "Can't find contours in the picture",
-                'image': self.images['original']
+                'error': "Blank image"
             }
 
         self.prepare_edge_contours_centroids()
@@ -584,6 +602,12 @@ class ScannedPage:
             (self.transforms['original_subject_min_space']['x_max'] - self.transforms['original_subject_min_space']['x_min'])**2 +
             (self.transforms['original_subject_min_space']['y_max'] - self.transforms['original_subject_min_space']['y_min'])**2
         ))
+
+        self.debug_print(fr"longest_path: {longest_path}")
+
+        longest_path = math.ceil(longest_path * (1 - math.cos(math.radians(MAX_ROTATION_ANGLE_DEGREES))) + self.args.canny_padding * 2)
+
+        self.debug_print(fr"longest_path adjusted by the max rotation angle and padding: {longest_path}")
 
         self.images['original_extended'] = np.copy(self.images['original']).astype(np.uint8)
         self.transforms['original_extended_subject_min_space'] = self.transforms['original_subject_min_space']
@@ -885,7 +909,7 @@ def hough_filter_lines (lines, args):
         elif line_deviation == math.pi / 2:
             if args.hough_debug:
                 print(fr"     DEBUG hough_filter_lines: line {i} is horizontal, excluding from sum_deviation calculation")
-        elif math.degrees(line_deviation) > 10 or math.degrees(line_deviation) < -10:
+        elif math.degrees(line_deviation) > MAX_ROTATION_ANGLE_DEGREES or math.degrees(line_deviation) < -1 * MAX_ROTATION_ANGLE_DEGREES:
             if args.hough_debug:
                 print(fr"     DEBUG hough_filter_lines: line {i} is too inclined, excluding from sum_deviation calculation")
         else:
@@ -931,6 +955,8 @@ def main():
     parser.add_argument('--artifacts-majority-threshold', type=float, default=0.99, help="%% of centroids by artifact measure not considered artifacts")
     parser.add_argument('--artifacts-discontinuity-threshold', type=float, default=0.15, help="%% of measure jump considered discontinuity")
     parser.add_argument('--debug', type=bool, default=False)
+    parser.add_argument('--debug-no-intermediate-images', type=bool, default=False)
+    parser.add_argument('--debug-log', type=bool, default=False)
     parser.add_argument('--train-path-up', type=str, default='')
     parser.add_argument('--train-path-down', type=str, default='')
     parser.add_argument('--check-orientation', type=str, default='')
@@ -1063,7 +1089,11 @@ def main():
             # check if the original image subject "touches" side of the picture:
             # if it doest - can't rotate it
             res = ascan.detect_empty_space_edge_detection_canny()
-            if (res['error']):
+            if (res['error'] == 'Blank image'):
+                ascan.write('original', "_formatted", debug = False)
+                ascan.batch_log('blank image, copied as is')
+                continue
+            elif (res['error']):
                 raise ValueError(res['error'])
             
             res = ascan.empty_space_average_weighted_color()
@@ -1088,12 +1118,16 @@ def main():
 
             # trim rotate image using centroids with artifact detection
             res = ascan_transformed.detect_empty_space_edge_detection_canny()
-            if (res['error']):
+            if (res['error'] == 'Blank image'):
+                ascan.write('original', "_formatted", debug = False)
+                ascan.batch_log('blank image, copied as is')
+                continue
+            elif (res['error']):
                 raise ValueError(res['error'])
- 
+
             ascan = ascan_transformed
 
             ascan.write('original_subject_min_space_padded', "_formatted", debug = False)
-
+            ascan.batch_log('processed')
 if __name__ == "__main__":
     main()
