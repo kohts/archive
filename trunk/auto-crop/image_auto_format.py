@@ -792,7 +792,7 @@ class ScannedPage:
 
         if lines is None:
             return {
-                'error': "Can't find lines in the scan",
+                'error': "No lines",
                 'image': self.images['original']
             }
 
@@ -920,14 +920,6 @@ def hough_filter_lines (lines, args):
 
     return tmp_lines
 
-def check_and_create_destination(destination_dir):
-    if (not os.path.isdir(destination_dir)):
-        directory = Path(destination_dir)
-        try:
-            directory.mkdir(parents=True, exist_ok=True)
-        except Exception as e:
-            print(fr"An error occurred while creating directory {destination_dir}: {e}")
-
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--filename', type=str)
@@ -1030,15 +1022,22 @@ def main():
         print("\n" fr"No files to process: need either --filename (to process one file) or --source-dir (to process a directory), got none!" "\n")
         sys.exit(2)
 
+    counter = 0
+    counter_string = ""
+    logged_run = False
     for afile in files_to_process:
+        counter = counter + 1
+        counter_string = str(counter) + "/" + str(len(files_to_process))
+
         args.destination_dir = afile['destination_dir']
         input_filename = afile['input_filename']
 
-        check_and_create_destination(args.destination_dir)
-
-        print (str(datetime.datetime.now()) + " " + fr"working on {input_filename}, saving to {args.destination_dir}")
+        print (str(datetime.datetime.now()) + " " + fr"working on {input_filename} [{counter_string}] saving to {args.destination_dir}")
 
         ascan = ScannedPage(input_filename, args = args)
+        if not logged_run:
+            ascan.batch_log('started as: ' + ' '.join(sys.argv))
+            logged_run = True
 
         if args.run == r"enough-space-to-rotate":
             res = ascan.detect_empty_space_edge_detection_canny()
@@ -1077,7 +1076,9 @@ def main():
                 continue
 
             res = ascan.detect_image_rotation_canny_hough()
-            if (res['error']):
+            if (res['error'] == 'No lines'):
+                ascan.write('original', debug = False)
+            elif (res['error']):
                 raise ValueError(res['error'])
             else:
                 ascan.write('original_rotated', debug = False)
@@ -1091,7 +1092,7 @@ def main():
             res = ascan.detect_empty_space_edge_detection_canny()
             if (res['error'] == 'Blank image'):
                 ascan.write('original', "_formatted", debug = False)
-                ascan.batch_log('blank image, copied as is')
+                ascan.batch_log(fr"{counter_string} blank image, copied as is")
                 continue
             elif (res['error']):
                 raise ValueError(res['error'])
@@ -1109,18 +1110,22 @@ def main():
 #               ascan.debug_print(fr"subject doesn't touch the frame, can apply rotation")
 
             res = ascan_extended.detect_image_rotation_canny_hough()
-            if (res['error']):
+            if res['error'] and res['error'] != 'No lines':
                 raise ValueError(res['error'])
 
             # treated rotated image as original
             ascan_transformed = ScannedPage(input_filename, args = args)
-            ascan_transformed.images['original'] = ascan_extended.images['original_rotated']
+            if res['error'] == 'No lines':
+                ascan_transformed.batch_log(fr"{counter_string} no lines detected in the image, not rotating")
+                ascan_transformed.images['original'] = ascan_extended.images['original']
+            else:
+                ascan_transformed.images['original'] = ascan_extended.images['original_rotated']
 
             # trim rotate image using centroids with artifact detection
             res = ascan_transformed.detect_empty_space_edge_detection_canny()
             if (res['error'] == 'Blank image'):
                 ascan.write('original', "_formatted", debug = False)
-                ascan.batch_log('blank image, copied as is')
+                ascan.batch_log(fr"{counter_string} blank image, copied as is")
                 continue
             elif (res['error']):
                 raise ValueError(res['error'])
@@ -1128,6 +1133,8 @@ def main():
             ascan = ascan_transformed
 
             ascan.write('original_subject_min_space_padded', "_formatted", debug = False)
-            ascan.batch_log('processed')
+            ascan.batch_log("{counter_string} processed")
+
+
 if __name__ == "__main__":
     main()
