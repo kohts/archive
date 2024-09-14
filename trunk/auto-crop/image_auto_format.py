@@ -88,6 +88,9 @@ def average_color(img):
     # Calculate the number of pixels
     num_pixels = np.prod(img.shape[:2], dtype=np.int64)
 
+    if num_pixels < 1:
+        return (np.array([0, 0, 0], dtype=np.uint8), 0)
+
     # Calculate the sum of each channel
     channel_sums = np.sum(img, axis=(0, 1), dtype=np.int64)
 
@@ -578,19 +581,23 @@ class ScannedPage:
         s4 = average_color(space_right)
 
         s_pixels = s1[1] + s2[1] + s3[1] + s4[1]
-
-        b_avg = np.floor(0.5 +
-            s1[0][0] * (s1[1] / s_pixels) + s2[0][0] * (s2[1] / s_pixels) + s3[0][0] * (s3[1] / s_pixels) + s4[0][0] * (s4[1] / s_pixels)
-        )
-        g_avg = np.floor(0.5 +
-            s1[0][1] * (s1[1] / s_pixels) + s2[0][1] * (s2[1] / s_pixels) + s3[0][1] * (s3[1] / s_pixels) + s4[0][1] * (s4[1] / s_pixels)
-        )
-        r_avg = np.floor(0.5 +
-            s1[0][2] * (s1[1] / s_pixels) + s2[0][2] * (s2[1] / s_pixels) + s3[0][2] * (s3[1] / s_pixels) + s4[0][2] * (s4[1] / s_pixels)
-        )
+        if s_pixels > 0:
+            b_avg = np.floor(0.5 +
+                s1[0][0] * (s1[1] / s_pixels) + s2[0][0] * (s2[1] / s_pixels) + s3[0][0] * (s3[1] / s_pixels) + s4[0][0] * (s4[1] / s_pixels)
+            )
+            g_avg = np.floor(0.5 +
+                s1[0][1] * (s1[1] / s_pixels) + s2[0][1] * (s2[1] / s_pixels) + s3[0][1] * (s3[1] / s_pixels) + s4[0][1] * (s4[1] / s_pixels)
+            )
+            r_avg = np.floor(0.5 +
+                s1[0][2] * (s1[1] / s_pixels) + s2[0][2] * (s2[1] / s_pixels) + s3[0][2] * (s3[1] / s_pixels) + s4[0][2] * (s4[1] / s_pixels)
+            )
+        else:
+            # default to white background
+            b_avg = 255
+            g_avg = 255
+            r_avg = 255
 
         self.debug_print(fr"BGR avg: {b_avg} {g_avg} {r_avg}")
-
         self.debug_print(r"space_top" + str(average_color(space_top)))
         self.debug_print(r"space_bottom_avg" + str(average_color(space_bottom)))
         self.debug_print(r"space_left_avg" + str(average_color(space_left)))
@@ -1133,8 +1140,7 @@ def main():
             ascan = ascan_transformed
 
             ascan.write('original_subject_min_space_padded', "_formatted", debug = False)
-            ascan.batch_log("{counter_string} processed")
-
+            ascan.batch_log(fr"{counter_string} processed")
 
 if __name__ == "__main__":
     main()
