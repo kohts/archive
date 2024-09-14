@@ -276,8 +276,8 @@ class ScannedPage:
 
         output_filename = self.output_filename(image_type, image_suffix)
 
-        self.debug_print(fr"writing {image_type} to {output_filename}")
-        write_jpeg(output_filename, self.images[image_type])
+        self.debug_print(fr"writing {image_type} to {output_filename} jpeg quality {self.args.jpeg_quality}")
+        write_jpeg(output_filename, self.images[image_type], self.args.jpeg_quality)
         self.written_images[image_type] = output_filename
 
     def prepare_edges(self, gaussian_kernel = None):
@@ -881,8 +881,15 @@ def estimate_jpeg_quality(image):
     
     return int(np.clip(quality, 0, 100))
 
-def write_jpeg(filename, filedata):
-    cv2.imwrite(filename, filedata, [cv2.IMWRITE_JPEG_QUALITY, 85])
+def write_jpeg(filename, filedata, q = 85):
+    cv2.imwrite(
+        filename,
+        filedata,
+        [
+            cv2.IMWRITE_JPEG_QUALITY, q,
+#            cv2.IMWRITE_JPEG_SAMPLING_FACTOR, 0x111111
+        ]
+    )
 
 def hough_calc_line_deviation(theta):
     line_deviation = 0
@@ -953,6 +960,7 @@ def main():
     parser.add_argument('--artifacts-debug', type=bool, default=False)   
     parser.add_argument('--artifacts-majority-threshold', type=float, default=0.99, help="%% of centroids by artifact measure not considered artifacts")
     parser.add_argument('--artifacts-discontinuity-threshold', type=float, default=0.15, help="%% of measure jump considered discontinuity")
+    parser.add_argument('--jpeg-quality', type=int, default=85)
     parser.add_argument('--debug', type=bool, default=False)
     parser.add_argument('--debug-no-intermediate-images', type=bool, default=False)
     parser.add_argument('--debug-log', type=bool, default=False)
