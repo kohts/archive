@@ -131,5 +131,11 @@
     <qualifier>notes</qualifier>
     <scope_note></scope_note>
   </dc-type>
+  <dc-type>
+    <schema>sdm-archive</schema>
+    <element>date</element>
+    <qualifier>scanned</qualifier>
+    <scope_note>Date(s) when actual scanning happened (based on the metadata of files before any processing)</scope_note>
+  </dc-type>
 
 </dspace-dc-types>

@@ -3141,6 +3141,18 @@ elsif ($o->{'scan-add-scans'}) {
                 'language' => '',
                 },
             });
+
+        if (-e $o->{'from'} . "/.scandate") {
+            my $scandate = trim(read_file_scalar($o->{'from'} . "/.scandate"), " \n\r")
+            $res = SDM::Archive::DSpace::update_item_metadata({
+                'item' => $i,
+                'metadata' => {
+                    'key' => 'sdm-archive.date.scanned',
+                    'value' => $scandate,
+                    'language' => '',
+                    },
+                });
+        }
     }
 }
 elsif ($o->{'dspace-update-date-accesioned-with-scanned'}) {
