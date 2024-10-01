@@ -166,7 +166,7 @@ class ScannedPage:
     def batch_log(self, msg):
         if not hasattr(self, 'destination_path'):
             raise ValueError('object has not been initialized as expected: destination_path is not defined')
-        with open(os.path.join(self.destination_path, '__conversion.log'), 'a') as f:
+        with open(os.path.join(self.destination_path, '.conversion.log'), 'a') as f:
             f.write(
                 str(datetime.datetime.now()) + " [" +
                 self.filename_without_ext + "] " +
@@ -181,7 +181,7 @@ class ScannedPage:
         dbg_msg = str(datetime.datetime.now()) + " [" + self.filename_without_ext + "] " + astr
 
         if self.args.debug_log:
-            with open(os.path.join(self.destination_path, '__debug.log'), 'a') as f:
+            with open(os.path.join(self.destination_path, '.debug.log'), 'a') as f:
                 f.write(dbg_msg + '\n')
 
         if self.args.debug:
@@ -226,8 +226,10 @@ class ScannedPage:
             self.destination_path = os.path.dirname(self.filename)
 
         if args.clean_existing and ScannedPage.cleaned_files[self.filename] is None:
+            destination_same_as_source = self.destination_path == os.path.dirname(self.filename)
             for afn in os.listdir(self.destination_path):
-                if afn == os.path.basename(self.filename) or re.search(str(r"^" + self.filename_without_ext + r"__.+"), afn):
+                if (afn == os.path.basename(self.filename) and not destination_same_as_source) or\
+                    re.search(str(r"^" + self.filename_without_ext + r"__.+"), afn):
                     cleaned_path = os.path.join(self.destination_path, afn)
                     os.remove(cleaned_path)
                     self.debug_print(fr"cleaned up [{cleaned_path}]")
@@ -322,6 +324,10 @@ class ScannedPage:
 
     def prepare_edge_contours_centroids(self):
         if self.transforms['original_gray_blurred_edges_contours_centroids'] is None:
+
+            GM = cv2.moments(self.images['original_gray_blurred_edges'])
+            self.debug_print(fr"global moment: {GM}")
+
             # Extract centroids of all contours
             centroids = []
             centroids_with_annotations = []
@@ -363,6 +369,7 @@ class ScannedPage:
                              str(len(self.transforms['original_gray_blurred_edges_contours'])) +
                              "] contours")
 
+
     def detect_artifacts(self):
         self.prepare_edges()
         self.prepare_edge_contours()
@@ -396,6 +403,30 @@ class ScannedPage:
 
             # sort by artifact measure
             centroids_distances_sorted = sorted(centroids_with_annotations, key=lambda x: x['sum_distances'])
+
+            if self.args.artifacts_debug:
+                debug_suffix = '__' + fr"{self.debug_counter:02d}"
+                self.debug_counter += 1
+
+                output_filename = re.sub(
+                    r"\.jpg",
+                    fr"{debug_suffix}_centroids_distances_sorted.txt",
+                    os.path.join(self.destination_path, os.path.basename(self.filename))
+                    )
+
+                self.debug_print(fr"saving centroids_distances_sorted to: " + output_filename)
+                with open(output_filename, "w") as f:
+                    # header
+                    print("centroid_n,contour_n,sum_measure,x,y", file=f)
+
+                    # data
+                    for i in range(len(centroids_distances_sorted)):
+                        print(str(i) + 
+                            "," + str(centroids_distances_sorted[i]['contour_n']) + 
+                            "," + str(centroids_distances_sorted[i]['sum_distances']) +
+                            "," + str(centroids_distances_sorted[i]['centroid'][0]) +
+                            "," + str(centroids_distances_sorted[i]['centroid'][1]),
+                            file=f)
 
             # select % of the closest centroids as non-artifacts
             _, j = math.modf(len(centroids_distances_sorted) * self.args.artifacts_majority_threshold)
@@ -937,6 +968,7 @@ def hough_filter_lines (lines, args):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--filename', type=str)
+    parser.add_argument('--source-file', type=str, default=None)
     parser.add_argument('--source-dir', type=str, default=None)
     parser.add_argument('--destination-dir', type=str, default=None)
     parser.add_argument('--run', type=str, default='', help='mandatory, mode of operation. one of: trim-canny, fix-rotation, remove-artifacts, clean-all, image-info')
@@ -1006,22 +1038,47 @@ def main():
         print(f"Estimated JPEG quality: {jpeg_quality}%")
         sys.exit(0)
 
-    if (args.source_dir is not None and args.filename is not None):
+    if (args.source_dir is not None) + (args.filename is not None) + (args.source_file is not None) > 1:
         parser.print_help()
-        print("\n" fr"Choose either --filename (to process one file) or --source-dir (to process a directory), not both!" "\n")
+        print(
+            "\n"
+            fr"Choose only one of:" "\n"
+            fr"    --filename    - to process one file" "\n"
+            fr"    --source-dir  - to process a directory" "\n"
+            fr"    --source-file - to process filenames from a text file" "\n"
+            )
         sys.exit(2)
     if args.source_dir is not None and args.destination_dir is None:
         parser.print_help()
         print("\n" fr"Specifying --source-dir implies specifying --destination-dir!" "\n")
         sys.exit(2)
-    if args.source_dir is not None and not os.path.isdir(args.source_dir):
-        parser.print_help()
-        print("\n" fr"Non-existent directory specified: [{args.source_dir}]" "\n")
-        sys.exit(2)
 
     files_to_process = []
 
+    if args.source_file is not None:
+        if not os.path.isfile(args.source_file):
+            parser.print_help()
+            print("\n" fr"Non-existent source-file specified: [{args.source_file}]" "\n")
+            sys.exit(2)
+
+        destination_dir = args.destination_dir if args.destination_dir is not None else os.path.dirname(args.source_file)
+        print (fr"reading {args.source_file}")
+        with open(args.source_file, 'r') as afile:
+            for aline in afile:
+                if not os.path.isfile(os.path.join(destination_dir, aline.strip())):
+                    print ("SKIPPING non-existent file:", os.path.join(destination_dir, aline.strip()))
+                else:
+                    files_to_process.append({
+                        'input_filename': os.path.join(destination_dir, aline.strip()),
+                        'destination_dir': destination_dir
+                    })
+
     if args.source_dir is not None:
+        if not os.path.isdir(args.source_dir):
+            parser.print_help()
+            print("\n" fr"Non-existent directory specified: [{args.source_dir}]" "\n")
+            sys.exit(2)
+
         for afn in os.listdir(args.source_dir):
             files_to_process.append({
                 'input_filename': os.path.join(args.source_dir, afn),

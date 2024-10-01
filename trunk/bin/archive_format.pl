@@ -327,6 +327,9 @@ DOCUMENT: foreach my $doc_dir (@{$d}) {
                 # skip non-files
                 next PAGE unless -f $full_page_path;
 
+                # skip hidden files
+                next if $page =~ /^\./;
+
                 # special processing for description files
                 if ($full_page_path =~ /\.txt$/) {
                     
