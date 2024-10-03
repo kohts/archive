@@ -861,12 +861,12 @@ sub trim {
         return 0 if $tstr eq ''; # nothing to trim, do not waste cpu cycles
     
         if ($symbols) {
-            $tstr =~ s/^[${symbols}]+//so;
-            $tstr =~ s/[${symbols}]+$//so;
+            $tstr =~ s/^[${symbols}]+//s;
+            $tstr =~ s/[${symbols}]+$//s;
         }
         else {
-            $tstr =~ s/^\s+//so;
-            $tstr =~ s/\s+$//so;
+            $tstr =~ s/^\s+//s;
+            $tstr =~ s/\s+$//s;
         }
 
         if ($tstr ne $$string) {
@@ -883,12 +883,12 @@ sub trim {
         return "" if $string eq ''; # nothing to trim, do not waste cpu cycles
 
         if ($symbols) {
-            $string =~ s/^[${symbols}]+//so;
-            $string =~ s/[${symbols}]+$//so;
+            $string =~ s/^[${symbols}]+//s;
+            $string =~ s/[${symbols}]+$//s;
         }
         else {
-            $string =~ s/^\s+//so;
-            $string =~ s/\s+$//so;
+            $string =~ s/^\s+//s;
+            $string =~ s/\s+$//s;
         }
 
         return $string;

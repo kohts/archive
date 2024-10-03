@@ -272,6 +272,7 @@ my $o_names = [
     'dspace-rest-get-item=s',
     'dspace-rest-get-items=s',
     'dspace-rest-delete-bitstreams=s',
+    'dspace-rest-set-metadata=s',
     'from=s',
     'to=s',
     'scan-schedule-scan=s',
@@ -294,6 +295,9 @@ my $o_names = [
     'browse-kamis-get-paints-by-id=s',
     'oracle-test',
     'bundle=s',
+    'key=s',
+    'value=s',
+    'read-file-scalar=s',
     ];
 my $o = {};
 Getopt::Long::GetOptionsFromArray(\@ARGV, $o, @{$o_names});
@@ -2796,6 +2800,56 @@ elsif ($o->{'dspace-rest-get-items'}) {
         print $res . "\n";
     }
 }
+elsif ($o->{'dspace-rest-set-metadata'}) {
+    my $target_collection_name;
+
+    if (!$o->{'target-collection'}) {
+        $target_collection_name = $data_desc_struct->{'AE'}->{'dspace-collection-name'};
+    }
+    else {
+        if (!defined($data_desc_struct->{$o->{'target-collection'}})) {
+            Carp::confess("Non-existent collection: " . $o->{'target-collection'});
+        }
+
+        $target_collection_name = $data_desc_struct->{$o->{'target-collection'}}->{'dspace-collection-name'};
+    }
+
+    Carp::confess("Need item_id (either internal DSpace id or Handle")
+        unless
+            SDM::Archive::Utils::is_integer($o->{'dspace-rest-set-metadata'}, {'positive-only' => 1}) ||
+            SDM::Archive::DSpace::is_handle($o->{'dspace-rest-set-metadata'})
+            ;
+
+    Carp::confess("Need non-empty key and value")
+        unless $o->{'key'} && $o->{'value'};
+
+    my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
+    my $target_collection = SDM::Archive::DSpace::get_collection({
+        'community_obj' => $target_community,
+        'collection_name' => $target_collection_name,
+        });
+    my $target_item = SDM::Archive::DSpace::get_item({
+        'collection_obj' => $target_collection,
+        'item_id' => $o->{'dspace-rest-set-metadata'},
+        });
+    Carp::confess("Unable to find target item")
+        unless $target_item;
+
+    my $i = SDM::Archive::DSpace::get_item({
+        'collection_obj' => $target_collection,
+        'item_id' => $target_item->{'id'},
+        });
+
+    my $res = SDM::Archive::DSpace::update_item_metadata({
+      'item' => $i,
+      'metadata' => {
+        'key' => $o->{'key'},
+        'value' => $o->{'value'},
+        'language' => '',
+        },
+      });
+    print Data::Dumper::Dumper($res);
+}
 elsif ($o->{'rest-test'}) {
     my $target_community = SDM::Archive::DSpace::get_community_by_name("Архив");
     print Data::Dumper::Dumper($target_community);
@@ -3042,7 +3096,6 @@ elsif ($o->{'scan-add-scans'}) {
     #
     # can update items with newly added bitstreams (can't replace bitstreams)
     #
-
     
     my $target_collection_name;
 
@@ -3868,6 +3921,10 @@ elsif ($o->{'oracle-test'}) {
     }
     $sth->finish;
     $dbh->disconnect;
+}
+elsif ($o->{'read-file-scalar'}) {
+    my $scandate = trim(read_file_scalar($o->{'read-file-scalar'}), '\s\n\r');
+    print Data::Dumper::Dumper($scandate);
 }
 elsif ($o->{'command-list'}) {
     print join("\n", "", sort map {"--" . $_} @{$o_names}) . "\n";
