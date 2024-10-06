@@ -19,6 +19,7 @@ from scipy.spatial import distance_matrix
 
 import exifread
 
+from skimage.draw import line
 from skimage.feature import local_binary_pattern
 from sklearn.decomposition import PCA
 from sklearn.svm import SVC
@@ -27,7 +28,40 @@ from sklearn.metrics import accuracy_score
 import pickle
 import hashlib
 
+import inspect
+
 MAX_ROTATION_ANGLE_DEGREES=10
+
+def get_caller_name():
+    current_frame = inspect.currentframe()
+    caller_frame = current_frame.f_back
+
+    if caller_frame is not None and caller_frame.f_back is not None:
+        caller_frame = caller_frame.f_back
+
+    if caller_frame is not None:
+        if 'self' in caller_frame.f_locals:
+            # It's a method
+            return f"{caller_frame.f_locals['self'].__class__.__name__}.{caller_frame.f_code.co_name}"
+        else:
+            # It's a function
+            return caller_frame.f_code.co_name
+    return "<unknown>"
+
+def shortest_path_between_contours(contour1, contour2):
+    min_dist = float('inf')
+    min_point1 = None
+    min_point2 = None
+
+    for point1 in contour1:
+        for point2 in contour2:
+            dist = cv2.norm(point1 - point2)
+            if dist < min_dist:
+                min_dist = dist
+                min_point1 = tuple(point1[0])
+                min_point2 = tuple(point2[0])
+
+    return min_point1, min_point2, min_dist
 
 def extract_features(filename):
     image = cv2.imread(filename)
@@ -161,11 +195,14 @@ class TrainingSet:
 
 class ScannedPage:
 
+    logged_run = False
     cleaned_files = defaultdict(lambda:None)
+    orig_files = defaultdict(lambda:None)
 
     def batch_log(self, msg):
         if not hasattr(self, 'destination_path'):
             raise ValueError('object has not been initialized as expected: destination_path is not defined')
+
         with open(os.path.join(self.destination_path, '.conversion.log'), 'a') as f:
             f.write(
                 str(datetime.datetime.now()) + " [" +
@@ -178,7 +215,10 @@ class ScannedPage:
         if not hasattr(self, 'destination_path'):
             raise ValueError('object has not been initialized as expected: destination_path is not defined')
 
-        dbg_msg = str(datetime.datetime.now()) + " [" + self.filename_without_ext + "] " + astr
+        dbg_msg = str(datetime.datetime.now()) + " " \
+            "[" + self.filename_without_ext + "] " + \
+            "[" + get_caller_name() + "] " + \
+            astr
 
         if self.args.debug_log:
             with open(os.path.join(self.destination_path, '.debug.log'), 'a') as f:
@@ -214,22 +254,31 @@ class ScannedPage:
 
         self.args = args
 
+        createdTargetDir = False
         if hasattr(args, 'destination_dir'):
             if (not os.path.isdir(args.destination_dir)):
                 directory = Path(args.destination_dir)
                 try:
                     directory.mkdir(parents=True, exist_ok=True)
+                    createdTargetDir = True
                 except Exception as e:
                     raise ValueError(r"An error occurred while creating directory {}: ".format(args.destination_dir) + str(e))
             self.destination_path = args.destination_dir
         else:
             self.destination_path = os.path.dirname(self.filename)
 
+        if createdTargetDir:
+            self.batch_log(fr"created target dir: {args.destination_dir}")
+        if not ScannedPage.logged_run:
+            self.batch_log('started as: ' + ' '.join(sys.argv))
+            ScannedPage.logged_run = True
+
         if args.clean_existing and ScannedPage.cleaned_files[self.filename] is None:
             destination_same_as_source = self.destination_path == os.path.dirname(self.filename)
             for afn in os.listdir(self.destination_path):
-                if (afn == os.path.basename(self.filename) and not destination_same_as_source) or\
-                    re.search(str(r"^" + self.filename_without_ext + r"__.+"), afn):
+                if (afn == os.path.basename(self.filename) and not destination_same_as_source) or \
+                    re.search(str(r"^" + self.filename_without_ext + r"__.+"), afn) or \
+                    re.search(str(r"^" + self.filename_without_ext + r"_formatted.jpg"), afn):
                     cleaned_path = os.path.join(self.destination_path, afn)
                     os.remove(cleaned_path)
                     self.debug_print(fr"cleaned up [{cleaned_path}]")
@@ -242,9 +291,14 @@ class ScannedPage:
             if re.search(str(r"^" + self.filename_without_ext + r"__.+"), afn):
                 self.debug_counter += 1
 
-        if args.copy_source_to_destination and not os.path.samefile(os.path.dirname(self.filename), self.destination_path):
+        if args.copy_source_to_destination and not os.path.samefile(os.path.dirname(self.filename), self.destination_path) and \
+            ScannedPage.orig_files[self.filename] is None:
             shutil.copy2(self.filename, self.destination_path)
             self.debug_print(fr"copied original [{self.filename}] to [{self.destination_path}]")
+
+            # copy original file once per run
+            ScannedPage.orig_files[self.filename] = True
+
 
     def read(self):
         if self.images['original'] is None:
@@ -369,6 +423,140 @@ class ScannedPage:
                              str(len(self.transforms['original_gray_blurred_edges_contours'])) +
                              "] contours")
 
+    def shade_small_dots(self, bgcolor):
+        self.prepare_edges()
+        self.prepare_edge_contours()
+
+        # can't continue the transform
+        if len(self.transforms['original_gray_blurred_edges_contours']) < 55:
+            return {
+                'error': "Blank image"
+            }
+
+        dilation_coef = 15
+
+        # Apply dilation to connect nearby components
+        kernel = np.ones((dilation_coef, dilation_coef), np.uint8)
+        dilated_image = cv2.dilate(self.images['original_gray_blurred_edges'], kernel)
+
+        self.images['original_gray_blurred_edges_dilated'] = dilated_image
+        if self.args.debug:
+            self.write('original_gray_blurred_edges_dilated', '_gray_blurred_dilated')
+
+        # detect contours of connected components in the dilated_image
+        contours, _ = cv2.findContours(dilated_image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+        self.debug_print(fr"shade_small_dots: contours in dilated image: " + str(len(contours)))
+
+        self.images['original_gray_blurred_edges_dilated_contours'] = self.images['original'].copy()
+        cv2.drawContours(self.images['original_gray_blurred_edges_dilated_contours'], contours, -1, (0,0,255), 3)
+        if self.args.debug:
+            self.write('original_gray_blurred_edges_dilated_contours', '_gray_blurred_dilated_contours')
+
+        self.images['original_shaded'] = self.images['original'].copy()
+
+        largest_contour = None
+        largest_contour_area = None
+        small_contours = []
+        for i in range(0, len(contours)):
+            if largest_contour_area is None or cv2.contourArea(contours[i]) > largest_contour_area:
+                largest_contour_area = cv2.contourArea(contours[i])
+                largest_contour = contours[i]
+
+        self.images['original_gray_blurred_edges_dilated_largest_contour'] = self.images['original'].copy()
+        cv2.drawContours(self.images['original_gray_blurred_edges_dilated_largest_contour'], [largest_contour], -1, (255,0,0), 5)
+        if self.args.debug:
+            self.write('original_gray_blurred_edges_dilated_largest_contour', '_gray_blurred_dilated_largest_contour')
+
+        tryToCombine = True
+        cur_contours = contours
+        while tryToCombine:
+            tryToCombine = False
+
+            combined_contours_idx = {}
+            combined_contours = []
+            
+            # for each contour - find its closest neighbour and combine them
+            # if the distance between them is not huge
+            for i in range(0, len(cur_contours) - 1):
+                if i in combined_contours_idx:
+                    continue
+
+                shortest_path_p1 = None
+                shortest_path_p2 = None
+                closest_neighbour = None
+                closest_neighbour_distance = None
+                
+                for j in range(i + 1, len(cur_contours)):
+
+                    shortest_path_p1, shortest_path_p2, distance = shortest_path_between_contours(cur_contours[i], cur_contours[j])
+
+                    self.debug_print(fr"shortest path between contours {i} and {j}: {distance}, p1 {shortest_path_p1}, p2 {shortest_path_p2}")
+
+                    if closest_neighbour is None or distance < closest_neighbour_distance:
+                        closest_neighbour = j
+                        closest_neighbour_distance = distance
+
+                if closest_neighbour_distance < 10 * dilation_coef:
+                    self.debug_print(fr"contour {i}: close to {closest_neighbour} - distance {closest_neighbour_distance}, combining")
+                    
+                    rr, cc = line(shortest_path_p1[1], shortest_path_p1[0], shortest_path_p2[1], shortest_path_p2[0])
+                    line_points = np.zeros((len(rr), len(cc), 3), dtype=np.uint8)
+                    line_points[:] = [255, 255, 255]
+
+                    points = np.concatenate([cur_contours[i], cur_contours[closest_neighbour], line_points])
+
+                    combined_contours.append(points)
+                    combined_contours_idx["{closest_neighbour}"] = True
+                else:
+                    self.debug_print(fr"contour {i}: no close members, leaving as is")
+                    combined_contours.append(cur_contours[i])
+            
+            # # try to reduce once again if current try succeeded
+            # if len(combined_contours) < len(cur_contours):
+            #     tryToCombine = True
+            #     cur_contours = combined_contours
+
+        small_contours_outside_largest = []
+        for i in range(0, len(contours)):
+            self.debug_print(fr"shade_small_dots: contour {i} area: " + str(cv2.contourArea(contours[i])))
+
+            if contours[i] is largest_contour:
+                self.debug_print(fr"shade_small_dots: skipping largest contour")
+                continue
+
+            if cv2.contourArea(contours[i]) > 1000 * dilation_coef:
+                self.debug_print(fr"shade_small_dots: skipping large contour")
+                continue
+
+            inside = True
+            for point in contours[i]:
+                result = cv2.pointPolygonTest(largest_contour, (int(point[0][0]),int(point[0][1])), False)
+                if result < 1:
+                    self.debug_print('shade_small_dots: small contour outside largest: ' + str(point))
+                    inside = False
+                    break
+            if not inside:
+                small_contours_outside_largest.append(contours[i])
+
+        shaded_areas = 0
+        if len(small_contours_outside_largest) < 5:
+            for c in small_contours_outside_largest:
+                self.debug_print("shade_small_dots: shading contour")
+                cv2.drawContours(self.images['original_shaded'], [c], 0, bgcolor, -1)
+                shaded_areas = shaded_areas + 1
+        else:
+            return {
+                'error': 'Too many small contours',
+            }
+
+        if self.args.debug:
+            self.write('original_shaded', '_original_shaded')
+
+        return {
+            'error': False,
+            'shaded_areas': shaded_areas
+        }
 
     def detect_artifacts(self):
         self.prepare_edges()
@@ -430,6 +618,7 @@ class ScannedPage:
 
             # select % of the closest centroids as non-artifacts
             _, j = math.modf(len(centroids_distances_sorted) * self.args.artifacts_majority_threshold)
+            j_min = len(centroids_distances_sorted) - j
 
             # there should be at least one centroid considered the subject of an image
             if j < 1:
@@ -437,6 +626,8 @@ class ScannedPage:
                     'error': fr"{self.args.artifacts_majority_threshold} is too low, try increasing",
                     'image': self.images['original']
                 }
+
+            self.debug_print(fr"Majority: {j} centroids, minority: {j_min} centroids ({round(self.args.artifacts_majority_threshold * 100, 2)}%)")
 
             # Find the bounding rectangle of all centroids except artifacts
             x_min, y_min, x_max, y_max = float('inf'), float('inf'), 0, 0
@@ -447,6 +638,7 @@ class ScannedPage:
             x1_left, y1_top, x2_right, y2_bottom = 0, 0, width, height
 
             prev_distance = None
+            prev_distance_pct = None
             jump_centroid = None
             for i in range(len(centroids_distances_sorted)):
                 # current centroid coordinates
@@ -462,9 +654,8 @@ class ScannedPage:
                     y_max = max(y_max, y + h)
                 else:
                     if jump_centroid is None:
-                        if (centroids_distances_sorted[i]['sum_distances'] - prev_distance) / prev_distance > \
-                            self.args.artifacts_discontinuity_threshold:
-
+                        prev_distance_pct = round((centroids_distances_sorted[i]['sum_distances'] - prev_distance) / prev_distance, 4)
+                        if prev_distance_pct > self.args.artifacts_discontinuity_threshold:
                             jump_centroid = i
                         else:
                             # not an artifact - adjust bounding rect of the main subject
@@ -485,7 +676,9 @@ class ScannedPage:
                             y2_bottom = min(y, y2_bottom)
 
                     self.debug_print(
-                        fr"{i}: " + str(centroids_distances_sorted[i]['sum_distances']) + ("" if jump_centroid is None else " - JUMP")
+                        fr"{i}: " + str(int(centroids_distances_sorted[i]['sum_distances'])) \
+                              + fr" - {round(prev_distance_pct * 100, 2)} %"
+                              + ("" if jump_centroid is None else " - JUMP")
                     )
 
                 prev_distance = centroids_distances_sorted[i]['sum_distances']
@@ -688,7 +881,9 @@ class ScannedPage:
         self.images['original_extended'][:,self.transforms['original_extended_subject_min_space']['x_max']:] = avg_bg_color
 
         return {
-            'error': None
+            'error': None,
+            'bgcolor_np': avg_bg_color,
+            'bgcolor': (b_avg, g_avg, r_avg)
         }
 
     def enough_space_to_rotate(self):
@@ -1003,7 +1198,7 @@ def main():
 
     if (args.run not in [
         "trim-canny", "fix-rotation", "remove-artifacts", "clean-all", "enough-space-to-rotate",
-        "image-info", "",
+        "image-info", "remove-artifacts-new",
         "train-model"
         ]):
         parser.print_help()
@@ -1107,9 +1302,6 @@ def main():
         print (str(datetime.datetime.now()) + " " + fr"working on {input_filename} [{counter_string}] saving to {args.destination_dir}")
 
         ascan = ScannedPage(input_filename, args = args)
-        if not logged_run:
-            ascan.batch_log('started as: ' + ' '.join(sys.argv))
-            logged_run = True
 
         if args.run == r"enough-space-to-rotate":
             res = ascan.detect_empty_space_edge_detection_canny()
@@ -1132,6 +1324,14 @@ def main():
                 raise ValueError(res['error'])
             else:
                 ascan.write('original_subject_max_space', debug = False)
+        if args.run == r"remove-artifacts-new":
+            if args.skip_existing and os.path.isfile(ascan.output_filename('original_subject_max_space')):
+                print(str(datetime.datetime.now()) + fr" skipping existing " + str(ascan.output_filename('original_subject_max_space')))
+                continue
+
+            res = ascan.shade_small_dots((255,0,0))
+            if res['error']:
+                raise ValueError(res['error'])
         if args.run == r"trim-canny":
             if args.skip_existing and os.path.isfile(ascan.output_filename('original_subject_min_space_padded')):
                 print(str(datetime.datetime.now()) + fr" skipping existing " + str(ascan.output_filename('original_subject_min_space_padded')))
@@ -1169,9 +1369,12 @@ def main():
             elif (res['error']):
                 raise ValueError(res['error'])
             
+            bgcolor = None
             res = ascan.empty_space_average_weighted_color()
             if (res['error']):
                 raise ValueError(res['error'])
+            else:
+                bgcolor = res['bgcolor']
 
             ascan_extended = ScannedPage(input_filename, args = args)
             ascan_extended.images['original'] = ascan.images['original_extended']
@@ -1202,9 +1405,22 @@ def main():
             elif (res['error']):
                 raise ValueError(res['error'])
 
-            ascan = ascan_transformed
+            ascan_shaded = ScannedPage(input_filename, args = args)
+            ascan_shaded.images['original'] = ascan_transformed.images['original_subject_min_space_padded']
+            res = ascan_shaded.shade_small_dots(bgcolor)
 
-            ascan.write('original_subject_min_space_padded', "_formatted", debug = False)
+            if not res['error'] and res['shaded_areas'] > 0:
+                ascan_final = ScannedPage(input_filename, args = args)
+                ascan_final.images['original'] = ascan_shaded.images['original_shaded']
+
+                res = ascan_final.detect_empty_space_edge_detection_canny()
+                if (res['error']):
+                    raise ValueError(res['error'])
+
+                ascan_final.write('original_subject_min_space_padded', "_formatted", debug = False)
+            else:
+                ascan_transformed.write('original_subject_min_space_padded', "_formatted", debug = False)
+
             ascan.batch_log(fr"{counter_string} processed")
 
 if __name__ == "__main__":
