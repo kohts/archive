@@ -16,6 +16,7 @@ import numpy as np
 import math
 
 from scipy.spatial import distance_matrix
+from scipy.spatial import distance
 
 import exifread
 
@@ -29,8 +30,19 @@ import pickle
 import hashlib
 
 import inspect
+import colorsys
 
 MAX_ROTATION_ANGLE_DEGREES=10
+
+def generate_distinct_colors(n):
+    colors = []
+    for i in range(n):
+        hue = i / n
+        saturation = 0.9
+        value = 0.9
+        rgb = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(hue, saturation, value))
+        colors.append(rgb)
+    return colors
 
 def get_caller_name():
     current_frame = inspect.currentframe()
@@ -48,20 +60,34 @@ def get_caller_name():
             return caller_frame.f_code.co_name
     return "<unknown>"
 
+def line_contour(x1, y1, x2, y2):
+    # Calculate the number of points based on the maximum distance
+    num_points = int(max(abs(x2 - x1), abs(y2 - y1))) + 1
+
+    # Generate equally spaced points along the x and y axes
+    x_coords = np.linspace(x1, x2, num_points, dtype=np.int32)
+    y_coords = np.linspace(y1, y2, num_points, dtype=np.int32)
+
+    # Combine the x and y coordinates into an array of (x, y) pairs
+    coordinates = np.stack((x_coords, y_coords), axis=1)
+
+    return np.reshape(coordinates, (len(coordinates), 1, 2))
+
 def shortest_path_between_contours(contour1, contour2):
-    min_dist = float('inf')
-    min_point1 = None
-    min_point2 = None
+    # Convert contours to NumPy arrays
+    contour1 = np.array(contour1).reshape(-1, 2)
+    contour2 = np.array(contour2).reshape(-1, 2)
 
-    for point1 in contour1:
-        for point2 in contour2:
-            dist = cv2.norm(point1 - point2)
-            if dist < min_dist:
-                min_dist = dist
-                min_point1 = tuple(point1[0])
-                min_point2 = tuple(point2[0])
+    # Calculate pairwise distances between contour points
+    dist_matrix = distance.cdist(contour1, contour2)
 
-    return min_point1, min_point2, min_dist
+    # Find the minimum distance and corresponding points
+    min_dist_idx = np.unravel_index(np.argmin(dist_matrix), dist_matrix.shape)
+    min_dist = dist_matrix[min_dist_idx]
+    min_point1 = tuple(contour1[min_dist_idx[0]])
+    min_point2 = tuple(contour2[min_dist_idx[1]])
+
+    return min_point1, min_point2, round(min_dist,0)
 
 def extract_features(filename):
     image = cv2.imread(filename)
@@ -279,6 +305,7 @@ class ScannedPage:
                 if (afn == os.path.basename(self.filename) and not destination_same_as_source) or \
                     re.search(str(r"^" + self.filename_without_ext + r"__.+"), afn) or \
                     re.search(str(r"^" + self.filename_without_ext + r"_formatted.jpg"), afn):
+
                     cleaned_path = os.path.join(self.destination_path, afn)
                     os.remove(cleaned_path)
                     self.debug_print(fr"cleaned up [{cleaned_path}]")
@@ -423,6 +450,69 @@ class ScannedPage:
                              str(len(self.transforms['original_gray_blurred_edges_contours'])) +
                              "] contours")
 
+    def dilated_image_contours_debug(self):
+        self.prepare_edges()
+        self.prepare_edge_contours()
+
+        # can't continue the transform
+        if len(self.transforms['original_gray_blurred_edges_contours']) < 55:
+            return {
+                'error': "Blank image"
+            }
+
+        kernel = np.ones((self.args.dilation_kernel_h, self.args.dilation_kernel_w), np.uint8)
+        dilated_image = cv2.dilate(self.images['original_gray_blurred_edges'], kernel)
+
+        self.images['original_gray_blurred_edges_dilated'] = dilated_image
+        if self.args.debug:
+            self.write('original_gray_blurred_edges_dilated', '_gray_blurred_dilated')
+
+        contours2, _ = cv2.findContours(dilated_image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        self.debug_print(fr"contours in dilated image: " + str(len(contours2)))
+
+        out_image = self.images['original'].copy()
+        colors = generate_distinct_colors(len(contours2))
+        min_paths = defaultdict(lambda:None)
+        min_path_contours = defaultdict(lambda:None)
+
+        for i, c1 in enumerate(contours2):
+            self.debug_print(fr"contour {i}, points {len(c1)}, color {colors[i]}")
+            cv2.drawContours(out_image, [c1], -1, colors[i], 5)
+            cv2.putText(out_image, fr"{i}", c1[0][0], cv2.FONT_HERSHEY_SIMPLEX, 2, colors[i], 5)
+
+            if self.args.show_contour_shortest_paths is not None and i == self.args.show_contour_shortest_paths:
+                for j, c2 in enumerate(contours2):
+                    if min_paths[i] is None:
+                        min_paths[i] = defaultdict(lambda:None)
+                        min_path_contours[i] = defaultdict(lambda:None)
+
+                    if min_paths[i][j] is None:
+                        min_paths[i][j] = tuple(shortest_path_between_contours(contours2[i], contours2[j]))
+                        self.debug_print(fr"min_path {i} <--- {min_paths[i][j]} ---> {j}")
+
+                        min_path_contours[i][j] = line_contour(
+                            min_paths[i][j][0][0],
+                            min_paths[i][j][0][1],
+                            min_paths[i][j][1][0],
+                            min_paths[i][j][1][1]
+                            )
+
+                        middle_x = int((min_paths[i][j][0][0] + min_paths[i][j][1][0]) / 2)
+                        middle_y = int((min_paths[i][j][0][1] + min_paths[i][j][1][1]) / 2)
+                        point = np.array([middle_x, middle_y], dtype=np.uint32)
+
+                        cv2.putText(out_image, str(int(min_paths[i][j][2])), point, cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,0), 5)
+                        cv2.drawContours(out_image, min_path_contours[i][j], -1, (0,0,0), 5)
+
+        self.images['dilated_image_contours_debug'] = out_image
+        if self.args.debug:
+            self.write('dilated_image_contours_debug', '_dilated_image_contours_debug')
+
+        return {
+            'error': False,
+            'image': self.images['dilated_image_contours_debug']
+        }
+
     def shade_small_dots(self, bgcolor):
         self.prepare_edges()
         self.prepare_edge_contours()
@@ -433,10 +523,8 @@ class ScannedPage:
                 'error': "Blank image"
             }
 
-        dilation_coef = 15
-
         # Apply dilation to connect nearby components
-        kernel = np.ones((dilation_coef, dilation_coef), np.uint8)
+        kernel = np.ones((self.args.dilation_kernel_h, self.args.dilation_kernel_w), np.uint8)
         dilated_image = cv2.dilate(self.images['original_gray_blurred_edges'], kernel)
 
         self.images['original_gray_blurred_edges_dilated'] = dilated_image
@@ -479,8 +567,13 @@ class ScannedPage:
             # for each contour - find its closest neighbour and combine them
             # if the distance between them is not huge
             for i in range(0, len(cur_contours) - 1):
+
+                # skip already combined contours
                 if i in combined_contours_idx:
+                    self.debug_print(fr"skipping contour {i}")
                     continue
+                else:
+                    self.debug_print(fr"working on contour {i}")
 
                 shortest_path_p1 = None
                 shortest_path_p2 = None
@@ -489,55 +582,66 @@ class ScannedPage:
                 
                 for j in range(i + 1, len(cur_contours)):
 
+                    # skip already combined contours
+                    if j in combined_contours_idx:
+                        self.debug_print(fr"skipping contour {i} / {j}")
+                        continue
+                    else:
+                        self.debug_print(fr"working on contour {i} / {j}")
+
                     shortest_path_p1, shortest_path_p2, distance = shortest_path_between_contours(cur_contours[i], cur_contours[j])
 
-                    self.debug_print(fr"shortest path between contours {i} and {j}: {distance}, p1 {shortest_path_p1}, p2 {shortest_path_p2}")
-
+                    self.debug_print(fr"distance between {i} and {j}: {distance}, p1 {shortest_path_p1}, p2 {shortest_path_p2}")
                     if closest_neighbour is None or distance < closest_neighbour_distance:
                         closest_neighbour = j
                         closest_neighbour_distance = distance
 
-                if closest_neighbour_distance < 10 * dilation_coef:
-                    self.debug_print(fr"contour {i}: close to {closest_neighbour} - distance {closest_neighbour_distance}, combining")
+                if closest_neighbour_distance < 10 * (self.args.dilation_kernel_h + self.args.dilation_kernel_w) / 2:
+                    self.debug_print(fr"contour {i} is the closest to {closest_neighbour} - distance {closest_neighbour_distance}: combining")
                     
-                    rr, cc = line(shortest_path_p1[1], shortest_path_p1[0], shortest_path_p2[1], shortest_path_p2[0])
-                    line_points = np.zeros((len(rr), len(cc), 3), dtype=np.uint8)
-                    line_points[:] = [255, 255, 255]
+                    lc = line_contour(shortest_path_p1[1], shortest_path_p1[0], shortest_path_p2[1], shortest_path_p2[0])
 
-                    points = np.concatenate([cur_contours[i], cur_contours[closest_neighbour], line_points])
+                    points = np.concatenate([cur_contours[i], cur_contours[closest_neighbour], lc])
 
                     combined_contours.append(points)
-                    combined_contours_idx["{closest_neighbour}"] = True
+                    combined_contours_idx[closest_neighbour] = True
                 else:
                     self.debug_print(fr"contour {i}: no close members, leaving as is")
                     combined_contours.append(cur_contours[i])
             
-            # # try to reduce once again if current try succeeded
-            # if len(combined_contours) < len(cur_contours):
-            #     tryToCombine = True
-            #     cur_contours = combined_contours
+            # try to reduce once again if current try succeeded
+            if len(combined_contours) < len(cur_contours):
+                self.debug_print(fr"before combining: {len(cur_contours)}, after combining: {len(combined_contours)}, checking once again")
+                #tryToCombine = True
+                cur_contours = combined_contours
+            else:
+                self.debug_print(fr"no contours combined, looking for unconnected small contours far from the main one")
+
+        self.images['original_combined_shaded'] = self.images['original'].copy()
+        for c in cur_contours:
+            self.debug_print("shade_small_dots: shading contour")
+            cv2.drawContours(self.images['original_combined_shaded'], [c], 0, bgcolor, -1)
+        if self.args.debug:
+            self.write('original_combined_shaded', '_combined_shaded')
+
 
         small_contours_outside_largest = []
-        for i in range(0, len(contours)):
-            self.debug_print(fr"shade_small_dots: contour {i} area: " + str(cv2.contourArea(contours[i])))
+        for i in range(0, len(cur_contours)):
+            self.debug_print(fr"shade_small_dots: contour {i} area: " + str(cv2.contourArea(cur_contours[i])))
 
-            if contours[i] is largest_contour:
-                self.debug_print(fr"shade_small_dots: skipping largest contour")
-                continue
-
-            if cv2.contourArea(contours[i]) > 1000 * dilation_coef:
+            if cv2.contourArea(cur_contours[i]) > 1000 * (self.args.dilation_kernel_h + self.args.dilation_kernel_w) / 2:
                 self.debug_print(fr"shade_small_dots: skipping large contour")
                 continue
 
             inside = True
-            for point in contours[i]:
+            for point in cur_contours[i]:
                 result = cv2.pointPolygonTest(largest_contour, (int(point[0][0]),int(point[0][1])), False)
                 if result < 1:
                     self.debug_print('shade_small_dots: small contour outside largest: ' + str(point))
                     inside = False
                     break
             if not inside:
-                small_contours_outside_largest.append(contours[i])
+                small_contours_outside_largest.append(cur_contours[i])
 
         shaded_areas = 0
         if len(small_contours_outside_largest) < 5:
@@ -1161,12 +1265,19 @@ def hough_filter_lines (lines, args):
     return tmp_lines
 
 def main():
+    run_modes = (
+        "trim-canny", "fix-rotation", "remove-artifacts", "clean-all", "enough-space-to-rotate",
+        "image-info", "remove-artifacts-new",
+        "train-model",
+        "contours-debug"
+    )
+
     parser = argparse.ArgumentParser()
     parser.add_argument('--filename', type=str)
     parser.add_argument('--source-file', type=str, default=None)
     parser.add_argument('--source-dir', type=str, default=None)
     parser.add_argument('--destination-dir', type=str, default=None)
-    parser.add_argument('--run', type=str, default='', help='mandatory, mode of operation. one of: trim-canny, fix-rotation, remove-artifacts, clean-all, image-info')
+    parser.add_argument('--run', type=str, default='', help=fr"mandatory, mode of operation. one of: {', '.join(run_modes)}")
     parser.add_argument('--canny-threshold1', type=int, default=10)
     parser.add_argument('--canny-threshold2', type=int, default=1)
     parser.add_argument('--canny-gaussian1', type=int, default=71)
@@ -1176,17 +1287,20 @@ def main():
     parser.add_argument('--canny-padding', type=int, default=100)
     parser.add_argument('--canny-debug', type=bool, default=False)
     parser.add_argument('--hough-debug', type=bool, default=False)
-    parser.add_argument('--hough-theta-resolution-degrees', type=float)
-    parser.add_argument('--hough-rho-resolution-pixels', type=float, help='width of the detected line - min')
+    parser.add_argument('--hough-theta-resolution-degrees', default=0.1, type=float)
+    parser.add_argument('--hough-rho-resolution-pixels', default=1, type=float, help='width of the detected line - min')
     parser.add_argument('--hough-rho-resolution-pixels-max', type=float, help='width of the detected line - max')
-    parser.add_argument('--hough-threshold-initial', type=int, help='number of points in a line required to detect a line - max')
+    parser.add_argument('--hough-threshold-initial', type=int, default=650, help='number of points in a line required to detect a line - max')
     parser.add_argument('--hough-threshold-minimal', type=int, help='number of points in a line required to detect a line - min')
     parser.add_argument('--copy-source-to-destination', type=bool, default=False)
     parser.add_argument('--skip-existing', type=bool, default=False, help='if destination exists, do not overwrite')
     parser.add_argument('--clean-existing', type=bool, default=False, help='if destination image and/or related debug exists, clean it')
     parser.add_argument('--artifacts-debug', type=bool, default=False)   
     parser.add_argument('--artifacts-majority-threshold', type=float, default=0.99, help="%% of centroids by artifact measure not considered artifacts")
-    parser.add_argument('--artifacts-discontinuity-threshold', type=float, default=0.15, help="%% of measure jump considered discontinuity")
+    parser.add_argument('--artifacts-discontinuity-threshold', type=float, default=0.07, help="%% of measure jump considered discontinuity")
+    parser.add_argument('--dilation-kernel-h', type=int, default=50)
+    parser.add_argument('--dilation-kernel-w', type=int, default=50)
+    parser.add_argument('--show-contour-shortest-paths', type=int, default=None)
     parser.add_argument('--jpeg-quality', type=int, default=85)
     parser.add_argument('--debug', type=bool, default=False)
     parser.add_argument('--debug-no-intermediate-images', type=bool, default=False)
@@ -1196,13 +1310,9 @@ def main():
     parser.add_argument('--check-orientation', type=str, default='')
     args = parser.parse_args()
 
-    if (args.run not in [
-        "trim-canny", "fix-rotation", "remove-artifacts", "clean-all", "enough-space-to-rotate",
-        "image-info", "remove-artifacts-new",
-        "train-model"
-        ]):
+    if (args.run not in run_modes):
         parser.print_help()
-        print("\n" fr"Need --run with one of: trim-canny, fix-rotation, remove-artifacts, clean-all, image-info" "\n")
+        print("\n" fr"Need --run with one of: {', '.join(run_modes)}" "\n")
         sys.exit(2)
 
     if args.run == r"train-model":
@@ -1302,6 +1412,23 @@ def main():
         print (str(datetime.datetime.now()) + " " + fr"working on {input_filename} [{counter_string}] saving to {args.destination_dir}")
 
         ascan = ScannedPage(input_filename, args = args)
+
+        if args.run == r"contours-debug":
+            res = ascan.dilated_image_contours_debug()
+            if (res['error']):
+                raise ValueError(res['error'])
+
+            if args.show_contour_shortest_paths is not None:
+                output_filename = ascan.output_filename('', '__contours-debug-' + str(args.show_contour_shortest_paths))
+            else:
+                output_filename = ascan.output_filename('_contours-debug')
+
+            cv2.imwrite(
+                output_filename,
+                res['image'],
+                [cv2.IMWRITE_JPEG_QUALITY, 85]
+                )
+            print (str(datetime.datetime.now()) + " written " + ascan.output_filename('contours-debug'))
 
         if args.run == r"enough-space-to-rotate":
             res = ascan.detect_empty_space_edge_detection_canny()
