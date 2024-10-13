@@ -26,6 +26,9 @@ from sklearn.decomposition import PCA
 from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+
+from sklearn.preprocessing import MinMaxScaler
+
 import pickle
 import hashlib
 
@@ -33,6 +36,24 @@ import inspect
 import colorsys
 
 MAX_ROTATION_ANGLE_DEGREES=10
+
+
+def find_bounding_rect_of_contours(contours):
+    # Combine all contours into a single array of points
+    all_points = np.vstack([cnt.reshape(-1, 2) for cnt in contours])
+
+    # Find the minimum and maximum x and y coordinates
+    x_min = np.min(all_points[:, 0])
+    y_min = np.min(all_points[:, 1])
+    x_max = np.max(all_points[:, 0])
+    y_max = np.max(all_points[:, 1])
+
+    # Calculate width and height
+    width = x_max - x_min
+    height = y_max - y_min
+
+    # Return the bounding rectangle in the format (x, y, width, height)
+    return (int(x_min), int(y_min), int(width), int(height))
 
 def generate_distinct_colors(n):
     colors = []
@@ -246,7 +267,7 @@ class ScannedPage:
             "[" + get_caller_name() + "] " + \
             astr
 
-        if self.args.debug_log:
+        if self.args.debug_log is not None:
             with open(os.path.join(self.destination_path, '.debug.log'), 'a') as f:
                 f.write(dbg_msg + '\n')
 
@@ -403,6 +424,15 @@ class ScannedPage:
             self.transforms['original_gray_blurred_edges_contours'] = contours
             self.debug_print(fr"Got [" + str(len(self.transforms['original_gray_blurred_edges_contours'])) + "] contours from edges")
 
+    def prepare_dilated_image(self):
+        if self.images['original_gray_blurred_edges_dilated'] is None:
+            kernel = np.ones((self.args.dilation_kernel_h, self.args.dilation_kernel_w), np.uint8)
+            dilated_image = cv2.dilate(self.images['original_gray_blurred_edges'], kernel)
+
+            self.images['original_gray_blurred_edges_dilated'] = dilated_image
+            if self.args.debug:
+                self.write('original_gray_blurred_edges_dilated', '_gray_blurred_dilated')
+
     def prepare_edge_contours_centroids(self):
         if self.transforms['original_gray_blurred_edges_contours_centroids'] is None:
 
@@ -450,6 +480,111 @@ class ScannedPage:
                              str(len(self.transforms['original_gray_blurred_edges_contours'])) +
                              "] contours")
 
+    def dilated_image_min_distance(self):
+        self.prepare_edges()
+        self.prepare_edge_contours()
+
+        # can't continue the transform
+        if len(self.transforms['original_gray_blurred_edges_contours']) < 55:
+            return {
+                'error': "Blank image"
+            }
+
+        self.prepare_dilated_image()
+
+        contours2, _ = cv2.findContours(self.images['original_gray_blurred_edges_dilated'], cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        self.debug_print(fr"contours in dilated image: " + str(len(contours2)))
+
+        contours_distances = []
+        for i, c1 in enumerate(contours2):
+            for j, c2 in enumerate(contours2):
+                _, _, distance = shortest_path_between_contours(c1,c2)
+                self.debug_print(fr"contour {i} len {len(c1)}, contour {j} len {len(c2)} dist {distance}")
+
+                contours_distances.append(
+                    (i,j,distance,len(c1),len(c2),cv2.contourArea(c1),cv2.contourArea(c2))
+                )
+
+        if self.args.artifacts_debug:
+            debug_suffix = '__' + fr"{self.debug_counter:02d}"
+            self.debug_counter += 1
+
+            output_filename = re.sub(
+                r"\.jpg",
+                fr"{debug_suffix}_contours_min_distances.txt",
+                os.path.join(self.destination_path, os.path.basename(self.filename))
+                )
+
+            self.debug_print(fr"saving contours_distances to: " + output_filename)
+            with open(output_filename, "w") as f:
+                # header
+                print("c1_n,c2_n,min_distance,c1_len,c2_len,c1_area,c2_area", file=f)
+
+                # data
+                for i in range(len(contours_distances)):
+                    print(str(contours_distances[i][0]) +
+                        "," + str(contours_distances[i][1]) +
+                        "," + str(contours_distances[i][2]) +
+                        "," + str(contours_distances[i][3]) +
+                        "," + str(contours_distances[i][4]) +
+                        "," + str(contours_distances[i][5]) +
+                        "," + str(contours_distances[i][6]),
+                        file=f)
+
+    def dilated_image_contours_loneliness(self):
+        self.prepare_edges()
+        self.prepare_edge_contours()
+
+        # can't continue the transform
+        if len(self.transforms['original_gray_blurred_edges_contours']) < 55:
+            return {
+                'error': "Blank image"
+            }
+
+        self.prepare_dilated_image()
+        contours2, _ = cv2.findContours(self.images['original_gray_blurred_edges_dilated'], cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+        if len(contours2) < 4:
+            return {
+                'error': "Less than 3 contours"
+            }
+
+        distances = np.zeros((len(contours2), len(contours2)))
+        areas = np.zeros((len(contours2)))
+        loneliness = np.zeros((len(contours2)))
+
+        for i, c1 in enumerate(contours2):
+            for j, c2 in enumerate(contours2):
+                _, _, distance = shortest_path_between_contours(c1, c2)
+                self.debug_print(fr"contour distance {i} <-> {j}: {distance}")
+                distances[i, j] = distance
+                distances[j, i] = distance
+            areas[i] = cv2.contourArea(c1)
+            self.debug_print(fr"contour {i} len {len(c1)}, area {areas[i]}")
+
+        scaler = MinMaxScaler()
+        normalized_distances = scaler.fit_transform(np.sort(distances,0))
+        normalized_area = scaler.fit_transform(areas.reshape(-1, 1))
+
+        if self.args.shortest_path_exponential:
+            k_neighbours = []
+            for i, distances in enumerate(normalized_distances):
+                if i == 0:
+                    k_neighbours.append(0)
+                    continue
+
+                distance_scaled = distances[1] * 0.9 + distances[2] * 0.09 + distances[3] * 0.01
+                k_neighbours.append(distance_scaled)
+        else:
+            k_neighbours = np.sum(normalized_distances[:4,:], axis=0) / 3
+
+        w_neighbours = 0.7
+        w_area = 0.3
+
+        for i, c1 in enumerate(contours2):
+            loneliness[i] = w_neighbours * k_neighbours[i] + w_area * (1 - normalized_area[i][0])
+            self.debug_print(fr"{i} loneliness {loneliness[i]} = {w_neighbours} * ({k_neighbours[i]} + {w_area} * (1 - {normalized_area[i][0]})")
+
     def dilated_image_contours_debug(self):
         self.prepare_edges()
         self.prepare_edge_contours()
@@ -460,14 +595,9 @@ class ScannedPage:
                 'error': "Blank image"
             }
 
-        kernel = np.ones((self.args.dilation_kernel_h, self.args.dilation_kernel_w), np.uint8)
-        dilated_image = cv2.dilate(self.images['original_gray_blurred_edges'], kernel)
+        self.prepare_dilated_image()
 
-        self.images['original_gray_blurred_edges_dilated'] = dilated_image
-        if self.args.debug:
-            self.write('original_gray_blurred_edges_dilated', '_gray_blurred_dilated')
-
-        contours2, _ = cv2.findContours(dilated_image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        contours2, _ = cv2.findContours(self.images['original_gray_blurred_edges_dilated'], cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         self.debug_print(fr"contours in dilated image: " + str(len(contours2)))
 
         out_image = self.images['original'].copy()
@@ -475,12 +605,16 @@ class ScannedPage:
         min_paths = defaultdict(lambda:None)
         min_path_contours = defaultdict(lambda:None)
 
+        bounding_rect = tuple(find_bounding_rect_of_contours(contours2))
+
         for i, c1 in enumerate(contours2):
             self.debug_print(fr"contour {i}, points {len(c1)}, color {colors[i]}")
             cv2.drawContours(out_image, [c1], -1, colors[i], 5)
             cv2.putText(out_image, fr"{i}", c1[0][0], cv2.FONT_HERSHEY_SIMPLEX, 2, colors[i], 5)
 
             if self.args.show_contour_shortest_paths is not None and i == self.args.show_contour_shortest_paths:
+                total = 0
+                labels = []
                 for j, c2 in enumerate(contours2):
                     if min_paths[i] is None:
                         min_paths[i] = defaultdict(lambda:None)
@@ -504,6 +638,19 @@ class ScannedPage:
                         cv2.putText(out_image, str(int(min_paths[i][j][2])), point, cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,0), 5)
                         cv2.drawContours(out_image, min_path_contours[i][j], -1, (0,0,0), 5)
 
+                        labels.append((int(min_paths[i][j][2]), j))
+                        cv2.putText(out_image, fr"{j}: {str(int(min_paths[i][j][2]))}", (bounding_rect[0] + bounding_rect[2] + 200, bounding_rect[1] + j * 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,0), 5)
+                        total = total + int(min_paths[i][j][2])
+
+                labels_sorted = sorted(labels, key=lambda x: x[0])
+                for j, t in enumerate(labels_sorted):
+                    cv2.putText(out_image, fr"{t[1]}: {str(t[0])}", (bounding_rect[0] + bounding_rect[2] + 600, bounding_rect[1] + j * 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,0), 5)
+
+                cv2.putText(out_image, fr"total: {total}", (bounding_rect[0] + bounding_rect[2] + 200, bounding_rect[1] + len(contours2) * 70 + 1 * 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,0), 5)
+
+        if self.args.fill_contour is not None:
+            cv2.fillConvexPoly(out_image, contours2[self.args.fill_contour], (0,255,0), )
+
         self.images['dilated_image_contours_debug'] = out_image
         if self.args.debug:
             self.write('dilated_image_contours_debug', '_dilated_image_contours_debug')
@@ -524,15 +671,10 @@ class ScannedPage:
             }
 
         # Apply dilation to connect nearby components
-        kernel = np.ones((self.args.dilation_kernel_h, self.args.dilation_kernel_w), np.uint8)
-        dilated_image = cv2.dilate(self.images['original_gray_blurred_edges'], kernel)
-
-        self.images['original_gray_blurred_edges_dilated'] = dilated_image
-        if self.args.debug:
-            self.write('original_gray_blurred_edges_dilated', '_gray_blurred_dilated')
+        self.prepare_dilated_image()
 
         # detect contours of connected components in the dilated_image
-        contours, _ = cv2.findContours(dilated_image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        contours, _ = cv2.findContours(self.images['original_gray_blurred_edges_dilated'], cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
         self.debug_print(fr"shade_small_dots: contours in dilated image: " + str(len(contours)))
 
@@ -1269,7 +1411,7 @@ def main():
         "trim-canny", "fix-rotation", "remove-artifacts", "clean-all", "enough-space-to-rotate",
         "image-info", "remove-artifacts-new",
         "train-model",
-        "contours-debug"
+        "contours-debug", "contours-min-distance-debug", "contours-loneliness"
     )
 
     parser = argparse.ArgumentParser()
@@ -1301,6 +1443,8 @@ def main():
     parser.add_argument('--dilation-kernel-h', type=int, default=50)
     parser.add_argument('--dilation-kernel-w', type=int, default=50)
     parser.add_argument('--show-contour-shortest-paths', type=int, default=None)
+    parser.add_argument('--shortest-path-exponential', type=bool, default=False)
+    parser.add_argument('--fill-contour', type=int, default=None)
     parser.add_argument('--jpeg-quality', type=int, default=85)
     parser.add_argument('--debug', type=bool, default=False)
     parser.add_argument('--debug-no-intermediate-images', type=bool, default=False)
@@ -1385,6 +1529,10 @@ def main():
             sys.exit(2)
 
         for afn in os.listdir(args.source_dir):
+            if not re.search(r"\.(jpg|png)$", afn, re.IGNORECASE):
+                print ("SKIPPING non-image files:", os.path.join(args.source_dir, afn))
+                continue
+
             files_to_process.append({
                 'input_filename': os.path.join(args.source_dir, afn),
                 'destination_dir': args.destination_dir
@@ -1412,6 +1560,12 @@ def main():
         print (str(datetime.datetime.now()) + " " + fr"working on {input_filename} [{counter_string}] saving to {args.destination_dir}")
 
         ascan = ScannedPage(input_filename, args = args)
+
+        if args.run == r"contours-loneliness":
+            res = ascan.dilated_image_contours_loneliness()
+
+        if args.run == r"contours-min-distance-debug":
+            res = ascan.dilated_image_min_distance()
 
         if args.run == r"contours-debug":
             res = ascan.dilated_image_contours_debug()
