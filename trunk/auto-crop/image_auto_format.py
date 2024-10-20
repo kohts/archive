@@ -599,7 +599,7 @@ class ScannedPage:
             for i, c1 in enumerate(contours2):
                 loneliness[i] = w_neighbours * k_neighbours[i] + w_area * (1 - normalized_area[i][0])
                 self.debug_print(fr"{i} loneliness {loneliness[i]} = {w_neighbours} * {k_neighbours[i]} + {w_area} * (1 - {normalized_area[i][0]})")
-                if loneliness[i] > 0.999:
+                if loneliness[i] > self.args.loneliness_threshold:
                     self.debug_print(fr"OUTLIER: contour {i}")
                     outliers.append([i,c1])
 
@@ -1337,7 +1337,8 @@ def main():
     parser.add_argument('--dilation-kernel-h', type=int, default=50)
     parser.add_argument('--dilation-kernel-w', type=int, default=50)
     parser.add_argument('--show-contour-shortest-paths', type=int, default=None)
-    parser.add_argument('--shortest-path-exponential', type=bool, default=False)
+    parser.add_argument('--shortest-path-exponential', type=bool, default=True)
+    parser.add_argument('--loneliness-threshold', type=float, default=0.999)
     parser.add_argument('--fill-contour', type=int, default=None)
     parser.add_argument('--jpeg-quality', type=int, default=85)
     parser.add_argument('--debug', type=bool, default=False)
