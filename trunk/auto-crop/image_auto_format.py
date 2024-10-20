@@ -531,7 +531,7 @@ class ScannedPage:
                         "," + str(contours_distances[i][6]),
                         file=f)
 
-    def dilated_image_contours_loneliness(self):
+    def dilated_image_contours_loneliness(self, bgcolor):
         self.prepare_edges()
         self.prepare_edge_contours()
 
@@ -544,11 +544,6 @@ class ScannedPage:
         self.prepare_dilated_image()
         contours2, _ = cv2.findContours(self.images['original_gray_blurred_edges_dilated'], cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-        if len(contours2) < 4:
-            return {
-                'error': "Less than 3 contours"
-            }
-
         distances = np.zeros((len(contours2), len(contours2)))
         areas = np.zeros((len(contours2)))
         loneliness = np.zeros((len(contours2)))
@@ -556,34 +551,77 @@ class ScannedPage:
         for i, c1 in enumerate(contours2):
             for j, c2 in enumerate(contours2):
                 _, _, distance = shortest_path_between_contours(c1, c2)
-                self.debug_print(fr"contour distance {i} <-> {j}: {distance}")
+                # self.debug_print(fr"contour distance {i} <-> {j}: {distance}")
                 distances[i, j] = distance
                 distances[j, i] = distance
             areas[i] = cv2.contourArea(c1)
             self.debug_print(fr"contour {i} len {len(c1)}, area {areas[i]}")
 
-        scaler = MinMaxScaler()
-        normalized_distances = scaler.fit_transform(np.sort(distances,0))
-        normalized_area = scaler.fit_transform(areas.reshape(-1, 1))
+        self.images['original_outliers_removed'] = self.images['original'].copy()
+        outliers = []
 
-        if self.args.shortest_path_exponential:
-            k_neighbours = []
-            for i, distances in enumerate(normalized_distances):
-                if i == 0:
-                    k_neighbours.append(0)
-                    continue
+        if len(contours2) < 4:
+            self.debug_print(fr"detected too little contours [{len(contours2)}], applying simple area/distance filtration algorithm")
+            max_area_val = np.max(areas)
+            max_area_pos = np.argmax(areas)
 
-                distance_scaled = distances[1] * 0.9 + distances[2] * 0.09 + distances[3] * 0.01
-                k_neighbours.append(distance_scaled)
+            self.debug_print(fr"biggest contour {max_area_pos}, area {max_area_val}")
+
+            for i, c1 in enumerate(contours2):
+                self.debug_print(fr"contour {i} area {areas[i]}, distance to biggest {max_area_pos}: {distances[i, max_area_pos]}")
+                if areas[i] < 0.01 * max_area_val and distances[i, max_area_pos] > math.sqrt(max_area_val) * 0.05:
+                    self.debug_print(
+                        fr"OUTLIER: " +
+                        fr"contour {i} area {areas[i]} < 0.01 * {max_area_val} [{0.01 * max_area_val}] and " +
+                        fr"distance from {i} to {max_area_pos} {distances[i, max_area_pos]} > sqrt({max_area_val})*0.1 [{math.sqrt(max_area_val) * 0.1}]"
+                        )
+                    outliers.append([i,c1])
         else:
-            k_neighbours = np.sum(normalized_distances[:4,:], axis=0) / 3
+            scaler = MinMaxScaler()
+            normalized_distances = scaler.fit_transform(np.sort(distances,0))
+            normalized_area = scaler.fit_transform(areas.reshape(-1, 1))
 
-        w_neighbours = 0.7
-        w_area = 0.3
+            if self.args.shortest_path_exponential:
+                k_neighbours = []
+                for i, distances in enumerate(normalized_distances):
+                    if i == 0:
+                        k_neighbours.append(0)
+                        continue
 
-        for i, c1 in enumerate(contours2):
-            loneliness[i] = w_neighbours * k_neighbours[i] + w_area * (1 - normalized_area[i][0])
-            self.debug_print(fr"{i} loneliness {loneliness[i]} = {w_neighbours} * ({k_neighbours[i]} + {w_area} * (1 - {normalized_area[i][0]})")
+                    distance_scaled = distances[1] * 0.9 + distances[2] * 0.09 + distances[3] * 0.01
+                    k_neighbours.append(distance_scaled)
+            else:
+                k_neighbours = np.sum(normalized_distances[:4,:], axis=0) / 3
+
+            w_neighbours = 0.7
+            w_area = 0.3
+
+            for i, c1 in enumerate(contours2):
+                loneliness[i] = w_neighbours * k_neighbours[i] + w_area * (1 - normalized_area[i][0])
+                self.debug_print(fr"{i} loneliness {loneliness[i]} = {w_neighbours} * {k_neighbours[i]} + {w_area} * (1 - {normalized_area[i][0]})")
+                if loneliness[i] > 0.999:
+                    self.debug_print(fr"OUTLIER: contour {i}")
+                    outliers.append([i,c1])
+
+        shaded_areas = 0
+        if len(outliers) < 7:
+            for c in outliers:
+                self.debug_print(fr"shading contour {c[0]}")
+                cv2.drawContours(self.images['original_outliers_removed'], [c[1]], 0, bgcolor, -1)
+                shaded_areas = shaded_areas + 1
+        else:
+            return {
+                'error': 'Too many small contours',
+            }
+
+        if self.args.debug:
+            self.write('original_outliers_removed', '_original_outliers_removed')
+
+        return {
+            'error': False,
+            'shaded_areas': shaded_areas
+        }
+
 
     def dilated_image_contours_debug(self):
         self.prepare_edges()
@@ -658,150 +696,6 @@ class ScannedPage:
         return {
             'error': False,
             'image': self.images['dilated_image_contours_debug']
-        }
-
-    def shade_small_dots(self, bgcolor):
-        self.prepare_edges()
-        self.prepare_edge_contours()
-
-        # can't continue the transform
-        if len(self.transforms['original_gray_blurred_edges_contours']) < 55:
-            return {
-                'error': "Blank image"
-            }
-
-        # Apply dilation to connect nearby components
-        self.prepare_dilated_image()
-
-        # detect contours of connected components in the dilated_image
-        contours, _ = cv2.findContours(self.images['original_gray_blurred_edges_dilated'], cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-
-        self.debug_print(fr"shade_small_dots: contours in dilated image: " + str(len(contours)))
-
-        self.images['original_gray_blurred_edges_dilated_contours'] = self.images['original'].copy()
-        cv2.drawContours(self.images['original_gray_blurred_edges_dilated_contours'], contours, -1, (0,0,255), 3)
-        if self.args.debug:
-            self.write('original_gray_blurred_edges_dilated_contours', '_gray_blurred_dilated_contours')
-
-        self.images['original_shaded'] = self.images['original'].copy()
-
-        largest_contour = None
-        largest_contour_area = None
-        small_contours = []
-        for i in range(0, len(contours)):
-            if largest_contour_area is None or cv2.contourArea(contours[i]) > largest_contour_area:
-                largest_contour_area = cv2.contourArea(contours[i])
-                largest_contour = contours[i]
-
-        self.images['original_gray_blurred_edges_dilated_largest_contour'] = self.images['original'].copy()
-        cv2.drawContours(self.images['original_gray_blurred_edges_dilated_largest_contour'], [largest_contour], -1, (255,0,0), 5)
-        if self.args.debug:
-            self.write('original_gray_blurred_edges_dilated_largest_contour', '_gray_blurred_dilated_largest_contour')
-
-        tryToCombine = True
-        cur_contours = contours
-        while tryToCombine:
-            tryToCombine = False
-
-            combined_contours_idx = {}
-            combined_contours = []
-            
-            # for each contour - find its closest neighbour and combine them
-            # if the distance between them is not huge
-            for i in range(0, len(cur_contours) - 1):
-
-                # skip already combined contours
-                if i in combined_contours_idx:
-                    self.debug_print(fr"skipping contour {i}")
-                    continue
-                else:
-                    self.debug_print(fr"working on contour {i}")
-
-                shortest_path_p1 = None
-                shortest_path_p2 = None
-                closest_neighbour = None
-                closest_neighbour_distance = None
-                
-                for j in range(i + 1, len(cur_contours)):
-
-                    # skip already combined contours
-                    if j in combined_contours_idx:
-                        self.debug_print(fr"skipping contour {i} / {j}")
-                        continue
-                    else:
-                        self.debug_print(fr"working on contour {i} / {j}")
-
-                    shortest_path_p1, shortest_path_p2, distance = shortest_path_between_contours(cur_contours[i], cur_contours[j])
-
-                    self.debug_print(fr"distance between {i} and {j}: {distance}, p1 {shortest_path_p1}, p2 {shortest_path_p2}")
-                    if closest_neighbour is None or distance < closest_neighbour_distance:
-                        closest_neighbour = j
-                        closest_neighbour_distance = distance
-
-                if closest_neighbour_distance < 10 * (self.args.dilation_kernel_h + self.args.dilation_kernel_w) / 2:
-                    self.debug_print(fr"contour {i} is the closest to {closest_neighbour} - distance {closest_neighbour_distance}: combining")
-                    
-                    lc = line_contour(shortest_path_p1[1], shortest_path_p1[0], shortest_path_p2[1], shortest_path_p2[0])
-
-                    points = np.concatenate([cur_contours[i], cur_contours[closest_neighbour], lc])
-
-                    combined_contours.append(points)
-                    combined_contours_idx[closest_neighbour] = True
-                else:
-                    self.debug_print(fr"contour {i}: no close members, leaving as is")
-                    combined_contours.append(cur_contours[i])
-            
-            # try to reduce once again if current try succeeded
-            if len(combined_contours) < len(cur_contours):
-                self.debug_print(fr"before combining: {len(cur_contours)}, after combining: {len(combined_contours)}, checking once again")
-                #tryToCombine = True
-                cur_contours = combined_contours
-            else:
-                self.debug_print(fr"no contours combined, looking for unconnected small contours far from the main one")
-
-        self.images['original_combined_shaded'] = self.images['original'].copy()
-        for c in cur_contours:
-            self.debug_print("shade_small_dots: shading contour")
-            cv2.drawContours(self.images['original_combined_shaded'], [c], 0, bgcolor, -1)
-        if self.args.debug:
-            self.write('original_combined_shaded', '_combined_shaded')
-
-
-        small_contours_outside_largest = []
-        for i in range(0, len(cur_contours)):
-            self.debug_print(fr"shade_small_dots: contour {i} area: " + str(cv2.contourArea(cur_contours[i])))
-
-            if cv2.contourArea(cur_contours[i]) > 1000 * (self.args.dilation_kernel_h + self.args.dilation_kernel_w) / 2:
-                self.debug_print(fr"shade_small_dots: skipping large contour")
-                continue
-
-            inside = True
-            for point in cur_contours[i]:
-                result = cv2.pointPolygonTest(largest_contour, (int(point[0][0]),int(point[0][1])), False)
-                if result < 1:
-                    self.debug_print('shade_small_dots: small contour outside largest: ' + str(point))
-                    inside = False
-                    break
-            if not inside:
-                small_contours_outside_largest.append(cur_contours[i])
-
-        shaded_areas = 0
-        if len(small_contours_outside_largest) < 5:
-            for c in small_contours_outside_largest:
-                self.debug_print("shade_small_dots: shading contour")
-                cv2.drawContours(self.images['original_shaded'], [c], 0, bgcolor, -1)
-                shaded_areas = shaded_areas + 1
-        else:
-            return {
-                'error': 'Too many small contours',
-            }
-
-        if self.args.debug:
-            self.write('original_shaded', '_original_shaded')
-
-        return {
-            'error': False,
-            'shaded_areas': shaded_areas
         }
 
     def detect_artifacts(self):
@@ -1409,7 +1303,7 @@ def hough_filter_lines (lines, args):
 def main():
     run_modes = (
         "trim-canny", "fix-rotation", "remove-artifacts", "clean-all", "enough-space-to-rotate",
-        "image-info", "remove-artifacts-new",
+        "image-info",
         "train-model",
         "contours-debug", "contours-min-distance-debug", "contours-loneliness"
     )
@@ -1562,7 +1456,9 @@ def main():
         ascan = ScannedPage(input_filename, args = args)
 
         if args.run == r"contours-loneliness":
-            res = ascan.dilated_image_contours_loneliness()
+            res = ascan.dilated_image_contours_loneliness(bgcolor=(0,0,0))
+            if (res['error']):
+                raise ValueError(res['error'])
 
         if args.run == r"contours-min-distance-debug":
             res = ascan.dilated_image_min_distance()
@@ -1605,14 +1501,6 @@ def main():
                 raise ValueError(res['error'])
             else:
                 ascan.write('original_subject_max_space', debug = False)
-        if args.run == r"remove-artifacts-new":
-            if args.skip_existing and os.path.isfile(ascan.output_filename('original_subject_max_space')):
-                print(str(datetime.datetime.now()) + fr" skipping existing " + str(ascan.output_filename('original_subject_max_space')))
-                continue
-
-            res = ascan.shade_small_dots((255,0,0))
-            if res['error']:
-                raise ValueError(res['error'])
         if args.run == r"trim-canny":
             if args.skip_existing and os.path.isfile(ascan.output_filename('original_subject_min_space_padded')):
                 print(str(datetime.datetime.now()) + fr" skipping existing " + str(ascan.output_filename('original_subject_min_space_padded')))
@@ -1688,11 +1576,11 @@ def main():
 
             ascan_shaded = ScannedPage(input_filename, args = args)
             ascan_shaded.images['original'] = ascan_transformed.images['original_subject_min_space_padded']
-            res = ascan_shaded.shade_small_dots(bgcolor)
+            res = ascan_shaded.dilated_image_contours_loneliness(bgcolor)
 
             if not res['error'] and res['shaded_areas'] > 0:
                 ascan_final = ScannedPage(input_filename, args = args)
-                ascan_final.images['original'] = ascan_shaded.images['original_shaded']
+                ascan_final.images['original'] = ascan_shaded.images['original_outliers_removed']
 
                 res = ascan_final.detect_empty_space_edge_detection_canny()
                 if (res['error']):
