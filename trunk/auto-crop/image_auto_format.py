@@ -35,7 +35,42 @@ import hashlib
 import inspect
 import colorsys
 
+import gzip
+
 MAX_ROTATION_ANGLE_DEGREES=10
+
+def compress_file(input_path, output_path=None, chunk_size=1024*1024):  # 1MB chunks
+    """
+    Compress a file using gzip compression with efficient chunked processing.
+
+    Args:
+        input_path (str): Path to the file to compress
+        output_path (str, optional): Path for compressed file. If None, adds '.gz' to input path
+        chunk_size (int): Size of chunks to read/write in bytes (default 1MB)
+
+    Returns:
+        str: Path to the compressed file
+    """
+    # If no output path specified, add .gz extension to input path
+    if output_path is None:
+        output_path = input_path + '.gz'
+
+    try:
+        with open(input_path, 'rb') as file_in:
+            with gzip.open(output_path, 'wb', compresslevel=9) as file_out:
+                while True:
+                    chunk = file_in.read(chunk_size)
+                    if not chunk:
+                        break
+                    file_out.write(chunk)
+
+        return output_path
+
+    except Exception as e:
+        # Clean up partial output file if there's an error
+        if os.path.exists(output_path):
+            os.remove(output_path)
+        raise Exception(f'Compression failed: {str(e)}')
 
 
 def find_bounding_rect_of_contours(contours):
@@ -1305,7 +1340,8 @@ def main():
         "trim-canny", "fix-rotation", "remove-artifacts", "clean-all", "enough-space-to-rotate",
         "image-info",
         "train-model",
-        "contours-debug", "contours-min-distance-debug", "contours-loneliness"
+        "contours-debug", "contours-min-distance-debug", "contours-loneliness",
+        "format-multiple-documents"
     )
 
     parser = argparse.ArgumentParser()
@@ -1381,6 +1417,61 @@ def main():
         jpeg_quality = estimate_jpeg_quality(img)
         print(f"Estimated JPEG quality: {jpeg_quality}%")
         sys.exit(0)
+
+    if args.run == r"format-multiple-documents":
+        if args.destination_dir is None or not os.path.isdir(args.destination_dir):
+            parser.print_help()
+            print("\n" fr"format-multiple-documents requires --destination-dir which exists!" "\n")
+            sys.exit(2)
+
+        for afn in os.listdir(args.destination_dir):
+            # ^(OF|of|NVF|nvf|ОФ|НВФ)[\-\ ]{1,2}(\d+?)[\-\ \_](\d[\d_,;\-\ \.]*?)[-_]([\d_]+?)[^\d]?.*?(\.jpg)$
+            if not (s := re.search(r"^((OF|of|NVF|nvf|ОФ|НВФ)[\-\ ]{1,2}(\d+?)[\-\ \_](\d+)[\_]\d+)_formatted(\.[^\.]+)$", afn)):
+                continue
+
+            (filename_wo_ext, ofnvf, n1, n2, ext) = s.groups()
+            canonical_document_dir = str.join("-", (str.lower(ofnvf), n1, n2))
+            orig_name = filename_wo_ext + ext
+
+            print(fr"{afn} -> {orig_name}")
+
+            if os.path.isfile(os.path.join(args.destination_dir, orig_name)):
+                if not os.path.isdir(os.path.join(args.destination_dir, canonical_document_dir)):
+                    Path(os.path.join(args.destination_dir, canonical_document_dir)).mkdir(parents=True, exist_ok=True)
+
+                if not os.path.isfile(os.path.join(args.destination_dir, canonical_document_dir, afn)):
+                    shutil.copy2(os.path.join(args.destination_dir, afn), os.path.join(args.destination_dir, canonical_document_dir))
+
+                    if os.path.isfile(os.path.join(args.destination_dir, ".debug.log")):
+                        with open(os.path.join(args.destination_dir, ".debug.log"), 'r') as fin, \
+                                open(os.path.join(args.destination_dir, canonical_document_dir, ".debug.log"), 'a') as fout:
+                            for line in fin:
+                                if re.search(fr" \[{filename_wo_ext}\] ", line) or \
+                                    re.search(fr" \[ScannedPage.batch_log\].*(created target dir|started as)", line):
+                                    fout.write(line)
+
+        for d in os.listdir(args.destination_dir):
+            if not os.path.isdir(os.path.join(args.destination_dir, d)):
+                continue
+
+            if not(s := re.search(r"^([a-z]+\-\d+\-\d+)$", d)):
+                continue
+
+            for afn in os.listdir(os.path.join(args.destination_dir, d)):
+                if afn != r".debug.log":
+                    continue
+
+                compressed_filename = compress_file(os.path.join(args.destination_dir, d, afn))
+                print(fr"{os.path.join(args.destination_dir, d, afn)} -> {compressed_filename}")
+                if os.path.isfile(compressed_filename):
+                    os.remove(os.path.join(args.destination_dir, d, afn))
+
+            for afn in os.listdir(args.destination_dir):
+                if os.path.isfile(os.path.join(args.destination_dir, afn)) and re.search(r"^\.", afn):
+                    shutil.copy2(os.path.join(args.destination_dir, afn), os.path.join(args.destination_dir, d))
+
+        sys.exit(0)
+
 
     if (args.source_dir is not None) + (args.filename is not None) + (args.source_file is not None) > 1:
         parser.print_help()
