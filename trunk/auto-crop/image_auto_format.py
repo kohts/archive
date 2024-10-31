@@ -88,7 +88,12 @@ def find_bounding_rect_of_contours(contours):
     height = y_max - y_min
 
     # Return the bounding rectangle in the format (x, y, width, height)
-    return (int(x_min), int(y_min), int(width), int(height))
+    return {
+        'x_min': int(x_min),
+        'y_min': int(y_min),
+        'width': int(width),
+        'height': int(height)
+    }
 
 def generate_distinct_colors(n):
     colors = []
@@ -434,7 +439,10 @@ class ScannedPage:
         # Original image converted to grayscale and blurred
         if self.images['original_gray_blurred'] is None or gaussian_kernel is not None:
             if gaussian_kernel is None:
-                gaussian_kernel = (self.args.canny_gaussian1, self.args.canny_gaussian2)
+                gaussian_kernel = (
+                    self.args.canny_gaussian or self.args.canny_gaussian1,
+                    self.args.canny_gaussian or self.args.canny_gaussian2
+                    )
 
             # Apply Gaussian blur to reduce noise
             self.images['original_gray_blurred'] = cv2.GaussianBlur(
@@ -453,8 +461,8 @@ class ScannedPage:
             if self.args.debug:
                 self.write('original_gray_blurred_edges', '_gray_blurred_edges')
 
-    def prepare_edge_contours(self):
-        if self.transforms['original_gray_blurred_edges_contours'] is None:
+    def prepare_edge_contours(self, force = False):
+        if self.transforms['original_gray_blurred_edges_contours'] is None or force:
             contours, _ = cv2.findContours(self.images['original_gray_blurred_edges'], cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
             self.transforms['original_gray_blurred_edges_contours'] = contours
             self.debug_print(fr"Got [" + str(len(self.transforms['original_gray_blurred_edges_contours'])) + "] contours from edges")
@@ -468,8 +476,8 @@ class ScannedPage:
             if self.args.debug:
                 self.write('original_gray_blurred_edges_dilated', '_gray_blurred_dilated')
 
-    def prepare_edge_contours_centroids(self):
-        if self.transforms['original_gray_blurred_edges_contours_centroids'] is None:
+    def prepare_edge_contours_centroids(self, force = False):
+        if self.transforms['original_gray_blurred_edges_contours_centroids'] is None or force:
 
             GM = cv2.moments(self.images['original_gray_blurred_edges'])
             self.debug_print(fr"global moment: {GM}")
@@ -592,6 +600,50 @@ class ScannedPage:
             areas[i] = cv2.contourArea(c1)
             self.debug_print(fr"contour {i} len {len(c1)}, area {areas[i]}")
 
+        # filter out all the contours which do not affect bounding rectangle of the overall picture,
+        # effectively leaving only those contours which are adjacent to the side of the picture.
+        side_contours = []
+        side_contours_area_diff = []
+        overall_bounding_rect = find_bounding_rect_of_contours(contours2)
+
+        for i, c1 in enumerate(contours2):
+            tmp_contours2 = [c2 for j, c2 in enumerate(contours2) if i != j]
+            if len(tmp_contours2) == 0:
+                continue
+
+            tmp_bounding_rect = find_bounding_rect_of_contours(tmp_contours2)
+
+            area_diff = (
+                1 -
+                (tmp_bounding_rect['width'] * tmp_bounding_rect['height']) /
+                (overall_bounding_rect['width'] * overall_bounding_rect['height'])
+            )
+            self.debug_print(fr"contour {i} - area diff {area_diff}")
+
+            side_contours.append(i)
+            side_contours_area_diff.append(area_diff)
+
+        lone_side_contours = []
+
+        # filter out all the side contours of approx. the same size
+        # which affect bounding rectangle are on the same scale,
+        # meaning these contours are most probably similar one to another
+        # and we need manual validation anyway
+        #
+        for i in range(len(side_contours)):
+            similar_contours = [j
+                for j, area_diff in enumerate(side_contours_area_diff)
+                    if
+                        math.fabs(area_diff - side_contours_area_diff[i]) < 0.05 and
+                        areas[i] / areas[j] > 0.1 and
+                        areas[i] / areas[j] < 10
+                ]
+            if len(similar_contours) == 1:
+                self.debug_print(fr"contour {side_contours[i]} solely decreases the area by {side_contours_area_diff[i]} +/- 5%")
+                lone_side_contours.append(side_contours[i])
+            else:
+                self.debug_print(fr"contour {side_contours[i]} has {len(similar_contours)} similar side contours")
+
         self.images['original_outliers_removed'] = self.images['original'].copy()
         outliers = []
 
@@ -604,7 +656,7 @@ class ScannedPage:
 
             for i, c1 in enumerate(contours2):
                 self.debug_print(fr"contour {i} area {areas[i]}, distance to biggest {max_area_pos}: {distances[i, max_area_pos]}")
-                if areas[i] < 0.01 * max_area_val and distances[i, max_area_pos] > math.sqrt(max_area_val) * 0.05:
+                if areas[i] < 0.01 * max_area_val and distances[i, max_area_pos] > math.sqrt(max_area_val) * 0.05 and i in lone_side_contours:
                     self.debug_print(
                         fr"OUTLIER: " +
                         fr"contour {i} area {areas[i]} < 0.01 * {max_area_val} [{0.01 * max_area_val}] and " +
@@ -613,17 +665,20 @@ class ScannedPage:
                     outliers.append([i,c1])
         else:
             scaler = MinMaxScaler()
-            normalized_distances = scaler.fit_transform(np.sort(distances,0))
+            #normalized_distances = scaler.fit_transform(np.sort(distances,0))
+            normalized_distances = scaler.fit_transform(np.sort(distances,1).flatten().reshape(-1,1)).reshape(distances.shape)
             normalized_area = scaler.fit_transform(areas.reshape(-1, 1))
 
+            k_neighbours = []
             if self.args.shortest_path_exponential:
-                k_neighbours = []
                 for i, distances in enumerate(normalized_distances):
-                    if i == 0:
-                        k_neighbours.append(0)
-                        continue
+                    # if i == 0:
+                    #     k_neighbours.append(0)
+                    #     continue
 
                     distance_scaled = distances[1] * 0.9 + distances[2] * 0.09 + distances[3] * 0.01
+                    self.debug_print(fr"kNN {i} {distances[1]} * 0.9 + {distances[2]} * 0.09 + {distances[3]} * 0.01")
+
                     k_neighbours.append(distance_scaled)
             else:
                 k_neighbours = np.sum(normalized_distances[:4,:], axis=0) / 3
@@ -634,7 +689,7 @@ class ScannedPage:
             for i, c1 in enumerate(contours2):
                 loneliness[i] = w_neighbours * k_neighbours[i] + w_area * (1 - normalized_area[i][0])
                 self.debug_print(fr"{i} loneliness {loneliness[i]} = {w_neighbours} * {k_neighbours[i]} + {w_area} * (1 - {normalized_area[i][0]})")
-                if loneliness[i] > self.args.loneliness_threshold:
+                if loneliness[i] > self.args.loneliness_threshold and i in lone_side_contours:
                     self.debug_print(fr"OUTLIER: contour {i}")
                     outliers.append([i,c1])
 
@@ -650,6 +705,7 @@ class ScannedPage:
             }
 
         if self.args.debug:
+            self.dilated_image_contours_debug()
             self.write('original_outliers_removed', '_original_outliers_removed')
 
         return {
@@ -678,7 +734,7 @@ class ScannedPage:
         min_paths = defaultdict(lambda:None)
         min_path_contours = defaultdict(lambda:None)
 
-        bounding_rect = tuple(find_bounding_rect_of_contours(contours2))
+        bounding_rect = find_bounding_rect_of_contours(contours2)
 
         for i, c1 in enumerate(contours2):
             self.debug_print(fr"contour {i}, points {len(c1)}, color {colors[i]}")
@@ -712,14 +768,14 @@ class ScannedPage:
                         cv2.drawContours(out_image, min_path_contours[i][j], -1, (0,0,0), 5)
 
                         labels.append((int(min_paths[i][j][2]), j))
-                        cv2.putText(out_image, fr"{j}: {str(int(min_paths[i][j][2]))}", (bounding_rect[0] + bounding_rect[2] + 200, bounding_rect[1] + j * 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,0), 5)
+                        cv2.putText(out_image, fr"{j}: {str(int(min_paths[i][j][2]))}", (bounding_rect['x_min'] + bounding_rect['width'] + 200, bounding_rect['y_min'] + j * 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,0), 5)
                         total = total + int(min_paths[i][j][2])
 
                 labels_sorted = sorted(labels, key=lambda x: x[0])
                 for j, t in enumerate(labels_sorted):
-                    cv2.putText(out_image, fr"{t[1]}: {str(t[0])}", (bounding_rect[0] + bounding_rect[2] + 600, bounding_rect[1] + j * 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,0), 5)
+                    cv2.putText(out_image, fr"{t[1]}: {str(t[0])}", (bounding_rect['x_min'] + bounding_rect['width'] + 600, bounding_rect['y_min'] + j * 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,0), 5)
 
-                cv2.putText(out_image, fr"total: {total}", (bounding_rect[0] + bounding_rect[2] + 200, bounding_rect[1] + len(contours2) * 70 + 1 * 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,0), 5)
+                cv2.putText(out_image, fr"total: {total}", (bounding_rect['x_min'] + bounding_rect['width'] + 200, bounding_rect['y_min'] + len(contours2) * 70 + 1 * 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (0,0,0), 5)
 
         if self.args.fill_contour is not None:
             cv2.fillConvexPoly(out_image, contours2[self.args.fill_contour], (0,255,0), )
@@ -734,160 +790,180 @@ class ScannedPage:
         }
 
     def detect_artifacts(self):
-        self.prepare_edges()
-        self.prepare_edge_contours()
-
-        # can't continue the transform
-        if len(self.transforms['original_gray_blurred_edges_contours']) < 55:
+        # do not run twice for the same image
+        if self.transforms['original_gray_blurred_edges_contours_centroids_artifact_measure'] is not None:
             return {
-                'error': "Blank image"
+                'error': False,
+                'image': self.images['original_subject_max_space']
             }
 
-        self.prepare_edge_contours_centroids()
+        current_gaussian = [
+            self.args.canny_gaussian or self.args.canny_gaussian1,
+            self.args.canny_gaussian or self.args.canny_gaussian2
+            ]
+        centroids_count = math.inf
 
-        if len(self.transforms['original_gray_blurred_edges_contours_centroids']) < 2:
-            return {
-                'error': "Can't find enough centroids to calculate artifact measure",
-                'image': self.images['original']
-            }
+        while centroids_count > 20_000:
+            self.prepare_edges(gaussian_kernel = current_gaussian)
+            self.prepare_edge_contours(force = True)
 
-        if self.transforms['original_gray_blurred_edges_contours_centroids_artifact_measure'] is None:
-            centroids = self.transforms['original_gray_blurred_edges_contours_centroids']
-            centroids_with_annotations = self.transforms['original_gray_blurred_edges_contours_centroids_annotations']
-
-            self.debug_print(fr"generating distance matrix")
-            # time consuming if > 20,000 centroids
-            dist_matrix = distance_matrix(centroids, centroids)
-
-            # For each centroid, calculate the sum of distances to all other centroids
-            for i in range(len(centroids)):
-                distances = dist_matrix[i]
-                centroids_with_annotations[i]['sum_distances'] = np.round(np.sum(distances))
-
-            # sort by artifact measure
-            centroids_distances_sorted = sorted(centroids_with_annotations, key=lambda x: x['sum_distances'])
-
-            if self.args.artifacts_debug:
-                debug_suffix = '__' + fr"{self.debug_counter:02d}"
-                self.debug_counter += 1
-
-                output_filename = re.sub(
-                    r"\.jpg",
-                    fr"{debug_suffix}_centroids_distances_sorted.txt",
-                    os.path.join(self.destination_path, os.path.basename(self.filename))
-                    )
-
-                self.debug_print(fr"saving centroids_distances_sorted to: " + output_filename)
-                with open(output_filename, "w") as f:
-                    # header
-                    print("centroid_n,contour_n,sum_measure,x,y", file=f)
-
-                    # data
-                    for i in range(len(centroids_distances_sorted)):
-                        print(str(i) + 
-                            "," + str(centroids_distances_sorted[i]['contour_n']) + 
-                            "," + str(centroids_distances_sorted[i]['sum_distances']) +
-                            "," + str(centroids_distances_sorted[i]['centroid'][0]) +
-                            "," + str(centroids_distances_sorted[i]['centroid'][1]),
-                            file=f)
-
-            # select % of the closest centroids as non-artifacts
-            _, j = math.modf(len(centroids_distances_sorted) * self.args.artifacts_majority_threshold)
-            j_min = len(centroids_distances_sorted) - j
-
-            # there should be at least one centroid considered the subject of an image
-            if j < 1:
+            # can't continue the transform
+            if len(self.transforms['original_gray_blurred_edges_contours']) < 55:
                 return {
-                    'error': fr"{self.args.artifacts_majority_threshold} is too low, try increasing",
+                    'error': "Blank image"
+                }
+
+            self.prepare_edge_contours_centroids(force = True)
+
+            if len(self.transforms['original_gray_blurred_edges_contours_centroids']) < 2:
+                return {
+                    'error': "Can't find enough centroids to calculate artifact measure",
                     'image': self.images['original']
                 }
 
-            self.debug_print(fr"Majority: {j} centroids, minority: {j_min} centroids ({round(self.args.artifacts_majority_threshold * 100, 2)}%)")
+            centroids_count = len(self.transforms['original_gray_blurred_edges_contours_centroids'])
 
-            # Find the bounding rectangle of all centroids except artifacts
-            x_min, y_min, x_max, y_max = float('inf'), float('inf'), 0, 0
+            if centroids_count > 20_000:
+                current_gaussian[0] = current_gaussian[0] + 10
+                current_gaussian[1] = current_gaussian[1] + 10
+                self.debug_print(fr"too many centroids ({centroids_count}), relaxing gaussian blur kernel: {current_gaussian[0]}/{current_gaussian[1]}")
 
-            height, width = self.images['original_gray_blurred_edges'].shape
+        centroids = self.transforms['original_gray_blurred_edges_contours_centroids']
+        centroids_with_annotations = self.transforms['original_gray_blurred_edges_contours_centroids_annotations']
 
-            # find the largest bounding rect without artifacts
-            x1_left, y1_top, x2_right, y2_bottom = 0, 0, width, height
+        self.debug_print(fr"generating distance matrix")
+        # time consuming if > 20,000 centroids
+        dist_matrix = distance_matrix(centroids, centroids)
 
-            prev_distance = None
-            prev_distance_pct = None
-            jump_centroid = None
-            for i in range(len(centroids_distances_sorted)):
-                # current centroid coordinates
-                x, y, w, h = cv2.boundingRect(
-                    self.transforms['original_gray_blurred_edges_contours'][centroids_distances_sorted[i]['contour_n']])
+        # For each centroid, calculate the sum of distances to all other centroids
+        for i in range(len(centroids)):
+            distances = dist_matrix[i]
+            centroids_with_annotations[i]['sum_distances'] = np.round(np.sum(distances))
 
-                if i < j:
-                    # can't be an artifact - by definition. adjust bounding rect (increase) of the main subject -
-                    # from the "center" - centroid with the smallest measure, there's at least one such centroid
-                    x_min = min(x_min, x)
-                    y_min = min(y_min, y)
-                    x_max = max(x_max, x + w)
-                    y_max = max(y_max, y + h)
-                else:
-                    if jump_centroid is None:
-                        prev_distance_pct = round((centroids_distances_sorted[i]['sum_distances'] - prev_distance) / prev_distance, 4)
-                        if prev_distance_pct > self.args.artifacts_discontinuity_threshold:
-                            jump_centroid = i
-                        else:
-                            # not an artifact - adjust bounding rect of the main subject
-                            x_min = min(x_min, x)
-                            y_min = min(y_min, y)
-                            x_max = max(x_max, x + w)
-                            y_max = max(y_max, y + h)
+        # sort by artifact measure
+        centroids_distances_sorted = sorted(centroids_with_annotations, key=lambda x: x['sum_distances'])
 
-                    # detected artifact - adjust bounding rect (decrease) which does not contain artifacts
-                    if jump_centroid:
-                        if x + w < x_min:
-                            x1_left = max(x + w, x1_left)
-                        if x > x_max:
-                            x2_right = min(x, x2_right)
-                        if y + h < y_min:
-                            y1_top = max(y + h, y1_top)
-                        if y > y_max:
-                            y2_bottom = min(y, y2_bottom)
+        if self.args.artifacts_debug:
+            debug_suffix = '__' + fr"{self.debug_counter:02d}"
+            self.debug_counter += 1
 
-                    self.debug_print(
-                        fr"{i}: " + str(int(centroids_distances_sorted[i]['sum_distances'])) \
-                              + fr" - {round(prev_distance_pct * 100, 2)} %"
-                              + ("" if jump_centroid is None else " - JUMP")
-                    )
+            output_filename = re.sub(
+                r"\.jpg",
+                fr"{debug_suffix}_centroids_distances_sorted.txt",
+                os.path.join(self.destination_path, os.path.basename(self.filename))
+                )
 
-                prev_distance = centroids_distances_sorted[i]['sum_distances']
+            self.debug_print(fr"saving centroids_distances_sorted to: " + output_filename)
+            with open(output_filename, "w") as f:
+                # header
+                print("centroid_n,contour_n,sum_measure,x,y", file=f)
 
-            self.transforms['original_gray_blurred_edges_contours_centroids_artifact_measure'] = centroids_distances_sorted
+                # data
+                for i in range(len(centroids_distances_sorted)):
+                    print(str(i) +
+                        "," + str(centroids_distances_sorted[i]['contour_n']) +
+                        "," + str(centroids_distances_sorted[i]['sum_distances']) +
+                        "," + str(centroids_distances_sorted[i]['centroid'][0]) +
+                        "," + str(centroids_distances_sorted[i]['centroid'][1]),
+                        file=f)
 
-            self.transforms['original_gray_blurred_edges_subject_max_space_centroids'] = {
-                'x_min': x1_left,
-                'x_max': x2_right,
-                'y_min': y1_top,
-                'y_max': y2_bottom
-            }
-            self.transforms['original_gray_blurred_edges_subject_min_space_centroids'] = {
-                'x_min': x_min,
-                'x_max': x_max,
-                'y_min': y_min,
-                'y_max': y_max
+        # select % of the closest centroids as non-artifacts
+        _, j = math.modf(len(centroids_distances_sorted) * self.args.artifacts_majority_threshold)
+        j_min = len(centroids_distances_sorted) - j
+
+        # there should be at least one centroid considered the subject of an image
+        if j < 1:
+            return {
+                'error': fr"{self.args.artifacts_majority_threshold} is too low, try increasing",
+                'image': self.images['original']
             }
 
-            # rectangle with the minimum "empty" space around the subject of the image
-            self.images['original_subject_min_space'] = self.images['original'][
-                self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['y_min']: \
-                    self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['y_max'],
-                self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['x_min']: \
-                    self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['x_max']
-                ]
+        self.debug_print(fr"Majority: {j} centroids, minority: {j_min} centroids ({round(self.args.artifacts_majority_threshold * 100, 2)}%)")
 
-            # rectangle with the maximum "empty" space around the subject of the image
-            self.images['original_subject_max_space'] = self.images['original'][
-                self.transforms['original_gray_blurred_edges_subject_max_space_centroids']['y_min']: \
-                    self.transforms['original_gray_blurred_edges_subject_max_space_centroids']['y_max'],
-                self.transforms['original_gray_blurred_edges_subject_max_space_centroids']['x_min']: \
-                    self.transforms['original_gray_blurred_edges_subject_max_space_centroids']['x_max']
-                ]
+        # Find the bounding rectangle of all centroids except artifacts
+        x_min, y_min, x_max, y_max = float('inf'), float('inf'), 0, 0
+
+        height, width = self.images['original_gray_blurred_edges'].shape
+
+        # find the largest bounding rect without artifacts
+        x1_left, y1_top, x2_right, y2_bottom = 0, 0, width, height
+
+        prev_distance = None
+        prev_distance_pct = None
+        jump_centroid = None
+        for i in range(len(centroids_distances_sorted)):
+            # current centroid coordinates
+            x, y, w, h = cv2.boundingRect(
+                self.transforms['original_gray_blurred_edges_contours'][centroids_distances_sorted[i]['contour_n']])
+
+            if i < j:
+                # can't be an artifact - by definition. adjust bounding rect (increase) of the main subject -
+                # from the "center" - centroid with the smallest measure, there's at least one such centroid
+                x_min = min(x_min, x)
+                y_min = min(y_min, y)
+                x_max = max(x_max, x + w)
+                y_max = max(y_max, y + h)
+            else:
+                if jump_centroid is None:
+                    prev_distance_pct = round((centroids_distances_sorted[i]['sum_distances'] - prev_distance) / prev_distance, 4)
+                    if prev_distance_pct > self.args.artifacts_discontinuity_threshold:
+                        jump_centroid = i
+                    else:
+                        # not an artifact - adjust bounding rect of the main subject
+                        x_min = min(x_min, x)
+                        y_min = min(y_min, y)
+                        x_max = max(x_max, x + w)
+                        y_max = max(y_max, y + h)
+
+                # detected artifact - adjust bounding rect (decrease) which does not contain artifacts
+                if jump_centroid:
+                    if x + w < x_min:
+                        x1_left = max(x + w, x1_left)
+                    if x > x_max:
+                        x2_right = min(x, x2_right)
+                    if y + h < y_min:
+                        y1_top = max(y + h, y1_top)
+                    if y > y_max:
+                        y2_bottom = min(y, y2_bottom)
+
+                self.debug_print(
+                    fr"{i}: " + str(int(centroids_distances_sorted[i]['sum_distances'])) \
+                            + fr" - {round(prev_distance_pct * 100, 2)} %"
+                            + ("" if jump_centroid is None else " - JUMP")
+                )
+
+            prev_distance = centroids_distances_sorted[i]['sum_distances']
+
+        self.transforms['original_gray_blurred_edges_contours_centroids_artifact_measure'] = centroids_distances_sorted
+
+        self.transforms['original_gray_blurred_edges_subject_max_space_centroids'] = {
+            'x_min': x1_left,
+            'x_max': x2_right,
+            'y_min': y1_top,
+            'y_max': y2_bottom
+        }
+        self.transforms['original_gray_blurred_edges_subject_min_space_centroids'] = {
+            'x_min': x_min,
+            'x_max': x_max,
+            'y_min': y_min,
+            'y_max': y_max
+        }
+
+        # rectangle with the minimum "empty" space around the subject of the image
+        self.images['original_subject_min_space'] = self.images['original'][
+            self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['y_min']: \
+                self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['y_max'],
+            self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['x_min']: \
+                self.transforms['original_gray_blurred_edges_subject_min_space_centroids']['x_max']
+            ]
+
+        # rectangle with the maximum "empty" space around the subject of the image
+        self.images['original_subject_max_space'] = self.images['original'][
+            self.transforms['original_gray_blurred_edges_subject_max_space_centroids']['y_min']: \
+                self.transforms['original_gray_blurred_edges_subject_max_space_centroids']['y_max'],
+            self.transforms['original_gray_blurred_edges_subject_max_space_centroids']['x_min']: \
+                self.transforms['original_gray_blurred_edges_subject_max_space_centroids']['x_max']
+            ]
 
         return {
             'error': False,
@@ -1140,7 +1216,10 @@ class ScannedPage:
 
         lines = None
 
-        current_gaussian = [self.args.canny_gaussian1, self.args.canny_gaussian2]
+        current_gaussian = [
+            self.args.canny_gaussian or self.args.canny_gaussian1,
+            self.args.canny_gaussian or self.args.canny_gaussian2
+            ]
 
         while lines is None and \
             current_gaussian[0] > self.args.canny_gaussian1_min and \
@@ -1352,6 +1431,7 @@ def main():
     parser.add_argument('--run', type=str, default='', help=fr"mandatory, mode of operation. one of: {', '.join(run_modes)}")
     parser.add_argument('--canny-threshold1', type=int, default=10)
     parser.add_argument('--canny-threshold2', type=int, default=1)
+    parser.add_argument('--canny-gaussian', type=int, default=None)
     parser.add_argument('--canny-gaussian1', type=int, default=71)
     parser.add_argument('--canny-gaussian2', type=int, default=71)
     parser.add_argument('--canny-gaussian1-min', type=int, default=41)
