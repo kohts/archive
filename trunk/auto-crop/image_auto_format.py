@@ -1545,8 +1545,14 @@ def main():
                 print(fr"{os.path.join(args.destination_dir, d, afn)} -> {compressed_filename}")
                 if os.path.isfile(compressed_filename):
                     os.remove(os.path.join(args.destination_dir, d, afn))
+                    print(fr"cleaned up {os.path.join(args.destination_dir, d, afn)}")
+                else:
+                    print(fr"{compressed_filename} - does not exist")
 
             for afn in os.listdir(args.destination_dir):
+                if afn == r".debug.log":
+                    continue
+
                 if os.path.isfile(os.path.join(args.destination_dir, afn)) and re.search(r"^\.", afn):
                     shutil.copy2(os.path.join(args.destination_dir, afn), os.path.join(args.destination_dir, d))
 
